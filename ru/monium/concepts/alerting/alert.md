@@ -1,6 +1,6 @@
 ---
-title: Алерт в {{ monitoring-full-name }}
-description: Алерт в {{ monitoring-short-name }} — периодически вычисляемый набор последовательных именованных запросов. Более подробно об алертах, их статусах, настройке и использовании вы узнаете из данной статьи.
+title: Алерт в {{ monium-full-name }}
+description: Алерт в {{ monium-name }} — периодически вычисляемый набор последовательных именованных запросов. Более подробно об алертах, их статусах, настройке и использовании вы узнаете из данной статьи.
 ---
 
 # Алерт
@@ -39,7 +39,7 @@ _Мультиалерт_ — алерт, который создает отде�
 
 {% note info %}
 
-При загрузке информации из истории вычисления производится повторный расчет статуса алерта, который отображается в поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.evaluation-stats-single }}**. Статус алерта в истории может не совпадать с текущим результатом вычисления из-за особенностей [прореживания исторических данных](../decimation.md) или задержек при [поставке данных](../data-collection/unified-agent/index.md) в {{ monitoring-name }}.
+При загрузке информации из истории вычисления производится повторный расчет статуса алерта, который отображается в поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.evaluation-stats-single }}**. Статус алерта в истории может не совпадать с текущим результатом вычисления из-за особенностей [прореживания исторических данных](../decimation.md) или задержек при [поставке данных](../data-collection/unified-agent/index.md) в {{ monium-name }}.
 
 {% endnote %}
 
@@ -93,7 +93,7 @@ _Мультиалерт_ — алерт, который создает отде�
 
 #### Функция сравнения {#comparison}
 
-Функция сравнения применяется к результату вычисления [функции агрегации](#aggregation) и пороговым значениям [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warning) и [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm). Если агрегированное значение удовлетворяет заданному условию сравнения, {{ monitoring-name }} изменяет статус алерта.
+Функция сравнения применяется к результату вычисления [функции агрегации](#aggregation) и пороговым значениям [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warning) и [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm). Если агрегированное значение удовлетворяет заданному условию сравнения, {{ monium-name }} изменяет статус алерта.
 
 Выбирайте сравнение по смыслу метрики. Для задержки, процента ошибок, утилизации CPU и заполнения диска обычно используют условие **{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}** или **{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}**. Для свободного места, свободной памяти, числа доступных реплик и остатка лимита обычно используют **{{ ui-key.yacloud_monitoring.alert.title_comparison-lt }}** или **{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}**.
 

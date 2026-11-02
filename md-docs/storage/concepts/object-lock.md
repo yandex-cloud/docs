@@ -26,7 +26,7 @@ _Блокировка версии объекта_ (object lock) в [верси�
 
 Временная управляемая блокировка (governance-mode retention)
 
-: Пользователь с правами на загрузку объектов ([роль `storage.uploader`](../security/index.md#storage-uploader)) может установить блокировку. 
+: Пользователь с правами на загрузку объектов ([роль `storage.uploader`](../security/index.md#storage-uploader)) может установить блокировку.
 : Пользователь, управляющий Object Storage ([роль `storage.admin`](../security/index.md#storage-admin)), может обойти блокировку (удалить или перезаписать версию объекта), изменить срок блокировки или снять ее. Эти действия пользователь должен явно подтверждать: например, при запросе через [REST API](../../glossary/rest-api.md), совместимый с Amazon S3, — с помощью заголовка `X-Amz-Bypass-Governance-Retention: true`.
 
 Временная строгая блокировка (compliance-mode retention)

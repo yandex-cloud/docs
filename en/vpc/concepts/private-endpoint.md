@@ -29,7 +29,7 @@ Within a single [virtual network](./network.md#network), you can create service 
 
 The private endpoint is assigned an IP address from the subnets' CIDR ranges in the {{ vpc-short-name }} network where the service connection is being created. Once you service connection is created, all cloud resources in that network gain IP connectivity to the target service.
 
-Upon creation, every private endpoint automatically gets a **PE record**, which is an A-type DNS record with a special FQDN for that service connection. For example, for [{{ objstorage-short-name }}](../../storage/), the PE record would be `storage.pe.yandexcloud.net`.
+Upon creation, every private endpoint automatically gets a **PE record**, which is an A-type DNS record with a special FQDN for that service connection. For example, for [{{ objstorage-short-name }}](../../storage/), the PE record would be `{{ s3-storage-host-pe }}`.
 
 Optionally, you can also create a **Primary record**, i.e., an A-type DNS record for the service's public FQDN. It will also include the internal IP address allocated for the service connection. This is defined by the `private-dns-records-enabled` parameter. For [{{ objstorage-short-name }}](../../storage/), the Primary record would be `storage.yandexcloud.net`.
 
@@ -43,7 +43,7 @@ Currently, you can create service connections for the following cloud services:
 
 | **Service name** | **Service type** | **Access policy** | **Creation method** | **PE record** | **Primary record** |
 | --- | --- | --- | --- | --- | --- |
-| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Yes](#s3-policy) | [Management console, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Yes](#s3-policy) | [Management console, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `{{ s3-storage-host-pe }}` | `storage.yandexcloud.net` |
 | [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
 | [{{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
 | [{{ ai-studio-name }} Apps]({{ link-docs-ai }}ai-studio/concepts/) | yandex.cloud.ai-studio.apps | None | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `apps.ai.pe.api.cloud.yandex.net` | `apps.ai.api.cloud.yandex.net` |

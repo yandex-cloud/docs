@@ -3,6 +3,7 @@
 In {{ yandex-cloud }}, you can deploy a virtual Mikrotik Cloud Hosted Router on a ready-made VM image. To install the Mikrotik Cloud Hosted Router and check how it runs:
 
 1. [Get your cloud ready](#before-you-begin).
+1. [Create a security group](#create-security-group).
 1. [Create a VM with the Mikrotik Cloud Hosted Router](#create-router).
 1. [Log in to your VM and change your password](#change-password).
 1. [Create a test VM](#create-test-vm).
@@ -26,9 +27,41 @@ When using a Mikrotik Cloud Hosted Router image without a license, the router th
 
 The cost of using a virtual router and a test VM includes:
 
-* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+## Create a security group {#create-security-group}
+
+To open the Mikrotik Cloud Hosted Router web UI from a browser in future, create a [security group](../../vpc/concepts/security-groups.md) and allow inbound HTTP connections on port `80`. For security, allow connecting only from your current public IP address. Also, allow the entire outbound traffic so that the router could access external resources, including the licensing server:
+
+1. [Get](https://2ip.io) the public IP address of the computer or network to connect to the router from.
+1. In the [management console]({{ link-console-main }}), select the folder where you need to create a security group.
+1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+1. Specify the security group name: `mikrotik-router-group`.
+1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to. If you do not have the required [network](../../vpc/concepts/network.md#network) yet, [create it](../../vpc/operations/network-create.md).
+1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** and specify the new rule settings in the window that opens:
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-direction }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `80`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<your_public_IP_address>/32`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}**: `Mikrotik Router`.
+
+1. Click **{{ ui-key.yacloud.common.save }}**.
+1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** again and specify the outgoing rule settings:
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-direction }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-egress }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}**: `Mikrotik Router Egress`.
+
+1. Click **{{ ui-key.yacloud.common.save }}**.
+1. Click **{{ ui-key.yacloud.common.create }}**.
 
 ## Create a VM with the Mikrotik Cloud Hosted Router {#create-router}
 
@@ -44,8 +77,9 @@ The cost of using a virtual router and a test VM includes:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network the previously created `mikrotik-router-group` security group was assigned to and a subnet. If you do not have the required [subnet](../../vpc/concepts/network.md#subnet) yet, [create it](../../vpc/operations/subnet-create.md).
     * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `mikrotik-router-group` group.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -70,10 +104,10 @@ Set a complex administrator password immediately after VM creation. To keep acce
 
 The router is created with a public IP address, so you need to change the default administrator password for security reasons.
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Copy the `mikrotik-router` VM public IP address and open it in your browser.
-1. On the page that opens, enter the VM’s internal IP address in the **IP Address** field. 
+1. On the page that opens, enter the VM’s internal IP address in the **IP Address** field.
 1. In the **Password** field, enter the new administrator password, confirm it in the **Confirm Password** field, and click **Apply Configuration**. You can apply other settings later.
 
 
@@ -116,6 +150,8 @@ If you use WinBox to access the router, connect to the router using the VM IP ad
 Make sure that a network connection is established between the router and test VM:
 
 1. Open the router's administrator interface in the browser.
+1. Enter the username: `admin`.
+1. Enter the previously specified administrator password.
 1. Click **Terminal**.
 1. In the terminal that opens, run the `ping <test_VM_internal_IP_address>` command.
 
@@ -124,6 +160,8 @@ If the packets reach the test VM, you can start configuring the router. You can 
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the deployed resources, [delete](../../compute/operations/vm-control/vm-delete.md) the `mikrotik-router` and `test-vm` VMs. 
+To stop paying for the resources you created:
 
-If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `mikrotik-router` and `test-vm` VMs.
+1. [Delete](../../vpc/operations/security-group-delete.md) the `mikrotik-router-group` security group.
+1. [Delete](../../vpc/operations/address-delete.md) the public static IP if you reserved one.

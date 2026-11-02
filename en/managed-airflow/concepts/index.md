@@ -66,7 +66,9 @@ The main {{ AF }} components are shown below:
 
 * [_Triggerer_](#triggerer): Service that releases a worker if it goes idle while executing a job with a long event timeout (optional component).
 
-* _DAG file storage_: [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) that stores DAG files. This storage can be accessed by web servers, schedulers, workers, and Triggerer.
+* _DAG file storage_: [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) or an external Git repository. DAG files are automatically uploaded from the selected source into the cluster, where they are used by the web server, scheduler, workers, and Triggerer.
+
+   The source type and connection parameters are specified when [creating](../operations/cluster-create.md) or [modifying the cluster](../operations/cluster-update.md). For details, see [DAG file sources](dag-sources.md).
 
 To ensure fault tolerance and enhance performance, web servers, schedulers, and Triggerer may exist in multiple instances. Their number is set when creating a cluster.
 

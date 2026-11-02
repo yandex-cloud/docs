@@ -2,7 +2,7 @@
 
 You can use a {{ mrd-full-name }} cluster as a distributed lock storage for 1C:Enterprise, e.g., to prevent multiple users from editing the same catalog item at the same time.
 
-Integration is implemented via an intermediate HTTP server running on a {{ compute-full-name }} virtual machine. The server provides an HTTP API for managing locks and uses a {{ VLK }} cluster as its backend. The 1C:Enterprise module accesses the API through an external connection.
+Integration is implemented via an intermediate HTTP server running on a {{ compute-full-name }} virtual machine. The server provides an HTTP API for managing locks and uses a {{ VLK }} cluster as its backend. A 1C:Enterprise module accesses the API through an external connection.
 
 {% note info %}
 
@@ -37,13 +37,13 @@ To set up locks:
 
   1. [Create a {{ mrd-name }} cluster](https://yandex.cloud/ru/docs/managed-valkey/operations/cluster-create) with the following specifications:
 
-     * **Valkey version**: `9.1`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `1c-locks`.
+     
+     * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `Valkey 9.1`.
 
-     * **Name**: `1c-locks`.
+     * Enable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
 
-     * **Use FQDN instead of IP addresses**: Enabled.
-
-     * [Data persistence mode](../../managed-valkey/concepts/replication.md#persistence): **On replicas**.
+     * Select [{{ ui-key.yacloud.redis.field_persistence-mode }}](../../managed-valkey/concepts/replication.md#persistence) {{ ui-key.yacloud.redis.persistence-mode-on-replicas }} mode.
 
        {% note warning %}
 
@@ -51,7 +51,7 @@ To set up locks:
 
        {% endnote %}
 
-     * Enable **WebSQL access**.
+     * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** setting.
 
   1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) for the HTTP lock server in the same network as the cluster.
 
@@ -75,6 +75,12 @@ To set up locks:
       * Security groups.
       * {{ mrd-name }} cluster.
       * Virtual machine with public internet access and a pre-installed HTTP server with all required dependencies.
+
+      {% note info %}
+
+      The {{ TF }} example creates a simplified {{ mrd-name }} cluster with no replicas, just for demo purposes. For production use, set up a high-availability configuration with replica persistence, as described in the **Management console** tab.
+
+      {% endnote %}
 
   1. In `valkey-1c-http.tf`, specify the following:
 
@@ -105,27 +111,34 @@ To set up locks:
 
 ## Deploy your HTTP lock server {#deploy-lock-server}
 
-An HTTP lock server is a thin layer between the 1C:Enterprise server and the {{ mrd-name }} cluster. It exposes endpoints with the `lock` prefix:
+An HTTP lock server is a thin layer between a 1C:Enterprise server and a {{ mrd-name }} cluster. It exposes endpoints with the `/locks` prefix:
 
-|Endpoint|Method|Purpose|
-|:---|:---|:---|
-|`lock/acquire`|POST|Acquire a lock|
-|`lock/release`|POST|Release a lock|
-|`lock/renew`|POST|Extend a lock|
-|`lock/status`|POST|Get the status of a lock|
-|`lock/list`|GET|Get a list of locks|
+#|
+|| **Endpoint** | **Method** | **Description** ||
+|| `/locks/acquire` | POST | Acquire a lock ||
+|| `/locks/release` | POST | Release a lock ||
+|| `/locks/renew` | POST | Extend a lock ||
+|| `/locks/status` | GET (`file` parameter) or POST | Get the status of a lock ||
+|| `/locks` | GET | Get a list of locks ||
+|#
+
+{% note warning %}
+
+The example is demo: The HTTP server has no authentication nor HTTPS, and the {{ TF }} example opens a port for `0.0.0.0/0`. For production use, employ HTTPS, request authentication, and IP-based access restrictions.
+
+{% endnote %}
 
 How to work with your cluster:
 
-* To acquire a lock (`lock/acquire`), use the `SET` command with the `NX` argument and specify the key TTL (`PX`). The `NX` argument ensures that the lock is acquired only when no such key exists, while the TTL prevents the lock from lasting indefinitely:
+* To acquire a lock (`/locks/acquire`), use the `SET` command with the `NX` argument and specify the key TTL (`PX`). The `NX` argument ensures the lock is only acquired when no such key exists, while the TTL prevents the lock from lasting indefinitely:
 
   ```text
   SET <key> <token> NX PX <ttl_in_milliseconds>
   ```
 
-* To release (`lock/release`) or renew (`lock/renew`) a lock, use the `EVAL` command to call Lua scripts. The scripts performs the following operations in {{ VLK }} sequentially:
+* To release (`/locks/release`) or renew (`/locks/renew`) a lock, use the `EVAL` command to call Lua scripts. These scripts perform the following operations in {{ VLK }} sequentially:
 
-   1. Get the lock data by key.
+   1. Get lock data by key.
    1. Compare the lock token with the request token.
    1. Delete the key or renew the lock.
 
@@ -152,12 +165,12 @@ To deploy your server:
 
 - Manually {#manual}
 
-    1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+    1. [Connect to your virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
     1. Install [Go 1.26.2](https://go.dev/dl/) or higher.
     1. Clone the repository:
 
        ```bash
-       git clone https://git@git.sourcecraft.dev/valkey/webinar-260624-1c-example.git && \
+       git clone https://git.sourcecraft.dev/valkey/webinar-260624-1c-example.git && \
        cd webinar-260624-1c-example/http-lock-valkey
        ```
 
@@ -180,7 +193,7 @@ To deploy your server:
 
 - {{ TF }} {#tf}
 
-    The {{ TF }} configuration file contains all commands required to deploy the HTTP server. Once the infrastructure is created, the server is fully ready to use.
+    The {{ TF }} configuration file contains all commands required to deploy the HTTP server. Once the infrastructure is created, the server is ready to use.
 
     1. Update the server settings in the configuration file as needed:
 
@@ -205,11 +218,11 @@ To deploy your server:
 
 ## Configure the 1C:Enterprise module {#configure-1c}
 
-1C:Enterprise uses the **Catalog lock** module, which accesses the HTTP server through an external connection. The container with the 1C:Enterprise test database in the [valkey/webinar-260624-1c-example](https://sourcecraft.dev/valkey/webinar-260624-1c-example/browse/1CExample) repository contains the ready-to-use module code.
+1C:Enterprise uses the **Catalog lock** module, which accesses the HTTP server through an external connection. The ready-to-use module code is in the container hosting the 1C:Enterprise test database in the [valkey/webinar-260624-1c-example](https://sourcecraft.dev/valkey/webinar-260624-1c-example/browse/1CExample) repository.
 
 The module performs the following functions:
 
-* Sends HTTP requests to the server endpoints (`lock/acquire`, `lock/release`, `lock/status`, `lock/renew`, `lock/list`) based on the action.
+* Sends HTTP requests to the server endpoints (`/locks/acquire`, `/locks/release`, `/locks/status`, `/locks/renew`, `GET /locks`) depending on the action.
 * Generates a lock key from the full catalog path (collection metadata) and the item ID. This ensures a unique lock for each catalog item.
 * In the module form, you can configure event handlers for catalogs:
    * On opening: Attempt to acquire the lock.
@@ -220,7 +233,7 @@ The module performs the following functions:
 To configure the module:
 
 1. Connect the database from the `1CExample` repository directory and copy the `CatalogLocks` common module to your 1C:Enterprise configuration.
-1. If methods are called from form server code, make sure server calls are enabled for the module.
+1. If methods are called from server form code, make sure server calls are enabled for the module.
 1. In the `HTTPRequest()` function, specify the HTTP lock server address:
 
    ```text
@@ -270,8 +283,8 @@ The module connection settings may vary depending on the 1C:Enterprise implement
 ## Test the locks {#test}
 
 1. Open 1C:Enterprise and go to a catalog, such as `Customers`.
-1. Open an item, such as `Roman`, for editing. The form will display the lock status as acquired, along with the lock TTL and token.
-1. Observe the TTL: it should decrease over time, e.g., from `41` to `31` seconds. When the renewal interval expires (30 seconds by default), 1C:Enterprise automatically renews the lock.
+1. Open an item, such as `Roman`, for editing. The form will display the lock status as _acquired_, along with the lock TTL and token.
+1. Monitor the TTL for a while: it should decrease over time, e.g., from `41` to `31` seconds. When the renewal interval expires (30 seconds by default), 1C:Enterprise automatically renews the lock.
 
 1. Make sure the lock appears in the cluster:
 
@@ -280,12 +293,12 @@ The module connection settings may vary depending on the 1C:Enterprise implement
    - Management console {#console}
 
        1. Open {{ websql-full-name }} [**Connections**]({{ websql-link }}).
-       1. [Add a database connection](../../websql/operations/add-connection-to-db-in-cluster.md) for the {{ VLK }} server you created earlier. Specify `0` as the database name.
-       1. Connect to the `0` database and find the the lock key row.
+       1. [Add a database connection](../../websql/operations/add-connection-to-db-in-cluster.md) for the {{ VLK }} cluster you created earlier. Specify `0` as the database name.
+       1. Connect to the `0` database and find the lock key row.
 
        {% note info %}
 
-       Due to encoding limitations, {{ websql-name }} may display the key name incorrectly. To verify lock ownership, check whether the key exists and its value (token) rather than whether the key name is readable.
+       Due to encoding limitations, {{ websql-name }} may display the key name incorrectly. To verify lock ownership, check whether the key exists and look at its value (token), rather than checking whether the key name is readable.
 
        {% endnote %}
 
@@ -303,7 +316,7 @@ The module connection settings may vary depending on the 1C:Enterprise implement
 
 ## Delete the resources you created {#clear-out}
 
-To reduce resource usage, delete the resources you no longer need:
+Delete the created resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -312,7 +325,7 @@ To reduce resource usage, delete the resources you no longer need:
   1. [Delete the {{ mrd-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
   1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 
-- Using {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 

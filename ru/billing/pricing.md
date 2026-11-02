@@ -77,6 +77,7 @@ blocks:
 * [{{ monium-name }}](../monium/pricing.md)
 * [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
 * [{{ ca-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
+* [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)
     * [Генеративные модели и ИИ-агенты]({{ link-docs-ai }}ai-studio/pricing#rules-model-gallery)
     * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/pricing)
@@ -162,7 +163,6 @@ blocks:
 * {{ preview-stage }} [{{ cr-full-name }}](../cloud-router/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
-* {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ websql-full-name }}](../websql/pricing.md)
 
  Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md). 

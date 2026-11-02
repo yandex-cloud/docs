@@ -1,16 +1,18 @@
 # Installing Hugo using {{ cloud-apps-name }}
 
 
-Follow this guide to install and configure a static website on [Hugo](https://gohugo.io/), a static website generator, using [{{ cloud-apps-name }}](../../cloud-apps/). The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access with automatically issued SSL certificates.
+Follow this guide to deploy a static website on [Hugo](https://gohugo.io/), a static website generator, using [{{ cloud-apps-name }}](../../cloud-apps/). The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access with automatic SSL certificate issuance.
 
 {% include [static-site-sc-note](../../_includes/tutorials/static-site-sc-note.md) %}
 
-To install Hugo:
+To deploy a static website on Hugo:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Configure a DNS zone](#configure-dns).
 1. [Install Hugo using {{ cloud-apps-name }}](#install-hugo).
 1. [Prepare a website repository](#prepare-repo).
+1. [Deploy the website](#deploy-site).
+1. [Configure the website for local development](#configure-site).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -41,7 +43,8 @@ Install a [static website](/marketplace/products/yc/static-site) on Hugo using {
 
   1. [Go]({{ link-console-main }}/link/cloud-apps/) to {{ cloud-apps-name }}.  
   1. Click **{{ ui-key.yacloud.cloud-apps.button_install-application }}**.
-  1. Select the **Static website in {{ objstorage-name }}** application.
+  1. Select the **Static website in {{ objstorage-full-name }}** application.
+  1. Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure your application:
 
       #|
@@ -50,9 +53,9 @@ Install a [static website](/marketplace/products/yc/static-site) on Hugo using {
       || **{{ ui-key.yacloud.common.description }}** | — | — | Application instance description ||
       || **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** | Yes | — | Service account you are going to use to install the app. The service account must have the `storage.admin`, `lockbox.admin`, `certificate-manager.admin`, and `dns.admin` roles for the folder.
       To create a service account with the required permissions during app installation, select `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`. ||
-      || **DNS zone** | Yes | — | ID of the DNS zone to host the application's website. ||
+      || **DNS zone** | Yes | — | Select the zone you created earlier. ||
       || **Subdomain** | — | Empty | Domain where the Hugo static website will be available. This domain is formed by adding a subdomain to the DNS zone domain, e.g., `site.example.com` or `example.com` if no subdomain is specified. ||
-      || **Website configuration** | Yes | — | Select **Hugo** from the drop-down list. ||
+      || **Website configuration** | Yes | — | Select `Hugo` from the drop-down list. ||
       || **Maximum bucket size** | — | `10` | Maximum size of the {{ objstorage-name }} bucket to host the website's static files, in GB. ||
       |#
 
@@ -78,17 +81,17 @@ After the application is installed, prepare a {{ src-name }} repository with the
 
 ## Deploy the website {#deploy-site}
 
-Open the `README` file in the repository root and complete the steps from that file:
+To deploy the website, you will need to create a service connection and update the project's configuration files:
 
 1. [Set up]({{ link-src-docs }}/sourcecraft/operations/service-connections) a service connection. Specify the service account you created when installing the application.
       
    You will need the service connection name specified during account creation to complete the setup.
 
-1. Update the configuration files in your editor, e.g., in Visual Studio Code:
+1. Update the configuration files:
 
-   1. `hugo.toml`:
+   1. Open the `hugo.toml` file and update as follows:
 
-      ```typescript
+      ```toml
       baseURL = 'https://<domain>'
       title = '<website_name>'
       ...
@@ -103,7 +106,7 @@ Open the `README` file in the repository root and complete the steps from that f
       * `<domain>`: Domain for access to the website. It usually matches the name of the bucket created when installing the application.
       * `<website_name>`: Name of your website.
 
-   1. `.sourcecraft/ci.yaml`:
+   1. Open the `.sourcecraft/ci.yaml` file and update as follows:
 
       ```yaml
       tokens:
@@ -120,29 +123,35 @@ Open the `README` file in the repository root and complete the steps from that f
       Where:
       * `<service_connection>`: Service connection name.
       * `<domain>`: Domain where the website will be available. It usually matches the name of the bucket created when installing the application.
-      * `scope`: Service connection level. The possible values are:
+      * `scope`: Service connection level. Its possible values are:
          * `repo`: For repository-level connections.
          * `org`: For organization-level connections.
 
-1. Run the CI/CD pipeline to deploy the static website. To do this, run the following commands one by one inside the `main` branch:
+1. Run the CI/CD pipeline to deploy the static website:
 
-   ```bash
-   git commit -a
-   ```
+   1. Commit your changes:
 
-   Enter a name for the commit.
+      ```bash
+      git commit -a
+      ```
 
-   ```bash
-   git push
-   ```
+   1. Enter a name for the commit.
+
+   1. Push your changes to the repository:
+
+      ```bash
+      git push
+      ```
 
    After the pipeline runs successfully, the website will be available at `https://<domain>`. The system automatically builds your project and uploads the result to the {{ objstorage-name }} bucket.
 
-## Configure the website {#configure-site}
+## Configure the website for local development {#configure-site}
 
-1. Install the required [Hugo](https://gohugo.io/installation/) version for local development.
+For local development and website testing:
 
-1. Start the dev server:
+1. Install the required version of [Hugo](https://gohugo.io/installation/).
+
+1. Run the development server:
 
    ```bash
    hugo server
@@ -163,6 +172,7 @@ Open the `README` file in the repository root and complete the steps from that f
    ```bash
    hugo server --disableFastRender
    ```
+
 1. To publish changes, run the CI/CD pipeline as described in [{#T}](#deploy-site).
 
 ## Check the result {#check-result}

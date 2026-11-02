@@ -41,6 +41,8 @@ items:
             href: operations/connect/clients.md
           - name: Code examples
             href: operations/connect/code-examples.md
+          - name: Updating a TLS certificate chain
+            href: operations/connect/update-tls-certificates.md
       - name: Managing topics
         href: operations/cluster-topics.md
       - name: Managing users
@@ -129,6 +131,10 @@ items:
         href: tutorials/data-processing.md
       - name: Monitoring message loss in an {{ KF }} topic
         href: tutorials/retention-policy.md
+      - name: >-
+          Transferring data from {{ mkf-name }} into a {{ IBRG }} table in {{
+          objstorage-name }}
+        href: tutorials/kafka-iceberg-s3-connect.md
   - name: Concepts
     items:
       - name: Resource relationships

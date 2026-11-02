@@ -9,31 +9,45 @@ description: В этой статье сопоставляются сервис�
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
+| Azure Elasticsearch | [{{ mos-full-name }}](../../managed-opensearch/) |
+| Azure AI Search (Bing Search API) | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/) |
 | Azure Application Gateway | [{{ api-gw-name }}](../../api-gateway/) |
+| Azure Application Gateway, Azure Front Door | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Azure Artifacts | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
+| Azure Backup | [{{ backup-full-name }}](../../backup/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-valkey/) |
-| Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
+| Azure CDN, Azure Front Door | [{{ cdn-full-name }}](../../cdn/) |
+| Azure Communication Services (Email) | [{{ postbox-full-name }}](../../postbox/) |
+| Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/)<br/>[{{ cloud-apps-full-name }}](../../cloud-apps/) |
 | Azure Container Registry | [{{ container-registry-full-name }}](../../container-registry/)  |
+| Azure Cost Management + Billing | [{{ billing-name }}](../../billing/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../storedoc/) |
 | Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Azure Database for PostgreSQL Elastic Clusters | [{{ mspqr-full-name }}](../../managed-spqr/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| Azure Data Explorer, Microsoft Fabric | [{{ yq-full-name }}](../../query/) |
 | Azure Data Lake | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Azure Dedicated Hosts | [{{ baremetal-full-name }}](../../baremetal/) |
+| Azure DevOps (частично) | [{{ src-full-name }}]({{ link-src-docs }}) |
 | Azure DNS | [{{ dns-full-name }}](../../dns/) |
 | Azure Event Hubs | [{{ yds-full-name }}](../../data-streams/) |
+| Azure Front Door (WAF) | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
 | Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ msp-full-name }}](../../managed-spark/) |
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
-| Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/)<br/>[{{ lockbox-name }}](../../lockbox/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Azure Logic Apps | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows) |
+| Azure Marketplace | [{{ marketplace-full-name }}](../../marketplace/) |
+| Azure Media Services | [{{ video-full-name }}](../../video/) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
 | Azure Monitor Logs | [{{ cloud-logging-full-name }}](../../logging/) |
-| Azur Notification Hubs | [{{ cns-full-name }}](../../notifications/) |
+| Azure Monitor (Activity Log) | [{{ at-full-name }}](../../audit-trails/) |
+| Azure Monitor (частично) | [{{ monium-full-name }}](../../monium/) |
+| Azure Notification Hubs | [{{ cns-full-name }}](../../notifications/) |
 | Azure Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Azure Security Center | [{{ sd-full-name }}](../../security-deck/) |
@@ -48,15 +62,18 @@ description: В этой статье сопоставляются сервис�
 | Communication Services | [{{ cns-full-name }}](../../notifications/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | ExpressRoute | [{{ interconnect-full-name }}](../../interconnect/) |
+| GitHub Copilot (сторонний сервис) | [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) |
 | HDInsight | [{{ dataproc-full-name }}](../../data-proc/) |
 | HDInsight | [{{ mch-full-name }}](../../managed-clickhouse/) |
 | HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
 | Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
-| {{ microsoft-idp.entra-id-full }} | [{{ iam-full-name }}](../../iam/) |
+| {{ microsoft-idp.entra-id-full }} | [{{ iam-full-name }}](../../iam/)<br/>[{{ org-full-name }}](../../organization/) |
+| Microsoft Defender Experts MDR | [{{ ycdr-full-name }}](../../ycdr/) |
 | Microsoft Fabric | [{{ mtr-full-name }}](../../managed-trino/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 | Microsoft Purview (Data Catalog) | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
+| Microsoft Sentinel | [{{ yandex-siem-full-name }}](../../siem/) |
 | Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |
 | Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
 | Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |

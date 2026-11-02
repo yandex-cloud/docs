@@ -117,7 +117,7 @@
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}** — количество успешных проверок, после которого ВМ будет считаться готовой к приему трафика: `5`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}** — количество проваленных проверок, после которого на ВМ перестанет подаваться трафик: `5`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

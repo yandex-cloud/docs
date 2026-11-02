@@ -79,6 +79,7 @@ blocks:
 * [Monium](../monium/pricing.md)
 * [SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing)
 * [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing)
+* [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing)
     * [Генеративные модели и ИИ-агенты](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-model-gallery)
     * [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/pricing)
@@ -164,7 +165,6 @@ blocks:
 * <code><b><small>Preview</small></b></code> [Yandex Cloud Router](../cloud-router/pricing.md)
 * [Yandex Identity and Access Management](../iam/pricing.md)
 * [Yandex Resource Manager](../resource-manager/pricing.md)
-* <code><b><small>Preview</small></b></code> [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex WebSQL](../websql/pricing.md)
 
  Тегом <code><b><small>Preview</small></b></code> отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md).

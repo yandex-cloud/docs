@@ -200,8 +200,8 @@
        Данные для аутентификации:
 
        * **Sasl mechanism** — `SCRAM-SHA-512`.
-       * **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
-       * **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
+       * **Sasl password** — [пароль пользователя для потребителя](#deploy-infrastructure).
+       * **Sasl username** — [имя пользователя для потребителя](#deploy-infrastructure).
        * **Security protocol** — `SASL_SSL`.
 
    - Terraform {#tf}
@@ -329,7 +329,7 @@
 
     {% endlist %}
 
-Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков Managed Service for Apache Kafka®. При чтении данных Managed Service for ClickHouse® использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
+Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков Managed Service for Apache Kafka®. При чтении данных Managed Service for ClickHouse® использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#deploy-infrastructure).
 
 Подробнее о создании таблиц на движке `Kafka` смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).
 
@@ -389,7 +389,7 @@
        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/RootCA.crt -Z
     ```
 
-Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#deploy-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
 ## Проверьте наличие тестовых данных в таблицах кластера Managed Service for ClickHouse® {#fetch-sample-data}
 

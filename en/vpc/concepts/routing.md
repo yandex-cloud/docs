@@ -67,6 +67,8 @@ Static routes can use the default route prefix: `0.0.0.0/0`. This means that al
 
 When creating a static route with a `Gateway` as `next hop`, you can specify only the `0.0.0.0/0` default route prefix in the `Destination prefix`. This `next hop` type does not support other prefixes.
 
+{% include notitle [nat-gateway-whitelist](../../_includes/vpc/nat-gateway-whitelist.md) %}
+
 Traffic transmission forms a [network flow](*network-flow). Forward and reverse packets belong to the same flow: the order of source and destination is not considered. The route for direct and reverse traffic is selected independently based on the destination IP address. If there are several entries with overlapping destination prefixes for the same address, the route with the longest prefix is ​​used. For example, for an address from the `172.16.0.0/24` range, if there are records with the `172.16.0.0/20` and `172.16.0.0/24` prefixes, the record with the `172.16.0.0/24` prefix will be selected.
 
 ### Route priority in complex scenarios {#priority}

@@ -16,7 +16,7 @@ Below is an example demonstrating the calculation of 2018 US air traffic statist
 
 ### Required paid resources {#paid-resources}
 
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
@@ -106,7 +106,7 @@ Below is an example demonstrating the calculation of 2018 US air traffic statist
         * {{ dataproc-name }} cluster.
 
     1. In the `data-proc-for-spark-jobs.tf` configuration file, specify the required parameters.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -654,7 +654,7 @@ The file will be uploaded to `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=resources %}
 

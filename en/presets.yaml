@@ -1781,12 +1781,6 @@ default:
           v1|number: 40.9836
           v1|string: $40.9836
   sku|USD|sws:
-    antiddos:
-      traffic|number: 0.0090827854
-      traffic|string: $0.0090827854
-    proxy-server:
-      v1|number: 0.0199999968
-      v1|string: $0.0199999968
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -6522,6 +6516,7 @@ default:
           value_coordination-service-type-kraft-split-mode_sbrDd: KRaft (on separate hosts)
           value_coordination-service-type-zookeeper_pN7ub: ZooKeeper (on separate hosts)
         label_brokers-per-az: Number of brokers in zone
+        label_connector_icebergsink: Iceberg Sink
         label_connector-this-cluster: Use this cluster
         label_connectors: Connectors
         label_filter_origin: Origin
@@ -7278,6 +7273,7 @@ default:
           switch_shards: Shards
         field_announce-hostnames: Use FQDN instead of IP addresses
         field_audit-log: Log audit events
+        field_persistence-mode: Persistence
         field_tls-support: TLS support
         hosts:
           dialog:
@@ -7290,6 +7286,7 @@ default:
         ModulesFormCard:
           valkey_search_reader_threads_fNBHR: Number of reader threads
           valkey_search_writer_threads_6HRjb: Number of writer threads
+        persistence-mode-on-replicas: On replicas
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -8147,6 +8144,8 @@ default:
               value_ipv6-icmp: ICMPv6
               value_sg-rule-destination-cidr: Address range
               value_sg-rule-destination-sg: Security group
+              value_sg-rule-direction-egress: Outgoing
+              value_sg-rule-direction-ingress: Incoming
               value_sg-rule-sg-type-balancer: Load balancer healthchecks
               value_sg-rule-sg-type-list: From list
               value_sg-rule-sg-type-self: Current

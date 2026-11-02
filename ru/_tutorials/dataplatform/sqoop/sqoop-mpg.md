@@ -12,7 +12,7 @@
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
 
@@ -26,84 +26,82 @@
 
 Остальные ресурсы вы можете создать вручную или с помощью {{ TF }}.
 
-### Вручную {#create-manual}
+{% list tabs group=instructions %}
 
-1. [Создайте кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
+- Вручную {#manual}
 
-    * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
-    * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
+  1. [Создайте кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
+  
+      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`;
+      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
+  
+  1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
+  
+      1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом.
+      1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями:
+  
+          * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent);
+          * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner);
+          * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer);
+          * [storage.viewer](../../../storage/security/index.md#storage-viewer);
+          * [storage.uploader](../../../storage/security/index.md#storage-uploader).
+  
+      1. [Выдайте этому сервисному аккаунту](../../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
+  
+  1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../data-proc/concepts/instance-types.md).
+  
+      {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
+  
+  1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mpg-name }} и {{ dataproc-name }}.
+  
+  1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
+  
+      * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/security-groups.md);
+      * [к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-1. Чтобы импортировать данные в бакет {{ objstorage-name }}:
 
-    1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом.
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями:
+- {{ TF }} {#tf}
 
-        * [dataproc.agent](../../../data-proc/security/index.md#dataproc-agent);
-        * [dataproc.provisioner](../../../data-proc/security/index.md#dataproc-provisioner);
-        * [{{ roles-monitoring-viewer }}](../../../monitoring/security/index.md#monitoring-viewer);
-        * [storage.viewer](../../../storage/security/index.md#storage-viewer);
-        * [storage.uploader](../../../storage/security/index.md#storage-uploader).
+  1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+  
+  1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf).
+  
+      В этом файле описаны:
+  
+      * [группы безопасности](../../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины;
+      * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для кластера {{ dataproc-name }};
+      * [бакет {{ objstorage-name }}](../../../storage/concepts/bucket.md);
+      * кластер {{ mpg-name }};
+      * кластер {{ dataproc-name }};
+      * виртуальная машина с публичным доступом из интернета.
+  
+  1. Укажите параметры инфраструктуры в файле конфигурации `clusters-postgresql-data-proc-and-vm.tf` в блоке `locals`:
+  
+      * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
+      * `network_id` — идентификатор созданной ранее облачной сети.
+      * `subnet_id` — идентификатор созданной ранее подсети.
+      * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в {{ objstorage-name }}.
+      * `data_proc_sa` — имя сервисного аккаунта для кластера {{ dataproc-name }}. Оно должно быть уникальным в каталоге.
+      * `pg_cluster_version` — версия {{ PG }} кластера {{ mpg-name }}.
+      * `pg_cluster_password` — пароль для пользователя `user1` базы данных `db1` {{ mpg-name }}.
+      * `vm_image_id` — идентификатор публичного [образа](../../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+      * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+      * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должно быть уникальным для всего {{ objstorage-name }}.
+      * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect-ssh.md) для кластера {{ dataproc-name }}.
+  
+          Для [SSH-подключения](../../../glossary/ssh-keygen.md) к хостам кластера {{ dataproc-name }} версии 1.x используйте имя пользователя `root`.
 
-    1. [Выдайте этому сервисному аккаунту](../../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
+  1. Создайте ресурсы:
+  
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../data-proc/concepts/instance-types.md).
 
-    {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
-
-1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mpg-name }} и {{ dataproc-name }}.
-
-1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
-
-    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/security-groups.md);
-    * [к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
-
-### С помощью {{ TF }} {#create-terraform}
-
-1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
-
-1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf).
-
-    В этом файле описаны:
-
-    * [группы безопасности](../../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины;
-    * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для кластера {{ dataproc-name }};
-    * [бакет {{ objstorage-name }}](../../../storage/concepts/bucket.md);
-    * кластер {{ mpg-name }};
-    * кластер {{ dataproc-name }};
-    * виртуальная машина с публичным доступом из интернета.
-
-1. Укажите параметры инфраструктуры в файле конфигурации `clusters-postgresql-data-proc-and-vm.tf` в блоке `locals`:
-
-    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
-    * `network_id` — идентификатор созданной ранее облачной сети.
-    * `subnet_id` — идентификатор созданной ранее подсети.
-    * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в {{ objstorage-name }}.
-    * `data_proc_sa` — имя сервисного аккаунта для кластера {{ dataproc-name }}. Оно должны быть уникальным в каталоге.
-    * `pg_cluster_version` — версия {{ PG }} кластера {{ mpg-name }}.
-    * `pg_cluster_password` — пароль для пользователя `user1` базы данных `db1` {{ mpg-name }}.
-    * `vm_image_id` — идентификатор публичного [образа](../../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-    * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
-    * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
-    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect-ssh.md) для кластера {{ dataproc-name }}.
-
-        Для [SSH-подключения](../../../glossary/ssh-keygen.md) к хостам кластера {{ dataproc-name }} версии 1.х используйте имя пользователя `root`.
-
-1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-    ```bash
-    terraform validate
-    ```
-
-    Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-1. Создайте необходимую инфраструктуру:
-
-    {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-    {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+{% endlist %}
 
 ## Подготовка кластера-источника {#prepare}
 
@@ -220,7 +218,7 @@
 
 ## Удаление созданных ресурсов {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 
@@ -234,9 +232,9 @@
         * [{{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
 
     1. Если вы создавали бакет {{ objstorage-name }}, [удалите его](../../../storage/operations/buckets/delete.md).
-    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
     1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
     1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
@@ -248,9 +246,9 @@
 
     Удалите созданные вручную:
 
-    1. [Подсеть](../../../vpc/operations/subnet-delete.md).
-    1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
-    1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
-    1. [Облачную сеть](../../../vpc/operations/network-delete.md).
+    1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+    1. [Удалите облачную сеть](../../../vpc/operations/network-delete.md).
 
 {% endlist %}

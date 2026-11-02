@@ -5,114 +5,117 @@
 # Загрузка данных из Yandex Object Storage в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
 
-Вы можете перенести данные из Yandex Object Storage в таблицу Greenplum®/Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
+Вы можете перенести данные из Yandex Object Storage в таблицу кластера Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
-1. [Создайте базу данных в кластере-приемнике](#prepare-data).
+1. [Создайте базу данных в кластере-приемнике](#create-database).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры входят:
 
 * Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
-* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#infra}
 
 
-1. Подготовьте инфраструктуру:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Вручную {#manual}
 
-    - Вручную {#manual}
+    1. [Создайте кластер-приемник Greenplum®](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
-        1. [Создайте кластер-приемник Greenplum®](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+        * **Имя пользователя** — `user1`.
+        * **Пароль** — `<пароль_пользователя>`.
 
-            * **Имя пользователя** — `user1`.
-            * **Пароль** — `<пароль_пользователя>`.
-
-            {% note info %}
-            
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
-            
-            {% endnote %}
-
+        {% note info %}
         
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
-
-
-        1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md).
-
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
-        1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
+        {% endnote %}
 
-        1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
+    
+    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
-    - С помощью Terraform {#tf}
+    1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md).
 
-        1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-        1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
-        1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
-        1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+    
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [object-storage-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-greenplum/blob/main/object-storage-to-greenplum.tf).
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
 
-            В этом файле описаны:
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-            * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
-            * секрет Yandex Lockbox, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
-            * бакет-источник Object Storage;
-            * кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL;
-            * трансфер.
+- С помощью Terraform {#tf}
 
-        1. Укажите в файле `object-storage-to-greenplum.tf` значения переменных:
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
+    1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-            * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
-            * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-            * `gp_version` — версия Greenplum®.
-            * `gp_password` — пароль пользователя Greenplum®.
+    1. Скачайте в ту же рабочую директорию файл конфигурации [object-storage-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-greenplum/blob/main/object-storage-to-greenplum.tf).
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        В этом файле описаны:
 
-            ```bash
-            terraform validate
-            ```
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
+        * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
+        * секрет Yandex Lockbox, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
+        * бакет-источник Object Storage;
+        * кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL;
+        * трансфер.
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+    1. Укажите в файле `object-storage-to-greenplum.tf` значения переменных:
 
-        1. Создайте необходимую инфраструктуру:
+        * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
+        * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+        * `gp_version` — версия Greenplum®.
+        * `gp_password` — пароль пользователя Greenplum®.
 
-            1. Выполните команду для просмотра планируемых изменений:
-            
-               ```bash
-               terraform plan
-               ```
-            
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-            
-            1. Если вас устраивают планируемые изменения, внесите их:
-            
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        ```bash
+        terraform validate
+        ```
 
-    {% endlist %}
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        1. Выполните команду для просмотра планируемых изменений:
+        
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+        
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
+
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+
+{% endlist %}
 
 1. В кластере-приемнике [включите опцию](../../managed-greenplum/operations/update.md#change-additional-settings) **Доступ из Data Transfer**.
 
@@ -139,7 +142,7 @@
 
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data1.csv` в бакет Object Storage.
 
-## Создайте базу данных в кластере-приемнике {#prepare-data}
+## Создайте базу данных в кластере-приемнике {#create-database}
 
 1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике Greenplum® от имени пользователя `user1`.
 
@@ -154,19 +157,22 @@
 1. [Создайте эндпоинт-источник](../operations/endpoint/source/object-storage.md#endpoint-settings) типа `Object Storage` со следующими настройками:
 
     * **Тип базы данных** — `Object Storage`.
-    * **Бакет** — имя бакета в Object Storage.
+    * **Настройки подключения** → **Настроить вручную**:
 
-    
-    * **Идентификатор ключа доступа AWS** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **Секретный ключ доступа AWS** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **Бакет** — имя бакета в Object Storage.
 
+        
+      * **Идентификатор ключа доступа AWS** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **Секретный ключ доступа AWS** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью Terraform, [скопируйте значение ключа из секрета Yandex Lockbox](../../lockbox/operations/secret-get-info.md#secret-contents).
+  
+  
+      * **Эндпоинт** — `https://storage.yandexcloud.net`.
+      * **Регион** — `ru-central1`.
 
-    * **Эндпоинт** — `https://storage.yandexcloud.net`.
-    * **Регион** — `ru-central1`.
     * **Формат данных** — `CSV`.
-    * **Разделитель** — знак запятой `,`.
+    * **Разделитель** — запятая `,`.
     * **Таблица** — `table1`.
-    * **Схема результирующей таблицы** — выберите `Вручную` и укажите имена полей и тип данных:
+    * **Схема результирующей таблицы** — выберите `Вручную` и укажите имена полей и типы данных:
 
         * `Id`: `Int64`;
         * `Name`: `UTF8`.
@@ -176,7 +182,7 @@
 1. [Создайте эндпоинт-приемник](../operations/endpoint/target/greenplum.md#managed-service) типа `Greenplum®` и укажите в нем параметры подключения к кластеру:
 
     * **Тип подключения** — `Кластер`.
-    * **Кластер** — `<имя_кластера_приемника_Greenplum®>` из выпадающего списка.
+    * **Кластер** — `<идентификатор_кластера_приемника_Greenplum®>` из выпадающего списка.
     * **База данных** — `db1`.
     * **Пользователь** — `user1`.
     * **Пароль** — `<пароль_пользователя>`.
@@ -292,7 +298,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../operations/transfer.md#delete).
 1. [Удалите эндпоинт-источник](../operations/endpoint/index.md#delete).

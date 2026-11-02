@@ -7,10 +7,11 @@
 |----|----|
 | Amazon API Gateway | [API Gateway](../../api-gateway/index.md) |
 | Amazon Athena | [Yandex Query](../../query/index.md) |
-| Amazon Aurora PostgreSQL Limitless Database | [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md)
+| Amazon Aurora PostgreSQL Limitless Database | [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md) |
 | Amazon CloudFront | [Yandex Cloud CDN](../../cdn/index.md) |
 | Amazon CloudSearch | [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts/index) |
 | Amazon CloudWatch | [Yandex Monitoring](../../monitoring/index.md) |
+| Amazon CloudWatch + AWS CloudTrail | [Yandex Monium](../../monium/index.md) |
 | Amazon CloudWatch Logs | [Yandex Cloud Logging](../../logging/index.md) |
 | Amazon CodeArtifact | [Yandex Cloud Registry](../../cloud-registry/index.md) |
 | Amazon DocumentDB (with MongoDB compatibility) | [Yandex StoreDoc](../../storedoc/index.md) |
@@ -21,14 +22,15 @@
 | Amazon Elastic Kubernetes Service | [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) |
 | Amazon ElastiCache | [Yandex Managed Service for Valkey™](../../managed-valkey/index.md) |
 | Amazon EMR | [Yandex Data Processing](../../data-proc/index.md) |
-| Amazon EMR Trino | [Yandex Managed Service for Trino](../../managed-trino/index.md) |
 | Amazon EMR Spark | [Yandex Managed Service for Apache Spark™](../../managed-spark/index.md) |
+| Amazon EMR Trino | [Yandex Managed Service for Trino](../../managed-trino/index.md) |
 | Amazon Interactive Video Service | [Yandex Cloud Video](../../video/index.md) |
 | Amazon Kinesis Data Streams | [Yandex Data Streams](../../data-streams/index.md) |
 | Amazon Managed Workflows for Apache Airflow | [Yandex Managed Service for Apache Airflow™](../../managed-airflow/index.md) |
 | Amazon MSK | [Yandex Managed Service for Apache Kafka®](../../managed-kafka/index.md) |
 | Amazon OpenSearch Service | [Yandex Managed Service for OpenSearch](../../managed-opensearch/index.md) |
 | Amazon Polly, Amazon Transcribe | [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/overview) |
+| Amazon Q Developer | [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/) |
 | Amazon QuickSight | [Yandex DataLens](../../datalens/index.md) |
 | Amazon RDS for MySQL | [Yandex Managed Service for MySQL®](../../managed-mysql/index.md) |
 | Amazon RDS for PostgreSQL | [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) |
@@ -36,6 +38,7 @@
 | Amazon Route 53 | [Yandex Cloud DNS](../../dns/index.md) |
 | Amazon S3 | [Yandex Object Storage](../../storage/index.md) |
 | Amazon SageMaker | [Yandex DataSphere](../../datasphere/index.md) |
+| Amazon Security Lake + Amazon OpenSearch Service Security Analytics | [Yandex SIEM](../../siem/index.md) |
 | Amazon Simple Email Service | [Yandex Cloud Postbox](../../postbox/index.md) |
 | Amazon Simple Queue Service | [Yandex Message Queue](../../message-queue/index.md) |
 | Amazon SNS | [Yandex Cloud Notification Service](../../notifications/index.md) |
@@ -48,6 +51,7 @@
 | AWS Billing Console | [Yandex Cloud Billing](../../billing/index.md) |
 | AWS Certificate Manager | [Yandex Certificate Manager](../../certificate-manager/index.md) |
 | AWS CloudTrail | [Yandex Audit Trails](../../audit-trails/index.md) |
+| AWS CodeCommit, AWS CodePipeline (частично) | [SourceCraft](https://sourcecraft.dev/portal/docs/ru) |
 | AWS Database Migration Service | [Yandex Data Transfer](../../data-transfer/index.md) |
 | AWS Databricks | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md) |
 | AWS DataZone | [Yandex MetaData Hub](../../metadata-hub/index.md) |
@@ -58,11 +62,13 @@
 | AWS IoT Core | [Yandex IoT Core](../../iot-core/index.md) |
 | AWS Key Management Service | [Yandex Key Management Service](../../kms/index.md) |
 | AWS Lambda | [Yandex Cloud Functions](../../functions/index.md) |
+| AWS Marketplace | [Yandex Cloud Marketplace](../../marketplace/index.md) |
 | AWS Organizations | [Yandex Identity Hub](../../organization/index.md) |
 | AWS Outposts | [Yandex Cloud Stackland](../../stackland/index.md) |
 | AWS Redshift | [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md)<br/>[Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) |
 | AWS Resource Access Manager | [Yandex Resource Manager](../../resource-manager/index.md) |
 | AWS Secrets Manager | [Yandex Lockbox](../../lockbox/index.md) |
+| AWS Security Incident Response | [Yandex Cloud Detection and Response](../../ycdr/index.md) |
 | AWS Security Hub | [Yandex Security Deck](../../security-deck/index.md) |
 | AWS Service Quotas | [Yandex Cloud Quota Manager](../../quota-manager/index.md) |
 | AWS Shield,</br>AWS WAF | [Yandex Smart Web Security](../../smartwebsecurity/index.md) |

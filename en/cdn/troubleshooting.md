@@ -9,6 +9,7 @@ The section below covers the frequently asked questions related to {{ cdn-name }
 
 * [CDN responds to file requests with 3xx codes (redirect)](#responses-3xx)
 * [CDN responds to file requests with 4xx codes (client error)](#responses-4xx)
+* [`no such bucket` and `no such key` errors when loading objects through the CDN](#no-such-bucket-no-such-key)
 * [CDN responds to file requests with 5xx codes (server error)](#responses-5xx)
 * [Why are the origin workload and its operation costs increasing?](#origin-load-growth)
 * [Requests with the POST, PUT, PATCH, and DELETE methods are not available to users](#post-responses)
@@ -20,6 +21,7 @@ The section below covers the frequently asked questions related to {{ cdn-name }
 * [CDN sends compressed files to users who do not request compressed content](#compressed-files)
 * [How do I enable WebSocket support?](#websocket-support)
 * [How do I update access policy settings for specific IP addresses in a created CDN resource?](#access-policy-update)
+* [Why does the CDN return the same IP address in different regions?](#returning-only-one-ip-address)
 
 ## CDN responds to file requests with 3xx codes (redirect) {#responses-3xx}
 
@@ -40,6 +42,14 @@ Make sure that:
 
   * Over the specified protocol: HTTP or HTTPS.
   * With the specified value of the `Host` HTTP header and other headers. 
+
+## `no such bucket` and `no such key` errors when loading objects through the CDN {#no-such-bucket-no-such-key}
+
+If objects from an {{ objstorage-name }} bucket do not load through CDN on the first try or load only after refreshing the page, check the origin address and the `Host` HTTP header value in the CDN resource settings. For a bucket origin, these values must match. For info on how to choose the address for a regular bucket or static website hosting, see [How to set up the header properly](concepts/servers-to-origins-host.md#best-practices).
+
+For example, if the origin address is `<bucket_name>.{{ s3-web-host }}`, and the `Host` header is `<bucket_name>.{{ s3-storage-host }}`, requests may throw the `no such bucket` or `no such key` errors.
+
+If the values differ, [change the `Host` header](operations/resources/configure-basics.md) to match the origin address. Wait up to 15 minutes for the settings to take effect, then reload the objects through the CDN.
 
 ## CDN responds to file requests with 5xx codes (server error) {#responses-5xx}
 
@@ -129,3 +139,9 @@ To enable the [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) proto
 #### How do I update access policy settings for specific IP addresses in a created CDN resource? {#access-policy-update}
 
 Navigate to the **{{ ui-key.yacloud.cdn.label_resource-security }}** tab of the CDN resource and click **{{ ui-key.yacloud.common.edit }}**.
+
+## Why does the CDN return the same IP address in different regions? {#returning-only-one-ip-address}
+
+The same IP address when accessing a CDN resource in different regions does not by itself mean that all requests are handled by the same server. The general server selection principle is covered in the [Yandex Cloud CDN overview](concepts/index.md); and resource balancing with a dedicated IP address, in [Dedicated IP addressing](concepts/dedicated-ip-addressing.md).
+
+To check which servers are handling the requests, compare the values of the `X-Node` HTTP header in responses to requests from different regions. Different values indicate different CDN servers.

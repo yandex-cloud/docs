@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mkf-full-name }}
-description: This page provides a list of step-by-step guides for {{ mkf-name }}.
+description: This page features step-by-step guides for {{ mkf-name }}.
 ---
 
 # Step-by-step guides for {{ mkf-name }}
@@ -25,6 +25,7 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 * [Pre-configuration](connect/index.md)
 * [Connecting to a cluster from applications](connect/clients.md)
 * [Code examples for connecting to a cluster](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Topics {#topics}
 

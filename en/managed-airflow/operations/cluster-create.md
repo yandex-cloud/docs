@@ -331,28 +331,50 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
 
       {% endnote %}
 
-  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_source_type_7Jvgw }}** and specify its settings:
+  1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_source_type_7Jvgw }}** and specify the [source](../concepts/dag-sources.md) settings:
      * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_s3_t1FCM }}**: Select an existing bucket or create a new one. This bucket will store DAG files.
 
         Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
 
-     * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_git_pgAeB }}**:
-        * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}**: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
+     * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.source_git_pgAeB }}**: Specify the repository connection settings:
+
         * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_branch_5sU67 }}**: Repository branch name, e.g., `main`.
         * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_subpath_rbaX6 }}**: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
-        * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_ssh_key_ewdAh }}**: Contents of the private SSH repository access key.
 
-           {% cut "Key example" %}
+        Select an **Authentication method** and complete the connection fields:
 
-           ```bash
-           -----BEGIN OPENSSH PRIVATE KEY-----
-           XXxxxxxxxD...DDXXXXXXXXXXXX
-           -----END OPENSSH PRIVATE KEY-----
-           ```
-           
-           {% endcut %}
+        {% list tabs %}
 
-       {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+        - SSH key
+
+            To connect over SSH, specify:
+
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}**: Repository address in `git@<host>:<path_to_repository>.git` format.
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_ssh_key_ewdAh }}**: Contents of the private SSH repository access key.
+
+                {% cut "Key example" %}
+
+                ```bash
+                -----BEGIN OPENSSH PRIVATE KEY-----
+                XXxxxxxxxD...DDXXXXXXXXXXXX
+                -----END OPENSSH PRIVATE KEY-----
+                ```
+
+                {% endcut %}
+
+            {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+        - Login and password
+
+            To connect over HTTP(S), specify:
+
+            * **{{ ui-key.yacloud.airflow.ClusterForm.StorageSection.storage_git_repo_pKzRo }}**: Repository address in `https://<host>/<path_to_repository>.git` or `http://<host>/<path_to_repository>.git` format.
+            * **Login**: Username. When using a token, the value depends on the [service and the token type](../concepts/dag-sources.md#git-token).
+            * **Password or access token**: User password or repository access token.
+
+        {% endlist %}
+
+        {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -423,11 +445,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
            --deb-packages <list_of_deb_packages> \
            --pip-packages <list_of_pip_packages> \
            --dags-bucket <bucket_name> \
-           --gitsync repo=<repository_SSH_address>,`
-                     `branch=<working_branch>,`
-                     `subpath=<path_to_DAG_file_folder>,`
-                     `ssh-key=<private_SSH_key>,`
-                     `ssh-key-path=<path_to_private_SSH_key_file> \
+           --gitsync <repository_connection_settings> \
            --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<sequence_number_of_hour_interval> \
@@ -550,12 +568,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
             "s3": {
               "bucket": "<bucket_name>"
             },
-            "gitSync": {
-              "repo": "<repository_SSH_address>",
-              "branch": "<working_branch>",
-              "subPath": "<path_to_DAG_file_folder>",
-              "sshKey": "<private_SSH_key>"
-            }
+            "gitSync": { <repository_connection_settings> }
           },
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
@@ -598,7 +611,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
 
                 * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. Its possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -640,18 +653,66 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
 
             * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `codeSync`: DAG file source type and parameters.
+        * `codeSync`: Type and properties of the DAG file [source](../concepts/dag-sources.md).
 
             * `s3.bucket`: Bucket name.
 
-            * `gitSync`: Git repo parameters:
+            * `gitSync`: Git repository connection settings. General settings for both authentication methods:
 
-              * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
               * `branch`: Repository branch name, e.g., `main`.
               * `subPath`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
-              * `sshKey`: Private SSH repository access key, single-line with new line characters `\n`.
 
-              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+              Other settings depend on the authentication method. Select one of the connection methods:
+
+              {% list tabs %}
+
+              - SSH key
+
+                  To connect over SSH, specify:
+
+                  * `repo`: Repository address in `git@<host>:<path_to_repository>.git` format.
+                  * `sshKey`: Private SSH repository access key, single-line with new line characters `\n`.
+
+                  Here is an example of the `gitSync` section for a connection over SSH:
+
+                  ```json
+                  "gitSync": {
+                    "repo": "git@github.com:<username>/<repository_name>.git",
+                    "branch": "main",
+                    "subPath": "/dags",
+                    "sshKey": "<private_SSH_key>"
+                  }
+                  ```
+
+                  {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+              - Login and password
+
+                  To connect over HTTP(S), specify:
+
+                  * `repo`: Repository address in `https://<host>/<path_to_repository>.git` or `http://<host>/<path_to_repository>.git` format.
+                  * `usernameAndPassword`: Connection credentials:
+
+                      * `username`: Username. When using a token, the value depends on the [service and the token type](../concepts/dag-sources.md#git-token).
+                      * `password`: Password or access token.
+
+                  Here is an example of the `gitSync` section for a connection over HTTPS:
+
+                  ```json
+                  "gitSync": {
+                    "repo": "https://github.com/<username>/<repository_name>.git",
+                    "branch": "main",
+                    "subPath": "/dags",
+                    "usernameAndPassword": {
+                      "username": "<username>",
+                      "password": "<password_or_token>"
+                    }
+                  }
+                  ```
+
+              {% endlist %}
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
             Specify either `s3` or `gitSync`.
 
@@ -766,12 +827,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
             "s3": {
               "bucket": "<bucket_name>"
             },
-            "git_sync": {
-              "repo": "<repository_SSH_address>",
-              "branch": "<working_branch>",
-              "sub_path": "<path_to_DAG_file_folder>",
-              "ssh_key": "<private_SSH_key>"
-            }
+            "git_sync": { <repository_connection_settings> }
           },
           "maintenance_window": {
             "weekly_maintenance_window": {
@@ -814,7 +870,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
 
                 * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. Its possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -856,18 +912,66 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
 
             * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
-        * `code_sync`: DAG file source type and parameters.
+        * `code_sync`: Type and properties of the DAG file [source](../concepts/dag-sources.md).
 
             * `s3.bucket`: Bucket name.
 
-            * `git_sync`: Git repo parameters:
+            * `git_sync`: Git repository connection settings. General settings for both authentication methods:
 
-              * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
               * `branch`: Repository branch name, e.g., `main`.
               * `sub_path`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
-              * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
 
-              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+              Other settings depend on the authentication method. Select one of the connection methods:
+
+              {% list tabs %}
+
+              - SSH key
+
+                  To connect over SSH, specify:
+
+                  * `repo`: Repository address in `git@<host>:<path_to_repository>.git` format.
+                  * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
+
+                  Here is an example of the `git_sync` section for a connection over SSH:
+
+                  ```json
+                  "git_sync": {
+                    "repo": "git@github.com:<username>/<repository_name>.git",
+                    "branch": "main",
+                    "sub_path": "/dags",
+                    "ssh_key": "<private_SSH_key>"
+                  }
+                  ```
+
+                  {% include [git-sync-ssh](../../_includes/mdb/maf/note-git-sync-ssh.md) %}
+
+              - Login and password
+
+                  To connect over HTTP(S), specify:
+
+                  * `repo`: Repository address in `https://<host>/<path_to_repository>.git` or `http://<host>/<path_to_repository>.git` format.
+                  * `username_and_password`: Connection credentials:
+
+                      * `username`: Username. When using a token, the value depends on the [service and the token type](../concepts/dag-sources.md#git-token).
+                      * `password`: Password or access token.
+
+                  Here is an example of the `git_sync` section for a connection over HTTPS:
+
+                  ```json
+                  "git_sync": {
+                    "repo": "https://github.com/<username>/<repository_name>.git",
+                    "branch": "main",
+                    "sub_path": "/dags",
+                    "username_and_password": {
+                      "username": "<username>",
+                      "password": "<password_or_token>"
+                    }
+                  }
+                  ```
+
+              {% endlist %}
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync-network.md) %}
 
             Specify either `s3` or `git_sync`.
 
@@ -1122,6 +1226,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
     * Cluster name: `myaf-nat`.
     * {{ AF }} version: `3.0`.
     * Python version: `3.12`.
+    * Admin password: `Password*1`.
     * Service account ID: `aje8r2rp7fkl********`.
     * `af-net` network with the following subnets:
 
@@ -1217,7 +1322,7 @@ Use a NAT gateway to set up internet access from all subnets to which the {{ maf
     * One scheduler with the `c1-m2` host class.
     * Jobs are performed by `c1-m2` host class workers; from `1` to `4` in number.
     * One DAG processor with the `c1-m2` host class.
-    * Git repository named `git@github.com:<user_name>/<repository_name>.git` with DAG files in the `/dags` directory of the `main` branch.
+    * Git repository named `git@github.com:<user_name>/<repository_name>.git` with DAG files in the `/dags` directory under the `main` branch.
 
     The configuration file for this cluster is as follows:
 

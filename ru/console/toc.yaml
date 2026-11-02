@@ -29,4 +29,6 @@ items:
         href: concepts/cloud-shell/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 path: ru/console/toc.yaml

@@ -580,7 +580,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Создание потока изменений таблицы](terraform/cdc.md)
 
- - [Создание вторичных индексов строковых таблиц](terraform/tables-secondary-index.md)
+ - [Создание вторичных индексов строковых таблиц](terraform/row-tables-secondary-index.md)
 
  - [Управление конфигурацией топиков YDB](terraform/topic.md)
 

@@ -173,7 +173,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера Managed Service for OpenSearch с настройками:
+1. [Создайте эндпоинт-источник](../operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера Managed Service for OpenSearch с настройками:
 
     * **Тип базы данных** — `OpenSearch`.
     * **Настройки подключения**:
@@ -182,7 +182,7 @@
         * **Пользователь** — `admin`.
         * **Пароль** — пароль пользователя `admin`.
 
-1. [Создайте эндпоинт-приемник](../operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера Greenplum® с настройками:
+1. [Создайте эндпоинт-приемник](../operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера Greenplum® с настройками:
 
     * **Тип базы данных** — `Greenplum`.
     * **Параметры эндпоинта**:

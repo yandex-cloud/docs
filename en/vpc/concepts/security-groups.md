@@ -74,9 +74,13 @@ For more information about using security groups in a specific {{ yandex-cloud }
 
 Security groups consist of a list of `rules`. A security group with no rules blocks any network traffic between objects it applies to. This happens because the list of security group rules always implicitly ends with the _prohibit all_ rule.
 
-Security group rules for `ingress` and `egress` traffic are set separately. One group may have up to [50 rules](./limits.md#vpc-limits) in total for ingress and egress traffic.
+Security group rules for `ingress` and `egress` traffic are set separately. If security groups are applied to both the sender and the recipient, make sure to configure the sender’s group to allow egress traffic and the recipient’s group to allow ingress traffic for a new connection. An ingress connection can originate from your cloud network, another network, or the internet.
 
-A new rule is always added at the end of the list. You cannot add a new rule to a specific position in the list in-between existing rules.
+No separate rules are required for response traffic on an already allowed connection since security groups [track connection state](#stateful). For example, when a VM connects to an HTTPS server on the internet, you do not need to configure an ingress rule on the VM for the server’s response traffic.
+
+If traffic goes through a jump host VM, such as a NAT instance, make sure its security group also allows the traffic. An egress rule on the sender does not replace an ingress rule on the NAT instance. For specific rule pairs, see [our examples](#security-groups-examples).
+
+One group may have up to [50 rules](./limits.md#vpc-limits) in total for ingress and egress traffic. A new rule is always added at the end of the list. You cannot add a new rule to a specific position in the list in-between existing rules.
 
 ### Description of security group rules {#security-groups-rules}
 
@@ -197,6 +201,8 @@ When new servers are added to the group, security group rules will automatically
 
 Security group rules describe ingress and egress traffic separately.
 
+{% include notitle [nat-gateway-whitelist](../../_includes/vpc/nat-gateway-whitelist.md) %}
+
 #### Stateful connections {#stateful}
 
 The state of network connections in security groups is tracked. If security group rules allow network traffic in one direction, it is not required to allow the reverse traffic.
@@ -241,6 +247,35 @@ For your [ingress controller](https://kubernetes.io/docs/concepts/services-netwo
 
 ## Sample descriptions of security group rules {#security-groups-examples}
 
+### VM-to-VM connection and response traffic {#security-group-stateful}
+
+The `client` VM located at `192.168.10.10` connects to the `server` VM located at `192.168.20.10` over SSH. Both VMs are in the same cloud network. The `client-sg` and `server-sg` security groups are applied to their network interfaces, respectively. To establish a new connection, configure the following two rules:
+
+#|
+|| **Security group** | **Traffic** | **Protocol** | **Destination port** | **Source or destination** ||
+|| `client-sg` | `egress` | TCP | `22` | Destination: CIDR `192.168.20.10/32` ||
+|| `server-sg` | `ingress` | TCP | `22` | Source: CIDR `192.168.10.10/32` ||
+|#
+
+If the client sends a request from port `52000`, the server responds from port `22` to the client’s port `52000`. This response traffic is allowed automatically due to [connection state tracking](#stateful), so you do not need to add `egress` rules to `server-sg` or `ingress` rules to `client-sg` for the response. A server-initiated connection, however, requires its own allowing rules.
+
+### {{ managed-k8s-name }} node access to the internet through a NAT instance {#security-group-nat-instance}
+
+A {{ managed-k8s-name }} node without a public IP address pulls an image from [{{ container-registry-name }}](../../container-registry/concepts/index.md) at `cr.yandex` over HTTPS. The node is in the `192.168.10.0/24` subnet and uses the `kubernetes-sg` security group. The subnet is configured to route traffic for `0.0.0.0/0` through a NAT instance with the `192.168.20.10` private IP address, public IP address, and `nat-sg` security group.
+
+This example assumes that the NAT instance is configured to forward [traffic](../tutorials/nat-instance/index.md) and that DNS queries and [cluster service traffic](../../managed-kubernetes/operations/connect/security-groups.md) are already allowed. For the HTTPS connection described here, you need to configure the following rules:
+
+#|
+|| **Security group** | **Traffic** | **Protocol** | **Destination port** | **Source or destination** ||
+|| `kubernetes-sg` | `egress` | TCP | `443` | Destination: CIDR `0.0.0.0/0` ||
+|| `nat-sg` | `ingress` | TCP | `443` | Source: CIDR `192.168.10.0/24` ||
+|| `nat-sg` | `egress` | TCP | `443` | Destination: CIDR `0.0.0.0/0` ||
+|#
+
+The first rule allows the packet to leave the node, the second one allows it to reach the NAT instance’s network interface, and the third one allows it to leave the NAT instance and reach the server. The NAT instance’s ingress rule checks the forwarded packet’s destination port: you do not need to run an HTTPS server on the NAT instance. Response traffic for this connection is allowed automatically.
+
+The packet retains the IP address of `cr.yandex` as its destination, and the NAT instance’s address is used as the `next hop`. Therefore, you cannot replace the destination CIDR with the NAT instance’s IP address or security group in the node’s egress rule. In our example, `0.0.0.0/0` allows HTTPS traffic to any IPv4 address. Optionally, you can narrow the range to the IP addresses of the external resources you need to access.
+
 ### VM with a web server {#security-group-vm-web}
 
 ```hcl
@@ -270,36 +305,20 @@ resource yandex_vpc_security_group vm_group_sg {
 
 ### VM behind a network load balancer {#security-group-vm-nlb}
 
-```hcl
-resource yandex_vpc_security_group vm_group_sg {
-...
-  ingress {
-    description    = "Allow HTTP protocol from local subnets"
-    protocol       = "TCP"
-    port           = "80"
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24"]
-  }
+The `client` VM at `192.168.10.10` connects to an internal {{ network-load-balancer-name }} at `192.168.30.10` on TCP port `443`. The listener forwards traffic to port `8443` on the target VM at `192.168.20.10`. The health check uses a separate TCP port, `8080`, on the same VM. The client, load balancer, and target VM are all in the same cloud network.
 
-  ingress {
-    description    = "Allow HTTPS protocol from local subnets"
-    protocol       = "TCP"
-    port           = "443"
-    v4_cidr_blocks = ["192.168.10.0/24", "192.168.20.0/24"]
-  }
+Apply the `client-sg` group to the client’s network interface and the `target-sg` group to the target VM’s network interface. The {{ network-load-balancer-name }} listener [does not have](#security-groups-and-network-load-balancer) any security groups.
 
-  ingress {
-    description = "Health checks from NLB"
-    protocol = "TCP"
-    predefined_target = "loadbalancer_healthchecks" # [198.18.235.0/24, 198.18.248.0/24]
-  }
+#|
+|| **Security group** | **Traffic** | **Protocol** | **Destination port** | **Source or destination** ||
+|| `client-sg` | `egress` | TCP | `443` | Destination: CIDR `192.168.30.10/32` ||
+|| `target-sg` | `ingress` | TCP | `8443` | Source: CIDR `192.168.10.10/32` ||
+|| `target-sg` | `ingress` | TCP | `8080` | Source: [Load balancer health checks](../../network-load-balancer/concepts/health-check.md#target-statuses). ||
+|#
 
-  egress {
-    description    = "Permit ANY"
-    protocol       = "ANY"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-```
+The first two rules allow client connections. Since the load balancer preserves the client’s IP address, the target VM’s ingress rule specifies the client’s IP address and destination port `8443`. The third rule, which uses `loadbalancer_healthchecks` as the predefined source, allows health check nodes to connect directly to port `8080`. If these checks are blocked, the resource will not enter the `HEALTHY` status, and the load balancer will not route client traffic to it.
+
+Response traffic from the target VM to the client and health check nodes is allowed automatically. Therefore, you do not need to configure separate egress rules for this traffic in the `target-sg` security group.
 
 ## Tools for managing security groups {#security-groups-tools}
 

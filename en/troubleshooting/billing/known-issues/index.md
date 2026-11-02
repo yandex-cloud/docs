@@ -12,7 +12,6 @@
 * [Closing documents are not available in the console](closing-documents-unavailable.md)
 * [Funds for unused resources are debited from the billing account](billing-account-is-charged-by-unused-resources.md)
 * [Money fails to appear on the account for some time after you make a wire transfer as a business](recover-lost-payment.md)
-* [Fixing the `Invitation not found` error when joining the partner program](cannot-access-partner-programme.md)
 * [Can resources be deleted in case of non-payment?](cloud-and-files-removal.md)
 * [Cloud stuck in the `CREATING` status or it takes too long to create a cloud](cloud-stuck-in-creating-status.md)
 * [Resolving the `balance.WRONG.ACCOUNT` error](balance-wrong-account-issue.md)

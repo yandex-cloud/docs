@@ -6,7 +6,7 @@
 <br>![datastories logo](../../_assets/logos/datastories_logo.png =300x)||
 |#
 
-В качестве примера используются две CSV-таблицы, которые нужно объединить в одну, импортировать в формат Parquet и передать в {{ mch-name }}.
+В качестве примера используются две CSV-таблицы, которые нужно объединить в одну, конвертировать в формат Parquet и передать в {{ mch-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -15,11 +15,13 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+В стоимость инфраструктуры входят:
+
+* Кластер {{ CH }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий трафик через него ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -28,7 +30,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `dataproc.agent` и `dataproc.provisioner`.
     1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
@@ -38,9 +40,9 @@
         * По одному правилу для входящего и исходящего служебного трафика:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
 
         * Правило для исходящего HTTPS-трафика:
 
@@ -71,9 +73,8 @@
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
-        * С публичным доступом к хостам кластера.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `db1`.
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите доступ для инструментов, с помощью которых будете работать с кластером.
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
@@ -92,31 +93,22 @@
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * NAT-шлюз и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
         * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров {{ dataproc-name }} и {{ mch-name }};
-        * сервисный аккаунт, необходимый для работы кластера {{ dataproc-name }};
-        * сервисный аккаунт, необходимый для создания бакетов в {{ objstorage-name }};
+        * сервисные аккаунты для работы кластера {{ dataproc-name }} и создания бакетов в {{ objstorage-name }};
         * бакеты для входных и выходных данных;
         * кластер {{ dataproc-name }};
         * кластер {{ mch-name }}.
 
     1. Укажите в файле `s3-dataproc-ch.tf`:
 
-        * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
+        * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
         * `input-bucket` — имя бакета для входных данных.
         * `output-bucket` — имя бакета для выходных данных.
         * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
         * `ch_password` — пароль пользователя {{ CH }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
@@ -126,8 +118,8 @@
 
 Для примера используются две таблицы в формате CSV:
 
-* `coords.csv` — содержит информацию о географических координатах автомобиля.
-* `sensors.csv` — содержит информацию о скорости и рабочих параметрах автомобиля.
+* `coords.csv` — географические координаты автомобиля.
+* `sensors.csv` — скорость и рабочие параметры автомобиля.
 
 Чтобы подготовить тестовые данные к работе:
 
@@ -177,7 +169,7 @@
         # Чтение таблицы из файла sensors.csv
         sensors_df = spark.read.csv("s3a://<имя_входного_бакета>/csv/sensors.csv", header=True)
 
-        # Объединение таблицы по столбцу vehicle_id
+        # Объединение таблиц по столбцу vehicle_id
         joined_df = coords_df.join(sensors_df, on="vehicle_id", how="inner")
 
         # Сохранение объединенной таблицы в бакет в формате Parquet
@@ -194,7 +186,7 @@
 
 1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/join-tables.py`.
 
-1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл `part-00000-***`.
+1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл вида `part-00000-***`.
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
@@ -228,15 +220,15 @@
         .option("url", jdbcUrl) \
         .option("dbtable", "measurements") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY vehicle_id") \
-        .option("user","user1") \
-        .option("password","<пароль_пользователя_{{ CH }}>") \
+        .option("user", "user1") \
+        .option("password", "<пароль_пользователя_{{ CH }}>") \
         .save()
         ```
         {% endcut %}
 
     1. Укажите в скрипте:
 
-        * Имя бакета, в котором лежит Parquet-файл.
+        * Имя выходного бакета, в котором хранится Parquet-файл.
         * Идентификатор кластера {{ mch-name }}.
         * Пароль пользователя {{ CH }}.
 
@@ -256,7 +248,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
 1. Остальные ресурсы удалите в зависимости от способа их создания:

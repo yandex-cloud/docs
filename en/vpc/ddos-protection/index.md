@@ -20,6 +20,8 @@ DDoS protection is available for public IP addresses of VMs, network load balanc
 
 The bandwidth for malicious and legitimate traffic is not restricted. You pay for every gigabyte of the incoming legitimate traffic.
 
+To check the amount of traffic processed by {{ ddos-protection-name }}, navigate to **{{ ui-key.yacloud_billing.billing.account.switch_detail }}** in [{{ billing-name }}]({{ link-console-billing }}). The amount of traffic will be shown in the {{ vpc-name }} [usage details](../../billing/operations/check-charges.md#services_1).
+
 When enabling {{ ddos-protection-short-name }}, you may want to reduce [MTU and TCP MSS](../concepts/mtu-mss.md).
 
 Note that {{ ddos-protection-name }} is not designed to protect websites and mobile apps against higher-level DDoS attacks which:

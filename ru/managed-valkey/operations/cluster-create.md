@@ -869,7 +869,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        * `announce_hostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
+        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 

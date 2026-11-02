@@ -50,10 +50,6 @@ items:
           Money fails to appear on the account for some time after you make a
           wire transfer as a business
         href: billing/known-issues/recover-lost-payment.md
-      - name: >-
-          Fixing the `Invitation not found` error when joining the partner
-          program
-        href: billing/known-issues/cannot-access-partner-programme.md
       - name: Can resources be deleted in case of non-payment?
         href: billing/known-issues/cloud-and-files-removal.md
       - name: Resolving the `balance.WRONG.ACCOUNT` error
@@ -341,20 +337,6 @@ items:
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
       - name: How to block an IP address
         href: vpc/how-to/block-ip-address.md
-  - name: '{{ console-name }}'
-    items:
-      - name: All solutions for {{ console-name }}
-        href: console/index.md
-      - name: Solutions for known {{ console-name }} issues
-        href: console/known-issues/index.md
-        hidden: true
-      - name: Troubleshooting connection to {{ console-name }}
-        href: console/known-issues/console-connection-timeout.md
-      - name: Sample {{ console-name }} use cases
-        href: console/how-to/index.md
-        hidden: true
-      - name: How to increase quotas
-        href: console/how-to/increase-quota.md
   - name: '{{ yandex-cloud }} {{ TF }} provider'
     items:
       - name: All solutions for the {{ yandex-cloud }} {{ TF }} provider
@@ -374,19 +356,5 @@ items:
           Sample {{ yandex-cloud }} {{ TF }} provider configurations and use
           cases
         href: terraform/how-to/index.md
-        hidden: true
-  - name: Partner
-    items:
-      - name: All solutions for partner program
-        href: partner/index.md
-      - name: Solutions for known issues with partner program
-        href: partner/known-issues/index.md
-        hidden: true
-      - name: >-
-          Fixing the `Invitation not found` error when joining the partner
-          program
-        href: partner/known-issues/cannot-access-partner-programme.md
-      - name: Examples of configurations and scenarios for partner program
-        href: partner/how-to/index.md
         hidden: true
 path: en/troubleshooting/toc.yaml

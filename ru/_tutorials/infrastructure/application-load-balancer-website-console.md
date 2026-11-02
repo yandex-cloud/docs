@@ -57,27 +57,31 @@
      1. Выберите сеть, которой будет назначена группа безопасности.
      1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
-        Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип источника /<br>назначения | Источник /<br>назначение
-        --- | --- | --- | --- | --- | ---
-        `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        #|
+        || **Направление трафика** | **Диапазон портов** | **Протокол** | **Источник /
+        Назначение** | **IPv4 CIDR** | **Описание** ||
+        || `Исходящий` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` ||
+        || `Входящий` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` ||
+        || `Входящий` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-https` ||
+        || `Входящий` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | `healthchecks` ||
+        |#
 
-        1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+        1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
         1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}**, чтобы разрешить передачу трафика по всем протоколам.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Аналогично создайте группу безопасности для группы ВМ с именем `alb-vm-sg`, той же сетью и следующими правилами:
 
-     Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип источника | Источник
-     --- | --- | --- | --- | --- | ---
-     `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-sg`
-     `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+     #|
+     || **Направление трафика** | **Диапазон портов** | **Протокол** | **Источник** | **Группа безопасности  / IPv4 CIDR** | **Описание** ||
+     || `Входящий` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-sg` | `balancer` ||
+     || `Входящий` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ssh` ||
+     |#
 
 {% endlist %}
 
@@ -178,7 +182,7 @@
   1. Введите имя роутера, например `website-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите имя виртуального хоста, например `alb-host`.
-  1. В поле **{{ ui-key.yacloud.alb.label_authority }}** введите доменное имя сайта: `alb-example.com`.
+  1. В поле **{{ ui-key.yacloud.alb.label_authority }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-host-id }}** и введите доменное имя сайта `alb-example.com`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Введите имя, например `route-1`.
   1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите созданную ранее группу `website-bg`.

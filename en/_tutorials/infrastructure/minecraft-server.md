@@ -42,30 +42,30 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       #|
       || **Traffic**
       **direction**
-      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
       | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
       **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
-      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
       || Ingress
-      | `Client access to the Minecraft server`
-      | `25565`/`19132`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
-      || Ingress
-      | `SSH access to the VM`
-      | `22`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
-      || Egress
-      | `VM internet access`
       | `0-65535`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
       | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-      | `0.0.0.0/0` ||
+      | `0.0.0.0/0`
+      | `VM internet access` ||
+      || Ingress
+      | `25565`/`19132`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `Client access to the Minecraft server` ||
+      || Ingress
+      | `22`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `SSH access to the VM` ||
       |#
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -205,6 +205,8 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       sudo chown -R minecraft:minecraft /opt/minecraft-server
       ```
 
+      The owner of all files in the server directory, including the previously created `eula.txt` file, will change to the `minecraft` user.
+
    1. In the server directory, run the `screen` background session on behalf of the `minecraft` user:
 
       ```bash
@@ -228,6 +230,23 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
       [14:17:05] [Server thread/INFO]: Time elapsed: 17317 ms
       [14:17:05] [Server thread/INFO]: Done (17.788s)! For help, type "help"
       ```
+
+   1. Optionally, configure the server to meet your needs in the `server.properties` file in the `/opt/minecraft-server` directory, e.g., using the `nano` editor:
+
+      ```bash
+      nano /opt/minecraft-server/server.properties
+      ```
+
+      Basic parameters:
+
+      * `server-port`: Port the server receives client connections on (`25565` by default).
+      * `max-players`: Maximum number of players.
+      * `online-mode`: Authentication of player accounts (`true` by default).
+      * `white-list`: Enabling a player white list (`false` by default).
+
+      See the [Minecraft documentation](https://minecraft.wiki/w/Server.properties) for a full description of parameters.
+
+      Once you have changed the settings, restart the server to apply them.
 
    1. Optionally, you can leave the `screen` session running in the background by pressing **Ctrl + A + D** and return to the VM main terminal.
 
@@ -490,3 +509,4 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `minecraft-server` VM.
 1. [Delete](../../vpc/operations/security-group-delete.md) the `minecraft-sg` security group.
+1. [Delete the static public IP address](../../vpc/operations/address-delete.md) if you reserved one.

@@ -20,7 +20,7 @@ To create a new [security group](../concepts/security-groups.md):
   1. Enter a name for the security group.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to.
   1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
-  1. Click **{{ ui-key.yacloud.common.save }}** once again.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
   
@@ -64,7 +64,7 @@ To create a new [security group](../concepts/security-groups.md):
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
     * `protocol`: Data transfer protocol. The possible values are `any`, `tcp`, `udp`, `icmp`, or [IANA IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
     * `security-group-id`: ID of the security group that is allowed to send traffic to the new security group through port 443. Instead of the ID, you can specify the security group name under `security-group-name`.
-    * `predefined`: Predefined rule target. Specify it instead of `security-group-id`, `security-group-name`, or `v4-cidrs`. The possible values are:
+    * `predefined`: Predefined rule target. Specify it instead of `security-group-id`, `security-group-name`, or `v4-cidrs`. Its possible values are:
       * `self_security_group`: Resources the new security group applies to. Learn more about the Self rule [here](../concepts/security-groups.md#self-rule).
       * `loadbalancer_healthchecks`: Load balancer health check nodes.
   * `--network-name`: Name of the network the security group will be connected to.
@@ -99,7 +99,7 @@ To create a new [security group](../concepts/security-groups.md):
        * `from-port`: First port in the traffic port range.
        * `to-port`: Last port in the traffic port range.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      resource "yandex_vpc_security_group" "test-sg" {
@@ -170,7 +170,7 @@ To create a new [security group](../concepts/security-groups.md):
 
       * List of IPv4 CIDRs and masks of subnets the traffic will come to or from, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter.
       * ID of the security group whose resources the rule applies to, in the `ruleSpecs[].securityGroupId` parameter.
-      * Predefined rule target, in the `ruleSpecs[].predefinedTarget` parameter. The possible values are:
+      * Predefined rule target, in the `ruleSpecs[].predefinedTarget` parameter. Its possible values are:
         * `self_security_group`: Resources the new security group applies to. Learn more about the Self rule [here](../concepts/security-groups.md#self-rule).
         * `loadbalancer_healthchecks`: Load balancer health check nodes.
 

@@ -1,5 +1,5 @@
 1. On the **{{ ui-key.yacloud.compute.instances.label_title }}** tab, click the VM name in the list.
-1. Copy **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** from the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section.
+1. Copy **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** from under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
 1. [Connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Grant your user write permissions for the `/var/www/html` directory:
 

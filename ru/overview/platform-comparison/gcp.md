@@ -14,6 +14,7 @@ description: В этой статье сопоставляются сервис�
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
 | Bare Metal Solution | [{{ baremetal-full-name }}](../../baremetal/) |
 | BigQuery | [{{ yq-full-name }}](../../query/)<br/>[{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
+| Certificate Authority Service | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Cloud Armor,<br/>Cloud Identity | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Cloud Audit Logs | [{{ at-full-name }}](../../audit-trails/) |
@@ -30,6 +31,7 @@ description: В этой статье сопоставляются сервис�
 | Cloud Logging | [{{ cloud-logging-full-name }}](../../logging/) |
 | Cloud Marketplace | [{{ marketplace-full-name }}](../../marketplace/) |
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-valkey/) |
+| Cloud Monitoring | [{{ monium-full-name }}](../../monium/) |
 | Cloud Pub/Sub | [{{ postbox-full-name }}](../../postbox/)<br/>[{{ yds-full-name }}](../../data-streams/)<br/>[{{ message-queue-full-name }}](../../message-queue/)<br/>[{{ cns-full-name }}](../../notifications/) |
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Cloud Router | [{{ cr-full-name }}](../../cloud-router/) |
@@ -37,6 +39,7 @@ description: В этой статье сопоставляются сервис�
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
 | Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/) |
 | Cloud Security Command Center | [{{ sd-full-name }}](../../security-deck/) |
+| Cloud Source Repositories (частично) | [{{ src-full-name }}]({{ link-src-docs }}) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |
 | Cloud SQL for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
@@ -47,18 +50,24 @@ description: В этой статье сопоставляются сервис�
 | Cloud Workstations | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Compute Engine | [{{ compute-full-name }}](../../compute/) |
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
+| Contact Center AI | [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Database Migration Service,<br/>Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Dataplex Universal Catalog | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | External Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Firebase Cloud Messaging | [{{ cns-full-name }}](../../notifications/) |
+| Gemini Code Assist | [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) |
 | Google Distributed Cloud | [{{ stackland-full-name }}](../../stackland/) |
-| Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/) |
+| Google SecOps + Mandiant Threat Defense | [{{ ycdr-full-name }}](../../ycdr/) |
+| Google Security Operations | [{{ yandex-siem-full-name }}](../../siem/) |
+| Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/)<br/>[{{ org-full-name }}](../../organization/) |
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Kubernetes Engine | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
+| Managed Service for Apache Airflow | [{{ maf-full-name }}](../../managed-airflow/) |
 | MongoDB Atlas | [{{ mmg-full-name }}](../../storedoc/) |
 | Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |
+| reCAPTCHA Enterprise | [{{ captcha-full-name }}](../../smartcaptcha/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
 | Vertex AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |

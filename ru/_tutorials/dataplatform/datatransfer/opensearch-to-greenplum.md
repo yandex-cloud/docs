@@ -142,7 +142,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ mos-name }} с настройками:
+1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера {{ mos-name }} с настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
@@ -151,7 +151,7 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}** — пароль пользователя `admin`.
 
-1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ GP }} с настройками:
+1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера {{ GP }} с настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:

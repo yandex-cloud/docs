@@ -24,12 +24,14 @@ Apache Hive™ Metastore обеспечивает:
 
 {% note info %}
 
-Интеграция кластера Yandex Managed Service for Apache Spark™ с Apache Hive™ Metastore позволяет использовать в задании Spark формат таблиц Apache Iceberg™. Подробнее в руководстве [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](spark-simple-rw-job.md).
+Интеграция кластера Yandex Managed Service for Apache Spark™ с Apache Hive™ Metastore позволяет использовать в задании Spark табличный формат Apache Iceberg™. Подробнее читайте в руководстве [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](spark-simple-rw-job.md).
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры входят:
 
 * Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
@@ -55,9 +57,9 @@ Apache Hive™ Metastore обеспечивает:
     1. [Предоставьте разрешения](../../storage/operations/buckets/edit-acl.md) для сервисного аккаунта `spark-agent` на созданные бакеты:
 
         * бакет для исходного кода PySpark-задания — разрешение `READ`;
-        * бакет для выходных данных — разрешение `READ и WRITE`.
+        * бакет для выходных данных — разрешения `READ` и `WRITE`.
 
-    1. [Предоставьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `metastore-agent` на бакет для выходных данных.
+    1. [Предоставьте разрешения](../../storage/operations/buckets/edit-acl.md) `READ` и `WRITE` для сервисного аккаунта `metastore-agent` на бакет для выходных данных.
 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `integration-network`.
 
@@ -70,7 +72,7 @@ Apache Hive™ Metastore обеспечивает:
             * Диапазон портов — `9083`.
             * Протокол — `Любой` (`Any`).
             * Назначение — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * CIDR-блоки — `0.0.0.0/0`.
 
     1. Для кластера Apache Hive™ Metastore [создайте группу безопасности](../../vpc/operations/security-group-create.md) `metastore-sg` в сети `integration-network`. Добавьте в группу следующие правила:
 
@@ -79,7 +81,7 @@ Apache Hive™ Metastore обеспечивает:
             * Диапазон портов — `30000-32767`.
             * Протокол — `Любой` (`Any`).
             * Источник — `CIDR`.
-            * CIDR блоки — `0.0.0.0/0`.
+            * CIDR-блоки — `0.0.0.0/0`.
 
         * Для входящего трафика от балансировщика:
 
@@ -91,6 +93,7 @@ Apache Hive™ Metastore обеспечивает:
 
         * **Сервисный аккаунт** — `metastore-agent`.
         * **Версия** — `3.1`.
+        * **Имя бакета** — бакет для выходных данных.
         * **Сеть** — `integration-network`.
         * **Подсеть** — `integration-network-ru-central1-a`.
         * **Группы безопасности** — `metastore-sg`.
@@ -102,11 +105,12 @@ Apache Hive™ Metastore обеспечивает:
         * **Сеть** — `integration-network`.
         * **Подсеть** — `integration-network-ru-central1-a`.
         * **Группы безопасности** — `spark-sg`.
+        * **Окружение** — `spark-3-5--python-3-10--minimal`.
         * **Metastore-сервер** — созданный ранее кластер Apache Hive™ Metastore.
 
 {% endlist %}
 
-## Подготовьте PySpark-задание {#prepare-job}
+## Подготовьте и запустите PySpark-задание {#prepare-job}
 
 Для PySpark-задания будет использован Python-скрипт, который создает БД `database_1` и таблицу `table_1`. Чтобы кластер Yandex Managed Service for Apache Spark™ получил доступ к глобальному каталогу Apache Hive™ Metastore, в скрипте вызывается метод `enableHiveSupport()`. Скрипт будет храниться в бакете Object Storage.
 
@@ -174,7 +178,7 @@ Apache Hive™ Metastore обеспечивает:
         {% endcut %}
 
     1. В бакете для исходного кода создайте папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job-create-table.py`.
-    1. В бакете для выходных данных создайте папку `warehouse`, в которую будут загружены данные из БД `database_1`.
+    1. В бакете для выходных данных создайте папку `warehouse`, в которую будут загружены данные из таблицы `table_1`.
     1. [Создайте задание](../operations/jobs-pyspark.md) с параметрами:
         * **Тип задания** — `PySpark`.
         * **Main python файл** — `s3a://<бакет_для_исходного_кода>/scripts/job-create-table.py`.
@@ -192,7 +196,7 @@ Apache Hive™ Metastore обеспечивает:
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите **Задания**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
-    1. Убедитесь, что в бакете для выходных данных, в папке `warehouse`, появился файл с данными из БД `database_1`.
+    1. Убедитесь, что в бакете для выходных данных, в папке `warehouse`, появились файлы с данными из таблицы `table_1`.
     1. Проверьте, что в кластере Apache Hive™ Metastore появились метаданные о БД `database_1`:
 
         1. [Экспортируйте метаданные](../../metadata-hub/operations/metastore/export-and-import.md#export) из кластера Apache Hive™ Metastore в бакет для выходных данных.
@@ -202,14 +206,15 @@ Apache Hive™ Metastore обеспечивает:
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. [Кластер Apache Hive™ Metastore](../../metadata-hub/operations/metastore/cluster-delete.md).
-    1. [Кластер Yandex Managed Service for Apache Spark™](../operations/cluster-delete.md).
-    1. [Бакеты Object Storage](../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите](../../storage/operations/objects/delete.md) из них все объекты.
+  1. [Удалите кластер Apache Hive™ Metastore](../../metadata-hub/operations/metastore/cluster-delete.md).
+  1. [Удалите кластер Yandex Managed Service for Apache Spark™](../operations/cluster-delete.md).
+  1. [Удалите бакеты Object Storage](../../storage/operations/buckets/delete.md). Перед удалением бакетов [удалите](../../storage/operations/objects/delete.md) из них все объекты.
+  1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
 
 {% endlist %}

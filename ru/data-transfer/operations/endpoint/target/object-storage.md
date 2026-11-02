@@ -122,12 +122,29 @@ description: Из статьи вы узнаете, как задать наст
 
     - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.title }} {#snapshot}
 
-      *  **Максимальное число записей в одном файле** — если оставить поле пустым, то данные запишутся в один файл.
-      *  **Максимальное число байтов в одном файле** — если оставить поле пустым, то данные запишутся в один файл.
+      *  **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.max_items_per_file.title }}** — если оставить поле пустым, данные запишутся в один файл.
+      *  **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.max_bytes_per_file.title }}** — если оставить поле пустым, данные запишутся в один файл.
 
     - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ReplicationWriter.title }} {#replication}
 
-      * **Интервал ротации** — значение в секундах, по истечении которого новый файл будет записан. Данные о времени берутся из параметров получаемых сообщений. Значение по умолчанию — 1 час.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ObjectStorageV1RotatorSettings.title }}** — настройки записи новых файлов:
+
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1RotatorSettings.DefaultRotator.rotation_interval.title }}** — значение в секундах, по истечении которого новый файл будет записан. Данные о времени берутся из параметров получаемых сообщений. Значение по умолчанию — `3600` (1 час).
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1RotatorSettings.DefaultRotator.max_records_count.title }}** — максимальное количество записей из очереди, которое может хранить один выходной файл. Значение по умолчанию — `0` (количество записей в файле не ограничено).
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1RotatorSettings.DefaultRotator.is_regular_rotation_enabled.title }}** — если опция включена, трансфер будет создавать новый файл каждый раз по окончании очередного интервала ротации. Новый файл не будет создан, если на момент истечения интервала ротации не будет записей, ожидающих коммита.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ObjectStorageV1PartitionerSettings.title }}** — определяет порядок распределения файлов в бакете по директориям:
+
+          * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1PartitionerSettings.DefaultPartitioner.title }}` (значение по умолчанию) — файлы будут записываться в директории по номерам партиций. Формат: `<префикс пути>/<топик_источника>/partition=<номер партиции>`.
+          * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1PartitionerSettings.TimeBasedPartitioner.title }}` — файлы будут записываться в директории за определенные интервалы времени. Формат: `<префикс пути>/<топик_источника>/<интервал времени>.` Для этого значения дополнительно указываются:
+
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1PartitionerSettings.TimeBasedPartitioner.ObjectStorageTimePartitionType.title }}** — определяет, за какой интервал времени выполнять распределение файлов: `час`, `день` или `месяц`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1PartitionerSettings.TimeBasedPartitioner.timezone.title }}** — имя часового пояса в базе IANA, в котором вычисляется путь, например `Europe/Moscow`. Если значение не задано, используется часовой пояс `UTC`.
+
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ObjectStorageV1TimeExtractorSettings.title }}** — определяет, откуда будет браться время для партиционирования по времени и ротации:
+
+          * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1TimeExtractorSettings.RecordMeta.title }}` — время берется из метаданных сообщения в очереди.
+          * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1TimeExtractorSettings.DataField.title }}` — время берется из колонки с данными внутри сообщения. Имя этой колонки задается в отдельном поле.
 
     {% endlist %}
 

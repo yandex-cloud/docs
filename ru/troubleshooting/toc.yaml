@@ -50,10 +50,6 @@ items:
           Деньги долго не приходят на баланс после платежа переводом с
           расчетного счета для юридических лиц
         href: billing/known-issues/recover-lost-payment.md
-      - name: >-
-          Устранение ошибки `Приглашение не найдено` при подключении к
-          партнерской программе
-        href: billing/known-issues/cannot-access-partner-programme.md
       - name: Могут ли ресурсы удалиться при неоплате
         href: billing/known-issues/cloud-and-files-removal.md
       - name: Устранение ошибки `balance.WRONG.ACCOUNT`
@@ -332,20 +328,6 @@ items:
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
       - name: Как заблокировать IP-адрес
         href: vpc/how-to/block-ip-address.md
-  - name: '{{ console-name }}'
-    items:
-      - name: Все решения для {{ console-name }}
-        href: console/index.md
-      - name: Решения для известных проблем {{ console-name }}
-        href: console/known-issues/index.md
-        hidden: true
-      - name: Устранение ошибки подключения к {{ console-name }}
-        href: console/known-issues/console-connection-timeout.md
-      - name: Примеры сценариев использования {{ console-name }}
-        href: console/how-to/index.md
-        hidden: true
-      - name: Как увеличить квоты
-        href: console/how-to/increase-quota.md
   - name: '{{TF}}-провайдер {{ yandex-cloud }}'
     items:
       - name: Все решения для {{ TF }}-провайдера {{ yandex-cloud }}
@@ -367,19 +349,5 @@ items:
           Примеры конфигураций и сценариев {{ TF }}-провайдера {{ yandex-cloud
           }}
         href: terraform/how-to/index.md
-        hidden: true
-  - name: Partner
-    items:
-      - name: Все решения для Partner
-        href: partner/index.md
-      - name: Решения для известных проблем c Partner
-        href: partner/known-issues/index.md
-        hidden: true
-      - name: >-
-          Устранение ошибки `Приглашение не найдено` при подключении к
-          партнерской программе
-        href: partner/known-issues/cannot-access-partner-programme.md
-      - name: Примеры конфигураций и сценариев Partner
-        href: partner/how-to/index.md
         hidden: true
 path: ru/troubleshooting/toc.yaml

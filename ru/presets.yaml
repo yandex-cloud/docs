@@ -1009,7 +1009,6 @@ default:
   pcs|ydb: dn2ydbtgqogjqcrlbehu
   pcs|yds: dn2yds6scistjlmes0fe
   pcs|ymq: dn2ymqni7eesvh97h5ro
-  pcs|yq: dn21r83o3orctiho7bg5
   pcs|yt: dn2thrwhzxl2ygay7nvq
   permission-admin: Администрирование
   permission-execute: Исполнение
@@ -1719,12 +1718,6 @@ default:
           v1|number: 25000
           v1|string: "25\_000\_₸"
   sku|KZT|sws:
-    antiddos:
-      traffic|number: 5.5405
-      traffic|string: "5,5405\_₸"
-    proxy-server:
-      v1|number: 12.2
-      v1|string: "12,2\_₸"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -1787,12 +1780,6 @@ default:
       128k:
         12h|number: 0.7905
         12h|string: "0,7905\_₸"
-  sku|KZT|yq:
-    network:
-      ingress:
-        v1|pricingRate:
-          10|number: 3.55
-          10|string: "3,55\_₸"
   sku|KZT|yt:
     compute-nodes:
       cpu:
@@ -2261,12 +2248,6 @@ default:
           v1|number: 5000
           v1|string: "5\_000\_₽"
   sku|RUB|sws:
-    antiddos:
-      traffic|number: 1.1081
-      traffic|string: "1,1081\_₽"
-    proxy-server:
-      v1|number: 2.44
-      v1|string: "2,44\_₽"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -2335,12 +2316,6 @@ default:
       128k:
         12h|number: 0.1581
         12h|string: "0,1581\_₽"
-  sku|RUB|yq:
-    network:
-      ingress:
-        v1|pricingRate:
-          10|number: 0.71
-          10|string: "0,71\_₽"
   sku|RUB|yt:
     compute-nodes:
       cpu:
@@ -3217,7 +3192,6 @@ default:
         button_dashboards-action: Создать дашборд
         title_alerts: Алерты
         title_service-dashboards: Сервисные дашборды
-        title_service-features: Возможности сервиса
       llm-tracing:
         search:
           actions:
@@ -3278,7 +3252,6 @@ default:
           sent-notify-statuses: Отправляемые статусы
           severity-level: Уровень алерта
           slo-alert-type: Тип
-          type: Тип
         labels:
           tokenized-input:
             copy-button: Скопировать все лейблы
@@ -8555,6 +8528,7 @@ default:
             section_packages_oct8m: Пакеты
         EnvironmentSelect:
           base_environments_fq7iF: Базовые окружения
+          field_environment_59gwx: Окружение
           field_environment_cluster_sP4vs: Как у кластера
           user_environments_fwNXU: Пользовательские окружения
         jobs:
@@ -9761,6 +9735,8 @@ default:
                         title: Бакет
                       endpoint:
                         title: Эндпоинт
+                      manual:
+                        title: Настроить вручную
                       service_account_id:
                         title: Сервисный аккаунт
                       title: Настройки подключения
@@ -9892,6 +9868,23 @@ default:
                     ObjectStorageV1Endpoint:
                       path_prefix:
                         title: Префикс пути
+                    ObjectStorageV1PartitionerSettings:
+                      DefaultPartitioner:
+                        title: Партиции источника
+                      TimeBasedPartitioner:
+                        ObjectStorageTimePartitionType:
+                          title: Тип раскладки
+                        timezone:
+                          title: Часовой пояс
+                        title: Времени
+                    ObjectStorageV1RotatorSettings:
+                      DefaultRotator:
+                        is_regular_rotation_enabled:
+                          title: Включить регулярную ротацию по системным часам
+                        max_records_count:
+                          title: Максимальное число записей в одном файле
+                        rotation_interval:
+                          title: Интервал ротации
                     ObjectStorageV1SerializerConfig:
                       compression_codec:
                         title: Формат сжатия
@@ -9902,10 +9895,25 @@ default:
                     ObjectStorageV1Target:
                       cleanup_policy:
                         title: Политика очистки
+                    ObjectStorageV1TimeExtractorSettings:
+                      DataField:
+                        title: Колонка в данных
+                      RecordMeta:
+                        title: Время записи сообщения
                     ObjectStorageV1WriterSettings:
+                      ObjectStorageV1PartitionerSettings:
+                        title: Партиционировать по
+                      ObjectStorageV1RotatorSettings:
+                        title: Настройки ротации
+                      ObjectStorageV1TimeExtractorSettings:
+                        title: Источник времени
                       ReplicationWriter:
                         title: Писатель репликации
                       SnapshotWriter:
+                        max_bytes_per_file:
+                          title: Максимальное число байтов в одном файле
+                        max_items_per_file:
+                          title: Максимальное число записей в одном файле
                         title: Писатель снапшотов
             opensearch:
               console:
@@ -10892,6 +10900,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vc-full-name: VibeCraft
   vc-name: VibeCraft
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video

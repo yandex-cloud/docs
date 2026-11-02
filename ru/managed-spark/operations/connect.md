@@ -17,7 +17,7 @@ keywords:
    export TOKEN=$(yc iam create-token)
    ```
 
-1. [Создайте задание SparkConnect](jobs-sparkconnect.md#create) без указания параметров в вашем кластере.
+1. [Создайте задание SparkConnect](jobs-sparkconnect.md#create) в вашем кластере. Настройте ресурсы и зависимости с учетом требований задания.
 1. Скопируйте эндпоинт Spark Connect Server созданного задания для подключения.
 
    Эндпоинт можно получить с [информацией о задании](jobs-sparkconnect.md#get-info). Его значение указано в поле **{{ ui-key.yacloud.spark.label_connect-url }}** в консоли управления или в поле `connect_url` в CLI и API.
@@ -26,7 +26,7 @@ keywords:
 
    {% note warning %}
 
-   Версия PySpark в вашем окружении должна соответствовать версии {{ SPRK }} в кластере. В настоящее время поддерживается подключение с версиями PySpark `3.5.6` и `3.5.7`.
+   Версия PySpark в вашем окружении должна соответствовать версии {{ SPRK }} в кластере.
 
    {% endnote %}
 

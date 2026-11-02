@@ -15,7 +15,7 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ cdn-full-name }}](../../cdn/index.yaml) | Сервис для организации сети распространения контента | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ dns-full-name }}](../../dns/) | Сервис администрирования ресурсных записей [DNS](../../glossary/dns.md) и обслуживания DNS-запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ interconnect-full-name }}](../../interconnect/index.yaml) | Сервис управления выделенными сетевыми соединениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ cr-full-name }}](../../cloud-router/index.yaml) | {{ preview-stage }} Сервис для управления сетевыми топологиями гибридного облака в {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ cr-full-name }}](../../cloud-router/index.yaml) | {{ preview-stage }} Сервис для управления сетевыми топологиями гибридного облака в {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ stackland-full-name }}](../../stackland/index.yaml) | Сервис для управления AI‑нагрузками и микросервисными решениями в закрытом контуре компании | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ video-full-name }}](../../video/index.yaml) | Сервис для видеохостинга и проведения онлайн-трансляций | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ compute-full-name }}](../../compute/index.yaml) | Сервис для создания и управления [виртуальными машинами](../../glossary/vm.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
@@ -43,6 +43,7 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ mmg-full-name }}](../../storedoc/index.yaml) | Сервис для создания и управления кластерами {{ SD }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ websql-full-name }}](../../websql/index.yaml) | Сервис для подключения к кластерам управляемых баз данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Искусственный интеллект** | > | > | > ||
+|| [{{ vc-full-name }}]({{ link-src-docs }}/vibecraft/) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ ai-studio-full-name }}]({{ link-docs-ai }}) | Платформа для создания AI-приложений и AI-агентов на базе больших генеративных моделей | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | Сервис для ML-разработки полного цикла | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) | Сервис поисковых запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
@@ -67,7 +68,6 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || **Инструменты DevOps** | > | > | > ||
 || [{{ src-full-name }}]({{ link-src-docs }}) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) | AI-ассистент разработчика с функцией автодополнения кода | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ vc-name }}]({{ link-src-docs }}/vibecraft/) | {{ preview-stage }} Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ cloud-logging-full-name }}](../../logging/index.yaml) | Сервис для агрегации и чтения логов пользовательских приложений и ресурсов {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ marketplace-full-name }}](../../marketplace/index.yaml) | Магазин готовых инструментов для разработки, анализа данных, обеспечения безопасности, создания бизнес‑приложений и других задач | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ container-registry-full-name }}](../../container-registry/index.yaml) | Сервис для управления образами и контейнерами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||

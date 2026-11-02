@@ -9,6 +9,122 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
 
 ## Getting a list of maintenance jobs {#list-maintenance}
 
+For {{ mkf-name }}, you can get a list of maintenance jobs in a [cloud](#list-cloud-maintenance), [folder](#list-folder-maintenance), or [cluster](#list-cluster-maintenance).
+
+### Getting a list of maintenance jobs in a cloud {#list-cloud-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances?cloudId=<cloud_ID>'
+        ```
+
+        
+        Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cloud_id": "<cloud_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.MaintenanceService.List
+        ```
+
+        
+        Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+### Getting a list of maintenance jobs in a folder {#list-folder-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances?folderId=<folder_ID>'
+        ```
+
+        
+        Learn how to get a folder ID in [this guide](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "folder_id": "<folder_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.MaintenanceService.List
+        ```
+
+        
+        Learn how to get a folder ID in [this guide](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+### Getting a list of maintenance jobs in a cluster {#list-cluster-maintenance}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -18,6 +134,104 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mkf-full-name }
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
     To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the list of maintenance jobs and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance jobs.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances?resourceId=<cluster_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "resource_id": "<cluster_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.MaintenanceService.List
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+## Getting maintenance job details {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.Get](../api-ref/Maintenance/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances/<maintenance_job_ID>'
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<maintenance_job_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.MaintenanceService.Get
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
 
 {% endlist %}
 
@@ -104,34 +318,63 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Transfer your maintenance job using one of these two methods:
 
-        ```bash
-        curl \
-          --request POST \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
-          --data '{
-            "rescheduleType": <reschedule_type>,
-            "delayedUntil": <timestamp>
-          }'
-        ```
+        * Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-        Where:
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
+            --data '{
+                        "rescheduleType": "<reschedule_type>",
+                        "delayedUntil": "<timestamp>"
+                    }'
+            ```
 
-        * `rescheduleType`: Reschedule type:
+            Where:
 
-            * `NEXT_AVAILABLE_WINDOW`: Next available window.
-            * `SPECIFIC_TIME`: Specific date and time.
+            * `rescheduleType`: Reschedule type:
 
-        * `delayedUntil`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, such as `2006-01-02T15:04:05Z`.
+                * `NEXT_AVAILABLE_WINDOW`: Next available window.
+                * `SPECIFIC_TIME`: Specific date and time.
 
-            Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
+            * `delayedUntil`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, such as `2006-01-02T15:04:05Z`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+                Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
 
-    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances/<maintenance_job_ID>:reschedule' \
+            --data '{
+                        "rescheduleType": "<reschedule_type>",
+                        "scheduledAt": "<timestamp>"
+                    }'
+            ```
+
+            Where:
+
+            * `rescheduleType`: Reschedule type:
+
+                * `NEXT_AVAILABLE_WINDOW`: Next available window.
+                * `SPECIFIC_TIME`: Specific date and time.
+
+            * `scheduledAt`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
+
+                Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 - gRPC API {#grpc-api}
 
@@ -142,41 +385,74 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
     1. Save the token to an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-  
+
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  
-    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        ```bash
-        grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-            "cluster_id": "<cluster_ID>",
-            "reschedule_type": <reschedule_type>,
-            "delayed_until": <timestamp>
-          }' \
-          {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.kafka.v1.ClusterService.RescheduleMaintenance
-        ```
+    1. Transfer your maintenance job using one of these two methods:
 
-        Where:
+        * Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        * `reschedule_type`: Reschedule type:
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                "cluster_id": "<cluster_ID>",
+                "reschedule_type": "<reschedule_type>",
+                "delayed_until": "<timestamp>"
+              }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.kafka.v1.ClusterService.RescheduleMaintenance
+            ```
 
-            * `NEXT_AVAILABLE_WINDOW`: Next available window.
-            * `SPECIFIC_TIME`: Specific date and time.
+            Where:
 
-        * `delayed_until`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
+            * `reschedule_type`: Reschedule type:
 
-            Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
+                * `NEXT_AVAILABLE_WINDOW`: Next available window.
+                * `SPECIFIC_TIME`: Specific date and time.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `delayed_until`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
 
-    1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
+                Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
+
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "maintenance_id": "<maintenance_job_ID>",
+                    "reschedule_type": "<reschedule_type>",
+                    "scheduled_at": "<timestamp>"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.kafka.v1.MaintenanceService.Reschedule
+            ```
+
+            Where:
+
+            * `reschedule_type`: Reschedule type:
+
+                * `NEXT_AVAILABLE_WINDOW`: Next available window.
+                * `SPECIFIC_TIME`: Specific date and time.
+
+            * `scheduled_at`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
+
+                Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [ClusterService.Reschedule](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 {% endlist %}
 
@@ -228,22 +504,39 @@ You can start maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_tas
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.rescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Perform your maintenance job using one of these two methods:
 
-        ```bash
-        curl \
-          --request POST \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
-          --data '{
-            "rescheduleType": "IMMEDIATE"
-          }'
-        ```
+        * Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
+            --data '{
+                        "rescheduleType": "IMMEDIATE"
+                    }'
+            ```
 
-    1. View the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/maintenances/<maintenance_job_ID>:reschedule' \
+            --data '{
+                        "rescheduleType": "IMMEDIATE"
+                    }'
+            ```
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 - gRPC API {#grpc-api}
 
@@ -256,26 +549,47 @@ You can start maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_tas
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    1. Perform your maintenance job using one of these two methods:
 
-        ```bash
-        grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-            "cluster_id": "<cluster_ID>",
-            "reschedule_type": "IMMEDIATE"
-          }' \
-          {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.kafka.v1.ClusterService.RescheduleMaintenance
-        ```
+        * Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                "cluster_id": "<cluster_ID>",
+                "reschedule_type": "IMMEDIATE"
+              }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.kafka.v1.ClusterService.RescheduleMaintenance
+            ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/maintenance_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "maintenance_id": "<maintenance_job_ID>",
+                    "reschedule_type": "IMMEDIATE"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.kafka.v1.MaintenanceService.Reschedule
+            ```
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [ClusterService.Reschedule](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 {% endlist %}
 
@@ -378,7 +692,7 @@ By default, maintenance can run at any time. To set a specific maintenance windo
 
             Here, we provide only one setting.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Its possible values are:
 
             * `anytime`: Any time.
             * `weeklyMaintenanceWindow`: Once a week on the specified day and hour interval:
@@ -434,7 +748,7 @@ By default, maintenance can run at any time. To set a specific maintenance windo
 
             Here, we provide only one setting.
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. The possible values are:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Its possible values are:
 
             * `anytime`: Any time.
             * `weekly_maintenance_window`: Once a week on the specified day and hour interval:
@@ -446,6 +760,6 @@ By default, maintenance can run at any time. To set a specific maintenance windo
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

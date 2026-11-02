@@ -4,4 +4,3 @@ description: Из руководства вы узнаете, как настр�
 ---
 
 {% include [slo-blackbox-exporter](../../_tutorials/monitoring/slo-blackbox-exporter.md) %}
- 

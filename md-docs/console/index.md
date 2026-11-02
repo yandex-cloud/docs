@@ -35,3 +35,5 @@
  - [Лимиты в Cloud Shell](concepts/cloud-shell/limits.md)
 
  - [Правила тарификации](pricing.md)
+
+ - [Вопросы и ответы](qa/index.md)

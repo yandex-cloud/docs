@@ -15,9 +15,6 @@ links:
   - title: '{{ dns-name }}'
     description: Решения для {{ dns-name }}
     href: dns/
-  - title: '{{ console-name }}'
-    description: Решения для {{ console-name }}
-    href: console/
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
@@ -30,9 +27,6 @@ links:
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: Partner
-    description: Решения для Partner
-    href: partner/
   - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/

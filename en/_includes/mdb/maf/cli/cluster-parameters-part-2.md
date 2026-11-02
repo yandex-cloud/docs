@@ -3,7 +3,7 @@
 
     * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
     * `min-count`, `max-count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource-preset-id`: [ID of the computing resources](../../../../managed-airflow/concepts/instance-types.md) of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+    * `resource-preset-id`: [ID of the computing resources](../../../../managed-airflow/concepts/instance-types.md) of the web server, scheduler, DAG processor, worker, and Triggerer. Its possible values are:
 
         * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -26,21 +26,64 @@
 
     The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-* DAG file source type and parameters:
+* DAG file [source](../../../../managed-airflow/concepts/dag-sources.md) type and parameters:
 
     * `--dags-bucket`: Bucket name.
 
-    * `--gitsync`: Git repo parameters:
+    * `--gitsync`: Git repository connection parameters. General parameters for both authentication methods:
 
-      * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
       * `branch`: Repository branch name, e.g., `main`.
       * `subpath`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
-      * `ssh-key`: Private SSH repository access key, single-line with new line characters `\n`.
-      * `--identity-file`: Path to the file with the private SSH repository access key.
 
-        Specify either `ssh-key` or `ssh-key-path`.
+      Other settings depend on the authentication method. Select one of the connection methods:
 
-      {% include [warn-git](../note-git-sync.md) %}
+      {% list tabs %}
+
+      - SSH key
+
+          To connect over SSH, specify:
+
+          * `repo`: Repository address in `git@<host>:<path_to_repository>.git` format.
+          * One of the parameters with a private SSH key:
+
+              * `ssh-key`: Key content in a single line with newline characters `\n`.
+              * `ssh-key-path`: Path to the key file.
+
+          For example, to connect using a key from a file, provide the following:
+
+          ```bash
+          --gitsync repo=git@github.com:<username>/<repository_name>.git,`
+                    `branch=main,`
+                    `subpath=/dags,`
+                    `ssh-key-path=<path_to_key_file>
+          ```
+
+          {% include [git-sync-ssh](../note-git-sync-ssh.md) %}
+
+      - Username and password
+
+          To connect over HTTP(S), specify:
+
+          * `repo`: Repository address in `https://<host>/<path_to_repository>.git` or `http://<host>/<path_to_repository>.git` format.
+          * `username`: Username. When using a token, the value depends on the [service and the token type](../../../../managed-airflow/concepts/dag-sources.md#git-token).
+          * One of the parameters with a password or access token:
+
+              * `password`: Password or token.
+              * `password-path`: Path to the file containing the password or token. Use this parameter if the password or token contains the `,`, `{`, `}`, `[`, or `]` characters.
+
+          For example, to connect over HTTPS using a token from a file, provide the following:
+
+          ```bash
+          --gitsync repo=https://github.com/<username>/<repository_name>.git,`
+                    `branch=main,`
+                    `subpath=/dags,`
+                    `username=<username>,`
+                    `password-path=<path_to_token_file>
+          ```
+
+      {% endlist %}
+
+      {% include [warn-git](../note-git-sync-network.md) %}
 
     Specify either `--dags-bucket` or `--gitsync`.
 

@@ -180,7 +180,7 @@
     offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
     ```
 
-    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#before-you-begin).
+    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#prepare-infrastructure).
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 

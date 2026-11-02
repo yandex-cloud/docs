@@ -11,9 +11,9 @@
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте тестовую таблицу](#create-table).
-1. [Экспортируйте данные](#export-data).
+1. [Экспортируйте метаданные](#export-data).
 1. [Подключите Yandex Data Processing к Apache Hive™ Metastore](#connect).
-1. [Импортируйте данные](#import-data).
+1. [Импортируйте метаданные](#import-data).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -23,13 +23,6 @@
 Если вы хотите настроить [политику доступа](../../storage/concepts/policy.md) для бакета и подключаться к нему из кластера Apache Hive™ Metastore, вам потребуется дополнительная настройка инфраструктуры. Подробнее в [инструкции](../../metadata-hub/operations/metastore/s3-policy-connect.md).
 
 {% endnote %}
-
-{% note info %}
-
-Apache Hive™ Metastore находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 ## Перед началом работы {#before-you-begin}
 
@@ -44,6 +37,8 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 ### Необходимые платные ресурсы {#paid-resources}
 
+В стоимость инфраструктуры входят:
+
 * Кластеры Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
 * Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера ([тарифы Yandex MetaData Hub](../../metadata-hub/pricing.md)).
 * Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
@@ -57,7 +52,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider` и `storage.uploader`.
-    1. В Object Storage [создайте бакет](../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
+    1. В Object Storage [создайте бакет](../../storage/operations/buckets/create.md) и предоставьте сервисному аккаунту разрешения `READ` и `WRITE` для этого бакета. В 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) `dataproc-network`.
     1. В этой сети [создайте подсеть](../../vpc/operations/subnet-create.md) `dataproc-subnet`.
     1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
@@ -78,19 +73,19 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
         * Диапазон портов — `123`.
         * Протокол — `UDP`.
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || Yandex Data Processing | Для входящего трафика, чтобы из интернета подключаться по SSH к хостам подкластеров с публичным доступом.
         |
         * Диапазон портов — `22`.
         * Протокол — `TCP`.
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || Apache Hive™ Metastore | Для входящего трафика от клиентов.
         |
         * Диапазон портов — `30000-32767`.
         * Протокол — `Любой` (`Any`).
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || Apache Hive™ Metastore | Для входящего трафика от балансировщика.
         |
         * Диапазон портов — `10256`.
@@ -100,26 +95,26 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
         |
         * Диапазон портов — `0-65535`.
         * Протокол — `Любой` (`Any`).
-        * Источник — `Группа безопасности`.
+        * Назначение — `Группа безопасности`.
         * Группа безопасности — `Текущая` (`Self`). ||
         || Yandex Data Processing | Для исходящего HTTPS-трафика.
         |
         * Диапазон портов — `443`.
         * Протокол — `TCP`.
         * Назначение — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || Yandex Data Processing | Для исходящего трафика, чтобы разрешить доступ к NTP-серверам для синхронизации времени.
         |
         * Диапазон портов — `123`.
         * Протокол — `UDP`.
-        * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * Назначение — `CIDR`.
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || Yandex Data Processing | Для исходящего трафика, чтобы разрешить подключение кластера Yandex Data Processing к Apache Hive™ Metastore.
         |
         * Диапазон портов — `9083`.
         * Протокол — `Любой` (`Any`).
-        * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * Назначение — `CIDR`.
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         |#
 
         {% endcut %}
@@ -135,6 +130,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
             * `YARN`
             * `ZEPPELIN`
 
+        * **SSH-ключ** — скопируйте в поле содержимое файла с публичным ключом, который был создан при генерации ключей для доступа по SSH.
         * **Сервисный аккаунт** — `dataproc-s3-sa`.
         * **Зона доступности** — та, в которой находится подсеть `dataproc-subnet`.
         * **Свойства** — `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с Apache Hive™ Metastore.
@@ -177,34 +173,35 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
         * `folder_id` — идентификатор облачного каталога (такой же, как в настройках провайдера).
         * `dp_ssh_key` — абсолютный путь к публичному ключу для кластеров Yandex Data Processing. [Подробнее о подключении к хосту Yandex Data Processing по SSH](../operations/connect-ssh.md).
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        1. Выполните команду для просмотра планируемых изменений:
+        1. В терминале перейдите в директорию с конфигурационным файлом.
+        1. Проверьте корректность конфигурации с помощью команды:
+        
+           ```bash
+           terraform validate
+           ```
+        
+           Если конфигурация является корректной, появится сообщение:
+        
+           ```bash
+           Success! The configuration is valid.
+           ```
+        
+        1. Выполните команду:
         
            ```bash
            terraform plan
            ```
         
-           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+           В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        1. Примените изменения конфигурации:
         
-        1. Если вас устраивают планируемые изменения, внесите их:
+           ```bash
+           terraform apply
+           ```
         
-           1. Выполните команду:
-        
-              ```bash
-              terraform apply
-              ```
-        
-           1. Подтвердите изменение ресурсов.
-           1. Дождитесь завершения операции.
+        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
         В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
@@ -263,9 +260,9 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 {% endlist %}
 
-## Экспортируйте данные {#export-data}
+## Экспортируйте метаданные {#export-data}
 
-Чтобы перенести данные из одного кластера Yandex Data Processing в другой, создайте резервную копию данных в кластере `dataproc-source` с помощью утилиты `pg_dump`:
+Чтобы перенести метаданные из кластера `dataproc-source`, создайте их резервную копию с помощью утилиты `pg_dump`:
 
 1. [Подключитесь по SSH](../operations/connect-ssh.md) к хосту-мастеру кластера `dataproc-source`:
 
@@ -300,6 +297,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
   
       * **Сервисный аккаунт** — `dataproc-s3-sa`.
       * **Версия** — `3.1`.
+      * **Имя бакета** — `dataproc-bucket`.
       * **Сеть** — `dataproc-network`.
       * **Подсеть** — `dataproc-subnet`.
       * **Группы безопасности** — `dataproc-security-group`.
@@ -310,7 +308,7 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 {% endlist %}
 
-## Импортируйте данные {#import-data}
+## Импортируйте метаданные {#import-data}
 
 {% list tabs group=instructions %}
 
@@ -355,11 +353,11 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
 {% endlist %}
 
-В итоге в кластер `dataproc-target` были импортированы метаданные из кластера `dataproc-source`.
+Таким образом, метаданные из кластера `dataproc-source` импортированы в кластер `dataproc-target`.
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите кластер Apache Hive™ Metastore](../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
@@ -369,14 +367,14 @@ Apache Hive™ Metastore находится на стадии [Preview](../../ov
 
     - Вручную {#manual}
 
-        1. [Кластеры Yandex Data Processing](../operations/cluster-delete.md).
-        1. [Бакет Object Storage](../../storage/operations/buckets/delete.md).
-        1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
-        1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
-        1. [Группу безопасности](../../vpc/operations/security-group-delete.md).
-        1. [Подсеть](../../vpc/operations/subnet-delete.md).
-        1. [Сеть](../../vpc/operations/network-delete.md).
-        1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
+        1. [Удалите кластеры Yandex Data Processing](../operations/cluster-delete.md).
+        1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
+        1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+        1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+        1. [Удалите группу безопасности](../../vpc/operations/security-group-delete.md).
+        1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
+        1. [Удалите сеть](../../vpc/operations/network-delete.md).
+        1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
     
     - Terraform {#tf}

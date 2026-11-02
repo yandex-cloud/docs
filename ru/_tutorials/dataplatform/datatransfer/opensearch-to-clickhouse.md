@@ -147,7 +147,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ mos-name }} с настройками:
+1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера {{ mos-name }} с настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:

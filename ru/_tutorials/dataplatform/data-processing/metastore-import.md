@@ -7,9 +7,9 @@
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте тестовую таблицу](#create-table).
-1. [Экспортируйте данные](#export-data).
+1. [Экспортируйте метаданные](#export-data).
 1. [Подключите {{ dataproc-name }} к {{ metastore-name }}](#connect).
-1. [Импортируйте данные](#import-data).
+1. [Импортируйте метаданные](#import-data).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -20,13 +20,6 @@
 
 {% endnote %}
 
-{% note info %}
-
-{{ metastore-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
@@ -34,8 +27,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
+В стоимость инфраструктуры входят:
+
 * Кластеры {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
-* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ metadata-hub-name }}](../../../metadata-hub/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md)).
 * Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
@@ -47,7 +42,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider` и `storage.uploader`.
-    1. В {{ objstorage-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
+    1. В {{ objstorage-name }} [создайте бакет](../../../storage/operations/buckets/create.md) и предоставьте сервисному аккаунту разрешения `READ` и `WRITE` для этого бакета. В 
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network`.
     1. В этой сети [создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet`.
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.
@@ -68,19 +63,19 @@
         * Диапазон портов — `123`.
         * Протокол — `UDP`.
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || {{ dataproc-name }} | Для входящего трафика, чтобы из интернета подключаться по SSH к хостам подкластеров с публичным доступом.
         |
         * Диапазон портов — `22`.
         * Протокол — `TCP`.
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || {{ metastore-name }} | Для входящего трафика от клиентов.
         |
         * Диапазон портов — `30000-32767`.
         * Протокол — `Любой` (`Any`).
         * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || {{ metastore-name }} | Для входящего трафика от балансировщика.
         |
         * Диапазон портов — `10256`.
@@ -90,26 +85,26 @@
         |
         * Диапазон портов — `{{ port-any }}`.
         * Протокол — `Любой` (`Any`).
-        * Источник — `Группа безопасности`.
+        * Назначение — `Группа безопасности`.
         * Группа безопасности — `Текущая` (`Self`). ||
         || {{ dataproc-name }} | Для исходящего HTTPS-трафика.
         |
         * Диапазон портов — `{{ port-https }}`.
         * Протокол — `TCP`.
         * Назначение — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || {{ dataproc-name }} | Для исходящего трафика, чтобы разрешить доступ к NTP-серверам для синхронизации времени.
         |
         * Диапазон портов — `123`.
         * Протокол — `UDP`.
-        * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * Назначение — `CIDR`.
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         || {{ dataproc-name }} | Для исходящего трафика, чтобы разрешить подключение кластера {{ dataproc-name }} к {{ metastore-name }}.
         |
         * Диапазон портов — `{{ port-metastore }}`.
         * Протокол — `Любой` (`Any`).
-        * Источник — `CIDR`.
-        * CIDR блоки — `0.0.0.0/0`. ||
+        * Назначение — `CIDR`.
+        * IPv4 CIDR — `0.0.0.0/0`. ||
         |#
 
         {% endcut %}
@@ -125,6 +120,7 @@
             * `YARN`
             * `ZEPPELIN`
 
+        * **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** — скопируйте в поле содержимое файла с публичным ключом, который был создан при генерации ключей для доступа по SSH.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — та, в которой находится подсеть `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с {{ metastore-name }}.
@@ -163,17 +159,9 @@
         * `folder_id` — идентификатор облачного каталога (такой же, как в настройках провайдера).
         * `dp_ssh_key` — абсолютный путь к публичному ключу для кластеров {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../../data-proc/operations/connect-ssh.md).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
@@ -232,9 +220,9 @@
 
 {% endlist %}
 
-## Экспортируйте данные {#export-data}
+## Экспортируйте метаданные {#export-data}
 
-Чтобы перенести данные из одного кластера {{ dataproc-name }} в другой, создайте резервную копию данных в кластере `dataproc-source` с помощью утилиты `pg_dump`:
+Чтобы перенести метаданные из кластера `dataproc-source`, создайте их резервную копию с помощью утилиты `pg_dump`:
 
 1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера `dataproc-source`:
 
@@ -269,6 +257,7 @@
   
       * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-s3-sa`.
       * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `{{ metastore.integration-version }}`.
+      * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}** — `dataproc-bucket`.
       * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `dataproc-subnet`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
@@ -279,7 +268,7 @@
 
 {% endlist %}
 
-## Импортируйте данные {#import-data}
+## Импортируйте метаданные {#import-data}
 
 {% list tabs group=instructions %}
 
@@ -324,11 +313,11 @@
 
 {% endlist %}
 
-В итоге в кластер `dataproc-target` были импортированы метаданные из кластера `dataproc-source`.
+Таким образом, метаданные из кластера `dataproc-source` импортированы в кластер `dataproc-target`.
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
@@ -338,14 +327,14 @@
 
     - Вручную {#manual}
 
-        1. [Кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
-        1. [Бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-        1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
-        1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
-        1. [Группу безопасности](../../../vpc/operations/security-group-delete.md).
-        1. [Подсеть](../../../vpc/operations/subnet-delete.md).
-        1. [Сеть](../../../vpc/operations/network-delete.md).
-        1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
+        1. [Удалите кластеры {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
+        1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
+        1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+        1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Удалите группу безопасности](../../../vpc/operations/security-group-delete.md).
+        1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+        1. [Удалите сеть](../../../vpc/operations/network-delete.md).
+        1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
     
     - {{ TF }} {#tf}

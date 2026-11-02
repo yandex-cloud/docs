@@ -1,16 +1,18 @@
 # Installing Gatsby using {{ cloud-apps-name }}
 
 
-Follow this guide to install and configure a static website on [Gatsby](https://www.gatsbyjs.com/), a framework for building static and hybrid websites, using the [{{ cloud-apps-name }}](../../cloud-apps/). The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access with automatic SSL certificate issuance.
+Follow this guide to deploy a static website on [Gatsby](https://www.gatsbyjs.com/), a framework for building static and hybrid websites, using [{{ cloud-apps-name }}](../../cloud-apps/). The application will deploy the website to [{{ objstorage-name }}](../../storage/) and configure domain access with automatic SSL certificate issuance.
 
 {% include [static-site-sc-note](../../_includes/tutorials/static-site-sc-note.md) %}
 
-To install Gatsby:
+To deploy a static website on Gatsby:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Configure a DNS zone](#configure-dns).
 1. [Installing Gatsby using {{ cloud-apps-name }}](#install-gatsby).
 1. [Prepare a website repository](#prepare-repo).
+1. [Deploy the website](#deploy-site).
+1. [Configure the website for local development](#configure-site).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -41,7 +43,8 @@ Install a [static website](/marketplace/products/yc/static-site) on Gatsby using
 
   1. [Go]({{ link-console-main }}/link/cloud-apps/) to {{ cloud-apps-name }}.  
   1. Click **{{ ui-key.yacloud.cloud-apps.button_install-application }}**.
-  1. Select the **Static website in {{ objstorage-name }}** application.
+  1. Select the **Static website in {{ objstorage-full-name }}** application.
+  1. Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure your application:
 
       #|
@@ -50,7 +53,7 @@ Install a [static website](/marketplace/products/yc/static-site) on Gatsby using
       || **{{ ui-key.yacloud.common.description }}** | — | — | Application instance description ||
       || **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** | Yes | — | Service account you are going to use to install the app. The service account must have the `storage.admin`, `lockbox.admin`, `certificate-manager.admin`, and `dns.admin` roles for the folder.
       To create a service account with the required permissions during app installation, select `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`. ||
-      || **DNS zone** | Yes | — | ID of the DNS zone to host the application's website. ||
+      || **DNS zone** | Yes | — | Select the zone you created earlier. ||
       || **Subdomain** | — | Empty | Domain where the Gatsby static website will be available. This domain is formed by adding a subdomain to the DNS zone domain, e.g., `site.example.com` or `example.com` if no subdomain is specified. ||
       || **Website configuration** | Yes | — | Select `Gatsby` from the drop-down list. ||
       || **Maximum bucket size** | — | `10` | Maximum size of the {{ objstorage-name }} bucket to host the website's static files, in GB. ||
@@ -78,15 +81,15 @@ After the application is installed, prepare a {{ src-name }} repository with the
 
 ## Deploy the website {#deploy-site}
 
-Open the `README` file in the repository root and complete the steps from that file:
+To deploy the website, you will need to create a service connection and update the project's configuration files:
 
 1. [Set up]({{ link-src-docs }}/sourcecraft/operations/service-connections) a service connection. Specify the service account you created when installing the application.
       
    You will need the service connection name specified during account creation to complete the setup.
 
-1. Update the configuration files in your editor, such as Visual Studio Code:
+1. Update the configuration files:
 
-   1. `gatsby-config.ts`:
+   1. Open the `gatsby-config.ts` file and update as follows:
 
       ```typescript
        const config: GatsbyConfig = {
@@ -115,7 +118,7 @@ Open the `README` file in the repository root and complete the steps from that f
       * `<domain>`: Domain where the website will be available. It usually matches the name of the bucket created when installing the application.
       * `<bucket_name>`: Name of the bucket automatically created during application installation.
 
-   1. `.sourcecraft/ci.yaml`:
+   1. Open the `.sourcecraft/ci.yaml` file and update as follows:
 
       ```yaml
       tokens:
@@ -132,27 +135,32 @@ Open the `README` file in the repository root and complete the steps from that f
       Where:
       * `<service_connection>`: Service connection name.
       * `<domain>`: Domain where the website will be available. It usually matches the name of the bucket created when installing the application.
-      * `scope`: Service connection level. The possible values are:
+      * `scope`: Service connection level. Its possible values are:
          * `repo`: For repository-level connections.
          * `org`: For organization-level connections.
 
-1. Run the CI/CD pipeline to deploy the static website. To do this, run the following commands one by one inside the `main` branch:
+1. Run the CI/CD pipeline to deploy the static website:
 
-   ```bash
-   git commit -a
-   ```
+   1. Commit your changes:
 
-   Enter a name for the commit.
+      ```bash
+      git commit -a
+      ```
 
-   ```bash
-   git push
-   ```
+   1. Enter a name for the commit.
+   1. Push your changes to the repository:
+
+      ```bash
+      git push
+      ```
 
    After the pipeline runs successfully, the website will be available at `https://<domain>`. The system automatically builds your project and uploads the result to the {{ objstorage-name }} bucket.
 
-## Configure the website {#configure-site}
+## Configure the website for local development {#configure-site}
 
-1. Install the required version of [Node.js](https://nodejs.org/) for local development.
+For local development and website testing:
+
+1. Install the required version of [Node.js](https://nodejs.org/).
 
 1. Install the project dependencies:
 
@@ -160,7 +168,7 @@ Open the `README` file in the repository root and complete the steps from that f
    npm install
    ```
 
-1. Start the dev server:
+1. Run the development server:
 
    ```bash
    npm run develop
@@ -179,6 +187,7 @@ Open the `README` file in the repository root and complete the steps from that f
    ```bash
    npm run serve
    ```
+
 1. To publish changes, run the CI/CD pipeline as described in [{#T}](#deploy-site).
 
 ## Check the result {#check-result}

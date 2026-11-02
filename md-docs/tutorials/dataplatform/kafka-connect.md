@@ -272,7 +272,7 @@ Managed Service for Apache Kafka® имеет встроенную поддер�
     offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
     ```
 
-    Kafka Connect будет подключаться к кластеру Managed Service for Apache Kafka® от имени пользователя `user`, [созданного ранее](#before-you-begin).
+    Kafka Connect будет подключаться к кластеру Managed Service for Apache Kafka® от имени пользователя `user`, [созданного ранее](#prepare-infrastructure).
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 
