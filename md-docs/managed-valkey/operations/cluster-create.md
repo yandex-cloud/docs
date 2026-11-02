@@ -1207,7 +1207,7 @@
 
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
 
-        * `announce_hostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
+        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
             {% note info %}
             

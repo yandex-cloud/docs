@@ -41,8 +41,12 @@ You can use {{ mkf-name }} to transfer data between databases. {{ mkf-name }} cl
 ## Other {#other}
 
 * [{#T}](zk-kraft-kafka-migration.md)
+
+
 * [{#T}](deploy-kafka-ui.md)
 * [{#T}](data-processing.md)
 * [{#T}](retention-policy.md)
+* [{#T}](kafka-iceberg-s3-connect.md)
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

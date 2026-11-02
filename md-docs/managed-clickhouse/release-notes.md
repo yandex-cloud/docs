@@ -21,9 +21,11 @@ index: 1
 
 # История изменений в Yandex Managed Service for ClickHouse®
 
+
 ## Октябрь 2026 {#october-2026}
 
 Добавлены практические рекомендации по [восстановлению кластеров при отказе зоны доступности](../architecture/mdb-recovery.md).
+
 
 ## Сентябрь 2026 {#september-2026}
 

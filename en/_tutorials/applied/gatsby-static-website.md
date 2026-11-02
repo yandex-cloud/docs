@@ -75,9 +75,8 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
   1. Enable **{{ ui-key.yacloud.storage.form-components.SizeLimitField.field_size-limit-enabled_hPy7f }}** and specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}` in the fields that appear.
   1. Select the **Public** [access](../../storage/concepts/bucket.md#bucket-access) type for all operations.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
-  1. On the page with the list of buckets, select the bucket you created.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. On the page with the list of buckets, select the one you created.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
   1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the website home page file. For the website from the Gatsby template, specify `index.html`.
   1. Optionaly, in the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in the event of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
@@ -108,8 +107,9 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
       name: gatsbytest.ru
       folder_id: b1g681qpemb4********
       anonymous_access_flags:
-        read: false
-        list: false
+        read: true
+        list: true
+        config_read: true
       default_storage_class: STANDARD
       versioning: VERSIONING_DISABLED
       max_size: "1073741824"
@@ -209,8 +209,7 @@ On the DNS sever, create a public [DNS zone](../../dns/concepts/dns-zone.md) and
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the bucket you created earlier.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone under the same name as the bucket, e.g., `gatsbytest.ru.` (with a trailing dot). Click **{{ ui-key.yacloud.common.create }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -462,8 +461,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ objstorage-name }}**.
   1. Click the bucket name, `gatsbytest.ru` in our example.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** tab.
-  1. Select **{{ ui-key.yacloud.storage.bucket.switch_https }}** in the menu at the top.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_security }}** → **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
   1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.

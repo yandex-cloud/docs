@@ -17,7 +17,7 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [Yandex Cloud CDN](../../cdn/index.md) | Сервис для организации сети распространения контента | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Cloud DNS](../../dns/index.md) | Сервис администрирования ресурсных записей [DNS](../../glossary/dns.md) и обслуживания DNS-запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Cloud Interconnect](../../interconnect/index.md) | Сервис управления выделенными сетевыми соединениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Cloud Router](../../cloud-router/index.md) | <code><b><small>Preview</small></b></code> Сервис для управления сетевыми топологиями гибридного облака в Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [Yandex Cloud Router](../../cloud-router/index.md) | <code><b><small>Preview</small></b></code> Сервис для управления сетевыми топологиями гибридного облака в Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Stackland](../../stackland/index.md) | Сервис для управления AI‑нагрузками и микросервисными решениями в закрытом контуре компании | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Cloud Video](../../video/index.md) | Сервис для видеохостинга и проведения онлайн-трансляций | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Compute Cloud](../../compute/index.md) | Сервис для создания и управления [виртуальными машинами](../../glossary/vm.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
@@ -45,6 +45,7 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [Yandex StoreDoc](../../storedoc/index.md) | Сервис для создания и управления кластерами Yandex StoreDoc | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex WebSQL](../../websql/index.md) | Сервис для подключения к кластерам управляемых баз данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Искусственный интеллект** | > | > | > ||
+|| [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/) | Платформа для создания AI-приложений и AI-агентов на базе больших генеративных моделей | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex DataSphere](../../datasphere/index.md) | Сервис для ML-разработки полного цикла | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts/index) | Сервис поисковых запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
@@ -69,7 +70,6 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || **Инструменты DevOps** | > | > | > ||
 || [SourceCraft](https://sourcecraft.dev/portal/docs/ru) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/) | AI-ассистент разработчика с функцией автодополнения кода | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/) | <code><b><small>Preview</small></b></code> Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Logging](../../logging/index.md) | Сервис для агрегации и чтения логов пользовательских приложений и ресурсов Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Cloud Marketplace](../../marketplace/index.md) | Магазин готовых инструментов для разработки, анализа данных, обеспечения безопасности, создания бизнес‑приложений и других задач | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Container Registry](../../container-registry/index.md) | Сервис для управления образами и контейнерами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||

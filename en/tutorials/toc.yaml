@@ -995,6 +995,10 @@ items:
               Migrating a database from a third-party {{ KF }} cluster to {{
               mkf-name }}
             href: dataplatform/kafka-connector.md
+          - name: >-
+              Transferring data from {{ mkf-name }} into a {{ IBRG }} table in
+              {{ objstorage-name }}
+            href: dataplatform/kafka-iceberg-s3-connect.md
       - name: '{{ AF }}'
         items:
           - name: Automating {{ yq-name }} tasks with {{ maf-name }}
@@ -1292,7 +1296,7 @@ items:
           - name: Using a {{ mrd-name }} cluster as a PHP session storage
             href: dataplatform/valkey-as-php-sessions-storage.md
           - name: >-
-              Using a {{ mrd-name }} cluster with a search module and {{
+              Using the {{ mrd-name }} cluster with the Search module and {{
               foundation-models-full-name }} models for vector search in a RAG
               system
             href: dataplatform/valkey-rag-search.md

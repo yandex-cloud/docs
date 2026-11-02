@@ -1,8 +1,9 @@
 # Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с использованием {{ data-transfer-full-name }}
 
 
-Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из {{ objstorage-full-name }} в таблицу кластера {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
@@ -10,17 +11,19 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Подготовьте облако к работе {#before-you-begin}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры входят:
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mpg-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#infra}
 
-
-Подготовьте инфраструктуру:
 
 {% list tabs group=resources %}
 
@@ -31,7 +34,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
-        * Выделен публичный доступ к хостам кластера.
+        * С публичным доступом к хостам кластера.
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
@@ -73,17 +76,9 @@
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
         * `pg_password` — пароль пользователя {{ PG }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
@@ -91,7 +86,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. Создайте на рабочей машине `demo_data.csv` и наполните его тестовыми данными:
+1. Создайте на рабочей машине файл `demo_data.csv` и наполните его тестовыми данными:
 
     ```csv
     1,Anna
@@ -108,19 +103,22 @@
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.manual.title }}**:
 
-    
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+
+      
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
 
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак запятой `,`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — запятая `,`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — имя CSV-файла в бакете, например `demo_data.csv`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и типы данных:
 
         * `Id`: `Int64`;
         * `Name`: `UTF8`.
@@ -136,7 +134,7 @@
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — имя кластера-источника {{ PG }} из выпадающего списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник {{ PG }} из выпадающего списка.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
@@ -148,19 +146,11 @@
         1. Укажите в файле `objstorage-to-postgres.tf` переменные:
 
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+            * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        1. Обновите ресурсы:
+    
+            {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -192,7 +182,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).

@@ -9,14 +9,229 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mtr-full-name }
 
 ## Getting a list of maintenance jobs {#list-maintenance}
 
+For {{ mtr-name }}, you can get a list of maintenance jobs in a [cloud](#list-cloud-maintenance), [folder](#list-folder-maintenance), or [cluster](#list-cluster-maintenance).
+
+### Getting a list of maintenance jobs in a cloud {#list-cloud-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances?cloudId=<cloud_ID>'
+        ```
+
+        
+        Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cloud_id": "<cloud_ID>"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        
+        Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+### Getting a list of maintenance jobs in a folder {#list-folder-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances?folderId=<folder_ID>'
+        ```
+
+        
+        Learn how to get a folder ID in [this guide](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "folder_id": "<folder_ID>"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        
+        Learn how to get a folder ID in [this guide](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+### Getting a list of maintenance jobs in a cluster {#list-cluster-maintenance}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
 
-  To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the list of maintenance jobs and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance jobs.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+
+    To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the list of maintenance jobs and select the status you want from the drop-down menu. To find a specific maintenance job, enter its ID or task name in the field above the list of maintenance jobs.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances?resourceId=<cluster_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "resource_id": "<cluster_ID>"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.List
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+## Getting maintenance job details {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.Get](../api-ref/Maintenance/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<maintenance_job_ID>'
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<maintenance_job_ID>"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.Get
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
 
 {% endlist %}
 
@@ -26,7 +241,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mtr-full-name }
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click the ID of the maintenance job you need.
@@ -44,14 +259,84 @@ To reschedule maintenance for a new date and time:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
-  1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
-  1. In the window that opens:
-      * To postpone the maintenance until the next available window, click **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** and then **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
-      * To move a maintenance forward or backward to a specific UTC date and time, click **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, then select a new date and time and click **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
+    1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
+    1. In the window that opens:
+        * To postpone the maintenance until the next available window, click **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** and then **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+        * To move a maintenance forward or backward to a specific UTC date and time, click **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, then select a new date and time and click **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+
+- REST API {#api}
+
+    To reschedule maintenance for a new date and time:
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<maintenance_job_ID>:reschedule' \
+        --data '{
+                    "rescheduleType": "<reschedule_type>",
+                    "scheduledAt": "<timestamp>"
+                }'
+        ```
+
+        Where `rescheduleType` is the reschedule type that can be one of the  following values:
+
+        * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
+        * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
+
+        The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `scheduledAt`.
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<maintenance_job_ID>",
+                "reschedule_type": "<reschedule_type>",
+                "scheduled_at": "<timestamp>"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.Reschedule
+        ```
+
+        Where `reschedule_type` is the reschedule type that can be one of the following values:
+
+        * `NEXT_AVAILABLE_WINDOW`: Move the maintenance to the nearest window.
+        * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
+
+        The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `scheduled_at`.
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -65,11 +350,63 @@ To run a scheduled cluster maintenance job immediately:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance.
-  1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance.
+    1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/maintenances/<maintenance_job_ID>:reschedule' \
+        --data '{
+                    "rescheduleType": "IMMEDIATE"
+                }'
+        ```
+
+       You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<maintenance_job_ID>",
+                "reschedule_type": "IMMEDIATE"
+              }' \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.MaintenanceService.Reschedule
+        ```
+
+       You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -81,7 +418,7 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
@@ -113,7 +450,7 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
                               `hour=<sequence_number_of_hour_interval>
         ```
 
-        Where `type` is the maintenance type: 
+        Where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -123,7 +460,7 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
 
   1. To change maintenance time (including for disabled clusters), add the `maintenance_window` section to the cluster description:
 
@@ -159,19 +496,19 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
       }
       ```
 
-     Where:
+      Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+      * `updateMask`: Comma-separated string of settings to update.
 
-            Here, we provide only one setting. 
+          Here, we provide only one setting.
 
-        * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. Provide one of these two properties: 
+      * `maintenanceWindow`: Maintenance window settings, applying to both running and stopped clusters. Provide one of these two properties:
 
-            * `anytime`: Maintenance takes place at any time.
-            * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+          * `anytime`: Maintenance takes place at any time.
+          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-                * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: UTC hour interval, from `1` to `24`.
+              * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+              * `hour`: UTC hour interval, from `1` to `24`.
 
                   > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
@@ -185,7 +522,7 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
         --data '@body.json'
       ```
 
-     You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+      You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -193,7 +530,7 @@ By default, [maintenance](../concepts/maintenance.md) can be scheduled for any t
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 

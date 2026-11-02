@@ -96,7 +96,7 @@ To create an autoscaling instance group infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
@@ -127,7 +127,7 @@ Once you created the infrastructure, [test your instance group and network load 
 
 To stop paying for the resources you created:
 
-1. Open the `vm-autoscale.tf` configuration file and delete your infrastructure description from it.
+1. Open the `vm-autoscale.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -1,8 +1,9 @@
 # Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-Вы можете перенести данные из {{ objstorage-name }} в таблицу {{ ydb-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из {{ objstorage-name }} в таблицу базы данных {{ ydb-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -10,19 +11,21 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Подготовьте облако к работе {#before-you-begin}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры входят:
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * База данных {{ ydb-name }} ([тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
-  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+  	* Для режима с выделенными инстансами — оплачивается использование вычислительных ресурсов, выделенных для БД, объем хранилища и резервные копии.
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#infra}
 
-
-Подготовьте инфраструктуру:
 
 {% list tabs group=instructions %}
 
@@ -63,17 +66,9 @@
         * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
@@ -107,19 +102,22 @@
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) типа `{{ objstorage-name }}` со следующими настройками:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.manual.title }}**:
 
-        
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
 
+      
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+  
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак запятой `,`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — запятая `,`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и типы данных:
 
         * `Id`: `Int64`;
         * `Name`: `UTF8`.
@@ -142,7 +140,7 @@
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
 
-        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**. Активация может занять 5−10 минут.
 
     - С помощью {{ TF }} {#tf}
 
@@ -151,19 +149,11 @@
             * `source_endpoint_id` — идентификатор эндпоинта для источника.
             * `transfer_enabled` — значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Обновите ресурсы:
 
-            ```bash
-            terraform validate
-            ```
+            {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**. Активация может занять 5−10 минут.
 
     {% endlist %}
 
@@ -232,7 +222,7 @@
         1. Выполните запрос:
 
             ```sql
-                SELECT * FROM table1;
+            SELECT * FROM table1;
             ```
 
             {% cut "Пример ответа" %}
@@ -257,11 +247,11 @@
 
 {% note info %}
 
-Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
+Перед удалением созданных ресурсов [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).

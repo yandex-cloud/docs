@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, какими материа�
 
 ### Инфраструктура и сеть {#infra}
 
-* [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
+* [{{ alb-full-name }}](../application-load-balancer/qa.md)
 * [{{ baremetal-full-name }}](../baremetal/qa/all.md)
 * [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
 * [{{ cdn-full-name }}](../cdn/troubleshooting.md)
@@ -26,6 +26,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ compute-full-name }}](../compute/qa/all.md)
 * [{{ network-load-balancer-full-name }}](../network-load-balancer/qa/index.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
+* [{{ stackland-full-name }}](../stackland/operations/troubleshooting.md)
 * [{{ vpc-full-name }}](../vpc/qa/index.md)
 
 
@@ -41,6 +42,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
 * [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
 * [{{ mspqr-full-name }}](../managed-spqr/qa/all.md)
+* [{{ mtr-full-name }}](../managed-trino/qa/general.md)
 * [{{ mrd-full-name }}](../managed-valkey/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
@@ -50,6 +52,7 @@ description: Из статьи вы узнаете, какими материа�
 
 ### Искусственный интеллект {#ml-ai}
 
+* [{{ vc-name }}]({{ link-src-docs }}/vibecraft/qa)
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
@@ -65,7 +68,6 @@ description: Из статьи вы узнаете, какими материа�
 
 * [{{ src-full-name }}]({{ link-src-docs }}/sourcecraft/qa/common)
 * [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
-* [{{ vc-name }}]({{ link-src-docs }}/vibecraft/qa)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ container-registry-full-name }}](../container-registry/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)

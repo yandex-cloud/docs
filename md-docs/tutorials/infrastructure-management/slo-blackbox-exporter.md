@@ -6,7 +6,7 @@ SLO-мониторинг помогает оценивать надежност�
 
 [SLO](../../monium/slo/index.md#basic-terms) (Service Level Objective) — целевой уровень надежности сервиса, например «99,9% запросов за 30 дней обработаны успешно». Вы задаете SLO исходя из требований к надежности сервиса. На основе SLO Monium рассчитывает [Error Budget](../../monium/slo/index.md#basic-terms) — допустимый объем ошибок за период. Команда отслеживает расход Error Budget и реагирует на снижение надежности заранее.
 
-В руководстве используется мониторинг на основе [Prometheus](https://prometheus.io/)-экспортеров. Вы настроите синтетические проверки доступности и времени отклика, поставку метрик в Monium, два SLO и алерты по Error Budget. Руководство подойдет SRE-инженерам, DevOps-специалистам и разработчикам, которые отвечают за надежность веб-сервисов.
+В руководстве используется мониторинг на основе экспортеров [Prometheus](https://prometheus.io/). Вы настроите синтетические проверки доступности и времени отклика, поставку метрик в Monium, два SLO и алерты по Error Budget. Руководство подойдет SRE-инженерам, DevOps-специалистам и разработчикам, которые отвечают за надежность веб-сервисов.
 
 Для сбора и доставки метрик потребуются:
 
@@ -14,7 +14,7 @@ SLO-мониторинг помогает оценивать надежност�
 * [blackbox_exporter](https://github.com/prometheus/blackbox_exporter) — выполняет синтетические HTTP-, TCP- и ICMP-проверки. Метрики проверок используются для расчета [SLI](../../monium/slo/index.md#basic-terms) по доступности и времени отклика.
 * [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) (OTel Collector) — собирает метрики с node_exporter и blackbox_exporter и отправляет их в Monium.
 
-Схема руководства: node_exporter работает на сервере приложения `app-server`, а blackbox_exporter и OTel Collector — на отдельном сервере мониторинга `monitoring-server`. OTel Collector опрашивает оба экспортера по Prometheus и отправляет метрики в Monium. Такой подход не требует изменений в приложении и позволяет хранить сервисы в приватной сети.
+Схема руководства: node_exporter работает на сервере приложения `app-server`, а blackbox_exporter и OTel Collector — на отдельном сервере мониторинга `monitoring-server`. OTel Collector опрашивает оба экспортера по протоколу Prometheus и отправляет метрики в Monium. Такой подход не требует изменений в приложении и позволяет хранить сервисы в приватной сети.
 
 ```mermaid
 flowchart LR
@@ -76,11 +76,11 @@ flowchart LR
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-1. Подготовьте веб-сервис к SLO-мониторингу. Он может располагаться в любой инфраструктуре — в примерах подставьте его IP-адрес или доменное имя. В руководстве веб-сервис работает на ВМ `app-server` с Linux Ubuntu 20.04 и доступен по внутреннему IP-адресу `10.128.0.10`.
+1. Подготовьте веб-сервис к SLO-мониторингу. Он может располагаться в любой инфраструктуре — в примерах подставьте его IP-адрес или доменное имя. В руководстве веб-сервис работает на ВМ `app-server` под управлением Linux Ubuntu 20.04 и доступен по внутреннему IP-адресу `10.128.0.10`.
 1. Создайте сервер мониторинга в [Compute Cloud](../../compute/operations/vm-create/create-linux-vm.md) или в другой инфраструктуре. В руководстве используется ВМ Compute Cloud с Linux Ubuntu 20.04 и с именем `monitoring-server`. На ней вы установите blackbox_exporter и OTel Collector — они проверяют веб-сервис и доставляют метрики в Monium.
-1. Чтобы настроить доступ для отправки данных в Monium, создайте сервисный аккаунт и API-ключ. Это можно сделать интерфейсе [Monium](https://monium.yandex.cloud): слева выберите **Настройки** → **Настройки проекта** → **Настройка записи телеметрии** → **OpenTelemetry**.
+1. Чтобы настроить доступ для отправки данных в Monium, создайте сервисный аккаунт и API-ключ. Это можно сделать в интерфейсе [Monium](https://monium.yandex.cloud): слева выберите **Настройки** → **Настройки проекта** → **Настройка записи телеметрии** → **OpenTelemetry**.
 
-   * Нажмите ссылку **Создайте сервисный аккаунт**. Выберите роль `monium.metrics.writer` или `monium.telemetry.writer`.
+   * Перейдите по ссылке **Создайте сервисный аккаунт**. Выберите роль `monium.metrics.writer` или `monium.telemetry.writer`.
    * Нажмите ссылку **Создайте API-ключ**. Выберите область действия `yc.monium.metrics.write` или `yc.monium.telemetry.write`.
 
    Также сервисный аккаунт и API-ключ можно создать по инструкциям [Создание сервисного аккаунта](../../iam/operations/sa/create.md) и [Создать API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
@@ -165,7 +165,7 @@ flowchart LR
     curl http://<приватный_IP-адрес_сервера>:9100/metrics
     ```
 
-Вместо node_exporter можно использовать Unified Agent на сервере приложения. Он собирает системные метрики и отправляет их напрямую в Monium, минуя OTel Collector. В этом случае конфигурация метрик будет храниться в разных местах. Подробнее в разделе [Поставка системных метрик Linux](../../monium/operations/unified-agent/linux_metrics.md).
+Вместо node_exporter можно использовать Unified Agent на сервере приложения. Он собирает системные метрики и отправляет их напрямую в Monium, минуя OTel Collector. В этом случае конфигурация метрик будет храниться в разных местах. Подробнее о поставке системных метрик Linux в разделе [Поставка системных метрик Linux](../../monium/operations/unified-agent/linux_metrics.md).
 
 
 ## Установите и настройте blackbox_exporter {#blackbox-setup}
@@ -332,7 +332,7 @@ OTel Collector отправляет в Monium метрики, собранные
     ```
 
     Где:
-    * `MONIUM_PROJECT` — имя проекта Monium, например `folder__b1gg5f45su0k6rjr39s1`.
+    * `MONIUM_PROJECT` — имя проекта Monium, например `folder__b1gg5f45su0k********`.
     * `MONIUM_API_KEY` — API-ключ сервисного аккаунта с ролью `monium.telemetry.writer`.
 
 ### Настройте конфигурацию OTel Collector {#otel-config}
@@ -438,7 +438,7 @@ service:
 
 Где:
 
-* `10.128.0.10` — IP-адрес вашего сервера приложения. Замените его на свой.
+* `10.128.0.10` — IP-адрес сервера приложения. Замените его на свой.
 * `relabel_configs` — правила перезаписи меток, чтобы Prometheus опрашивал blackbox_exporter, а не саму цель напрямую.
 * `endpoint` — [эндпоинт](../../monium/collector/otlp-protocol.md#endpoints) для отправки телеметрии в Monium.
 * `x-monium-cluster` и `x-monium-service` — метки `cluster` и `service`, которые Monium присваивает всем метрикам из этого OTel Collector. По ним вы будете находить метрики и строить SLO. В примере используются значения `production` и `lemp` (веб-стек Linux, Nginx, MySQL, PHP) — замените их на свои.
@@ -477,20 +477,21 @@ service:
     ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable --now otelcol
+    sudo systemctl restart otelcol
     sudo systemctl status otelcol
     ```
 
 1. Убедитесь, что метрики поступают в Monium:
 
-    * Откройте [Monium](https://monium.yandex.cloud).
-    * В левом меню раскройте **Обзор** и выберите **Метрики**.
-    * В поиске укажите `service = "lemp"` — значение метки `service` из заголовка `x-monium-service` в конфигурации OTel Collector. Если вы задали другое значение, укажите его.
+    1. Откройте [Monium](https://monium.yandex.cloud).
+    1. В левом меню раскройте **Обзор** и выберите **Метрики**.
+    1. В поиске укажите `service = "lemp"` — значение метки `service` из заголовка `x-monium-service` в конфигурации OTel Collector. Если вы задали другое значение, укажите его.
 
     В списке появятся метрики `probe_success`, `probe_duration_seconds` и метрики node_exporter.
 
 {% note info %}
 
-Учитывайте, что данные в Monium появляются не сразу, а с задержкой, поскольку Otel Collector начинает отправку данных через 60 секунд.
+Учитывайте, что данные в Monium появляются не сразу, а с задержкой, поскольку OTel Collector начинает отправку данных через 60 секунд.
 
 {% endnote %}
 
@@ -594,7 +595,7 @@ Error Budget рассчитывается автоматически сразу 
 
 ## Настройте SLO на время отклика сервиса {#slo-latency}
 
-blackbox_exporter измеряет время синтетических проверок через метрику `probe_duration_seconds`. На ее основе создайте SLO: 99% HTTP-проверок должны завершаться быстрее чем за 300 мс.
+blackbox_exporter измеряет время синтетических проверок через метрику `probe_duration_seconds`. На ее основе создайте SLO: 99% HTTP-проверок должны завершаться быстрее, чем за 300 мс.
 
 {% note info %}
 
@@ -607,12 +608,12 @@ blackbox_exporter измеряет время синтетических про�
 | **Метрика**                            | **Что измеряет**               |
 |----------------------------------------|--------------------------------|
 | `probe_dns_lookup_time_seconds`        | Время разрешения DNS           |
-| `probe_tcp_connect_duration_seconds`   | Время установки TCP-соединения |
-| `probe_tls_handshake_duration_seconds` | Время TLS-рукопожатия          |
-| `probe_http_duration_seconds`          | Время фаз HTTP-запроса         |
+| `probe_http_duration_seconds{phase="connect"}` | Время установки TCP-соединения |
+| `probe_http_duration_seconds{phase="tls"}`     | Время TLS-рукопожатия          |
+| `probe_http_duration_seconds`                  | Время фаз HTTP-запроса         |
 | `probe_duration_seconds`               | Суммарное время проверки       |
 
-Для визуализации добавьте метрики по фазам в дашборд в виде stacked-графика. SLO и алерты стройте по суммарной метрике `probe_duration_seconds`. При деградации задержки графики покажут, в какой фазе появилась проблема: DNS, TLS или сетевой маршрут.
+Для визуализации добавьте метрики по фазам в дашборд в виде графика с наложением серий (stacked). SLO и алерты стройте по суммарной метрике `probe_duration_seconds`. При деградации задержки графики покажут, в какой фазе появилась проблема: DNS, TLS или сетевой маршрут.
 
 ### Создайте SLO на время отклика {#create-slo-latency}
 
@@ -661,7 +662,7 @@ blackbox_exporter измеряет время синтетических про�
 
 ## Используйте системные метрики для диагностики после алерта {#diagnostics}
 
-Когда SLO-алерт сработал, нужно понять, что именно сломалось на сервере. Системные метрики node_exporter помогают быстро найти причину:
+Когда срабатывает SLO-алерт, нужно понять, в чем причина сбоя на сервере. Системные метрики node_exporter помогают быстро найти причину:
 
 | **Категория**            | **Метрики**                                                                                                 | **На что смотреть**                         |
 |----------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------|
@@ -671,7 +672,7 @@ blackbox_exporter измеряет время синтетических про�
 | **Файловые системы** | `node_filesystem_free_bytes`, `node_filesystem_files_free`                                              | Свободное место и inodes                 |
 | **Сеть**             | `node_network_receive_bytes_total`, `node_network_transmit_bytes_total`, `node_network_receive_drop_total` | Трафик и дропы по интерфейсам         |
 
-Если SLO-алерт сработал по `probe_duration_seconds`, сначала проверьте сетевые фазы: `probe_dns_lookup_time_seconds` и `probe_tls_handshake_duration_seconds`. Затем перейдите к серверным метрикам: `node_disk_io_time_weighted_seconds_total` и `node_cpu_seconds_total{mode="iowait"}`.
+Если SLO-алерт сработал по `probe_duration_seconds`, сначала проверьте сетевые фазы: `probe_dns_lookup_time_seconds` и `probe_http_duration_seconds{phase="tls"}`. Затем перейдите к серверным метрикам: `node_disk_io_time_weighted_seconds_total` и `node_cpu_seconds_total{mode="iowait"}`.
 
 
 ## Удалите созданные ресурсы {#clear-out}

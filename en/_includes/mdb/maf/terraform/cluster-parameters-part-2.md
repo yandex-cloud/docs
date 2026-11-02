@@ -3,7 +3,7 @@
 
     * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
     * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. Its possible values are:
 
         * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -26,18 +26,66 @@
 
     The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
-* `code_sync`: DAG file source type and parameters.
+* `code_sync`: Type and properties of the DAG file [source](../../../../managed-airflow/concepts/dag-sources.md).
 
   * `s3.bucket`: Bucket name.
 
-  * `git_sync`: Git repo parameters:
+  * `git_sync`: Git repository connection settings. General settings for both authentication methods:
 
-    * `repo`: Repository address in `git@github.com:<user>/<path_to_git_repo>.git` format.
     * `branch`: Repository branch name, e.g., `main`.
     * `sub_path`: Path to the directory with DAG files relative to the repository, in `/<path-to-DAG-files>` format.
-    * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
 
-    {% include [warn-git](../note-git-sync.md) %}
+    Other settings depend on the authentication method. Select one of the connection methods:
+
+    {% list tabs %}
+
+    - SSH key
+
+        To connect over SSH, specify:
+
+        * `repo`: Repository address in `git@<host>:<path_to_repository>.git` format.
+        * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`, or the key file contents retrieved using the `file()` function.
+
+        For example, to connect using a key from a file, specify the following:
+
+        ```hcl
+        code_sync = {
+          git_sync = {
+            repo     = "git@github.com:<username>/<repository_name>.git"
+            branch   = "main"
+            sub_path = "/dags"
+            ssh_key  = file("<path_to_key_file>")
+          }
+        }
+        ```
+
+        {% include [git-sync-ssh](../note-git-sync-ssh.md) %}
+
+    - Login and password
+
+        To connect over HTTP(S), specify:
+
+        * `repo`: Repository address in `https://<host>/<path_to_repository>.git` or `http://<host>/<path_to_repository>.git` format.
+        * `username`: Username. When using a token, the value depends on the [service and the token type](../../../../managed-airflow/concepts/dag-sources.md#git-token).
+        * `password`: Password or access token.
+
+        For example, to connect over HTTPS using a token from a file, specify the following:
+
+        ```hcl
+        code_sync = {
+          git_sync = {
+            repo     = "https://github.com/<username>/<repository_name>.git"
+            branch   = "main"
+            sub_path = "/dags"
+            username = "<username>"
+            password = file("<path_to_token_file>")
+          }
+        }
+        ```
+
+    {% endlist %}
+
+    {% include [warn-git](../note-git-sync-network.md) %}
 
   Specify either `s3` or `git_sync`.
 

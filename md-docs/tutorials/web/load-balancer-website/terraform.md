@@ -191,14 +191,14 @@ Terraform распространяется под лицензией [Business S
 
     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
     * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-    * [Группа виртуальных машин](../../../compute/concepts/instance-groups/index.md) — [yandex_compute_instance_group](../../../terraform/resources/compute_instance_group.md)
-    * [Сетевой балансировщик нагрузки](../../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer](../../../terraform/resources/lb_network_load_balancer.md)
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md)
-    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md)
+    * [Группа виртуальных машин](../../../compute/concepts/instance-groups/index.md) — [yandex_compute_instance_group](../../../terraform/resources/compute_instance_group.md).
+    * [Сетевой балансировщик нагрузки](../../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer](../../../terraform/resources/lb_network_load_balancer.md).
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
 
 
 1. В блоке `variable` укажите значение переменной `folder_id` — идентификатор каталога, в котором создаются необходимые ресурсы.
-1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ и содержимое SSH-ключа. Ключ указывается в формате `<любое_имя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа LAMP (LEMP). В разных образах это разные пользователи. Подробнее в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
+1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ: имя пользователя и путь к файлу с открытым SSH-ключом в поле `ssh_authorized_keys`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа LAMP (LEMP). В разных образах это разные пользователи. Подробнее в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
 
     Пару [SSH-ключей](../../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../../compute/operations/vm-connect/ssh.md).
 
@@ -237,7 +237,7 @@ Terraform распространяется под лицензией [Business S
     
     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-После создания инфраструктуры, [загрузите файлы сайта](#upload-files).
+После создания инфраструктуры [загрузите файлы сайта](#upload-files).
 
 
 ## Загрузите файлы сайта {#upload-files}
@@ -272,7 +272,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-После загрузки всех файлов, [протестируйте отказоустойчивость](#test).
+После загрузки всех файлов [протестируйте отказоустойчивость](#test).
 
 
 ## Протестируйте отказоустойчивость {#test}

@@ -40,7 +40,6 @@
 * [В консоли недоступны закрывающие документы](known-issues/closing-documents-unavailable.md)
 * [С баланса платежного аккаунта списываются средства за неиспользуемые ресурсы](known-issues/billing-account-is-charged-by-unused-resources.md)
 * [Деньги долго не приходят на баланс после платежа переводом с расчетного счета для юридических лиц](known-issues/recover-lost-payment.md)
-* [Устранение ошибки `Приглашение не найдено` при подключении к партнерской программе](known-issues/cannot-access-partner-programme.md)
 * [Могут ли ресурсы удалиться при неоплате](known-issues/cloud-and-files-removal.md)
 * [Облако зависло в статусе `CREATING` или долго не создается](known-issues/cloud-stuck-in-creating-status.md)
 * [Документы перестали поступать в систему ЭДО](known-issues/no-new-incoming-documents-in-edi.md)

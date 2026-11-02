@@ -41,7 +41,7 @@
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
@@ -59,143 +59,150 @@
 
 Остальные ресурсы вы можете создать вручную или с помощью Terraform.
 
-### Вручную {#create-manual}
+{% list tabs group=instructions %}
 
-1. [Создайте кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
+- Вручную {#manual}
 
-    * **Имя БД** — `db1`;
-    * **Имя пользователя** — `user1`.
+  1. [Создайте кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-postgresql/concepts/instance-types.md) со следующими настройками:
+  
+      * **Имя БД** — `db1`;
+      * **Имя пользователя** — `user1`.
+  
+  1. Чтобы импортировать данные в бакет Object Storage:
+  
+      1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом.
+      1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями:
+  
+          * [dataproc.agent](../security/index.md#dataproc-agent);
+          * [dataproc.provisioner](../security/index.md#dataproc-provisioner);
+          * [monitoring.viewer](../../monitoring/security/index.md#monitoring-viewer);
+          * [storage.viewer](../../storage/security/index.md#storage-viewer);
+          * [storage.uploader](../../storage/security/index.md#storage-uploader).
+  
+      1. [Выдайте этому сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
+  
+  1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) любой подходящей вам [конфигурации](../concepts/instance-types.md).
+  
+      Укажите настройки, соответствующие хранилищу, в которое будут импортированы данные:
+      
+      {% list tabs group=storage_system %}
+      
+      - Object Storage {#storage}
+      
+          * **Сервисный аккаунт** — имя созданного ранее сервисного аккаунта.
+          * **Имя бакета** — имя созданного ранее бакета.
+          * **Сервисы** — `Sqoop`.
+      
+      - Директория HDFS {#hdfs}
+      
+          **Сервисы**:
+      
+          * `HBase`,
+          * `HDFS`,
+          * `Sqoop`,
+          * `Yarn`,
+          * `Zookeeper`.
+      
+      - Apache Hive {#hive}
+      
+          * **Сервисы**:
+      
+              * `HDFS`,
+              * `Hive`,
+              * `Mapreduce`,
+              * `Sqoop`,
+              * `Yarn`.
+      
+          * **Свойства** — ключ `hive:hive.execution.engine` со значением `mr`.
+      
+      - Apache HBase {#hbase}
+      
+          **Сервисы**:
+      
+          * `HBase`,
+          * `HDFS`,
+          * `Sqoop`,
+          * `Yarn`,
+          * `Zookeeper`.
+      
+      {% endlist %}
+  
+  1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам Managed Service for PostgreSQL и Yandex Data Processing.
+  
+  1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
+  
+      * [к виртуальной машине и кластеру Yandex Data Processing](../operations/security-groups.md);
+      * [к кластеру Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-1. Чтобы импортировать данные в бакет Object Storage:
 
-    1. [Создайте бакет](../../storage/operations/buckets/create.md) с ограниченным доступом.
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями:
+- Terraform {#tf}
 
-        * [dataproc.agent](../security/index.md#dataproc-agent);
-        * [dataproc.provisioner](../security/index.md#dataproc-provisioner);
-        * [monitoring.viewer](../../monitoring/security/index.md#monitoring-viewer);
-        * [storage.viewer](../../storage/security/index.md#storage-viewer);
-        * [storage.uploader](../../storage/security/index.md#storage-uploader).
+  1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
+  1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+  1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+  
+  1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf).
+  
+      В этом файле описаны:
+  
+      * [группы безопасности](../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины;
+      * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для кластера Yandex Data Processing;
+      * [бакет Object Storage](../../storage/concepts/bucket.md);
+      * кластер Managed Service for PostgreSQL;
+      * кластер Yandex Data Processing;
+      * виртуальная машина с публичным доступом из интернета.
+  
+  1. Укажите параметры инфраструктуры в файле конфигурации `clusters-postgresql-data-proc-and-vm.tf` в блоке `locals`:
+  
+      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
+      * `network_id` — идентификатор созданной ранее облачной сети.
+      * `subnet_id` — идентификатор созданной ранее подсети.
+      * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в Object Storage.
+      * `data_proc_sa` — имя сервисного аккаунта для кластера Yandex Data Processing. Оно должно быть уникальным в каталоге.
+      * `pg_cluster_version` — версия PostgreSQL кластера Managed Service for PostgreSQL.
+      * `pg_cluster_password` — пароль для пользователя `user1` базы данных `db1` Managed Service for PostgreSQL.
+      * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
+      * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+      * `bucket_name` — имя бакета в Object Storage. Оно должно быть уникальным для всего Object Storage.
+      * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../operations/connect-ssh.md) для кластера Yandex Data Processing.
+  
+          Для [SSH-подключения](../../glossary/ssh-keygen.md) к хостам кластера Yandex Data Processing версии 1.x используйте имя пользователя `root`.
 
-    1. [Выдайте этому сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) разрешения на чтение и запись в бакет.
+  1. Создайте ресурсы:
+  
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+  
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
-1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) любой подходящей вам [конфигурации](../concepts/instance-types.md).
 
-    Укажите настройки, соответствующие хранилищу, в которое будут импортированы данные:
-    
-    {% list tabs group=storage_system %}
-    
-    - Object Storage {#storage}
-    
-        * **Сервисный аккаунт** — имя созданного ранее сервисного аккаунта.
-        * **Имя бакета** — имя созданного ранее бакета.
-        * **Сервисы** — `Sqoop`.
-    
-    - Директория HDFS {#hdfs}
-    
-        **Сервисы**:
-    
-        * `HBase`,
-        * `HDFS`,
-        * `Sqoop`,
-        * `Yarn`,
-        * `Zookeeper`.
-    
-    - Apache Hive {#hive}
-    
-        * **Сервисы**:
-    
-            * `HDFS`,
-            * `Hive`,
-            * `Mapreduce`,
-            * `Sqoop`,
-            * `Yarn`.
-    
-        * **Свойства** — ключ `hive:hive.execution.engine` со значением `mr`.
-    
-    - Apache HBase {#hbase}
-    
-        **Сервисы**:
-    
-        * `HBase`,
-        * `HDFS`,
-        * `Sqoop`,
-        * `Yarn`,
-        * `Zookeeper`.
-    
-    {% endlist %}
-
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам Managed Service for PostgreSQL и Yandex Data Processing.
-
-1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
-
-    * [к виртуальной машине и кластеру Yandex Data Processing](../operations/security-groups.md);
-    * [к кластеру Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
-
-### С помощью Terraform {#create-terraform}
-
-1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
-1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
-1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
-
-1. Скачайте в ту же рабочую директорию файл конфигурации [clusters-postgresql-data-proc-and-vm.tf](https://github.com/yandex-cloud-examples/yc-data-proc-postgresql-data-import/blob/main/clusters-postgresql-data-proc-and-vm.tf).
-
-    В этом файле описаны:
-
-    * [группы безопасности](../../vpc/concepts/security-groups.md) для кластеров и виртуальной машины;
-    * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для кластера Yandex Data Processing;
-    * [бакет Object Storage](../../storage/concepts/bucket.md);
-    * кластер Managed Service for PostgreSQL;
-    * кластер Yandex Data Processing;
-    * виртуальная машина с публичным доступом из интернета.
-
-1. Укажите параметры инфраструктуры в файле конфигурации `clusters-postgresql-data-proc-and-vm.tf` в блоке `locals`:
-
-    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
-    * `network_id` — идентификатор созданной ранее облачной сети.
-    * `subnet_id` — идентификатор созданной ранее подсети.
-    * `storage_sa_id` — идентификатор сервисного аккаунта, с помощью которого будет создан бакет в Object Storage.
-    * `data_proc_sa` — имя сервисного аккаунта для кластера Yandex Data Processing. Оно должны быть уникальным в каталоге.
-    * `pg_cluster_version` — версия PostgreSQL кластера Managed Service for PostgreSQL.
-    * `pg_cluster_password` — пароль для пользователя `user1` базы данных `db1` Managed Service for PostgreSQL.
-    * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
-    * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
-    * `bucket_name` — имя бакета в Object Storage. Оно должны быть уникальным для всего Object Storage.
-    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../operations/connect-ssh.md) для кластера Yandex Data Processing.
-
-        Для [SSH-подключения](../../glossary/ssh-keygen.md) к хостам кластера Yandex Data Processing версии 1.х используйте имя пользователя `root`.
-
-1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
-
-    ```bash
-    terraform validate
-    ```
-
-    Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-1. Создайте необходимую инфраструктуру:
-
-    1. Выполните команду для просмотра планируемых изменений:
-    
-       ```bash
-       terraform plan
-       ```
-    
-       Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
-    
-    1. Если вас устраивают планируемые изменения, внесите их:
-    
-       1. Выполните команду:
-    
-          ```bash
-          terraform apply
-          ```
-    
-       1. Подтвердите изменение ресурсов.
-       1. Дождитесь завершения операции.
-
-    В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+{% endlist %}
 
 ## Подготовка кластера-источника {#prepare}
 
@@ -352,7 +359,7 @@
 
 ## Удаление созданных ресурсов {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 
@@ -366,9 +373,9 @@
         * [Yandex Data Processing](../operations/cluster-delete.md).
 
     1. Если вы создавали бакет Object Storage, [удалите его](../../storage/operations/buckets/delete.md).
-    1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
     1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
     1. [Удалите облачную сеть](../../vpc/operations/network-delete.md).
     1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
@@ -398,9 +405,9 @@
 
     Удалите созданные вручную:
 
-    1. [Подсеть](../../vpc/operations/subnet-delete.md).
-    1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
-    1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
-    1. [Облачную сеть](../../vpc/operations/network-delete.md).
+    1. [Удалите таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите подсеть](../../vpc/operations/subnet-delete.md).
+    1. [Удалите облачную сеть](../../vpc/operations/network-delete.md).
 
 {% endlist %}

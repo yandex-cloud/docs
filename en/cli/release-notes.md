@@ -7,13 +7,76 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.37.0 (24/09/26) {#v-1-37-0}
+
+#### {{ baremetal-name }} {#v-1-37-0-baremetal-name}
+
+* Added the `yc baremetal image list-compatible` command for getting a list of configuration-compatible images.
+
+#### {{ cr-name }} {#v-1-37-0-cr-name}
+
+* Added the `yc cloudrouter v2` command group for managing routing instances and peering:
+  * `yc cloudrouter v2 routing-instance`
+  * `yc cloudrouter v2 peering`
+
+#### {{ managed-k8s-name }} {#v-1-37-0-managed-k8s-name}
+
+* To the create and update cluster commands, added the `--cluster-ipv4-range-list` and `--cluster-ipv6-range-list` parameters to specify lists of IPv4 and IPv6 CIDR ranges for a {{ k8s }} cluster:
+  * `yc managed-kubernetes cluster create`
+  * `yc managed-kubernetes cluster update`
+
+#### {{ mmy-name }} {#v-1-37-0-mmy-name}
+
+* To the following commands, added the parameters for setting up the folder for creating connections and their secrets in the {{ connection-manager-name }} integration for {{ mmy-name }}:
+  * `yc managed-mysql cluster create`
+  * `yc managed-mysql cluster restore`
+  * `yc managed-mysql cluster update`
+  * `yc managed-mysql user create`
+* Deleted the outdated `connection_manager` field, with `user_connection_manager` now used instead in the output of the following commands:
+  * `yc managed-mysql user get`
+  * `yc managed-mysql user list`
+  * `yc managed-mysql user create`
+
+#### {{ mpg-name }} {#v-1-37-0-mpg-name}
+
+* To the create, update, and restore cluster commands, added the `--maintenance-anytime` and `--maintenance-window-slot` parameters to set up multiple maintenance slots with a start time, duration and temporary unavailability handling:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql cluster restore`
+
+#### {{ mtr-name }} {#v-1-37-0-mtr-name}
+
+* Added the `--additional-properties` parameter to the commands for setting up additional {{ TR }} cluster properties:
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+
+## Previous releases {#previous-release}
+
+### Version 1.36.0 (21/09/26) {#v-1-36-0}
+
+#### {{ mkf-name }} {#v-1-36-0-mkf-name}
+
+* Added the `--password-file` and `--password-from-stdin` parameters to the `managed-kafka user create` and `managed-kafka user update` commands to specify the password source:
+  * `yc managed-kafka user create`
+  * `yc managed-kafka user update`
+
+#### {{ mmy-name }} {#v-1-36-0-mmy-name}
+
+* Added the `--password-file` and `--password-from-stdin` parameters to the `managed-mysql user create` and `managed-mysql user update` commands to specify the password source:
+  * `yc managed-mysql user create`
+  * `yc managed-mysql user update`
+
+#### {{ mtr-name }} {#v-1-36-0-mtr-name}
+
+* Added the `--event-listener-data-catalog-enabled` parameter to the commands for managing the {{ data-catalog-name }} event listener:
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+
 ### Version 1.35.1 (17/09/26) {#v-1-35-1}
 
 #### Changes to the CLI system commands {#v-1-35-1-yc}
 
-Fixed folder resolution when using the global `--folder-name` parameter.
-
-## Previous releases {#previous-release}
+Fixed the folder identification when using the global `--folder-name` parameter.
 
 ### Version 1.35.0 (17/09/26) {#v-1-35-0}
 

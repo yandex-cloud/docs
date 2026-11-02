@@ -90,6 +90,12 @@ If you need port 25, assign your virtual machine a new IP address:
 
 We reserve the right to block an IP address and/or suspend a VM if we receive complaints about spam originating from that IP address.
 
+#### Why am I unable to configure access to an external database from {{ vpc-name }} via a NAT gateway? {#access-to-external-database}
+
+If the settings of the external database or firewall allow connections only from the current IP address of the NAT gateway, access may be lost once the address changes.
+
+{% include notitle [nat-gateway-whitelist](../../_includes/vpc/nat-gateway-whitelist.md) %}
+
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% include [logs](../../_qa/logs.md) %}

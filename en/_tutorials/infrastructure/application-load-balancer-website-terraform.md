@@ -62,7 +62,7 @@ To host a fault-tolerant website in an instance group with load balancing via {{
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
@@ -80,7 +80,7 @@ To host a fault-tolerant website in an instance group with load balancing via {{
 1. In the `application-load-balancer-website.auto.tfvars` file, set the following user-defined properties:
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `vm_user`: VM user name.
-    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `domain`: Domain name, e.g., `alb-example.com`.
 
 1. Create the resources:

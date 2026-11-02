@@ -14,7 +14,7 @@
 
 ### Инфраструктура и сеть {#infra}
 
-* [Yandex API Gateway](../api-gateway/qa/index.md)
+* [Yandex Application Load Balancer](../application-load-balancer/qa.md)
 * [Yandex BareMetal](../baremetal/qa/all.md)
 * [Yandex Cloud Backup](../backup/qa/troubleshooting.md)
 * [Yandex Cloud CDN](../cdn/troubleshooting.md)
@@ -23,6 +23,7 @@
 * [Yandex Compute Cloud](../compute/qa/all.md)
 * [Yandex Network Load Balancer](../network-load-balancer/qa/index.md)
 * [Yandex Object Storage](../storage/qa.md)
+* [Yandex Cloud Stackland](../stackland/operations/troubleshooting.md)
 * [Yandex Virtual Private Cloud](../vpc/qa/index.md)
 
 
@@ -38,6 +39,7 @@
 * [Yandex Managed Service for OpenSearch](../managed-opensearch/qa/index.md)
 * [Yandex Managed Service for PostgreSQL](../managed-postgresql/qa/all.md)
 * [Yandex Managed Service for Sharded PostgreSQL](../managed-spqr/qa/all.md)
+* [Yandex Managed Service for Trino](../managed-trino/qa/general.md)
 * [Yandex Managed Service for Valkey™](../managed-valkey/qa/general.md)
 * [Yandex Managed Service for YDB](../ydb/faq.md)
 * [Yandex MetaData Hub](../metadata-hub/qa/index.md)
@@ -47,6 +49,7 @@
 
 ### Искусственный интеллект {#ml-ai}
 
+* [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/qa)
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/qa/index)
 * [Yandex DataSphere](../datasphere/qa/index.md)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/qa/)
@@ -62,7 +65,6 @@
 
 * [SourceCraft](https://sourcecraft.dev/portal/docs/ru/sourcecraft/qa/common)
 * [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/qa)
-* [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/qa)
 * [Yandex Cloud Logging](../logging/qa/index.md)
 * [Yandex Container Registry](../container-registry/qa/index.md)
 * [Yandex Managed Service for GitLab](../managed-gitlab/qa/index.md)

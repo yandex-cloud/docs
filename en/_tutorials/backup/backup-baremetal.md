@@ -56,7 +56,7 @@ The infrastructure support cost includes:
 
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `backup.user` or higher and `baremetal.editor` roles to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Select the service account you created by clicking the row with its name.
+  1. Select the service account you previously created.
   1. In the top panel, click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Select an encryption algorithm and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.

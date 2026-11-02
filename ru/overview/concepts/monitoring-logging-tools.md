@@ -59,12 +59,13 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || [{{ websql-full-name }}](../../websql/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || **Искусственный интеллект** | > | > | > | > ||
 || [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
-|| [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/overview) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
+|| [{{ vc-name }}]({{ link-src-docs }}/vibecraft/) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
+|| [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
+|| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || **Безопасность** | > | > | > | > ||
 || [{{ gost-gateway-name }}](../../gost-gateway/index.yaml) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ at-full-name }}](../../audit-trails/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
@@ -82,7 +83,6 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 || **Инструменты DevOps** | > | > | > | > ||
 || [{{ src-full-name }}]({{ link-src-docs }}) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
-|| [{{ vc-name }}]({{ link-src-docs }}/vibecraft/) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ cloud-logging-full-name }}](../../logging/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ marketplace-full-name }}](../../marketplace/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ container-registry-full-name }}](../../container-registry/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||

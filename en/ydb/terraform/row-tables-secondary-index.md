@@ -35,6 +35,6 @@ The following fields are supported:
 |`connection_string`|`string`|Database connection string. It is specified if `table_id` is not set.|
 |`table_id`|`string`|{{ TF }} ID of the table. It is specified if neither `table_path` nor `connection_string` is set.|
 |`name`|`string`<br>`required`|Index name.|
-|`type`|`string`<br>`required`|[global_sync / global_async]({{ ydb.docs }}/yql/reference/syntax/create_table#secondary_index) index type.|
+|`type`|`string`<br>`required`|[global_sync / global_async]({{ ydb.docs }}yql/reference/syntax/create_table#secondary_index) index type.|
 |`columns`|`list(string)`<br>`required`|Ordered list of names of columns included in the index.|
 |`cover`|`list(string)`<br>`required`|List of additional columns for the covering index.|

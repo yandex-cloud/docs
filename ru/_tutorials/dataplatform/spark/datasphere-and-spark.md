@@ -33,7 +33,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите ![create](../../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
-   1. Отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**, чтобы создать сеть и подсети вручную.
+   1. Отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**, чтобы не создавать сеть по умолчанию — на следующем шаге вы создадите сеть вручную.
    1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -100,11 +100,12 @@
    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), например `sa-for-spark`.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../../iam/concepts/access-control/roles.md):
-      * `managed-spark.user` — для использования кластеров {{ SPRK }}.
-      * `dataproc.agent` — для получения информации о заданиях.
-      * `dataproc.user` — для запуска заданий в кластерах {{ SPRK }}.
-      * `vpc.user` — для работы с сетью кластера {{ SPRK }}.
-      * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
+       * `managed-spark.user` — для использования кластеров {{ SPRK }}.
+       * `managed-spark.integrationProvider` — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами.
+       * `dataproc.agent` — для получения информации о заданиях.
+       * `dataproc.user` — для запуска заданий в кластерах {{ SPRK }}.
+       * `vpc.user` — для работы с сетью кластера {{ SPRK }}.
+       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -139,7 +140,7 @@
 
 1. Выберите сообщество, в котором вы [создали проект](#create-project).
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
 1. В открывшемся окне выберите [созданный ранее](#create-sa) сервисный аккаунт и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** и выберите созданный ранее сервисный аккаунт.
 
@@ -147,9 +148,10 @@
 
 1. [Создайте кластер {{ msp-name }}](../../../managed-spark/operations/cluster-create.md) любой подходящей конфигурации с параметрами:
 
-    * **Сервисный аккаунт** — `sa-for-spark`.
-    * **Сеть** — `data-network`.
-    * **Подсеть** — `data-network-{{ region-id }}-a`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `sa-for-spark`.
+    * **{{ ui-key.yacloud.spark.EnvironmentSelect.field_environment_59gwx }}** — `spark-3-5--python-3-10--minimal`.
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `data-network`.
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — `data-network-{{ region-id }}-a`.
 
 1. Перейдите в [рабочее пространство {{ ml-platform-name }}]({{ link-datasphere-main }}).
 1. На панели слева выберите ![image](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
@@ -194,7 +196,11 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
-1. [Кластер {{ msp-name }}](../../../managed-spark/operations/cluster-delete.md).
-1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
+1. [Удалите кластер {{ msp-name }}](../../../managed-spark/operations/cluster-delete.md).
+1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
+1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
+1. [Удалите сеть](../../../vpc/operations/network-delete.md).
+1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).

@@ -39,7 +39,7 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder)для создания кластера.
+   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для создания кластера.
    1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
    1. Нажмите кнопку **Создать кластер GPU**.
@@ -111,7 +111,7 @@
 1. Добавьте пользователя `ubuntu` в группу `docker`, выполнив на обеих ВМ:
 
    ```bash
-   sudo groupadd docker
+   sudo groupadd -f docker
    sudo usermod -aG docker $USER
    newgrp docker
    ```
@@ -193,7 +193,7 @@
    ```python
    import openai
 
-   client = openai.Client(
+   client = openai.OpenAI(
       base_url="http://127.0.0.1:30001/v1",
       api_key="EMPTY"
    )

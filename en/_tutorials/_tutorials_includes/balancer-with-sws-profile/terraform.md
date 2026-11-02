@@ -12,12 +12,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](paid-resources.md) %}
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
@@ -60,7 +60,7 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more about the properties of resources used in {{ TF }} in these provider guides:
    * [Network](../../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
    * [Subnets](../../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
    * [Security groups](../../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)

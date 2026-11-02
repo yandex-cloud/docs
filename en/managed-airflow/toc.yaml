@@ -93,6 +93,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: DAG file sources
+        href: concepts/dag-sources.md
       - name: Networking in {{ maf-name }}
         href: concepts/network.md
       - name: Available {{ AF }} versions

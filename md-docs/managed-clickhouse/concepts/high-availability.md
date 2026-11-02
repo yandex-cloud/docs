@@ -36,7 +36,7 @@
 
 ## Настройки хранилища {#storage-settings}
 
-Если в хранилище заканчивается свободное место, выполнение запросов на вставку (`INSERT`), фоновых мержей и мутаций приостанавливается. [Настройте алерты в Yandex Monitoring](../operations/monitoring.md#monitoring-integration), чтобы отслеживать степень заполнения хранилища, или включите [автоматическое увеличение размера хранилища](storage.md#autoscaling).
+Если в хранилище заканчивается свободное место, выполнение запросов на вставку (`INSERT`), фоновых мержей и мутаций приостанавливается. [Настройте](../operations/monitoring.md#monitoring-integration) алерты в Yandex Monitoring, чтобы отслеживать степень заполнения хранилища, или включите [автоматическое увеличение размера хранилища](storage.md#autoscaling).
 
 ## Настройки обслуживания {#maintenance-settings}
 
@@ -53,7 +53,7 @@
 * [настройки резервного копирования](backup.md);
 * выбранный [тип дисков хранилища](storage.md);
 * [классы хостов](instance-types.md);
-* [квоты и лимиты](limits.md).
+* [квоты и лимиты](limits.md);
 * [настройка групп безопасности](../operations/connect/index.md#configuring-security-groups).
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

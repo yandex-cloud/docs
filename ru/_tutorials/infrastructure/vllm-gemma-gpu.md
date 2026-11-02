@@ -17,7 +17,7 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits#compute-quotas) на суммарное количество GPU на платформе `Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
+Убедитесь, что в облаке достаточно [квот](../../compute/concepts/limits.md#compute-quotas) на суммарное количество GPU на платформе `Gen2`, объем RAM, количество vCPU и объем SSD-дисков для создания ВМ. Для этого используйте сервис [{{ quota-manager-full-name }}](../../quota-manager/).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -73,7 +73,7 @@
 1. Добавьте текущего пользователя в группу `docker`:
 
    ```bash
-   sudo groupadd docker
+   sudo groupadd -f docker
    sudo usermod -aG docker $USER
    newgrp docker
    ```
@@ -92,7 +92,7 @@
 
    ```bash
    docker run  --runtime nvidia --gpus '"device=0"' \
-   --name vllm-gema3-0 \
+   --name vllm-gemma3-0 \
    -v ~/.cache/huggingface:/root/.cache/huggingface \
    --env "HUGGING_FACE_HUB_TOKEN=$TOKEN" \
    --env "HF_HUB_ENABLE_HF_TRANSFER=0" \
@@ -127,7 +127,7 @@
 
    ```python
    import openai
-   client = openai.Client(base_url="http://127.0.0.1:8000/v1", api_key="EMPTY")
+   client = openai.OpenAI(base_url="http://127.0.0.1:8000/v1", api_key="EMPTY")
    response = client.chat.completions.create(
       model="google/gemma-3-27b-it",
       messages=[

@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
                 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
-        1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-kafka/operations/connect/index.md#configuring-security-groups) and allow connections to it.
+        1. If using security groups, make sure they are [properly configured](../../managed-kafka/operations/connect/index.md#configuring-security-groups) and allow inbound cluster connections.
 
 
         1. [In the cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `my-private-topic`.
@@ -76,7 +76,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * In the **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** field, specify `my-private-topic`.
             * Under **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}**, specify the following settings:
                * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}**: Bucket you created earlier.
-               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: `storage.pe.yandexcloud.net`.
+               * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: `{{ s3-storage-host-pe }}`.
                * **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: ID and secret key of the previously created static access key.
 
         1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP address in the created `my-private-network` to connect to the bucket.
@@ -113,7 +113,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `vm_image_id`: ID of the public VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username` and `vm_ssh_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -129,7 +129,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Make sure {{ dns-full-name }} now has the `*.storage.pe.yandexcloud.net` record in the `.` [service zone](../../dns/concepts/dns-zone.md#service-zones) of the new network.
+1. Make sure {{ dns-full-name }} now has the `*.{{ s3-storage-host-pe }}` record in the `.` [service zone](../../dns/concepts/dns-zone.md#service-zones) of the new network.
 1. Install [kafkacat](https://github.com/edenhill/kcat) to write data to the {{ KF }} topic.
 
     ```bash
@@ -179,14 +179,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    ```bash
    aws s3 ls s3://<bucket_name> \
-       --endpoint-url=https://storage.pe.yandexcloud.net \
+       --endpoint-url=https://{{ s3-storage-host-pe }} \
        --recursive
    ```
 
    Result:
 
    ```text
-   Could not connect to the endpoint URL: "https://storage.pe.yandexcloud.net/<bucket_name>?list-type=2&prefix=&encoding-type=url"
+   Could not connect to the endpoint URL: "https://{{ s3-storage-host-pe }}/<bucket_name>?list-type=2&prefix=&encoding-type=url"
    ```
 
 ## Check if there is data in the bucket via the service connection {#check-bucket-data}
@@ -198,7 +198,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     aws s3 ls s3://<bucket_name> \
-        --endpoint-url=https://storage.pe.yandexcloud.net \
+        --endpoint-url=https://{{ s3-storage-host-pe }} \
         --recursive
     ```
 
@@ -214,7 +214,7 @@ This result means {{ KF }} topic data has been successfully synchronized via the
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=resources %}
 

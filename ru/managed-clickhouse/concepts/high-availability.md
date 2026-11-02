@@ -39,7 +39,7 @@ description: Высокая доступность — это способнос
 
 ## Настройки хранилища {#storage-settings}
 
-Если в хранилище заканчивается свободное место, выполнение запросов на вставку (`INSERT`), фоновых мержей и мутаций приостанавливается. [Настройте алерты в {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration), чтобы отслеживать степень заполнения хранилища, или включите [автоматическое увеличение размера хранилища](storage.md#autoscaling).
+Если в хранилище заканчивается свободное место, выполнение запросов на вставку (`INSERT`), фоновых мержей и мутаций приостанавливается. [Настройте](../operations/monitoring.md#monitoring-integration) алерты в {{ monitoring-full-name }}, чтобы отслеживать степень заполнения хранилища, или включите [автоматическое увеличение размера хранилища](storage.md#autoscaling).
 
 ## Настройки обслуживания {#maintenance-settings}
 
@@ -56,7 +56,7 @@ description: Высокая доступность — это способнос
 * [настройки резервного копирования](backup.md);
 * выбранный [тип дисков хранилища](storage.md);
 * [классы хостов](instance-types.md);
-* [квоты и лимиты](limits.md).
+* [квоты и лимиты](limits.md);
 * [настройка групп безопасности](../operations/connect/index.md#configuring-security-groups).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

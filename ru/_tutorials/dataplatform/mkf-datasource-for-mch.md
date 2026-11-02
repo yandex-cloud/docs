@@ -167,8 +167,8 @@
        Данные для аутентификации:
 
        * **Sasl mechanism** — `SCRAM-SHA-512`.
-       * **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
-       * **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
+       * **Sasl password** — [пароль пользователя для потребителя](#deploy-infrastructure).
+       * **Sasl username** — [имя пользователя для потребителя](#deploy-infrastructure).
        * **Security protocol** — `SASL_SSL`.
 
    - {{ TF }} {#tf}
@@ -272,7 +272,7 @@
 
     {% endlist %}
 
-Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
+Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#deploy-infrastructure).
 
 Подробнее о создании таблиц на движке `Kafka` смотрите в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
@@ -332,7 +332,7 @@
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+Данные отправляются от имени пользователей [с ролью `ACCESS_ROLE_PRODUCER`](#deploy-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
 ## Проверьте наличие тестовых данных в таблицах кластера {{ mch-name }} {#fetch-sample-data}
 

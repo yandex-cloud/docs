@@ -11,9 +11,6 @@ links:
   - title: '{{ dns-name }}'
     description: Solutions for {{ dns-name }}
     href: dns/
-  - title: '{{ console-name }}'
-    description: Solutions for {{ console-name }}
-    href: console/
   - title: '{{ datalens-name }}'
     description: Solutions for {{ datalens-name }}
     href: datalens/
@@ -35,9 +32,6 @@ links:
   - title: '{{ network-load-balancer-name }}'
     description: Solutions for {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: Partner
-    description: Solutions for Partner
-    href: partner/
   - title: '{{ yandex-cloud }} {{ TF }} provider'
     description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
     href: terraform/

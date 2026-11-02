@@ -38,8 +38,6 @@
 
  - [Деньги долго не приходят на баланс после платежа переводом с расчетного счета для юридических лиц](billing/known-issues/recover-lost-payment.md)
 
- - [Устранение ошибки `Приглашение не найдено` при подключении к партнерской программе](billing/known-issues/cannot-access-partner-programme.md)
-
  - [Могут ли ресурсы удалиться при неоплате](billing/known-issues/cloud-and-files-removal.md)
 
  - [Устранение ошибки `balance.WRONG.ACCOUNT`](billing/known-issues/balance-wrong-account-issue.md)
@@ -254,18 +252,6 @@
 
  - [Как заблокировать IP-адрес](vpc/how-to/block-ip-address.md)
 
-## Cloud Console
-
- - [Все решения для Cloud Console](console/index.md)
-
- - [Решения для известных проблем Cloud Console](console/known-issues/index.md)
-
- - [Устранение ошибки подключения к Cloud Console](console/known-issues/console-connection-timeout.md)
-
- - [Примеры сценариев использования Cloud Console](console/how-to/index.md)
-
- - [Как увеличить квоты](console/how-to/increase-quota.md)
-
 ## Terraform-провайдер Yandex Cloud
 
  - [Все решения для Terraform-провайдера Yandex Cloud](terraform/index.md)
@@ -279,13 +265,3 @@
  - [Устранение ошибки `Invalid provider registry host`](terraform/known-issues/invalid-provider-registry-host.md)
 
  - [Примеры конфигураций и сценариев Terraform-провайдера Yandex Cloud](terraform/how-to/index.md)
-
-## Partner
-
- - [Все решения для Partner](partner/index.md)
-
- - [Решения для известных проблем c Partner](partner/known-issues/index.md)
-
- - [Устранение ошибки `Приглашение не найдено` при подключении к партнерской программе](partner/known-issues/cannot-access-partner-programme.md)
-
- - [Примеры конфигураций и сценариев Partner](partner/how-to/index.md)

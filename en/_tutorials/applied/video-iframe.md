@@ -41,14 +41,15 @@ Video autoplay may be restricted by browser policies. See details [here](../../v
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="<link>?autoplay=1&mute=true">
+    src="<link>?autoplay=1&mute=1">
 </iframe>
 ```
 
 Where:
+
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1`: Automatically starts video playback at player startup.
-* `mute=true`: Mutes the video.
+* `mute=1`: Mutes the video.
 
 {% cut "Example" %}
 
@@ -57,11 +58,10 @@ Where:
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true">
+    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=1">
 </iframe>
 
 {% endcut %}
-
 
 ## Looped autoplay {#automatically-loop}
 
@@ -76,6 +76,7 @@ Where:
 ```
 
 Where:
+
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1`: Automatically starts video playback at player startup.
 * `loop=true`: Loops playback.
@@ -92,7 +93,6 @@ Where:
 
 {% endcut %}
 
-
 ## Autoplay with hidden UI elements {#autoplay-hidden-elements}
 
 ```html
@@ -106,6 +106,7 @@ Where:
 ```
 
 Where:
+
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1`: Automatically starts video playback at player startup.
 * `hidden=*,!time,!sound`: Hides all player UI elements except for current time and the mute/unmute button.
@@ -117,11 +118,10 @@ Where:
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture;"
-    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&hidden=*,!time,!sound"
+    src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&hidden=*,!time,!sound">
 </iframe>
 
 {% endcut %}
-
 
 ## No rewinding {#prohibit-rewinding}
 
@@ -136,6 +136,7 @@ Where:
 ```
 
 Where:
+
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `autoplay=1`: Automatically starts video playback at player startup.
 * `hidden=timeline,mobileSeekButtons,timelinePreview`: Hides the timeline, its preview, and rewind and fast forward buttons in the mobile interface. 
@@ -158,7 +159,6 @@ Due to the specifics of the iPhone platform, rewinding will still be available i
 
 {% endcut %}
 
-
 ## Setting up player widgets {#widgets}
 
 ```html
@@ -173,6 +173,7 @@ Due to the specifics of the iPhone platform, rewinding will still be available i
 ```
 
 Where:
+
 * `width`: Player section width.
 * `height`: Player section height.
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
@@ -192,7 +193,6 @@ Where:
 
 {% endcut %}
 
-
 ## Configuring a video for a product card {#product_card}
 
 For a product card, you want your video autoplayed when visible, on mute, and without controls.
@@ -208,6 +208,7 @@ For a product card, you want your video autoplayed when visible, on mute, and wi
 ```
 
 Where:
+
 * `frameborder`: Player section frame width.
 * `Where <link>` is a link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`.
 * `loop=true`: Loops playback.
@@ -254,6 +255,7 @@ The player section must be big enough to display the playlist.
 ```
 
 Where:
+
 * `frameborder`: Player section frame width.
 * `width`: Player section width.
 * `height`: Player section height.
@@ -261,6 +263,7 @@ Where:
 * `autoplay=0`: Auto playback off.
 * `mute=0`: Sound on.
 * Style parameters:
+  
   * `background_color=ffeaea`: Background color of the player and widgets.
   * `widget_text_color_primary=841327`: Widget body text color.
   * `playlist_selected_item_background_color=FF8EA2`: Background color of the active playlist element.

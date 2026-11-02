@@ -10,10 +10,11 @@ description: В этой статье сопоставляются сервис�
 |----|----|
 | Amazon API Gateway | [{{ api-gw-name }}](../../api-gateway/) |
 | Amazon Athena | [{{ yq-full-name }}](../../query/) |
-| Amazon Aurora PostgreSQL Limitless Database | [{{ mspqr-full-name }}](../../managed-spqr/)
+| Amazon Aurora PostgreSQL Limitless Database | [{{ mspqr-full-name }}](../../managed-spqr/) |
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon CloudSearch | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) |
 | Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
+| Amazon CloudWatch + AWS CloudTrail | [{{ monium-full-name }}](../../monium/) |
 | Amazon CloudWatch Logs | [{{ cloud-logging-full-name }}](../../logging/) |
 | Amazon CodeArtifact | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
 | Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../storedoc/) |
@@ -24,14 +25,15 @@ description: В этой статье сопоставляются сервис�
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
-| Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon EMR Spark | [{{ msp-full-name }}](../../managed-spark/) |
+| Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
 | Amazon Managed Workflows for Apache Airflow | [{{ maf-full-name }}](../../managed-airflow/) |
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Amazon OpenSearch Service | [{{ mos-full-name }}](../../managed-opensearch/) |
 | Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |
+| Amazon Q Developer | [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
@@ -39,6 +41,7 @@ description: В этой статье сопоставляются сервис�
 | Amazon Route 53 | [{{ dns-full-name }}](../../dns/) |
 | Amazon S3 | [{{ objstorage-full-name }}](../../storage/) |
 | Amazon SageMaker | [{{ ml-platform-full-name }}](../../datasphere/) |
+| Amazon Security Lake + Amazon OpenSearch Service Security Analytics | [{{ yandex-siem-full-name }}](../../siem/) |
 | Amazon Simple Email Service | [{{ postbox-full-name }}](../../postbox/) |
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
 | Amazon SNS | [{{ cns-full-name }}](../../notifications/) |
@@ -51,6 +54,7 @@ description: В этой статье сопоставляются сервис�
 | AWS Billing Console | [{{ billing-name }}](../../billing/) |
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS CloudTrail | [{{ at-full-name }}](../../audit-trails/) |
+| AWS CodeCommit, AWS CodePipeline (частично) | [{{ src-full-name }}]({{ link-src-docs }}) |
 | AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | AWS Databricks | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | AWS DataZone | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
@@ -61,11 +65,13 @@ description: В этой статье сопоставляются сервис�
 | AWS IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | AWS Lambda | [{{ sf-full-name }}](../../functions/) |
+| AWS Marketplace | [{{ marketplace-full-name }}](../../marketplace/) |
 | AWS Organizations | [{{ org-full-name }}](../../organization/) |
 | AWS Outposts | [{{ stackland-full-name }}](../../stackland/) |
 | AWS Redshift | [{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
 | AWS Resource Access Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | AWS Secrets Manager | [{{ lockbox-name }}](../../lockbox/) |
+| AWS Security Incident Response | [{{ ycdr-full-name }}](../../ycdr/) |
 | AWS Security Hub | [{{ sd-full-name }}](../../security-deck/) |
 | AWS Service Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | AWS Shield,</br>AWS WAF | [{{ sws-full-name }}](../../smartwebsecurity/) |

@@ -86,7 +86,7 @@ You can connect to a VM over SSH once it gets the `RUNNING` status. To do this, 
 To connect to the VM, specify its public IP address.
 
 To copy the VM's public IP address:
-1. Open the folder page in the [management console]({{ link-console-main }}).
+1. Open the folder dashboard in the [management console]({{ link-console-main }}).
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Find the created VM and click its name.

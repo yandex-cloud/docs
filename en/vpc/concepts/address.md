@@ -29,6 +29,8 @@ ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
 
 Public IP addresses can be dynamic or static. When creating a cloud resource with a public IP, it is usually assigned a dynamic address. When a VM with a dynamic public IP is stopped, its address is released, and it gets a new public IP address when started next time. If you restart the VM, it retains its public IP address.
 
+{% include notitle [nat-gateway-whitelist](../../_includes/vpc/nat-gateway-whitelist.md) %}
+
 You can convert a dynamic public IP address to static. Static IP addresses do not change when resources are stopped, and you can reserve them in your folder for future use even if they are not linked to any cloud resources. To learn how to convert a dynamic IP address to static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
 To prevent accidental deletion of a static public IP address, enable deletion protection for it. You can [enable deletion protection](../operations/deletion-protection.md#enable-deletion-protection) for an address that is already reserved or for a new address when [reserving](../operations/get-static-ip.md) it.
@@ -55,3 +57,7 @@ For more information about how FQDNs are generated, see the [Host name and inter
 * [{#T}](../tutorials/web-service.md)
 * [{#T}](../tutorials/dhcp-options.md)
 * [{#T}](../tutorials/clickhouse-dns-peering.md)
+
+#### Useful links {#see-also}
+
+* [{#T}](./ips.md)

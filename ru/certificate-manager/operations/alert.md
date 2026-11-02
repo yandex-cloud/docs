@@ -5,88 +5,57 @@ description: Следуя этой инструкции, вы сможете д�
 
 # Добавить алерт для сертификата
 
-Вы можете добавить алерты об истечении срока действия сертификата или о его неработоспособности.
+Чтобы вовремя обновлять сертификаты и реагировать на проблемы с ними, создайте алерты:
 
-## Добавить алерт о скором истечении сертификата {#expired}
+* **О скором истечении срока действия** — переходит в статус `Warning`, когда до истечения срока действия сертификата остается 14 дней или меньше, и в `Alarm` — 4 дня или меньше.
+* **О неработоспособности** — переходит в статус `Alarm`, если хотя бы один из отслеживаемых сертификатов не прошел проверку прав на домены (`Invalid`), отозван (`Revoked`) или срок его действия истек.
 
-Чтобы создать алерт:
+[Алерт](../../monium/concepts/alerting/alert.md) — периодическая проверка метрик по заданным условиям. `Warning` означает, что достигнут порог предупреждения, а `Alarm` — критический порог. При переходе в эти статусы {{ monium-name }} отправляет уведомления через настроенный канал, например, по электронной почте или в {{ messenger-full-name }}. 
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан алерт.
-  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. На главной странице сервиса в блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}** укажите основные параметры алерта:
-
-     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Задайте имя алерта.
-     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.type }}**. Укажите метод уведомлений.
-     * (Опционально) Добавьте описание алерта.
-
-  1. Укажите условия срабатывания алерта:
-
-     1. В блоке **{{ ui-key.yacloud_monitoring.alert-template.section.type-settings }}** начните строить запрос для отображения метрики. В форме построения запроса последовательно введите:
-
-        * `service = certificate-manager`.
-        * `name = certificate.days_until_expiration`.
-        * `certificate = *`. Для отслеживания конкретного сертификата укажите его идентификатор.
-        * (Опционально) Если выбрано больше одного сертификата, то используйте функцию `series_min()`, выбирающую наименьшее значение.
-
-     1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** настройте дополнительные параметры алерта:
-
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**. Функция агрегации, применяемая к значениям метрик во временном окне. При расчете значений функции используются значения метрик без прореживания.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**. Условие — **{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}**, число дней для **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** = `14`, для **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** = `4`.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**. Временное окно, в котором рассчитывается алерт. Подробнее в разделе [Окно вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-window).
-        * **{{ ui-key.yacloud_monitoring.alert-template.field.delay-key-value }}**. Сдвиг временного окна назад во времени. Полезно для агрегированных метрик, так как сбор отдельных метрик агрегата распределен по времени. Подробнее в разделе [Задержка вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
-
-        
-        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
-
-
-     1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).
-     1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Алерт появится в списке.
-
-{% endlist %}
-
-## Добавить алерт о неработоспособности сертификата {#inoperable}
-
-Чтобы создать алерт:
+Инструкция ниже описывает создание одного алерта. Вам потребуется создать два отдельных алерта, выбрав соответствующий вариант настройки.
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан алерт.
-  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. На главной странице сервиса в блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}** укажите основные параметры алерта:
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}** и на панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
 
-     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Задайте имя алерта.
-     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.type }}**. Укажите метод уведомлений.
-     * (Опционально) Добавьте описание алерта.
+     Это может быть проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), или другой доступный проект.
+  1. [Создайте канал уведомлений](../../monium/operations/alert/create-channel.md), если его нет. Для обоих алертов можно использовать один канал.
+  1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![megaphone](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}** задайте название алерта и при необходимости добавьте описание.
+  1. В блоке **{{ ui-key.yacloud_monitoring.alert-template.section.type-settings }}** последовательно задайте параметры запроса:
 
-  1. Укажите условия срабатывания алерта:
+     * `project = folder__<идентификатор_каталога>` — укажите идентификатор каталога, в котором находятся сертификаты.
 
-     1. В блоке **{{ ui-key.yacloud_monitoring.alert-template.section.type-settings }}** начните строить запрос для отображения метрики. В форме построения запроса последовательно введите:
+       {% include [query-select-different-project](../../_includes/monium/query-select-different-project.md) %}
 
-        * `service = certificate-manager`.
-        * `name = certificate.is_out_of_order`.
-        * `certificate = *`. Для отслеживания конкретного сертификата укажите его идентификатор.
-        * (Опционально) Если выбрано больше одного сертификата, то используйте функцию `series_sum()`, которая суммирует значения.
+     * `cluster = default`.
+     * `service = certificate-manager`.
+     * `certificate = *`. Для отслеживания конкретного сертификата укажите его идентификатор.
 
-     1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** настройте дополнительные параметры алерта:
+  1. Для настройки алерта о скором истечении срока действия сертификата: {#expired}
 
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**. Функция агрегации, применяемая к значениям метрик во временном окне. При расчете значений функции используются значения метрик без прореживания.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**. Условие — **{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}**, количество неработоспособных сертификатов для **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** = `0`.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**. Временное окно, в котором рассчитывается алерт. Подробнее в разделе [Окно вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-window).
-        * **{{ ui-key.yacloud_monitoring.alert-template.field.delay-key-value }}**. Сдвиг временного окна назад во времени. Полезно для агрегированных метрик, так как сбор отдельных метрик агрегата распределен по времени. Подробнее в разделе [Задержка вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+       1. В запросе укажите `name = certificate.days_until_expiration`.
+       1. Используйте функцию `series_min()`, чтобы получить наименьшее число оставшихся дней среди отслеживаемых сертификатов. Если отслеживаете один сертификат, пропустите этот шаг.
+       1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** задайте **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — **{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}** и пороги: **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** = `14`, **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** = `4`.
 
-        
-        Подробнее в разделе [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
+   1. Для настройки алерта о неработоспособности сертификата: {#inoperable}
+
+       1. В запросе укажите `name = certificate.is_out_of_order`.
+       1. Используйте функцию `series_sum()`, чтобы получить количество неработоспособных сертификатов. Если отслеживаете один сертификат, пропустите этот шаг.
+       1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** задайте **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — **{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}** и порог **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** = `0`.
+
+  1. Выберите функцию агрегации **{{ ui-key.yacloud_monitoring.alert.title_aggregation-last_non_nan }}**, чтобы проверять последнее доступное значение метрики в окне вычисления. При необходимости измените **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** и **{{ ui-key.yacloud_monitoring.alert-template.field.delay-key-value }}**.
+
+     
+     Подробнее в разделе [{#T}](../../monium/concepts/alerting/alert.md#condition).
 
 
-     1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).
-     1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Алерт появится в списке.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** выберите подготовленный канал уведомлений. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}** укажите `Warning` и `Alarm` для алерта об истечении срока действия или `Alarm` для алерта о неработоспособности.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
+
+Создайте второй алерт, повторив шаги с другим вариантом настройки.

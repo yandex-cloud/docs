@@ -35,7 +35,7 @@ To create an infrastructure using {{ TF }}:
     - Manually {#manual}
 
       1. Create a folder for the infrastructure description file.
-      1. In the directory, create a configuration file named `lamp-lemp.tf`:
+      1. Create a configuration file named `lamp-lemp.tf` in the directory:
 
           {% cut "lamp-lemp.tf" %}
 
@@ -53,11 +53,11 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more on the properties of resources used in {{ TF }}, see these provider guides:
+    Learn more about parameters of resources used in {{ TF }} in these provider guides:
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
     * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [VM](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
     * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
     * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
@@ -69,7 +69,7 @@ To create an infrastructure using {{ TF }}:
         * `lemp`: [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, {{ MY }}, and PHP).
       * `vm_user`: VM user name.
       * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-      * `dns_zone`: [DNS zone](../../dns/concepts/dns-zone.md). Specify your registered domain with a trailing dot, e.g., `example.com.`.
+      * `dns_zone`: [DNS zone](../../dns/concepts/dns-zone.md). Specify your registered domain with a period at the end, e.g., `example.com.`.
           To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` server addresses in your registrar's account settings.
 
 1. Create the resources:

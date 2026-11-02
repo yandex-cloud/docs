@@ -5,9 +5,35 @@ description: Follow this guide to delete a subnet.
 
 # Deleting a subnet
 
+Before deleting a [subnet](../concepts/network.md#subnet), disassociate all the resources from it.
+
+{% cut "List of services whose resources may be using the subnet and preventing its deletion:" %}
+
+  * [{{ api-gw-full-name }}](../../api-gateway/)
+  * [{{ alb-full-name }}](../../application-load-balancer/)
+  * [{{ backup-full-name }}](../../backup/)
+  * [{{ cdn-full-name }}](../../cdn/)
+  * [{{ sf-full-name }}](../../functions/)
+  * [{{ compute-full-name }}](../../compute/)
+  * [{{ dataproc-full-name }}](../../data-proc/)
+  * [{{ maf-full-name }}](../../managed-airflow/)
+  * [{{ mkf-full-name }}](../../managed-kafka/)
+  * [{{ mch-full-name }}](../../managed-clickhouse/)
+  * [{{ mgl-full-name }}](../../managed-gitlab/)
+  * [{{ mgp-full-name }}](../../managed-greenplum/)
+  * [{{ managed-k8s-full-name }}®](../../managed-kubernetes/)
+  * [{{ mmg-full-name }}](../../storedoc/)
+  * [{{ mmy-full-name }}](../../managed-mysql/)
+  * [{{ mos-full-name }}](../../managed-opensearch/)
+  * [{{ mpg-full-name }}](../../managed-postgresql/)
+  * [{{ mrd-full-name }}](../../managed-valkey/)
+  * [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
+  * [{{ serverless-containers-full-name }}](../../serverless-containers/)
+
+{% endcut %}
+
 {% note alert %}
 
-Before deleting a [subnet](../concepts/network.md#subnet), disassociate all the resources from it.
 You cannot restore a subnet after it is deleted.
 
 {% endnote %}

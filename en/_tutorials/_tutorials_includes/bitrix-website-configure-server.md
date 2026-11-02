@@ -65,7 +65,7 @@ To configure a server for 1C-Bitrix:
    sudo nano /etc/php/8.1/apache2/php.ini
    ```
 
-   Previously | Now
+   Before | After
    :--- | :---
    `short_open_tag = Off` | `short_open_tag = On`
    `memory_limit = 128M` | `memory_limit = 256M`

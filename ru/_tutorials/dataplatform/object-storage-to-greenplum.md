@@ -1,93 +1,96 @@
 # Загрузка данных из {{ objstorage-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ GP }}/{{ CB }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-full-name }}. Для этого:
+Вы можете перенести данные из {{ objstorage-full-name }} в таблицу кластера {{ mgp-name }} с помощью {{ data-transfer-full-name }}. Для этого:
 
+1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте тестовые данные](#prepare-data).
-1. [Создайте базу данных в кластере-приемнике](#prepare-data).
+1. [Создайте базу данных в кластере-приемнике](#create-database).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Подготовьте облако к работе {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры входят:
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mgp-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+### Подготовьте инфраструктуру {#infra}
 
 
-1. Подготовьте инфраструктуру:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Вручную {#manual}
 
-    - Вручную {#manual}
+    1. [Создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
-        1. [Создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
 
-            * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
-            * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
-
-        
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
+    
+    1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
-        1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
-        
-        1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
+    
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
 
-        1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
 
 
-    - С помощью {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
-        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-        1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-        1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [object-storage-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-greenplum/blob/main/object-storage-to-greenplum.tf).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [object-storage-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-object-storage-to-greenplum/blob/main/object-storage-to-greenplum.tf).
 
-            В этом файле описаны:
+        В этом файле описаны:
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-            * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
-            * секрет {{ lockbox-name }}, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
-            * бакет-источник {{ objstorage-name }};
-            * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
-            * трансфер.
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
+        * сервисный аккаунт, который будет использоваться для создания бакета и дальнейшего доступа к нему;
+        * секрет {{ lockbox-name }}, в котором будет храниться статический ключ сервисного аккаунта для настройки эндпоинта-источника;
+        * бакет-источник {{ objstorage-name }};
+        * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
+        * трансфер.
 
-        1. Укажите в файле `object-storage-to-greenplum.tf` значения переменных:
+    1. Укажите в файле `object-storage-to-greenplum.tf` значения переменных:
 
-            * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
-            * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-            * `gp_version` — версия {{ GP }}.
-            * `gp_password` — пароль пользователя {{ GP }}.
+        * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
+        * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+        * `gp_version` — версия {{ GP }}.
+        * `gp_password` — пароль пользователя {{ GP }}.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-            ```bash
-            terraform validate
-            ```
+        ```bash
+        terraform validate
+        ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        1. Создайте необходимую инфраструктуру:
+    1. Создайте необходимую инфраструктуру:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-    {% endlist %}
+{% endlist %}
 
 1. В кластере-приемнике [включите опцию](../../managed-greenplum/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-datatransfer }}**.
 
@@ -114,7 +117,7 @@
 
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `demo_data1.csv` в бакет {{ objstorage-name }}.
 
-## Создайте базу данных в кластере-приемнике {#prepare-data}
+## Создайте базу данных в кластере-приемнике {#create-database}
 
 1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `user1`.
 
@@ -128,20 +131,23 @@
 
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) типа `{{ objstorage-name }}` со следующими настройками:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ objstorage-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.manual.title }}**:
 
-    
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
 
+        
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+  
+  
+      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://storage.yandexcloud.net`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `ru-central1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — знак запятой `,`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.delimiter.title }}** — запятая `,`.
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — `table1`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и типы данных:
 
         * `Id`: `Int64`;
         * `Name`: `UTF8`.
@@ -151,7 +157,7 @@
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/greenplum.md#managed-service) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ GP }}>` из выпадающего списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<идентификатор_кластера_приемника_{{ GP }}>` из выпадающего списка.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}** — `db1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — `user1`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — `<пароль_пользователя>`.
@@ -250,7 +256,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).

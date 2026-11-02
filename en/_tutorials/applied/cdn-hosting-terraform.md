@@ -26,8 +26,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
-1. Set up your infrastructure description files:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
@@ -88,7 +88,7 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
    * [TLS certificate](../../certificate-manager/concepts/managed-certificate.md): [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate) data source.
    * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
    * [Configuring](../../storage/operations/buckets/edit-acl.md) access permissions for a bucket using [ACL Object Storage](../../storage/concepts/acl.md): [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).

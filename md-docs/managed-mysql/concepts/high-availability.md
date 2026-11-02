@@ -23,7 +23,7 @@
 
 ## Свободное место в хранилище {#storage-settings}
 
-Если хранилище баз данных заполнится на 95%, кластер перейдет в режим **Только чтение**. Чтобы кластер оставался доступным на запись, регулярно [проверяйте график Disk usage](../operations/monitoring.md#monitoring-cluster) или [создайте алерт с метрикой disk.used_bytes](../operations/monitoring.md#monitoring-integration).
+Если хранилище баз данных заполнится на 95%, кластер перейдет в режим **Только чтение**. Чтобы кластер оставался доступным на запись, регулярно [проверяйте график Disk usage](../operations/monitoring.md#monitoring-cluster) или [создайте](../operations/monitoring.md#monitoring-integration) алерт с метрикой `disk.used_bytes`.
 
 ## Настройки обслуживания {#maintenance-settings}
 

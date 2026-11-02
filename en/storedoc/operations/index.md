@@ -24,6 +24,7 @@ description: This page features step-by-step guides for {{ mmg-name }}.
 * [Pre-configuration](connect/index.md)
 * [Connecting to a cluster from applications](connect/clients.md)
 * [Code examples for connecting to a cluster](connect/code-examples.md)
+* [{#T}](connect/update-tls-certificates.md)
 
 ## Databases {#databases}
 

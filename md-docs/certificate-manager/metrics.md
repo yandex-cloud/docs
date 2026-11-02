@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Certificate Manager](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Certificate Manager](index.md) > Метрики Yandex Monium
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Yandex Monium
 
-В этом разделе описаны метрики сервиса Certificate Manager, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Certificate Manager, поставляемые в [Monium](../monium/index.md).
 
 Имя метрики пишется в метку `name`.
 

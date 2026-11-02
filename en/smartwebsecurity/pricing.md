@@ -70,7 +70,7 @@ At the same time, there are things to consider about billing in the dry run mode
 
 Requests processed by ARL profile rules will not be counted for billing. Blocked requests will not be counted either, no matter when and which rule blocked them.
 
-When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [you pay](#proxy-resources) for traffic passing through the proxy server and protection from DDoS attacks at levels L3–L4 of the [OSI model](https://wikipedia.org/wiki/OSI_model). Since domain protection is not included in the subscription, you can only enable it with request-count-based billing.
+When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [you pay](#proxy-resources) for the computing resources of the proxy server. Since domain protection is not included in the subscription, you can only enable it with request-count-based billing.
 
 ## Prices for the Russia region {#prices}
 
@@ -125,7 +125,7 @@ To use additional protection against DDoS attacks at OSI layers 3 and 4, enable 
 
 #### Proxy server resources {#proxy-resources}
 
-When using domains, you pay for the actual usage of the computing resources of each active proxy server and for traffic protection from DDoS attacks at levels L3–L4.
+When using domains, you pay for the actual usage of the computing resources of each active proxy server.
 
 When domain protection is activated, a minimum amount of proxy server resources is automatically reserved: 6 [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), 2 per availability zone. Their billing starts immediately, whether or not the domain is receiving traffic.
 
@@ -143,8 +143,6 @@ The system autoscales the resource unit group based on external load on the prox
 The default minimum number of resource units is 6; you can increase this number upon request.
 
 The proxy server fee is per hour. You are charged for the minimum number of resource units that were running for an hour.
-
-Traffic protection from DDoS attacks at levels L3–L4 is charged based on the amount of [legitimate](concepts/rules.md#rule-action) traffic in GB.
 
 
 
@@ -175,6 +173,6 @@ The prices below are for reference only. {{ sws-name }} usage by your services w
 
 
 
-{% include [usd-smartwebsecurity](../_pricing_examples/smartwebsecurity/usd-smartwebsecurity.md) %}
+{% include [usd-requests-pricing-examples](../_includes/smartwebsecurity/usd-requests-pricing-examples.md) %}
 
 
