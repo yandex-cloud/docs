@@ -83,6 +83,8 @@
 
 * [Почему не работает запись в кластер?](#write-failure)
 
+* [Почему кластер MySQL® переходит в режим `Read Only` из-за временных файлов?](#temporary-files-read-only)
+
 * [Почему отстает реплика?](#replica-lagging)
 
 * [Почему размер кластера значительно больше объема данных в нем?](#cluster-greater-data)
@@ -151,6 +153,8 @@
 * [Как перенести кластер в другой каталог или облако?](#to-folder-cloud)
 
 * [Ошибка при внешней репликации](#external-replication-error)
+
+* [Как устранить ошибку `Access denied` (1227) при создании дампа с помощью `mysqldump`?](#mysqldump-access-denied)
 
 ### Настройки параметров MySQL® {#toc-configuring}
 
@@ -493,6 +497,41 @@ The revocation function was unable to check revocation for the certificate
    1. Нажмите на имя нужного кластера и перейдите на вкладку **Мониторинг**.
    1. Проверьте график **Disk usage**.
 1. Убедитесь, что запись производится в хост, который является мастером, а не [репликой](mysql.md#read-only-instance).
+
+#### Почему кластер MySQL® переходит в режим `Read Only` из-за временных файлов? {#temporary-files-read-only}
+
+При заполнении хранилища более чем на 95 % кластер переходит в режим `Read Only`. В логах кластера появляется ошибка:
+
+```text
+The MySQL server is running with the --read-only option
+so it cannot execute statement
+```
+
+При обработке некоторых запросов MySQL® создает [внутренние временные таблицы](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html). Если такая таблица не помещается в оперативной памяти, данные сохраняются в хранилище кластера. Большие временные таблицы могут быстро занять свободное место.
+
+Чтобы посмотреть текущие подключения и выполняемые в них запросы, выполните команду:
+
+```sql
+SHOW FULL PROCESSLIST;
+```
+
+Чтобы просматривать подключения всех пользователей, необходима [административная привилегия](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS`. Идентификатор `processlist_id` указан в столбце `Id`, текст выполняемого запроса — в столбце `Info`.
+
+Проверьте логи приложения на наличие запросов, которые выполняются долго или запускаются повторно, в том числе после ошибок. Сопоставьте эти запросы с найденными подключениями. Чтобы закрыть проблемное подключение и освободить связанное с ним временное табличное пространство, выполните команду [KILL](https://dev.mysql.com/doc/refman/8.4/en/kill.html):
+
+```sql
+KILL <processlist_id>;
+```
+
+Для закрытия подключений других пользователей требуется административная привилегия `MDB ADMIN`.
+
+{% note warning %}
+
+Команда `KILL` прерывает выполняемый запрос, закрывает соединение и запускает откат незавершенной транзакции. Освобождение места может занять некоторое время.
+
+{% endnote %}
+
+Чтобы проблема не повторилась, [оптимизируйте запросы](https://dev.mysql.com/doc/refman/8.0/en/optimization.html), которые создают большие временные таблицы.
 
 #### Почему отстает реплика? {#replica-lagging}
 
@@ -910,6 +949,33 @@ Got fatal error 1236 from source when reading data from binary log:
    ```
 
 При смене мастера в кластере-источнике репликация будет перенастроена на новый хост-мастер. Подробнее о настройке смотрите в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+
+#### Как устранить ошибку `Access denied` (1227) при создании дампа с помощью `mysqldump`? {#mysqldump-access-denied}
+
+При создании дампа с параметром `--single-transaction` возникает ошибка:
+
+```text
+mysqldump: Couldn't execute 'FLUSH TABLES': Access denied;
+you need (at least one of) the RELOAD or FLUSH_TABLES privilege(s) for this operation (1227)
+```
+
+В кластерах Managed Service for MySQL® параметр `gtid_mode` имеет значение `ON`, а `--set-gtid-purged` по умолчанию — `AUTO`. При таком сочетании параметров `mysqldump` выполняет `FLUSH TABLES WITH READ LOCK`, чтобы записать в дамп текущий GTID вместе с согласованным снимком данных. Для выполнения этой команды утилита запрашивает привилегии `RELOAD` или `FLUSH_TABLES`, которые недоступны пользователям.
+
+Чтобы устранить ошибку:
+
+1. Проверьте версию утилиты:
+
+   ```bash
+   mysqldump --version
+   ```
+
+1. Если установлена одна из проблемных версий, обновите `mysqldump`:
+   * с версии 5.7.41 — до [5.7.42](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-42.html) или более новой;
+   * с версии 8.0.32 — до [8.0.33](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-33.html) или более новой.
+
+В версиях 5.7.41 и 8.0.32 из-за [ошибки](https://bugs.mysql.com/bug.php?id=109685) параметр `--set-gtid-purged=OFF` работает некорректно, поэтому сперва следует обновить `mysqldump`.
+
+Если после обновления `mysqldump` ошибка сохраняется, добавьте к команде параметр [`--set-gtid-purged=OFF`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_set-gtid-purged). Пример команды приведен в разделе [Создание дампа](../tutorials/data-migration/logical-dump-migration.md#dump).
 
 ## Настройки параметров MySQL® {#configuring}
 

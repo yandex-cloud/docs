@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionKey](index.md) > List
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > List
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.List
 

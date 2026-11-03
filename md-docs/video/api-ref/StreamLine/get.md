@@ -32,9 +32,14 @@ The maximum string length in characters is 50. ||
   "channelId": "string",
   "title": "string",
   "inputSource": "string",
-  // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
+  // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`
   "rtmpPush": {
-    "url": "string"
+    "url": "string",
+    "backupUrl": "string"
+  },
+  "srtPush": {
+    "url": "string",
+    "backupUrl": "string"
   },
   "rtmpPull": {
     "url": "string",
@@ -51,6 +56,38 @@ The maximum string length in characters is 50. ||
     "status": "string"
   },
   // end of the list of possible fields
+  "processingSettings": {
+    "summarization": {
+      "enable": "boolean",
+      "tracks": [
+        {
+          "trackIndex": "string",
+          "srcLang": "string"
+        }
+      ]
+    },
+    "translation": {
+      "enable": "boolean",
+      "tracks": [
+        {
+          "inputTrack": {
+            "trackIndex": "string",
+            "srcLang": "string"
+          },
+          "subtitles": [
+            {
+              "dstLang": "string"
+            }
+          ],
+          "audios": [
+            {
+              "dstLang": "string"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "createdAt": "string",
   "updatedAt": "string",
   "labels": "object"
@@ -72,7 +109,7 @@ ID of the channel to which this stream line belongs. ||
 Title of the stream line. ||
 || inputSource | **enum** (LineInputSource)
 
-Specifies which input source (main or backup) is selected for processing.
+Specifies which input source (main or backup) is currently active.
 
 - `ANY`: Use any available input source (main or backup).
 - `MAIN`: Use main input source.
@@ -81,21 +118,28 @@ Specifies which input source (main or backup) is selected for processing.
 
 Real-Time Messaging Protocol (RTMP) push input type.
 
-Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`.
+
+Specifies the input type and settings for the video signal source. ||
+|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
+
+Secure Reliable Transport (SRT) push input type.
+
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`.
 
 Specifies the input type and settings for the video signal source. ||
 || rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
 Real-Time Messaging Protocol (RTMP) pull input type.
 
-Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`.
 
 Specifies the input type and settings for the video signal source. ||
 || srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
 
 Secure Reliable Transport (SRT) pull input type.
 
-Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`.
 
 Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
@@ -112,6 +156,9 @@ Automatic stream control.
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Specifies the control type of the stream line. ||
+|| processingSettings | **[StreamLineProcessingSettings](#yandex.cloud.video.v1.StreamLineProcessingSettings)**
+
+Processing settings. ||
 || createdAt | **string** (date-time)
 
 Timestamp when the stream line was initially created in the system.
@@ -150,6 +197,25 @@ Used when the video stream is pushed to an RTMP server.
 || url | **string**
 
 RTMP server url. ||
+|| backupUrl | **string**
+
+RTMP server URL for the signal identified by the backup stream key. ||
+|#
+
+## SRTPushInput {#yandex.cloud.video.v1.SRTPushInput}
+
+Settings for an SRT (Secure Reliable Transport) push input.
+Used when the video stream is pushed to an SRT server.
+@see https://en.wikipedia.org/wiki/Secure_Reliable_Transport
+
+#|
+||Field | Description ||
+|| url | **string**
+
+SRT server url. ||
+|| backupUrl | **string**
+
+SRT server URL for the signal identified by the backup stream key. ||
 |#
 
 ## RTMPPullInput {#yandex.cloud.video.v1.RTMPPullInput}
@@ -196,4 +262,94 @@ The status of the automatic line.
 
 - `DEACTIVATED`: The automatic line is deactivated and not currently active.
 - `ACTIVE`: The automatic line is active and operational. ||
+|#
+
+## StreamLineProcessingSettings {#yandex.cloud.video.v1.StreamLineProcessingSettings}
+
+#|
+||Field | Description ||
+|| summarization | **[Summarization](#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization)**
+
+Settings for stream line summarization. ||
+|| translation | **[Translation](#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation)**
+
+Settings for stream line translation. ||
+|#
+
+## Summarization {#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization}
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enable line summarization. ||
+|| tracks[] | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Input tracks. ||
+|#
+
+## InputTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack}
+
+#|
+||Field | Description ||
+|| trackIndex | **string** (int64)
+
+Input audio track index (one-based).
+
+The minimum value is 1. ||
+|| srcLang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho ```. ||
+|#
+
+## Translation {#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation}
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enable line translation.
+Neurotranslations and neurosubtitles cannot be enabled in low latency mode. ||
+|| tracks[] | **[TranslationTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack)**
+
+Input tracks. ||
+|#
+
+## TranslationTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack}
+
+#|
+||Field | Description ||
+|| inputTrack | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Required field. Input track settings. ||
+|| subtitles[] | **[SubtitleTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack)**
+
+Settings for target subtitle tracks. ||
+|| audios[] | **[AudioTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack)**
+
+Settings for target audio tracks. ||
+|#
+
+## SubtitleTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack}
+
+#|
+||Field | Description ||
+|| dstLang | **string**
+
+Required field. Language of subtitles represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
+|#
+
+## AudioTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack}
+
+#|
+||Field | Description ||
+|| dstLang | **string**
+
+Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
 |#

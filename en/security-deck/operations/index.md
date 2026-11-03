@@ -20,6 +20,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 * [{#T}](./alerts/work.md)
 * [{#T}](./alerts/download.md)
 * [{#T}](./alerts/tags.md)
+* [{#T}](./alerts/notification.md)
 
 ## {{ dspm-full-name }} ({{ dspm-name }}) {#dspm}
 
@@ -40,6 +41,10 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 ## {{ cspm-full-name }} ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md)
+* [{#T}](./cspm/create-custom-rule.md)
+* [{#T}](./cspm/edit-custom-rule.md)
+* [{#T}](./cspm/delete-custom-rule.md)
+* [{#T}](./cspm/check-environment.md)
 * [{#T}](./cspm/check-compliance.md)
 * [{#T}](./cspm/manage-exceptions.md)
 
@@ -56,6 +61,10 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 ## {{ vuln-man-name }} {#vulnerability-management}
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md)
+* [{#T}](./vulnerability-management/create-scan-job.md)
+* [{#T}](./vulnerability-management/manage-scan-job.md)
+* [{#T}](./vulnerability-management/run-scan-job.md)
+* [{#T}](./vulnerability-management/view-scan-results.md)
 * [{#T}](./vulnerability-management/use-vulnerability-management.md)
 
 ## Custom rule sets {#custom-rules-sets}

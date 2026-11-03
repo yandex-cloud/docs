@@ -1508,6 +1508,10 @@ items:
             items:
               - name: Обзор
                 href: dataplatform/spark-object-storage-overview.md
+              - name: >-
+                  Использование {{ objstorage-name }} в сервисе {{ msp-full-name
+                  }} без Hive
+                href: dataplatform/spark-without-hive.md
               - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
                 href: dataplatform/spark-objstorage-integration.md
               - name: Интеграция {{ msp-name }} и {{ metastore-name }}

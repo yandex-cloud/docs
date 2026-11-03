@@ -18,6 +18,32 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  1. Удалите правило из профиля ARL:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --advanced-rate-limiter-rules <правила_в_JSON>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--advanced-rate-limiter-rules` — полный список правил ARL в формате JSON без удаленного правила.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

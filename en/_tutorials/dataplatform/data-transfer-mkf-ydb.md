@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * {{ ydb-name }} endpoint.
            * Transfer.
 
-       1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
+       1. In `data-transfer-mkf-ydb.tf`, specify the following variables:
 
            * `folder_id`: ID of the folder to create the required resources in.
            * `source_kf_version`: {{ KF }} version in the source cluster.
@@ -222,7 +222,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the `data-transfer-mkf-ydb.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -234,7 +234,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        The transfer will be activated automatically upon creation.
+        Once created, the transfer becomes active automatically.
 
 
 {% endlist %}
@@ -300,7 +300,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         The data is sent on behalf of the [created user](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-    1. Make sure the data from the {{ mkf-name }} source cluster has been transferred to the {{ ydb-name }} database:
+    1. Make sure the {{ ydb-name }} database now contains the data from the {{ mkf-name }} source cluster:
 
         {% list tabs group=instructions %}
 
@@ -315,7 +315,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         - {{ ydb-short-name }} CLI {#cli}
 
            1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-           1. Check that the database contains a table named `sensors` with the test data from the topic:
+           1. Check that the database contains the `sensors` table with the test data from the topic:
 
                ```bash
                ydb table query execute \

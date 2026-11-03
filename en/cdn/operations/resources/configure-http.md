@@ -5,13 +5,15 @@ description: Follow this guide to configure HTTP methods.
 
 # Configuring HTTP methods
 
-To configure the allowed HTTP client requests methods for a resource:
-
 {% note info %}
 
 {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
 
+{% include [http-request-body](../../../_includes/cdn/http-request-body.md) %}
+
 {% endnote %}
+
+To configure the allowed HTTP client requests methods for a resource:
 
 {% list tabs group=instructions %}
 

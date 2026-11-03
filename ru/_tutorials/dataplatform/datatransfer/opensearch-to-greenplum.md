@@ -1,7 +1,7 @@
 # Копирование данных из {{ mos-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете перенести данные из кластера-источника {{ mos-full-name }} в кластер-приемник {{ GP }} в сервисе {{ mgp-name }}.
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера {{ mos-name }} в кластер {{ GP }} в сервисе {{ mgp-name }}.
 
 Чтобы перенести данные:
 
@@ -20,7 +20,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
-* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mgp-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
@@ -98,7 +98,8 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -114,28 +115,30 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+         --data '
          {
                "name": "Alice",
-               "age": "30"
+               "age": 30
          }
          ' && \
-    curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
-         --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' -d'
-         {
-               "name": "Robert",
-               "age": "32"
-         }
-         '
+     curl --cacert ~/.opensearch/root.crt \
+          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
+          --header 'Content-Type: application/json' \
+          --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+          --data '
+          {
+                "name": "Robert",
+                "age": 32
+          }
+          '
     ```
 
-1. Проверьте, что данные сохранились в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
+         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_search?pretty'
     ```
@@ -153,7 +156,7 @@
 
 1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера {{ GP }} с настройками:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum/Yandex MPP Analytics`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — выберите кластер {{ GP }} из списка.
@@ -197,7 +200,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Убедитесь, что в {{ mgp-name }} перенеслись данные из кластера-источника {{ mos-name }}:
+1. Убедитесь, что данные из кластера-источника {{ mos-name }} перенеслись в базу данных кластера {{ GP }}:
 
    1. [Получите SSL-сертификат](../../../managed-greenplum/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ GP }}.
    1. Установите зависимости:
@@ -206,7 +209,7 @@
       sudo apt update && sudo apt install --yes postgresql-client
       ```
 
-   1. Подключитесь к базе данных в кластере {{ GP }}.
+   1. [Подключитесь к базе данных](../../../managed-greenplum/operations/connect/clients.md#command-line-tools) в кластере {{ GP }}.
    1. Проверьте, что БД содержит таблицу `people` с тестовыми данными:
 
        ```sql
@@ -215,15 +218,26 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
+
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
+
+1. [Удалите эндпоинт](../../../data-transfer/operations/endpoint/index.md#delete) для источника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
 {% list tabs group=instructions %}
 
   - Вручную {#manual}
 
+      1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+      1. [Удалите эндпоинт](../../../data-transfer/operations/endpoint/index.md#delete) для приемника.
       1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
       1. [Удалите кластер {{ GP }}](../../../managed-greenplum/operations/cluster-delete.md).
-      
+
   - {{ TF }} {#tf}
 
       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}

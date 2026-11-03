@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Asymmetric encryption API](../index.md) > [AsymmetricEncryptionKey](index.md) > ListAccessBindings
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > ListAccessBindings
 
 # Key Management Service API, REST: AsymmetricEncryptionKey.ListAccessBindings
 
@@ -42,7 +42,7 @@ Page token. Set `pageToken`
 to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
 returned by a previous list request to get the next page of results.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.access.ListAccessBindingsResponse}

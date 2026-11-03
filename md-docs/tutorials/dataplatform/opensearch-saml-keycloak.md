@@ -6,10 +6,14 @@
 
 Чтобы настроить аутентификацию:
 
+1. [Подготовьте инфраструктуру](#prepare-infra).
+1. [Проверьте доступность компонентов](#check-components).
 1. [Настройте провайдер идентификации](#configure-idp).
 1. [Настройте SSO для кластера](#configure-sso).
 1. [Настройте роли для SSO](#map-roles).
 1. [Проверьте работу SSO](#test-sso).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 {% note info %}
 
@@ -17,14 +21,35 @@
 
 {% endnote %}
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infra}
+
+1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md) в ней.
+1. [Создайте](../../managed-opensearch/operations/cluster-create.md) кластер Managed Service for OpenSearch с публичным доступом к хостам.
+
+    Для работы SSO используйте пользователя `admin` — он создается автоматически при создании кластера.
+
+1. [Создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину и настройте сервер Keycloak на ней. Keycloak будет использоваться как провайдер идентификации. Обеспечьте к нему доступ с компьютера, с которого вы будете проверять работу SSO.
+
+    Вы можете развернуть Keycloak на собственном сервере вне Yandex Cloud.
+
+## Проверьте доступность компонентов {#check-components}
 
 1. Убедитесь, что вы можете [подключиться к OpenSearch Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`.
 
@@ -303,3 +328,12 @@
     Для этого нажмите на аватар пользователя в верхнем правом углу и выберите пункт **View roles and identities**. Будут показаны назначенные пользователю роли.
 
 1. Убедитесь, что вы можете выполнять все действия, которые разрешены для роли `kibana_user`.
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+1. [Удалите](../../managed-opensearch/operations/cluster-delete.md) кластер Managed Service for OpenSearch.
+1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину Compute Cloud, если вы размещали Keycloak на ней.
+1. [Удалите](../../vpc/operations/address-delete.md) статические публичные IP-адреса Yandex Virtual Private Cloud, если вы их резервировали.
+1. Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md) Yandex Virtual Private Cloud, если они больше не нужны.

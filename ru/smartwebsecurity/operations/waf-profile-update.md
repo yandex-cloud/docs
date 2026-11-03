@@ -25,6 +25,34 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
   1. При необходимости [настройте правила](configure-set-rules.md) в каждом наборе, который вы добавили.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile update --help
+     ```
+
+  1. Измените параметры профиля WAF:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile update \
+       --id <идентификатор_профиля> \
+       --name <новое_имя_профиля> \
+       --description <новое_описание_профиля>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля WAF.
+     * (Опционально) `--name` — имя профиля WAF.
+     * (Опционально) `--description` — описание профиля WAF.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

@@ -9,7 +9,7 @@ In this tutorial, you will learn how to:
 {{ mmg-name }} cluster performance decline most often stems from one of the following causes:
 
 * [High CPU and disk I/O usage](#cpu-io-deficit).
-* [Inefficient {{ SD }} queries](#inefficient-queries).
+* [Inefficient query execution in {{ SD }}](#inefficient-queries).
 * [Locks](#localize-locking-issues).
 * [Insufficient disk space](#disk-deficit).
 

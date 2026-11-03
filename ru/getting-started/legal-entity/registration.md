@@ -8,6 +8,15 @@ description: 'Из статьи вы узнаете, как создать пл�
 Платежный аккаунт необходим, даже если вы планируете пользоваться только бесплатными сервисами. 
 
 
+{% note warning %}
+
+Стартовый грант начислится, только если банковская карта была привязана к платежному аккаунту в момент его создания.
+
+{% endnote %}
+
+![quickstart](../../_assets/overview/legal-entity-trial-period.svg)
+
+
 {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
 
 {% include [start](../_includes/quickstart-qa-whats-next.md) %}

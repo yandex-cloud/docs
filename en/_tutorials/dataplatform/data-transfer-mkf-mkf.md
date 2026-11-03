@@ -1,7 +1,7 @@
 # Migrating data between {{ KF }} clusters using {{ data-transfer-full-name }}
 
 
-You can transfer your data from {{ KF }} topics between one {{ KF }} cluster and another in real time. Among others, the following migration types are supported:
+You can transfer data from {{ KF }} topics between {{ KF }} clusters in real time. Among others, the following migration types are supported:
 
 * Between different {{ KF }} versions, e.g., you can migrate topics from version 2.8 to version 3.1.
 * Between different [availability zones](../../overview/concepts/geo-scope.md): you can [migrate a cluster with a single host](../../managed-kafka/operations/host-migration.md#one-host) from one zone to another.
@@ -75,7 +75,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * Source and target endpoints.
            * Transfer.
 
-       1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
+       1. In `data-transfer-mkf-mkf.tf`, specify the following settings:
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_user_password`: User password.
            * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-       1. Validate your {{ TF }} configuration files using this command:
+       1. Validate your {{ TF }} configuration using this command:
 
            ```bash
            terraform validate
@@ -147,7 +147,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-           Select your target cluster from the list and specify its connection settings.
+           Select your target cluster from the list, then specify its connection settings.
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
@@ -170,7 +170,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. Specify `transfer_enabled = 1` in the `data-transfer-mkf-mkf.tf` file.
 
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Validate your {{ TF }} configuration using this command:
 
       ```bash
       terraform validate
@@ -182,7 +182,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
+      Endpoints and a transfer will be created. Once created, the transfer becomes active automatically.
 
 
 {% endlist %}
@@ -270,7 +270,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 {% endnote %}
 
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 
 {% list tabs group=instructions %}
@@ -278,7 +278,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Manually {#manual}
 
   1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-  1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+  1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
   1. [Delete the {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-delete.md).
 
 

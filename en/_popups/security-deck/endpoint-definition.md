@@ -1,0 +1,1 @@
+An endpoint is an application component's URL address open to HTTP requests and returning a response. Endpoints are all points of interaction with an application: from public pages to internal API methods.

@@ -60,7 +60,8 @@
         * эндпоинты;
         * трансфер.
 
-    1. Укажите в файле `ydb-to-object-storage.tf`:
+    1. Укажите в файле `ydb-to-object-storage.tf` значения параметров:
+
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
@@ -148,7 +149,7 @@
 
         * **Выходной формат** — `CSV`.
         * **Формат сжатия** — `UNCOMPRESSED`.
-        * **Имя папки** — `from_YDB`.
+        * **Префикс пути** — `from_YDB/`.
 
     1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/source/ydb.md) типа `YDB` и укажите в нем параметры подключения к базе данных:
 
@@ -164,11 +165,11 @@
 
 - Terraform {#tf}
 
-    1. Укажите в файле `ydb-to-object-storage.tf` переменные:
+    1. Укажите в файле `ydb-to-object-storage.tf` значения параметров:
 
-        * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-        * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
-        * `transfer_enabled` – значение `1` для создания трансфера.
+        * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+        * `source_endpoint_id` — идентификатор эндпоинта для источника;
+        * `transfer_enabled` — значение `1` для создания трансфера.
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -215,13 +216,19 @@
   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет из списка.
   1. Перейдите на вкладку **Объекты**.
-  1. Проверьте, что бакет Object Storage содержит папку `from_YDB` с объектом `<seasons.csv>` с тестовыми данными.
+  1. Проверьте, что бакет Object Storage содержит папку `from_YDB` с объектом `seasons.csv` с тестовыми данными.
 
 {% endlist %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
+
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).

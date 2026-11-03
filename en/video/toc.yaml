@@ -290,6 +290,8 @@ items:
                 href: api-ref/grpc/Episode/getPlayerURL.md
               - name: GetManifests
                 href: api-ref/grpc/Episode/getManifests.md
+              - name: Download
+                href: api-ref/grpc/Episode/download.md
           - name: Operation
             items:
               - name: Overview
@@ -360,6 +362,8 @@ items:
                 href: api-ref/grpc/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Stream/performAction.md
+              - name: UpdateTranslationOptions
+                href: api-ref/grpc/Stream/updateTranslationOptions.md
           - name: StylePreset
             items:
               - name: Overview
@@ -488,6 +492,8 @@ items:
                 href: api-ref/Episode/getPlayerURL.md
               - name: GetManifests
                 href: api-ref/Episode/getManifests.md
+              - name: Download
+                href: api-ref/Episode/download.md
           - name: Operation
             items:
               - name: Overview
@@ -558,6 +564,8 @@ items:
                 href: api-ref/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/Stream/performAction.md
+              - name: UpdateTranslationOptions
+                href: api-ref/Stream/updateTranslationOptions.md
           - name: StylePreset
             items:
               - name: Overview

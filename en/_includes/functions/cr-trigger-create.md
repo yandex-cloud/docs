@@ -83,7 +83,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
   * `--name`: Trigger name.
   * `--registry-id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
   * `--events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger.
-  
+
   {% include [batch-settings-events](batch-settings-events.md) %}
 
   {% include [trigger-cli-param](trigger-cli-param.md) %}
@@ -132,8 +132,8 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
       ```hcl
       resource "yandex_serverless_triggers" "my_trigger" {
         name = "<trigger_name>"
-        source {
-          container_registry {
+        source = {
+          container_registry = {
             registry_id = "<registry_ID>"
             image_name  = "<Docker_image_name>"
             tag         = "<Docker_image_tag>"
@@ -143,29 +143,29 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
               "CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG",
               "CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG",
             ]
-            batch_settings {
-              max_count = "<max_number_of_events>"
-              max_bytes = "<max_group_size_in_bytes>"
+            batch_settings = {
+              max_count = <max_number_of_events>
+              max_bytes = <max_group_size_in_bytes>
               cutoff    = "<maximum_wait_time>"
             }
           }
         }
-        action {
-          invoke_function {
+        action = [{
+          invoke_function = {
             function_id        = "<function_ID>"
             service_account_id = "<service_account_ID>"
           }
-          retry_policy {
-            retry_attempts = "<number_of_retries>"
+          retry_policy = {
+            retry_attempts = <number_of_retries>
             interval       = "<interval_between_retries>"
           }
-          dead_letter {
-            dead_letter_queue {
+          dead_letter = {
+            dead_letter_queue = {
               queue_arn          = "<Dead_Letter_Queue_ARN>"
               service_account_id = "<service_account_ID>"
             }
           }
-        }
+        }]
       }
       ```
 

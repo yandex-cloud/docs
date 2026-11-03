@@ -129,7 +129,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. Run snapshot creation in the repository you created at the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see [this {{ ES }} guide on snapshots]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
+1. Run snapshot creation in the repository you created at the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see [this {{ ES }} guide]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
 
     Example of creating a snapshot named `snapshot_1` for the entire cluster:
 
@@ -221,7 +221,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     - {{ OS }} Dashboards {#opensearch}
     
-      1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+      1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster via {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. Under **{{ OS }} Plugins**, select **Index Management**.
@@ -235,7 +235,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Delete the resources you created {#clear-out-snapshot}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=instructions %}
 
@@ -456,7 +456,7 @@ Make sure all indexes have been migrated to the target {{ mos-name }} cluster an
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+  1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster via {{ OS }} Dashboards.
   1. Select the `Global` tenant.
   1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. Under **{{ OS }} Plugins**, select **Index Management**.

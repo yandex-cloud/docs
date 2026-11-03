@@ -310,6 +310,10 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Вопросы и ответы
+    items:
+      - name: Все вопросы на одной странице
+        href: qa/index.md
   - name: История изменений
     href: release-notes.md
 path: ru/security-deck/toc.yaml

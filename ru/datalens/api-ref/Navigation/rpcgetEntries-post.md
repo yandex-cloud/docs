@@ -67,6 +67,9 @@ _Example:_{.json-schema-reset .json-schema-example} ``
     "example"
   ],
   "scope": "dash",
+  "scopes": [
+    "dash"
+  ],
   "type": "example",
   "createdBy": [
     "example"
@@ -308,16 +311,71 @@ _Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `data
 ||
 ||
 
+_scopes_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: [EntryScope](#entity-EntryScope)[]
+
+Scopes used to filter entries.
+
+_Min items:_{.json-schema-reset .json-schema-assertion} `1`
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+[
+  "dash"
+]
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
 _type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string
+{% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-Entry type to filter by.
+- **Type**: string
+
+  _Example:_{.json-schema-reset .json-schema-example} `example`
+
+- **Type**: string[]
+
+  _Min items:_{.json-schema-reset .json-schema-assertion} `1`
+
+  _Max items:_{.json-schema-reset .json-schema-assertion} `10`
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  [
+    "example"
+  ]
+  ```
+
+  {% endcut %}
+
+{% endcut %}
+
+Entry type or types to filter by.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
+
+</div>
+
+<div class="openapi-entity">
+
+### EntryScope {#entity-EntryScope}
+
+Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
+
+**Type**: string
+
+_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 
@@ -494,11 +552,11 @@ _entries_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
-  _isFavorite_{.json-schema-reset .json-schema-property .json-schema-required}
+  _isFavorite_{.json-schema-reset .json-schema-property .json-schema-required .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
   {.table-cell}|
   **Type**: boolean
 
-  Whether the entry is marked as a favorite.
+  Whether the entry is marked as a favorite. Deprecated: the field will be removed in a future API version.
   {.table-cell}
   ||
   ||
@@ -834,18 +892,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
-
-</div>
-
-<div class="openapi-entity">
-
-### EntryScope {#entity-EntryScope}
-
-Type of the entry, e.g. `dash` — dashboard, `widget` — chart, etc.
-
-**Type**: string
-
-_Enum:_{.json-schema-reset .json-schema-value} `dash`, `report`, `widget`, `dataset`, `folder`, `connection`, `compute`, `artifact`, `sql_query`
 
 </div>
 

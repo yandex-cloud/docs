@@ -20,13 +20,9 @@
         GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
         ```
 
-       If the database is not empty, the user must be its owner:
-
-        ```sql
-        ALTER DATABASE <database_name> OWNER TO <username>;
-        ```
-
-       Once started, the transfer will connect to the target on behalf of this user.
+       {% include [databese-owner](database-owner-role.md) %}
+    
+       Once the transfer starts, it will connect to the target as this user.
     1. If the target has the [Save transaction boundaries](../../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) option enabled, grant the new user all the privileges needed to create the `__data_transfer_lsn` auxiliary table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually `public`) in the target:
 
        ```sql
@@ -57,13 +53,9 @@
         GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
         ```
 
-       If the database is not empty, the user must be its owner:
-
-        ```sql
-        ALTER DATABASE <database_name> OWNER TO <username>;
-        ```
-
-       Once started, the transfer will connect to the target on behalf of this user.
+       {% include [databese-owner](database-owner-role.md) %}
+    
+       Once the transfer starts, it will connect to the target as this user.
 
     1. If the target has the [Save transaction boundaries](../../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) option enabled, grant the new user all the privileges needed to create the `__data_transfer_lsn` auxiliary table in the [current schema](https://www.postgresql.org/docs/current/ddl-schemas.html#DDL-SCHEMAS-PATH) (usually `public`) in the target:
 

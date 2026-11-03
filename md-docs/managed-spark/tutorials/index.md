@@ -5,6 +5,7 @@
 ## Работа с данными в Object Storage {#clusters}
 
 * [Работа с данными в Yandex Object Storage](object-storage-overview.md)
+* [Работа с Yandex Object Storage из PySpark-задания без использования Hive](spark-without-hive.md)
 * [Работа с Yandex Object Storage из PySpark-задания с использованием локального каталога Hive](spark-objstorage-integration.md)
 * [Интеграция с Apache Hive™ Metastore](metastore-and-spark.md)
 * [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](spark-simple-rw-job.md)

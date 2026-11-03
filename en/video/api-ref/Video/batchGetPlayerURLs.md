@@ -32,7 +32,7 @@ apiPlayground:
         signedUrlExpirationDuration:
           description: |-
             **string** (duration)
-            For episodes with signed URL access, specifies how long the generated URL will be valid.
+            For videos with signed URL access, specifies how long the generated URL will be valid.
             If not provided, a default expiration duration will be used.
             This setting applies to all videos in the batch that use sign_url_access.
           type: string
@@ -111,7 +111,7 @@ These parameters control initial player state such as mute, autoplay, and visibi
 These parameters will be applied to all generated player URLs. ||
 || signedUrlExpirationDuration | **string** (duration)
 
-For episodes with signed URL access, specifies how long the generated URL will be valid.
+For videos with signed URL access, specifies how long the generated URL will be valid.
 If not provided, a default expiration duration will be used.
 This setting applies to all videos in the batch that use sign_url_access. ||
 |#

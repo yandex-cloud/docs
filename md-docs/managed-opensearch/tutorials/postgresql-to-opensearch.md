@@ -26,7 +26,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
@@ -163,8 +163,8 @@
 
       1. Укажите в файле `postgresql-to-opensearch.tf` значения переменных:
 
-          * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-          * `transfer_enabled` – значение `1` для создания трансфера.
+          * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+          * `transfer_enabled` — значение `1` для создания трансфера.
 
       1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -218,7 +218,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#delete).
 1. Остальные ресурсы удалите в зависимости от способа их создания:

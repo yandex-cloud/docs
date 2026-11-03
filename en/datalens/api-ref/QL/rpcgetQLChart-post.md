@@ -101,11 +101,11 @@ _Enum:_{.json-schema-reset .json-schema-value} `saved`, `published`
 ||
 ||
 
-_includeFavorite_{.json-schema-reset .json-schema-property}
+_includeFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Include favorite status in the response.
+Include favorite status in the response. Deprecated: the parameter will be removed in a future API version.
 {.table-cell}
 ||
 ||

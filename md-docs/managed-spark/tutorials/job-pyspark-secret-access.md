@@ -74,6 +74,13 @@
     * **Сеть** — `spark-network`.
     * **Группы безопасности** — `pg-sg`.
 
+1. Создайте и наполните тестовую таблицу в базе данных кластера Managed Service for PostgreSQL, к которой будет подключаться PySpark-задание. Например, [выполните SQL-запросы с помощью WebSQL](../../managed-postgresql/operations/web-sql-query.md):
+
+    ```sql
+    CREATE TABLE demo_table (id INT, name TEXT);
+    INSERT INTO demo_table VALUES (1, 'Ann'), (2, 'Bob'), (3, 'Cid');
+    ```
+
 ## Настройте права доступа к секрету пользователя Managed Service for PostgreSQL {#set-up-roles}
 
 {% list tabs group=instructions %}
@@ -185,6 +192,7 @@
     
     * идентификатор секрета;
     * [FQDN хоста](../../managed-postgresql/operations/connect/fqdn.md) для подключения к кластеру Managed Service for PostgreSQL;
+    * имя пользователя;
     * имя базы данных;
     * имя таблицы.
 
@@ -198,7 +206,7 @@
   1. В кластере Yandex Managed Service for Apache Spark™ [создайте задание](../operations/jobs-pyspark.md) со следующими параметрами:
       
       * **Тип задания** — `PySpark`.
-      * **Main python файл** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
+      * **Main python файл** — `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
       * **Пакеты** — `org.postgresql:postgresql:42.7.3`.
 
   1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.

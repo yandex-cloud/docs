@@ -154,20 +154,6 @@
 
  - [Устранение неверного значения поля `Итого` в сводной таблице](datalens/known-issues/incorrect-value-in-field-total.md)
 
-## Cloud DNS
-
- - [Все решения для Cloud DNS](dns/index.md)
-
- - [Решения для известных проблем Cloud DNS](dns/known-issues/index.md)
-
- - [Устранение ошибки `Incorrect format. Text string too long`](dns/known-issues/error-incorrect-format-text-string-too-long.md)
-
- - [Устранение ошибки `Incorrect format expected an integer` при создании MX-записи](dns/known-issues/error-incorrect-format-expected-an-integer.md)
-
- - [Примеры конфигураций и сценариев Cloud DNS](dns/how-to/index.md)
-
- - [Как делегировать домен на серверы Cloud DNS](dns/how-to/delegate-public-zone.md)
-
 ## Network Load Balancer
 
  - [Все решения для Network Load Balancer](network-load-balancer/index.md)
@@ -193,64 +179,6 @@
  - [Нужно ли заключать отдельный договор по № 152-ФЗ для размещения персональных данных](legal/how-to/fl-152.md)
 
  - [Как стать поставщиком услуг для Яндекса](legal/how-to/becoming-a-service-supplier.md)
-
-## Managed Service for MySQL®
-
- - [Все решения для Managed Service for MySQL®](managed-mysql/index.md)
-
- - [Решения для известных проблем Managed Service for MySQL®](managed-mysql/known-issues/index.md)
-
- - [Кластер Managed Service for MySQL® переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами](managed-mysql/known-issues/free-space-in-cluster-storage-is-exhausted-with-temp-files.md)
-
- - [Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера Managed Service for MySQL®](managed-mysql/known-issues/mysqldump-needs-reload-or-flush-talbes-privileges.md)
-
- - [Примеры конфигураций и сценариев Managed Service for MySQL®](managed-mysql/how-to/index.md)
-
-## VPC
-
- - [Все решения для VPC](vpc/index.md)
-
- - [Решения для известных проблем VPC](vpc/known-issues/index.md)
-
- - [Устранение ошибок при удалении облачной сети](vpc/known-issues/unable-to-delete-cloud-network.md)
-
- - [Ошибочно определяется географическая принадлежность IP-адресов ресурсов Yandex Cloud](vpc/known-issues/external-ip-address-country-affiliation-issue.md)
-
- - [Устранение проблем со скоростью сетевого соединения при работе с облачными ресурсами](vpc/known-issues/network-perfomance-issue.md)
-
- - [Устранение ошибок при установке TLS-соединений на ВМ](vpc/known-issues/resolving-tls-traffic-issues.md)
-
- - [Не удаляется группа безопасности](vpc/known-issues/security-group-cannot-be-deleted.md)
-
- - [Устранение проблем с отправкой писем по SMTP со внешних IP-адресов](vpc/known-issues/issues-with-outgoing-emails-on-external-ips.md)
-
- - [Устранение ошибки `Quota limit vpc.routeTables.count exceeded`](vpc/known-issues/error-quota-limit-vpc-routetables-count-exceeded.md)
-
- - [Примеры конфигураций и сценариев VPC](vpc/how-to/index.md)
-
- - [Как отключить защиту от DDoS](vpc/how-to/disable-ddos-protection-on-external-ip.md)
-
- - [Перенос внешнего статического IP-адреса в другое облако](vpc/how-to/move-external-ip-between-cloud.md)
-
- - [Как изменить сеть или подсеть для MDB-кластера](vpc/how-to/changing-net-or-subnet.md)
-
- - [Как привязать фиксированный IP-адрес к NAT-шлюзу](vpc/how-to/link-ip-address-to-nat-gateway.md)
-
- - [Как включить Egress NAT](vpc/how-to/activate-egress-nat.md)
-
- - [Как осуществить маршрутизацию трафика между двумя облачными сетями](vpc/how-to/routing-traffic-between-two-vpcs.md)
-
- - [Как использовать IPv6-адреса](vpc/how-to/using-ipv6.md)
-
- - [Как использовать отказоустойчивый VPN или NGWF](vpc/how-to/using-failsafe-vpn.md)
-
- - [Как вернуть IP-адрес](vpc/how-to/restore-ip-address.md)
-
- - [В чем различие между NAT-шлюзом и NAT-инстансом](vpc/how-to/difference-nat-gateway-and-nat-instance.md)
-
- - [Как перенести IP в другую зону доступности](vpc/how-to/transferring-ip-to-a-different-zone.md)
-
- - [Как заблокировать IP-адрес](vpc/how-to/block-ip-address.md)
 
 ## Terraform-провайдер Yandex Cloud
 

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить видео
 
+Чтобы заменить видеофайл, воспользуйтесь [отдельной инструкцией](change-file.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ video-name }} {#console}
@@ -18,11 +20,13 @@ description: Следуя данной инструкции, вы сможете
      {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
 
   1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** измените тип доступа к видео:
+      
       * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
       
         {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео будет доступно неограниченное время и всем, у кого есть ссылка на видео.
+  
   1. Включите или выключите монетизацию.
   1. Чтобы изменить обложку:
 

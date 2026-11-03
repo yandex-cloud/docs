@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Lockbox](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Lockbox](index.md) > Метрики Monium
 
-# Справочник метрик Yandex Monitoring
+# Метрики Yandex Lockbox
 
-В этом разделе описаны метрики сервиса Yandex Lockbox, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Yandex Lockbox, поставляемые в [Monium](../monium/index.md).
 
 Имя метрики пишется в метку `name`.
 

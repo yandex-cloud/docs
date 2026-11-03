@@ -20,4 +20,5 @@ that can be individually accessed, managed, and published.
 || [PerformAction](performAction.md) | Performs a specific action on an episode, such as publishing or unpublishing. ||
 || [GetPlayerURL](getPlayerURL.md) | Generates a player URL for watching the episode. ||
 || [GetManifests](getManifests.md) | Retrieves the manifest URLs for the episode's media content. ||
+|| [Download](download.md) | Starts preparing the episode for download. ||
 |#

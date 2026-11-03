@@ -37,7 +37,7 @@ Optional player parameters to customize the playback experience.
 These parameters control initial player state such as mute, autoplay, and visibility of interface controls. ||
 || signed_url_expiration_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-For episodes with signed URL access, specifies how long the generated URL will be valid.
+For videos with signed URL access, specifies how long the generated URL will be valid.
 If not provided, a default expiration duration will be used. ||
 |#
 

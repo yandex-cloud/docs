@@ -140,8 +140,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
      ```hcl
      resource "yandex_serverless_triggers" "my_trigger" {
        name = "<trigger_name>"
-       source {
-         object_storage {
+       source = {
+         object_storage = {
            bucket_id = "<bucket_ID>"
            prefix    = "<object_key_prefix>"
            suffix    = "<object_key_suffix>"
@@ -150,30 +150,30 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
              "OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT",
              "OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT",
            ]
-           batch_settings {
-             max_count = "<max_number_of_events>"
-             max_bytes = "<max_group_size_in_bytes>"
+           batch_settings = {
+             max_count = <max_number_of_events>
+             max_bytes = <max_group_size_in_bytes>
              cutoff    = "<maximum_wait_time>"
            }
          }
        }
-       action {
-         invoke_container {
+       action = [{
+         invoke_container = {
            container_id       = "<container_ID>"
            path               = "<HTTP_path>"
            service_account_id = "<service_account_ID>"
          }
-         retry_policy {
-           retry_attempts = "<number_of_retries>"
+         retry_policy = {
+           retry_attempts = <number_of_retries>
            interval       = "<interval_between_retries>"
          }
-         dead_letter {
-           dead_letter_queue {
+         dead_letter = {
+           dead_letter_queue = {
              queue_arn          = "<Dead_Letter_Queue_ARN>"
              service_account_id = "<service_account_ID>"
            }
          }
-       }
+       }]
      }
      ```
 
@@ -186,8 +186,8 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
           * `object_storage`: Bucket settings:
 
               * `bucket_id`: Bucket ID.
-              * `prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-              * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+              * `prefix`: Bucket object key [prefix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
+              * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
               * `event_type`: List of [events](../concepts/trigger/os-trigger.md#event) to set off the trigger. Specify at least one value:
 
                   * `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`: Creating a new object in a bucket.

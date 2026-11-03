@@ -44,8 +44,8 @@
 
 {% endlist %}
 
-## Пользовательские метрики {#metrics}
+## Посмотреть метрики в Monium {#metrics}
 
-Чтобы перейти к работе с [метриками](../../monitoring/concepts/data-model.md#metric), [дашбордами](../../monitoring/concepts/visualization/dashboard.md) и [алертами](../../monitoring/concepts/alerting/alert.md) в сервисе Monitoring, в правом верхнем углу нажмите кнопку **Открыть в Monium**.
+Чтобы открыть готовые графики в Monium, в правом верхнем углу нажмите кнопку **Открыть в Monium**. В Monium также можно [строить графики по отдельным метрикам](../../monium/metrics/metric-explorer.md), создавать [дашборды](../../monium/concepts/visualization/dashboard.md) и настраивать [алерты](../../monium/concepts/alerting/alert.md).
 
 Описание метрик приведено в [справочнике](../metrics.md).

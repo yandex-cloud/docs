@@ -19,6 +19,7 @@ A set of methods for managing secrets.
 || [Deactivate](deactivate.md) | Deactivates the specified secret. ||
 || [ListVersions](listVersions.md) | Retrieves the list of versions of the specified secret. ||
 || [AddVersion](addVersion.md) | Adds new version based on a previous one. ||
+|| [SetCurrentVersion](setCurrentVersion.md) | Sets new current version for the specified secret. ||
 || [ScheduleVersionDestruction](scheduleVersionDestruction.md) | Schedules the specified version for destruction. ||
 || [CancelVersionDestruction](cancelVersionDestruction.md) | Cancels previously scheduled version destruction, if the version hasn't been destroyed yet. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified secret. ||

@@ -2722,6 +2722,7 @@ default:
             title_section-billable: Привязанные облака и сервисы
           dashboard:
             button_go-pay: Перейти на платную версию
+            button_refill: Пополнить счет
             card_label_threshold-description: Подробнее
             label_inactivation: Удалить
             label_rename: Переименовать
@@ -2774,6 +2775,7 @@ default:
             account-data_label_organization: Организация
             card_label_edit: Изменить банковскую карту
             company_label_rs: Расчетный счет
+            payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
             section_contract: Информация о договоре
@@ -2947,8 +2949,6 @@ default:
           header_scan_result_sensitive_data: Отображение чувствительных данных
           label_field_bucket: Бакет
           tab_issues_title: Проверка параметров
-      services:
-        service_compute: Compute Cloud
       settings:
         button_add-empty: Добавить
         button_add-empty-telegram: Настроить
@@ -3031,6 +3031,7 @@ default:
         status_no_data: No data
         status_ok: OK
         status_warn: Warning
+        title_aggregation-at_all_times: Все значения
         title_aggregation-last_non_nan: Последнее
         title_aggregation-min: Минимум
         title_alerts-config: Настройки алерта

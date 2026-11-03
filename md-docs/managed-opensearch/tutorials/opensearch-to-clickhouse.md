@@ -5,7 +5,7 @@
 # Копирование данных из Managed Service for OpenSearch в Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
 
-С помощью сервиса Data Transfer вы можете перенести данные из кластера-источника Managed Service for OpenSearch в Managed Service for ClickHouse®.
+С помощью сервиса Data Transfer вы можете перенести данные из кластера Managed Service for OpenSearch в кластер Managed Service for ClickHouse®.
 
 Чтобы перенести данные:
 
@@ -30,7 +30,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../pricing.md)).
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
@@ -49,7 +49,7 @@
     1. [Создайте кластер-источник Managed Service for OpenSearch](../operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
     1. В той же [зоне доступности](../../overview/concepts/geo-scope.md) [создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
 
-       Если вы планируете подключаться к кластеру через сервис Yandex WebSQL, включите в настройках кластера настройку **Доступ из WebSQL**.
+       Если вы планируете подключаться к кластеру через сервис Yandex WebSQL, включите в настройках кластера опцию **Доступ из WebSQL**.
 
     1. [Получите SSL-сертификат](../operations/connect/index.md#ssl-certificate) для подключения к кластеру Managed Service for OpenSearch.
 
@@ -78,7 +78,7 @@
 
         * `source_admin_password` — пароль пользователя `admin` в кластере Managed Service for OpenSearch;
         * `mos_version` — версия OpenSearch;
-        * `mch_db_name` — название базы данных в кластере Managed Service for ClickHouse®;
+        * `mch_db_name` — имя базы данных в кластере Managed Service for ClickHouse®;
         * `mch_username` — имя пользователя в кластере Managed Service for ClickHouse®;
         * `mch_user_password` — пароль пользователя в кластере Managed Service for ClickHouse®;
         * `source_endpoint_id` — идентификатор эндпоинта-источника;
@@ -132,7 +132,7 @@
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_mapping?pretty' \
-         --data'
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -148,30 +148,30 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+         --data '
          {
                "name": "Alice",
-               "age": "30"
+               "age": 30
          }
          ' && \
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+         --data '
          {
                "name": "Robert",
-               "age": "32"
+               "age": 32
          }
          '
     ```
 
-1. (Опционально) Проверьте данные в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
+         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_search?pretty'
     ```
@@ -201,16 +201,16 @@
                 * **Managed кластер** — выберите кластер Managed Service for ClickHouse® из списка.
                 * **Пользователь** — введите имя пользователя в кластере Managed Service for ClickHouse®.
                 * **Пароль** — введите пароль пользователя в кластере Managed Service for ClickHouse®.
-                * **База данных** — введите название БД в кластере Managed Service for ClickHouse®.
+                * **База данных** — введите имя БД в кластере Managed Service for ClickHouse®.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Копирование**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
 
     - Terraform {#tf}
 
-        1. Укажите в файле `opensearch-to-clickhouse.tf` значения параметра:
+        1. Укажите в файле `opensearch-to-clickhouse.tf` значения параметров:
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
+            * `source_endpoint_id` — идентификатор эндпоинта для источника;
             * `transfer_enabled` — значение `1` для создания эндпоинта-приемника и трансфера.
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
@@ -249,7 +249,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **Завершен**.
-1. Убедитесь, что в базу данных Managed Service for ClickHouse® перенеслись данные из кластера-источника Managed Service for OpenSearch:
+1. Убедитесь, что данные из кластера-источника Managed Service for OpenSearch перенеслись в базу данных кластера Managed Service for ClickHouse®:
 
     {% list tabs group=instructions %}
 
@@ -277,7 +277,13 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
+
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
 
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
 1. Удалите остальные ресурсы в зависимости от способа их создания:

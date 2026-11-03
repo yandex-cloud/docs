@@ -5,7 +5,7 @@
 # Копирование данных из Yandex Managed Service for OpenSearch в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
 
-С помощью сервиса Yandex Data Transfer вы можете перенести данные из кластера-источника Yandex Managed Service for OpenSearch в кластер-приемник Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL.
+С помощью сервиса Data Transfer вы можете перенести данные из кластера Managed Service for OpenSearch в кластер Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL.
 
 Чтобы перенести данные:
 
@@ -30,7 +30,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
-* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
@@ -129,7 +129,8 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_mapping?pretty' -d'
+         --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_mapping?pretty' \
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -145,28 +146,30 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' -d'
+         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+         --data '
          {
                "name": "Alice",
-               "age": "30"
+               "age": 30
          }
          ' && \
-    curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
-         --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' -d'
-         {
-               "name": "Robert",
-               "age": "32"
-         }
-         '
+     curl --cacert ~/.opensearch/root.crt \
+          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
+          --header 'Content-Type: application/json' \
+          --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+          --data '
+          {
+                "name": "Robert",
+                "age": 32
+          }
+          '
     ```
 
-1. Проверьте, что данные сохранились в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
+         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_search?pretty'
     ```
@@ -184,7 +187,7 @@
 
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#prepare-infrastructure) кластера Greenplum® с настройками:
 
-    * **Тип базы данных** — `Greenplum`.
+    * **Тип базы данных** — `Greenplum/Yandex MPP Analytics`.
     * **Параметры эндпоинта**:
         * **Тип подключения** — выберите `Кластер`.
         * **Кластер** — выберите кластер Greenplum® из списка.
@@ -245,7 +248,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **Завершен**.
-1. Убедитесь, что в Yandex MPP Analytics for PostgreSQL перенеслись данные из кластера-источника Managed Service for OpenSearch:
+1. Убедитесь, что данные из кластера-источника Managed Service for OpenSearch перенеслись в базу данных кластера Greenplum®:
 
    1. [Получите SSL-сертификат](../operations/connect/index.md#get-ssl-cert) для подключения к кластеру Greenplum®.
    1. Установите зависимости:
@@ -254,7 +257,7 @@
       sudo apt update && sudo apt install --yes postgresql-client
       ```
 
-   1. Подключитесь к базе данных в кластере Greenplum®.
+   1. [Подключитесь к базе данных](../operations/connect/clients.md#command-line-tools) в кластере Greenplum®.
    1. Проверьте, что БД содержит таблицу `people` с тестовыми данными:
 
        ```sql
@@ -263,15 +266,26 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
+
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
+
+1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
 {% list tabs group=instructions %}
 
   - Вручную {#manual}
 
+      1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+      1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
       1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
       1. [Удалите кластер Greenplum®](../operations/cluster-delete.md).
-      
+
   - Terraform {#tf}
 
       1. В терминале перейдите в директорию с планом инфраструктуры.

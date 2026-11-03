@@ -75,11 +75,8 @@ apiPlayground:
             description: |-
               **string**
               Source track language represented as a three-letter code according to ISO 639-2/T.
-              Track language will be deduced automatically if not provided.
-              In the latter case the deduction accuracy is not guaranteed.
-              For better performance please do specify the source track language when possible.
-              Value must match the regular expression ` |ara|deu|eng|fra|ita|jpn|kor|rus|spa|tur|zho `.
-            pattern: '|ara|deu|eng|fra|ita|jpn|kor|rus|spa|tur|zho'
+              Value must match the regular expression ` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho `.
+            pattern: ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho
             type: string
       SubtitleTrack:
         type: object
@@ -87,19 +84,12 @@ apiPlayground:
           dstLang:
             description: |-
               **string**
-              Required field. Target language represented as a three-letter code according to ISO 639-2/T.
-              Value must match the regular expression ` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho `.
-            pattern: ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho
-            type: string
-          label:
-            description: |-
-              **string**
-              Required field. Track label to be displayed on the screen during video playback.
-              The maximum string length in characters is 50.
+              Required field. Language of subtitles represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` eng|kaz|rus `.
+            pattern: eng|kaz|rus
             type: string
         required:
           - dstLang
-          - label
       AudioTrack:
         type: object
         properties:
@@ -110,33 +100,26 @@ apiPlayground:
               Value must match the regular expression ` eng|kaz|rus `.
             pattern: eng|kaz|rus
             type: string
-          label:
-            description: |-
-              **string**
-              Required field. Track label to be displayed on the screen during video playback.
-              The maximum string length in characters is 50.
-            type: string
         required:
           - dstLang
-          - label
       TranslationTrack:
         type: object
         properties:
           inputTrack:
             description: |-
-              **[InputTrack](#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
+              **[InputTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
               Required field. Input track settings.
             $ref: '#/definitions/InputTrack'
           subtitles:
             description: |-
-              **[SubtitleTrack](#yandex.cloud.video.v1.VideoTranslationSettings.SubtitleTrack)**
+              **[SubtitleTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack)**
               Settings for target subtitle tracks.
             type: array
             items:
               $ref: '#/definitions/SubtitleTrack'
-          audio:
+          audios:
             description: |-
-              **[AudioTrack](#yandex.cloud.video.v1.VideoTranslationSettings.AudioTrack)**
+              **[AudioTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack)**
               Settings for target audio tracks.
             type: array
             items:
@@ -148,7 +131,7 @@ apiPlayground:
         properties:
           tracks:
             description: |-
-              **[TranslationTrack](#yandex.cloud.video.v1.VideoTranslationSettings.TranslationTrack)**
+              **[TranslationTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack)**
               Translation settings for each track.
             type: array
             items:
@@ -158,7 +141,7 @@ apiPlayground:
         properties:
           inputTrack:
             description: |-
-              **[InputTrack](#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
+              **[InputTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
               Required field. Input track settings.
             $ref: '#/definitions/InputTrack'
         required:
@@ -186,7 +169,7 @@ apiPlayground:
         properties:
           inputTrack:
             description: |-
-              **[InputTrack](#yandex.cloud.video.v1.VideoTranslationSettings.InputTrack)**
+              **[InputTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
               Required field. Input track settings.
             $ref: '#/definitions/InputTrack'
         required:
@@ -371,7 +354,7 @@ Value must match the regular expression ``` |ara|deu|eng|fra|ita|jpn|kor|rus|spa
 
 Required field. Target language represented as a three-letter code according to ISO 639-2/T.
 
-Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho ```. ||
+Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|vie|zho ```. ||
 || label | **string**
 
 Required field. Track label to be displayed on the screen during video playback.

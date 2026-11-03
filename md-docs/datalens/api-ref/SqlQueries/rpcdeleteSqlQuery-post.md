@@ -1,0 +1,110 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > DataLens Public API > [DataLens API (англ.)](../index.md) > [SqlQueries](index.md) > 🚧 [Experimental] Delete SQL query
+
+<div class="openapi">
+
+# 🚧 [Experimental] Delete SQL query
+
+<!-- markdownlint-disable-file -->
+
+Deletes the specified saved SQL query.
+
+## Request
+
+<div class="openapi__requests">
+
+<div class="openapi__request__wrapper" style="--method: var(--dc-openapi-methods-post);margin-bottom: 12px">
+
+<div class="openapi__request">
+
+POST {.openapi__method}
+```text translate=no
+https://api.datalens.tech/rpc/deleteSqlQuery
+```
+
+</div>
+
+</div>
+
+</div>
+
+### Headers
+
+#|
+|| **Name** | **Description** ||
+||
+
+_x-dl-api-version_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+API version header.
+
+_Const:_{.json-schema-reset .json-schema-value} `3`
+
+_Example:_{.json-schema-reset .json-schema-example} `3`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+<div class="openapi-entity">
+
+### Body
+
+{% cut "application/json" %}
+
+```json translate=no
+{
+  "sqlQueryId": "example"
+}
+```
+
+{% endcut %}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_sqlQueryId_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+ID of the SQL query to delete.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+</div>
+
+## Responses
+
+<div class="openapi__response__code__200">
+
+## 200 OK
+
+Response
+
+<div class="openapi-entity">
+
+### Body
+
+{% cut "application/json" %}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+
+#|
+|| **Name** | **Description** ||
+|#{.json-schema-properties}
+
+</div>
+
+</div>
+
+</div>
+
+[*Deprecated]: No longer supported, please use an alternative and newer version.

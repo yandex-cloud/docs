@@ -216,7 +216,8 @@ Response
         "update": true,
         "copy": true,
         "move": true,
-        "delete": true
+        "delete": true,
+        "browse": true
       }
     }
   ],
@@ -391,6 +392,15 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   #|
   ||
 
+  _browse_{.json-schema-reset .json-schema-property .json-schema-required}
+  {.table-cell}|
+  **Type**: boolean
+
+  Indicates if the collection can be browsed as a transit node.
+  {.table-cell}
+  ||
+  ||
+
   _copy_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: boolean
@@ -508,7 +518,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
     "update": true,
     "copy": true,
     "move": true,
-    "delete": true
+    "delete": true,
+    "browse": true
   }
   ```
 
@@ -543,7 +554,8 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
       "update": true,
       "copy": true,
       "move": true,
-      "delete": true
+      "delete": true,
+      "browse": true
     }
   }
   ```
@@ -913,6 +925,7 @@ _items_{.json-schema-reset .json-schema-property .json-schema-required}
   {
     "collectionId": "example",
     "updatedAt": "example",
+    "updatedBy": "example",
     "workbookId": "example",
     "scope": "dash",
     "type": "example",
@@ -976,7 +989,8 @@ List of collection content items.
       "update": true,
       "copy": true,
       "move": true,
-      "delete": true
+      "delete": true,
+      "browse": true
     }
   }
 ]
@@ -1143,6 +1157,17 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_updatedBy_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: string
+
+ID of the user who last updated the entry.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _workbookId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string &#124; null
@@ -1302,6 +1327,7 @@ Permissions for the entry.
 {
   "collectionId": "example",
   "updatedAt": "example",
+  "updatedBy": "example",
   "workbookId": "example",
   "scope": "dash",
   "type": "example",

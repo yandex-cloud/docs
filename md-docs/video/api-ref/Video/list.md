@@ -291,7 +291,7 @@ Contains a URL to a summarization result for a specific audio track.
 ||Field | Description ||
 || url | **string**
 
-URL to the summarization result file. ||
+Short-lived URL to the summarization result file. ||
 || trackIndex | **string** (int64)
 
 Input audio track index (one-based) that was summarized. ||
@@ -327,7 +327,7 @@ Contains a URL to a speech-to-text result for a specific audio track.
 ||Field | Description ||
 || url | **string**
 
-URL to the speech-to-text result file. ||
+Short-lived URL to the speech-to-text result file. ||
 || trackIndex | **string** (int64)
 
 Input audio track index (one-based) that was transcribed. ||

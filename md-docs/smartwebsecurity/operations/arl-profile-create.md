@@ -17,6 +17,94 @@
   1. [Добавьте](arl-rule-add.md) правила ARL.
   1. Нажмите **Создать**.
 
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile create --help
+     ```
+
+  1. Создайте профиль ARL с правилом, которое ограничивает число запросов к `/api/login` для каждого IP-адреса. В примере лимит составляет 20 запросов за 60 секунд. Режим `dryRun` позволит проверить правило без блокировки запросов.
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile create \
+       --folder-id <идентификатор_каталога> \
+       --name login-rate-limit \
+       --description "Ограничение запросов к форме входа" \
+       --labels environment=production,component=authentication \
+       --advanced-rate-limiter-rules '[
+         {
+           "name": "login-per-ip",
+           "priority": 100,
+           "description": "Не более 20 запросов к /api/login с одного IP за минуту",
+           "dryRun": true,
+           "dynamicQuota": {
+             "action": "DENY",
+             "limit": "20",
+             "period": "60",
+             "condition": {
+               "requestUri": {
+                 "path": {
+                   "exactMatch": "/api/login"
+                 }
+               },
+               "httpMethod": {
+                 "httpMethodMatcher": {
+                   "exactMatch": "POST"
+                 }
+               }
+             },
+             "characteristics": [
+               {
+                 "simpleCharacteristic": {
+                   "type": "IP"
+                 }
+               }
+             ]
+           }
+         }
+       ]'
+     ```
+
+     Где:
+
+     * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создан профиль.
+     * `--name` — уникальное имя профиля от 1 до 50 символов. Может содержать буквы, цифры, дефисы, символы подчеркивания или точки.
+     * (Опционально) `--description` — описание профиля.
+     * (Опционально) `--labels` — метки профиля в формате `ключ=значение`.
+     * (Опционально) `--advanced-rate-limiter-rules` — массив правил в формате JSON.
+
+  В каждом правиле укажите уникальные `name` и `priority`. Чем меньше значение `priority`, тем выше приоритет правила.
+  
+  Для `staticQuota` сервис считает все подходящие запросы вместе. Для `dynamicQuota` сервис группирует запросы по характеристикам. Можно указать до трех характеристик: `REQUEST_PATH`, `HTTP_METHOD`, `IP`, `GEO` или `HOST`.
+  
+  Чтобы проверить правило без блокировки запросов, укажите `"dryRun": true`. Для перевода правила в рабочий режим укажите `"dryRun": false`.
+
+  1. Чтобы настроить правила ARL в файле запроса, сформируйте шаблон в формате JSON или YAML:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile create --example-json > request.json
+     ```
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile create --example-yaml > request.yaml
+     ```
+
+     Отредактируйте файл и передайте его в команде создания профиля:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile create \
+       --request-file request.yaml
+     ```
+
 - Terraform {#tf}
 
   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.

@@ -2,7 +2,7 @@
 
 During migration from a custom {{ GL }} installation to {{ mgl-name }}, you can migrate such entities as projects, users, [user groups]({{ gl.docs }}/ee/user/group/), configured access permissions, and pipelines. You can also reconfigure your [custom domain name]({{ gl.docs }}/ee/user/project/pages/custom_domains_ssl_tls_certification/) for the new [{{ GL }} instance](index.md#instance). This allows you to move all the data and settings you need to the cloud.
 
-Migration is only available for a _custom installation_ which is self-managed {{ GL }} installed on a server or local computer. You cannot migrate data from {{ GL }}.com.
+Migration from a backup is only available for a _custom installation_ which is self-managed {{ GL }} installed on a server or local computer. You can migrate projects from {{ GL }}.com by means of [manual exports and imports](../operations/instance/migration.md#self-migration).
 
 {% note info %}
 

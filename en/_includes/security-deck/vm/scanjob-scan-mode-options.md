@@ -1,0 +1,6 @@
+Under **{{ ui-key.yacloud_org.security.vm.EndpointScanForm.section_scan_type_title }}**, select the correct [scan mode](../../../security-deck/concepts/vulnerability-management.md#endpoint-scanning-modes):
+
+* `{{ ui-key.yacloud_org.security.vm.EndpointScanForm.scan_type_surface_title }}`: To scan for additional targets that may have been missed during the basic analysis. For more information on this scan mode, see [{#T}](../../../security-deck/concepts/vulnerability-management.md#endpoint-advanced-analysis).
+* `{{ ui-key.yacloud_org.security.vm.EndpointScanForm.scan_type_vulnerability_title }}`: To perform deep signature scanning and attack testing to detect various types of vulnerabilities and threats. For more information on this scan mode, see [{#T}](../../../security-deck/concepts/vulnerability-management.md#endpoint-deep-scanning).
+
+    Optionally, click **{{ ui-key.yacloud_org.security.vm.EndpointScanForm.action_advanced_modules }}** to select specific modules (analysis methods) to apply during deep vulnerability scanning.

@@ -27,7 +27,7 @@ blocks:
     background:
       image:
         desktop: ../_assets/datalens/index/images/2.jpg
-        mobile: ../_assets/datalens/index/images/1.jpg
+        mobile: ../_assets/datalens/index/images/2.jpg
   - type: card-layout-block
     background:
       light:
@@ -43,6 +43,7 @@ blocks:
       - type: basic-card
         title: BI-система для бизнеса
         text: Вы в этом разделе документации
+        icon: ../_assets/console-icons/layout-header-side-content.svg
         url: concepts
         size: s
         controlPosition: content
@@ -50,6 +51,7 @@ blocks:
         backgroundColor: '#FFC4AE'
       - type: basic-card
         title: Хранение и обработка данных
+        icon: ../_assets/console-icons/database-arrow-right.svg
         url: ./datalens-platform/index
         size: s
         controlPosition: content
@@ -69,6 +71,7 @@ blocks:
     children:
       - type: basic-card
         title: BI-система для бизнеса
+        icon: ../_assets/console-icons/layout-header-side-content.svg
         url: https://datalens.ru/on-premises/docs/ru/concepts/
         size: s
         controlPosition: content
@@ -76,6 +79,7 @@ blocks:
         backgroundColor: '#A5CAF3'
       - type: basic-card
         title: Хранение и обработка данных
+        icon: ../_assets/console-icons/database-arrow-right.svg
         text: Скоро!
         url: ''
         size: s

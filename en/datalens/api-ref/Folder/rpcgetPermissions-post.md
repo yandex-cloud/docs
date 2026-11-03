@@ -1272,94 +1272,6 @@ Subject details.
 || **Name** | **Description** ||
 ||
 
-_approver_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: object &#124; null
-
-User who approved this permission.
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "cloud_icon": "example",
-  "cloud_icon_data": "example",
-  "cloud_user_id": "example",
-  "icon": "example",
-  "link": "example",
-  "name": "example",
-  "title": "example",
-  "type": "user",
-  "parent": {
-    "link": "example",
-    "title": "example"
-  },
-  "__rlsid": "example",
-  "__source": "example"
-}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-Human-readable description of the permission.
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_extras_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-{% cut "**Any of 3 types**" %}{.json-schema-combinators data-marker=or}
-
-- **Type**: null
-
-  _Example:_{.json-schema-reset .json-schema-example} `null`
-
-- **Type**: object
-
-  #|
-  ||
-
-  _initial_on_create_{.json-schema-reset .json-schema-property}
-  {.table-cell}|
-  **Type**: boolean
-
-  Whether to set this permission on entry creation.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
-
-  {% cut "**Example**" %}{.json-schema-example}
-
-  ```json translate=no
-  {
-    "initial_on_create": true
-  }
-  ```
-
-  {% endcut %}
-
-- **Type**: null
-
-  _Example:_{.json-schema-reset .json-schema-example} `null`
-
-{% endcut %}
-
-Additional configuration for the permission.
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-||
-
 _kind_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
@@ -1378,38 +1290,6 @@ _name_{.json-schema-reset .json-schema-property .json-schema-required}
 Subject id.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_requester_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: object &#124; null
-
-User who requested this permission.
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "cloud_icon": "example",
-  "cloud_icon_data": "example",
-  "cloud_user_id": "example",
-  "icon": "example",
-  "link": "example",
-  "name": "example",
-  "title": "example",
-  "type": "user",
-  "parent": {
-    "link": "example",
-    "title": "example"
-  },
-  "__rlsid": "example",
-  "__source": "example"
-}
-```
-
-{% endcut %}
 {.table-cell}
 ||
 ||
@@ -1581,6 +1461,126 @@ _Enum:_{.json-schema-reset .json-schema-value} `user`, `user-staff`, `user-syste
 {% endcut %}
 
 Subject details.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "cloud_icon": "example",
+  "cloud_icon_data": "example",
+  "cloud_user_id": "example",
+  "icon": "example",
+  "link": "example",
+  "name": "example",
+  "title": "example",
+  "type": "user",
+  "parent": {
+    "link": "example",
+    "title": "example"
+  },
+  "__rlsid": "example",
+  "__source": "example"
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_approver_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: object &#124; null
+
+User who approved this permission.
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "cloud_icon": "example",
+  "cloud_icon_data": "example",
+  "cloud_user_id": "example",
+  "icon": "example",
+  "link": "example",
+  "name": "example",
+  "title": "example",
+  "type": "user",
+  "parent": {
+    "link": "example",
+    "title": "example"
+  },
+  "__rlsid": "example",
+  "__source": "example"
+}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
+_description_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Human-readable description of the permission.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_extras_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+{% cut "**Any of 3 types**" %}{.json-schema-combinators data-marker=or}
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+- **Type**: object
+
+  #|
+  ||
+
+  _initial_on_create_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: boolean
+
+  Whether to set this permission on entry creation.
+  {.table-cell}
+  ||
+  |#{.json-schema-properties}
+
+  {% cut "**Example**" %}{.json-schema-example}
+
+  ```json translate=no
+  {
+    "initial_on_create": true
+  }
+  ```
+
+  {% endcut %}
+
+- **Type**: null
+
+  _Example:_{.json-schema-reset .json-schema-example} `null`
+
+{% endcut %}
+
+Additional configuration for the permission.
+
+_Example:_{.json-schema-reset .json-schema-example} `null`
+{.table-cell}
+||
+||
+
+_requester_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: object &#124; null
+
+User who requested this permission.
 
 {% cut "**Example**" %}{.json-schema-example}
 

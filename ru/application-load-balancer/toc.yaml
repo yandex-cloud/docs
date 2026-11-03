@@ -949,7 +949,7 @@ items:
                 href: api-ref/VirtualHost/removeRoute.md
               - name: UpdateRoute
                 href: api-ref/VirtualHost/updateRoute.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ monium-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

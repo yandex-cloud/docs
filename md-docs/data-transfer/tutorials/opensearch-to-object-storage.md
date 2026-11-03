@@ -79,12 +79,12 @@
         * эндпоинты;
         * трансфер.
 
-    1. Укажите в файле `opensearch-to-object-storage.tf` параметры:
+    1. Укажите в файле `opensearch-to-object-storage.tf` значения параметров:
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * `mos_version` — версия OpenSearch;
-        * `mos_password` — пароль пользователя-владельца кластера OpenSearch;
-        * `bucket_name`— имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+        * `mos_password` — пароль пользователя `admin` в кластере Managed Service for OpenSearch;
+        * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming);
         * `profile_name` — имя вашего профиля в CLI.
 
           Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
@@ -137,7 +137,7 @@
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_mapping?pretty' \
-         --data'
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -153,26 +153,26 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+         --data '
          {
-               "name" : "Alice",
-               "age" : "30"
+               "name": "Alice",
+               "age": 30
          }
          ' && \
-    curl --user admin:<пароль> \
-         --cacert ~/.opensearch/root.crt \
-         --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc/?pretty' \
-         --data'
-         {
-               "name" : "Robert",
-               "age" : "32"
-         }
-         '
+     curl --user admin:<пароль> \
+          --cacert ~/.opensearch/root.crt \
+          --header 'Content-Type: application/json' \
+          --request POST 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/people/_doc?pretty' \
+          --data '
+          {
+                "name": "Robert",
+                "age": 32
+          }
+          '
     ```
 
-1. (Опционально) Проверьте данные в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --user admin:<пароль> \
@@ -193,7 +193,7 @@
 
     * **Выходной формат** — `JSON`.
     * **Формат сжатия** — `Без сжатия`.
-    * **Имя папки** — `from_MOS`.
+    * **Префикс пути** — `from_MOS/`.
 
 1. [Создайте эндпоинт для источника](../operations/endpoint/source/opensearch.md#endpoint-settings) типа `OpenSearch` со следующими настройками:
 
@@ -214,10 +214,10 @@
 
     - Terraform {#tf}
 
-      1. Укажите в файле `opensearch-to-object-storage.tf` значения переменных:
+      1. Укажите в файле `opensearch-to-object-storage.tf` значения параметров:
 
-          * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-          * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
+          * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+          * `source_endpoint_id` — идентификатор эндпоинта для источника;
           * `transfer_enabled` — значение `1` для создания трансфера.
 
       1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
@@ -266,7 +266,13 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../operations/transfer.md#deactivate).
+
+{% endnote %}
+
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../operations/transfer.md#delete).
 1. [Удалите эндпоинты](../operations/endpoint/index.md#delete).

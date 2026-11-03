@@ -62,15 +62,15 @@
         * [подсеть](../../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }} из интернета;
         * база данных {{ ydb-name }};
-        * кластер-приемник {{ mos-name }};
+        * кластер-источник {{ mos-name }};
         * эндпоинт для приемника;
         * трансфер.
 
-    1. Укажите в файле `opensearch-to-ydb.tf` параметры:
+    1. Укажите в файле `opensearch-to-ydb.tf` значения параметров:
 
-        * `mos_version` — версия {{ OS }}.
-        * `mos_password` — пароль пользователя-владельца базы данных {{ OS }}.
-        * `profile_name` — имя вашего профиля в CLI. 
+        * `mos_version` — версия {{ OS }};
+        * `mos_password` — пароль пользователя `admin` в кластере {{ mos-name }};
+        * `profile_name` — имя вашего профиля в CLI.
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -103,7 +103,7 @@
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
-         --data'
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -119,26 +119,26 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+         --data '
          {
-               "name" : "Alice",
-               "age" : "30"
+               "name": "Alice",
+               "age": 30
          }
          ' && \
-    curl --user admin:<пароль> \
-         --cacert ~/.opensearch/root.crt \
-         --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
-         {
-               "name" : "Robert",
-               "age" : "32"
-         }
-         '
+     curl --user admin:<пароль> \
+          --cacert ~/.opensearch/root.crt \
+          --header 'Content-Type: application/json' \
+          --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+          --data '
+          {
+                "name": "Robert",
+                "age": 32
+          }
+          '
     ```
 
-1. (Опционально) Проверьте данные в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --user admin:<пароль> \
@@ -164,6 +164,7 @@
 
         1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) типа `{{ ydb-short-name }}` со следующими настройками:
 
+            * **Тип подключения** — `База Managed Service for YDB`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных `ydb1` из списка.
 
             
@@ -226,7 +227,7 @@
 
 {% endnote %}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. Удалите ресурсы в зависимости от способа их создания:
 

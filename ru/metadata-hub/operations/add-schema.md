@@ -6,9 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Добавление схемы в существующий субъект
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
 
 Вы можете загрузить схему в существующий субъект [на странице этого субъекта](#from-subject-page) или [на странице со списком схем](#from-schema-list).

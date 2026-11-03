@@ -1,10 +1,10 @@
 ---
-title: Справочник метрик сервиса {{ kms-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ kms-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ kms-full-name }} в {{ monium-full-name }}
+description: На этой странице приведен справочник метрик сервиса {{ kms-name }}, поставляемых в {{ monium-full-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Метрики {{ kms-name }}
 
-В этом разделе описаны метрики сервиса {{ kms-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+В этом разделе описаны метрики сервиса {{ kms-name }}, поставляемые в [{{ monium-name }}](../monium/index.yaml).
 
 {% include [kms](../_includes/monitoring/metrics-ref/kms.md) %}

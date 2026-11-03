@@ -124,8 +124,8 @@ _linkDirection_{.json-schema-reset .json-schema-property}
 **Type**: string
 
 The direction of the link relatively to the original entry:
-- `from` — entries that are linked to the original entry
-- `to` — the original entry is linked to the entries
+- `from` — entries the original entry links to, its direct dependencies
+- `to` — entries that link to the original entry, its direct dependents
 
 _Enum:_{.json-schema-reset .json-schema-value} `from`, `to`
 {.table-cell}

@@ -7,5 +7,5 @@
 * [Замена дисков](replacing-disks.md)
 * [Перенос базы данных](database-migration.md)
 * [Пересоздание базы данных](database-recreation.md)
-* [Управление квотами rate-лимитера](manage-quotas-rate-limiter.md)
+* [Управление квотами для запросов и трафика](manage-quotas-rate-limiter.md)
 * [Обновление сертификатов](update-certificates.md)

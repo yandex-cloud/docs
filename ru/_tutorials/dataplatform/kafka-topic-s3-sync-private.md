@@ -90,19 +90,19 @@
 
         1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-objstorage-sync-private-network.tf](https://github.com/yandex-cloud-examples/yc-sync-kafka-to-s3-private-endpoint/blob/main/kafka-objstorage-sync-private-network.tf).
 
-            В этом файле описаны:
+            Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [сервисное подключение](../../vpc/concepts/private-endpoint.md);
-            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-            * сервисный аккаунт, который будет использоваться для создания бакета и доступа к нему;
-            * бакет {{ objstorage-name }};
-            * кластер {{ mkf-name }};
-            * топик {{ KF }};
-            * пользователь {{ KF }};
-            * коннектор {{ KF }};
-            * ВМ для чтения данных из бакета.
+            * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network);
+            * [подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet);
+            * [сервисное подключение](../../vpc/concepts/private-endpoint.md) — [yandex_vpc_private_endpoint]({{ tf-provider-resources-link }}/vpc_private_endpoint);
+            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру, — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group);
+            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для создания бакета и доступа к нему — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account) и [статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key);
+            * [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }} — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket);
+            * [кластер {{ mkf-name }}](../../managed-kafka/concepts/index.md) — [yandex_mdb_kafka_cluster]({{ tf-provider-resources-link }}/mdb_kafka_cluster);
+            * [топик](../../managed-kafka/concepts/topics.md) {{ KF }} — [yandex_mdb_kafka_topic]({{ tf-provider-resources-link }}/mdb_kafka_topic);
+            * [пользователь](../../managed-kafka/concepts/account-roles.md) {{ KF }} — [yandex_mdb_kafka_user]({{ tf-provider-resources-link }}/mdb_kafka_user);
+            * [коннектор](../../managed-kafka/concepts/connectors.md) {{ KF }} — [yandex_mdb_kafka_connector]({{ tf-provider-resources-link }}/mdb_kafka_connector);
+            * ВМ для чтения данных из бакета — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
 
         1. Укажите в файле `kafka-objstorage-sync-private-network.tf`:
 
@@ -113,19 +113,9 @@
             * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) ВМ.
             * `vm_username` и `vm_ssh_key` – логин и абсолютный путь к [публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к ВМ.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+            {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -152,6 +142,7 @@
              -X security.protocol=SASL_SSL \
              -X sasl.username="<имя_пользователя_в_кластере-источнике>" \
              -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
+             -X sasl.mechanisms=SCRAM-SHA-512 \
              -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
        done
    ```

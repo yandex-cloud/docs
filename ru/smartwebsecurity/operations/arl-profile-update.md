@@ -22,6 +22,40 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  1. Измените параметры профиля ARL:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --name login-rate-limit \
+       --description "Ограничение запросов к форме входа" \
+       --labels environment=production,component=authentication
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--name` — имя профиля от 1 до 50 символов.
+     * (Опционально) `--description` — описание профиля.
+     * (Опционально) `--labels` — набор меток профиля в формате `ключ=значение`.
+
+  Чтобы изменить правила профиля, используйте параметр `--advanced-rate-limiter-rules`.
+
+  {% include [arl-cli-rules-replace](../../_includes/smartwebsecurity/arl-cli-rules-replace.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

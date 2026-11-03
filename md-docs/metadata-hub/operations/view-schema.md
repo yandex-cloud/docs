@@ -3,13 +3,11 @@
 # Просмотр схемы
 
 
+{% note warning %}
 
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
 
 {% endnote %}
-
 
 
 Вы можете посмотреть схему на [странице субъекта](#from-subject-page) или на [странице со списком схем](#from-schema-list).

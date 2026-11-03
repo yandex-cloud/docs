@@ -104,19 +104,19 @@
 
         1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-objstorage-sync-private-network.tf](https://github.com/yandex-cloud-examples/yc-sync-kafka-to-s3-private-endpoint/blob/main/kafka-objstorage-sync-private-network.tf).
 
-            В этом файле описаны:
+            Более подробную информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [сервисное подключение](../../vpc/concepts/private-endpoint.md);
-            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-            * сервисный аккаунт, который будет использоваться для создания бакета и доступа к нему;
-            * бакет Object Storage;
-            * кластер Managed Service for Apache Kafka®;
-            * топик Apache Kafka®;
-            * пользователь Apache Kafka®;
-            * коннектор Apache Kafka®;
-            * ВМ для чтения данных из бакета.
+            * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../terraform/resources/vpc_network.md);
+            * [подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md);
+            * [сервисное подключение](../../vpc/concepts/private-endpoint.md) — [yandex_vpc_private_endpoint](../../terraform/resources/vpc_private_endpoint.md);
+            * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру, — [yandex_vpc_security_group](../../terraform/resources/vpc_security_group.md);
+            * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для создания бакета и доступа к нему — [yandex_iam_service_account](../../terraform/resources/iam_service_account.md) и [статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../terraform/resources/iam_service_account_static_access_key.md);
+            * [бакет](../../storage/concepts/bucket.md) Object Storage — [yandex_storage_bucket](../../terraform/resources/storage_bucket.md);
+            * [кластер Managed Service for Apache Kafka®](../concepts/index.md) — [yandex_mdb_kafka_cluster](../../terraform/resources/mdb_kafka_cluster.md);
+            * [топик](../concepts/topics.md) Apache Kafka® — [yandex_mdb_kafka_topic](../../terraform/resources/mdb_kafka_topic.md);
+            * [пользователь](../concepts/account-roles.md) Apache Kafka® — [yandex_mdb_kafka_user](../../terraform/resources/mdb_kafka_user.md);
+            * [коннектор](../concepts/connectors.md) Apache Kafka® — [yandex_mdb_kafka_connector](../../terraform/resources/mdb_kafka_connector.md);
+            * ВМ для чтения данных из бакета — [yandex_compute_instance](../../terraform/resources/compute_instance.md).
 
         1. Укажите в файле `kafka-objstorage-sync-private-network.tf`:
 
@@ -127,36 +127,35 @@
             * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ.
             * `vm_username` и `vm_ssh_key` – логин и абсолютный путь к [публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к ВМ.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            1. Выполните команду для просмотра планируемых изменений:
+            1. В терминале перейдите в директорию с конфигурационным файлом.
+            1. Проверьте корректность конфигурации с помощью команды:
+            
+               ```bash
+               terraform validate
+               ```
+            
+               Если конфигурация является корректной, появится сообщение:
+            
+               ```bash
+               Success! The configuration is valid.
+               ```
+            
+            1. Выполните команду:
             
                ```bash
                terraform plan
                ```
             
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+               В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+            1. Примените изменения конфигурации:
             
-            1. Если вас устраивают планируемые изменения, внесите их:
+               ```bash
+               terraform apply
+               ```
             
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
-
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
     {% endlist %}
 
@@ -183,6 +182,7 @@
              -X security.protocol=SASL_SSL \
              -X sasl.username="<имя_пользователя_в_кластере-источнике>" \
              -X sasl.password="<пароль_пользователя_в_кластере-источнике>" \
+             -X sasl.mechanisms=SCRAM-SHA-512 \
              -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
        done
    ```

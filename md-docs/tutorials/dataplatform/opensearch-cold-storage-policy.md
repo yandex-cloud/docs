@@ -55,48 +55,49 @@
         1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-cold-storage-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-cold-storage-policy/blob/main/opensearch-cold-storage-policy.tf). В файле описаны:
+        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-cold-storage-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-cold-storage-policy/blob/main/opensearch-cold-storage-policy.tf). В файле описаны сеть, подсети, группа безопасности с правилами, необходимыми для подключения к кластеру Managed Service for OpenSearch, и кластер Managed Service for OpenSearch с группами хостов `hot` и `cold`.
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсети](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch;
-            * кластер Managed Service for OpenSearch.
+            Более подробную информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
+
+            * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../terraform/resources/vpc_network.md);
+            * [подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md);
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch, — [yandex_vpc_security_group](../../terraform/resources/vpc_security_group.md);
+            * [кластер Managed Service for OpenSearch](../../managed-opensearch/concepts/index.md) — [mdb_opensearch_cluster](../../terraform/resources/mdb_opensearch_cluster.md).
 
         1. Укажите в файле `opensearch-cold-storage-policy.tf` переменные:
 
             * `version` — версия OpenSearch.
             * `admin_password` — пароль администратора OpenSearch.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            1. Выполните команду для просмотра планируемых изменений:
+            1. В терминале перейдите в директорию с конфигурационным файлом.
+            1. Проверьте корректность конфигурации с помощью команды:
+            
+               ```bash
+               terraform validate
+               ```
+            
+               Если конфигурация является корректной, появится сообщение:
+            
+               ```bash
+               Success! The configuration is valid.
+               ```
+            
+            1. Выполните команду:
             
                ```bash
                terraform plan
                ```
             
-               Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+               В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+            1. Примените изменения конфигурации:
             
-            1. Если вас устраивают планируемые изменения, внесите их:
+               ```bash
+               terraform apply
+               ```
             
-               1. Выполните команду:
-            
-                  ```bash
-                  terraform apply
-                  ```
-            
-               1. Подтвердите изменение ресурсов.
-               1. Дождитесь завершения операции.
-
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+            1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
     {% endlist %}
 
@@ -202,7 +203,7 @@ curl \
 
 Где:
 
-* `min_index_age` — возраст индекса, по достижении которого будет создан новый индекс. Рекомендуемое значение — 30 дней (`30d`).
+* `min_index_age` — возраст индекса, по достижении которого индекс перейдет в следующее состояние политики. Рекомендуемое значение — 30 дней (`30d`).
 * `index_patterns` — шаблон имени для нового индекса.
 * `new_codec` — название кодека, которым будут переупакованы данные.
 

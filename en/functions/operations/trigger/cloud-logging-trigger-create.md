@@ -143,36 +143,36 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
      resource "yandex_serverless_triggers" "my_trigger" {
        name        = "<trigger_name>"
        description = "<trigger_description>"
-       source {
-         logging {
+       source = {
+         logging = {
            log_group_id  = "<log_group_ID>"
            resource_type = [ "<resource_type>" ]
            resource_id   = [ "<resource_ID>" ]
            stream_name   = [ "<log_stream>" ]
            levels        = [ "<logging_level>", "<logging_level>" ]
-           batch_settings {
-             max_count = "<max_number_of_messages>"
-             max_bytes = "<max_group_size_in_bytes>"
+           batch_settings = {
+             max_count = <max_number_of_messages>
+             max_bytes = <max_group_size_in_bytes>
              cutoff    = "<maximum_wait_time>"
            }
          }
        }
-       action {
-         invoke_function {
+       action = [{
+         invoke_function = {
            function_id        = "<function_ID>"
            service_account_id = "<service_account_ID>"
          }
-         retry_policy {
-           retry_attempts = "<number_of_retries>"
+         retry_policy = {
+           retry_attempts = <number_of_retries>
            interval       = "<interval_between_retries>"
          }
-         dead_letter {
-           dead_letter_queue {
+         dead_letter = {
+           dead_letter_queue = {
              queue_arn          = "<Dead_Letter_Queue_ARN>"
              service_account_id = "<service_account_ID>"
            }
          }
-       }
+       }]
      }
      ```
 

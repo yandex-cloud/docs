@@ -620,11 +620,11 @@ Indicates if the entry is hidden.
 ||
 ||
 
-_isFavorite_{.json-schema-reset .json-schema-property .json-schema-required}
+_isFavorite_{.json-schema-reset .json-schema-property .json-schema-required .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Indicates if the entry is marked as favorite.
+Indicates if the entry is marked as favorite. Deprecated: the field will be removed in a future API version.
 {.table-cell}
 ||
 ||

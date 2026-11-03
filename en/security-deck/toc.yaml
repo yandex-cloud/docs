@@ -36,6 +36,8 @@ items:
             href: operations/alerts/download.md
           - name: Managing alert tags
             href: operations/alerts/tags.md
+          - name: Managing a subscription
+            href: operations/alerts/notification.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         items:
           - name: Overview
@@ -66,6 +68,12 @@ items:
             href: operations/kspm/manage-exceptions.md
           - name: Managing rule modes
             href: operations/kspm/manage-rule-modes.md
+          - name: Creating a custom rule
+            href: operations/kspm/create-custom-rule.md
+          - name: Editing a custom rule
+            href: operations/kspm/edit-custom-rule.md
+          - name: Deleting a custom rule
+            href: operations/kspm/delete-custom-rule.md
       - name: '{{ ciem-full-name }} ({{ ciem-name }})'
         items:
           - name: Overview
@@ -90,6 +98,12 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/cspm/manage-exceptions.md
+          - name: Creating a custom rule
+            href: operations/cspm/create-custom-rule.md
+          - name: Editing a custom rule
+            href: operations/cspm/edit-custom-rule.md
+          - name: Deleting a custom rule
+            href: operations/cspm/delete-custom-rule.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         items:
           - name: Overview
@@ -105,6 +119,14 @@ items:
           - name: Activating a module
             href: >-
               operations/vulnerability-management/enable-vulnerability-management.md
+          - name: Creating an endpoint scan schedule
+            href: operations/vulnerability-management/create-scan-job.md
+          - name: Managing endpoint scan schedules
+            href: operations/vulnerability-management/manage-scan-job.md
+          - name: Running an endpoint scan schedule
+            href: operations/vulnerability-management/run-scan-job.md
+          - name: Viewing endpoint scan results
+            href: operations/vulnerability-management/view-scan-results.md
           - name: Working with a dashboard
             href: >-
               operations/vulnerability-management/use-vulnerability-management.md
@@ -150,6 +172,8 @@ items:
             href: concepts/standard-compliance/yc-gost-57580.md
           - name: Auditing processes and applications
             href: concepts/standard-compliance/inventory-k8s-rules.md
+          - name: '{{ yandex-cloud }} security standard for AI systems'
+            href: concepts/standard-compliance/aispm.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'
@@ -158,6 +182,8 @@ items:
         href: concepts/ciem.md
       - name: '{{ cspm-full-name }} ({{ cspm-name }})'
         href: concepts/cspm.md
+      - name: Custom rules
+        href: concepts/custom-rules.md
       - name: '{{ td-full-name }} ({{ td-name }})'
         href: concepts/threat-detector.md
       - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'

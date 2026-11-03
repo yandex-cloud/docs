@@ -123,7 +123,8 @@ Response
       "update": true,
       "copy": true,
       "move": true,
-      "delete": true
+      "delete": true,
+      "browse": true
     }
   }
 ]
@@ -272,6 +273,15 @@ _permissions_{.json-schema-reset .json-schema-property}
 #|
 ||
 
+_browse_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Indicates if the collection can be browsed as a transit node.
+{.table-cell}
+||
+||
+
 _copy_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: boolean
@@ -389,7 +399,8 @@ Permissions for the collection.
   "update": true,
   "copy": true,
   "move": true,
-  "delete": true
+  "delete": true,
+  "browse": true
 }
 ```
 

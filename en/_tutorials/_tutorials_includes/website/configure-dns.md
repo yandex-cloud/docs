@@ -1,4 +1,4 @@
-Before installing the application, create a public DNS zone and delegate a domain to it. For more about delegating domains, see [this guide](../../../troubleshooting/dns/how-to/delegate-public-zone.md).
+Before installing the application, create a public DNS zone and delegate a domain to it. For more about delegating domains, see [this guide](../../../dns/operations/zone-create-public.md).
 
 {% list tabs group=instructions %}
 

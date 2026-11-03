@@ -135,9 +135,38 @@ apiPlayground:
         - playlistLocation
       additionalProperties: false
     definitions:
+      InputTrack:
+        type: object
+        properties:
+          trackIndex:
+            description: |-
+              **string** (int64)
+              Input audio track index (one-based).
+              The minimum value is 1.
+            type: string
+            format: int64
+          srcLang:
+            description: |-
+              **string**
+              Source track language represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho `.
+            pattern: ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho
+            type: string
       Summarization:
         type: object
-        properties: {}
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Enable line summarization.
+            type: boolean
+          tracks:
+            description: |-
+              **[InputTrack](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+              Input tracks.
+            type: array
+            items:
+              $ref: '#/definitions/InputTrack'
       Description:
         type: object
         properties: {}
@@ -146,7 +175,7 @@ apiPlayground:
         properties:
           summarization:
             description: |-
-              **object**
+              **[Summarization](/docs/video/api-ref/StreamLine/get#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization)**
               Widget that displays video content summarization.
               Includes only one of the fields `summarization`, `description`.
               Specifies the type of widget to display.

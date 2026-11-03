@@ -6,6 +6,7 @@
 
 Чтобы перенести данные из хранилища кластера в гибридное хранилище:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Выгрузите таблицу {{ GP }} в гибридное хранилище](#transfer).
 1. [Проверьте результат](#check).
 
@@ -13,15 +14,19 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
 * Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ GP }}. При создании убедитесь, что включена опция **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -43,11 +48,11 @@
 
    ```bash
    psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-   port={{ port-mgp }} \
-   sslmode=verify-full \
-   dbname=postgres \
-   user=<имя_пользователя> \
-   target_session_attrs=read-write"
+        port={{ port-mgp }} \
+        sslmode=verify-full \
+        dbname=postgres \
+        user=<имя_пользователя> \
+        target_session_attrs=read-write"
    ```
 
 1. Создайте БД `db_with_yezzey`:

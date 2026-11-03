@@ -44,7 +44,9 @@ Yandex Lockbox позволяет создавать секреты двух т�
 * При необходимости, собственный ключ можно удалить и таким образом гарантированно заблокировать доступ к зашифрованным данным.
 * Можно получать аудитные логи событий, связанных с использованием ключа шифрования с помощью сервиса [Yandex Audit Trails](../../audit-trails/concepts/index.md).
 
-Если при создании секрета вы указали свой ключ KMS, необходимо назначить на этот секрет роли [kms.keys.encrypterDecrypter](../../kms/security/index.md#service-roles) и [lockbox.payloadViewer](../security/index.md#roles-list). Они нужны для получения доступа к ключу, а также для шифрования и расшифровки.
+Для получения содержимого секрета пользователю или сервисному аккаунту нужна роль [lockbox.payloadViewer](../security/index.md#lockbox-payloadViewer) на этот секрет. Подробнее в инструкции [Настроить права доступа к секрету](../operations/secret-access.md).
+
+Если секрет зашифрован вашим ключом KMS, дополнительно нужна роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) на ключ шифрования. Подробнее в инструкции [Настроить права доступа к ключу](../../kms/operations/key-access.md#add-access-binding).
 
 {% note warning %}
 

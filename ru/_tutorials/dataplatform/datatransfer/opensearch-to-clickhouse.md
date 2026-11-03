@@ -1,7 +1,7 @@
 # Копирование данных из {{ mos-name }} в {{ mch-name }} с помощью {{ data-transfer-full-name }}
 
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mos-name }} в {{ mch-name }}.
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера {{ mos-name }} в кластер {{ mch-name }}.
 
 Чтобы перенести данные:
 
@@ -20,7 +20,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
+* Кластер {{ mch-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
@@ -35,7 +35,7 @@
     1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
     1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
 
-       Если вы планируете подключаться к кластеру через сервис {{ websql-full-name }}, включите в настройках кластера настройку **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
+       Если вы планируете подключаться к кластеру через сервис {{ websql-full-name }}, включите в настройках кластера опцию **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
 
     1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
@@ -64,7 +64,7 @@
 
         * `source_admin_password` — пароль пользователя `admin` в кластере {{ mos-name }};
         * `mos_version` — версия {{ OS }};
-        * `mch_db_name` — название базы данных в кластере {{ mch-name }};
+        * `mch_db_name` — имя базы данных в кластере {{ mch-name }};
         * `mch_username` — имя пользователя в кластере {{ mch-name }};
         * `mch_user_password` — пароль пользователя в кластере {{ mch-name }};
         * `source_endpoint_id` — идентификатор эндпоинта-источника;
@@ -101,7 +101,7 @@
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
-         --data'
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -117,30 +117,30 @@
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+         --data '
          {
                "name": "Alice",
-               "age": "30"
+               "age": 30
          }
          ' && \
     curl --cacert ~/.opensearch/root.crt \
          --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+         --data '
          {
                "name": "Robert",
-               "age": "32"
+               "age": 32
          }
          '
     ```
 
-1. (Опционально) Проверьте данные в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --cacert ~/.opensearch/root.crt \
-         --user <имя_пользователя_в_кластере-приемнике>:<пароль_пользователя_в_кластере-приемнике> \
+         --user <имя_пользователя_в_кластере-источнике>:<пароль_пользователя_в_кластере-источнике> \
          --header 'Content-Type: application/json' \
          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_search?pretty'
     ```
@@ -170,16 +170,16 @@
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — выберите кластер {{ mch-name }} из списка.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** — введите имя пользователя в кластере {{ mch-name }}.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — введите пароль пользователя в кластере {{ mch-name }}.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — введите название БД в кластере {{ mch-name }}.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — введите имя БД в кластере {{ mch-name }}.
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../../data-transfer/operations/transfer.md#activate) трансфер.
 
     - {{ TF }} {#tf}
 
-        1. Укажите в файле `opensearch-to-clickhouse.tf` значения параметра:
+        1. Укажите в файле `opensearch-to-clickhouse.tf` значения параметров:
 
-            * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
+            * `source_endpoint_id` — идентификатор эндпоинта для источника;
             * `transfer_enabled` — значение `1` для создания эндпоинта-приемника и трансфера.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -201,7 +201,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mos-name }}:
+1. Убедитесь, что данные из кластера-источника {{ mos-name }} перенеслись в базу данных кластера {{ mch-name }}:
 
     {% list tabs group=instructions %}
 
@@ -229,7 +229,13 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
+
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
 
 1. [Удалите эндпоинт](../../../data-transfer/operations/endpoint/index.md#delete) для источника.
 1. Удалите остальные ресурсы в зависимости от способа их создания:

@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Key Management Service](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Key Management Service](index.md) > Метрики Monium
 
-# Справочник метрик Yandex Monitoring
+# Метрики Key Management Service
 
-В этом разделе описаны метрики сервиса Key Management Service, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Key Management Service, поставляемые в [Monium](../monium/index.md).
 
 Имя метрики пишется в метку `name`.
 

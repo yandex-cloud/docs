@@ -8,6 +8,7 @@ description: Различные сценарии использования {{ m
 ## Работа с данными в {{ objstorage-name }} {#clusters}
 
 * [{#T}](object-storage-overview.md)
+* [{#T}](spark-without-hive.md)
 * [{#T}](spark-objstorage-integration.md)
 * [{#T}](metastore-and-spark.md)
 * [{#T}](spark-simple-rw-job.md)

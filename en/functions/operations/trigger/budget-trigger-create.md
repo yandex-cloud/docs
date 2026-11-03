@@ -80,7 +80,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that in
     * `--name`: Trigger name.
     * `--billing-account-id`: Billing account ID.
     * `--budget-id`: Budget ID.
-    
+
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
     Result:
@@ -120,28 +120,28 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that in
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<trigger_name>"
-         source {
-           billing_budget {
+         source = {
+           billing_budget = {
              billing_account_id = "<billing_account_ID>"
              budget_id          = "<budget_ID>"
            }
          }
-         action {
-           invoke_function {
+         action = [{
+           invoke_function = {
              function_id        = "<function_ID>"
              service_account_id = "<service_account_ID>"
            }
-           retry_policy {
-             retry_attempts = "<number_of_retries>"
+           retry_policy = {
+             retry_attempts = <number_of_retries>
              interval       = "<interval_between_retries>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<Dead_Letter_Queue_ARN>"
                service_account_id = "<service_account_ID>"
              }
            }
-         }
+         }]
        }
        ```
 

@@ -228,6 +228,8 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [AddVersion](api-ref/grpc/Secret/addVersion.md)
 
+ - [SetCurrentVersion](api-ref/grpc/Secret/setCurrentVersion.md)
+
  - [ScheduleVersionDestruction](api-ref/grpc/Secret/scheduleVersionDestruction.md)
 
  - [CancelVersionDestruction](api-ref/grpc/Secret/cancelVersionDestruction.md)
@@ -282,6 +284,8 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [AddVersion](api-ref/Secret/addVersion.md)
 
+ - [SetCurrentVersion](api-ref/Secret/setCurrentVersion.md)
+
  - [ScheduleVersionDestruction](api-ref/Secret/scheduleVersionDestruction.md)
 
  - [CancelVersionDestruction](api-ref/Secret/cancelVersionDestruction.md)
@@ -294,7 +298,7 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [UpdateAccessBindings](api-ref/Secret/updateAccessBindings.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

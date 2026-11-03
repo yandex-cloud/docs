@@ -210,6 +210,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Enables episode DVR mode.
 Determines how many last seconds of the stream are available.
+
 Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||

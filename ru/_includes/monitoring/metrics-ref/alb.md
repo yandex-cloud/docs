@@ -1,6 +1,6 @@
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ alb-name }} имеют общую метку `service=application-load-balancer`.
+При поиске метрик {{ alb-name }} в {{ monium-name }} укажите метки `cluster=default` и `service=__application-load-balancer__` в проекте `folder__<идентификатор_каталога>` с ресурсами балансировщика.
 
 ## Метрики HTTP {#http-metrics}
 
@@ -11,7 +11,7 @@
 | backend | Имя бэкенда |
 | backend_group | Имя [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md) |
 | http_router | Имя [HTTP-роутера](../../../application-load-balancer/concepts/http-router.md) |
-| load_balancer | Имя [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) |
+| load_balancer | Идентификатор [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) |
 | route | Имя [маршрута](../../../application-load-balancer/concepts/http-router.md#routes) |
 | virtual_host | Имя [виртуального хоста](../../../application-load-balancer/concepts/http-router.md#virtual-host) |
 | zone | [Зона доступности](../../../overview/concepts/geo-scope.md) |

@@ -6,16 +6,10 @@ description: Следуя данной инструкции, вы сможете
 # Удаление пространства имен
 
 
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
-{% note warning %}
 
 При удалении пространства имен удаляются все связанные с ним субъекты и схемы данных.
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 

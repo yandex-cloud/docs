@@ -34,6 +34,8 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [Изменить видео](operations/video/update.md)
 
+ - [Заменить видеофайл](operations/video/change-file.md)
+
  - [Добавить таймкоды](operations/video/add-timecodes.md)
 
  - [Добавить обложку](operations/video/add-thumbnail.md)
@@ -292,6 +294,8 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [GetManifests](api-ref/grpc/Episode/getManifests.md)
 
+ - [Download](api-ref/grpc/Episode/download.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -361,6 +365,8 @@ Yandex Cloud Video — комплексная платформа управле�
  - [BatchDelete](api-ref/grpc/Stream/batchDelete.md)
 
  - [PerformAction](api-ref/grpc/Stream/performAction.md)
+
+ - [UpdateTranslationOptions](api-ref/grpc/Stream/updateTranslationOptions.md)
 
 #### StylePreset
 
@@ -490,6 +496,8 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [GetManifests](api-ref/Episode/getManifests.md)
 
+ - [Download](api-ref/Episode/download.md)
+
 #### Operation
 
  - [Overview](api-ref/Operation/index.md)
@@ -559,6 +567,8 @@ Yandex Cloud Video — комплексная платформа управле�
  - [BatchDelete](api-ref/Stream/batchDelete.md)
 
  - [PerformAction](api-ref/Stream/performAction.md)
+
+ - [UpdateTranslationOptions](api-ref/Stream/updateTranslationOptions.md)
 
 #### StylePreset
 

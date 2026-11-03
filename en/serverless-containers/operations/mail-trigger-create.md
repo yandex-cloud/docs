@@ -145,36 +145,36 @@ To create a trigger, you will need:
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<trigger_name>"
-         source {
-           mail {
-             attachments_bucket {
+         source = {
+           mail = {
+             attachments_bucket = {
                bucket_id          = "<bucket_name>"
                service_account_id = "<service_account_ID>"
              }
-             batch_settings {
-               max_count = "<max_number_of_messages>"
-               max_bytes = "<max_group_size_in_bytes>"
+             batch_settings = {
+               max_count = <max_number_of_messages>
+               max_bytes = <max_group_size_in_bytes>
                cutoff    = "<maximum_wait_time>"
              }
            }
          }
-         action {
-           invoke_container {
+         action = [{
+           invoke_container = {
              container_id       = "<container_ID>"
              path               = "<HTTP_path>"
              service_account_id = "<service_account_ID>"
            }
-           retry_policy {
-             retry_attempts = "<number_of_retries>"
+           retry_policy = {
+             retry_attempts = <number_of_retries>
              interval       = "<interval_between_retries>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<Dead_Letter_Queue_ARN>"
                service_account_id = "<service_account_ID>"
              }
            }
-         }
+         }]
        }
        ```
 

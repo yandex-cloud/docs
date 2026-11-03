@@ -47,7 +47,6 @@ description: Вы можете посмотреть графики монито�
 
 {% endlist %}
 
-## Пользовательские метрики {#metrics}
+## Посмотреть метрики в {{ monium-name }} {#metrics}
 
 {% include [users-metrics](../../_includes/api-gateway/users-metrics.md) %}
-

@@ -120,6 +120,7 @@ description: На странице представлен список прак�
 * [{#T}](data-processing-and-kafka.md)
 * [{#T}](jdbc-ch-to-sql-server-integration.md)
 * [{#T}](jdbc-ch-to-oracle-integration.md)
+* [{#T}](spark-without-hive.md)
 * [{#T}](spark-objstorage-integration.md)
 * [{#T}](mpg-pg-clickhouse-extension.md)
 * [{#T}](object-storage-to-clickhouse.md)

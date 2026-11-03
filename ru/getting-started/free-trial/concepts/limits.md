@@ -6,13 +6,6 @@ editable: false
 
 # Ограничения пробного периода
 
-{% note warning %}
-
-Пробный период и стартовый грант для новых клиентов недоступны.
-
-Рекомендуем сразу [перейти на платную версию](./upgrade-to-paid.md).
-
-{% endnote %}
 
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
@@ -34,7 +27,7 @@ editable: false
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-Во время пробного периода использование платных продуктов {{ marketplace-full-name }} недоступно.
+Во время пробного периода использование платных продуктов {{ marketplace-full-name }} недоступно, но после перехода в платное потребление вы сможете использовать остаток стартового гранта для их оплаты.
 
 
 ## Квоты и лимиты сервисов {#quotes-and-limits}

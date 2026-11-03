@@ -43,15 +43,15 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating a {
 
 ### Required paid resources {#paid-resources}
 
-* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ container-registry-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* {{ GL }} instance. The cost depends on the instance creation method:
-
-   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
-   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
-
-* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ managed-k8s-name }} master: Computing resources (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* The {{ GL }} cost depends on where it is deployed:
+    * {{ mgl-name }} instance: Computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+    * {{ GL }} VM instance:
+      * Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+      * VM public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ container-registry-name }} registry: Fee for storing Docker images and the vulnerability scanner (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
+* Public IP addresses for {{ managed-k8s-name }} cluster nodes with public access enabled, and {{ yandex-cloud }} egress traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Set up your infrastructure {#deploy-infrastructure}
 

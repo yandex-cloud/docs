@@ -118,29 +118,29 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
       ```hcl
       resource "yandex_serverless_triggers" "my_trigger" {
         name = "<trigger_name>"
-        source {
-          timer {
+        source = {
+          timer = {
             cron_expression = "<cron_expression>"
             payload         = "<message>"
           }
         }
-        action {
-          invoke_container {
+        action = [{
+          invoke_container = {
             container_id       = "<container_ID>"
             path               = "<HTTP_path>"
             service_account_id = "<service_account_ID>"
           }
-          retry_policy {
-            retry_attempts = "<number_of_retries>"
+          retry_policy = {
+            retry_attempts = <number_of_retries>
             interval       = "<interval_between_retries>"
           }
-          dead_letter {
-            dead_letter_queue {
+          dead_letter = {
+            dead_letter_queue = {
               queue_arn          = "<Dead_Letter_Queue_ARN>"
               service_account_id = "<service_account_ID>"
             }
           }
-        }
+        }]
       }
       ```
 
@@ -153,7 +153,7 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
         * `timer`: Timer settings:
 
           * `cron_expression`: Container invocation schedule specified as a [cron expression](../concepts/trigger/timer.md#cron-expression).
-          * `payload`: Message to send to the container when the timer fires. The string length must not exceed 4,096 characters. This is an optional parameter.
+          * `payload`: Message to send to the container when the timer fires. The string length must not exceed 4,096 characters. This is an optional setting.
 
       {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
 

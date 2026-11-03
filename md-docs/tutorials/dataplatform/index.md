@@ -116,6 +116,7 @@
 * [Работа с топиками Apache Kafka® с помощью PySpark-заданий в Yandex Data Processing](data-processing-and-kafka.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge](jdbc-ch-to-sql-server-integration.md)
 * [Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge](jdbc-ch-to-oracle-integration.md)
+* [Работа с Yandex Object Storage из PySpark-задания без использования Hive](spark-without-hive.md)
 * [Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™](spark-objstorage-integration.md)
 * [Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer](mpg-pg-clickhouse-extension.md)
 * [Загрузка данных из Yandex Object Storage в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer](object-storage-to-clickhouse.md)

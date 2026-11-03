@@ -64,6 +64,13 @@
     * **{{ ui-key.yacloud.mdb.forms.label_network }}** — `spark-network`.
     * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `pg-sg`.
 
+1. Создайте и наполните тестовую таблицу в базе данных кластера {{ mpg-name }}, к которой будет подключаться PySpark-задание. Например, [выполните SQL-запросы с помощью {{ websql-name }}](../../../managed-postgresql/operations/web-sql-query.md):
+
+    ```sql
+    CREATE TABLE demo_table (id INT, name TEXT);
+    INSERT INTO demo_table VALUES (1, 'Ann'), (2, 'Bob'), (3, 'Cid');
+    ```
+
 ## Настройте права доступа к секрету пользователя {{ mpg-name }} {#set-up-roles}
 
 {% list tabs group=instructions %}
@@ -129,6 +136,7 @@
     
     * идентификатор секрета;
     * [FQDN хоста](../../../managed-postgresql/operations/connect/fqdn.md) для подключения к кластеру {{ mpg-name }};
+    * имя пользователя;
     * имя базы данных;
     * имя таблицы.
 
@@ -142,7 +150,7 @@
   1. В кластере {{ msp-full-name }} [создайте задание](../../../managed-spark/operations/jobs-pyspark.md) со следующими параметрами:
       
       * **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** — `PySpark`.
-      * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
+      * **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** — `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
       * **{{ ui-key.yacloud.dataproc.jobs.field_packages }}** — `org.postgresql:postgresql:42.7.3`.
 
   1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.

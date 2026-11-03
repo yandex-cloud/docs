@@ -26,18 +26,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ container-registry-name }}: storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* {{ lockbox-name }} secrets: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* {{ serverless-containers-name }} container: number of container calls, idle time of provisioned instances, and computing resources allocated to run the container (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
-* API gateway: number of API gateway requests (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
-* {{ GL }} instance. The cost depends on the instance creation method:
-
-   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing)).
-   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
-
-* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ managed-k8s-name }} master: Computing resources (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ container-registry-name }} registry: Fee for storing Docker images and the vulnerability scanner (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
+* {{ lockbox-name }} secrets: number of stored secret versions and requests to them (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* {{ serverless-containers-name }} container: number of container calls, idle time of provisioned instances, and computing resources allocated to run the container (see [{{ serverless-containers-full-name }} pricing](../../serverless-containers/pricing.md)).
+* API gateway: number of API gateway requests (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* {{ ydb-name }} databases in Serverless mode: data operations and stored data amount (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
+* The {{ GL }} cost depends on where it is deployed:
+    * {{ mgl-name }} instance: Computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+    * VM instance with {{ GL }}:
+      * Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+      * VM public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Public IP addresses for {{ managed-k8s-name }} cluster nodes with public access enabled, and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Getting started {#before-begin}
 

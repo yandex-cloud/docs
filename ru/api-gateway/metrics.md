@@ -1,11 +1,11 @@
 ---
-title: Справочник метрик сервиса {{ api-gw-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ api-gw-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ api-gw-full-name }} в {{ monium-name }}
+description: На этой странице приведен справочник метрик сервиса {{ api-gw-name }}, поставляемых в {{ monium-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ api-gw-full-name }}
 
-В этом разделе описаны метрики сервиса {{ api-gw-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+В этом разделе описаны метрики сервиса {{ api-gw-name }}, поставляемые в [{{ monium-name }}](../monium/).
 
 {% include [api-gateway](../_includes/monitoring/metrics-ref/api-gateway.md) %}
 

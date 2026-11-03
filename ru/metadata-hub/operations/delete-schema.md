@@ -6,16 +6,10 @@ description: Следуя данной инструкции, вы сможете
 # Удаление схемы
 
 
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
-{% note warning %}
 
 Если в субъекте только одна схема, ее удаление приведет к удалению субъекта.
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 

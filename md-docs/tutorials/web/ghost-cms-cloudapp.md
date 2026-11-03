@@ -145,9 +145,9 @@
 
 ## Настройте DNS-зону {#configure-dns}
 
-Создайте [публичную DNS-зону](../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md).
+Создайте [публичную DNS-зону](../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../dns/operations/zone-create-public.md).
 
-Перед установкой приложения вам необходимо создать публичную DNS-зону и делегировать на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md).
+Перед установкой приложения вам необходимо создать публичную DNS-зону и делегировать на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../dns/operations/zone-create-public.md).
 
 {% list tabs group=instructions %}
 

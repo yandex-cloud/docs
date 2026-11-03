@@ -29,7 +29,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListSecretsRequest.next_page_token] returned by a previous list request.
-            The maximum string length in characters is 100.
+            The maximum string length in characters is 256.
           type: string
       required:
         - folderId
@@ -70,7 +70,7 @@ The maximum value is 1000. ||
 Page token. To get the next page of results, set `page_token` to the
 [ListSecretsRequest.next_page_token] returned by a previous list request.
 
-The maximum string length in characters is 100. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListSecretsResponse}

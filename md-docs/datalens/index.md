@@ -1144,6 +1144,8 @@
 
  - [Get entries permissions](api-ref/Entries/rpcgetEntriesPermissions-post.md)
 
+ - [Get entry revisions](api-ref/Entries/rpcgetRevisions-post.md)
+
 #### Navigation
 
  - [Overview](api-ref/Navigation/index.md)
@@ -1306,7 +1308,9 @@
 
  - [Overview](api-ref/SharedEntry/index.md)
 
- - [List shared entry access bindings](api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md)
+ - [List common object access bindings](api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md)
+
+ - [Update common objects access bindings](api-ref/SharedEntry/rpcupdateSharedEntryAccessBindings-post.md)
 
 #### Licensing
 
@@ -1348,17 +1352,199 @@
 
  - [Delete HTML page](api-ref/HtmlPages/rpcdeleteHtmlPage-post.md)
 
+ - [Get HTML page preview URL](api-ref/HtmlPages/rpcgetHtmlPagePreviewUrl-post.md)
+
 #### Data
 
  - [Overview](api-ref/Data/index.md)
 
  - [🚧 [Experimental] Get dataset data](api-ref/Data/rpcgetDatasetData-post.md)
 
+ - [🚧 [Experimental] Get chart data](api-ref/Data/rpcgetChartData-post.md)
+
+#### Subscriptions
+
+ - [Overview](api-ref/Subscriptions/index.md)
+
+ - [Add subscription](api-ref/Subscriptions/rpccreateSubscription-post.md)
+
+ - [Get subscription by id](api-ref/Subscriptions/rpcgetSubscription-post.md)
+
+ - [Update subscription](api-ref/Subscriptions/rpcupdateSubscription-post.md)
+
+ - [Delete subscription by id](api-ref/Subscriptions/rpcdeleteSubscription-post.md)
+
+ - [Get subscription list](api-ref/Subscriptions/rpcgetSubscriptions-post.md)
+
+#### Favorites
+
+ - [Overview](api-ref/Favorites/index.md)
+
+ - [Check favorites](api-ref/Favorites/rpccheckFavorites-post.md)
+
+ - [List favorites](api-ref/Favorites/rpclistFavorites-post.md)
+
+#### Screenshots
+
+ - [Overview](api-ref/Screenshots/index.md)
+
+ - [🚧 [Experimental] Get chart screenshot](api-ref/Screenshots/rpcgetChartScreenshot-post.md)
+
+ - [🚧 [Experimental] Get dashboard screenshot](api-ref/Screenshots/rpcgetDashScreenshot-post.md)
+
+#### Tenants
+
+ - [Overview](api-ref/Tenants/index.md)
+
+ - [Get tenant details](api-ref/Tenants/rpcgetTenantDetails-post.md)
+
+#### DataCatalog
+
+ - [Overview](api-ref/DataCatalog/index.md)
+
+ - [🚧 [Experimental] Search objects](api-ref/DataCatalog/rpcsearchObjects-post.md)
+
+#### SqlQueries
+
+ - [Overview](api-ref/SqlQueries/index.md)
+
+ - [🚧 [Experimental] Get SQL query](api-ref/SqlQueries/rpcgetSqlQuery-post.md)
+
+ - [🚧 [Experimental] Create SQL query](api-ref/SqlQueries/rpccreateSqlQuery-post.md)
+
+ - [🚧 [Experimental] Update SQL query](api-ref/SqlQueries/rpcupdateSqlQuery-post.md)
+
+ - [🚧 [Experimental] Delete SQL query](api-ref/SqlQueries/rpcdeleteSqlQuery-post.md)
+
+ - [🚧 [Experimental] Run SQL query](api-ref/SqlQueries/rpcrunSqlQuery-post.md)
+
+#### RestCatalogs
+
+ - [Overview](api-ref/RestCatalogs/index.md)
+
+ - [🚧 [Experimental] List REST catalogs](api-ref/RestCatalogs/rpclistCatalogs-post.md)
+
+ - [🚧 [Experimental] Create REST catalog](api-ref/RestCatalogs/rpccreateRestCatalog-post.md)
+
+#### CloudEnvironments
+
+ - [Overview](api-ref/CloudEnvironments/index.md)
+
+ - [🚧 [Experimental] List cloud environments](api-ref/CloudEnvironments/rpclistCloudEnvironments-post.md)
+
+ - [🚧 [Experimental] Get cloud environment](api-ref/CloudEnvironments/rpcgetCloudEnvironment-post.md)
+
+ - [🚧 [Experimental] Create cloud environment](api-ref/CloudEnvironments/rpccreateCloudEnvironment-post.md)
+
+ - [🚧 [Experimental] Update cloud environment](api-ref/CloudEnvironments/rpcupdateCloudEnvironment-post.md)
+
+ - [🚧 [Experimental] Delete cloud environment](api-ref/CloudEnvironments/rpcdeleteCloudEnvironment-post.md)
+
+#### CloudEnvironmentStorage
+
+ - [Overview](api-ref/CloudEnvironmentStorage/index.md)
+
+ - [🚧 [Experimental] Create bucket object download URL](api-ref/CloudEnvironmentStorage/rpccreateBucketDownloadUrl-post.md)
+
+ - [🚧 [Experimental] Create bucket object upload URL](api-ref/CloudEnvironmentStorage/rpccreateBucketUploadUrl-post.md)
+
+ - [🚧 [Experimental] Get bucket object metadata](api-ref/CloudEnvironmentStorage/rpcgetBucketObjectMetadata-post.md)
+
+ - [🚧 [Experimental] List bucket objects](api-ref/CloudEnvironmentStorage/rpclistBucketObjects-post.md)
+
+#### SparkClusters
+
+ - [Overview](api-ref/SparkClusters/index.md)
+
+ - [🚧 [Experimental] List Spark clusters](api-ref/SparkClusters/rpclistSparkClusters-post.md)
+
+ - [🚧 [Experimental] Get Spark cluster](api-ref/SparkClusters/rpcgetSparkCluster-post.md)
+
+ - [🚧 [Experimental] Create Spark cluster](api-ref/SparkClusters/rpccreateSparkCluster-post.md)
+
+ - [🚧 [Experimental] Delete Spark cluster](api-ref/SparkClusters/rpcdeleteSparkCluster-post.md)
+
+ - [🚧 [Experimental] Start Spark cluster](api-ref/SparkClusters/rpcstartSparkCluster-post.md)
+
+ - [🚧 [Experimental] Stop Spark cluster](api-ref/SparkClusters/rpcstopSparkCluster-post.md)
+
+ - [🚧 [Experimental] List Spark resource presets](api-ref/SparkClusters/rpclistSparkResourcePresets-post.md)
+
+ - [🚧 [Experimental] Get Spark resource preset](api-ref/SparkClusters/rpcgetSparkResourcePreset-post.md)
+
+#### TrinoClusters
+
+ - [Overview](api-ref/TrinoClusters/index.md)
+
+ - [🚧 [Experimental] List Trino clusters](api-ref/TrinoClusters/rpclistTrinoClusters-post.md)
+
+ - [🚧 [Experimental] Get Trino cluster](api-ref/TrinoClusters/rpcgetTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Create Trino cluster](api-ref/TrinoClusters/rpccreateTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Update Trino cluster](api-ref/TrinoClusters/rpcupdateTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Delete Trino cluster](api-ref/TrinoClusters/rpcdeleteTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Start Trino cluster](api-ref/TrinoClusters/rpcstartTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Stop Trino cluster](api-ref/TrinoClusters/rpcstopTrinoCluster-post.md)
+
+ - [🚧 [Experimental] Add REST catalog to Trino cluster](api-ref/TrinoClusters/rpcaddTrinoClusterCatalog-post.md)
+
+ - [🚧 [Experimental] Delete REST catalog from Trino cluster](api-ref/TrinoClusters/rpcdeleteTrinoClusterCatalog-post.md)
+
+ - [🚧 [Experimental] List Trino resource presets](api-ref/TrinoClusters/rpclistTrinoResourcePresets-post.md)
+
+ - [🚧 [Experimental] Get Trino resource preset](api-ref/TrinoClusters/rpcgetTrinoResourcePreset-post.md)
+
+#### SparkApplications
+
+ - [Overview](api-ref/SparkApplications/index.md)
+
+ - [🚧 [Experimental] List Spark applications](api-ref/SparkApplications/rpclistSparkApplications-post.md)
+
+ - [🚧 [Experimental] Get Spark application](api-ref/SparkApplications/rpcgetSparkApplication-post.md)
+
+ - [🚧 [Experimental] Create Spark application](api-ref/SparkApplications/rpccreateSparkApplication-post.md)
+
+ - [🚧 [Experimental] Cancel Spark application](api-ref/SparkApplications/rpccancelSparkApplication-post.md)
+
+ - [🚧 [Experimental] List Spark application log](api-ref/SparkApplications/rpclistSparkApplicationLog-post.md)
+
+#### DataTransfers
+
+ - [Overview](api-ref/DataTransfers/index.md)
+
+ - [🚧 [Experimental] List data transfers](api-ref/DataTransfers/rpclistDataTransfers-post.md)
+
+ - [🚧 [Experimental] Get data transfer](api-ref/DataTransfers/rpcgetDataTransfer-post.md)
+
+ - [🚧 [Experimental] Create data transfer](api-ref/DataTransfers/rpccreateDataTransfer-post.md)
+
+ - [🚧 [Experimental] Update data transfer](api-ref/DataTransfers/rpcupdateDataTransfer-post.md)
+
+ - [🚧 [Experimental] Delete data transfer](api-ref/DataTransfers/rpcdeleteDataTransfer-post.md)
+
+ - [🚧 [Experimental] Activate data transfer](api-ref/DataTransfers/rpcactivateDataTransfer-post.md)
+
+ - [🚧 [Experimental] Deactivate data transfer](api-ref/DataTransfers/rpcdeactivateDataTransfer-post.md)
+
+ - [🚧 [Experimental] Get data transfer logs](api-ref/DataTransfers/rpcgetDataTransferLogs-post.md)
+
+#### LakehouseOperations
+
+ - [Overview](api-ref/LakehouseOperations/index.md)
+
+ - [🚧 [Experimental] Get Lakehouse operation](api-ref/LakehouseOperations/rpcgetLakehouseOperation-post.md)
+
  - [Аудитные логи Audit Trails](at-ref.md)
 
 ## История изменений
 
- - [Сентябрь 2026](release-notes/index.md)
+ - [Октябрь 2026](release-notes/index.md)
+
+ - [Сентябрь 2026](release-notes/2609.md)
 
  - [Август 2026](release-notes/2608.md)
 
@@ -1368,11 +1554,11 @@
 
  - [Май 2026](release-notes/2605.md)
 
- - [Апрель 2026](release-notes/2604.md)
-
  - [Обзорные видео обновлений](release-notes/videos.md)
 
 ### Архив
+
+ - [Апрель 2026](release-notes/2604.md)
 
  - [Март 2026](release-notes/2603.md)
 

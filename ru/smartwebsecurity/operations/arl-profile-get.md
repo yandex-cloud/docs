@@ -15,6 +15,26 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите нужный профиль.
   1. На странице отобразится подробная информация о профиле.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile get --help
+     ```
+
+  1. Получите информацию о профиле ARL:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile get \
+       --id <идентификатор_профиля>
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

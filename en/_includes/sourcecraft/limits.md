@@ -1,6 +1,10 @@
 ### Quotas {#quotas}
 
-{{ src-full-name }} quotas depend on the service plan you are on. For more information, see the [{{ src-full-name }} pricing policy]({{ link-src-docs }}/sourcecraft/pricing#tariff-differences).
+{{ src-full-name }} quotas depend on the subscription you use. For more information, see the [{{ src-full-name }} pricing policy]({{ link-src-docs }}/sourcecraft/pricing#tariff-differences).
+
+With a paid subscription, you can [increase your neurocredit quota]({{ link-src-docs }}/sourcecraft/operations/increase-neurocredit-quota), as well as the [quotas for CI process runtime and private repository storage capacity]({{ link-src-docs }}/sourcecraft/operations/increase-resource-quotas) on your own. Actual consumption exceeding the volume under your active subscription is [billable on a separate basis]({{ link-src-docs }}/sourcecraft/pricing#payg).
+
+To increase quotas for public repositories of educational and open-source projects, contact [support]({{ link-console-support }}?createTicket=true).
 
 ### Limits {#limits}
 

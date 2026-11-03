@@ -3,20 +3,14 @@
 # Удаление пространства имен
 
 
-
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
-
 {% note warning %}
 
-При удалении пространства имен удаляются все связанные с ним субъекты и схемы данных.
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
 
 {% endnote %}
+
+
+При удалении пространства имен удаляются все связанные с ним субъекты и схемы данных.
 
 {% list tabs group=instructions %}
 

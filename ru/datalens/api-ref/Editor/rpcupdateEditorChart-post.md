@@ -67,7 +67,8 @@ _Example:_{.json-schema-reset .json-schema-example} `3`
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   },
   "mode": "save"
@@ -104,7 +105,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -131,7 +133,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -208,7 +211,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "meta": "example",
       "params": "example",
       "sources": "example",
-      "controls": "example"
+      "controls": "example",
+      "activities": "example"
     }
   }
   ```
@@ -235,7 +239,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -337,6 +342,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -350,7 +366,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -509,7 +526,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -597,6 +615,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -610,7 +639,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -634,7 +664,7 @@ _type_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-For D3 Editor charts takes value: d3_node
+For Gravity UI Charts takes value: d3_node
 
 _Const:_{.json-schema-reset .json-schema-value} `d3_node`
 
@@ -769,7 +799,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -1329,6 +1360,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -1340,7 +1382,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "meta": "example",
   "params": "example",
   "sources": "example",
-  "controls": "example"
+  "controls": "example",
+  "activities": "example"
 }
 ```
 
@@ -1497,7 +1540,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
     "meta": "example",
     "params": "example",
     "sources": "example",
-    "controls": "example"
+    "controls": "example",
+    "activities": "example"
   }
 }
 ```
@@ -1550,7 +1594,8 @@ Response
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
 }
@@ -1599,7 +1644,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -1639,7 +1685,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -1755,7 +1802,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "meta": "example",
       "params": "example",
       "sources": "example",
-      "controls": "example"
+      "controls": "example",
+      "activities": "example"
     }
   }
   ```
@@ -1795,7 +1843,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -1908,6 +1957,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -1921,7 +1981,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -2196,7 +2257,8 @@ Link information.
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -2306,6 +2368,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -2319,7 +2392,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -2460,7 +2534,7 @@ _type_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-For D3 Editor charts takes value: d3_node
+For Gravity UI Charts takes value: d3_node
 
 _Const:_{.json-schema-reset .json-schema-value} `d3_node`
 
@@ -2594,7 +2668,8 @@ Link information.
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -3452,6 +3527,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -3463,7 +3549,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "meta": "example",
   "params": "example",
   "sources": "example",
-  "controls": "example"
+  "controls": "example",
+  "activities": "example"
 }
 ```
 
@@ -3736,7 +3823,8 @@ Link information.
     "meta": "example",
     "params": "example",
     "sources": "example",
-    "controls": "example"
+    "controls": "example",
+    "activities": "example"
   }
 }
 ```

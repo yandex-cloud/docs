@@ -12,24 +12,15 @@ links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/
-  - title: '{{ dns-name }}'
-    description: Решения для {{ dns-name }}
-    href: dns/
   - title: '{{ datalens-name }}'
     description: Решения для {{ datalens-name }}
     href: datalens/
   - title: Legal
     description: Решения для Legal
     href: legal/
-  - title: '{{ mmy-name }}'
-    description: Решения для {{ mmy-name }}
-    href: managed-mysql/
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
   - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/
-  - title: '{{ vpc-name }}'
-    description: Решения для {{ vpc-short-name }}
-    href: vpc/

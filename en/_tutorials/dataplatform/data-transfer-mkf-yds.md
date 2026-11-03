@@ -229,7 +229,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
+        1. In `data-transfer-mkf-ydb.tf`, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
@@ -261,7 +261,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             Read more about the transformer settings in [this {{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -273,7 +273,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 

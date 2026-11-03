@@ -35,6 +35,74 @@ description: Следуя данной инструкции, вы сможете
       1. Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
       1. Нажмите **{{ ui-key.yacloud.smart-web-security.arl.label_save-rule }}**.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  {% include [arl-cli-rules-replace](../../_includes/smartwebsecurity/arl-cli-rules-replace.md) %}
+
+  1. В файле `rules.json` измените нужное правило. Например, настройте ограничение до десяти POST-запросов к `/api/login` с одного IP-адреса за 60 секунд:
+
+     ```json
+     [
+       {
+         "name": "login-per-ip",
+         "priority": 100,
+         "description": "Не более десяти запросов к /api/login с одного IP за минуту",
+         "dryRun": false,
+         "dynamicQuota": {
+           "action": "DENY",
+           "limit": "10",
+           "period": "60",
+           "condition": {
+             "requestUri": {
+               "path": {
+                 "exactMatch": "/api/login"
+               }
+             },
+             "httpMethod": {
+               "httpMethodMatcher": {
+                 "exactMatch": "POST"
+               }
+             }
+           },
+           "characteristics": [
+             {
+               "simpleCharacteristic": {
+                 "type": "IP"
+               }
+             }
+           ]
+         }
+       }
+     ]
+     ```
+
+     {% include [arl-cli-rule-principles](../../_includes/smartwebsecurity/arl-cli-rule-principles.md) %}
+
+  1. Обновите список правил профиля:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --advanced-rate-limiter-rules "$(cat rules.json)"
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--advanced-rate-limiter-rules` — полный список правил ARL в формате JSON. Параметр заменяет существующий список правил.
+
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

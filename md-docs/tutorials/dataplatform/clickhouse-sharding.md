@@ -14,21 +14,31 @@
 
 Чтобы распределить данные таблицы по шардам:
 
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Настройте clickhouse-client](#deploy-clickhouse-client).
 1. [Создайте таблицы с данными](#create-tables).
 1. [Проверьте работоспособность таблиц](#sharding-test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -81,50 +91,52 @@
     1. Скачайте в ту же рабочую директорию файл конфигурации для одного из описанных ниже примеров шардирования:
 
         * [simple-sharding.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/simple-sharding.tf) — классическое шардирование.
-        * [sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — шардирование с использованием групп шардов.
+        * [sharding-with-group.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/sharding-with-group.tf) — шардирование с использованием групп шардов.
         * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — продвинутое шардирование с использованием групп шардов.
 
-        В каждом файле описаны:
+        Более подробную информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
 
-        * сеть;
-        * подсеть;
-        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер Managed Service for ClickHouse® с необходимыми хостами и шардами.
+        * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../terraform/resources/vpc_network.md);
+        * [подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета — [yandex_vpc_default_security_group](../../terraform/resources/vpc_default_security_group.md);
+        * [кластер Managed Service for ClickHouse®](../../managed-clickhouse/concepts/index.md) с необходимыми хостами и шардами — [mdb_clickhouse_cluster_v2](../../terraform/resources/mdb_clickhouse_cluster_v2.md);
+        * [база данных Managed Service for ClickHouse®](../../managed-clickhouse/concepts/index.md) — [mdb_clickhouse_database](../../terraform/resources/mdb_clickhouse_database.md);
+        * [пользователь Managed Service for ClickHouse®](../../managed-clickhouse/concepts/user-access-rights.md) — [mdb_clickhouse_user](../../terraform/resources/mdb_clickhouse_user.md).
 
     1. Укажите в конфигурационном файле имя пользователя и пароль, которые будут использоваться для доступа к кластеру Managed Service for ClickHouse®.
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
-    1. Создайте необходимую инфраструктуру:
-
-        1. Выполните команду для просмотра планируемых изменений:
+        1. В терминале перейдите в директорию с конфигурационным файлом.
+        1. Проверьте корректность конфигурации с помощью команды:
+        
+           ```bash
+           terraform validate
+           ```
+        
+           Если конфигурация является корректной, появится сообщение:
+        
+           ```bash
+           Success! The configuration is valid.
+           ```
+        
+        1. Выполните команду:
         
            ```bash
            terraform plan
            ```
         
-           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+           В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        1. Примените изменения конфигурации:
         
-        1. Если вас устраивают планируемые изменения, внесите их:
+           ```bash
+           terraform apply
+           ```
         
-           1. Выполните команду:
-        
-              ```bash
-              terraform apply
-              ```
-        
-           1. Подтвердите изменение ресурсов.
-           1. Дождитесь завершения операции.
-
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 {% endlist %}
 
-### Настройте clickhouse-client {#deploy-clickhouse-client}
+## Настройте clickhouse-client {#deploy-clickhouse-client}
 
 [Установите и настройте clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client), чтобы иметь возможность подключаться с его помощью к базе данных.
 
@@ -264,7 +276,7 @@
       --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
-    Чтобы узнать имена хостов, посмотрите [список хостов ClickHouse® в кластере](../../managed-clickhouse/operations/hosts.md#list-hosts).
+   Чтобы узнать имена хостов, посмотрите [список хостов ClickHouse® в кластере](../../managed-clickhouse/operations/hosts.md#list-hosts).
 
 1. Выполните один или несколько тестовых запросов к этой таблице. Например, можно узнать количество строк в ней:
 
@@ -272,11 +284,11 @@
    SELECT count() FROM tutorial.hits_v1_distributed
    ```
 
-    Результат:
+   Результат:
 
-    ```text
-    8873898
-    ```
+   ```text
+   8873898
+   ```
 
 ## Удалите созданные ресурсы {#clear-out}
 

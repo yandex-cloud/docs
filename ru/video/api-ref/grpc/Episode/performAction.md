@@ -14,16 +14,21 @@ Performs a specific action on an episode, such as publishing or unpublishing.
 
 ```json
 {
+  "episode_id": "string",
   // Includes only one of the fields `publish`, `unpublish`
   "publish": "PublishEpisodeAction",
-  "unpublish": "UnpublishEpisodeAction",
+  "unpublish": "UnpublishEpisodeAction"
   // end of the list of possible fields
-  "episode_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
+|| episode_id | **string**
+
+Required field. ID of the episode on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || publish | **[PublishEpisodeAction](#yandex.cloud.video.v1.PublishEpisodeAction)**
 
 Publish the episode, making it available for watching.
@@ -40,11 +45,6 @@ Changes the episode's visibility status to UNPUBLISHED.
 Includes only one of the fields `publish`, `unpublish`.
 
 Specifies which action to perform on the episode (exactly one must be chosen). ||
-|| episode_id | **string**
-
-Required field. ID of the episode on which to perform the action.
-
-The maximum string length in characters is 50. ||
 |#
 
 ## PublishEpisodeAction {#yandex.cloud.video.v1.PublishEpisodeAction}

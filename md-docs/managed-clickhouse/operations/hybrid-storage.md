@@ -983,15 +983,15 @@
 
 ## Отслеживать объем, занимаемый данными в Object Storage {#metrics}
 
-Чтобы узнать, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в Object Storage, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring:
+Чтобы узнать, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в Object Storage, воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monium:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     1. Откройте [консоль управления](https://console.yandex.cloud).
-    1. [Перейдите](https://console.yandex.cloud/link/monitoring) в сервис **Monitoring**.
-    1. Откройте раздел **Обзор метрик**.
+    1. [Перейдите](https://monium.yandex.cloud) в сервис Monium.
+    1. Откройте раздел ![compass](../../_assets/console-icons/compass.svg) **Обзор** → ![pulse](../../_assets/console-icons/rectangle-pulse.svg) **Метрики**.
     1. Выполните запрос:
 
         ```text

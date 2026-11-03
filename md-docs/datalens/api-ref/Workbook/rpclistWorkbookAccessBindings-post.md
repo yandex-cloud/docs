@@ -166,7 +166,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _subjectsWithBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamSubjectWithBindings](#entity-IamSubjectWithBindings)[]
+**Type**: [SubjectWithBindings](#entity-SubjectWithBindings)[]
 
 Subjects and their access bindings.
 
@@ -205,7 +205,7 @@ Subjects and their access bindings.
 
 <div class="openapi-entity">
 
-### IamAccessBinding {#entity-IamAccessBinding}
+### AccessBinding {#entity-AccessBinding}
 
 #|
 || **Name** | **Description** ||
@@ -260,7 +260,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### IamSubjectWithBindings {#entity-IamSubjectWithBindings}
+### SubjectWithBindings {#entity-SubjectWithBindings}
 
 #|
 || **Name** | **Description** ||
@@ -268,7 +268,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _accessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamAccessBinding](#entity-IamAccessBinding)[]
+**Type**: [AccessBinding](#entity-AccessBinding)[]
 
 Access bindings assigned directly to the subject.
 
@@ -293,7 +293,7 @@ Access bindings assigned directly to the subject.
 
 _inheritedAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamAccessBinding](#entity-IamAccessBinding)[]
+**Type**: [AccessBinding](#entity-AccessBinding)[]
 
 Access bindings inherited by the subject.
 
@@ -327,7 +327,7 @@ _email_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Email address of the subject.
+Subject email address.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -338,7 +338,7 @@ _sub_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Unique identifier of the subject.
+Subject identifier.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -349,9 +349,9 @@ _subType_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Type of the subject.
+Subject type.
 
-_Enum:_{.json-schema-reset .json-schema-value} `SUBJECT_TYPE_UNSPECIFIED`, `USER_ACCOUNT`, `SERVICE_ACCOUNT`, `GROUP`, `INVITEE`
+_Enum:_{.json-schema-reset .json-schema-value} `SUBJECT_TYPE_UNSPECIFIED`, `USER_ACCOUNT`, `GROUP`, `INVITEE`, `SERVICE_ACCOUNT`, `_system`
 {.table-cell}
 ||
 |#{.json-schema-properties}

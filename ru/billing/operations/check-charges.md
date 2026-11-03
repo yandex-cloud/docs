@@ -130,9 +130,9 @@ description: Следуя данной инструкции, вы сможете
   1. Рядом с итоговой суммой скидки нажмите значок ![image](../../_assets/console-icons/circle-question.svg).
   1. Во всплывающем окне отобразится детализация:
   
-     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-monetaryGrantCredit }}` — скидка по [гранту](../concepts/bonus-account.md).
+     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-monetaryGrantCredit }}` — скидка по [гранту](../concepts/bonus-account.md), в том числе по гранту на знакомство с платформой.
      * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-volumeIncentiveCredit }}` — прямая скидка на текущее потребление ресурсов без привязки к долгосрочному резервированию.
-     * `Остальные скидки` — остальные виды скидок.
+     * `Остальные скидки` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой и до перехода на платную версию.
 
 {% endlist %}
 

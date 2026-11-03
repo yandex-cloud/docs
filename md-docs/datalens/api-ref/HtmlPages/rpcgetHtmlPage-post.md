@@ -44,6 +44,17 @@ _Const:_{.json-schema-reset .json-schema-value} `3`
 _Example:_{.json-schema-reset .json-schema-example} `3`
 {.table-cell}
 ||
+||
+
+_x-dl-audit-mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Const:_{.json-schema-reset .json-schema-value} `true`
+
+_Example:_{.json-schema-reset .json-schema-example} ``
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 <div class="openapi-entity">
@@ -90,11 +101,11 @@ _Enum:_{.json-schema-reset .json-schema-value} `saved`, `published`
 ||
 ||
 
-_includeFavorite_{.json-schema-reset .json-schema-property}
+_includeFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Whether to include the favorite status.
+Whether to include the favorite status. Deprecated: the parameter will be removed in a future API version.
 {.table-cell}
 ||
 ||
@@ -463,11 +474,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_isFavorite_{.json-schema-reset .json-schema-property}
+_isFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Whether the HTML page is a favorite.
+Whether the HTML page is a favorite. Deprecated: the field will be removed in a future API version.
 {.table-cell}
 ||
 ||

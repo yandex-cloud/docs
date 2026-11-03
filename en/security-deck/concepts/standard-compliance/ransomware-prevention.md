@@ -12,17 +12,17 @@ Ransomware is one of the most common and destructive types of cyberattacks: atta
 Complying with these requirements helps ensure protection against ransomware attacks and mitigate the consequences of a successful attack:
 
 #|
-|| Requirement | Check ID in the [{{ cspm-name }}](../cspm.md) module ||
-|| [Two-factor authentication for privileged accounts is in place](../../../security/standard/all.md#mfa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
-|| [The _Object lock_ feature is enabled in {{ objstorage-name }}](../../../security/standard/all.md#object-lock) | [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock) ||
-|| [Disk and database backups are in place](../../../security/standard/all.md#snapshot) | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
-|| [Yandex ID accounts are only used in exceptional cases](../../../security/standard/all.md#yandex-id-accounts) | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
-|| [Service accounts have minimal privileges](../../../security/standard/all.md#sa-privileges) |
+||::{align="center"} Requirement ID | Requirement | Check ID in the [{{ cspm-name }}](../cspm.md) module ||
+||::{align="center"} [IAM3](../../../security/standard/all.md#yandex-id-accounts) | Yandex ID accounts are used only in exceptional cases | [cspm.yid.organization](../../rules-reference/cspm.md#yid-organization) ||
+||::{align="center"} [IAM9](../../../security/standard/all.md#sa-privileges) | Service accounts have minimal privileges. |
 [cspm.access.sa-privileges-org-roles](../../rules-reference/cspm.md#sa-privileges-org-roles)
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
-|| [The last service account authentication date is tracked in {{ iam-name }}](../../../security/standard/all.md#track-sa-authentication) | [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account) ||
-|| [The date of last access key use is tracked in {{ iam-name }}](../../../security/standard/all.md#track-sa-authentication) | [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key) ||
-|| [Service account keys are periodically rotated](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#iam-sa-key-rotation) ||
-|| [{{ at-full-name }} is enabled](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
+||::{align="center"} [IAM11](../../../security/standard/all.md#sa-key-rotation) | Service account keys are periodically rotated. | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
+||::{align="center"} [IAM17](../../../security/standard/all.md#twofa) | Two-factor authentication for privileged accounts is in place. | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
+||::{align="center"} [ENV9](../../../security/standard/all.md#object-lock) | The _Object lock_ feature is enabled in {{ objstorage-name }}. | [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock) ||
+||::{align="center"} [ENV37](../../../security/standard/all.md#snapshot) | Disk and database backups are in place. | [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks) ||
+||::{align="center"} [IAM26](../../../security/standard/all.md#key-usage-control) | The last service account authentication date is tracked in {{ iam-name }}. | [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account) ||
+|| ^ | The date of last access key use is tracked in {{ iam-name }}. | [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key) ||
+||::{align="center"} [AUDIT1](../../../security/standard/all.md#audit-trails) | {{ at-full-name }} is enabled. | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 |#

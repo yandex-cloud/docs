@@ -45,6 +45,7 @@ The maximum string length in characters is 50. ||
       "modifiedBy": "string"
     }
   ],
+  "issueId": "string",
   "createdBy": "string"
 }
 ```
@@ -54,7 +55,9 @@ The maximum string length in characters is 50. ||
 || id | **string**
 
 ID of the quota request. ||
-|| resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)** ||
+|| resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
+
+The resource associated with the quota request. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -77,6 +80,9 @@ Status of current quota request.
 || quotaLimits[] | **[QuotaLimit](#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit)**
 
 Quota limits ||
+|| issueId | **string**
+
+ID of the issue. ||
 || createdBy | **string**
 
 ID of the subject who created quota request. ||
@@ -124,7 +130,9 @@ Status of current quota limit.
 - `APPROVED`: The request was approved.
 - `REJECTED`: The request was rejected.
 - `CANCELED`: The request was canceled. ||
-|| message | **string** ||
+|| message | **string**
+
+Human-readable reason for rejecting the requested quota limit. ||
 || modifiedBy | **string**
 
 ID of the subject who modified quota limit. ||

@@ -5,8 +5,6 @@ description: This section provides a list of control rules from the {{ yandex-cl
 
 # {{ yandex-cloud }} basic security rules
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
-
 This rule set contains the basic security checks for protection of the cloud infrastructure and applications deployed in {{ yandex-cloud }}.
 
 These rules help mitigate risks from basic security threats in cloud environments:
@@ -14,8 +12,9 @@ These rules help mitigate risks from basic security threats in cloud environment
 #|
 || Requirement ID | [Security standard](../../../security/standard/all.md) requirement | Check ID in the [{{ cspm-name }} module](../cspm.md) ||
 || **Authentication and access management** (IAM) {align="center"} | > | > ||
-| IAM1 | [An identity federation (Single Sign-On, SSO) is configured](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
+|| IAM1 | [An identity federation (Single Sign-On, SSO) is configured](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || IAM5 | [Only appropriate administrators can manage IAM group membership](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
+|| IAM17 | [Two-factor authentication for privileged accounts is in place](../../../security/standard/all.md#twofa). | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || IAM22 | [There is no public access to resources within the organization](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || **Network security** (NET) {align="center"} | > | > ||
 || NET3 | [Security groups have no access rule that is too broad](../../../security/standard/all.md#access-rule) | [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope) ||
@@ -25,16 +24,17 @@ These rules help mitigate risks from basic security threats in cloud environment
 || CRYPT9 | [{{ kms-short-name }} keys are stored in a hardware security module (HSM)](../../../security/standard/all.md#keys-hsm) | [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm) ||
 || CRYPT13 | [The organization uses {{ lockbox-full-name }} for secure secret storage](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || CRYPT14 | [For {{ serverless-containers-full-name }} and {{ sf-full-name }}, {{ lockbox-name }}](../../../security/standard/all.md#secrets-serverless-functions) secrets are used | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
+|| CRYPT16 | [Cloud administrator is instructed what to do if cloud secrets get compromised](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
 || **Collecting, monitoring, and analyzing audit logs** (AUDIT) {align="center"} | > | > ||
-|| AUDIT1 | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors) ||
+|| AUDIT1 | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || AUDIT8 | [Data events are monitored](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Application security** (APPSEC) {align="center"} | > | > ||
-|| APPSEC1 | [{{ captcha-full-name }} is used](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
+|| APPSEC1 | [{{ captcha-full-name }}](../../../security/standard/all.md#use-smartcaptcha) is used | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || APPSEC2 | [Docker images are scanned when uploaded to {{ container-registry-full-name }}](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || APPSEC3 | [Docker images stored in {{ container-registry-name }} are regularly scanned](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
 || APPSEC9 | [A {{ sws-full-name }} profile is used](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
 || APPSEC10 | [A web application firewall is used](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || APPSEC11 | [Advanced Rate Limiter is used](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
 || **{{ k8s }} security** (K8S) {align="center"} | > | > ||
-|| K8S11 | [A {{ k8s }} security policy is used](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
+|| K8S11 | [A {{ k8s }} security policy is used](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#kspm) ||
 |#

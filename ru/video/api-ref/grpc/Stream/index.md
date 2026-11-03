@@ -21,4 +21,5 @@ such as publishing, stopping, and generating playback URLs.
 || [Delete](delete.md) | Deletes a specific stream by its ID. ||
 || [BatchDelete](batchDelete.md) | Deletes multiple streams in a specific channel in a single request. ||
 || [PerformAction](performAction.md) | Performs a specific action on a stream, such as publishing or stopping. ||
+|| [UpdateTranslationOptions](updateTranslationOptions.md) | Update translation options for the onair stream. ||
 |#

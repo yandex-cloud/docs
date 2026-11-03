@@ -102,6 +102,7 @@ _Example:_{.json-schema-reset .json-schema-example} `3`
         "title": "example",
         "titleMode": "show",
         "legendMode": "show",
+        "legendPosition": "auto",
         "tooltip": "show",
         "tooltipSum": "on",
         "feed": "example",
@@ -249,6 +250,7 @@ _data_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -12571,6 +12573,24 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   #|
   ||
 
+  _maxRadius_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: number
+
+  Maximum map point radius in pixels.
+  {.table-cell}
+  ||
+  ||
+
+  _minRadius_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: number
+
+  Minimum map point radius in pixels.
+  {.table-cell}
+  ||
+  ||
+
   _radius_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: number
@@ -12588,7 +12608,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
 
   ```json translate=no
   {
-    "radius": 0.5
+    "radius": 0.5,
+    "minRadius": 0.5,
+    "maxRadius": 0.5
   }
   ```
 
@@ -12654,7 +12676,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
       }
     ],
     "settings": {
-      "radius": 0.5
+      "radius": 0.5,
+      "minRadius": 0.5,
+      "maxRadius": 0.5
     }
   }
   ```
@@ -12906,7 +12930,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
         null
       ],
       "settings": {
-        "radius": 0.5
+        "radius": 0.5,
+        "minRadius": 0.5,
+        "maxRadius": 0.5
       }
     },
     "colors": {
@@ -13833,6 +13859,24 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   #|
   ||
 
+  _maxRadius_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: number
+
+  Maximum map point radius in pixels.
+  {.table-cell}
+  ||
+  ||
+
+  _minRadius_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: number
+
+  Minimum map point radius in pixels.
+  {.table-cell}
+  ||
+  ||
+
   _radius_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: number
@@ -13850,7 +13894,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
 
   ```json translate=no
   {
-    "radius": 0.5
+    "radius": 0.5,
+    "minRadius": 0.5,
+    "maxRadius": 0.5
   }
   ```
 
@@ -13916,7 +13962,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
       }
     ],
     "settings": {
-      "radius": 0.5
+      "radius": 0.5,
+      "minRadius": 0.5,
+      "maxRadius": 0.5
     }
   }
   ```
@@ -14167,7 +14215,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
         null
       ],
       "settings": {
-        "radius": 0.5
+        "radius": 0.5,
+        "minRadius": 0.5,
+        "maxRadius": 0.5
       }
     },
     "colors": {
@@ -17101,7 +17151,9 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
       null
     ],
     "settings": {
-      "radius": 0.5
+      "radius": 0.5,
+      "minRadius": 0.5,
+      "maxRadius": 0.5
     }
   },
   "colors": {
@@ -18647,7 +18699,7 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the primary Y-axis.
+  Fields placed on the primary Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -19143,7 +19195,7 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the secondary Y-axis.
+  Fields placed on the secondary Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -20958,7 +21010,7 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -22716,7 +22768,7 @@ _Example:_{.json-schema-reset .json-schema-example} `0.5`
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -24853,6 +24905,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _navigatorSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -25041,6 +25104,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -26151,7 +26215,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the primary Y-axis.
+  Fields placed on the primary Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -26647,7 +26711,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the secondary Y-axis.
+  Fields placed on the secondary Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -27141,6 +27205,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -27860,6 +27925,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _navigatorSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -28048,6 +28124,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -28826,7 +28903,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -29320,6 +29397,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -29995,6 +30073,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _navigatorSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -30183,6 +30272,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -30948,7 +31038,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -31441,6 +31531,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -32116,6 +32207,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _navigatorSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -32315,6 +32417,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -33081,7 +33184,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -33575,6 +33678,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -34250,6 +34354,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _navigatorSettings_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   {% cut "**Type**: object" %}
@@ -34438,6 +34553,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -35203,7 +35319,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the Y-axis.
+  Fields placed on the Y-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -35818,6 +35934,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -36358,6 +36475,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -36413,6 +36541,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example"
@@ -37027,7 +37156,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the X-axis.
+  Fields placed on the X-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -37534,6 +37663,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example"
@@ -38179,6 +38309,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -38234,6 +38375,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example"
@@ -38835,7 +38977,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields placed on the X-axis.
+  Fields placed on the X-axis. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -39341,6 +39483,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example"
@@ -39635,7 +39778,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures used to size funnel stages.
+  Measures used to size funnel stages. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -39818,6 +39961,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _shape_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -39884,6 +40038,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "barGap": "auto",
     "shape": "auto",
@@ -40536,6 +40691,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "barGap": "auto",
       "shape": "auto",
@@ -41193,6 +41349,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -41237,6 +41404,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "feed": "example"
   }
@@ -42008,7 +42176,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Fields used to determine point sizes.
+  Fields used to determine point sizes. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -42789,6 +42957,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "feed": "example"
     },
@@ -42947,7 +43116,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures used to determine slice sizes.
+  Measures used to determine slice sizes. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -43119,6 +43288,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -43163,6 +43343,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show"
   }
   ```
@@ -43874,6 +44055,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show"
     },
     "dimensions": {
@@ -43961,7 +44143,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures used to determine slice sizes.
+  Measures used to determine slice sizes. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -44133,6 +44315,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -44188,6 +44381,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "totals": "on"
   }
@@ -44964,6 +45158,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "totals": "on"
     }
@@ -44988,7 +45183,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures displayed by the metric.
+  Measures displayed by the metric. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -45717,7 +45912,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures used to size treemap nodes.
+  Measures used to size treemap nodes. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -47338,7 +47533,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: [WizardFieldSchema](#entity-WizardFieldSchema)[]
 
-  Measures displayed in pivot cells.
+  Measures displayed in pivot cells. Measures only: a dimension placed here needs an aggregation.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -48318,7 +48513,9 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
           null
         ],
         "settings": {
-          "radius": 0.5
+          "radius": 0.5,
+          "minRadius": 0.5,
+          "maxRadius": 0.5
         }
       },
       "colors": {
@@ -48772,6 +48969,17 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
   ||
   ||
 
+  _legendPosition_{.json-schema-reset .json-schema-property}
+  {.table-cell}|
+  **Type**: string
+
+  Position of the chart legend. Auto preserves the current bottom position.
+
+  _Enum:_{.json-schema-reset .json-schema-value} `auto`, `top`, `bottom`, `left`, `right`
+  {.table-cell}
+  ||
+  ||
+
   _title_{.json-schema-reset .json-schema-property}
   {.table-cell}|
   **Type**: string
@@ -48816,6 +49024,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "feed": "example"
   }
@@ -48846,6 +49055,7 @@ _visualization_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "feed": "example"
     },
@@ -48918,6 +49128,7 @@ Chart visualization configuration.
     "title": "example",
     "titleMode": "show",
     "legendMode": "show",
+    "legendPosition": "auto",
     "tooltip": "show",
     "tooltipSum": "on",
     "feed": "example",
@@ -49157,6 +49368,7 @@ Chart visualization configuration.
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -49442,6 +49654,7 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
         "title": "example",
         "titleMode": "show",
         "legendMode": "show",
+        "legendPosition": "auto",
         "tooltip": "show",
         "tooltipSum": "on",
         "feed": "example",
@@ -49611,6 +49824,7 @@ _data_{.json-schema-reset .json-schema-property .json-schema-required}
       "title": "example",
       "titleMode": "show",
       "legendMode": "show",
+      "legendPosition": "auto",
       "tooltip": "show",
       "tooltipSum": "on",
       "feed": "example",
@@ -50045,6 +50259,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `graph_wizard_node`, `table_wizar
         "title": "example",
         "titleMode": "show",
         "legendMode": "show",
+        "legendPosition": "auto",
         "tooltip": "show",
         "tooltipSum": "on",
         "feed": "example",
