@@ -19,6 +19,67 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  {% include [arl-cli-rules-replace](../../_includes/smartwebsecurity/arl-cli-rules-replace.md) %}
+
+  1. В файле `rules.json` укажите полный список правил. Например, добавьте правило, которое ограничивает общее число POST-запросов к `/api/password-reset` до 100 за минуту:
+
+     ```json
+     [
+       {
+         "name": "password-reset-total",
+         "priority": 100,
+         "description": "Не более 100 запросов к восстановлению пароля за минуту",
+         "dryRun": true,
+         "staticQuota": {
+           "action": "DENY",
+           "limit": "100",
+           "period": "60",
+           "condition": {
+             "requestUri": {
+               "path": {
+                 "exactMatch": "/api/password-reset"
+               }
+             },
+             "httpMethod": {
+               "httpMethodMatcher": {
+                 "exactMatch": "POST"
+               }
+             }
+           }
+         }
+       }
+     ]
+     ```
+
+     {% include [arl-cli-rule-principles](../../_includes/smartwebsecurity/arl-cli-rule-principles.md) %}
+
+  1. Обновите список правил профиля:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --advanced-rate-limiter-rules "$(cat rules.json)"
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--advanced-rate-limiter-rules` — полный список правил ARL в формате JSON. Параметр заменяет существующий список правил.
+
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

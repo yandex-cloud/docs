@@ -6,9 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Создание пространства имен
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
 
 {% list tabs group=instructions %}

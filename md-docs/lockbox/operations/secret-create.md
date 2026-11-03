@@ -34,7 +34,7 @@
 
      {% note tip %}
 
-     Использование своего ключа Key Management Service дает возможность использовать все преимущества сервиса Key Management Service.
+     Подробнее о преимуществах собственного ключа в разделе [Шифрование секретов с помощью Yandex Key Management Service](../concepts/secret.md#encryption).
 
      {% endnote %}
 
@@ -72,7 +72,7 @@
      * `--description` — описание секрета. Необязательный параметр.
      * `--payload` — содержимое секрета в виде массива формата YAML или JSON.
 
-       Вы можете одновременно передать один или несколько [ключей](../../kms/concepts/key.md) `key`. Если секрет будет содержать несколько значений, перечислите их через запятую. Если ключи будут содержать значения в бинарном формате, передавайте их в кодировке `base64`.
+       Вы можете передать одну или несколько пар ключ-значение [секрета](../concepts/secret.md#secret). Если пар несколько, перечислите их через запятую. Бинарные значения передавайте в кодировке Base64.
 
        >Например, для сохранения ключа `username` с текстовым значением `myusername` и ключа `avatar` с загруженным из файла `avatar.jpg` значением в бинарном формате можно указать:
        >
@@ -110,7 +110,7 @@
 
 - Terraform {#tf}
 
-  Секрет содержит только метаинформацию о себе: имя, описание, уникальный идентификатор и т. д. Для начала работы с секретом необходимо, после его создания, [создать версию](secret-version-manage.md) секрета.
+  Ресурс `yandex_lockbox_secret` содержит только метаданные секрета: имя, описание, идентификатор и другие параметры. Чтобы сохранить содержимое, после создания секрета [создайте его версию](secret-version-manage.md#create-version).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -137,12 +137,12 @@
      
      * `name` — имя секрета. Обязательный параметр.
      * `description` — описание секрета. Необязательный параметр.
-     * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в котором будет создан секрет. Необязательный параметр.
+     * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан секрет. Необязательный параметр.
      * `kms_key_id` — идентификатор [ключа шифрования Key Management Service](../../kms/concepts/key.md). Указанный ключ Key Management Service используется для шифрования секрета. Если не указывать ключ Key Management Service, секрет будет зашифрован специальным системным ключом. Необязательный параметр.
      * `deletion_protection` — флаг защиты от удаления. Для включения защиты укажите значение `true`. Для отключения защиты — `false`. Значение по умолчанию `false`. Необязательный параметр.
      * `labels` — [метка](../../resource-manager/concepts/labels.md) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в Terraform, смотрите в [документации провайдера](../../terraform/resources/lockbox_secret.md).
+     Подробнее о параметрах ресурса `yandex_lockbox_secret` в [документации провайдера](../../terraform/resources/lockbox_secret.md).
   
   1. Создайте ресурсы:
 
@@ -188,6 +188,8 @@
 
 {% note tip %}
 
-Если при создании секрета вы указали свой ключ KMS, необходимо назначить на этот секрет роли [kms.keys.encrypterDecrypter](../../kms/security/index.md#service-roles) и [lockbox.payloadViewer](../security/index.md#roles-list). Они нужны для получения доступа к ключу, а также для шифрования и расшифровки.
+Для получения содержимого секрета пользователю или сервисному аккаунту нужна роль [lockbox.payloadViewer](../security/index.md#lockbox-payloadViewer) на этот секрет. Подробнее в инструкции [Настроить права доступа к секрету](secret-access.md).
+
+Если секрет зашифрован вашим ключом KMS, дополнительно нужна роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) на ключ шифрования. Подробнее в инструкции [Настроить права доступа к ключу](../../kms/operations/key-access.md#add-access-binding).
 
 {% endnote %}

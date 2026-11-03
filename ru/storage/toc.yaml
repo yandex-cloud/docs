@@ -386,6 +386,8 @@ items:
             href: tutorials/billing.md
           - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
             href: tutorials/spark-objstorage-integration.md
+          - name: Использование {{ objstorage-name }} в {{ msp-full-name }} без Hive
+            href: tutorials/spark-without-hive.md
           - name: >-
               Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
               помощью Sqoop

@@ -5,23 +5,29 @@
 
 Чтобы воспользоваться гибридным хранилищем:
 
+1. [Подготовьте ресурсы](#prepare).
 1. [Создайте таблицу](#create-table).
 1. [Наполните таблицу данными](#fill-table-with-data).
 1. [Проверьте размещение данных таблицы в кластере](#check-table-tiering).
 1. [Выполните тестовый запрос](#submit-test-query).
+1. [Отслеживайте объем, занимаемый данными в {{ objstorage-name }}](#metrics).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте ресурсы {#prepare}
 
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+### Создайте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -49,28 +55,20 @@
 
     1. Скачайте в ту же рабочую директорию файл конфигурации [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf).
 
-        В этом файле описаны:
+        Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
-        * [сеть](../../vpc/concepts/network.md#network);
-        * [подсеть](../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер {{ mch-name }} с включенным гибридным хранилищем.
+        * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network);
+        * [подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета — [yandex_vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group);
+        * [кластер {{ mch-name }}](../../managed-clickhouse/concepts/index.md) с включенным гибридным хранилищем — [mdb_clickhouse_cluster_v2]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2);
+        * [база данных {{ mch-name }}](../../managed-clickhouse/concepts/index.md) — [mdb_clickhouse_database]({{ tf-provider-resources-link }}/mdb_clickhouse_database);
+        * [пользователь {{ mch-name }}](../../managed-clickhouse/concepts/user-access-rights.md) — [mdb_clickhouse_user]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
     1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 {% endlist %}
 
@@ -84,7 +82,7 @@
 
 1. [Настройте clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) и подключитесь с его помощью к базе данных.
 
-### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
+### Познакомьтесь с тестовым набором данных {#explore-dataset}
 
 Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс Метрики. Этот [датасет]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
 
@@ -251,7 +249,7 @@ LIMIT 10
 
 Как видно из результата выполнения SQL-запроса, с точки зрения пользователя таблица выступает единой сущностью: {{ CH }} успешно выполняет запросы к такой таблице вне зависимости от фактического места расположения данных в ней.
 
-## Отслеживайте объем, занимаемый данными в {{ objstorage-name }} (необязательный шаг) {#metrics}
+## Отслеживайте объем, занимаемый данными в {{ objstorage-name }} {#metrics}
 
 {% include [hybrid-storage-monitoring](../../_includes/mdb/mch/hybrid-storage-monitoring.md) %}
 

@@ -97,16 +97,18 @@ Global RateLimit позволяет задать лимит на количес�
 
 ## Мониторинг {#monitoring}
 
-Отслеживать работу Global RateLimit можно в разделе **{{ ui-key.yacloud.common.monitoring }}** соответствующего балансировщика или в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}).
+Отслеживать работу Global RateLimit можно в разделе **{{ ui-key.yacloud.common.monitoring }}** соответствующего балансировщика или в [{{ monium-full-name }}]({{ link-monium }}).
 
 Для этого есть два преднастроенных графика:
 
 * **RPS** — количество запросов в секунду, которые маршрутизировал балансировщик.
-* **4XX** — количество запросов, которым возвращен код ответа из класса `4XX`.
+* **4XX** — количество ответов с кодами класса `4XX` в секунду.
 
-В сервисе {{ monitoring-name }} можно настроить дополнительные графики с более подробной информацией. Например, чтобы настроить график с количеством запросов, которым возвращен код ответа `429`, используйте такие настройки [токенов](../../monitoring/concepts/visualization/query-string.md):
+В {{ monium-name }} можно настроить дополнительные графики. Например, чтобы отслеживать количество ответов с кодом `429` в секунду, укажите в [запросе](../../monium/concepts/visualization/query-string.md) следующие метки:
 
-* `service` = `Application Load Balancer`.
+* `project` = `folder__<идентификатор_каталога>` — проект каталога с балансировщиком.
+* `cluster` = `default`.
+* `service` = `__application-load-balancer__`.
 * `name` = `load_balancer.requests_count_per_second`.
 * `load_balancer` = `<идентификатор_балансировщика>`.
 * `http_router` = `*`.

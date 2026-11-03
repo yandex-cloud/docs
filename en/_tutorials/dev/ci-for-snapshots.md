@@ -26,10 +26,8 @@ Before creating a VM:
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Virtual machines: compute resources and storage, as well as disk snapshot storage ([{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM public IP addresses and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a test application VM {#create-vm}
 
@@ -37,7 +35,7 @@ Create a VM where you will install a web server, your test application, and its 
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.

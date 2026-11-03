@@ -6,6 +6,9 @@ description: Следуя данной инструкции, вы сможете
 # Создание субъекта
 
 
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
+
+
 Вы можете создать субъект:
 
 * [отдельно от схемы](#create-new-separate-subject), на вкладке **Субъекты**;

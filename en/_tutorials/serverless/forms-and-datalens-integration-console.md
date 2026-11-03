@@ -244,7 +244,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will store 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 1. {{ datalens-name }} chart.
 1. {{ datalens-name }} dataset.

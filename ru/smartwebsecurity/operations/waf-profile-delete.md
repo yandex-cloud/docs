@@ -27,6 +27,26 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) → ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile delete --help
+     ```
+
+  1. Удалите профиль WAF:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile delete \
+       --id <идентификатор_профиля>
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

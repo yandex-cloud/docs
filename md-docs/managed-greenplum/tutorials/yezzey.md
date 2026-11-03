@@ -10,6 +10,7 @@
 
 Чтобы перенести данные из хранилища кластера в гибридное хранилище:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Выгрузите таблицу Greenplum® в гибридное хранилище](#transfer).
 1. [Проверьте результат](#check).
 
@@ -17,15 +18,25 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
 * Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. [Создайте кластер](../operations/cluster-create.md) Greenplum®. При создании убедитесь, что включена опция **Гибридное хранилище**.
 
@@ -70,11 +81,11 @@
 
    ```bash
    psql "host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
-   port=6432 \
-   sslmode=verify-full \
-   dbname=postgres \
-   user=<имя_пользователя> \
-   target_session_attrs=read-write"
+        port=6432 \
+        sslmode=verify-full \
+        dbname=postgres \
+        user=<имя_пользователя> \
+        target_session_attrs=read-write"
    ```
 
 1. Создайте БД `db_with_yezzey`:

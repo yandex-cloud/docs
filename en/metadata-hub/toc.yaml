@@ -161,6 +161,10 @@ items:
             href: tutorials/airflow-automation.md
           - name: Collaborative table management using {{ metastore-name }}
             href: tutorials/data-processing-to-data-processing.md
+          - name: >-
+              Transferring data from {{ mkf-name }} into an {{ IBRG }} table
+              using {{ metastore-name }}
+            href: tutorials/kafka-iceberg-s3-connect.md
       - name: Concepts
         items:
           - name: '{{ metastore-name }} clusters'

@@ -563,11 +563,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_isFavorite_{.json-schema-reset .json-schema-property}
+_isFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Whether the HTML page is a favorite.
+Whether the HTML page is a favorite. Deprecated: the field will be removed in a future API version.
 {.table-cell}
 ||
 ||

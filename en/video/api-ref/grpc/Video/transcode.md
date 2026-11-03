@@ -151,7 +151,7 @@ Value must match the regular expression ``` |ara|deu|eng|fra|ita|jpn|kor|rus|spa
 
 Required field. Target language represented as a three-letter code according to ISO 639-2/T.
 
-Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho ```. ||
+Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|vie|zho ```. ||
 || label | **string**
 
 Required field. Track label to be displayed on the screen during video playback.

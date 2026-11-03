@@ -49,13 +49,7 @@ The service connects to {{ GP }} cluster segments directly and transfers data fr
 
 Make sure you have parallel copy [settings](#settings) for your transfer.
 
-Parallel copying helps speed up data transfer only if the transfer speed is sufficient. It depends on the following factors:
-
-* Read speed from the source database.
-* Data processing speed by {{ data-transfer-name }}.
-* Speed of inserting data into the target database.
-
-To check the transfer speed, look at the [{{ monitoring-full-name }}](../../monitoring/) charts. The speed is considered sufficient if the following conditions are met:
+Parallel copying helps speed up data transfer only if the source and target both have sufficient performance capacity. Making a transfer more parallel makes sense under these conditions:
 
 * In the source cluster and target cluster charts, the consumption of resources, such as CPU, RAM, or disk space, is not nearing the limit values.
 

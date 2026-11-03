@@ -21,6 +21,51 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [waf-verdicts](../../_includes/smartwebsecurity/waf-verdicts.md) %}
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile create --help
+     ```
+
+  1. Создайте профиль WAF:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile create \
+       --folder-id <идентификатор_каталога> \
+       --name <имя_профиля> \
+       --description <описание_профиля>
+     ```
+
+     Где:
+
+     * `--folder-id` — идентификатор каталога, в котором будет создан профиль.
+     * `--name` — имя профиля WAF.
+     * (Опционально) `--description` — описание профиля WAF.
+
+  1. Чтобы настроить правила WAF в файле запроса, сформируйте шаблон в формате JSON или YAML:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile create --example-json > request.json
+     ```
+
+     ```bash
+     yc smartwebsecurity waf waf-profile create --example-yaml > request.yaml
+     ```
+
+     Отредактируйте файл и передайте его в команде создания профиля:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile create \
+       --request-file request.yaml
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

@@ -19,6 +19,26 @@ description: Следуя данной инструкции, вы сможете
      * Профили безопасности, к которым подключен профиль WAF.
      * Наборы правил, которые включены в профиль, количество активных правил в каждом наборе, уровень аномальности и паранойи для набора OWASP.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile get --help
+     ```
+
+  1. Получите информацию о профиле WAF:
+
+     ```bash
+     yc smartwebsecurity waf waf-profile get \
+       --id <идентификатор_профиля>
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

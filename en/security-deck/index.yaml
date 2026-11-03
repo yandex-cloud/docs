@@ -62,9 +62,20 @@ blocks:
         url: >-
           https://yandex.cloud/en/docs/security-deck/concepts/standard-compliance/yc-security-baseline
       - src: _assets/image/cspm-standard-yc.svg
-        text: Infrastructure security standard
+        text: Cloud infrastructure security standard
         url: >-
           https://yandex.cloud/en/docs/security-deck/concepts/standard-compliance/yc-cloud-security-standard
+      - src: _assets/image/cspm-standard-ransomware.svg
+        text: Ransomware attack prevention standard
+        url: >-
+          https://yandex.cloud/en/docs/security-deck/concepts/standard-compliance/ransomware-prevention
+      - src: _assets/image/cspm-standard-aispm.svg
+        text: "Security standard for AI systems in Yandex\_Cloud"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/aispm
+  - type: icons-block
+    size: m
+    items:
       - src: _assets/image/cspm-152-fz.svg
         text: 152-FZ (Russian Federal Law on Personal Data)
         url: >-
@@ -109,8 +120,8 @@ blocks:
         size: s
         animated: false
       - type: basic-card
-        title: Manage access
-        text: Configure access permissions for the service
+        title: Access management
+        text: Configure access permissions to use this service
         icon: _assets/icons/persons-lock.svg
         urlTitle: Access management in Yandex Security Deck
         url: security/index

@@ -292,7 +292,7 @@
         <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
             --consumer.config <путь_к_файлу_с_параметрами> `
             --bootstrap-server <FQDN_хоста>:9091 `
-            --group test-consumer-group `    
+            --group test-consumer-group `
             --topic messages `
             --property print.key=true `
             --property key.separator=":"
@@ -386,8 +386,8 @@
 ## Проанализируйте графики мониторинга {#check-charts}
 
 [Перейдите](https://monitoring.yandex.cloud) в сервис **Yandex Monitoring** и проанализируйте поведение созданных ранее метрик:
-* `kafka_log_Log_LogStartOffset` — первое смещение в разделе. Увеличивается при записи сообщений в топик.
-* `kafka_log_Log_LogEndOffset` — последнее смещение в разделе. Увеличивается при удалении сообщений из топика.
+* `kafka_log_Log_LogStartOffset` — первое смещение в разделе. Увеличивается при удалении сообщений из топика.
+* `kafka_log_Log_LogEndOffset` — последнее смещение в разделе. Увеличивается при записи сообщений в топик.
 * `kafka_group_topic_partition_offset` — текущее смещение группы потребителей в разделе. Увеличивается при вычитывании сообщений из топика группой потребителей.
 
 На графике видны следующие закономерности:

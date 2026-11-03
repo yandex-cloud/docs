@@ -65,12 +65,12 @@
         * эндпоинты;
         * трансфер.
 
-    1. Укажите в файле `opensearch-to-object-storage.tf` параметры:
+    1. Укажите в файле `opensearch-to-object-storage.tf` значения параметров:
 
         * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md);
         * `mos_version` — версия {{ OS }};
-        * `mos_password` — пароль пользователя-владельца кластера {{ OS }};
-        * `bucket_name`— имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
+        * `mos_password` — пароль пользователя `admin` в кластере {{ mos-name }};
+        * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming);
         * `profile_name` — имя вашего профиля в CLI.
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -106,7 +106,7 @@
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_mapping?pretty' \
-         --data'
+         --data '
          {
                "properties": {
                   "name": {"type": "text"},
@@ -122,26 +122,26 @@
     curl --user admin:<пароль> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
+         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+         --data '
          {
-               "name" : "Alice",
-               "age" : "30"
+               "name": "Alice",
+               "age": 30
          }
          ' && \
-    curl --user admin:<пароль> \
-         --cacert ~/.opensearch/root.crt \
-         --header 'Content-Type: application/json' \
-         --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc/?pretty' \
-         --data'
-         {
-               "name" : "Robert",
-               "age" : "32"
-         }
-         '
+     curl --user admin:<пароль> \
+          --cacert ~/.opensearch/root.crt \
+          --header 'Content-Type: application/json' \
+          --request POST 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_doc?pretty' \
+          --data '
+          {
+                "name": "Robert",
+                "age": 32
+          }
+          '
     ```
 
-1. (Опционально) Проверьте данные в тестовом индексе:
+1. При необходимости проверьте данные в тестовом индексе:
 
     ```bash
     curl --user admin:<пароль> \
@@ -162,7 +162,7 @@
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_MOS`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Endpoint.path_prefix.title }}** — `from_MOS/`.
 
 1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) типа `{{ OS }}` со следующими настройками:
 
@@ -183,10 +183,10 @@
 
     - {{ TF }} {#tf}
 
-      1. Укажите в файле `opensearch-to-object-storage.tf` значения переменных:
+      1. Укажите в файле `opensearch-to-object-storage.tf` значения параметров:
 
-          * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-          * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
+          * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+          * `source_endpoint_id` — идентификатор эндпоинта для источника;
           * `transfer_enabled` — значение `1` для создания трансфера.
 
       1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -218,7 +218,13 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+{% note info %}
+
+Перед тем как удалить созданные ресурсы, [деактивируйте трансфер](../../../data-transfer/operations/transfer.md#deactivate).
+
+{% endnote %}
+
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).

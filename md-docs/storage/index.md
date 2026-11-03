@@ -342,6 +342,8 @@
 
  - [Использование Object Storage в Yandex Managed Service for Apache Spark™](tutorials/spark-objstorage-integration.md)
 
+ - [Использование Object Storage в Yandex Managed Service for Apache Spark™ без Hive](tutorials/spark-without-hive.md)
+
  - [Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mmy.md)
 
  - [Импорт данных из Yandex Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mpg.md)

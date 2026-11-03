@@ -6,6 +6,9 @@ description: Как исправить ошибку при работе с ре�
 # Решение проблем в {{ schema-registry-full-name }}
 
 
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
+
+
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
 ## Ошибка при добавлении и удалении опциональных параметров {#avoid-errors-while-evolving-schema}

@@ -7,6 +7,48 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.39.0 (01/10/26) {#v-1-39-0}
+
+#### Managed database services {#v-1-39-0-mdb}
+
+* Added the `yc adviser` command group (aliased as `yc recommendation`) for viewing and temporarily hiding recommendations:
+  * `yc adviser issue list`
+  * `yc adviser issue dismiss`
+  * `yc adviser issue get-dismissal-info`
+
+#### {{ sf-name }} {#v-1-39-0-sf-name}
+
+* Added the following trigger management commands for Yandex Forms:
+  * `yc serverless trigger v2 create yandex-forms`
+  * `yc serverless trigger v2 update yandex-forms`
+
+#### {{ iam-name }} {#v-1-39-0-iam-name}
+
+* Added the `--post-logout-redirect-uris` parameter to the commands for configuring redirect addresses after signing out of the OAuth client:
+  * `yc iam oauth-client create`
+  * `yc iam oauth-client update`
+* Added the `POST LOGOUT REDIRECT URIS` field with redirect addresses after signing out of the OAuth client to the `yc iam oauth-client get` command output.
+
+#### {{ mgp-name }} {#v-1-39-0-mgp-name}
+
+* Added the `--login` parameter to the following user management commands:
+  * `yc managed-greenplum users create`
+  * `yc managed-greenplum users update`
+
+## Previous releases {#previous-release}
+
+### Version 1.38.0 (28/09/26) {#v-1-38-0}
+
+#### {{ sf-name }} {#v-1-38-0-sf-name}
+
+* Added the following trigger management commands for MAX:
+  * `yc serverless trigger v2 create max`
+  * `yc serverless trigger v2 update max`
+
+#### {{ cloud-registry-name }} {#v-1-38-0-cloud-registry-name}
+
+* Added the `yc cloud-registry migration get-folder-migration-status-dashboard` command for getting the summary status of registry migrations in the folder.
+
 ### Version 1.37.0 (24/09/26) {#v-1-37-0}
 
 #### {{ baremetal-name }} {#v-1-37-0-baremetal-name}
@@ -49,8 +91,6 @@ description: This page presents CLI releases and their updates.
 * Added the `--additional-properties` parameter to the commands for setting up additional {{ TR }} cluster properties:
   * `yc managed-trino cluster create`
   * `yc managed-trino cluster update`
-
-## Previous releases {#previous-release}
 
 ### Version 1.36.0 (21/09/26) {#v-1-36-0}
 

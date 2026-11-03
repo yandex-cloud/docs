@@ -2,6 +2,7 @@
 
 Type of limit | Value
 ----- | -----
+Maximum number of registries per cloud | 10
 Maximum number of lifecycle policies per registry | 10
 Maximum number of rules per [lifecycle policy](../../cloud-registry/concepts/lifecycle-policy.md) | 10
 

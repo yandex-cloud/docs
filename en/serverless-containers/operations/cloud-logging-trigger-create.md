@@ -139,37 +139,37 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
       ```hcl
       resource "yandex_serverless_triggers" "my_trigger" {
         name = "<trigger_name>"
-        source {
-          logging {
+        source = {
+          logging = {
             log_group_id  = "<log_group_ID>"
             resource_type = [ "<resource_type>" ]
             resource_id   = [ "<resource_ID>" ]
             stream_name   = [ "<log_stream>" ]
             levels        = [ "<logging_level>", "<logging_level>" ]
-            batch_settings {
-              max_count = "<max_number_of_messages>"
-              max_bytes = "<max_group_size_in_bytes>"
+            batch_settings = {
+              max_count = <max_number_of_messages>
+              max_bytes = <max_group_size_in_bytes>
               cutoff    = "<maximum_wait_time>"
             }
           }
         }
-        action {
-          invoke_container {
+        action = [{
+          invoke_container = {
             container_id       = "<container_ID>"
             path               = "<HTTP_path>"
             service_account_id = "<service_account_ID>"
           }
-          retry_policy {
-            retry_attempts = "<number_of_retries>"
+          retry_policy = {
+            retry_attempts = <number_of_retries>
             interval       = "<interval_between_retries>"
           }
-          dead_letter {
-            dead_letter_queue {
+          dead_letter = {
+            dead_letter_queue = {
               queue_arn          = "<Dead_Letter_Queue_ARN>"
               service_account_id = "<service_account_ID>"
             }
           }
-        }
+        }]
       }
       ```
 
@@ -182,10 +182,10 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
         * `logging`: Log group settings:
 
           * `log_group_id`: ID of the log group whose new log entries will invoke the container.
-          * `resource_type`: Types of resources, e.g., functions in {{ sf-name }}. This is an optional parameter.
-          * `resource_id`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions in {{ sf-name }}. This is an optional parameter.
-          * `stream_name`: Log streams. This is an optional parameter.
-          * `levels`: Logging levels. This is an optional parameter.
+          * `resource_type`: Types of resources, e.g., functions in {{ sf-name }}. This is an optional setting.
+          * `resource_id`: IDs of your resources or {{ yandex-cloud }} resources, e.g., functions in {{ sf-name }}. This is an optional setting.
+          * `stream_name`: Log streams. This is an optional setting.
+          * `levels`: Logging levels. This is an optional setting.
 
               A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource_id`, `resource_type`, `stream_name`, and `levels`. If the setting is not specified, the trigger fires for any value.
 

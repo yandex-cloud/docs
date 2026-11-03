@@ -132,6 +132,7 @@ description: На странице представлен список прак�
 
 
 * [{#T}](spark-objstorage-integration.md)
+* [{#T}](spark-without-hive.md)
 
 
 * [{#T}](./sqoop-mmy.md)

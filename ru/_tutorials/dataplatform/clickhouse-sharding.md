@@ -10,21 +10,25 @@
 
 Чтобы распределить данные таблицы по шардам:
 
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Настройте clickhouse-client](#deploy-clickhouse-client).
 1. [Создайте таблицы с данными](#create-tables).
 1. [Проверьте работоспособность таблиц](#sharding-test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -73,33 +77,26 @@
     1. Скачайте в ту же рабочую директорию файл конфигурации для одного из описанных ниже примеров шардирования:
 
         * [simple-sharding.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/simple-sharding.tf) — классическое шардирование.
-        * [sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — шардирование с использованием групп шардов.
+        * [sharding-with-group.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/sharding-with-group.tf) — шардирование с использованием групп шардов.
         * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-sharding/blob/main/advanced-sharding-with-groups.tf) — продвинутое шардирование с использованием групп шардов.
 
-        В каждом файле описаны:
+        Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
 
-        * сеть;
-        * подсеть;
-        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер {{ mch-name }} с необходимыми хостами и шардами.
+        * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network);
+        * [подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета — [yandex_vpc_default_security_group]({{ tf-provider-resources-link }}/vpc_default_security_group);
+        * [кластер {{ mch-name }}](../../managed-clickhouse/concepts/index.md) с необходимыми хостами и шардами — [mdb_clickhouse_cluster_v2]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2);
+        * [база данных {{ mch-name }}](../../managed-clickhouse/concepts/index.md) — [mdb_clickhouse_database]({{ tf-provider-resources-link }}/mdb_clickhouse_database);
+        * [пользователь {{ mch-name }}](../../managed-clickhouse/concepts/user-access-rights.md) — [mdb_clickhouse_user]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
     1. Укажите в конфигурационном файле имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Создайте ресурсы:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 {% endlist %}
 
-### Настройте clickhouse-client {#deploy-clickhouse-client}
+## Настройте clickhouse-client {#deploy-clickhouse-client}
 
 [Установите и настройте clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client), чтобы иметь возможность подключаться с его помощью к базе данных.
 
@@ -239,7 +236,7 @@
       --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
-    Чтобы узнать имена хостов, посмотрите [список хостов {{ CH }} в кластере](../../managed-clickhouse/operations/hosts.md#list-hosts).
+   Чтобы узнать имена хостов, посмотрите [список хостов {{ CH }} в кластере](../../managed-clickhouse/operations/hosts.md#list-hosts).
 
 1. Выполните один или несколько тестовых запросов к этой таблице. Например, можно узнать количество строк в ней:
 
@@ -247,11 +244,11 @@
    SELECT count() FROM tutorial.hits_v1_distributed
    ```
 
-    Результат:
+   Результат:
 
-    ```text
-    8873898
-    ```
+   ```text
+   8873898
+   ```
 
 ## Удалите созданные ресурсы {#clear-out}
 

@@ -71,9 +71,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mgl-name }}: use of computing resources pertaining to the instance (VM) and its data storage capacity (see [{{ mgl-name }} pricing](../managed-gitlab/pricing.md)). Depending on where {{ GLR }} is deployed, you may have to pay for the {{ compute-name }} VM used to install {{ GLR }}.
-* VMs: use of computing resources, storage, public IP address, and the OS (see [{{ compute-name }} pricing](../compute/pricing.md)).
-* {{ objstorage-name }}: storage of {{ mgl-name }} backups (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
+* {{ mgl-name }} instance: Computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../managed-gitlab/pricing.md)).
+* Virtual machines: Computing resources and storage (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
+* VM public IP addresses and {{ yandex-cloud }} egress traffic (see [{{ vpc-full-name }} pricing](../vpc/pricing.md)).
 
 ## Create the infrastructure {#deploy}
 
@@ -115,7 +115,7 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
         * VM with a [DSVM](/marketplace/products/yc/dsvm) image.
         * Service account.
 
-    1. In the `ml-ops-managed-gitlab.tf` file, specify the following settings:
+    1. In `ml-ops-managed-gitlab.tf`, specify the following settings:
 
         * `instance_name`: {{ GL }} instance name.
         * `instance_login`: {{ GL }} instance admin login.
@@ -124,7 +124,7 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
         * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys), both required to access the VM.
         * `sa_folder_id`: ID of the new service account's folder.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -220,7 +220,7 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=instructions %}
 

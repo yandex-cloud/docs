@@ -6,9 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Просмотр схемы
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
 
 Вы можете посмотреть схему на [странице субъекта](#from-subject-page) или на [странице со списком схем](#from-schema-list).

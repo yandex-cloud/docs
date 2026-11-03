@@ -49,6 +49,7 @@ The maximum string length in characters is 50. ||
       "modified_by": "string"
     }
   ],
+  "issue_id": "string",
   "created_by": "string"
 }
 ```
@@ -58,7 +59,9 @@ The maximum string length in characters is 50. ||
 || id | **string**
 
 ID of the quota request. ||
-|| resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)** ||
+|| resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
+
+The resource associated with the quota request. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
@@ -74,6 +77,9 @@ Status of current quota request.
 || quota_limits[] | **[QuotaLimit](#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit)**
 
 Quota limits ||
+|| issue_id | **string**
+
+ID of the issue. ||
 || created_by | **string**
 
 ID of the subject who created quota request. ||
@@ -121,7 +127,9 @@ Status of current quota limit.
 - `APPROVED`: The request was approved.
 - `REJECTED`: The request was rejected.
 - `CANCELED`: The request was canceled. ||
-|| message | **string** ||
+|| message | **string**
+
+Human-readable reason for rejecting the requested quota limit. ||
 || modified_by | **string**
 
 ID of the subject who modified quota limit. ||

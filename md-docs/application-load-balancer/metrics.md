@@ -1,12 +1,12 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Application Load Balancer](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Application Load Balancer](index.md) > Метрики Monium
 
-# Справочник метрик Yandex Monitoring
+# Метрики Application Load Balancer
 
-В этом разделе описаны метрики сервиса Application Load Balancer, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Application Load Balancer, поставляемые в [Monium](../monium/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Application Load Balancer имеют общую метку `service=application-load-balancer`.
+При поиске метрик Application Load Balancer в Monium укажите метки `cluster=default` и `service=__application-load-balancer__` в проекте `folder__<идентификатор_каталога>` с ресурсами балансировщика.
 
 ## Метрики HTTP {#http-metrics}
 
@@ -17,7 +17,7 @@
 | backend | Имя бэкенда |
 | backend_group | Имя [группы бэкендов](concepts/backend-group.md) |
 | http_router | Имя [HTTP-роутера](concepts/http-router.md) |
-| load_balancer | Имя [L7-балансировщика](concepts/application-load-balancer.md) |
+| load_balancer | Идентификатор [L7-балансировщика](concepts/application-load-balancer.md) |
 | route | Имя [маршрута](concepts/http-router.md#routes) |
 | virtual_host | Имя [виртуального хоста](concepts/http-router.md#virtual-host) |
 | zone | [Зона доступности](../overview/concepts/geo-scope.md) |

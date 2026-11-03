@@ -19,7 +19,7 @@ The analysis starts automatically after you enable {{ dspm-full-name }}.
 
 ## Viewing analysis results {#view-results}
 
-The summary for preliminary analysis of resources in the environment is available in Interface 2.0 in the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** section of the {{ dspm-name }} module. To see it, do the following:
+The summary of preliminary analysis of the workspace resources can be found in Interface 2.0 in the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** section of the {{ dspm-name }} module. To see it, do the following:
 
 {% list tabs group=instructions %}
 
@@ -28,12 +28,12 @@ The summary for preliminary analysis of resources in the environment is availabl
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}**.
   1. On the **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** page, select `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_discovery_kkTCM }}` and navigate to the **{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_analytics_vaYT5 }}** tab.
 
-      The page displays information about the number and total size of files found in the environment's resources that may potentially contain sensitive data:
+      The page presents the following information on the number and total size of files found in the workspace resources which may potentially contain sensitive data:
 
-      * A list of clouds, folders, and buckets that host objects potentially containing sensitive information.
+      * List of clouds, folders, and buckets with objects potentially containing sensitive information.
 
-          The number of files found and their total size are indicated for each cloud, folder, and bucket.
-      * Infographics showing the number of files found by type and their size as a percentage.
+          Number and total size of files found in each cloud, folder, and bucket.
+      * Infographics showing the number and size of files of various types in percentage terms.
 
           Click **{{ ui-key.yacloud_org.security.discovery.AnalyticsDashboard.details_button_1ZfAk }}** to expand the diagram and show more detailed information.
   1. If required, use filters to get specific information about resources and the types of files found in them:
@@ -89,7 +89,7 @@ After data analysis detects potentially dangerous resources, click **{{ ui-key.y
 
 ## Saving analysis results {#save-results}
 
-To save a summary for preliminary analysis of environment resources to a file or bucket:
+To save the summary of preliminary analysis of the workspace resources to a file or bucket:
 
 {% list tabs group=instructions %}
 

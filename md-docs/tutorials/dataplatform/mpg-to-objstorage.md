@@ -13,7 +13,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
@@ -67,9 +67,10 @@
         * эндпоинт для источника;
         * трансфер.
 
-    1. Укажите в файле `postgresql-to-objstorage.tf`:
-        * пароль пользователя PostgreSQL;
-        * имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+    1. Укажите в файле `postgresql-to-objstorage.tf` значения параметров:
+
+        * `pg_password` — пароль пользователя PostgreSQL;
+        * `bucket` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -154,8 +155,8 @@
 
     1. Укажите в файле `postgresql-to-objstorage.tf` переменные:
 
-        * `objstorage_endpoint_id` — значение идентификатора эндпоинта для приемника;
-        * `transfer_enabled` – значение `1` для создания трансфера.
+        * `objstorage_endpoint_id` — идентификатор эндпоинта для приемника;
+        * `transfer_enabled` — значение `1` для создания трансфера.
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -208,7 +209,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. Убедитесь, что трансфер находится в статусе **_Завершен_**.
 1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).

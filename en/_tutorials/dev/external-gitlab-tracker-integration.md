@@ -3,7 +3,7 @@
 
 In [{{ tracker-name }} issues](https://yandex.ru/support/tracker/{{ lang }}/working-with-issues), you can automatically add links to {{ GL }} [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) by specifying the relevant issue [key]({{ link-tracker-cloudless }}quick-start/glossary#i) in the name or description of a new merge request. The links will be available in the [Links to external applications](https://yandex.ru/support/tracker/{{ lang }}/external-links) section.
 
-You can also enable automatic issue comments with merge request details. Auto comments are only available for [{{ mgl-name }}](../../managed-gitlab/).
+You can also enable automatic issue comments with merge request details. Auto comments are only available for [{{ mgl-full-name }}](../../managed-gitlab/).
 
 To set up integration with {{ GL }} in {{ tracker-name }}:
 
@@ -22,15 +22,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-
-* Fee for a [disk](../../compute/concepts/disk.md) and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for the number of {{ tracker-name }} users with full access if there are more than five of them (see [{{ tracker-name }} pricing](https://yandex.ru/support/tracker/{{ lang }}/pricing)).
-* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* The {{ GL }} cost depends on where it is deployed:
+  * {{ mgl-name }} instance: computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+  * VM instance with {{ GL }}:
+    * Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md))
+    * VM public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip))
+* Outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-traffic))
+* Yandex Tracker (see [Yandex Tracker pricing](https://yandex.ru/support/tracker/{{ lang }}/pricing))
 
 ## Connect {{ tracker-full-name }} {#enable-tracker}
 
-[Enable {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) for your [{{ yandex-cloud }} organization](../../organization/).
+[Enable {{ tracker-name }}](https://yandex.ru/support/tracker/{{ lang }}/enable-tracker) for your [{{ yandex-cloud }} organization](../../organization/concepts/organization.md).
 
 ## Create a {{ GL }} instance {#create-gitlab}
 

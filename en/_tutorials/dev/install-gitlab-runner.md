@@ -17,10 +17,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ mgl-name }} instance: computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+* VM instance with {{ GLR }}: computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM public IP address and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Set up your infrastructure {#infra}
 
@@ -120,7 +119,7 @@ The feature of creating runners from the management console is only available fo
 
 {% endlist %}
 
-## Create a test pipeline {#example} 
+## Create a test pipeline {#example}
 
 1. Open the {{ GL }} project.
 

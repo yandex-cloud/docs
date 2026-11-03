@@ -26,13 +26,9 @@
         GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
         ```
     
-       If the database is not empty, the user must be its owner:
+       {% include [databese-owner](database-owner-role.md) %}
     
-        ```sql
-        ALTER DATABASE <database_name> OWNER TO <username>;
-        ```
-    
-       Once started, the transfer will connect to the target on behalf of this user.
+       Once the transfer starts, it will connect to the target as this user.
 
 - {{ GP }}/{{ CB }}
     
@@ -62,12 +58,8 @@
         GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <username>;
         ```
     
-       If the database is not empty, the user must be its owner:
+       {% include [databese-owner](database-owner-role.md) %}
     
-        ```sql
-        ALTER DATABASE <database_name> OWNER TO <username>;
-        ```
-    
-       Once started, the transfer will connect to the target on behalf of this user.
+       Once the transfer starts, it will connect to the target as this user.
 
 {% endlist %}

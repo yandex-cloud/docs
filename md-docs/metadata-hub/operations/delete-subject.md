@@ -3,20 +3,14 @@
 # Удаление субъекта
 
 
-
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
-
 {% note warning %}
 
-Субъект удалится вместе со всеми загруженными в него схемами.
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
 
 {% endnote %}
+
+
+Субъект удалится вместе со всеми загруженными в него схемами.
 
 {% list tabs group=instructions %}
 

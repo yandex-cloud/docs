@@ -6,16 +6,10 @@ description: Следуя данной инструкции, вы сможете
 # Удаление субъекта
 
 
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
-{% note warning %}
 
 Субъект удалится вместе со всеми загруженными в него схемами.
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 

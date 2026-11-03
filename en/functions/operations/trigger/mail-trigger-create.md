@@ -148,35 +148,35 @@ To create a trigger, you will need:
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<trigger_name>"
-         source {
-           mail {
-             attachments_bucket {
+         source = {
+           mail = {
+             attachments_bucket = {
                bucket_id          = "<bucket_name>"
                service_account_id = "<service_account_ID>"
              }
-             batch_settings {
-               max_count = "<max_number_of_messages>"
-               max_bytes = "<max_group_size_in_bytes>"
+             batch_settings = {
+               max_count = <max_number_of_messages>
+               max_bytes = <max_group_size_in_bytes>
                cutoff    = "<maximum_wait_time>"
              }
            }
          }
-         action {
-           invoke_function {
+         action = [{
+           invoke_function = {
              function_id        = "<function_ID>"
              service_account_id = "<service_account_ID>"
            }
-           retry_policy {
-             retry_attempts = "<number_of_retries>"
+           retry_policy = {
+             retry_attempts = <number_of_retries>
              interval       = "<interval_between_retries>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<Dead_Letter_Queue_ARN>"
                service_account_id = "<service_account_ID>"
              }
            }
-         }
+         }]
        }
        ```
 
@@ -233,7 +233,7 @@ To create a trigger, you will need:
 
            * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional setting.
            * `service_account_id`: ID of the service account with permissions to upload objects to the {{ objstorage-name }} bucket. This is an optional setting.
-           * `batch_cutoff`: Maximum timeout. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+           * `batch_cutoff`: Maximum timeout. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
            * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 10. The default value is 1.
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}

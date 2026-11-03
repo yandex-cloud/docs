@@ -45,31 +45,23 @@
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-cold-storage-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-cold-storage-policy/blob/main/opensearch-cold-storage-policy.tf). В файле описаны:
+        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-cold-storage-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-cold-storage-policy/blob/main/opensearch-cold-storage-policy.tf). В файле описаны сеть, подсети, группа безопасности с правилами, необходимыми для подключения к кластеру {{ mos-name }}, и кластер {{ mos-name }} с группами хостов `hot` и `cold`.
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсети](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+
+            * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network);
+            * [подсети](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet);
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }}, — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group);
+            * [кластер {{ mos-name }}](../../managed-opensearch/concepts/index.md) — [mdb_opensearch_cluster]({{ tf-provider-resources-link }}/mdb_opensearch_cluster).
 
         1. Укажите в файле `opensearch-cold-storage-policy.tf` переменные:
 
             * `version` — версия {{ OS }}.
             * `admin_password` — пароль администратора {{ OS }}.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+            {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -153,7 +145,7 @@ curl \
 
 Где:
 
-* `min_index_age` — возраст индекса, по достижении которого будет создан новый индекс. Рекомендуемое значение — 30 дней (`30d`).
+* `min_index_age` — возраст индекса, по достижении которого индекс перейдет в следующее состояние политики. Рекомендуемое значение — 30 дней (`30d`).
 * `index_patterns` — шаблон имени для нового индекса.
 * `new_codec` — название кодека, которым будут переупакованы данные.
 

@@ -30,6 +30,38 @@ Only fields specified in the field_mask will be updated.
     "backup_url": "string"
   },
   // end of the list of possible fields
+  "processing_settings": {
+    "summarization": {
+      "enable": "bool",
+      "tracks": [
+        {
+          "track_index": "int64",
+          "src_lang": "string"
+        }
+      ]
+    },
+    "translation": {
+      "enable": "bool",
+      "tracks": [
+        {
+          "input_track": {
+            "track_index": "int64",
+            "src_lang": "string"
+          },
+          "subtitles": [
+            {
+              "dst_lang": "string"
+            }
+          ],
+          "audios": [
+            {
+              "dst_lang": "string"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "labels": "map<string, string>"
 }
 ```
@@ -80,6 +112,9 @@ SRT pull input type.
 Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`.
 
 Video signal settings. ||
+|| processing_settings | **[StreamLineProcessingSettings](#yandex.cloud.video.v1.StreamLineProcessingSettings)**
+
+Processing settings. ||
 || labels | **object** (map<**string**, **string**>)
 
 New custom labels for the stream line as `key:value` pairs.
@@ -134,6 +169,96 @@ Value must match the regular expression ` srt://.* `. ||
 The backup SRT URL from which to pull the video stream.
 
 Value must match the regular expression ``` (|srt://.*) ```. ||
+|#
+
+## StreamLineProcessingSettings {#yandex.cloud.video.v1.StreamLineProcessingSettings}
+
+#|
+||Field | Description ||
+|| summarization | **[Summarization](#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization)**
+
+Settings for stream line summarization. ||
+|| translation | **[Translation](#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation)**
+
+Settings for stream line translation. ||
+|#
+
+## Summarization {#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization}
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable line summarization. ||
+|| tracks[] | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Input tracks. ||
+|#
+
+## InputTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack}
+
+#|
+||Field | Description ||
+|| track_index | **int64**
+
+Input audio track index (one-based).
+
+The minimum value is 1. ||
+|| src_lang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho ```. ||
+|#
+
+## Translation {#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation}
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enable line translation.
+Neurotranslations and neurosubtitles cannot be enabled in low latency mode. ||
+|| tracks[] | **[TranslationTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack)**
+
+Input tracks. ||
+|#
+
+## TranslationTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack}
+
+#|
+||Field | Description ||
+|| input_track | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Required field. Input track settings. ||
+|| subtitles[] | **[SubtitleTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack)**
+
+Settings for target subtitle tracks. ||
+|| audios[] | **[AudioTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack)**
+
+Settings for target audio tracks. ||
+|#
+
+## SubtitleTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack}
+
+#|
+||Field | Description ||
+|| dst_lang | **string**
+
+Required field. Language of subtitles represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
+|#
+
+## AudioTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack}
+
+#|
+||Field | Description ||
+|| dst_lang | **string**
+
+Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

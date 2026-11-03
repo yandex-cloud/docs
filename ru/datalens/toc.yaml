@@ -1155,6 +1155,8 @@ items:
                 name: Rename entry
               - href: api-ref/Entries/rpcgetEntriesPermissions-post.md
                 name: Get entries permissions
+              - href: api-ref/Entries/rpcgetRevisions-post.md
+                name: Get entry revisions
           - name: Navigation
             items:
               - name: Overview
@@ -1318,7 +1320,9 @@ items:
               - name: Overview
                 href: api-ref/SharedEntry/index.md
               - href: api-ref/SharedEntry/rpclistSharedEntryAccessBindings-post.md
-                name: List shared entry access bindings
+                name: List common object access bindings
+              - href: api-ref/SharedEntry/rpcupdateSharedEntryAccessBindings-post.md
+                name: Update common objects access bindings
           - name: Licensing
             items:
               - name: Overview
@@ -1359,18 +1363,203 @@ items:
                 name: Update HTML page
               - href: api-ref/HtmlPages/rpcdeleteHtmlPage-post.md
                 name: Delete HTML page
+              - href: api-ref/HtmlPages/rpcgetHtmlPagePreviewUrl-post.md
+                name: Get HTML page preview URL
           - name: Data
             items:
               - name: Overview
                 href: api-ref/Data/index.md
               - href: api-ref/Data/rpcgetDatasetData-post.md
                 name: 🚧 [Experimental] Get dataset data
+              - href: api-ref/Data/rpcgetChartData-post.md
+                name: 🚧 [Experimental] Get chart data
+          - name: Subscriptions
+            items:
+              - name: Overview
+                href: api-ref/Subscriptions/index.md
+              - href: api-ref/Subscriptions/rpccreateSubscription-post.md
+                name: Add subscription
+              - href: api-ref/Subscriptions/rpcgetSubscription-post.md
+                name: Get subscription by id
+              - href: api-ref/Subscriptions/rpcupdateSubscription-post.md
+                name: Update subscription
+              - href: api-ref/Subscriptions/rpcdeleteSubscription-post.md
+                name: Delete subscription by id
+              - href: api-ref/Subscriptions/rpcgetSubscriptions-post.md
+                name: Get subscription list
+          - name: Favorites
+            items:
+              - name: Overview
+                href: api-ref/Favorites/index.md
+              - href: api-ref/Favorites/rpccheckFavorites-post.md
+                name: Check favorites
+              - href: api-ref/Favorites/rpclistFavorites-post.md
+                name: List favorites
+          - name: Screenshots
+            items:
+              - name: Overview
+                href: api-ref/Screenshots/index.md
+              - href: api-ref/Screenshots/rpcgetChartScreenshot-post.md
+                name: 🚧 [Experimental] Get chart screenshot
+              - href: api-ref/Screenshots/rpcgetDashScreenshot-post.md
+                name: 🚧 [Experimental] Get dashboard screenshot
+          - name: Tenants
+            items:
+              - name: Overview
+                href: api-ref/Tenants/index.md
+              - href: api-ref/Tenants/rpcgetTenantDetails-post.md
+                name: Get tenant details
+          - name: DataCatalog
+            items:
+              - name: Overview
+                href: api-ref/DataCatalog/index.md
+              - href: api-ref/DataCatalog/rpcsearchObjects-post.md
+                name: 🚧 [Experimental] Search objects
+          - name: SqlQueries
+            items:
+              - name: Overview
+                href: api-ref/SqlQueries/index.md
+              - href: api-ref/SqlQueries/rpcgetSqlQuery-post.md
+                name: 🚧 [Experimental] Get SQL query
+              - href: api-ref/SqlQueries/rpccreateSqlQuery-post.md
+                name: 🚧 [Experimental] Create SQL query
+              - href: api-ref/SqlQueries/rpcupdateSqlQuery-post.md
+                name: 🚧 [Experimental] Update SQL query
+              - href: api-ref/SqlQueries/rpcdeleteSqlQuery-post.md
+                name: 🚧 [Experimental] Delete SQL query
+              - href: api-ref/SqlQueries/rpcrunSqlQuery-post.md
+                name: 🚧 [Experimental] Run SQL query
+          - name: RestCatalogs
+            items:
+              - name: Overview
+                href: api-ref/RestCatalogs/index.md
+              - href: api-ref/RestCatalogs/rpclistCatalogs-post.md
+                name: 🚧 [Experimental] List REST catalogs
+              - href: api-ref/RestCatalogs/rpccreateRestCatalog-post.md
+                name: 🚧 [Experimental] Create REST catalog
+          - name: CloudEnvironments
+            items:
+              - name: Overview
+                href: api-ref/CloudEnvironments/index.md
+              - href: api-ref/CloudEnvironments/rpclistCloudEnvironments-post.md
+                name: 🚧 [Experimental] List cloud environments
+              - href: api-ref/CloudEnvironments/rpcgetCloudEnvironment-post.md
+                name: 🚧 [Experimental] Get cloud environment
+              - href: api-ref/CloudEnvironments/rpccreateCloudEnvironment-post.md
+                name: 🚧 [Experimental] Create cloud environment
+              - href: api-ref/CloudEnvironments/rpcupdateCloudEnvironment-post.md
+                name: 🚧 [Experimental] Update cloud environment
+              - href: api-ref/CloudEnvironments/rpcdeleteCloudEnvironment-post.md
+                name: 🚧 [Experimental] Delete cloud environment
+          - name: CloudEnvironmentStorage
+            items:
+              - name: Overview
+                href: api-ref/CloudEnvironmentStorage/index.md
+              - href: >-
+                  api-ref/CloudEnvironmentStorage/rpccreateBucketDownloadUrl-post.md
+                name: 🚧 [Experimental] Create bucket object download URL
+              - href: >-
+                  api-ref/CloudEnvironmentStorage/rpccreateBucketUploadUrl-post.md
+                name: 🚧 [Experimental] Create bucket object upload URL
+              - href: >-
+                  api-ref/CloudEnvironmentStorage/rpcgetBucketObjectMetadata-post.md
+                name: 🚧 [Experimental] Get bucket object metadata
+              - href: api-ref/CloudEnvironmentStorage/rpclistBucketObjects-post.md
+                name: 🚧 [Experimental] List bucket objects
+          - name: SparkClusters
+            items:
+              - name: Overview
+                href: api-ref/SparkClusters/index.md
+              - href: api-ref/SparkClusters/rpclistSparkClusters-post.md
+                name: 🚧 [Experimental] List Spark clusters
+              - href: api-ref/SparkClusters/rpcgetSparkCluster-post.md
+                name: 🚧 [Experimental] Get Spark cluster
+              - href: api-ref/SparkClusters/rpccreateSparkCluster-post.md
+                name: 🚧 [Experimental] Create Spark cluster
+              - href: api-ref/SparkClusters/rpcdeleteSparkCluster-post.md
+                name: 🚧 [Experimental] Delete Spark cluster
+              - href: api-ref/SparkClusters/rpcstartSparkCluster-post.md
+                name: 🚧 [Experimental] Start Spark cluster
+              - href: api-ref/SparkClusters/rpcstopSparkCluster-post.md
+                name: 🚧 [Experimental] Stop Spark cluster
+              - href: api-ref/SparkClusters/rpclistSparkResourcePresets-post.md
+                name: 🚧 [Experimental] List Spark resource presets
+              - href: api-ref/SparkClusters/rpcgetSparkResourcePreset-post.md
+                name: 🚧 [Experimental] Get Spark resource preset
+          - name: TrinoClusters
+            items:
+              - name: Overview
+                href: api-ref/TrinoClusters/index.md
+              - href: api-ref/TrinoClusters/rpclistTrinoClusters-post.md
+                name: 🚧 [Experimental] List Trino clusters
+              - href: api-ref/TrinoClusters/rpcgetTrinoCluster-post.md
+                name: 🚧 [Experimental] Get Trino cluster
+              - href: api-ref/TrinoClusters/rpccreateTrinoCluster-post.md
+                name: 🚧 [Experimental] Create Trino cluster
+              - href: api-ref/TrinoClusters/rpcupdateTrinoCluster-post.md
+                name: 🚧 [Experimental] Update Trino cluster
+              - href: api-ref/TrinoClusters/rpcdeleteTrinoCluster-post.md
+                name: 🚧 [Experimental] Delete Trino cluster
+              - href: api-ref/TrinoClusters/rpcstartTrinoCluster-post.md
+                name: 🚧 [Experimental] Start Trino cluster
+              - href: api-ref/TrinoClusters/rpcstopTrinoCluster-post.md
+                name: 🚧 [Experimental] Stop Trino cluster
+              - href: api-ref/TrinoClusters/rpcaddTrinoClusterCatalog-post.md
+                name: 🚧 [Experimental] Add REST catalog to Trino cluster
+              - href: api-ref/TrinoClusters/rpcdeleteTrinoClusterCatalog-post.md
+                name: 🚧 [Experimental] Delete REST catalog from Trino cluster
+              - href: api-ref/TrinoClusters/rpclistTrinoResourcePresets-post.md
+                name: 🚧 [Experimental] List Trino resource presets
+              - href: api-ref/TrinoClusters/rpcgetTrinoResourcePreset-post.md
+                name: 🚧 [Experimental] Get Trino resource preset
+          - name: SparkApplications
+            items:
+              - name: Overview
+                href: api-ref/SparkApplications/index.md
+              - href: api-ref/SparkApplications/rpclistSparkApplications-post.md
+                name: 🚧 [Experimental] List Spark applications
+              - href: api-ref/SparkApplications/rpcgetSparkApplication-post.md
+                name: 🚧 [Experimental] Get Spark application
+              - href: api-ref/SparkApplications/rpccreateSparkApplication-post.md
+                name: 🚧 [Experimental] Create Spark application
+              - href: api-ref/SparkApplications/rpccancelSparkApplication-post.md
+                name: 🚧 [Experimental] Cancel Spark application
+              - href: api-ref/SparkApplications/rpclistSparkApplicationLog-post.md
+                name: 🚧 [Experimental] List Spark application log
+          - name: DataTransfers
+            items:
+              - name: Overview
+                href: api-ref/DataTransfers/index.md
+              - href: api-ref/DataTransfers/rpclistDataTransfers-post.md
+                name: 🚧 [Experimental] List data transfers
+              - href: api-ref/DataTransfers/rpcgetDataTransfer-post.md
+                name: 🚧 [Experimental] Get data transfer
+              - href: api-ref/DataTransfers/rpccreateDataTransfer-post.md
+                name: 🚧 [Experimental] Create data transfer
+              - href: api-ref/DataTransfers/rpcupdateDataTransfer-post.md
+                name: 🚧 [Experimental] Update data transfer
+              - href: api-ref/DataTransfers/rpcdeleteDataTransfer-post.md
+                name: 🚧 [Experimental] Delete data transfer
+              - href: api-ref/DataTransfers/rpcactivateDataTransfer-post.md
+                name: 🚧 [Experimental] Activate data transfer
+              - href: api-ref/DataTransfers/rpcdeactivateDataTransfer-post.md
+                name: 🚧 [Experimental] Deactivate data transfer
+              - href: api-ref/DataTransfers/rpcgetDataTransferLogs-post.md
+                name: 🚧 [Experimental] Get data transfer logs
+          - name: LakehouseOperations
+            items:
+              - name: Overview
+                href: api-ref/LakehouseOperations/index.md
+              - href: api-ref/LakehouseOperations/rpcgetLakehouseOperation-post.md
+                name: 🚧 [Experimental] Get Lakehouse operation
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Сентябрь 2026
+      - name: Октябрь 2026
         href: release-notes/index.md
+      - name: Сентябрь 2026
+        href: release-notes/2609.md
       - name: Август 2026
         href: release-notes/2608.md
       - name: Июль 2026
@@ -1379,12 +1568,12 @@ items:
         href: release-notes/2606.md
       - name: Май 2026
         href: release-notes/2605.md
-      - name: Апрель 2026
-        href: release-notes/2604.md
       - name: Обзорные видео обновлений
         href: release-notes/videos.md
       - name: Архив
         items:
+          - name: Апрель 2026
+            href: release-notes/2604.md
           - name: Март 2026
             href: release-notes/2603.md
           - name: Февраль 2026

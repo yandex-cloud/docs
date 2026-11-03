@@ -25,6 +25,9 @@ Cloud Console предоставляет интерфейс, в котором �
 1. [Создайте](../../billing/operations/create-new-account.md) платежный аккаунт и [привяжите](../../billing/operations/pin-cloud.md) к нему облако `cloud-<Яндекс_ID>`.
 
 
+    При создании первого платежного аккаунта начисляется [стартовый грант](../../getting-started/usage-grant.md) для знакомства с платформой.
+
+
 1. Создайте свой первый ресурс, например [виртуальную машину Linux](../../compute/quickstart/quick-create-linux.md).
 
 ![console-without-ba](../../_assets/console/console-main-page-without-ba.png)

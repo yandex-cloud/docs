@@ -1,0 +1,1 @@
+In {{ cdn-name }}, client requests using the `GET`, `HEAD`, or `OPTIONS` method must not contain a body. If you include a body in such a request, the CDN returns a `413 Payload Too Large` error. For more on troubleshooting this, see [FAQ](../../cdn/troubleshooting.md#request-body-413).

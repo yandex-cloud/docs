@@ -15,15 +15,6 @@ GET https://video.api.cloud.yandex.net/video/v1/subtitles
 
 #|
 ||Field | Description ||
-|| videoId | **string**
-
-ID of the video containing the subtitles to list.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `videoId`.
-
-Specifies the parent resource to list subtitles from (exactly one must be chosen). ||
 || pageSize | **string** (int64)
 
 The maximum number of subtitles to return per page.
@@ -35,6 +26,15 @@ Page token for retrieving the next page of results.
 This token is obtained from the next_page_token field in the previous ListSubtitlesResponse.
 
 The maximum string length in characters is 15000. ||
+|| videoId | **string**
+
+ID of the video containing the subtitles to list.
+
+The maximum string length in characters is 50.
+
+Includes only one of the fields `videoId`.
+
+Specifies the parent resource to list subtitles from (exactly one must be chosen). ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListSubtitlesResponse}

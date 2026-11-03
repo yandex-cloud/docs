@@ -8,27 +8,38 @@
 
 Чтобы клиенты из других облачных сетей могли подключаться к кластеру по FQDN, настройте общую DNS-зону в сервисе Yandex Cloud DNS:
 
+1. [Подготовьте инфраструктуру](#prepare-infra).
 1. [Создайте зону в Yandex Cloud DNS](#create-peering-zone).
 1. [Проверьте доступность кластера из другой облачной сети](#check-cluster-availability).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Плата за кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
 * Плата за виртуальную машину: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за публичные DNS-запросы и зоны DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infra}
 
 1. [Подготовьте пару SSH-ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к виртуальным машинам.
 1. Подготовьте инфраструктуру:
 
     {% list tabs %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте две облачные сети](../../vpc/operations/network-create.md) с именами `mch-net` и `another-net`.
         1. В каждой сети [создайте подсеть](../../vpc/operations/subnet-create.md).
@@ -37,8 +48,7 @@
         1. В сети `another-net` [создайте виртуальную машину на базе Linux](../../compute/operations/vm-create/create-linux-vm.md) с именем `another-net-vm`. При создании укажите подготовленный ранее публичный SSH-ключ.
         1. Настройте правила групп безопасности кластера и ВМ [по инструкции](../operations/connect/index.md#configuring-security-groups).
 
-    - С помощью Terraform
-
+    - С помощью Terraform {#tf}
 
         1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
@@ -108,11 +118,11 @@
 
     {% list tabs %}
 
-    - Вручную
+    - Вручную {#manual}
 
         Создайте внутреннюю зону DNS с адресом `mdb.yandexcloud.net.` [по инструкции](../../dns/operations/zone-create-private.md). В списке сетей укажите сети `mch-net` и `another-net`.
 
-    - С помощью Terraform
+    - С помощью Terraform {#tf}
 
         1. Укажите в файле `nets-vm-mch.tf` значение `1` для параметра `create_zone`.
 
@@ -166,13 +176,15 @@
 
 {% list tabs %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Зону DNS](../../dns/operations/zone-delete.md).
     1. [Кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
-    1. [Облачные сети](../../vpc/operations/network-delete.md).
+    1. [Виртуальные машины](../../compute/operations/vm-control/vm-delete.md) `mch-net-vm` и `another-net-vm`.
+    1. [Подсети](../../vpc/operations/subnet-delete.md) в сетях `mch-net` и `another-net`.
+    1. [Облачные сети](../../vpc/operations/network-delete.md) `mch-net` и `another-net`.
 
-- С помощью Terraform
+- С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     

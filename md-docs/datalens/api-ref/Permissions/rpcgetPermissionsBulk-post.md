@@ -194,6 +194,15 @@ _[additional]_{.json-schema-reset .json-schema-additional-property}
   #|
   ||
 
+  _browse_{.json-schema-reset .json-schema-property .json-schema-required}
+  {.table-cell}|
+  **Type**: boolean
+
+  Indicates if the collection can be browsed as a transit node.
+  {.table-cell}
+  ||
+  ||
+
   _copy_{.json-schema-reset .json-schema-property .json-schema-required}
   {.table-cell}|
   **Type**: boolean
@@ -311,7 +320,8 @@ _[additional]_{.json-schema-reset .json-schema-additional-property}
     "update": true,
     "copy": true,
     "move": true,
-    "delete": true
+    "delete": true,
+    "browse": true
   }
   ```
 
@@ -335,7 +345,8 @@ _[additional]_{.json-schema-reset .json-schema-additional-property}
       "update": true,
       "copy": true,
       "move": true,
-      "delete": true
+      "delete": true,
+      "browse": true
     }
   }
   ```
@@ -387,7 +398,8 @@ _[additional]_{.json-schema-reset .json-schema-additional-property}
     "update": true,
     "copy": true,
     "move": true,
-    "delete": true
+    "delete": true,
+    "browse": true
   }
 }
 ```
@@ -430,100 +442,102 @@ _[additional]_{.json-schema-reset .json-schema-additional-property}
 
   _fullPermissions_{.json-schema-reset .json-schema-property}
   {.table-cell}|
-  {% cut "**Type**: object" %}
+  {% cut "**Any of 2 types**" %}{.json-schema-combinators data-marker=or}
 
-  #|
-  ||
+  - **Type**: [SharedEntryPermissions](#entity-SharedEntryPermissions)
 
-  _copy_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    {% cut "**Example**" %}{.json-schema-example}
 
-  Permission to copy.
-  {.table-cell}
-  ||
-  ||
+    ```json translate=no
+    {
+      "listAccessBindings": true,
+      "updateAccessBindings": true,
+      "limitedView": true,
+      "view": true,
+      "update": true,
+      "copy": true,
+      "move": true,
+      "delete": true,
+      "createEntryBinding": true,
+      "createLimitedEntryBinding": true
+    }
+    ```
 
-  _createEntryBinding_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    {% endcut %}
 
-  Permission to create entry binding.
-  {.table-cell}
-  ||
-  ||
+  - **Type**: object
 
-  _createLimitedEntryBinding_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    #|
+    ||
 
-  Permission to create limited entry binding.
-  {.table-cell}
-  ||
-  ||
+    _delete_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _delete_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to delete the compute resource.
+    {.table-cell}
+    ||
+    ||
 
-  Permission to delete.
-  {.table-cell}
-  ||
-  ||
+    _get_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _limitedView_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to read compute entry metadata.
+    {.table-cell}
+    ||
+    ||
 
-  Permission for limited viewing.
-  {.table-cell}
-  ||
-  ||
+    _listAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _listAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to list access bindings.
+    {.table-cell}
+    ||
+    ||
 
-  Permission to list access bindings.
-  {.table-cell}
-  ||
-  ||
+    _update_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _move_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to update the compute resource.
+    {.table-cell}
+    ||
+    ||
 
-  Permission to move.
-  {.table-cell}
-  ||
-  ||
+    _updateAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _update_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to update access bindings.
+    {.table-cell}
+    ||
+    ||
 
-  Permission to update.
-  {.table-cell}
-  ||
-  ||
+    _use_{.json-schema-reset .json-schema-property .json-schema-required}
+    {.table-cell}|
+    **Type**: boolean
 
-  _updateAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    Permission to use the compute resource.
+    {.table-cell}
+    ||
+    |#{.json-schema-properties}
 
-  Permission to update access bindings.
-  {.table-cell}
-  ||
-  ||
+    {% cut "**Example**" %}{.json-schema-example}
 
-  _view_{.json-schema-reset .json-schema-property .json-schema-required}
-  {.table-cell}|
-  **Type**: boolean
+    ```json translate=no
+    {
+      "get": true,
+      "use": true,
+      "update": true,
+      "delete": true,
+      "listAccessBindings": true,
+      "updateAccessBindings": true
+    }
+    ```
 
-  Permission to view.
-  {.table-cell}
-  ||
-  |#{.json-schema-properties}
+    {% endcut %}
 
   {% endcut %}
 
@@ -944,6 +958,125 @@ Workbook permissions or errors indexed by workbook ID.
 {.table-cell}
 ||
 |#{.json-schema-properties}
+
+</div>
+
+<div class="openapi-entity">
+
+### SharedEntryPermissions {#entity-SharedEntryPermissions}
+
+#|
+|| **Name** | **Description** ||
+||
+
+_copy_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to copy.
+{.table-cell}
+||
+||
+
+_createEntryBinding_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to create entry binding.
+{.table-cell}
+||
+||
+
+_createLimitedEntryBinding_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to create limited entry binding.
+{.table-cell}
+||
+||
+
+_delete_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to delete.
+{.table-cell}
+||
+||
+
+_limitedView_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission for limited viewing.
+{.table-cell}
+||
+||
+
+_listAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to list access bindings.
+{.table-cell}
+||
+||
+
+_move_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to move.
+{.table-cell}
+||
+||
+
+_update_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to update.
+{.table-cell}
+||
+||
+
+_updateAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to update access bindings.
+{.table-cell}
+||
+||
+
+_view_{.json-schema-reset .json-schema-property .json-schema-required}
+{.table-cell}|
+**Type**: boolean
+
+Permission to view.
+{.table-cell}
+||
+|#{.json-schema-properties}
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{
+  "listAccessBindings": true,
+  "updateAccessBindings": true,
+  "limitedView": true,
+  "view": true,
+  "update": true,
+  "copy": true,
+  "move": true,
+  "delete": true,
+  "createEntryBinding": true,
+  "createLimitedEntryBinding": true
+}
+```
+
+{% endcut %}
 
 </div>
 

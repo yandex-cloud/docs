@@ -1,10 +1,10 @@
 <div class="openapi">
 
-# List shared entry access bindings
+# List common object access bindings
 
 <!-- markdownlint-disable-file -->
 
-Lists access bindings for the specified shared entry.
+Lists access bindings for the specified common object.
 
 ## Request
 
@@ -69,7 +69,7 @@ _entryId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-ID of the entry whose access bindings are requested.
+ID of the common object whose access bindings to retrieve.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -89,7 +89,7 @@ _pageSize_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: number
 
-Maximum number of access bindings to return.
+Maximum number of subjects to return.
 {.table-cell}
 ||
 ||
@@ -98,7 +98,7 @@ _pageToken_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-Token for the next page of access bindings.
+Token for retrieving the next page of results.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -164,7 +164,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _subjectsWithBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamSubjectWithBindings](#entity-IamSubjectWithBindings)[]
+**Type**: [SubjectWithBindings](#entity-SubjectWithBindings)[]
 
 Subjects and their access bindings.
 
@@ -203,7 +203,7 @@ Subjects and their access bindings.
 
 <div class="openapi-entity">
 
-### IamAccessBinding {#entity-IamAccessBinding}
+### AccessBinding {#entity-AccessBinding}
 
 #|
 || **Name** | **Description** ||
@@ -258,7 +258,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### IamSubjectWithBindings {#entity-IamSubjectWithBindings}
+### SubjectWithBindings {#entity-SubjectWithBindings}
 
 #|
 || **Name** | **Description** ||
@@ -266,7 +266,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _accessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamAccessBinding](#entity-IamAccessBinding)[]
+**Type**: [AccessBinding](#entity-AccessBinding)[]
 
 Access bindings assigned directly to the subject.
 
@@ -291,7 +291,7 @@ Access bindings assigned directly to the subject.
 
 _inheritedAccessBindings_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
-**Type**: [IamAccessBinding](#entity-IamAccessBinding)[]
+**Type**: [AccessBinding](#entity-AccessBinding)[]
 
 Access bindings inherited by the subject.
 
@@ -325,7 +325,7 @@ _email_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Email address of the subject.
+Subject email address.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -336,7 +336,7 @@ _sub_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Unique identifier of the subject.
+Subject identifier.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -347,9 +347,9 @@ _subType_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-Type of the subject.
+Subject type.
 
-_Enum:_{.json-schema-reset .json-schema-value} `SUBJECT_TYPE_UNSPECIFIED`, `USER_ACCOUNT`, `SERVICE_ACCOUNT`, `GROUP`, `INVITEE`
+_Enum:_{.json-schema-reset .json-schema-value} `SUBJECT_TYPE_UNSPECIFIED`, `USER_ACCOUNT`, `GROUP`, `INVITEE`, `SERVICE_ACCOUNT`, `_system`
 {.table-cell}
 ||
 |#{.json-schema-properties}

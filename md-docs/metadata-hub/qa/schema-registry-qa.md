@@ -3,6 +3,13 @@
 # Решение проблем в Yandex Schema Registry
 
 
+{% note warning %}
+
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
+
+{% endnote %}
+
+
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
 ## Ошибка при добавлении и удалении опциональных параметров {#avoid-errors-while-evolving-schema}

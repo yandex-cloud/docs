@@ -5,13 +5,6 @@ description: Пробный период — это разовое ознако�
 
 # Пробный период для новых клиентов
 
-{% note warning %}
-
-Пробный период и стартовый грант для новых клиентов недоступны.
-
-Рекомендуем сразу [перейти на платную версию](../../getting-started/free-trial/concepts/upgrade-to-paid.md).
-
-{% endnote %}
 
 {% include [free-trial-invoice-only](../../_includes/billing/free-trial-invoice-only.md) %}
 

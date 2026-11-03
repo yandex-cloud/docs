@@ -40,7 +40,7 @@ description: This section contains the {{ sd-name }} release notes.
 
 ## May 2026 {#may-2026}
 
-* [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations. 
+* [{{ cspm-name }}](./concepts/cspm.md) now includes a new [rule set](./concepts/standard-compliance/yc-gost-57580.md) aligned with GOST R 57580, the national security standard for banking and financial operations.
 * [{{ dspm-name }}](./concepts/dspm.md) now supports creating [scan scopes](./operations/dspm/create-data-source.md#change-scaning) from preliminary analysis results and continuous [monitoring](./concepts/dspm.md#change-scaning) of those scopes for new or modified sensitive data.
 * The pricing model has been expanded: you can now purchase monthly [subscriptions](pricing.md#starter-pricing) for the [{{ cspm-name }}](./concepts/cspm.md) and [Threat Detection](./concepts/threat-detector.md) modules.
 * All module [errors](./diagnostics/index.md) are now displayed in a single dedicated interface.

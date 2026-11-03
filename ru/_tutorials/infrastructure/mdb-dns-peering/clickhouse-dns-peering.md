@@ -6,27 +6,32 @@
 
 Чтобы клиенты из других облачных сетей могли подключаться к кластеру по FQDN, настройте общую DNS-зону в сервисе {{ dns-full-name }}:
 
+1. [Подготовьте инфраструктуру](#prepare-infra).
 1. [Создайте зону в {{ dns-full-name }}](#create-peering-zone).
 1. [Проверьте доступность кластера из другой облачной сети](#check-cluster-availability).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Плата за кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
 * Плата за виртуальную машину: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
 * Плата за публичные DNS-запросы и зоны DNS ([тарифы {{ dns-name }}](../../../dns/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infra}
 
 1. [Подготовьте пару SSH-ключей](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к виртуальным машинам.
 1. Подготовьте инфраструктуру:
 
     {% list tabs %}
 
-    - Вручную
+    - Вручную {#manual}
 
         1. [Создайте две облачные сети](../../../vpc/operations/network-create.md) с именами `mch-net` и `another-net`.
         1. В каждой сети [создайте подсеть](../../../vpc/operations/subnet-create.md).
@@ -35,8 +40,7 @@
         1. В сети `another-net` [создайте виртуальную машину на базе Linux](../../../compute/operations/vm-create/create-linux-vm.md) с именем `another-net-vm`. При создании укажите подготовленный ранее публичный SSH-ключ.
         1. Настройте правила групп безопасности кластера и ВМ [по инструкции](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
-    - С помощью {{ TF }}
-
+    - С помощью {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -80,11 +84,11 @@
 
     {% list tabs %}
 
-    - Вручную
+    - Вручную {#manual}
 
         Создайте внутреннюю зону DNS с адресом `{{ dns-zone }}.` [по инструкции](../../../dns/operations/zone-create-private.md). В списке сетей укажите сети `mch-net` и `another-net`.
 
-    - С помощью {{ TF }}
+    - С помощью {{ TF }} {#tf}
 
         1. Укажите в файле `nets-vm-mch.tf` значение `1` для параметра `create_zone`.
 
@@ -112,13 +116,15 @@
 
 {% list tabs %}
 
-- Вручную
+- Вручную {#manual}
 
     1. [Зону DNS](../../../dns/operations/zone-delete.md).
     1. [Кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
-    1. [Облачные сети](../../../vpc/operations/network-delete.md).
+    1. [Виртуальные машины](../../../compute/operations/vm-control/vm-delete.md) `mch-net-vm` и `another-net-vm`.
+    1. [Подсети](../../../vpc/operations/subnet-delete.md) в сетях `mch-net` и `another-net`.
+    1. [Облачные сети](../../../vpc/operations/network-delete.md) `mch-net` и `another-net`.
 
-- С помощью {{ TF }}
+- С помощью {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 

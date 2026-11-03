@@ -8,7 +8,7 @@ On-premises Yandex Object Storage предоставляет комплексн�
 
 {% list tabs group=instructions %}
 
-- Графический интерфейс {#console}
+- Консоль управления {#console}
 
   1. На левой панели перейдите в раздел ![image](../_assets/console-icons/display-pulse.svg) **Статус**.
   1. Найдите и нажмите ссылку для перехода в Grafana

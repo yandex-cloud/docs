@@ -75,6 +75,11 @@ apiPlayground:
             and `auto_line` after creation. However, the parameters inside
             the existing type structure can be modified.
           $ref: '#/definitions/AutoLineParams'
+        processingSettings:
+          description: |-
+            **[StreamLineProcessingSettings](#yandex.cloud.video.v1.StreamLineProcessingSettings)**
+            Processing settings.
+          $ref: '#/definitions/StreamLineProcessingSettings'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
@@ -159,6 +164,115 @@ apiPlayground:
       AutoLineParams:
         type: object
         properties: {}
+      InputTrack:
+        type: object
+        properties:
+          trackIndex:
+            description: |-
+              **string** (int64)
+              Input audio track index (one-based).
+              The minimum value is 1.
+            type: string
+            format: int64
+          srcLang:
+            description: |-
+              **string**
+              Source track language represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho `.
+            pattern: ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho
+            type: string
+      Summarization:
+        type: object
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Enable line summarization.
+            type: boolean
+          tracks:
+            description: |-
+              **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+              Input tracks.
+            type: array
+            items:
+              $ref: '#/definitions/InputTrack'
+      SubtitleTrack:
+        type: object
+        properties:
+          dstLang:
+            description: |-
+              **string**
+              Required field. Language of subtitles represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` eng|kaz|rus `.
+            pattern: eng|kaz|rus
+            type: string
+        required:
+          - dstLang
+      AudioTrack:
+        type: object
+        properties:
+          dstLang:
+            description: |-
+              **string**
+              Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+              Value must match the regular expression ` eng|kaz|rus `.
+            pattern: eng|kaz|rus
+            type: string
+        required:
+          - dstLang
+      TranslationTrack:
+        type: object
+        properties:
+          inputTrack:
+            description: |-
+              **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+              Required field. Input track settings.
+            $ref: '#/definitions/InputTrack'
+          subtitles:
+            description: |-
+              **[SubtitleTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack)**
+              Settings for target subtitle tracks.
+            type: array
+            items:
+              $ref: '#/definitions/SubtitleTrack'
+          audios:
+            description: |-
+              **[AudioTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack)**
+              Settings for target audio tracks.
+            type: array
+            items:
+              $ref: '#/definitions/AudioTrack'
+        required:
+          - inputTrack
+      Translation:
+        type: object
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Enable line translation.
+              Neurotranslations and neurosubtitles cannot be enabled in low latency mode.
+            type: boolean
+          tracks:
+            description: |-
+              **[TranslationTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack)**
+              Input tracks.
+            type: array
+            items:
+              $ref: '#/definitions/TranslationTrack'
+      StreamLineProcessingSettings:
+        type: object
+        properties:
+          summarization:
+            description: |-
+              **[Summarization](#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization)**
+              Settings for stream line summarization.
+            $ref: '#/definitions/Summarization'
+          translation:
+            description: |-
+              **[Translation](#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation)**
+              Settings for stream line translation.
+            $ref: '#/definitions/Translation'
 ---
 
 # Video API, REST: StreamLine.Create
@@ -194,6 +308,38 @@ POST https://video.{{ api-host }}/video/v1/streamLines
   "manualLine": "object",
   "autoLine": "object",
   // end of the list of possible fields
+  "processingSettings": {
+    "summarization": {
+      "enable": "boolean",
+      "tracks": [
+        {
+          "trackIndex": "string",
+          "srcLang": "string"
+        }
+      ]
+    },
+    "translation": {
+      "enable": "boolean",
+      "tracks": [
+        {
+          "inputTrack": {
+            "trackIndex": "string",
+            "srcLang": "string"
+          },
+          "subtitles": [
+            {
+              "dstLang": "string"
+            }
+          ],
+          "audios": [
+            {
+              "dstLang": "string"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "labels": "object"
 }
 ```
@@ -246,6 +392,7 @@ Manual stream control.
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Line type.
+
 The line type selection is permanent and cannot be switched between `manual_line`
 and `auto_line` after creation. However, the parameters inside
 the existing type structure can be modified. ||
@@ -256,9 +403,13 @@ Automatic stream control.
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Line type.
+
 The line type selection is permanent and cannot be switched between `manual_line`
 and `auto_line` after creation. However, the parameters inside
 the existing type structure can be modified. ||
+|| processingSettings | **[StreamLineProcessingSettings](#yandex.cloud.video.v1.StreamLineProcessingSettings)**
+
+Processing settings. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom user-defined labels as key:value pairs.
@@ -305,6 +456,96 @@ Value must match the regular expression ` srt://.* `. ||
 The backup SRT URL from which to pull the video stream.
 
 Value must match the regular expression ``` (|srt://.*) ```. ||
+|#
+
+## StreamLineProcessingSettings {#yandex.cloud.video.v1.StreamLineProcessingSettings}
+
+#|
+||Field | Description ||
+|| summarization | **[Summarization](#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization)**
+
+Settings for stream line summarization. ||
+|| translation | **[Translation](#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation)**
+
+Settings for stream line translation. ||
+|#
+
+## Summarization {#yandex.cloud.video.v1.StreamLineProcessingSettings.Summarization}
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enable line summarization. ||
+|| tracks[] | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Input tracks. ||
+|#
+
+## InputTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack}
+
+#|
+||Field | Description ||
+|| trackIndex | **string** (int64)
+
+Input audio track index (one-based).
+
+The minimum value is 1. ||
+|| srcLang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` ara|deu|eng|spa|fra|ita|jpn|kor|rus|tur|zho ```. ||
+|#
+
+## Translation {#yandex.cloud.video.v1.StreamLineProcessingSettings.Translation}
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enable line translation.
+Neurotranslations and neurosubtitles cannot be enabled in low latency mode. ||
+|| tracks[] | **[TranslationTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack)**
+
+Input tracks. ||
+|#
+
+## TranslationTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.TranslationTrack}
+
+#|
+||Field | Description ||
+|| inputTrack | **[InputTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.InputTrack)**
+
+Required field. Input track settings. ||
+|| subtitles[] | **[SubtitleTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack)**
+
+Settings for target subtitle tracks. ||
+|| audios[] | **[AudioTrack](#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack)**
+
+Settings for target audio tracks. ||
+|#
+
+## SubtitleTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.SubtitleTrack}
+
+#|
+||Field | Description ||
+|| dstLang | **string**
+
+Required field. Language of subtitles represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
+|#
+
+## AudioTrack {#yandex.cloud.video.v1.StreamLineProcessingSettings.AudioTrack}
+
+#|
+||Field | Description ||
+|| dstLang | **string**
+
+Required field. Target language represented as a three-letter code according to ISO 639-2/T.
+
+Value must match the regular expression ``` eng|kaz|rus ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

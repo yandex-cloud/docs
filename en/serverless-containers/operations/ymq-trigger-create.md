@@ -127,25 +127,25 @@ To create a trigger, you will need:
      ```hcl
      resource "yandex_serverless_triggers" "my_trigger" {
        name = "<trigger_name>"
-       source {
-         ymq {
+       source = {
+         ymq = {
            queue_arn          = "<queue_ARN>"
            service_account_id = "<service_account_ID>"
            visibility_timeout = "<message_visibility_timeout>"
-           batch_settings {
-             max_count = "<max_number_of_messages>"
-             max_bytes = "<max_group_size_in_bytes>"
+           batch_settings = {
+             max_count = <max_number_of_messages>
+             max_bytes = <max_group_size_in_bytes>
              cutoff    = "<maximum_wait_time>"
            }
          }
        }
-       action {
-         invoke_container {
+       action = [{
+         invoke_container = {
            container_id       = "<container_ID>"
            path               = "<HTTP_path>"
            service_account_id = "<service_account_ID>"
          }
-       }
+       }]
      }
      ```
 
@@ -162,7 +162,7 @@ To create a trigger, you will need:
              {% include [ymq-id](../../_includes/serverless-containers/ymq-id.md) %}
 
          * `service_account_id`: ID of the service account with permissions to read messages from the queue.
-         * `visibility_timeout`: Message [visibility timeout](../../message-queue/concepts/visibility-timeout.md) that overrides the value specified in the queue. This is an optional parameter.
+         * `visibility_timeout`: Message [visibility timeout](../../message-queue/concepts/visibility-timeout.md) that overrides the value specified in the queue. This is an optional setting.
 
          {% include [tf-triggers-batch-settings](../../_includes/tf-triggers-batch-settings.md) %}
 
@@ -171,12 +171,12 @@ To create a trigger, you will need:
          * `invoke_container`: Container settings:
 
              * `container_id`: Container ID.
-             * `path`: HTTP path to call the container at. This is an optional parameter.
+             * `path`: HTTP path to call the container at. This is an optional setting.
              * `service_account_id`: ID of the service account with permissions to invoke the container.
 
          * `filter`: Filtering events before sending them to the target. This is an optional section.
 
-             * `jq`: [jq template](https://jqlang.github.io/jq/manual/) to filter events before they are sent to the target. It omitted, all events are sent to the target.
+             * `jq`: [jq template](https://jqlang.github.io/jq/manual/) to filter events sent to the target. It not specified, all events reach the target.
 
          * `transformer`: Transforming events before sending them to the target. This is an optional section.
 
@@ -184,11 +184,11 @@ To create a trigger, you will need:
 
          * `dead_letter`: Dead-letter queue settings. This is an optional section.
 
-             * `dead_letter_queue`: Queue properties:
+             * `dead_letter_queue`: Queue settings:
 
                  * `queue_arn`: Queue ARN.
                  * `service_account_id`: ID of the service account with permissions to write to the queue.
-                 * `message_attributes`: Attributes to add to each message within the queue, in `key:value` format. This is an optional parameter.
+                 * `message_attributes`: Attributes to add to each message in the queue, in `key:value` format. This is an optional setting.
 
      For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
 

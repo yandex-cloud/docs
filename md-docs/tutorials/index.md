@@ -1224,6 +1224,8 @@
 
  - [Обзор](dataplatform/spark-object-storage-overview.md)
 
+ - [Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™ без Hive](dataplatform/spark-without-hive.md)
+
  - [Использование Yandex Object Storage в Yandex Managed Service for Apache Spark™](dataplatform/spark-objstorage-integration.md)
 
  - [Интеграция Managed Service for Apache Spark™ и Apache Hive™ Metastore](dataplatform/metastore-and-spark.md)

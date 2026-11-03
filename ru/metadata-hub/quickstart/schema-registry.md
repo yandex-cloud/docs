@@ -1,11 +1,7 @@
 # Начало работы со {{ schema-registry-name }}
 
-Управляйте версиями схем со {{ schema-registry-name }}.
 
-
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
+{% include [deprecation](../../_includes/metadata-hub/sr-deprecate.md) %}
 
 
 

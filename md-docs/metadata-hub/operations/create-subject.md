@@ -3,6 +3,13 @@
 # Создание субъекта
 
 
+{% note warning %}
+
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
+
+{% endnote %}
+
+
 Вы можете создать субъект:
 
 * [отдельно от схемы](#create-new-separate-subject), на вкладке **Субъекты**;

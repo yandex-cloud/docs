@@ -25,6 +25,26 @@ description: Следуя данной инструкции, вы сможете
   1. Вернитесь на страницу профиля ARL, который вы хотите удалить.
   1. На панели сверху нажмите ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile delete --help
+     ```
+
+  1. Удалите профиль ARL:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile delete \
+       --id <идентификатор_профиля>
+     ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

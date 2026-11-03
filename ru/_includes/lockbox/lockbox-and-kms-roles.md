@@ -1,1 +1,3 @@
-Если при создании секрета вы указали свой ключ {{ kms-short-name }}, необходимо назначить на этот секрет роли [kms.keys.encrypterDecrypter](../../kms/security/index.md#service-roles) и [lockbox.payloadViewer](../../lockbox/security/index.md#roles-list). Они нужны для получения доступа к ключу, а также для шифрования и расшифровки.
+Для получения содержимого секрета пользователю или сервисному аккаунту нужна роль [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) на этот секрет. Подробнее в инструкции [Настроить права доступа к секрету](../../lockbox/operations/secret-access.md).
+
+Если секрет зашифрован вашим ключом {{ kms-short-name }}, дополнительно нужна роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#kms-keys-encrypterDecrypter) на ключ шифрования. Подробнее в инструкции [Настроить права доступа к ключу](../../kms/operations/key-access.md#add-access-binding).

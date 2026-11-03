@@ -85,7 +85,7 @@ _chartId_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-ID of the Editor chart to return. You can find it in the chart settings in DataLens interface.
+ID of the Editor chart. You can find it in the chart settings in DataLens interface.
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -103,11 +103,11 @@ _Enum:_{.json-schema-reset .json-schema-value} `saved`, `published`
 ||
 ||
 
-_includeFavorite_{.json-schema-reset .json-schema-property}
+_includeFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Include favorite status in the response.
+Include favorite status in the response. Deprecated: the parameter will be removed in a future API version.
 {.table-cell}
 ||
 ||
@@ -210,7 +210,8 @@ Response
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   },
   "isFavorite": true,
@@ -266,7 +267,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -306,7 +308,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "sources": "example",
       "controls": "example",
       "prepare": "example",
-      "config": "example"
+      "config": "example",
+      "activities": "example"
     }
   }
   ```
@@ -422,7 +425,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
       "meta": "example",
       "params": "example",
       "sources": "example",
-      "controls": "example"
+      "controls": "example",
+      "activities": "example"
     }
   }
   ```
@@ -462,7 +466,8 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -472,11 +477,11 @@ _entry_{.json-schema-reset .json-schema-property .json-schema-required}
 ||
 ||
 
-_isFavorite_{.json-schema-reset .json-schema-property}
+_isFavorite_{.json-schema-reset .json-schema-property .json-schema-deprecated}_[ ](*Deprecated)_{.openapi-deprecated .openapi-deprecated-compact}
 {.table-cell}|
 **Type**: boolean
 
-Indicates if the chart is marked as favorite.
+Indicates if the chart is marked as favorite. Deprecated: the field will be removed in a future API version.
 {.table-cell}
 ||
 ||
@@ -647,6 +652,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -660,7 +676,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -935,7 +952,8 @@ Link information.
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -1045,6 +1063,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -1058,7 +1087,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "sources": "example",
   "controls": "example",
   "prepare": "example",
-  "config": "example"
+  "config": "example",
+  "activities": "example"
 }
 ```
 
@@ -1199,7 +1229,7 @@ _type_{.json-schema-reset .json-schema-property .json-schema-required}
 {.table-cell}|
 **Type**: string
 
-For D3 Editor charts takes value: d3_node
+For Gravity UI Charts takes value: d3_node
 
 _Const:_{.json-schema-reset .json-schema-value} `d3_node`
 
@@ -1333,7 +1363,8 @@ Link information.
     "sources": "example",
     "controls": "example",
     "prepare": "example",
-    "config": "example"
+    "config": "example",
+    "activities": "example"
   }
 }
 ```
@@ -2191,6 +2222,17 @@ Configuration from the Sources tab.
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
+||
+
+_activities_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+Configuration from the Activities tab.
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% endcut %}
@@ -2202,7 +2244,8 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
   "meta": "example",
   "params": "example",
   "sources": "example",
-  "controls": "example"
+  "controls": "example",
+  "activities": "example"
 }
 ```
 
@@ -2475,7 +2518,8 @@ Link information.
     "meta": "example",
     "params": "example",
     "sources": "example",
-    "controls": "example"
+    "controls": "example",
+    "activities": "example"
   }
 }
 ```

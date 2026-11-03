@@ -8,6 +8,7 @@
 * [Платежный аккаунт](billing-account.md)
 * [Лицевой счет](personal-account.md)
 * [Грант](bonus-account.md)
+* [Пробный период для новых клиентов](trial-period.md)
 * [Организация](organization.md)
 * [Отчетный период](reporting-period.md)
 * [Pay as you go (оплата по мере использования)](payg.md)

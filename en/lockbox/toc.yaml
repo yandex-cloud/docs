@@ -226,6 +226,8 @@ items:
                 href: api-ref/grpc/Secret/listVersions.md
               - name: AddVersion
                 href: api-ref/grpc/Secret/addVersion.md
+              - name: SetCurrentVersion
+                href: api-ref/grpc/Secret/setCurrentVersion.md
               - name: ScheduleVersionDestruction
                 href: api-ref/grpc/Secret/scheduleVersionDestruction.md
               - name: CancelVersionDestruction
@@ -280,6 +282,8 @@ items:
                 href: api-ref/Secret/listVersions.md
               - name: AddVersion
                 href: api-ref/Secret/addVersion.md
+              - name: SetCurrentVersion
+                href: api-ref/Secret/setCurrentVersion.md
               - name: ScheduleVersionDestruction
                 href: api-ref/Secret/scheduleVersionDestruction.md
               - name: CancelVersionDestruction

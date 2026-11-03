@@ -33,7 +33,7 @@ Optional player parameters to customize the playback experience.
 These parameters control initial player state such as mute, autoplay, and visibility of interface controls. ||
 || signedUrlExpirationDuration | **string** (duration)
 
-For episodes with signed URL access, specifies how long the generated URL will be valid.
+For videos with signed URL access, specifies how long the generated URL will be valid.
 If not provided, a default expiration duration will be used. ||
 |#
 

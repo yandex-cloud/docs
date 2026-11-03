@@ -26,6 +26,7 @@ To streamline operations with a large number of alerts, the module [supports](..
 * Filter alerts by source to analyze threats by their impact on infrastructure.
 * Assess the scale of data for analysis and investigation.
 
+[Create a subscription](../operations/alerts/notification.md#create-subscription) so you do not miss any important notifications.
 
 #### Useful links {#see-also}
 

@@ -1,4 +1,12 @@
-Имя метрики пишется в метку `name`.
+Метрики API-шлюзов и триггеров автоматически передаются в {{ monium-name }} в проект каталога, в котором находится ресурс.
+
+Для поиска метрик в {{ monium-name }} укажите общие метки:
+
+* `project = folder__<идентификатор_каталога>` — проект каталога с API-шлюзом или триггером.
+* `cluster = default`.
+* `name` — имя метрики из таблиц ниже.
+
+Значение метки `service` и метки для фильтрации по ресурсам зависят от типа метрик и приведены ниже.
 
 ## Метрики API {#api-gw-api-metrics}
 
@@ -10,7 +18,7 @@ gateway | Идентификатор API-шлюза
 path | Путь запроса
 release | [Версия](../../../api-gateway/concepts/extensions/canary.md) API-шлюза
 operation | Метод запроса, например `GET`, `POST`
-service | Метка сервиса, значение всегда `serverless-apigateway`
+service | В {{ monium-name }} — `__serverless-apigateway__`
 
 Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
 --- | ---
@@ -28,7 +36,7 @@ service | Метка сервиса, значение всегда `serverless-a
 --- | ---
 gateway | Идентификатор API-шлюза
 path | Путь запроса
-service | Метка сервиса, значение всегда `serverless-apigateway`
+service | В {{ monium-name }} — `__serverless-apigateway__`
 
 Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
 --- | ---
@@ -45,7 +53,7 @@ service | Метка сервиса, значение всегда `serverless-a
 ----|----
 trigger | Идентификатор триггера
 type | Тип сущности
-service | Метка сервиса, значение всегда `serverless-functions`
+service | В {{ monium-name }} — `__serverless-functions__`
 
 Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
 --- | --- | ---

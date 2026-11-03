@@ -11,6 +11,7 @@ description: В Billing {{ yandex-cloud }} используются следую
 * [{#T}](billing-account.md)
 * [{#T}](personal-account.md)
 * [{#T}](bonus-account.md)
+* [{#T}](trial-period.md)
 * [{#T}](organization.md)
 * [{#T}](reporting-period.md)
 * [{#T}](payg.md)

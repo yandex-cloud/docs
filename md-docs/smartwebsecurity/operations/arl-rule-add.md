@@ -68,6 +68,79 @@
       1. (Опционально) Выберите или [создайте](template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон Yandex Cloud.
       1. Нажмите **Сохранить правило**.
 
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  Параметр `--advanced-rate-limiter-rules` заменяет полный список правил профиля. Перед обновлением получите профиль и сохраните массив `advancedRateLimiterRules` из ответа в файл `rules.json`:
+  
+  ```bash
+  yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile get \
+    --id <идентификатор_профиля> \
+    --format json
+  ```
+
+  1. В файле `rules.json` укажите полный список правил. Например, добавьте правило, которое ограничивает общее число POST-запросов к `/api/password-reset` до 100 за минуту:
+
+     ```json
+     [
+       {
+         "name": "password-reset-total",
+         "priority": 100,
+         "description": "Не более 100 запросов к восстановлению пароля за минуту",
+         "dryRun": true,
+         "staticQuota": {
+           "action": "DENY",
+           "limit": "100",
+           "period": "60",
+           "condition": {
+             "requestUri": {
+               "path": {
+                 "exactMatch": "/api/password-reset"
+               }
+             },
+             "httpMethod": {
+               "httpMethodMatcher": {
+                 "exactMatch": "POST"
+               }
+             }
+           }
+         }
+       }
+     ]
+     ```
+
+     В каждом правиле укажите уникальные `name` и `priority`. Чем меньше значение `priority`, тем выше приоритет правила.
+     
+     Для `staticQuota` сервис считает все подходящие запросы вместе. Для `dynamicQuota` сервис группирует запросы по характеристикам. Можно указать до трех характеристик: `REQUEST_PATH`, `HTTP_METHOD`, `IP`, `GEO` или `HOST`.
+     
+     Чтобы проверить правило без блокировки запросов, укажите `"dryRun": true`. Для перевода правила в рабочий режим укажите `"dryRun": false`.
+
+  1. Обновите список правил профиля:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --advanced-rate-limiter-rules "$(cat rules.json)"
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--advanced-rate-limiter-rules` — полный список правил ARL в формате JSON. Параметр заменяет существующий список правил.
+
+
 - Terraform {#tf}
 
   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.

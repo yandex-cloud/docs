@@ -12,8 +12,8 @@ apiPlayground:
           description: |-
             **string**
             Subtitle language represented as a three-letter code according to ISO 639-2/T.
-            Value must match the regular expression ` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho `.
-          pattern: ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho
+            Value must match the regular expression ` afr|amh|ara|aze|bak|ben|bos|bul|cat|ceb|ces|chv|cym|dan|deu|ell|eng|epo|est|eus|fas|fin|fra|gla|gle|glg|guj|hat|heb|hin|hrv|hun|hye|ind|isl|ita|jav|jpn|kan|kat|kaz|khm|kir|kor|lao|lat|lav|lit|ltz|mal|mar|mhr|mkd|mlg|mlt|mon|mri|mrj|msa|mya|nep|nld|nor|pan|pap|pol|por|ron|rus|sah|sin|slk|slv|spa|sqi|srp|sun|swa|swe|tam|tat|tel|tgk|tgl|tha|tur|udm|ukr|urd|uzb|vie|xho|yid|zho|zul `.
+          pattern: afr|amh|ara|aze|bak|ben|bos|bul|cat|ceb|ces|chv|cym|dan|deu|ell|eng|epo|est|eus|fas|fin|fra|gla|gle|glg|guj|hat|heb|hin|hrv|hun|hye|ind|isl|ita|jav|jpn|kan|kat|kaz|khm|kir|kor|lao|lat|lav|lit|ltz|mal|mar|mhr|mkd|mlg|mlt|mon|mri|mrj|msa|mya|nep|nld|nor|pan|pap|pol|por|ron|rus|sah|sin|slk|slv|spa|sqi|srp|sun|swa|swe|tam|tat|tel|tgk|tgl|tha|tur|udm|ukr|urd|uzb|vie|xho|yid|zho|zul
           type: string
         label:
           description: |-
@@ -86,7 +86,7 @@ POST https://video.{{ api-host }}/video/v1/subtitles
 
 Subtitle language represented as a three-letter code according to ISO 639-2/T.
 
-Value must match the regular expression ``` ara|deu|eng|fra|ita|jpn|kaz|kor|rus|spa|tur|ukr|zho ```. ||
+Value must match the regular expression ``` afr|amh|ara|aze|bak|ben|bos|bul|cat|ceb|ces|chv|cym|dan|deu|ell|eng|epo|est|eus|fas|fin|fra|gla|gle|glg|guj|hat|heb|hin|hrv|hun|hye|ind|isl|ita|jav|jpn|kan|kat|kaz|khm|kir|kor|lao|lat|lav|lit|ltz|mal|mar|mhr|mkd|mlg|mlt|mon|mri|mrj|msa|mya|nep|nld|nor|pan|pap|pol|por|ron|rus|sah|sin|slk|slv|spa|sqi|srp|sun|swa|swe|tam|tat|tel|tgk|tgl|tha|tur|udm|ukr|urd|uzb|vie|xho|yid|zho|zul ```. ||
 || label | **string**
 
 Contains the subtitle label (or title) that will be displayed on screen during video playback.

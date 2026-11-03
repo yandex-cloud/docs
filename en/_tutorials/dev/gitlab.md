@@ -6,9 +6,8 @@ In this scenario, you will set up {{ GL }} on a [virtual machine](../../compute/
 
 To create and test a project in the {{ GL }} environment:
 1. [Get your cloud ready](#before-you-begin).
-1. [Required paid resources](#paid-resources).
 1. [Create a {{ GL }} VM](#create-vm).
-1. [Configure {{ GL }}](#confgure-gitlab).
+1. [Configure {{ GL }}](#configure-gitlab).
 1. [Set the privacy settings](#disable-signup).
 1. [Create a project](#create-project).
 1. [Set up and run testing for the project](#ci-cd).
@@ -23,9 +22,8 @@ To create and test a project in the {{ GL }} environment:
 
 ### Required paid resources {#paid-resources}
 
-The cost for maintaining a {{ GL }} server includes:
-* Fee for a [disk](../../compute/concepts/disk.md) and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Virtual machine: Computing resources and storage ([{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM public IP address and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a {{ GL }} VM {#create-vm}
 
@@ -55,7 +53,7 @@ The cost for maintaining a {{ GL }} server includes:
 
 Wait about five minutes until the VM is created and all its services are up and running. After all of the services are up and running, {{ GL }} becomes accessible via the web interface in a browser.
 
-## Configure {{ GL }} {#confgure-gitlab}
+## Configure {{ GL }} {#configure-gitlab}
 
 1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select the VM instance you created, `gitlab`, and copy its public IP address.

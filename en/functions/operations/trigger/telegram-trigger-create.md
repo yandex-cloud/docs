@@ -42,36 +42,36 @@ To create a trigger, you will need:
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<trigger_name>"
-         source {
-           telegram_message {
+         source = {
+           telegram_message = {
              bot_token       = "<Telegram_bot_token>"
              allowed_updates = [ "<update_type>", "<update_type>" ]
              force           = true
            }
          }
-         action {
-           invoke_function {
+         action = [{
+           invoke_function = {
              function_id        = "<function_ID>"
              function_tag       = "<function_version_tag>"
              service_account_id = "<service_account_ID>"
            }
-           filter {
+           filter = {
              jq = ".message.text | startswith(\"/\")"
            }
-           transformer {
+           transformer = {
              jq = ".message"
            }
-           retry_policy {
-             retry_attempts = "<number_of_retries>"
+           retry_policy = {
+             retry_attempts = <number_of_retries>
              interval       = "<interval_between_retries>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<Dead_Letter_Queue_ARN>"
                service_account_id = "<service_account_ID>"
              }
            }
-         }
+         }]
        }
        ```
 
@@ -85,7 +85,7 @@ To create a trigger, you will need:
 
            * `bot_token`: Telegram bot token received from [@BotFather](https://core.telegram.org/bots/features#botfather). The value is only provided when creating or updating a trigger. {{ TF }} does not return the value in its output. When the token changes, the webhook is re-registered.
            * `allowed_updates`: List of [Telegram update](https://core.telegram.org/bots/api#update) types the bot subscribes to. This is an optional setting. The default value is `[ "message" ]`.
-           * `force`: Reinstalling the webhook if the bot already has a webhook configured for another URL. Without this setting, creating a trigger will fail with an error. If the webhook already points to the trigger, this setting has no effect. This is an optional parameter.
+           * `force`: Reinstalling the webhook if the bot already has a webhook configured for another URL. Without this setting, creating a trigger will fail with an error. If the webhook already points to the trigger, this setting has no effect. This is an optional setting.
 
        {% include [tf-triggers-action-function](../../../_includes/functions/tf-triggers-action-function.md) %}
 

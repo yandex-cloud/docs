@@ -3,20 +3,14 @@
 # Удаление схемы
 
 
-
-{% note info %}
-
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
-
-
 {% note warning %}
 
-Если в субъекте только одна схема, ее удаление приведет к удалению субъекта.
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
 
 {% endnote %}
+
+
+Если в субъекте только одна схема, ее удаление приведет к удалению субъекта.
 
 {% list tabs group=instructions %}
 

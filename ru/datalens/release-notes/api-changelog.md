@@ -1,14 +1,71 @@
 ---
-title: Версионирование Public API в {{ datalens-full-name }}
-description: Версионирование Public API в {{ datalens-full-name }} поддерживает совместимость методов и схем объектов в API с методами и схемами объектов в интерфейсе.
+title: История изменений Public API в {{ datalens-full-name }}
+description: Ознакомьтесь с историей изменений Public API в {{ datalens-full-name }}.
 ---
 # История изменений Public API в {{ datalens-full-name }}
 
 В этом разделе собрана история изменений {{ datalens-name }} Public API. Подробнее про версионирование в [документации](../operations/api-versioning.md).
 
-
-
 ## Версия 3 {#version-3}
+
+
+
+### Сентябрь 2026 {#02092026}
+
+Совместимые изменения в Public API версии 3.
+
+
+1. Добавили заголовки ответа:
+
+   * `x-dl-api-stable-version` — номер новой стабильной версии;
+   * `deprecation` — наличие заголовка означает, что версия, через которую обращается пользователь, устарела. Содержит `unix-timestamp` даты выхода новой версии.
+   
+   Пример:
+
+   ```bash
+   x-dl-api-stable-version: 3
+   deprecation: @1788825600
+   ```
+
+1. В метод [getEntries]({{ api-host-datalens }}/#/Navigation/post_rpc_getEntries):
+   
+   * добавили поле `scopes`;
+   * для поля `type` изменили тип данных: `string` → `string | string[]`, где `string[]` — массив из 1–10 элементов.
+
+1. В метод [getWorkbookEntries]({{ api-host-datalens }}/#/Workbook/post_rpc_getWorkbookEntries) добавили значение `scope` в `orderBy.field`.
+1. В схемах чартов в Editor добавили `data.activities` для [таблиц](../charts/editor/widgets/table.md), [Gravity UI Charts](../charts/editor/widgets/gravity-ui.md) и [JS-селекторов](../charts/editor/widgets/controls.md).
+1. В метод [getTenantDetails]({{ api-host-datalens }}/#/Tenants/post_rpc_getTenantDetails) добавили ответ с полями: `tenantId`, `orgId`, `settings`, `dlpEnabled`, `foldersEnabled`.
+1. Актуализировали подключения:
+
+   * Добавили поле `ai_access_level`.
+   * Уточнили схемы создания, чтения и частичного обновления: обязательность полей, допустимость `null` и значения перечислений.
+   * В схеме ответа `createConnection` добавили необязательное поле `operation`.
+   * добавили поля `dlp_managed_*`, `mode`, `variant` в подключения [{{ CH }}](../operations/connection/create-clickhouse.md), [{{ MY }}](../operations/connection/create-mysql.md) и [{{ PG }}](../operations/connection/create-postgresql.md).
+   * Для подключения [{{ TR }}](../operations/connection/create-trino.md) добавили поля `extra_credentials`,`cluster_entry_id` и `form_fill_mode`.
+
+1. Актуализировали датасеты:
+      
+   * В схемах `DatasetCreate`, `DatasetRead`, `DatasetUpdate` добавили поля `publishedId`, `revId`, `savedId`.
+   * В `DatasetUpdate` добавили поле `mode` со значениями `save` и `publish` (по умолчанию).
+   * Расширили схемы источников и параметров запросов.
+
+
+1. Добавили новые методы для работы в [{{ datalens-platform-short-name }}]({{ link-datalens-docs }}/datalens-platform/) со следующими объектами:
+
+   * [REST-каталоги]({{ api-host-datalens }}/#/RestCatalogs);
+   * кластеры [{{ SPRK }}]({{ api-host-datalens }}/#/SparkClusters) и [{{ TR }}]({{ api-host-datalens }}/#/TrinoClusters);
+   * [SQL-запросы]({{ api-host-datalens }}/#/SqlQueries);
+   * [окружения]({{ api-host-datalens }}/#/CloudEnvironments);
+   * [бакеты]({{ api-host-datalens }}/#/CloudEnvironmentStorage).
+
+
+
+1. Добавили метод [getHtmlPagePreviewUrl]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getHtmlPagePreviewUrl).
+1. В методе [getHtmlPage]({{ api-host-datalens }}/#/HtmlPages/post_rpc_getHtmlPage) добавили поддержку аудитного режима.
+1. В методе [getPermissions]({{ api-host-datalens }}/#/Folder/post_rpc_getPermissions) стали необязательными в ответе поля: `approver`, `description`, `extras`, `requester`.
+
+
+
 
 
 ### 08.09.2026 — переход на версию 3 {#08092026}
@@ -48,6 +105,7 @@ description: Версионирование Public API в {{ datalens-full-name 
    * Описание дашборда переносится из `data.description` в `annotation.description`.
    * Цвета фона всех виджетов переносятся из устаревшего `background` в `backgroundSettings.color: {light, dark}`, а цвет текста заголовка — из `textColor` в `textSettings.color: {light, dark}`. Конечный формат цвета — `HEX`.
    *  При отсутствии существующего актуального `widgetTabIds` при миграции `widgetTabId` перенесется в формате массива с одним элементом `widgetTabIds`.
+
 
 
 ## Версия 2 {#version-2}
@@ -107,3 +165,5 @@ description: Версионирование Public API в {{ datalens-full-name 
 
 22 января 2026 года запущено {{ datalens-name }} Public API версии 1.
 
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -63,6 +63,8 @@ items:
         items:
           - name: Обзор
             href: tutorials/object-storage-overview.md
+          - name: Работа с {{ objstorage-full-name }} без использования Hive
+            href: tutorials/spark-without-hive.md
           - name: Использование локального каталога Hive
             href: tutorials/spark-objstorage-integration.md
           - name: Интеграция с {{ metastore-name }}

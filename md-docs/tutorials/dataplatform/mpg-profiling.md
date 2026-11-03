@@ -4,10 +4,10 @@
 
 Снижение производительности кластера Managed Service for PostgreSQL чаще всего происходит по одной из следующих причин:
 
-* [неэффективное выполнение запросов в PostgreSQL](#inefficient-queries),
-* [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit),
-* [блокировки](#localize-locking-issues),
-* [исчерпание доступных подключений](#connection-errors),
+* [неэффективное выполнение запросов в PostgreSQL](#inefficient-queries);
+* [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit);
+* [блокировки](#localize-locking-issues);
+* [исчерпание доступных подключений](#connection-errors);
 * [исчерпание свободного места в хранилище](#storage-issues).
 
 Ниже приводятся советы по диагностике и решению этих проблем.
@@ -59,7 +59,7 @@
 
     {% note tip %}
 
-    Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **SQL** на странице управления кластером.
+    Чтобы визуализировать планы выполнения найденных запросов, используйте раздел **Другое** ![chevron-down](../../_assets/console-icons/chevron-down.svg) → **WebSQL** на странице управления кластером.
 
     Подробнее в разделе [SQL-запросы в Yandex WebSQL](../../managed-postgresql/operations/web-sql-query.md).
 
@@ -109,8 +109,8 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Диагностика производительности**.
-1. На вкладке **Сессии** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
+1. Нажмите на имя нужного кластера, затем выберите **Производительность**.
+1. На вкладке **Сессии** в поле **Срез** выберите значение `WAIT_EVENT_TYPE`.
 
     * Обратите внимание на график **Lock**. Он показывает количество запросов, которые в выбранный период находились в состоянии блокировки.
     * Чтобы получить детальную информацию о запросах, выполнявшихся в выбранный период, перейдите на вкладку **Запросы**.
@@ -144,16 +144,17 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 Если количество открытых соединений достигает лимита, в логах кластера появляются ошибки:
 
-* **Too many connections for role**.
-* **Server conn crashed**.
-* **Invalid server parameter**.
-* **Query wait timeout**.
+* `Too many connections for role`
+* `Server conn crashed`
+* `Invalid server parameter`
+* `Query wait timeout`
 
 Чтобы получить подробную информацию об использовании доступных подключений с помощью инструментов [мониторинга](../../managed-postgresql/operations/monitoring.md):
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
+1. Нажмите на имя нужного кластера, затем выберите **Мониторинг** → **Хосты**.
+1. Выберите хост.
 1. Изучите график **Total pooler connections**.
 
     Managed Service for PostgreSQL не допускает подключений напрямую к СУБД, вместо этого происходит подключение к менеджеру подключений.
@@ -185,10 +186,10 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
-1. Нажмите на имя нужного кластера, затем выберите ![chevron-down](../../_assets/console-icons/chevron-down.svg) **Другое** → **Мониторинг**.
-1. Проверьте график **Disk capacity in primary, [bytes]**.
+1. Нажмите на имя нужного кластера, затем выберите **Мониторинг**.
+1. Проверьте график **Disk usage on primary** в блоке **Disk**.
 
-    Обратите внимание на значение параметра **Used**, показывающего степень заполнения хранилища кластера.
+    Обратите внимание на степень заполнения хранилища кластера — при приближении использования к лимиту кластер может перейти в режим read-only.
 
 
 ## Устранение проблем с недостатком места в хранилище {#solving-storage-issues}

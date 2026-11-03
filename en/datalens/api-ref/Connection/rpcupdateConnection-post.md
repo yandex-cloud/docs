@@ -55,12 +55,11 @@ _Example:_{.json-schema-reset .json-schema-example} `3`
   "connectionId": "example",
   "data": {
     "accuracy": null,
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "counter_id": "example",
     "data_export_forbidden": "off",
     "description": "",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
 }
 ```
@@ -89,12 +88,11 @@ _data_{.json-schema-reset .json-schema-property}
 ```json translate=no
 {
   "accuracy": null,
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "counter_id": "example",
   "data_export_forbidden": "off",
   "description": "",
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -113,24 +111,6 @@ _data_{.json-schema-reset .json-schema-property}
 || **Name** | **Description** ||
 ||
 
-_counter_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_token_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
 _accuracy_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: number &#124; null
@@ -140,20 +120,33 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
+{.table-cell}
+||
+||
+
+_counter_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -167,11 +160,11 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_token_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -181,12 +174,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "accuracy": null,
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "counter_id": "example",
   "data_export_forbidden": "off",
   "description": "",
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -202,20 +194,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_credentials_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_project_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -238,11 +223,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_credentials_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -256,22 +241,22 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_project_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -280,14 +265,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "credentials": "example",
   "description": "",
   "project_id": "example",
-  "raw_sql_level": "off",
-  "workbook_id": "null"
+  "raw_sql_level": "off"
 }
 ```
 
@@ -303,20 +287,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_portal_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_token_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -339,20 +316,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -366,11 +336,20 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_portal_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_token_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -379,14 +358,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "description": "",
   "portal": "example",
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -402,11 +380,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -418,24 +398,14 @@ _description_{.json-schema-reset .json-schema-property}
 _Default:_{.json-schema-reset .json-schema-value} ``
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
-  "collection_id": "null",
-  "description": "",
-  "workbook_id": "null"
+  "ai_access_level": "allow",
+  "description": ""
 }
 ```
 
@@ -451,20 +421,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_token_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -478,11 +441,11 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_token_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -491,10 +454,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "description": "",
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -510,32 +472,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_alias_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_token_{.json-schema-reset .json-schema-property .json-schema-required}
+_alias_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -562,20 +510,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -589,13 +530,29 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -607,11 +564,11 @@ _secure_{.json-schema-reset .json-schema-property}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_token_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -620,18 +577,17 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "alias": "example",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "description": "",
   "host": "example",
   "port": 0,
   "raw_sql_level": "off",
   "secure": true,
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -647,18 +603,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -675,15 +626,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -726,9 +668,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -751,11 +695,65 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _experimental_features_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -778,11 +776,29 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
+{.table-cell}
+||
+||
+
 _password_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -793,7 +809,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -809,16 +825,16 @@ _Default:_{.json-schema-reset .json-schema-value} `2`
 
 _secure_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -827,9 +843,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_ca_verify_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `on`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -843,11 +861,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -856,9 +876,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
@@ -866,78 +886,25 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "experimental_features": "off",
   "host": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
+  "mode": "null",
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
   "readonly": 2,
-  "secure": null,
-  "ssl_ca": null,
+  "secure": "on",
+  "ssl_ca": "null",
   "ssl_ca_verify": "on",
   "username": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### equeo2 {#entity-equeo2}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_access_token_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "access_token": "example",
-  "collection_id": "null",
-  "description": "",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -953,36 +920,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_password_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1005,20 +949,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -1052,6 +989,15 @@ _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
 ||
 ||
 
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _mdb_cluster_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -1070,20 +1016,36 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_password_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -1092,18 +1054,20 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1112,9 +1076,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
@@ -1125,10 +1089,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "off",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -1144,11 +1107,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_url_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1171,20 +1136,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -1198,11 +1156,11 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_url_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1211,13 +1169,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "description": "",
-  "url": "example",
-  "workbook_id": "null"
+  "url": "example"
 }
 ```
 
@@ -1233,7 +1190,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_allowed_methods_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
+{.table-cell}
+||
+||
+
+_allowed_methods_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string[]
 
@@ -1250,36 +1218,20 @@ _allowed_methods_{.json-schema-reset .json-schema-property .json-schema-required
 ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _description_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} ``
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -1308,6 +1260,13 @@ _plain_headers_{.json-schema-reset .json-schema-property}
 ||
 ||
 
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _secret_headers_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: object &#124; null
@@ -1328,33 +1287,23 @@ _secure_{.json-schema-reset .json-schema-property}
 **Type**: boolean
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "allowed_methods": [
     "GET"
   ],
-  "collection_id": "null",
   "description": "",
   "host": "example",
   "path": "example",
   "plain_headers": {},
   "port": 0,
   "secret_headers": {},
-  "secure": true,
-  "workbook_id": "null"
+  "secure": true
 }
 ```
 
@@ -1370,29 +1319,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1415,11 +1348,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cloud_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -1440,11 +1373,20 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_folder_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_service_account_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1453,15 +1395,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
   "delegation_is_set": true,
   "description": "",
   "folder_id": "example",
-  "service_account_id": "example",
-  "workbook_id": "null"
+  "service_account_id": "example"
 }
 ```
 
@@ -1477,36 +1418,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_password_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1529,20 +1447,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -1565,22 +1476,47 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_password_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1589,9 +1525,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
@@ -1599,8 +1535,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -1616,18 +1551,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1644,15 +1574,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -1695,9 +1616,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -1720,6 +1643,49 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _enforce_collate_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -1727,6 +1693,15 @@ _enforce_collate_{.json-schema-reset .json-schema-property}
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
 _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -1749,11 +1724,29 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
+{.table-cell}
+||
+||
+
 _password_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -1764,14 +1757,14 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -1780,9 +1773,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -1796,11 +1791,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1809,9 +1806,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
@@ -1819,17 +1816,23 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "enforce_collate": "off",
   "host": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
+  "mode": "null",
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "off",
   "username": "example",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -1845,45 +1848,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_db_connect_method_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `sid`, `service_name`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_password_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -1906,20 +1877,22 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
+_db_connect_method_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `off`
+_Enum:_{.json-schema-reset .json-schema-value} `sid`, `service_name`
 {.table-cell}
 ||
 ||
@@ -1942,20 +1915,45 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_password_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -1964,18 +1962,20 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -1984,9 +1984,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_connect_method": "sid",
   "db_name": "example",
@@ -1995,10 +1995,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "off",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -2014,18 +2013,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -2042,15 +2036,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -2093,9 +2078,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2118,6 +2105,49 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _enforce_collate_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -2125,6 +2155,15 @@ _enforce_collate_{.json-schema-reset .json-schema-property}
 _Default:_{.json-schema-reset .json-schema-value} `auto`
 
 _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -2147,11 +2186,29 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
+{.table-cell}
+||
+||
+
 _password_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -2162,14 +2219,14 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -2178,9 +2235,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2194,11 +2253,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -2207,9 +2268,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
@@ -2217,17 +2278,23 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "enforce_collate": "auto",
   "host": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
+  "mode": "null",
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "off",
   "username": "example",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -2243,18 +2310,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -2270,9 +2332,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _auth_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `password`
+
+_Enum:_{.json-schema-reset .json-schema-value} `header`, `password`
 {.table-cell}
 ||
 ||
@@ -2295,20 +2359,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2327,6 +2384,15 @@ _description_{.json-schema-reset .json-schema-property}
 **Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} ``
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -2349,6 +2415,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _secure_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
@@ -2363,26 +2436,17 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "auth_header": "example",
   "auth_type": "password",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
@@ -2391,8 +2455,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "path": "example",
   "port": 0,
   "secure": true,
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -2408,7 +2471,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_account_name_{.json-schema-reset .json-schema-property .json-schema-required}
+_account_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -2417,7 +2480,18 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_client_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
+{.table-cell}
+||
+||
+
+_client_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -2426,65 +2500,31 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_client_secret_{.json-schema-reset .json-schema-property .json-schema-required}
+_client_secret_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_db_name_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_schema_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_user_name_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_warehouse_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 ||
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_db_name_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -2504,7 +2544,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -2527,6 +2567,24 @@ _Example:_{.json-schema-reset .json-schema-example} `2025-01-01T00:00:00Z`
 ||
 ||
 
+_schema_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_user_name_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _user_role_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -2536,11 +2594,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_warehouse_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -2550,9 +2608,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "account_name": "example",
+  "ai_access_level": "allow",
   "client_id": "example",
   "client_secret": "example",
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
@@ -2562,8 +2620,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "schema": "example",
   "user_name": "example",
   "user_role": "example",
-  "warehouse": "example",
-  "workbook_id": "null"
+  "warehouse": "example"
 }
 ```
 
@@ -2579,20 +2636,24 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_project_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
 _auth_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `user_credentials`
+
+_Enum:_{.json-schema-reset .json-schema-value} `service_account`, `user_credentials`
 {.table-cell}
 ||
 ||
@@ -2606,20 +2667,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2651,16 +2705,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_service_account_id_{.json-schema-reset .json-schema-property}
+_project_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_service_account_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
@@ -2673,16 +2727,15 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "auth_type": "user_credentials",
   "cloud_id": "null",
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "delegation_is_set": null,
   "description": "",
   "folder_id": "null",
   "project_id": "example",
-  "service_account_id": "null",
-  "workbook_id": "null"
+  "service_account_id": "null"
 }
 ```
 
@@ -2698,29 +2751,24 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_listing_sources_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
 _auth_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `certificate`, `header`, `jwt`, `kerberos`, `none`, `oauth2`, `password`, `null`
+
+_Example:_{.json-schema-reset .json-schema-example} `certificate`
 {.table-cell}
 ||
 ||
@@ -2752,20 +2800,22 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cluster_entry_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2795,7 +2845,40 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_extra_credentials_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: object &#124; null
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
 _folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_form_fill_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Enum:_{.json-schema-reset .json-schema-value} `cloud`, `manually`, `platform`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
@@ -2809,6 +2892,15 @@ _jwt_{.json-schema-reset .json-schema-property}
 **Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_listing_sources_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `on`
 {.table-cell}
 ||
 ||
@@ -2844,7 +2936,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -2860,7 +2952,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -2869,9 +2961,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -2883,43 +2977,36 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
-  "auth_type": null,
+  "ai_access_level": "allow",
+  "auth_type": "certificate",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
+  "cluster_entry_id": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "delegation_is_set": true,
   "description": "",
+  "extra_credentials": {},
   "folder_id": "example",
+  "form_fill_mode": "cloud",
   "host": "example",
   "jwt": "example",
-  "listing_sources": null,
+  "listing_sources": "off",
   "mdb_cluster_id": "example",
   "password": "example",
   "port": 0,
   "raw_sql_level": "off",
   "service_account_id": "example",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "off",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -2935,54 +3022,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_db_name_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -3016,20 +3062,31 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cloud_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_db_name_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -3046,6 +3103,24 @@ _description_{.json-schema-reset .json-schema-property}
 **Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} ``
+{.table-cell}
+||
+||
+
+_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -3068,20 +3143,36 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
+{.table-cell}
+||
+||
+
+_service_account_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -3090,9 +3181,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `on`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -3113,26 +3206,17 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "auth_type": "anonymous",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "db_name": "example",
   "delegation_is_set": true,
@@ -3144,11 +3228,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   "port": 0,
   "raw_sql_level": "off",
   "service_account_id": "example",
-  "ssl_ca": null,
+  "ssl_ca": "null",
   "ssl_enable": "on",
   "token": "example",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -3164,29 +3247,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -3209,20 +3276,22 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cloud_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -3243,22 +3312,31 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_service_account_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -3267,17 +3345,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
   "data_export_forbidden": "off",
   "delegation_is_set": true,
   "description": "",
   "folder_id": "example",
   "raw_sql_level": "off",
-  "service_account_id": "example",
-  "workbook_id": "null"
+  "service_account_id": "example"
 }
 ```
 
@@ -3289,11 +3366,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ### ConnectionUpdate {#entity-ConnectionUpdate}
 
-#|
-|| **Name** | **Description** ||
-|#{.json-schema-properties}
-
-{% cut "**One of 29 types**" %}{.json-schema-combinators data-marker=or}
+{% cut "**Any of 29 types**" %}{.json-schema-combinators data-marker=or}
 
 - **appmetrica_api**
 
@@ -3304,12 +3377,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "accuracy": null,
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "counter_id": "example",
     "data_export_forbidden": "off",
     "description": "",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3323,14 +3395,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "credentials": "example",
     "description": "",
     "project_id": "example",
-    "raw_sql_level": "off",
-    "workbook_id": "null"
+    "raw_sql_level": "off"
   }
   ```
 
@@ -3344,14 +3415,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "description": "",
     "portal": "example",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3365,9 +3435,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3381,10 +3450,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "description": "",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3398,18 +3466,17 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "alias": "example",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "description": "",
     "host": "example",
     "port": 0,
     "raw_sql_level": "off",
     "secure": true,
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3423,9 +3490,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
@@ -3433,19 +3500,25 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "experimental_features": "off",
     "host": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
+    "mode": "null",
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
     "readonly": 2,
-    "secure": null,
-    "ssl_ca": null,
+    "secure": "on",
+    "ssl_ca": "null",
     "ssl_ca_verify": "on",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -3459,10 +3532,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "access_token": "example",
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3476,10 +3547,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "access_token": "example",
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3493,9 +3562,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
@@ -3506,10 +3575,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "off",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3523,13 +3591,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "description": "",
-    "url": "example",
-    "workbook_id": "null"
+    "url": "example"
   }
   ```
 
@@ -3543,18 +3610,17 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "allowed_methods": [
       "GET"
     ],
-    "collection_id": "null",
     "description": "",
     "host": "example",
     "path": "example",
     "plain_headers": {},
     "port": 0,
     "secret_headers": {},
-    "secure": true,
-    "workbook_id": "null"
+    "secure": true
   }
   ```
 
@@ -3568,10 +3634,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "access_token": "example",
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3586,12 +3650,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "accuracy": null,
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "counter_id": "example",
     "data_export_forbidden": "off",
     "description": "",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3605,15 +3668,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
     "delegation_is_set": true,
     "description": "",
     "folder_id": "example",
-    "service_account_id": "example",
-    "workbook_id": "null"
+    "service_account_id": "example"
   }
   ```
 
@@ -3627,10 +3689,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "access_token": "example",
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3644,9 +3704,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
@@ -3654,8 +3714,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3669,9 +3728,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
@@ -3679,17 +3738,23 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "enforce_collate": "off",
     "host": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
+    "mode": "null",
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "off",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -3703,9 +3768,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_connect_method": "sid",
     "db_name": "example",
@@ -3714,10 +3779,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "off",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3731,9 +3795,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
@@ -3741,17 +3805,23 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "enforce_collate": "auto",
     "host": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
+    "mode": "null",
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "off",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -3765,11 +3835,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_header": "example",
     "auth_type": "password",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
@@ -3778,8 +3848,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "path": "example",
     "port": 0,
     "secure": true,
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3793,10 +3862,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "description": "",
-    "token": "example",
-    "workbook_id": "null"
+    "token": "example"
   }
   ```
 
@@ -3811,9 +3879,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "account_name": "example",
+    "ai_access_level": "allow",
     "client_id": "example",
     "client_secret": "example",
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
@@ -3823,8 +3891,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "schema": "example",
     "user_name": "example",
     "user_role": "example",
-    "warehouse": "example",
-    "workbook_id": "null"
+    "warehouse": "example"
   }
   ```
 
@@ -3838,16 +3905,15 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_type": "user_credentials",
     "cloud_id": "null",
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "delegation_is_set": null,
     "description": "",
     "folder_id": "null",
     "project_id": "example",
-    "service_account_id": "null",
-    "workbook_id": "null"
+    "service_account_id": "null"
   }
   ```
 
@@ -3861,28 +3927,30 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "auth_type": null,
+    "ai_access_level": "allow",
+    "auth_type": "certificate",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
+    "cluster_entry_id": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "delegation_is_set": true,
     "description": "",
+    "extra_credentials": {},
     "folder_id": "example",
+    "form_fill_mode": "cloud",
     "host": "example",
     "jwt": "example",
-    "listing_sources": null,
+    "listing_sources": "off",
     "mdb_cluster_id": "example",
     "password": "example",
     "port": 0,
     "raw_sql_level": "off",
     "service_account_id": "example",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "off",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3896,9 +3964,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3912,9 +3979,8 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "description": "",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -3928,11 +3994,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_type": "anonymous",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "db_name": "example",
     "delegation_is_set": true,
@@ -3944,11 +4010,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
     "port": 0,
     "raw_sql_level": "off",
     "service_account_id": "example",
-    "ssl_ca": null,
+    "ssl_ca": "null",
     "ssl_enable": "on",
     "token": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -3962,17 +4027,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
     "data_export_forbidden": "off",
     "delegation_is_set": true,
     "description": "",
     "folder_id": "example",
     "raw_sql_level": "off",
-    "service_account_id": "example",
-    "workbook_id": "null"
+    "service_account_id": "example"
   }
   ```
 
@@ -3985,12 +4049,11 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "accuracy": null,
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "counter_id": "example",
   "data_export_forbidden": "off",
   "description": "",
-  "token": "example",
-  "workbook_id": "null"
+  "token": "example"
 }
 ```
 
@@ -4028,15 +4091,6 @@ Response
 || **Name** | **Description** ||
 ||
 
-_counter_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
 _accuracy_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: number &#124; null
@@ -4046,16 +4100,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
-_created_at_{.json-schema-reset .json-schema-property}
+_counter_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -4066,9 +4122,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -4080,71 +4138,6 @@ _description_{.json-schema-reset .json-schema-property}
 _Default:_{.json-schema-reset .json-schema-value} ``
 {.table-cell}
 ||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
@@ -4152,16 +4145,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "accuracy": null,
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "counter_id": "example",
-  "created_at": "example",
   "data_export_forbidden": "off",
-  "description": "",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "updated_at": "example",
-  "workbook_id": "null"
+  "description": ""
 }
 ```
 
@@ -4177,11 +4164,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_project_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -4204,24 +4193,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
 _description_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -4231,16 +4202,7 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
+_project_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -4255,25 +4217,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -4282,17 +4226,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "description": "",
-  "id": "example",
-  "key": "example",
   "project_id": "example",
-  "raw_sql_level": "off",
-  "updated_at": "example",
-  "workbook_id": "null"
+  "raw_sql_level": "off"
 }
 ```
 
@@ -4308,11 +4247,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_portal_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -4335,29 +4276,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -4371,67 +4296,11 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_portal_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -4440,137 +4309,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "description": "",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "portal": "example",
-  "updated_at": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### ch_billing_analytics2 {#entity-ch_billing_analytics21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "collection_id": "null",
-  "created_at": "example",
-  "description": "",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "updated_at": "example",
-  "workbook_id": "null"
+  "portal": "example"
 }
 ```
 
@@ -4586,27 +4330,22 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_alias_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_alias_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
 {.table-cell}
 ||
 ||
@@ -4629,29 +4368,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -4665,7 +4388,7 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -4674,40 +4397,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_port_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -4718,7 +4410,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -4728,46 +4420,22 @@ _secure_{.json-schema-reset .json-schema-property}
 **Type**: boolean
 {.table-cell}
 ||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "alias": "example",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "description": "",
   "host": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
   "port": 0,
   "raw_sql_level": "off",
-  "secure": true,
-  "updated_at": "example",
-  "workbook_id": "null"
+  "secure": true
 }
 ```
 
@@ -4783,18 +4451,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -4811,15 +4474,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -4860,20 +4514,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -4896,25 +4543,61 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_experimental_features_{.json-schema-reset .json-schema-property}
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
+**Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_experimental_features_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -4941,31 +4624,20 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_meta_{.json-schema-reset .json-schema-property}
+_mode_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-{% cut "**Type**: object" %}
+**Type**: string &#124; null
 
-#|
-||
+_Default:_{.json-schema-reset .json-schema-value} `null`
 
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
 {.table-cell}
 ||
-|#{.json-schema-properties}
+||
 
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -4976,7 +4648,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -4992,27 +4664,20 @@ _Default:_{.json-schema-reset .json-schema-value} `2`
 
 _secure_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
 _ssl_ca_verify_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `on`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `on`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -5026,11 +4691,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -5039,32 +4706,33 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
   "connection_manager_folder_id": "example",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "experimental_features": "off",
   "host": "example",
-  "id": "example",
-  "key": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
-  "meta": {},
+  "mode": "null",
   "port": 0,
   "raw_sql_level": "off",
   "readonly": 2,
-  "secure": null,
+  "secure": "on",
   "ssl_ca_verify": "on",
-  "updated_at": "example",
   "username": "example",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -5080,27 +4748,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -5123,29 +4777,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -5179,16 +4817,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -5215,31 +4844,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_meta_{.json-schema-reset .json-schema-property}
+_port_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -5250,34 +4857,27 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_updated_at_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -5286,569 +4886,20 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
   "enforce_collate": "auto",
   "host": "example",
-  "id": "example",
-  "key": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
-  "meta": {},
   "port": 0,
   "raw_sql_level": "off",
   "ssl_enable": "off",
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### gsheets2 {#entity-gsheets21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_url_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_cache_invalidation_throttling_interval_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_cache_ttl_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "cache_invalidation_throttling_interval_sec": null,
-  "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
-  "data_export_forbidden": "off",
-  "description": "",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "updated_at": "example",
-  "url": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### json_api2 {#entity-json_api21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_allowed_methods_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string[]
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-[
-  "GET"
-]
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_path_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_plain_headers_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: object &#124; null
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_secret_headers_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: object &#124; null
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_secure_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: boolean
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "allowed_methods": [
-    "GET"
-  ],
-  "collection_id": "null",
-  "created_at": "example",
-  "description": "",
-  "host": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "path": "example",
-  "plain_headers": {},
-  "port": 0,
-  "secret_headers": {},
-  "secure": true,
-  "updated_at": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### monitoring2 {#entity-monitoring21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_cache_invalidation_throttling_interval_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_cache_ttl_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_delegation_is_set_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: boolean &#124; null
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "cache_invalidation_throttling_interval_sec": null,
-  "cache_ttl_sec": null,
-  "cloud_id": "example",
-  "collection_id": "null",
-  "created_at": "example",
-  "delegation_is_set": true,
-  "description": "",
-  "folder_id": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "service_account_id": "example",
-  "updated_at": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -5864,27 +4915,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -5907,29 +4944,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -5952,7 +4973,7 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -5961,40 +4982,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_port_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -6005,25 +4995,16 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
-_updated_at_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -6032,22 +5013,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
   "host": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
   "port": 0,
   "raw_sql_level": "off",
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -6063,18 +5038,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -6091,15 +5061,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -6140,20 +5101,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -6176,6 +5130,49 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _enforce_collate_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -6187,16 +5184,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -6223,31 +5211,20 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_meta_{.json-schema-reset .json-schema-property}
+_mode_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-{% cut "**Type**: object" %}
+**Type**: string &#124; null
 
-#|
-||
+_Default:_{.json-schema-reset .json-schema-value} `null`
 
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
 {.table-cell}
 ||
-|#{.json-schema-properties}
+||
 
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -6258,25 +5235,18 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -6290,11 +5260,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -6303,30 +5275,31 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
   "connection_manager_folder_id": "example",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "enforce_collate": "off",
   "host": "example",
-  "id": "example",
-  "key": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
-  "meta": {},
+  "mode": "null",
   "port": 0,
   "raw_sql_level": "off",
   "ssl_enable": "off",
-  "updated_at": "example",
   "username": "example",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -6342,36 +5315,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_db_connect_method_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Enum:_{.json-schema-reset .json-schema-value} `sid`, `service_name`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_username_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -6394,29 +5344,22 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
+_db_connect_method_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `off`
+_Enum:_{.json-schema-reset .json-schema-value} `sid`, `service_name`
 {.table-cell}
 ||
 ||
@@ -6439,7 +5382,7 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -6448,40 +5391,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_port_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -6492,34 +5404,27 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
 
-_updated_at_{.json-schema-reset .json-schema-property}
+_username_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -6528,24 +5433,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_connect_method": "sid",
   "db_name": "example",
   "description": "",
   "host": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
   "port": 0,
   "raw_sql_level": "off",
   "ssl_enable": "off",
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -6561,18 +5460,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -6589,15 +5483,6 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 _cache_ttl_sec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
 
 _Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
@@ -6638,20 +5523,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -6674,6 +5552,49 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_dlp_managed_cloud_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_cluster_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_connection_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_dlp_managed_connection_manager_delegation_is_set_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+{.table-cell}
+||
+||
+
+_dlp_managed_folder_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
 _enforce_collate_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -6685,16 +5606,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `auto`, `on`, `off`
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -6721,31 +5633,20 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_meta_{.json-schema-reset .json-schema-property}
+_mode_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-{% cut "**Type**: object" %}
+**Type**: string &#124; null
 
-#|
-||
+_Default:_{.json-schema-reset .json-schema-value} `null`
 
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `onpremise`, `managed`, `null`
 {.table-cell}
 ||
-|#{.json-schema-properties}
+||
 
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
 {.table-cell}
 ||
 ||
@@ -6756,25 +5657,18 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -6788,11 +5682,13 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_variant_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Default:_{.json-schema-reset .json-schema-value} `default`
+
+_Enum:_{.json-schema-reset .json-schema-value} `default`, `dlp`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -6801,30 +5697,31 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
   "connection_manager_cloud_id": "example",
   "connection_manager_connection_id": "example",
   "connection_manager_delegation_is_set": true,
   "connection_manager_folder_id": "example",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
+  "dlp_managed_cloud_id": "example",
+  "dlp_managed_cluster_id": "example",
+  "dlp_managed_connection_manager_connection_id": "example",
+  "dlp_managed_connection_manager_delegation_is_set": true,
+  "dlp_managed_folder_id": "example",
   "enforce_collate": "auto",
   "host": "example",
-  "id": "example",
-  "key": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
-  "meta": {},
+  "mode": "null",
   "port": 0,
   "raw_sql_level": "off",
   "ssl_enable": "off",
-  "updated_at": "example",
   "username": "example",
-  "workbook_id": "null"
+  "variant": "default"
 }
 ```
 
@@ -6840,27 +5737,24 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
 _auth_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `password`
+
+_Enum:_{.json-schema-reset .json-schema-value} `header`, `password`
 {.table-cell}
 ||
 ||
@@ -6883,29 +5777,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -6928,49 +5806,11 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
 {.table-cell}
 ||
 ||
@@ -6984,18 +5824,16 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_secure_{.json-schema-reset .json-schema-property}
+_port_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: boolean
+**Type**: integer
 {.table-cell}
 ||
 ||
 
-_updated_at_{.json-schema-reset .json-schema-property}
+_secure_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+**Type**: boolean
 {.table-cell}
 ||
 ||
@@ -7007,39 +5845,24 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "auth_type": "password",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
   "host": "example",
-  "id": "example",
-  "key": "example",
-  "meta": {},
   "path": "example",
   "port": 0,
   "secure": true,
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -7055,7 +5878,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_account_name_{.json-schema-reset .json-schema-property .json-schema-required}
+_account_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -7064,61 +5887,18 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_client_id_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `allow`
+
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
-_db_name_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_schema_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_user_name_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_warehouse_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
+_client_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -7129,9 +5909,20 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_db_name_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -7145,31 +5936,13 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -7183,7 +5956,16 @@ _Example:_{.json-schema-reset .json-schema-example} `2025-01-01T00:00:00Z`
 ||
 ||
 
-_updated_at_{.json-schema-reset .json-schema-property}
+_schema_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
+{.table-cell}
+||
+||
+
+_user_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -7201,11 +5983,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_workbook_id_{.json-schema-reset .json-schema-property}
+_warehouse_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: string &#124; null
+**Type**: string
 
-_Default:_{.json-schema-reset .json-schema-value} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -7215,211 +5997,17 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "account_name": "example",
+  "ai_access_level": "allow",
   "client_id": "example",
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "description": "",
-  "id": "example",
-  "key": "example",
   "raw_sql_level": "off",
   "refresh_token_expire_time": "2025-01-01T00:00:00Z",
   "schema": "example",
-  "updated_at": "example",
   "user_name": "example",
   "user_role": "example",
-  "warehouse": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### speechsense2 {#entity-speechsense21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_project_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_auth_type_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `user_credentials`
-{.table-cell}
-||
-||
-
-_cloud_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_delegation_is_set_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: boolean &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_folder_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
-{.table-cell}
-||
-||
-
-_service_account_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "auth_type": "user_credentials",
-  "cloud_id": "null",
-  "collection_id": "null",
-  "created_at": "example",
-  "data_export_forbidden": "off",
-  "delegation_is_set": null,
-  "description": "",
-  "folder_id": "null",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "project_id": "example",
-  "service_account_id": "null",
-  "updated_at": "example",
-  "workbook_id": "null"
+  "warehouse": "example"
 }
 ```
 
@@ -7435,29 +6023,24 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_listing_sources_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
 
 _auth_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string &#124; null
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `certificate`, `header`, `jwt`, `kerberos`, `none`, `oauth2`, `password`, `null`
+
+_Example:_{.json-schema-reset .json-schema-example} `certificate`
 {.table-cell}
 ||
 ||
@@ -7489,18 +6072,9 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cluster_entry_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -7509,9 +6083,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -7541,6 +6117,21 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
+_extra_credentials_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: object &#124; null
+
+{% cut "**Example**" %}{.json-schema-example}
+
+```json translate=no
+{}
+```
+
+{% endcut %}
+{.table-cell}
+||
+||
+
 _folder_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -7550,20 +6141,29 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_form_fill_mode_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
+
+_Enum:_{.json-schema-reset .json-schema-value} `cloud`, `manually`, `platform`
+{.table-cell}
+||
+||
+
+_host_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_listing_sources_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `on`
 {.table-cell}
 ||
 ||
@@ -7573,35 +6173,6 @@ _mdb_cluster_id_{.json-schema-reset .json-schema-property}
 **Type**: string &#124; null
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_meta_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-{% cut "**Type**: object" %}
-
-#|
-||
-
-_[additional]_{.json-schema-reset .json-schema-additional-property}
-{.table-cell}|
-**Type**: unknown
-
-_Example:_{.json-schema-reset .json-schema-example} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% endcut %}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{}
-```
-
-{% endcut %}
 {.table-cell}
 ||
 ||
@@ -7619,7 +6190,7 @@ _raw_sql_level_{.json-schema-reset .json-schema-property}
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
 {.table-cell}
 ||
 ||
@@ -7635,18 +6206,11 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -7658,45 +6222,33 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
-  "auth_type": null,
+  "ai_access_level": "allow",
+  "auth_type": "certificate",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
-  "created_at": "example",
+  "cluster_entry_id": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "delegation_is_set": true,
   "description": "",
+  "extra_credentials": {},
   "folder_id": "example",
+  "form_fill_mode": "cloud",
   "host": "example",
-  "id": "example",
-  "key": "example",
-  "listing_sources": null,
+  "listing_sources": "off",
   "mdb_cluster_id": "example",
-  "meta": {},
   "port": 0,
   "raw_sql_level": "off",
   "service_account_id": "example",
   "ssl_enable": "off",
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -7712,54 +6264,13 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 || **Name** | **Description** ||
 ||
 
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_db_name_{.json-schema-reset .json-schema-property .json-schema-required}
+_ai_access_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
+_Default:_{.json-schema-reset .json-schema-value} `allow`
 
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_host_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_port_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: integer
-{.table-cell}
-||
-||
-
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Enum:_{.json-schema-reset .json-schema-value} `allow`, `allow_trusted`, `deny`
 {.table-cell}
 ||
 ||
@@ -7793,18 +6304,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ||
 ||
 
-_collection_id_{.json-schema-reset .json-schema-property}
+_cloud_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -7813,9 +6315,20 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 _data_export_forbidden_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
+{.table-cell}
+||
+||
+
+_db_name_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -7836,7 +6349,7 @@ _Default:_{.json-schema-reset .json-schema-value} ``
 ||
 ||
 
-_id_{.json-schema-reset .json-schema-property}
+_folder_id_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -7845,7 +6358,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
-_key_{.json-schema-reset .json-schema-property}
+_host_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
@@ -7872,31 +6385,40 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_port_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: integer
+{.table-cell}
+||
+||
+
 _raw_sql_level_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
 _Default:_{.json-schema-reset .json-schema-value} `off`
 
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
+_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`, `readwrite`
+{.table-cell}
+||
+||
+
+_service_account_id_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
 
 _ssl_enable_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `on`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
 **Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `example`
+_Default:_{.json-schema-reset .json-schema-value} `on`
+
+_Enum:_{.json-schema-reset .json-schema-value} `on`, `off`
 {.table-cell}
 ||
 ||
@@ -7908,213 +6430,30 @@ _username_{.json-schema-reset .json-schema-property}
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
 {
+  "ai_access_level": "allow",
   "auth_type": "anonymous",
   "cache_invalidation_throttling_interval_sec": null,
   "cache_ttl_sec": null,
   "cloud_id": "example",
-  "collection_id": "null",
-  "created_at": "example",
   "data_export_forbidden": "off",
   "db_name": "example",
   "delegation_is_set": true,
   "description": "",
   "folder_id": "example",
   "host": "example",
-  "id": "example",
-  "key": "example",
   "mdb_cluster_id": "example",
   "mdb_folder_id": "example",
   "port": 0,
   "raw_sql_level": "off",
   "service_account_id": "example",
   "ssl_enable": "on",
-  "updated_at": "example",
-  "username": "example",
-  "workbook_id": "null"
-}
-```
-
-{% endcut %}
-
-</div>
-
-<div class="openapi-entity">
-
-### yq2 {#entity-yq21}
-
-#|
-|| **Name** | **Description** ||
-||
-
-_cloud_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_folder_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_service_account_id_{.json-schema-reset .json-schema-property .json-schema-required}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_cache_invalidation_throttling_interval_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_cache_ttl_sec_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: integer &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_collection_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-||
-
-_created_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_data_export_forbidden_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: unknown
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-{.table-cell}
-||
-||
-
-_delegation_is_set_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: boolean &#124; null
-{.table-cell}
-||
-||
-
-_description_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} ``
-{.table-cell}
-||
-||
-
-_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_key_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_raw_sql_level_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Default:_{.json-schema-reset .json-schema-value} `off`
-
-_Enum:_{.json-schema-reset .json-schema-value} `off`, `subselect`, `template`, `dashsql`
-{.table-cell}
-||
-||
-
-_updated_at_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string
-
-_Example:_{.json-schema-reset .json-schema-example} `example`
-{.table-cell}
-||
-||
-
-_workbook_id_{.json-schema-reset .json-schema-property}
-{.table-cell}|
-**Type**: string &#124; null
-
-_Default:_{.json-schema-reset .json-schema-value} `null`
-{.table-cell}
-||
-|#{.json-schema-properties}
-
-{% cut "**Example**" %}{.json-schema-example}
-
-```json translate=no
-{
-  "cache_invalidation_throttling_interval_sec": null,
-  "cache_ttl_sec": null,
-  "cloud_id": "example",
-  "collection_id": "null",
-  "created_at": "example",
-  "data_export_forbidden": "off",
-  "delegation_is_set": true,
-  "description": "",
-  "folder_id": "example",
-  "id": "example",
-  "key": "example",
-  "raw_sql_level": "off",
-  "service_account_id": "example",
-  "updated_at": "example",
-  "workbook_id": "null"
+  "username": "example"
 }
 ```
 
@@ -8126,11 +6465,7 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 ### ConnectionUpdate {#entity-ConnectionUpdate1}
 
-#|
-|| **Name** | **Description** ||
-|#{.json-schema-properties}
-
-{% cut "**One of 29 types**" %}{.json-schema-combinators data-marker=or}
+{% cut "**Any of 29 types**" %}{.json-schema-combinators data-marker=or}
 
 - **appmetrica_api**
 
@@ -8141,16 +6476,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "accuracy": null,
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "counter_id": "example",
-    "created_at": "example",
     "data_export_forbidden": "off",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "description": ""
   }
   ```
 
@@ -8164,17 +6493,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "description": "",
-    "id": "example",
-    "key": "example",
     "project_id": "example",
-    "raw_sql_level": "off",
-    "updated_at": "example",
-    "workbook_id": "null"
+    "raw_sql_level": "off"
   }
   ```
 
@@ -8188,18 +6512,12 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "portal": "example",
-    "updated_at": "example",
-    "workbook_id": "null"
+    "portal": "example"
   }
   ```
 
@@ -8207,20 +6525,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **ch_billing_analytics**
 
-  **Type**: [ch_billing_analytics2](#entity-ch_billing_analytics21)
+  **Type**: [ch_billing_analytics2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8228,20 +6540,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **ch_ya_music_podcast_stats**
 
-  **Type**: [ch_ya_music_podcast_stats2](#entity-ch_billing_analytics21)
+  **Type**: [ch_ya_music_podcast_stats2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8255,22 +6561,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "alias": "example",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "description": "",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "port": 0,
     "raw_sql_level": "off",
-    "secure": true,
-    "updated_at": "example",
-    "workbook_id": "null"
+    "secure": true
   }
   ```
 
@@ -8284,32 +6584,33 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
     "connection_manager_folder_id": "example",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "experimental_features": "off",
     "host": "example",
-    "id": "example",
-    "key": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
-    "meta": {},
+    "mode": "null",
     "port": 0,
     "raw_sql_level": "off",
     "readonly": 2,
-    "secure": null,
+    "secure": "on",
     "ssl_ca_verify": "on",
-    "updated_at": "example",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -8317,20 +6618,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **equeo**
 
-  **Type**: [equeo2](#entity-ch_billing_analytics21)
+  **Type**: [equeo2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8338,20 +6633,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **extractor1c**
 
-  **Type**: [extractor1c2](#entity-ch_billing_analytics21)
+  **Type**: [extractor1c2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8365,26 +6654,20 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
     "enforce_collate": "auto",
     "host": "example",
-    "id": "example",
-    "key": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
-    "meta": {},
     "port": 0,
     "raw_sql_level": "off",
     "ssl_enable": "off",
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8392,24 +6675,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **gsheets**
 
-  **Type**: [gsheets2](#entity-gsheets21)
+  **Type**: [gsheets2](#entity-gsheets2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "url": "example",
-    "workbook_id": "null"
+    "url": "example"
   }
   ```
 
@@ -8417,29 +6694,23 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **json_api**
 
-  **Type**: [json_api2](#entity-json_api21)
+  **Type**: [json_api2](#entity-json_api2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "allowed_methods": [
       "GET"
     ],
-    "collection_id": "null",
-    "created_at": "example",
     "description": "",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "path": "example",
     "plain_headers": {},
     "port": 0,
     "secret_headers": {},
-    "secure": true,
-    "updated_at": "example",
-    "workbook_id": "null"
+    "secure": true
   }
   ```
 
@@ -8447,20 +6718,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **kontur_market**
 
-  **Type**: [kontur_market2](#entity-ch_billing_analytics21)
+  **Type**: [kontur_market2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8475,16 +6740,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "accuracy": null,
-    "collection_id": "null",
+    "ai_access_level": "allow",
     "counter_id": "example",
-    "created_at": "example",
     "data_export_forbidden": "off",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "description": ""
   }
   ```
 
@@ -8492,26 +6751,20 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **monitoring**
 
-  **Type**: [monitoring2](#entity-monitoring21)
+  **Type**: [monitoring2](#entity-monitoring2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
-    "created_at": "example",
     "delegation_is_set": true,
     "description": "",
     "folder_id": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "service_account_id": "example",
-    "updated_at": "example",
-    "workbook_id": "null"
+    "service_account_id": "example"
   }
   ```
 
@@ -8519,20 +6772,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **moysklad**
 
-  **Type**: [moysklad2](#entity-ch_billing_analytics21)
+  **Type**: [moysklad2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8546,22 +6793,16 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "port": 0,
     "raw_sql_level": "off",
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8575,30 +6816,31 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
     "connection_manager_folder_id": "example",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "enforce_collate": "off",
     "host": "example",
-    "id": "example",
-    "key": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
-    "meta": {},
+    "mode": "null",
     "port": 0,
     "raw_sql_level": "off",
     "ssl_enable": "off",
-    "updated_at": "example",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -8612,24 +6854,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_connect_method": "sid",
     "db_name": "example",
     "description": "",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "port": 0,
     "raw_sql_level": "off",
     "ssl_enable": "off",
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8643,30 +6879,31 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
     "connection_manager_cloud_id": "example",
     "connection_manager_connection_id": "example",
     "connection_manager_delegation_is_set": true,
     "connection_manager_folder_id": "example",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
+    "dlp_managed_cloud_id": "example",
+    "dlp_managed_cluster_id": "example",
+    "dlp_managed_connection_manager_connection_id": "example",
+    "dlp_managed_connection_manager_delegation_is_set": true,
+    "dlp_managed_folder_id": "example",
     "enforce_collate": "auto",
     "host": "example",
-    "id": "example",
-    "key": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
-    "meta": {},
+    "mode": "null",
     "port": 0,
     "raw_sql_level": "off",
     "ssl_enable": "off",
-    "updated_at": "example",
     "username": "example",
-    "workbook_id": "null"
+    "variant": "default"
   }
   ```
 
@@ -8680,24 +6917,18 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_type": "password",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "path": "example",
     "port": 0,
     "secure": true,
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8705,20 +6936,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **smb_heatmaps**
 
-  **Type**: [smb_heatmaps2](#entity-ch_billing_analytics21)
+  **Type**: [smb_heatmaps2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8733,22 +6958,17 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
   ```json translate=no
   {
     "account_name": "example",
+    "ai_access_level": "allow",
     "client_id": "example",
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "description": "",
-    "id": "example",
-    "key": "example",
     "raw_sql_level": "off",
     "refresh_token_expire_time": "2025-01-01T00:00:00Z",
     "schema": "example",
-    "updated_at": "example",
     "user_name": "example",
     "user_role": "example",
-    "warehouse": "example",
-    "workbook_id": "null"
+    "warehouse": "example"
   }
   ```
 
@@ -8756,27 +6976,21 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **speechsense**
 
-  **Type**: [speechsense2](#entity-speechsense21)
+  **Type**: [speechsense2](#entity-speechsense2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_type": "user_credentials",
     "cloud_id": "null",
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "delegation_is_set": null,
     "description": "",
     "folder_id": "null",
-    "id": "example",
-    "key": "example",
-    "meta": {},
     "project_id": "example",
-    "service_account_id": "null",
-    "updated_at": "example",
-    "workbook_id": "null"
+    "service_account_id": "null"
   }
   ```
 
@@ -8790,30 +7004,27 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
-    "auth_type": null,
+    "ai_access_level": "allow",
+    "auth_type": "certificate",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
-    "created_at": "example",
+    "cluster_entry_id": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "delegation_is_set": true,
     "description": "",
+    "extra_credentials": {},
     "folder_id": "example",
+    "form_fill_mode": "cloud",
     "host": "example",
-    "id": "example",
-    "key": "example",
-    "listing_sources": null,
+    "listing_sources": "off",
     "mdb_cluster_id": "example",
-    "meta": {},
     "port": 0,
     "raw_sql_level": "off",
     "service_account_id": "example",
     "ssl_enable": "off",
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8821,20 +7032,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **usage_analytics_detailed**
 
-  **Type**: [usage_analytics_detailed2](#entity-ch_billing_analytics21)
+  **Type**: [usage_analytics_detailed2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8842,20 +7047,14 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **usage_analytics_light**
 
-  **Type**: [usage_analytics_light2](#entity-ch_billing_analytics21)
+  **Type**: [usage_analytics_light2](#entity-ch_billing_analytics2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
-    "collection_id": "null",
-    "created_at": "example",
-    "description": "",
-    "id": "example",
-    "key": "example",
-    "meta": {},
-    "updated_at": "example",
-    "workbook_id": "null"
+    "ai_access_level": "allow",
+    "description": ""
   }
   ```
 
@@ -8869,29 +7068,24 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "auth_type": "anonymous",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "db_name": "example",
     "delegation_is_set": true,
     "description": "",
     "folder_id": "example",
     "host": "example",
-    "id": "example",
-    "key": "example",
     "mdb_cluster_id": "example",
     "mdb_folder_id": "example",
     "port": 0,
     "raw_sql_level": "off",
     "service_account_id": "example",
     "ssl_enable": "on",
-    "updated_at": "example",
-    "username": "example",
-    "workbook_id": "null"
+    "username": "example"
   }
   ```
 
@@ -8899,27 +7093,22 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 - **yq**
 
-  **Type**: [yq2](#entity-yq21)
+  **Type**: [yq2](#entity-yq2)
 
   {% cut "**Example**" %}{.json-schema-example}
 
   ```json translate=no
   {
+    "ai_access_level": "allow",
     "cache_invalidation_throttling_interval_sec": null,
     "cache_ttl_sec": null,
     "cloud_id": "example",
-    "collection_id": "null",
-    "created_at": "example",
     "data_export_forbidden": "off",
     "delegation_is_set": true,
     "description": "",
     "folder_id": "example",
-    "id": "example",
-    "key": "example",
     "raw_sql_level": "off",
-    "service_account_id": "example",
-    "updated_at": "example",
-    "workbook_id": "null"
+    "service_account_id": "example"
   }
   ```
 
@@ -8932,16 +7121,10 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 ```json translate=no
 {
   "accuracy": null,
-  "collection_id": "null",
+  "ai_access_level": "allow",
   "counter_id": "example",
-  "created_at": "example",
   "data_export_forbidden": "off",
-  "description": "",
-  "id": "example",
-  "key": "example",
-  "meta": {},
-  "updated_at": "example",
-  "workbook_id": "null"
+  "description": ""
 }
 ```
 

@@ -183,8 +183,7 @@ Timestamp of the last modification to the stream or its metadata. ||
 
 Custom user-defined labels as `key:value` pairs.
 Maximum 64 labels per stream.
-Used for organization, filtering, and metadata purposes.
-Labels can be used for organization, filtering, and metadata purposes. ||
+Used for organization, filtering, and metadata purposes. ||
 |#
 
 ## OnDemand {#yandex.cloud.video.v1.OnDemand}

@@ -41,7 +41,7 @@ The cost of support for the new infrastructure includes:
 
 ## Configure a DNS zone {#configure-dns}
 
-Create a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) and delegate your domain to it. For more about delegating domains, see [this guide](../../troubleshooting/dns/how-to/delegate-public-zone.md).
+Create a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) and delegate your domain to it. For more about delegating domains, see [this guide](../../dns/operations/zone-create-public.md).
 
 {% include [configure-dns](../_tutorials_includes/website/configure-dns.md) %}
 

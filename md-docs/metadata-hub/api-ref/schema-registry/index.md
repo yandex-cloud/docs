@@ -3,6 +3,13 @@
 # API Schema Registry
 
 
+{% note warning %}
+
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../../concepts/schema-registry-sunset.md).
+
+{% endnote %}
+
+
 После [авторизации с помощью IAM-токена](../authentication.md) вы можете использовать следующие HTTP-запросы:
 
 ## NamespaceService {#namespace-service}

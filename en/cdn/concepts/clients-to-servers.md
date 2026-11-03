@@ -1,4 +1,9 @@
-# Configuring data exchange between clients and the CDN
+---
+title: Client–CDN data exchange settings in {{ cdn-full-name }}
+description: 'Settings for connections between clients and {{ cdn-name }}: protocols, certificates, HTTP headers and methods, CORS, and content compression. Request body restrictions for GET, HEAD, and OPTIONS.'
+---
+
+# Client–CDN data exchange settings
 
 When a client uses your service to request a file published via {{ cdn-name }}, an HTTP or HTTPS connection is established between the client and the CDN load balancer, depending on the URI scheme: `http://cdn.example.com/styles/common.css` or `https://cdn.example.com/styles/common.css`.
 
@@ -15,3 +20,7 @@ For connections between clients and the CDN, you can configure:
   {% include [post-method](../../_includes/cdn/http-post-method.md) %}
 
 * [Sending compressed content](compression.md) using the `Content-Encoding: gzip` HTTP header.
+
+## Request body restrictions {#request-body}
+
+{% include [http-request-body](../../_includes/cdn/http-request-body.md) %}

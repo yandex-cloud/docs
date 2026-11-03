@@ -2,6 +2,8 @@
 
 * [How can I migrate data from {{ GL }} to {{ mgl-name }}?](#migration)
 
+* [How do I update the {{ mgl-name }} instance software?](#update-gitlab)
+
 * [Can I integrate {{ GL }} authentication providers?](#auth-provider)
 
 * [Can I use Yandex ID or Yandex 360 for authentication?](#auth-yandex-id)
@@ -10,7 +12,9 @@
 
 * [Why cannot I push changes to my {{ mgl-name }} repository?](#push)
 
-* [I get `500 Internal Server Error` when opening my instance. What could be the issue?](#500-error)
+* [What should I do if I get a HTTP 413 error during `git push`?](#413-error)
+
+* [What should I do if I get a HTTP 500 or HTTP 502 error when opening an instance?](#500-error)
 
 * [How can I clear pipeline logs to free up disk space?](#pipeline-cleanup)
 

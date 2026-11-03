@@ -117,7 +117,11 @@ _Example:_{.json-schema-reset .json-schema-example} `3`
         {}
       ],
       "template_enabled": false
-    }
+    },
+    "mode": "publish",
+    "publishedId": "null",
+    "revId": "null",
+    "savedId": "null"
   },
   "workbookId": "example"
 }
@@ -248,7 +252,11 @@ _data_{.json-schema-reset .json-schema-property}
       }
     ],
     "template_enabled": false
-  }
+  },
+  "mode": "publish",
+  "publishedId": "null",
+  "revId": "null",
+  "savedId": "null"
 }
 ```
 
@@ -709,7 +717,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 <div class="openapi-entity">
 
-### formula1 {#entity-formula1}
+### FormulaCalculationSpec {#entity-FormulaCalculationSpec}
 
 #|
 || **Name** | **Description** ||
@@ -767,7 +775,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `none`, `sum`, `avg`, `min`, `max
 
 _calc_spec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [formula1](#entity-formula1)
+**Type**: [FormulaCalculationSpec](#entity-FormulaCalculationSpec)
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -1236,9 +1244,9 @@ _Default:_{.json-schema-reset .json-schema-value} `null`
 
 _code_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
 ||
@@ -1294,7 +1302,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 ```json translate=no
 {
-  "code": null,
+  "code": "example",
   "details": {},
   "level": "error",
   "message": "example"
@@ -1322,7 +1330,7 @@ _errors_{.json-schema-reset .json-schema-property}
 ```json translate=no
 [
   {
-    "code": null,
+    "code": "example",
     "details": {},
     "level": "error",
     "message": "example"
@@ -1359,7 +1367,7 @@ _Enum:_{.json-schema-reset .json-schema-value} `data_source`, `source_avatar`, `
 {
   "errors": [
     {
-      "code": null,
+      "code": "example",
       "details": {},
       "level": "error",
       "message": "example"
@@ -1393,7 +1401,7 @@ _items_{.json-schema-reset .json-schema-property}
   {
     "errors": [
       {
-        "code": null,
+        "code": "example",
         "details": {},
         "level": "error",
         "message": "example"
@@ -1418,7 +1426,7 @@ _items_{.json-schema-reset .json-schema-property}
     {
       "errors": [
         {
-          "code": null,
+          "code": "example",
           "details": {},
           "level": "error",
           "message": "example"
@@ -2690,6 +2698,15 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _table_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -2705,6 +2722,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -3408,6 +3426,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -3476,6 +3495,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -3526,6 +3546,15 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _table_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -3541,6 +3570,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 {
   "dataset_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -3629,6 +3659,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "dataset_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -3697,6 +3728,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "dataset_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -3729,6 +3761,15 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
 || **Name** | **Description** ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _subsql_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -3742,6 +3783,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -3828,6 +3870,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -3894,6 +3937,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -3998,6 +4042,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -4066,6 +4111,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -4170,6 +4216,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -4238,6 +4285,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -4342,6 +4390,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -4410,6 +4459,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -4514,6 +4564,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -4582,6 +4633,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -4614,6 +4666,15 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
 || **Name** | **Description** ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _table_names_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -4627,6 +4688,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 ```json translate=no
 {
+  "manual": null,
   "table_names": "example"
 }
 ```
@@ -4713,6 +4775,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "table_names": "example"
 }
 ```
@@ -4779,6 +4842,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "table_names": "example"
   },
   "raw_schema": [
@@ -4820,6 +4884,15 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _range_from_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
@@ -4843,6 +4916,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ```json translate=no
 {
   "directory_path": "example",
+  "manual": null,
   "range_from": "example",
   "range_to": "example"
 }
@@ -4931,6 +5005,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 ```json translate=no
 {
   "directory_path": "example",
+  "manual": null,
   "range_from": "example",
   "range_to": "example"
 }
@@ -4999,6 +5074,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "managed_by": "user",
   "parameters": {
     "directory_path": "example",
+    "manual": null,
     "range_from": "example",
     "range_to": "example"
   },
@@ -5102,6 +5178,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -5168,6 +5245,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -5272,6 +5350,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -5340,6 +5419,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -5442,6 +5522,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -5508,6 +5589,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -5612,6 +5694,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -5680,6 +5763,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -5784,6 +5868,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -5852,6 +5937,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -5902,6 +5988,15 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _schema_name_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -5926,6 +6021,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -6015,6 +6111,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -6084,6 +6181,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -6187,6 +6285,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -6253,6 +6352,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -6283,12 +6383,23 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
 
 #|
 || **Name** | **Description** ||
+||
+
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
 |#{.json-schema-properties}
 
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -6372,7 +6483,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -6436,7 +6549,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "id": "example",
   "index_info_set": null,
   "managed_by": "user",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -6536,7 +6651,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -6600,7 +6717,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "id": "example",
   "index_info_set": null,
   "managed_by": "user",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -6703,6 +6822,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -6771,6 +6891,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -6875,6 +6996,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -6943,6 +7065,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -7044,7 +7167,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -7108,7 +7233,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "id": "example",
   "index_info_set": null,
   "managed_by": "user",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -7211,6 +7338,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -7279,6 +7407,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -7383,6 +7512,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -7452,6 +7582,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -7555,6 +7686,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -7621,6 +7753,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -7725,6 +7858,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -7793,6 +7927,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -7895,6 +8030,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -7961,6 +8097,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -8065,6 +8202,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -8134,6 +8272,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -8237,6 +8376,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -8303,6 +8443,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -8407,6 +8548,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -8476,6 +8618,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -8579,6 +8722,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -8645,6 +8789,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -8746,7 +8891,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -8810,7 +8957,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "id": "example",
   "index_info_set": null,
   "managed_by": "user",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -8913,6 +9062,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -8981,6 +9131,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -9022,6 +9173,15 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_manual_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _schema_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string &#124; null
@@ -9045,6 +9205,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ```json translate=no
 {
   "db_name": "example",
+  "manual": null,
   "schema": "example",
   "table_name": "example"
 }
@@ -9133,6 +9294,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 ```json translate=no
 {
   "db_name": "example",
+  "manual": null,
   "schema": "example",
   "table_name": "example"
 }
@@ -9201,6 +9363,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "managed_by": "user",
   "parameters": {
     "db_name": "example",
+    "manual": null,
     "schema": "example",
     "table_name": "example"
   },
@@ -9306,6 +9469,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -9374,6 +9538,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -9478,6 +9643,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -9547,6 +9713,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -9650,6 +9817,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -9716,6 +9884,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -9820,6 +9989,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -9888,6 +10058,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -9992,6 +10163,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -10060,6 +10232,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -10164,6 +10337,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -10232,6 +10406,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -10334,6 +10509,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -10400,6 +10576,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -10504,6 +10681,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -10572,6 +10750,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -10674,6 +10853,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -10740,6 +10920,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "index_info_set": null,
   "managed_by": "user",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -10789,6 +10970,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -10826,6 +11008,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "dataset_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -10861,6 +11044,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -10898,6 +11082,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -10935,6 +11120,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -10972,6 +11158,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11009,6 +11196,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11044,6 +11232,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "table_names": "example"
     },
     "raw_schema": [
@@ -11080,6 +11269,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "managed_by": "user",
     "parameters": {
       "directory_path": "example",
+      "manual": null,
       "range_from": "example",
       "range_to": "example"
     },
@@ -11116,6 +11306,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11153,6 +11344,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11188,6 +11380,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11225,6 +11418,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11262,6 +11456,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11299,6 +11494,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -11335,6 +11531,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11369,7 +11566,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "id": "example",
     "index_info_set": null,
     "managed_by": "user",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -11402,7 +11601,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "id": "example",
     "index_info_set": null,
     "managed_by": "user",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -11438,6 +11639,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11475,6 +11677,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11509,7 +11712,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "id": "example",
     "index_info_set": null,
     "managed_by": "user",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -11545,6 +11750,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11582,6 +11788,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -11618,6 +11825,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11655,6 +11863,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11690,6 +11899,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11727,6 +11937,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -11763,6 +11974,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11800,6 +12012,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -11836,6 +12049,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -11870,7 +12084,9 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "id": "example",
     "index_info_set": null,
     "managed_by": "user",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -11906,6 +12122,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -11942,6 +12159,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "managed_by": "user",
     "parameters": {
       "db_name": "example",
+      "manual": null,
       "schema": "example",
       "table_name": "example"
     },
@@ -11980,6 +12198,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12017,6 +12236,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -12053,6 +12273,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -12090,6 +12311,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12127,6 +12349,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12164,6 +12387,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12199,6 +12423,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -12236,6 +12461,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12271,6 +12497,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
     "index_info_set": null,
     "managed_by": "user",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -12306,6 +12533,7 @@ _Default:_{.json-schema-reset .json-schema-value} `true`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -12411,7 +12639,7 @@ _component_errors_{.json-schema-reset .json-schema-property}
     {
       "errors": [
         {
-          "code": null,
+          "code": "example",
           "details": {},
           "level": "error",
           "message": "example"
@@ -12671,6 +12899,7 @@ _sources_{.json-schema-reset .json-schema-property}
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -12814,6 +13043,7 @@ _Default:_{.json-schema-reset .json-schema-value} `false`
       "parameters": {
         "db_name": "example",
         "db_version": "example",
+        "manual": null,
         "table_name": "example"
       },
       "raw_schema": [
@@ -12842,9 +13072,9 @@ _Default:_{.json-schema-reset .json-schema-value} `false`
 
 _conn_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `appmetrica_api`, `bigquery`, `bitrix24`, `ch_billing_analytics`, `ch_ya_music_podcast_stats`, `chyt`, `clickhouse`, `equeo`, `extractor1c`, `greenplum`, `gsheets`, `json_api`, `kontur_market`, `metrika_api`, `monitoring`, `moysklad`, `mssql`, `mysql`, `oracle`, `postgres`, `promql`, `smb_heatmaps`, `snowflake`, `speechsense`, `trino`, `unknown`, `usage_analytics_detailed`, `usage_analytics_light`, `ydb`, `yq`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -12853,7 +13083,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
 
 ```json translate=no
 {
-  "conn_type": null
+  "conn_type": "appmetrica_api"
 }
 ```
 
@@ -12887,7 +13117,7 @@ _replacement_types_{.json-schema-reset .json-schema-property}
 ```json translate=no
 [
   {
-    "conn_type": null
+    "conn_type": "appmetrica_api"
   }
 ]
 ```
@@ -12904,7 +13134,7 @@ _replacement_types_{.json-schema-reset .json-schema-property}
   "id": "example",
   "replacement_types": [
     {
-      "conn_type": null
+      "conn_type": "appmetrica_api"
     }
   ]
 }
@@ -12931,7 +13161,7 @@ _compatible_types_{.json-schema-reset .json-schema-property}
 ```json translate=no
 [
   {
-    "conn_type": null
+    "conn_type": "appmetrica_api"
   }
 ]
 ```
@@ -12953,7 +13183,7 @@ _items_{.json-schema-reset .json-schema-property}
     "id": "example",
     "replacement_types": [
       {
-        "conn_type": null
+        "conn_type": "appmetrica_api"
       }
     ]
   }
@@ -12978,7 +13208,7 @@ _max_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "conn_type": null
+      "conn_type": "appmetrica_api"
     }
   ],
   "items": [
@@ -13359,7 +13589,7 @@ _enabled_{.json-schema-reset .json-schema-property}
 
 <div class="openapi-entity">
 
-### SourceListItem {#entity-SourceListItem}
+### AvatarsSourceListItem {#entity-AvatarsSourceListItem}
 
 #|
 || **Name** | **Description** ||
@@ -13404,7 +13634,7 @@ _schema_update_enabled_{.json-schema-reset .json-schema-property}
 
 _items_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [SourceListItem](#entity-SourceListItem)[]
+**Type**: [AvatarsSourceListItem](#entity-AvatarsSourceListItem)[]
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -13478,6 +13708,13 @@ _supports_db_name_listing_{.json-schema-reset .json-schema-property}
 ||
 ||
 
+_supports_query_pagination_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: boolean
+{.table-cell}
+||
+||
+
 _supports_source_pagination_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: boolean
@@ -13499,6 +13736,7 @@ _supports_source_search_{.json-schema-reset .json-schema-property}
   "db_name_label": "example",
   "db_name_required_for_search": true,
   "supports_db_name_listing": true,
+  "supports_query_pagination": true,
   "supports_source_pagination": true,
   "supports_source_search": true
 }
@@ -13518,9 +13756,9 @@ _supports_source_search_{.json-schema-reset .json-schema-property}
 
 _source_type_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: unknown
+**Type**: string
 
-_Example:_{.json-schema-reset .json-schema-example} `null`
+_Enum:_{.json-schema-reset .json-schema-value} `APPMETRICA_API`, `BIGQUERY_SUBSELECT`, `BIGQUERY_TABLE`, `BITRIX_GDS`, `CHYT_YTSAURUS_SUBSELECT`, `CHYT_YTSAURUS_TABLE`, `CHYT_YTSAURUS_TABLE_LIST`, `CHYT_YTSAURUS_TABLE_RANGE`, `CH_BILLING_ANALYTICS_TABLE`, `CH_SMB_HEATMAPS_TABLE`, `CH_SUBSELECT`, `CH_TABLE`, `CH_USAGE_TRACKING_AGG_TABLE`, `CH_USAGE_TRACKING_TABLE`, `CH_YA_MUSIC_PODCAST_STATS_TABLE`, `EQUEO_CH_TABLE`, `EXTRACTOR_1C_CH_TABLE`, `GP_SUBSELECT`, `GP_TABLE`, `GSHEETS`, `JSON_API`, `KONTUR_MARKET_CH_TABLE`, `METRIKA_API`, `MONITORING`, `MOYSKLAD_CH_TABLE`, `MSSQL_SUBSELECT`, `MSSQL_TABLE`, `MYSQL_SUBSELECT`, `MYSQL_TABLE`, `ORACLE_SUBSELECT`, `ORACLE_TABLE`, `PG_SUBSELECT`, `PG_TABLE`, `PROMQL`, `SNOWFLAKE_SUBSELECT`, `SNOWFLAKE_TABLE`, `SPEECHSENSE_TABLE`, `TRINO_SUBSELECT`, `TRINO_TABLE`, `YDB_SUBSELECT`, `YDB_TABLE`, `YQ_SUBSELECT`, `YQ_TABLE`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -13529,7 +13767,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
 
 ```json translate=no
 {
-  "source_type": null
+  "source_type": "APPMETRICA_API"
 }
 ```
 
@@ -13554,7 +13792,7 @@ _compatible_types_{.json-schema-reset .json-schema-property}
 ```json translate=no
 [
   {
-    "source_type": null
+    "source_type": "APPMETRICA_API"
   }
 ]
 ```
@@ -13566,7 +13804,7 @@ _compatible_types_{.json-schema-reset .json-schema-property}
 
 _items_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [SourceListItem1](#entity-SourceListItem1)[]
+**Type**: [SourcesSourceListItem](#entity-SourcesSourceListItem)[]
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -13597,7 +13835,7 @@ _max_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "source_type": null
+      "source_type": "APPMETRICA_API"
     }
   ],
   "items": [
@@ -13632,7 +13870,7 @@ _connections_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "conn_type": null
+      "conn_type": "appmetrica_api"
     }
   ],
   "items": [
@@ -13789,6 +14027,7 @@ _source_listing_{.json-schema-reset .json-schema-property}
   "db_name_label": "example",
   "db_name_required_for_search": true,
   "supports_db_name_listing": true,
+  "supports_query_pagination": true,
   "supports_source_pagination": true,
   "supports_source_search": true
 }
@@ -13809,7 +14048,7 @@ _sources_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "source_type": null
+      "source_type": "APPMETRICA_API"
     }
   ],
   "items": [
@@ -13858,7 +14097,7 @@ _supports_offset_{.json-schema-reset .json-schema-property}
   "connections": {
     "compatible_types": [
       {
-        "conn_type": null
+        "conn_type": "appmetrica_api"
       }
     ],
     "items": [
@@ -13925,13 +14164,14 @@ _supports_offset_{.json-schema-reset .json-schema-property}
     "db_name_label": "example",
     "db_name_required_for_search": true,
     "supports_db_name_listing": true,
+    "supports_query_pagination": true,
     "supports_source_pagination": true,
     "supports_source_search": true
   },
   "sources": {
     "compatible_types": [
       {
-        "source_type": null
+        "source_type": "APPMETRICA_API"
       }
     ],
     "items": [
@@ -14073,6 +14313,7 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
       "parameters": {
         "db_name": "example",
         "db_version": "example",
+        "manual": null,
         "table_name": "example"
       },
       "raw_schema": [
@@ -14088,6 +14329,44 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
 ```
 
 {% endcut %}
+{.table-cell}
+||
+||
+
+_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Default:_{.json-schema-reset .json-schema-value} `publish`
+
+_Enum:_{.json-schema-reset .json-schema-value} `publish`, `save`
+{.table-cell}
+||
+||
+
+_publishedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
+_revId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
+_savedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -14198,7 +14477,11 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
       }
     ],
     "template_enabled": false
-  }
+  },
+  "mode": "publish",
+  "publishedId": "null",
+  "revId": "null",
+  "savedId": "null"
 }
 ```
 
@@ -14345,7 +14628,7 @@ Response
     "connections": {
       "compatible_types": [
         {
-          "conn_type": null
+          "conn_type": "appmetrica_api"
         }
       ],
       "items": [
@@ -14413,13 +14696,14 @@ Response
       "db_name_label": "example",
       "db_name_required_for_search": true,
       "supports_db_name_listing": true,
+      "supports_query_pagination": true,
       "supports_source_pagination": true,
       "supports_source_search": true
     },
     "sources": {
       "compatible_types": [
         {
-          "source_type": null
+          "source_type": "APPMETRICA_API"
         }
       ],
       "items": [
@@ -14437,7 +14721,10 @@ Response
   },
   "permissions": {},
   "pub_operation_id": "example",
+  "publishedId": "null",
+  "revId": "null",
   "row_count": 0,
+  "savedId": "null",
   "workbook_id": "example"
 }
 ```
@@ -14567,6 +14854,7 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
       "parameters": {
         "db_name": "example",
         "db_version": "example",
+        "manual": null,
         "table_name": "example"
       },
       "raw_schema": [
@@ -14599,8 +14887,6 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 _ctime_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
-
-_Pattern:_{.json-schema-reset .json-schema-assertion} `null`
 
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
@@ -14663,8 +14949,6 @@ _mtime_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: string
 
-_Pattern:_{.json-schema-reset .json-schema-assertion} `null`
-
 _Example:_{.json-schema-reset .json-schema-example} `example`
 {.table-cell}
 ||
@@ -14690,7 +14974,7 @@ _options_{.json-schema-reset .json-schema-property}
   "connections": {
     "compatible_types": [
       {
-        "conn_type": null
+        "conn_type": "appmetrica_api"
       }
     ],
     "items": [
@@ -14758,13 +15042,14 @@ _options_{.json-schema-reset .json-schema-property}
     "db_name_label": "example",
     "db_name_required_for_search": true,
     "supports_db_name_listing": true,
+    "supports_query_pagination": true,
     "supports_source_pagination": true,
     "supports_source_search": true
   },
   "sources": {
     "compatible_types": [
       {
-        "source_type": null
+        "source_type": "APPMETRICA_API"
       }
     ],
     "items": [
@@ -14823,9 +15108,36 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 ||
 ||
 
+_publishedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
+_revId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
 _row_count_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: integer
+{.table-cell}
+||
+||
+
+_savedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 ||
@@ -15005,7 +15317,7 @@ _autoaggregated_{.json-schema-reset .json-schema-property}
 
 _calc_spec_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [formula1](#entity-formula1)
+**Type**: [FormulaCalculationSpec](#entity-FormulaCalculationSpec)
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -16313,6 +16625,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -16391,6 +16704,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -16505,6 +16819,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "dataset_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -16583,6 +16898,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "dataset_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -16695,6 +17011,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -16771,6 +17088,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -16885,6 +17203,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -16963,6 +17282,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -17077,6 +17397,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -17155,6 +17476,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -17269,6 +17591,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -17347,6 +17670,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -17461,6 +17785,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -17539,6 +17864,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -17651,6 +17977,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "table_names": "example"
 }
 ```
@@ -17727,6 +18054,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "table_names": "example"
   },
   "raw_schema": [
@@ -17840,6 +18168,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 ```json translate=no
 {
   "directory_path": "example",
+  "manual": null,
   "range_from": "example",
   "range_to": "example"
 }
@@ -17918,6 +18247,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameter_hash": "example",
   "parameters": {
     "directory_path": "example",
+    "manual": null,
     "range_from": "example",
     "range_to": "example"
   },
@@ -18031,6 +18361,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -18107,6 +18438,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -18221,6 +18553,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -18299,6 +18632,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -18411,6 +18745,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -18487,6 +18822,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -18601,6 +18937,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -18679,6 +19016,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -18793,6 +19131,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -18871,6 +19210,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -18985,6 +19325,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -19064,6 +19405,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -19177,6 +19519,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -19253,6 +19596,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -19364,7 +19708,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -19438,7 +19784,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "index_info_set": null,
   "managed_by": "user",
   "parameter_hash": "example",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -19548,7 +19896,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -19622,7 +19972,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "index_info_set": null,
   "managed_by": "user",
   "parameter_hash": "example",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -19735,6 +20087,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -19813,6 +20166,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -19927,6 +20281,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -20005,6 +20360,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -20116,7 +20472,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -20190,7 +20548,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "index_info_set": null,
   "managed_by": "user",
   "parameter_hash": "example",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -20303,6 +20663,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -20381,6 +20742,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -20495,6 +20857,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -20574,6 +20937,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -20687,6 +21051,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -20763,6 +21128,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -20877,6 +21243,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -20955,6 +21322,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -21067,6 +21435,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -21143,6 +21512,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -21257,6 +21627,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -21336,6 +21707,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -21449,6 +21821,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -21525,6 +21898,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -21639,6 +22013,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -21718,6 +22093,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -21831,6 +22207,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -21907,6 +22284,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -22018,7 +22396,9 @@ _parameters_{.json-schema-reset .json-schema-property}
 {% cut "**Example**" %}{.json-schema-example}
 
 ```json translate=no
-{}
+{
+  "manual": null
+}
 ```
 
 {% endcut %}
@@ -22092,7 +22472,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "index_info_set": null,
   "managed_by": "user",
   "parameter_hash": "example",
-  "parameters": {},
+  "parameters": {
+    "manual": null
+  },
   "raw_schema": [
     {
       "description": "example",
@@ -22205,6 +22587,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -22283,6 +22666,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -22396,6 +22780,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 ```json translate=no
 {
   "db_name": "example",
+  "manual": null,
   "schema": "example",
   "table_name": "example"
 }
@@ -22474,6 +22859,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameter_hash": "example",
   "parameters": {
     "db_name": "example",
+    "manual": null,
     "schema": "example",
     "table_name": "example"
   },
@@ -22589,6 +22975,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -22667,6 +23054,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -22781,6 +23169,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "schema_name": "example",
   "table_name": "example"
 }
@@ -22860,6 +23249,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "schema_name": "example",
     "table_name": "example"
   },
@@ -22973,6 +23363,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -23049,6 +23440,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -23163,6 +23555,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -23241,6 +23634,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -23355,6 +23749,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -23433,6 +23828,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -23547,6 +23943,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -23625,6 +24022,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -23737,6 +24135,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -23813,6 +24212,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -23927,6 +24327,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 {
   "db_name": "example",
   "db_version": "example",
+  "manual": null,
   "table_name": "example"
 }
 ```
@@ -24005,6 +24406,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -24117,6 +24519,7 @@ _parameters_{.json-schema-reset .json-schema-property}
 
 ```json translate=no
 {
+  "manual": null,
   "subsql": "example"
 }
 ```
@@ -24193,6 +24596,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "managed_by": "user",
   "parameter_hash": "example",
   "parameters": {
+    "manual": null,
     "subsql": "example"
   },
   "raw_schema": [
@@ -24244,6 +24648,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24283,6 +24688,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "dataset_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24320,6 +24726,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -24359,6 +24766,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24398,6 +24806,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24437,6 +24846,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24476,6 +24886,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24513,6 +24924,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "table_names": "example"
     },
     "raw_schema": [
@@ -24551,6 +24963,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameter_hash": "example",
     "parameters": {
       "directory_path": "example",
+      "manual": null,
       "range_from": "example",
       "range_to": "example"
     },
@@ -24589,6 +25002,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -24628,6 +25042,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24665,6 +25080,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -24704,6 +25120,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24743,6 +25160,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24782,6 +25200,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -24820,6 +25239,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -24856,7 +25276,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "index_info_set": null,
     "managed_by": "user",
     "parameter_hash": "example",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -24891,7 +25313,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "index_info_set": null,
     "managed_by": "user",
     "parameter_hash": "example",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -24929,6 +25353,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -24968,6 +25393,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25004,7 +25430,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "index_info_set": null,
     "managed_by": "user",
     "parameter_hash": "example",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -25042,6 +25470,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25081,6 +25510,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -25119,6 +25549,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25158,6 +25589,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25195,6 +25627,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25234,6 +25667,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -25272,6 +25706,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25311,6 +25746,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -25349,6 +25785,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25385,7 +25822,9 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "index_info_set": null,
     "managed_by": "user",
     "parameter_hash": "example",
-    "parameters": {},
+    "parameters": {
+      "manual": null
+    },
     "raw_schema": [
       {
         "description": "example",
@@ -25423,6 +25862,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25461,6 +25901,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameter_hash": "example",
     "parameters": {
       "db_name": "example",
+      "manual": null,
       "schema": "example",
       "table_name": "example"
     },
@@ -25501,6 +25942,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25540,6 +25982,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "schema_name": "example",
       "table_name": "example"
     },
@@ -25578,6 +26021,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25617,6 +26061,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25656,6 +26101,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25695,6 +26141,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25732,6 +26179,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25771,6 +26219,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -25808,6 +26257,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
     "managed_by": "user",
     "parameter_hash": "example",
     "parameters": {
+      "manual": null,
       "subsql": "example"
     },
     "raw_schema": [
@@ -25845,6 +26295,7 @@ _Example:_{.json-schema-reset .json-schema-example} `null`
   "parameters": {
     "db_name": "example",
     "db_version": "example",
+    "manual": null,
     "table_name": "example"
   },
   "raw_schema": [
@@ -25952,7 +26403,7 @@ _component_errors_{.json-schema-reset .json-schema-property}
     {
       "errors": [
         {
-          "code": null,
+          "code": "example",
           "details": {},
           "level": "error",
           "message": "example"
@@ -26218,6 +26669,7 @@ _sources_{.json-schema-reset .json-schema-property}
     "parameters": {
       "db_name": "example",
       "db_version": "example",
+      "manual": null,
       "table_name": "example"
     },
     "raw_schema": [
@@ -26369,6 +26821,7 @@ _Default:_{.json-schema-reset .json-schema-value} `false`
       "parameters": {
         "db_name": "example",
         "db_version": "example",
+        "manual": null,
         "table_name": "example"
       },
       "raw_schema": [
@@ -26405,7 +26858,7 @@ _compatible_types_{.json-schema-reset .json-schema-property}
 ```json translate=no
 [
   {
-    "source_type": null
+    "source_type": "APPMETRICA_API"
   }
 ]
 ```
@@ -26417,7 +26870,7 @@ _compatible_types_{.json-schema-reset .json-schema-property}
 
 _items_{.json-schema-reset .json-schema-property}
 {.table-cell}|
-**Type**: [SourceListItem1](#entity-SourceListItem)[]
+**Type**: [SourcesSourceListItem](#entity-AvatarsSourceListItem)[]
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -26448,7 +26901,7 @@ _max_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "source_type": null
+      "source_type": "APPMETRICA_API"
     }
   ],
   "items": [
@@ -26483,7 +26936,7 @@ _connections_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "conn_type": null
+      "conn_type": "appmetrica_api"
     }
   ],
   "items": [
@@ -26647,6 +27100,7 @@ _source_listing_{.json-schema-reset .json-schema-property}
   "db_name_label": "example",
   "db_name_required_for_search": true,
   "supports_db_name_listing": true,
+  "supports_query_pagination": true,
   "supports_source_pagination": true,
   "supports_source_search": true
 }
@@ -26667,7 +27121,7 @@ _sources_{.json-schema-reset .json-schema-property}
 {
   "compatible_types": [
     {
-      "source_type": null
+      "source_type": "APPMETRICA_API"
     }
   ],
   "items": [
@@ -26716,7 +27170,7 @@ _supports_offset_{.json-schema-reset .json-schema-property}
   "connections": {
     "compatible_types": [
       {
-        "conn_type": null
+        "conn_type": "appmetrica_api"
       }
     ],
     "items": [
@@ -26784,13 +27238,14 @@ _supports_offset_{.json-schema-reset .json-schema-property}
     "db_name_label": "example",
     "db_name_required_for_search": true,
     "supports_db_name_listing": true,
+    "supports_query_pagination": true,
     "supports_source_pagination": true,
     "supports_source_search": true
   },
   "sources": {
     "compatible_types": [
       {
-        "source_type": null
+        "source_type": "APPMETRICA_API"
       }
     ],
     "items": [
@@ -26939,6 +27394,7 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
       "parameters": {
         "db_name": "example",
         "db_version": "example",
+        "manual": null,
         "table_name": "example"
       },
       "raw_schema": [
@@ -26959,6 +27415,17 @@ _dataset_{.json-schema-reset .json-schema-property .json-schema-required}
 ||
 ||
 
+_mode_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string
+
+_Default:_{.json-schema-reset .json-schema-value} `publish`
+
+_Enum:_{.json-schema-reset .json-schema-value} `publish`, `save`
+{.table-cell}
+||
+||
+
 _options_{.json-schema-reset .json-schema-property}
 {.table-cell}|
 **Type**: [Options](#entity-Options1)
@@ -26970,7 +27437,7 @@ _options_{.json-schema-reset .json-schema-property}
   "connections": {
     "compatible_types": [
       {
-        "conn_type": null
+        "conn_type": "appmetrica_api"
       }
     ],
     "items": [
@@ -27038,13 +27505,14 @@ _options_{.json-schema-reset .json-schema-property}
     "db_name_label": "example",
     "db_name_required_for_search": true,
     "supports_db_name_listing": true,
+    "supports_query_pagination": true,
     "supports_source_pagination": true,
     "supports_source_search": true
   },
   "sources": {
     "compatible_types": [
       {
-        "source_type": null
+        "source_type": "APPMETRICA_API"
       }
     ],
     "items": [
@@ -27063,6 +27531,33 @@ _options_{.json-schema-reset .json-schema-property}
 ```
 
 {% endcut %}
+{.table-cell}
+||
+||
+
+_publishedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
+_revId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
+{.table-cell}
+||
+||
+
+_savedId_{.json-schema-reset .json-schema-property}
+{.table-cell}|
+**Type**: string &#124; null
+
+_Default:_{.json-schema-reset .json-schema-value} `null`
 {.table-cell}
 ||
 |#{.json-schema-properties}
@@ -27182,11 +27677,12 @@ _options_{.json-schema-reset .json-schema-property}
     ],
     "template_enabled": false
   },
+  "mode": "publish",
   "options": {
     "connections": {
       "compatible_types": [
         {
-          "conn_type": null
+          "conn_type": "appmetrica_api"
         }
       ],
       "items": [
@@ -27254,13 +27750,14 @@ _options_{.json-schema-reset .json-schema-property}
       "db_name_label": "example",
       "db_name_required_for_search": true,
       "supports_db_name_listing": true,
+      "supports_query_pagination": true,
       "supports_source_pagination": true,
       "supports_source_search": true
     },
     "sources": {
       "compatible_types": [
         {
-          "source_type": null
+          "source_type": "APPMETRICA_API"
         }
       ],
       "items": [
@@ -27275,7 +27772,10 @@ _options_{.json-schema-reset .json-schema-property}
       "example"
     ],
     "supports_offset": true
-  }
+  },
+  "publishedId": "null",
+  "revId": "null",
+  "savedId": "null"
 }
 ```
 

@@ -9,6 +9,7 @@ The section below covers the frequently asked questions related to {{ cdn-name }
 
 * [CDN responds to file requests with 3xx codes (redirect)](#responses-3xx)
 * [CDN responds to file requests with 4xx codes (client error)](#responses-4xx)
+* [Why does the CDN return a 413 error for GET, HEAD, and OPTIONS requests?](#request-body-413)
 * [`no such bucket` and `no such key` errors when loading objects through the CDN](#no-such-bucket-no-such-key)
 * [CDN responds to file requests with 5xx codes (server error)](#responses-5xx)
 * [Why are the origin workload and its operation costs increasing?](#origin-load-growth)
@@ -43,11 +44,21 @@ Make sure that:
   * Over the specified protocol: HTTP or HTTPS.
   * With the specified value of the `Host` HTTP header and other headers. 
 
+If the CDN returns a `413` error for a request using the `GET`, `HEAD`, or `OPTIONS` method, [make sure no request body is sent](#request-body-413).
+
+## Why does the CDN return a 413 error for GET, HEAD, and OPTIONS requests? {#request-body-413}
+
+One of the reasons for a `413 Payload Too Large` error is sending a body in a request with the `GET`, `HEAD`, or `OPTIONS` method. In {{ cdn-name }}, such requests must not contain a body. The error is due to the very presence of a body in the request, so reducing the body size does not eliminate this cause.
+
+Check which HTTP method the client is using and whether it is sending a request body. Remove the body from the `GET`, `HEAD`, or `OPTIONS` request and retry it.
+
+To send data to an [origin](concepts/origins.md), use a suitable method, such as `POST` or `PUT`, supported by that origin. By default, these methods are not available in requests to the CDN. For details on using them, see [this answer to the question regarding the availability of the methods](#post-responses). You can also send data directly to the origin, bypassing the CDN.
+
 ## `no such bucket` and `no such key` errors when loading objects through the CDN {#no-such-bucket-no-such-key}
 
-If objects from an {{ objstorage-name }} bucket do not load through CDN on the first try or load only after refreshing the page, check the origin address and the `Host` HTTP header value in the CDN resource settings. For a bucket origin, these values must match. For info on how to choose the address for a regular bucket or static website hosting, see [How to set up the header properly](concepts/servers-to-origins-host.md#best-practices).
+If objects from an {{ objstorage-name }} bucket do not load through CDN on the first attempt or load only after refreshing the page, check the origin address and the `Host` HTTP header value in the CDN resource settings. For a bucket origin, these values must match. For info on how to choose the appropriate address for a regular bucket or static website hosting, see [How to set up the header properly](concepts/servers-to-origins-host.md#best-practices).
 
-For example, if the origin address is `<bucket_name>.{{ s3-web-host }}`, and the `Host` header is `<bucket_name>.{{ s3-storage-host }}`, requests may throw the `no such bucket` or `no such key` errors.
+For example, if the origin address is `<bucket_name>.{{ s3-web-host }}`, and the `Host` header is `<bucket_name>.{{ s3-storage-host }}`, requests may fail with the `no such bucket` or `no such key` errors.
 
 If the values differ, [change the `Host` header](operations/resources/configure-basics.md) to match the origin address. Wait up to 15 minutes for the settings to take effect, then reload the objects through the CDN.
 
@@ -142,6 +153,6 @@ Navigate to the **{{ ui-key.yacloud.cdn.label_resource-security }}** tab of the 
 
 ## Why does the CDN return the same IP address in different regions? {#returning-only-one-ip-address}
 
-The same IP address when accessing a CDN resource in different regions does not by itself mean that all requests are handled by the same server. The general server selection principle is covered in the [Yandex Cloud CDN overview](concepts/index.md); and resource balancing with a dedicated IP address, in [Dedicated IP addressing](concepts/dedicated-ip-addressing.md).
+The same IP address returned for a CDN resource in different regions does not by itself mean that all requests are handled by the same server. The general server selection principle is covered in the [Yandex Cloud CDN overview](concepts/index.md), and resource balancing with a dedicated IP address, in [Dedicated IP addressing](concepts/dedicated-ip-addressing.md).
 
-To check which servers are handling the requests, compare the values of the `X-Node` HTTP header in responses to requests from different regions. Different values indicate different CDN servers.
+To check which servers handle the requests, compare the values of the `X-Node` HTTP header in responses to requests from different regions. Different values indicate different CDN servers.

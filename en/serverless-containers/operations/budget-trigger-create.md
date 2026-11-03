@@ -117,29 +117,29 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
        ```hcl
        resource "yandex_serverless_triggers" "my_trigger" {
          name = "<trigger_name>"
-         source {
-           billing_budget {
+         source = {
+           billing_budget = {
              billing_account_id = "<billing_account_ID>"
              budget_id          = "<budget_ID>"
            }
          }
-         action {
-           invoke_container {
+         action = [{
+           invoke_container = {
              container_id       = "<container_ID>"
              path               = "<HTTP_path>"
              service_account_id = "<service_account_ID>"
            }
-           retry_policy {
-             retry_attempts = "<number_of_retries>"
+           retry_policy = {
+             retry_attempts = <number_of_retries>
              interval       = "<interval_between_retries>"
            }
-           dead_letter {
-             dead_letter_queue {
+           dead_letter = {
+             dead_letter_queue = {
                queue_arn          = "<Dead_Letter_Queue_ARN>"
                service_account_id = "<service_account_ID>"
              }
            }
-         }
+         }]
        }
        ```
 
@@ -152,7 +152,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
          * `billing_budget`: Budget settings:
 
            * `billing_account_id`: Billing account ID.
-           * `budget_id`: Budget ID. This is an optional parameter. If not specified, the trigger will fire for any budget in the billing account.
+           * `budget_id`: Budget ID. This is an optional setting. If not specified, the trigger will fire for any budget in the billing account.
 
        {% include [tf-triggers-action-container](../../_includes/serverless-containers/tf-triggers-action-container.md) %}
 

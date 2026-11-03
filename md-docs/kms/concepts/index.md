@@ -69,7 +69,7 @@ Key Management Service — сервис для создания ключей ш�
 * Используемый ключ.
 * Субъект (аккаунт в Yandex Cloud или сервисный аккаунт).
 
-Чтобы получить аудитные логи, обратитесь в [службу технической поддержки](https://center.yandex.cloud/support).
+Чтобы собирать аудитные логи, [создайте трейл](../../audit-trails/operations/create-trail.md) в Yandex Audit Trails. Поддерживаемые события перечислены в [справочнике аудитных логов Key Management Service](../at-ref.md).
 
 
 #### Полезные ссылки {#see-also}

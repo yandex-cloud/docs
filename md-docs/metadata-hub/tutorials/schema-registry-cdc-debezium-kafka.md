@@ -3,6 +3,13 @@
 # Создание реестра схем для поставки данных в формате Debezium CDC из Apache Kafka®
 
 
+{% note warning %}
+
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
+
+{% endnote %}
+
+
 Вы можете создать реестр схем, чтобы отслеживать эволюцию схем для источника Apache Kafka® или Yandex Managed Service for Apache Kafka® с помощью сервиса [Yandex Data Transfer](../../data-transfer/index.md). В этом руководстве отслеживается эволюция схем для источника Managed Service for Apache Kafka®. 
 
 Чтобы отследить изменение схем для источника Managed Service for Apache Kafka®:

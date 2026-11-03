@@ -6,7 +6,24 @@ The main advantage of {{ mgl-name }} is lower installation and administration co
 
 You can migrate data from a custom {{ GL }} installation to {{ mgl-name }}. Learn how to do this in [this guide](../../managed-gitlab/operations/instance/migration.md). Before you begin, see [how to run migration](../../managed-gitlab/concepts/migration.md).
 
-You cannot migrate data from {{ GL }}.com to {{ mgl-name }}: migration is only available for {{ GL }} installed on a server or local computer (self-managed {{ GL }}).
+You can migrate projects from {{ GL }}.com by means of [manual exports and imports](../../managed-gitlab/operations/instance/migration.md#self-migration). 
+
+#### How do I update the {{ mgl-name }} instance software? {#update-gitlab}
+
+{{ mgl-name }} instances automatically update their {{ GL }} software as its new released versions are adapted to the {{ yandex-cloud }} environment. You cannot update the software version on your own.
+
+If you need a sooner update, contact [support]({{ link-console-support }}). In the request, specify:
+
+* Instance ID.
+* Required version of {{ GL }}.
+* Desired date and time of the update.
+* Reason for the update.
+
+{% note alert %}
+
+During this operation, both the {{ mgl-name }} instance under update and any data in it will be inaccessible.
+
+{% endnote %}
 
 #### Can I integrate {{ GL }} authentication providers? {#auth-provider}
 
@@ -41,11 +58,27 @@ Users with the `Guest` and `Reporter` roles cannot push changes.
 
 Learn more about roles in [this {{ GL }} guide]({{ gl.docs }}/ee/user/permissions.html).
 
-#### I get 500 Internal Server Error when trying to open my instance. What could be the issue? {#500-error}
+#### What should I do if I get a HTTP 413 error during `git push`? {#413-error}
+
+When sending changes over HTTP or HTTPS, you may get this error:
+
+```text
+error: RPC failed;
+HTTP 413 curl 22
+The requested URL returned error: 413
+```
+
+A single `git push` run cannot send more than 250 MB of data over HTTP or HTTPS. You cannot update nginx settings for an individual instance.
+
+Push the changes via SSH or split them into multiple pushes. For information on how to set up SSH access, see [{#T}](../../managed-gitlab/quickstart.md).
+
+#### What should I do if I get a HTTP 500 or HTTP 502 error when opening an instance? {#500-error}
 
 The instance may run out of disk space. You can [increase the instance disk space](../../managed-gitlab/operations/instance/instance-update.md) on your own.
 
-For details, see [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+See also [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+
+To track disk usage, [set up monitoring and alerts](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration). Container images and build artifacts often take up disk space. To remove them regularly, [configure cleanup policies](../../managed-gitlab/operations/instance/clean-up-disk-space.md#set-cleanup-policy).
 
 #### How can I clear pipeline logs to free up disk space? {#pipeline-cleanup}
 
@@ -64,7 +97,7 @@ See [Setting up alerts in {{ monitoring-name }} for {{ mgl-name }}](../../manage
 
 #### Why are backups not created? {#backup-failed}
 
-If backup creation fails (the `Failed` status), [set up a dedicated security group](../../managed-gitlab/operations/configure-security-group.md) and assign it to the {{ GL }} instance.
+If [backup](../../managed-gitlab/concepts/backup.md) creation fails (the `Failed` status), [set up a dedicated security group](../../managed-gitlab/operations/configure-security-group.md) and assign it to the {{ GL }} instance.
 
 #### Can I change instance type or disk size after the instance has been created? {#change-type-size}
 

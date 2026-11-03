@@ -2489,8 +2489,6 @@ default:
           header_scan_result_sensitive_data: Display sensitive data
           label_field_bucket: Bucket
           tab_issues_title: Parameter validation
-      services:
-        service_compute: Compute Cloud
       settings:
         button_add-empty: Add
         button_add-empty-telegram: Set up
@@ -3059,6 +3057,8 @@ default:
           label_field-name: Name
           label_source-info: Information about source
         scan-jobs:
+          action_pause-job_uHH7x: Deactivate
+          action_resume-job_pXZ4G: Activate
           field_data-sources: Data sources
         scan-resource-group:
           button_select_bucket: Select bucket
@@ -3723,6 +3723,8 @@ default:
           search-categories_section_title_cPyLn: Data categories for search
           section_settings_title_igA6u: Scope parameters
           selected_resources_fbUsF: Selected
+          useScanJobRowAction:
+            action_start-job_sT6cv: Run now
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -3746,6 +3748,8 @@ default:
             section-title_mode: Effect
             title_audit: Disable lock mode for rule
             title_ignore: Ignore rule
+        rules:
+          create_rule_pcNF6: Create rule
         settings:
           SettingsPageLayout:
             alertSinkLabel_gvxBa: Alert Sinks
@@ -3798,6 +3802,42 @@ default:
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
         vm:
+          EndpointScanForm:
+            action_advanced_modules: Advanced module configuration
+            action_select_resources_pfycc: Select resources
+            action_submit: Create scan
+            addresses_option_ignore_iAJ9J: Ignore addresses
+            addresses_option_no_restrictions_ppxAa: No limit
+            label_addresses_uxHGp: Addresses
+            label_resources_t6Wt8: Resources
+            label_schedule: Run
+            label_schedule_name: Schedule name
+            resources_option_all_cAPZE: All resources
+            resources_option_selected_8L9Ng: Selected resources
+            scan_type_surface_title: Advanced attack surface analysis
+            scan_type_vulnerability_title: Vulnerability scanning
+            section_launch_title: Launch settings
+            section_scan_type_title: Scan type
+            section_target_group_title_56ieb: Target group
+          ScheduleSelect:
+            option_14-days: Every 14 days
+            option_30-days: Every 30 days
+            option_7-days: Every 7 days
+          title_sXtyM: Vulnerable artifacts
+          VmArtifactScanResultBody:
+            title_vulnerabilities: Vulnerabilities
+          VmNewScanButton:
+            action_newScan_ea47W: New scan
+          VmPageLayout:
+            endpoints_rHSN4: Endpoints
+            scans_rtzA2: Scans
+            scanSchedules_nrR97: Scan schedules
+            vulnerabilityManagement_jG6cd: Vulnerability management
+          VmScanPageLayout:
+            page_tab_title_info_3uEGR: Scan information
+            page_tab_title_vulnerabilities_6U9ra: Vulnerabilities
+          VmScanSchedulePageLayout:
+            page_tab_title_history_5qVRr: Scan history
           WorkspaceVulnerabilityForm:
             add_image_trigger_title: Vulnerability searches when adding images to registries
             scan_only_latest_title: >-

@@ -19,6 +19,48 @@
 
   1. Нажмите **Сохранить**.
 
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
+  
+  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update --help
+     ```
+
+  1. Измените параметры профиля ARL:
+
+     ```bash
+     yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile update \
+       --id <идентификатор_профиля> \
+       --name login-rate-limit \
+       --description "Ограничение запросов к форме входа" \
+       --labels environment=production,component=authentication
+     ```
+
+     Где:
+
+     * `--id` — идентификатор профиля ARL.
+     * `--name` — имя профиля от 1 до 50 символов.
+     * (Опционально) `--description` — описание профиля.
+     * (Опционально) `--labels` — набор меток профиля в формате `ключ=значение`.
+
+  Чтобы изменить правила профиля, используйте параметр `--advanced-rate-limiter-rules`.
+
+  Параметр `--advanced-rate-limiter-rules` заменяет полный список правил профиля. Перед обновлением получите профиль и сохраните массив `advancedRateLimiterRules` из ответа в файл `rules.json`:
+  
+  ```bash
+  yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile get \
+    --id <идентификатор_профиля> \
+    --format json
+  ```
+
 - Terraform {#tf}
 
   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.

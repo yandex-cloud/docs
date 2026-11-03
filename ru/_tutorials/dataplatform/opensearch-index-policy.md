@@ -8,22 +8,27 @@
 
 Чтобы настроить такую политику:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Создайте политику](#create-policy).
 1. [Прикрепите политику к индексу](#attach-policy).
 1. [Проверьте работу политики](#check-policy).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Перед началом работы {#before-you-begin}
 
-## Необходимые платные ресурсы {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
-1. Подготовьте инфраструктуру:
+1. Подготовьте кластер {{ mos-name }}:
 
     {% list tabs group=instructions %}
 
@@ -42,31 +47,23 @@
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-index-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-index-policy/blob/main/opensearch-index-policy.tf). В файле описаны:
+        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-index-policy.tf](https://github.com/yandex-cloud-examples/yc-opensearch-index-policy/blob/main/opensearch-index-policy.tf).
 
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+
+            * [сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network);
+            * [подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet);
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }}, — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group);
+            * [кластер {{ mos-name }}](../../managed-opensearch/concepts/index.md) — [mdb_opensearch_cluster]({{ tf-provider-resources-link }}/mdb_opensearch_cluster).
 
         1. Укажите в файле `opensearch-index-policy.tf` переменные:
 
             * `version` — версия {{ OS }}.
             * `admin_password` — пароль администратора {{ OS }}.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Создайте ресурсы:
 
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+            {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -212,7 +209,7 @@
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET '<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/indices?pretty'
+        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/indices?pretty'
     ```
 
     5 минут — это время по умолчанию, через которое повторяется проверка условий политики.

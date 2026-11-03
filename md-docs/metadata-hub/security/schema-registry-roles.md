@@ -3,13 +3,11 @@
 # Сервисные роли для управления схемами данных с помощью Schema Registry
 
 
+{% note warning %}
 
-{% note info %}
-
-Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](../concepts/schema-registry-sunset.md).
 
 {% endnote %}
-
 
 
 С помощью сервисных ролей Schema Registry вы сможете просматривать пространства имен, субъекты и схемы в реестре схем, а также создавать, редактировать и удалять пространства имен и схемы.

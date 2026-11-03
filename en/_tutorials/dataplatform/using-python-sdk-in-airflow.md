@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../managed-airflow/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Virtual machine: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing)](../../compute/pricing.md)).
 
 
 ## Set up your infrastructure {#create-infrastructure}
@@ -105,7 +105,7 @@ To check the result in the {{ AF }} web interface:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 1. [Service account](../../iam/operations/sa/delete.md)
 1. [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md)

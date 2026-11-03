@@ -2259,7 +2259,7 @@ _Example:_{.json-schema-reset .json-schema-example} `example`
 
 {% endcut %}
 
-Default control values.
+Selected values keyed by source.datasetFieldId for dataset controls or source.fieldName for manual controls. For a date or date range control with no selected value, keep the field key with an empty string value (e.g. {"fieldId": ""}); do not omit the key or use an empty defaults object. Prefix nonempty values with __<lowercase operation>_ when source.operation is set; leave empty values unprefixed.
 
 {% cut "**Example**" %}{.json-schema-example}
 
@@ -2482,7 +2482,7 @@ Current item order.
 
   {% endcut %}
 
-  Default control values.
+  Selected values keyed by source.datasetFieldId for dataset controls or source.fieldName for manual controls. For a date or date range control with no selected value, keep the field key with an empty string value (e.g. {"fieldId": ""}); do not omit the key or use an empty defaults object. Prefix nonempty values with __<lowercase operation>_ when source.operation is set; leave empty values unprefixed.
 
   {% cut "**Example**" %}{.json-schema-example}
 
@@ -2701,7 +2701,7 @@ Current item order.
 
   {% endcut %}
 
-  Default control values.
+  Selected values keyed by source.datasetFieldId for dataset controls or source.fieldName for manual controls. For a date or date range control with no selected value, keep the field key with an empty string value (e.g. {"fieldId": ""}); do not omit the key or use an empty defaults object. Prefix nonempty values with __<lowercase operation>_ when source.operation is set; leave empty values unprefixed.
 
   {% cut "**Example**" %}{.json-schema-example}
 

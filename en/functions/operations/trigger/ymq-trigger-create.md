@@ -136,24 +136,24 @@ To create a trigger, you will need:
      resource "yandex_serverless_triggers" "my_trigger" {
        name        = "<trigger_name>"
        description = "<trigger_description>"
-       source {
-         ymq {
+       source = {
+         ymq = {
            queue_arn          = "<queue_ARN>"
            service_account_id = "<service_account_ID>"
            visibility_timeout = "<message_visibility_timeout>"
-           batch_settings {
-             max_count = "<max_number_of_messages>"
-             max_bytes = "<max_group_size_in_bytes>"
+           batch_settings = {
+             max_count = <max_number_of_messages>
+             max_bytes = <max_group_size_in_bytes>
              cutoff    = "<maximum_wait_time>"
            }
          }
        }
-       action {
-         invoke_function {
+       action = [{
+         invoke_function = {
            function_id        = "<function_ID>"
            service_account_id = "<service_account_ID>"
          }
-       }
+       }]
      }
      ```
 
@@ -175,16 +175,16 @@ To create a trigger, you will need:
              1. You can see the queue ARN under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
          * `service_account_id`: ID of the service account with permissions to read messages from the queue.
-         * `visibility_timeout`: Message [visibility timeout](../../../message-queue/concepts/visibility-timeout.md) that overrides the value specified in the queue. This is an optional parameter.
+         * `visibility_timeout`: Message [visibility timeout](../../../message-queue/concepts/visibility-timeout.md) that overrides the value specified in the queue. This is an optional setting.
 
          {% include [tf-triggers-batch-settings](../../../_includes/tf-triggers-batch-settings.md) %}
 
-     * `action`: Target settings. You can specify this section multiple times so that the trigger calls multiple resources, including those of different types. There are [limits](../../concepts/limits.md#functions-limits) on the maximum number of resources.
+     * `action`: Target settings. You can specify this section multiple times so the trigger calls multiple resources, including those of different types. There are [limits](../../concepts/limits.md#functions-limits) on the maximum number of resources.
 
          * `invoke_function`: Function settings:
 
              * `function_id`: Function ID.
-             * `function_tag`: Function version tag. This is an optional parameter. If it is not specified, the latest version of the function is called.
+             * `function_tag`: Function version tag. This is an optional setting. If it is not specified, the latest version of the function is called.
              * `service_account_id`: ID of the service account with permissions to invoke the function.
 
          * `filter`: Filtering events before sending them to the target. This is an optional section.
@@ -201,7 +201,7 @@ To create a trigger, you will need:
 
                  * `queue_arn`: Queue ARN.
                  * `service_account_id`: ID of the service account with permissions to write to the queue.
-                 * `message_attributes`: Attributes to add to each message in the queue, in `key:value` format. This is an optional parameter.
+                 * `message_attributes`: Attributes to add to each message in the queue, in `key:value` format. This is an optional setting.
 
      For more on the properties of the `yandex_serverless_triggers` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_triggers).
 

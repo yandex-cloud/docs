@@ -62,6 +62,8 @@
 
  - [Обзор](tutorials/object-storage-overview.md)
 
+ - [Работа с Yandex Object Storage без использования Hive](tutorials/spark-without-hive.md)
+
  - [Использование локального каталога Hive](tutorials/spark-objstorage-integration.md)
 
  - [Интеграция с Apache Hive™ Metastore](tutorials/metastore-and-spark.md)

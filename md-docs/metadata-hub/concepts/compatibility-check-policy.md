@@ -3,6 +3,13 @@
 # Политики проверки совместимости
 
 
+{% note warning %}
+
+Сервис Schema Registry прекращает работу. Подробнее в разделе [Закрытие сервиса Schema Registry](schema-registry-sunset.md).
+
+{% endnote %}
+
+
 _Политика проверки совместимости_ — это совокупность правил, по которым Yandex Schema Registry проверяет совместимость новой схемы с предыдущими на уровне [пространства имен](schema-registry.md#namespace).
 
 Вы можете выбрать политику проверки совместимости схем при [создании](../operations/create-name-space.md) или [изменении](../operations/update-name-space.md) пространства имен. Политики проверки совместимости доступны для схем [Protobuf](https://protobuf.dev/) и [JSON Schema](https://json-schema.org/).
