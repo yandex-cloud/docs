@@ -9,7 +9,8 @@ try:
             "HMS": {"notification":{"body":"<notification_text>"}},
             "RUSTORE": {"notification":{"body":"<notification_text>"}},
             "WEB": "<notification_text>",
-            "sms": "<notification_text>"
+            "sms": "<notification_text>",
+            "sqs": "<notification_text>"
         }),
         MessageStructure="json"
     )

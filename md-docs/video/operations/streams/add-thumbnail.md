@@ -463,7 +463,7 @@
       grpcurl \
         -rpc-header "Authorization: Bearer <IAM-токен>" \
         -d '{
-          "thumbnailId": "<идентификатор_обложки>"
+          "thumbnail_id": "<идентификатор_обложки>"
         }' \
         video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
       ```

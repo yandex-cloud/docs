@@ -204,7 +204,10 @@ editable: false
             "resourcePresetId": "string",
             "diskSize": "string",
             "diskTypeId": "string"
-          }
+          },
+          "zoneIds": [
+            "string"
+          ]
         },
         "zoneId": [
           "string"
@@ -224,7 +227,10 @@ editable: false
             "resourcePresetId": "string",
             "diskSize": "string",
             "diskTypeId": "string"
-          }
+          },
+          "zoneIds": [
+            "string"
+          ]
         },
         "diskSizeAutoscaling": {
           "plannedUsageThreshold": "string",
@@ -698,6 +704,7 @@ The minimum value is 1048576. ||
 #|
 ||Field | Description ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)** ||
+|| zoneIds[] | **string** ||
 |#
 
 ## Access {#yandex.cloud.mdb.kafka.v1.Access}
@@ -719,6 +726,7 @@ The minimum value is 1048576. ||
 #|
 ||Field | Description ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)** ||
+|| zoneIds[] | **string** ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}

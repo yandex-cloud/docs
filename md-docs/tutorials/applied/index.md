@@ -17,7 +17,6 @@
 * [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)
 * [Сайт на базе Joomla с базой данных PostgreSQL](../web/joomla-postgresql/index.md)
 * [Сайт на базе 1С-Битрикс](../web/bitrix-website/index.md)
-* [Интернет-магазин на платформе OpenCart](../internet-store/opencart/index.md)
 * [Организация виртуального хостинга](../web/virtual-hosting.md)
 * [Привязка доменного имени к ВМ с веб-сервером](../web/bind-domain-vm/index.md)
 * [Создание веб-приложения на Python с использованием фреймворка Flask](../web/flask.md)

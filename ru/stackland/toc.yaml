@@ -1,7 +1,7 @@
 pdf:
   startPages:
     - start.md
-title: Yandex Cloud Stackland
+title: '{{ stackland-full-name }}'
 href: index.yaml
 items:
   - name: Что нового
@@ -46,7 +46,7 @@ items:
             href: operations/iam/ydb-restore.md
       - name: Базы данных и аналитика
         items:
-          - name: Managed Service for PostgreSQL
+          - name: '{{ mpg-short-name }}'
             items:
               - name: Создать кластер {{ PG }}
                 href: operations/postgresql/create-cluster.md
@@ -72,7 +72,7 @@ items:
                 href: operations/postgresql/recover-copy.md
               - name: Удалить кластер
                 href: operations/postgresql/delete-cluster.md
-          - name: Managed Service for ClickHouse®
+          - name: '{{ mch-short-name }}'
             items:
               - name: Создать кластер {{ CH }}
                 href: operations/clickhouse/create-cluster.md
@@ -305,33 +305,33 @@ items:
         items:
           - name: Обзор
             href: concepts/components/overview.md
-          - name: Certificate Manager
+          - name: '{{ certificate-manager-name }}'
             href: concepts/components/certificate-manager.md
           - name: DNS
             href: concepts/components/dns.md
-          - name: IAM
+          - name: '{{ iam-short-name }}'
             href: concepts/components/iam.md
           - name: Logging Stack
             href: concepts/components/logging.md
-          - name: Managed Service for Apache Kafka®
+          - name: '{{ mkf-short-name }}'
             href: concepts/components/kafka.md
-          - name: Managed Service for PostgreSQL
+          - name: '{{ mpg-short-name }}'
             href: concepts/components/postgresql.md
           - name: '{{ maf-name }}'
             href: concepts/components/airflow.md
-          - name: Managed Service for ClickHouse®
+          - name: '{{ mch-short-name }}'
             href: concepts/components/clickhouse.md
           - name: '{{ rest-catalog-name }}'
             href: concepts/components/rest-catalog.md
-          - name: Managed Service for Trino
+          - name: '{{ mtr-short-name }}'
             href: concepts/components/trino.md
           - name: '{{ yt-name }}'
             href: concepts/components/ytsaurus.md
           - name: '{{ datalens-name }}'
             href: concepts/components/datalens.md
-          - name: Monitoring
+          - name: '{{ monitoring-short-name }}'
             href: concepts/components/monitoring.md
-          - name: Object Storage
+          - name: '{{ objstorage-name }}'
             href: concepts/components/storage.md
           - name: Дисковая подсистема
             href: concepts/components/disk-storage.md
@@ -341,9 +341,9 @@ items:
             href: concepts/components/policy-manager.md
           - name: Secrets Store
             href: concepts/components/secrets-store.md
-          - name: SpeechSense
+          - name: '{{ speechsense-name }}'
             href: concepts/components/speechsense.md
-          - name: AI Studio
+          - name: '{{ ai-studio-name }}'
             href: concepts/components/ai-studio.md
       - name: Мониторинг кластера
         items:

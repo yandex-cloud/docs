@@ -12,7 +12,7 @@
 
 `TLSRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`TLSRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.TLSRoute).
+`TLSRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#tlsroute).
 
 ## TLSRoute {#tlsroute}
 

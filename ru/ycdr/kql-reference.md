@@ -5,7 +5,7 @@ description: Справочник функций и операторов KQL в 
 
 # Справочник KQL
 
-{% include [preview-by-request](../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](_includes/ycdr/connect-to-ycdr.md) %}
 
 В этом разделе представлен справочник по подмножеству [KQL (Kusto Query Language)](https://learn.microsoft.com/en-us/kusto/), используемому в {{ ycdr-full-name }}.
 
@@ -165,7 +165,7 @@ not (ivan >= 1337 or lesha <= 1337)
 || `between` / `!between` | Проверка вхождения в интервал ||
 || `in` / `!in` | Проверка вхождения в список ||
 || `has_any` / `!has` | Проверка наличия любого из слов ||
-|| `contains` / `!contains` | Проверка наличия подстроки (регистронезависимо) ||
+|| `contains` / `!contains` | Проверка наличия подстроки (без учета регистра) ||
 || `matches regex` | Проверка соответствия регулярному выражению ||
 |#
 
@@ -183,10 +183,10 @@ file_category@object matches regex "app\.compute\..*"
 
 #|
 || Функция | Описание ||
-|| `tostring()` | Конвертирует в строку ||
-|| `toint()` | Конвертирует в целочисленное значение ||
-|| `todouble()` / `toreal()` | Конвертирует в нецелочисленное значение ||
-|| `todatetime()` | Конвертирует строку в дату и время ||
+|| `tostring()` | Преобразует в строку ||
+|| `toint()` | Преобразует в целочисленное значение ||
+|| `todouble()` / `toreal()` | Преобразует в нецелочисленное значение ||
+|| `todatetime()` | Преобразует строку в дату и время ||
 || `parse_json()` | Парсит строку в JSON ||
 |#
 

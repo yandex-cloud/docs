@@ -1136,7 +1136,7 @@ Connection Manager позволяет создавать подключения 
 
 {% endlist %}
 
-### Коннектор Greenplum®/Cloudberry <code><b><small>Preview</small></b></code> {#gp-clouberry}
+### Коннектор Greenplum®/Cloudberry {#gp-clouberry}
 
 Выберите тип подключения — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) или **Ручная настройка** (пользовательская инсталляция), и задайте для него нужные настройки.
 

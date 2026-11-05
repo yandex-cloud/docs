@@ -239,6 +239,8 @@ items:
         href: concepts/botes.md
       - name: Защита доменов
         href: concepts/domain-protect.md
+      - name: Network Protection (защита от DDoS L3–L4)
+        href: concepts/network-protection.md
       - name: Шаблоны ответов
         href: concepts/response-templates.md
       - name: Логирование

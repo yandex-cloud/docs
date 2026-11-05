@@ -37,7 +37,7 @@ reclaimPolicy: Delete
 
 1. Save the following [PersistentVolumeClaim creation](dynamic-create-pv.md) specification to a YAML file named `pvc-expansion.yaml`.
 
-   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1

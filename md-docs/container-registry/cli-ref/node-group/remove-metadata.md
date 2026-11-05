@@ -22,7 +22,7 @@ ID of the node group. ||
 Name of the node group. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--all` | If this flag is specified, all metadata will be deleted. ||
-|| `--keys` | `value[,value]`
+|| `--keys` | `[]string`
 
 List of keys that will be deleted in metadata. ||
 |#

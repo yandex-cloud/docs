@@ -25,7 +25,6 @@
 * [Развертывание сервиса на основе Docker-образа с FastAPI](node-from-docker-fast-api.md)
 * [Развертывание gRPC-сервиса на основе Docker-образа](grpc-node.md)
 * [Генерация изображения с помощью модели Stable Diffusion](stable-diffusion.md)
-* [Создание интеллектуального ассистента для Telegram](tg-bot-assistant.md)
 
 ## Аналитика {#analytics}
 

@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Работа со схемой базы и датасетами
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 ## Работа со схемой базы {#database-schema}
 

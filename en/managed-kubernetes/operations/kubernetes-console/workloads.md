@@ -40,7 +40,7 @@ To create a workload:
 
 In the management console, you can edit workload manifests in a visual editor. This approach is equivalent to running the `kubectl apply -f <manifest_file.yaml>` command and allows you to update the resource configuration without re-creating it.
 
-The list of editable fields depends on the workload type and is available in [this Kubernetes guide](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/).
+The list of editable fields depends on the workload type and is available in [this Kubernetes guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/).
 
 To edit a workload:
 

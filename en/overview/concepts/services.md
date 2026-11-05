@@ -55,7 +55,7 @@ There are different service packages available in different [regions](region.md)
 || [{{ at-full-name }}](../../audit-trails/index.yaml) | Service for collecting and exporting audit logs | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | TLS certificate management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Service for creating remote desktops in a cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ ycdr-full-name }}](../../ycdr/index.yaml) | Service for collecting data from the cloud infrastructure to detect anomalies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ ycdr-full-name }}](../../ycdr/index.yaml) | Service for collecting data across a cloud infrastructure to detect anomalies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | Service for storing and managing development artifacts | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ org-full-name }}](../../organization/index.yaml) | Service for managing the organizational structure, setting up integration with an employee catalog, and differentiating user access to the organization's cloud resources | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ kms-full-name }}](../../kms/index.yaml) | Encryption key management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
@@ -85,7 +85,6 @@ There are different service packages available in different [regions](region.md)
 || [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Service for messaging between applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ yq-full-name }}](../../query/index.yaml)                                    | Service for running queries using the common SQL dialect | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Serverless launch of containerized applications | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ si-full-name }}](../../serverless-integrations/index.yaml) | {{ preview-stage }} Service for configuring and managing integrations using serverless technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Resource management** | > | > | > ||
 || [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | Service for deployment of applications based on {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ billing-name }}](../../billing/index.yaml) | Payments and cost breakdown service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||

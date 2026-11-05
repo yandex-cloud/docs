@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Как начать работать с расследованиями
 
-{% include [preview-by-request](../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](_includes/ycdr/connect-to-ycdr.md) %}
 
 В этом руководстве вы создадите расследование и выполните первый запрос на языке [KQL (Kusto Query Language)](kql-reference.md).
 

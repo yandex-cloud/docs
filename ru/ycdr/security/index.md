@@ -44,6 +44,7 @@ description: Управление доступом в сервисе для мо
 
 #### Что дальше {#what-is-next}
 
+* [Как подключить организацию к {{ ycdr-name }}](../operations/connect.md)
 * [Как назначить роль](../../iam/operations/roles/grant.md)
 * [Как отозвать роль](../../iam/operations/roles/revoke.md)
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md)

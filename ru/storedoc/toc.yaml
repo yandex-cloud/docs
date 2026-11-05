@@ -170,20 +170,14 @@ items:
                 href: cli-ref/v0/backup-retention-policy/delete.md
               - name: list
                 href: cli-ref/v0/backup-retention-policy/list.md
-          - name: change-freeze
+          - name: balancer
             items:
               - name: Overview
-                href: cli-ref/v0/change-freeze/index.md
-              - name: create
-                href: cli-ref/v0/change-freeze/create.md
-              - name: get
-                href: cli-ref/v0/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/v0/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/v0/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/v0/change-freeze/terminate.md
+                href: cli-ref/v0/balancer/index.md
+              - name: disable
+                href: cli-ref/v0/balancer/disable.md
+              - name: enable
+                href: cli-ref/v0/balancer/enable.md
           - name: cluster
             items:
               - name: Overview
@@ -268,6 +262,20 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v0/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/maintenance/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/v0/maintenance/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/v0/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: cli-ref/v0/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/v0/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: cli-ref/v0/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/v0/maintenance/get.md
               - name: list
@@ -332,20 +340,14 @@ items:
             href: cli-ref/backup-retention-policy/delete.md
           - name: list
             href: cli-ref/backup-retention-policy/list.md
-      - name: change-freeze
+      - name: balancer
         items:
           - name: Overview
-            href: cli-ref/change-freeze/index.md
-          - name: create
-            href: cli-ref/change-freeze/create.md
-          - name: get
-            href: cli-ref/change-freeze/get.md
-          - name: get-limits
-            href: cli-ref/change-freeze/get-limits.md
-          - name: list
-            href: cli-ref/change-freeze/list.md
-          - name: terminate
-            href: cli-ref/change-freeze/terminate.md
+            href: cli-ref/balancer/index.md
+          - name: disable
+            href: cli-ref/balancer/disable.md
+          - name: enable
+            href: cli-ref/balancer/enable.md
       - name: cluster
         items:
           - name: Overview
@@ -430,6 +432,20 @@ items:
         items:
           - name: Overview
             href: cli-ref/maintenance/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/maintenance/change-freeze/index.md
+              - name: create
+                href: cli-ref/maintenance/change-freeze/create.md
+              - name: get
+                href: cli-ref/maintenance/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/maintenance/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/maintenance/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/maintenance/change-freeze/terminate.md
           - name: get
             href: cli-ref/maintenance/get.md
           - name: list

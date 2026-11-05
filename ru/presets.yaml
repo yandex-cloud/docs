@@ -61,7 +61,6 @@ default:
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
-  assistant-api: AI Assistant API
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
@@ -152,7 +151,6 @@ default:
   cos-short-name: COS
   cr-full-name: Yandex Cloud Router
   cr-name: Cloud Router
-  crt-alias: YandexCA
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
   crt-local-file-int: IntermediateCA.crt
@@ -638,8 +636,6 @@ default:
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
-  neurosupport-full-name: Yandex Neurosupport
-  neurosupport-name: Neurosupport
   nodejs-cli-ver: nodejs22
   nodejs-full-ver: Node.js 22
   objstorage-full-name: Yandex Object Storage
@@ -2612,6 +2608,8 @@ default:
       common:
         plans: Тарифные планы
         tickets: Обращения
+      navigation:
+        title_search: Поиск
       search:
         common:
           action_search-in-documentation: Искать в документации
@@ -2630,6 +2628,8 @@ default:
           field_service: Сервис
           field_subject: Тема
           title_create-ticket-page: Новое обращение
+        details:
+          action_send-comment: Отправить
       tickets:
         common:
           action_create-ticket: Создать обращение
@@ -4347,6 +4347,7 @@ default:
           ExceptionsPage:
             create-exception: Новое исключение
           InvestigationPageLayout:
+            copy: Создать копию
             fieldDescription_wiAxw: Описание
             fieldModified: Дата изменения
             information_cZr8L: Информация
@@ -7722,6 +7723,7 @@ default:
           section_disk: Размер хранилища
           section_host: Хосты
           section_host-resources: Вычислительные ресурсы хоста
+          section_kraft-disk: Размер хранилища KRaft
           section_network: Сетевые настройки
           section_network-settings: Сетевые настройки
           section_pooler: Менеджер подключений

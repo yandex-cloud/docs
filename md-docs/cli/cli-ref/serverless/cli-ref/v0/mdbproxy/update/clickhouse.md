@@ -31,13 +31,13 @@ Proxy id. ||
 Proxy name. ||
 || `--new-database` | `string`
 
-Clickhouse database. ||
+Database name. ||
 || `--new-password` | `string`
 
-Clickhouse password. ||
+Database password. ||
 || `--new-user` | `string`
 
-Clickhouse user. ||
+Database user. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

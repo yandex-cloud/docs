@@ -23,10 +23,10 @@ Container id. ||
 || `--name` | `string`
 
 Container name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--revision-id` | `string`
 
 Revision ID to rollback. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags

@@ -36,7 +36,7 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 В консоли управления можно редактировать манифесты ресурсов `Service` и `Ingress` в визуальном редакторе. Такой подход соответствует выполнению команды `kubectl apply -f <файл_манифеста.yaml>` и позволяет обновить конфигурацию ресурса без повторного создания.
 
-Список полей, которые можно редактировать, зависит от типа объекта и доступен в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/).
+Список полей, которые можно редактировать, зависит от типа объекта и доступен в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#service-v1-core).
 
 {% list tabs group=instructions %}
 

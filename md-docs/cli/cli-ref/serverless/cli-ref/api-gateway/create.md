@@ -23,7 +23,7 @@ Api-gateway name. ||
 Api-gateway description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--spec` | `string`
 
 Api-gateway specification file name. ||
@@ -33,10 +33,10 @@ Api-gateway network name. ||
 || `--network-id` | `string`
 
 Api-gateway network id. ||
-|| `--subnet-name` | `value[,value]`
+|| `--subnet-name` | `[]string`
 
 Api-gateway subnet names. ||
-|| `--subnet-id` | `value[,value]`
+|| `--subnet-id` | `[]string`
 
 Api-gateway subnet ids. ||
 || `--no-logging` | Disable logging from api-gateway. ||

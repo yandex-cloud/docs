@@ -8,7 +8,7 @@ Manage maintenances.
 
 Syntax:
 
-`yc managed-sharded-postgresql v0 maintenance <command>`
+`yc managed-sharded-postgresql v0 maintenance <group|command>`
 
 #### Command Tree
 
@@ -17,6 +17,18 @@ Syntax:
 - [yc managed-sharded-postgresql v0 maintenance list](list.md) — List maintenances.
 
 - [yc managed-sharded-postgresql v0 maintenance reschedule](reschedule.md) — Reschedule the specified maintenance.
+
+- [yc managed-sharded-postgresql v0 maintenance change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-sharded-postgresql v0 maintenance change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-sharded-postgresql v0 maintenance change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-sharded-postgresql v0 maintenance change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-sharded-postgresql v0 maintenance change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-sharded-postgresql v0 maintenance change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
 
 #### Global Flags
 

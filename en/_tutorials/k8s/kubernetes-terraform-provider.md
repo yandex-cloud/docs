@@ -390,7 +390,7 @@ The `pv-pvc.tf` file describes:
     * Storage class: `pv-sc`. If not specified, the default storage class will be used.
     * Data source: `pv-disk`.
 
-    Learn more about `PersistentVolume` parameters [here](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+    Learn more about `PersistentVolume` parameters [here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
 * `PersistentVolumeClaim` object:
 
@@ -400,7 +400,7 @@ The `pv-pvc.tf` file describes:
     * Storage class: `pv-sc`. If not specified, the default storage class will be used.
     * Volume name: `PersistentVolume` object to bind with `PersistentVolumeClaim`.
 
-  Learn more about `PersistentVolumeClaim` parameters [here](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
+  Learn more about `PersistentVolumeClaim` parameters [here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).  
 
 #### Useful links {#see-also}
 

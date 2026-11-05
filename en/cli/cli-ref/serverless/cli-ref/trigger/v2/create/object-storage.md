@@ -26,8 +26,8 @@ Trigger name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--action` | `value[,value]`
+A list of label KEY=VALUE pairs to add. ||
+|| `--action` | `[]string`
 
 Action as JSON or '@path/to/file.json'. To set multiple actions, use multiple --action flags. ||
 || `--bucket-id` | `string`
@@ -39,7 +39,7 @@ Filter events by object key prefix. Optional. ||
 || `--suffix` | `string`
 
 Filter events by object key suffix. Optional. ||
-|| `--events` | `value[,value]`
+|| `--events` | `[]string`
 
 Event types to listen for. At least one value is required. ||
 || `--batch-max-count` | `int`

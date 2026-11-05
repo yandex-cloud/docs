@@ -5,7 +5,7 @@ description: Запросы в {{ ycdr-name }} используют язык KQL
 
 # Запросы
 
-{% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../_includes/ycdr/connect-to-ycdr.md) %}
 
 Для поиска событий в {{ ycdr-full-name }} используется подмножество языка запросов [KQL (Kusto Query Language)](../kql-reference.md). KQL позволяет фильтровать, агрегировать и анализировать события безопасности за последние 90 дней.
 

@@ -19,7 +19,7 @@ Syntax:
 Function version id. ||
 || `--tag` | `string`
 
-Tag to remove. ||
+Tag to set or remove. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

@@ -1,6 +1,6 @@
 * {{ CH }}
 * Delta Lake
-* [{{ GP }}/Cloudberry](../../managed-trino/concepts/greenplum-connector.md) {{ preview-stage }}
+* [{{ GP }}/Cloudberry](../../managed-trino/concepts/greenplum-connector.md)
 * Hive
 * Hudi {{ preview-stage }}
 * Iceberg

@@ -2,6 +2,7 @@
 {
   "default": "<Default_text>",
   "sms": "<Notification_text_for_sms>",
+  "sqs":  "<Notification_text_for_message_queue>",
   "WEB": "<Notification_text_for_bowser>",
   "APNS": {
     "aps": {

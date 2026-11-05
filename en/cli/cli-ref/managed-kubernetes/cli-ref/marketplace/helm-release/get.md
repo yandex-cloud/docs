@@ -22,7 +22,7 @@ Syntax:
 ID of the Helm Release. ||
 || `--name` | `string`
 
- ||
+Helm Release name. ||
 |#
 
 #### Global Flags

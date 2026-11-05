@@ -28,7 +28,6 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
 * [{#T}](stable-diffusion.md)
-* [{#T}](tg-bot-assistant.md)
 
 ## Аналитика {#analytics}
 

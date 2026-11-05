@@ -56,7 +56,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
       * `--id`: ID of the digital signature key pair.
       * `--role`: [Role](../security/index.md#roles-list).
-      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -87,7 +87,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        * `asymmetric_signature_key_id`: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list).
-       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
            {% cut "Subject designations" %}
 
@@ -180,7 +180,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
       Where:
 
       * `--id`: ID of the digital signature key pair.
-      * Where `--access-binding` is the [role](../security/index.md#roles-list) and the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * Where `--access-binding` is the [role](../security/index.md#roles-list) you are assigning and the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
 
           {% cut "Subject designations" %}
 
@@ -230,7 +230,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        * `asymmetric_signature_key_id`: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list).
-       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
            {% cut "Subject designations" %}
 

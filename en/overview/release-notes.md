@@ -78,7 +78,6 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ postbox-full-name }}](../postbox/release-notes.md)
 * [{{ iot-full-name }}](../iot-core/release-notes.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
-* [{{ si-full-name }}](../serverless-integrations/release-notes.md)
 
 ## Resource management {#resources-operations}
 

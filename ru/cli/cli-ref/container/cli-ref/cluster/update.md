@@ -65,16 +65,16 @@ Kubernetes master version. See available in 'yc managed-kubernetes list-versions
 || `--auto-upgrade` | Sets auto upgrade maintenance policy.
 This policy defines if the master can be upgraded to a new revision in the specified maintenance window. New revisions usually contain security and bug fixes, so it's recommended to leave this policy enabled.Master never upgraded to another major version automatically, even with this policy set to true.
 Examples: '--auto-upgrade=false', '--auto-upgrade' ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 Security group IDs to use for cluster. ||
 || `--node-ipv4-mask-size` | `int`
 
 Size of the masks that are assigned for each node in the cluster. ||
-|| `--cluster-ipv4-range-list` | `value[,value]`
+|| `--cluster-ipv4-range-list` | `[]string`
 
 List of IPv4 ranges for the Kubernetes cluster pods in CIDR notation. ||
-|| `--cluster-ipv6-range-list` | `value[,value]`
+|| `--cluster-ipv6-range-list` | `[]string`
 
 List of IPv6 ranges for the Kubernetes cluster pods in CIDR notation. ||
 || `--master-location` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`

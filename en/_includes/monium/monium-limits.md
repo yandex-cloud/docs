@@ -2,7 +2,7 @@
 
 Type of limit | Value
 ----- | -----
-Number of labels per metric<br/>(including required ones) | 16
+Number of labels per metric including required ones | {{ labels_per_mtetric_limit }}
 Number of values per label | 1,000
 
 **API limits**

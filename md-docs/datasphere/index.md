@@ -276,8 +276,6 @@ Yandex DataSphere помогает значительно сократить с�
 
  - [Генерация изображения с помощью модели Stable Diffusion](tutorials/stable-diffusion.md)
 
- - [Создание интеллектуального ассистента для Telegram](tutorials/tg-bot-assistant.md)
-
 ### Аналитика данных
 
  - [Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики](tutorials/data-from-metrica-yc-visualization.md)

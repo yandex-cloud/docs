@@ -165,6 +165,24 @@ items:
                 href: cli-ref/v0/cluster/stop.md
               - name: update
                 href: cli-ref/v0/cluster/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/maintenance/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/v0/maintenance/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/v0/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: cli-ref/v0/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/v0/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: cli-ref/v0/maintenance/change-freeze/terminate.md
       - name: change-freeze
         items:
           - name: Overview
@@ -207,6 +225,24 @@ items:
             href: cli-ref/cluster/stop.md
           - name: update
             href: cli-ref/cluster/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/maintenance/change-freeze/index.md
+              - name: create
+                href: cli-ref/maintenance/change-freeze/create.md
+              - name: get
+                href: cli-ref/maintenance/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/maintenance/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/maintenance/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/maintenance/change-freeze/terminate.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

@@ -1,23 +1,35 @@
 ---
 title: '{{ cloud-desktop-full-name }} shutdown'
-description: Learn how to retrieve your data after the {{ cloud-desktop-name }} shutdown and migrate to another solution.
+description: Read on to learn when {{ cloud-desktop-name }} will be discontinued and how to save or migrate your data.
 ---
 
 # {{ cloud-desktop-full-name }} shutdown
 
 {% note warning %}
 
-{{ cloud-desktop-full-name }} has been decommissioned. Desktops have been stopped, and access to the service through the management console, API, and CLI has been disabled.
+{{ cloud-desktop-full-name }} will be discontinued on December 14, 2026. Make sure to save your important data and migrate your desktop to another service before it happens.
 
 {% endnote %}
 
-## What is going on {#what-happens}
+## What's happening {#what-happens}
 
-The service was discontinued due to a change in product strategy. Below, you can learn how to request your data and choose another solution for virtual desktops.
+We have made the decision to discontinue {{ cloud-desktop-full-name }} since our product strategy changed. See below to learn when it will happen and how to migrate your desktops.
 
-## How to retrieve your data {#data}
+## Key dates {#key-dates}
 
-To retrieve your data, contact [support]({{ link-console-support }}).
+The decommissioning process will follow these three stages:
+
+* **October 13, 2026**: {{ cloud-desktop-name }} will become unavailable to new users. Those users who started using it before will be able to continue working with it.
+
+* **November 10, 2026**: {{ cloud-desktop-name }} will go read-only. You will no longer be able to modify resources. You will still be able to copy your data and delete resources.
+
+* **December 14, 2026:** {{ cloud-desktop-name }} will be fully discontinued. Your desktops will be stopped an you will no longer be able to access {{ cloud-desktop-name }} through the management console API, or CLI.
+
+## What happens to your data {#data}
+
+Your data backups and logs will be saved in a long-term storage. To restore your data after {{ cloud-desktop-name }} is discontinued, contact our [support]({{ link-console-support }}).
+
+You may want to copy your desktop files and settings you need to another storage in advance, so that you may still have access to them after discontinuation.
 
 ## Migration {#migration}
 
@@ -27,9 +39,15 @@ Please note that {{ baremetal-extend-virtualization-name }} is build for infrast
 
 If you want to learn more about testing and possible migration to this solution, [submit a request](../baremetal/operations/extend/virtualization.md) or contact your account manager.
 
+Before {{ cloud-desktop-name }} is discontinued:
+
+1. Save the copies of your desktop files and settings you need.
+1. Migrate your runtime environment to the service of your choice and check whether the apps and data access work correctly.
+1. Once you made sure everything works fine, [delete the desktops](operations/desktops/delete.md) you no longer need.
+
 ## Further questions {#support}
 
-If you have any questions about the discontinuation or require assistance with your migration:
+If you have questions about the shutdown or require assistance with your migration:
 
 * Contact [support]({{ link-console-support }}).
 * Contact your account manager.

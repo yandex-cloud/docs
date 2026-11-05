@@ -118,7 +118,7 @@ print ("Platform application ARN:", response['PlatformApplicationArn'])
 
   * FCM: `PlatformCredential` — ключ сервисного аккаунта Google Cloud в формате JSON для аутентификации с помощью HTTP v1 API или API-ключ (server key) для аутентификации с помощью Legacy API.
 
-    Версия HTTP v1 API является предпочтительной, так как с июня 2024 года Legacy API [не будет поддерживаться FCM](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+    Версия HTTP v1 API является предпочтительной, так как с июня 2024 года Legacy API [не будет поддерживаться FCM](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
   * HMS:
 

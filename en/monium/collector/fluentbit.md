@@ -21,7 +21,7 @@ Fluent Bit cuts the `startTimestampNanos` field off the metrics. Do not use Flue
 
 ## Configuring telemetry transmission {#configure}
 
-1. [Install](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) Fluent Bit next to the telemetry source, e.g., on a server, in a container, or in a {{ k8s }} cluster.
+1. [Install](https://docs.fluentbit.io/manual/4.0/installation/getting-started-with-fluent-bit) Fluent Bit next to the telemetry source, e.g., on a server, in a container, or in a {{ k8s }} cluster.
 
 1. Create a configuration file, e.g., `fluent-bit.yaml`.
 

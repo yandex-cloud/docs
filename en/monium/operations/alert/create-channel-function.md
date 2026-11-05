@@ -22,7 +22,7 @@ To set up notifications with {{ sf-name }}:
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![shield-exclamation](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![bell](../../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
   1. In the top-right corner, click **{{ ui-key.yacloud_monitoring.actions.common.create }}** and select **{{ ui-key.yacloud_monitoring.notification-methods.create-button.channel }}**.
   1. Enter a name for your notification channel.
-  1. Optionally, specify the alert severity levels for which the channel will operate by default.
+  1. Optionally, specify the alert levels for which the channel will operate by default.
   1. In the **{{ ui-key.yacloud_monitoring.channel.field_method }}** field, select ![bell](../../../_assets/console-icons/code.svg) **{{ ui-key.yacloud_monitoring.channel.type_cloud-function }}**.
   1. In the field that appears, select the folder containing the function from **{{ sf-name }}**.
   1. In the **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** field, select an account to run the function.

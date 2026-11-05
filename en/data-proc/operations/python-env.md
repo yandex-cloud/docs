@@ -37,7 +37,7 @@ Using PySpark often requires installing or updating Python packages in {{ datapr
     We recommend specifying the minimum required settings for host resources.
 
 1. [Use SSH to connect](connect-ssh.md) to the temporary {{ dataproc-name }} cluster.
-1. Run the built-in [Virtualenv](https://spark.apache.org/docs/latest/api/python/user_guide/python_packaging.html#using-virtualenv) tool for managing virtual environments:
+1. Run the built-in [Virtualenv](https://spark.apache.org/docs/latest/api/python/tutorial/python_packaging.html#using-virtualenv) tool for managing virtual environments:
 
     ```bash
     python -m venv pyspark_venv && \

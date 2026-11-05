@@ -239,7 +239,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.0.42 {#2-0-42}
 
-* Apache Spark has been upgraded to version 3.0.3 and built with the [hadoop-cloud](https://spark.apache.org/docs/3.0.3/cloud-integration.html) profile to support the [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) and Parquet format.
+* Apache Spark has been upgraded to version 3.0.3 and built with the [hadoop-cloud](https://spark.apache.org/docs/latest/cloud-integration.html) profile to support the [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) and Parquet format.
 * Fixed an issue where `hive.metastore.uris` Spark settings were ignored when using an external Hive metastore.
 
 ### 2.0.41 {#2-0-41}

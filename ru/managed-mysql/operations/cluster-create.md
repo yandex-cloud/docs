@@ -611,7 +611,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `deletionProtectionMode` — защита базы данных от непреднамеренного удаления:
               * `DELETION_PROTECTION_MODE_ENABLED` — включена;
-              * `DELETION_PROTECTION_MODE_DISABLED`(по умолчанию) — выключена;
+              * `DELETION_PROTECTION_MODE_DISABLED` (по умолчанию) — выключена;
               * `DELETION_PROTECTION_MODE_INHERITED` — наследует значение от кластера.
 
       * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:

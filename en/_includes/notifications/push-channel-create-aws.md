@@ -39,7 +39,7 @@ Where:
 
     We recommend escaping the file contents using the `jq @json <<< cat private_key.json` command, as the AWS CLI accepts this parameter in string format.
 
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting from June 2024.
+    The HTTP v1 API is preferred as [FCM will no longer support](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting from June 2024.
 
   * HMS:
 

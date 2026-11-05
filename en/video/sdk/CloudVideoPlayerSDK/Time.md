@@ -1,3 +1,8 @@
+---
+title: 'Time: {{ video-full-name }} player SDK for iOS'
+description: Working with time and playback position in the {{ video-name }} player SDK for iOS.
+---
+
 # Time
 
 ```swift
@@ -6,15 +11,31 @@ public struct Time
 
 Timestamp within a media stream.
 
-## Contents
+## Contents {#contents}
 
+This page displays:
+
+- [Properties](#properties)
 - [Initializers](#initializers)
+- [Methods](#methods)
 
-## Discussion
+## Description {#discussion}
 
 Used to set playback position, duration representation, and buffering ranges. Supports arithmetic operations and comparisons.
 
-## Initializers
+## Protocol match {#inheritance}
+
+The structure matches the `AdditiveArithmetic` and `Comparable` protocols.
+
+## Properties {#properties}
+
+#|
+|| **Name** | **Type** | **Description** ||
+|| `timeInterval` | `TimeInterval` | Value in seconds in `TimeInterval` format. ||
+|| `zero` | `Time` | Zero time position. ||
+|#
+
+## Initializers {#initializers}
 
 ```swift
 public init(sec time: TimeInterval)
@@ -22,9 +43,9 @@ public init(sec time: TimeInterval)
 
 Creates a timestamp from a value in seconds.
 
-**Parameters:**
+Parameters:
 
-- `time`: Time in seconds
+- `time`: Time in seconds.
 
 ---
 
@@ -34,11 +55,27 @@ public init(ms time: Int64)
 
 Creates a timestamp from a value in milliseconds.
 
-**Parameters:**
+Parameters:
 
-- `time`: Time in milliseconds
+- `time`: Time in milliseconds.
 
-## Examples
+## Methods {#methods}
+
+```swift
+public static func - (lhs: Time, rhs: Time) -> Time
+```
+
+Deducts one time value from another.
+
+---
+
+```swift
+public static func + (lhs: Time, rhs: Time) -> Time
+```
+
+Sums two time values.
+
+## Examples {#examples}
 
 ```swift
 let startTime = Time(sec: 30)

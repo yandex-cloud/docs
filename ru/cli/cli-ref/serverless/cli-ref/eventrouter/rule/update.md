@@ -25,13 +25,16 @@ Rule id. ||
 Rule name. ||
 || `--new-name` | `string`
 
-New rule name. ||
+Rule name. ||
 || `--description` | `string`
 
 Rule description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
+|| `--deletion-protection` | Prevents accidental rule removal. ||
+|| `--no-deletion-protection` | Remove rule deletion protection. ||
+|| `-y`, `--yes` | Automatic yes to prompts. ||
 || `--yds-target` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Yds target.
@@ -199,9 +202,6 @@ Possible property names:
 - `workflow-id`: Workflow id.
 
 - `service-account-id`: Service account which has permission to start workflow. ||
-|| `--deletion-protection` | Prevents accidental rule removal. ||
-|| `--no-deletion-protection` | Remove rule deletion protection. ||
-|| `-y`, `--yes` | Automatic yes to prompts. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

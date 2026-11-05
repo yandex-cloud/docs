@@ -9,6 +9,7 @@ Event name | Description
 `DeleteStoppedCluster` | Deleting a stopped cluster
 `marketplace.v1.InstallHelmRelease` | Installing an app from {{ marketplace-name }} using a Helm chart
 `marketplace.v1.UninstallHelmRelease` | Deleting an app installed from {{ marketplace-name }} using a Helm chart
+`marketplace.v1.UpdateClusterSettings` | Updating the [statistics collection](../../../managed-kubernetes/operations/applications/marketplace.md#statics) settings for the use of applications in the cluster
 `marketplace.v1.UpdateHelmRelease` | Updating an app installed from {{ marketplace-name }} using a Helm chart
 `ScaleMaster` | Scaling the main node
 `SetClusterAccessBindings` | Assigning access permissions for a cluster

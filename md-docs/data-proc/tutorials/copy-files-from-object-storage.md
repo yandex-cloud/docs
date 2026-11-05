@@ -175,7 +175,7 @@ hadoop distcp \
 
 ### Использование коммиттеров S3A {#s3a-committers}
 
-Коммиттеры S3A — входящий в состав Apache Hadoop набор программных модулей для записи данных в объектное хранилище по [протоколу S3](../../glossary/s3.md), обеспечивающий эффективное и приближенное к атомарному подтверждение выполненных изменений. Подробнее в документации [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) и [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html).
+Коммиттеры S3A — входящий в состав Apache Hadoop набор программных модулей для записи данных в объектное хранилище по [протоколу S3](../../glossary/s3.md), обеспечивающий эффективное и приближенное к атомарному подтверждение выполненных изменений. Подробнее в документации [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) и [Apache Spark](https://spark.apache.org/docs/latest/cloud-integration.html).
 
 {% note info %}
 
@@ -274,7 +274,7 @@ hadoop distcp \
 
 {% endnote %}
 
-Подробнее в [документации Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) и разделе [Свойства компонентов](../concepts/settings-list.md).
+Подробнее в [документации Apache Spark](https://spark.apache.org/docs/latest/cloud-integration.html) и разделе [Свойства компонентов](../concepts/settings-list.md).
 
 ## Использование s3fs {#s3fs}
 

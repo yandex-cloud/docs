@@ -230,7 +230,7 @@
 
         {% note info %}
 
-        Подробнее о настройке ролей федеративных пользователей вы можете прочитать [в документации MWS](https://mws.ru/docs/cloud-platform/org-rm/general/federation-roles.html).
+        Подробнее о настройке ролей федеративных пользователей вы можете прочитать [в документации MWS](https://mws.ru/docs/cloud-platform/org-rm/general/federation-create.html).
 
         {% endnote %}
 

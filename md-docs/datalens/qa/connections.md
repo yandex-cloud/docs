@@ -27,7 +27,12 @@ DataLens может подключаться к Яндекс Метрике на
 
 Чтобы работать с сырыми данными Метрики и AppMetrica, вы можете:
 
-* для AppMetrica настроить автоматическую выгрузку сырых данных в Managed Service for ClickHouse® прямо в [интерфейсе AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html);
+* для AppMetrica:
+
+  * настроить выгрузку через [Data Stream API](https://appmetrica.yandex.ru/docs/ru/mobile-api/datastream/quick-start);
+  * настроить выгрузку через [Logs API](https://appmetrica.yandex.ru/docs/ru/mobile-api/logs/about);
+  * [выгрузить данные в файл](https://appmetrica.yandex.ru/docs/ru/common/export).
+
 * для Метрики:
 
   * воспользоваться [примером кода](https://github.com/zhdanchik/yandex_metrika_cloud_case/) из [документации](../tutorials/data-from-metrica-yc-visualization.md#get-download-data-in-ch) для экспорта сырых данных в ClickHouse® через LogsAPI;

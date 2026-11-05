@@ -15,4 +15,4 @@
 
     * Optionally, enable `Case-sensitive` to put properties with the same values in different cases into different groups.
 
-Specify a request limit or request limit per group, as well as a time interval (`1 second` to `60 minutes`) for the limit. All requests above the limit will get blocked.
+Specify a request limit or request limit per group, as well as a time interval (`1 second` to `60 minutes`) for the limit. The selected action will apply to requests exceeding the limit.

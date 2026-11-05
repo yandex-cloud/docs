@@ -523,7 +523,7 @@
 
   Значение по умолчанию — `""` (пустая строка, фильтрация запросов выключена).
 
-  Подробнее в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+  Подробнее в [документации Percona](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_filter).
 
 - **Log slow rate limit**{#setting-log-slow-rate-limit} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -535,7 +535,7 @@
 
   Минимальное значение — `1`, максимальное значение — `1000`, по умолчанию — `1`.
 
-  Подробнее в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+  Подробнее в [документации Percona](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_rate_limit).
 
 - **Log slow rate type**{#setting-log-slow-rate-type} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -546,7 +546,7 @@
 
   Значение по умолчанию — `query`.
 
-  Подробнее в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+  Подробнее в [документации Percona](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_rate_type).
 
 - **Log slow sp statements**{#setting-log-slow-sp-statements} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -554,7 +554,7 @@
 
   По умолчанию запись выражений включена.
 
-  Подробнее в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+  Подробнее в [документации Percona](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_sp_statements).
 
 - **Long query time**{#setting-long-query-time} <code><b><small>Все интерфейсы</small></b></code>
 
@@ -803,7 +803,7 @@
 
   Минимальное значение — `0`, максимальное значение — `3600` (1 час), по умолчанию — `10`.
 
-  Подробнее в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+  Подробнее в [документации Percona](https://docs.percona.com/percona-server/8.0/slow-extended.html#slow_query_log_always_write_time).
 
 - **Sort buffer size**{#setting-sort-buffer-size} <code><b><small>Все интерфейсы</small></b></code>
 

@@ -1351,6 +1351,9 @@ ID of the folder where connection for the user is created. ||
 || `--secret-folder-id` | `string`
 
 ID of the folder where connection secret is created. ||
+|| `--deletion-protection` | `string`
+
+Protection of the user from accidental deletion. Values: inherited (as set for the cluster), enabled, disabled, true, false ||
 |#
 
 #### Global Flags

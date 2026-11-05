@@ -23,22 +23,22 @@ MCP Gateway name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
-New mcpgateway name. ||
+MCP Gateway name. ||
 || `--description` | `string`
 
-New mcpgateway description. ||
+MCP Gateway description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--network-id` | `string`
 
-New mcpgateway network id. ||
+MCP Gateway network id. ||
 || `--service-account-id` | `string`
 
-New mcpgateway service account id. ||
+Service account id. ||
 || `--tools-file` | `string`
 
-Path to YAML/JSON file with an array of McpTool objects to fully replace existing tools. ||
+Path to YAML/JSON file with an array of McpTool objects. ||
 || `--no-logging` | Disable logging from MCP Gateway. ||
 || `--log-group-id` | `string`
 

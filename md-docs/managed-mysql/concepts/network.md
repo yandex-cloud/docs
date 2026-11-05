@@ -77,4 +77,3 @@ FQDN можно использовать для доступа к хосту в 
 * [Синхронизация данных из стороннего кластера MySQL® в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](../tutorials/sync-mysql.md)
 * [Создание интернет-магазина на «1С-Битрикс: Управление сайтом»](../tutorials/bitrix-shop/index.md)
 * [Создание сайта на базе «1С-Битрикс»](../tutorials/bitrix-website/index.md)
-* [Создание интернет-магазина на платформе OpenCart](../tutorials/opencart/index.md)

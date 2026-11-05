@@ -16,6 +16,10 @@ _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kr
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
 
+
+{% include [kraft-controller-zones](../../_includes/mdb/mkf/kraft-controller-zones.md) %}
+
+
 ## Преимущества и недостатки {{ kraft-name }} {#pros-and-cons}
 
 Преимущества {{ kraft-short-name }} связаны с тем, что {{ KF }} больше не зависит от внешней системы {{ ZK }}:

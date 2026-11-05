@@ -3,12 +3,19 @@
 
 Вы можете перенести данные из {{ yandex-direct }} в {{ mch-name }} с использованием сервисов {{ sf-name }}, {{ objstorage-name }} и {{ data-transfer-name }}. Для этого:
 
+1. [Подготовьте тестовые данные](#prepare-data).
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Перенесите данные из {{ yandex-direct }} в {{ objstorage-name }} с использованием {{ sf-name }}](#direct-objstorage).
 1. [Перенесите данные из {{ objstorage-name }} в {{ mch-name }} с использованием {{ data-transfer-name }}](#objstorage-mch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Необходимые платные ресурсы {#paid-resources}
+
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Сервис {{ sf-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы {{ sf-full-name }}](../../functions/pricing.md)).
@@ -16,132 +23,131 @@
 * Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-## Перед началом работы {#before-you-begin}
 
-1. Подготовьте тестовые данные для выгрузки из {{ yandex-direct }}:
+## Подготовьте тестовые данные {#prepare-data}
 
-    1. [Зарегистрируйте тестовое приложение в сервисе {{ yandex-oauth }}](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
+1. [Зарегистрируйте тестовое приложение в сервисе {{ yandex-oauth }}](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#oauth).
 
-        В качестве платформы выберите **Веб-сервисы**, а в поле **Redirect URI** вставьте URL для отладки: `https://oauth.yandex.ru/verification_code`.
+    В качестве платформы выберите **Веб-сервисы**, а в поле **Redirect URI** вставьте URL для отладки: `https://oauth.yandex.ru/verification_code`.
 
-    1. [Получите отладочный токен](https://yandex.ru/dev/id/doc/ru/tokens/debug-token) для приложения.
-    1. [Создайте заявку](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#request) на тестовый доступ приложения к {{ yandex-direct }} и дождитесь ее одобрения.
-    1. [Включите песочницу](https://yandex.ru/dev/direct/doc/dg/concepts/sandbox-init.html) в {{ yandex-direct }} с ролью **Клиент**.
-    1. (Опционально) Убедитесь, что все настроено верно, отправив запрос к API песочницы от имени приложения:
+1. [Получите отладочный токен](https://yandex.ru/dev/id/doc/ru/tokens/debug-token) для приложения.
+1. [Создайте заявку](https://yandex.ru/dev/direct/doc/dg/concepts/register.html#request) на тестовый доступ приложения к {{ yandex-direct }} и дождитесь ее одобрения.
+1. [Включите песочницу](https://yandex.ru/dev/direct/doc/dg/concepts/sandbox-init.html) в {{ yandex-direct }} с ролью **Клиент**.
+1. (Опционально) Убедитесь, что все настроено верно, отправив запрос к API песочницы от имени приложения:
 
-        {% cut "Пример запроса" %}
+    {% cut "Пример запроса" %}
+
+    ```bash
+    curl \
+      --header 'Authorization: Bearer <отладочный_токен>' \
+      --header 'Accept-Language: en' \
+      --data '
+          {
+            "method":"get",
+            "params": {
+              "SelectionCriteria": {},
+              "FieldNames": [
+                "Id",
+                "Name"
+              ]
+            }
+          }' \
+      "https://api-sandbox.direct.yandex.com/json/v5/campaigns" | jq
+    ```
+
+    {% endcut %}
+
+    {% cut "Пример ответа" %}
+
+    ```json
+    {
+      "result": {
+        "Campaigns": [
+          {
+              "Id": 463476,
+              "Name": "Test API Sandbox campaign 1"
+          },
+          {
+              "Id": 463477,
+              "Name": "Test API Sandbox campaign 2"
+          },
+          {
+              "Id": 463478,
+              "Name": "Test API Sandbox campaign 3"
+          }
+        ]
+      }
+    }
+    ```
+
+    {% endcut %}
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
+
+{% list tabs group=resources %}
+
+- Вручную {#manual}
+
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-lockbox-sa`.
+    1. [Создайте секрет в {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
+
+        * `access_key:<открытый_ключ>`;
+        * `secret_key:<закрытый_ключ>`;
+        * `app_token:<отладочный_токен_приложения>`.
+
+    1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
+    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
+    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
+
+- {{ TF }} {#tf}
+
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+    1. Скачайте в ту же рабочую директорию файл конфигурации [ya-direct-to-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-direct-to-clickhouse/blob/main/ya-direct-to-mch.tf).
+
+        В этом файле описаны:
+
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mch-name }};
+        * сервисный аккаунт с ролями `storage.uploader` и `lockbox.payloadViewer`.
+        * статический ключ для сервисного аккаунта;
+        * секрет {{ lockbox-name }};
+        * бакет {{ objstorage-short-name }};
+        * бессерверная функция {{ sf-name }};
+        * кластер-приемник {{ mch-name }};
+        * эндпоинт для приемника {{ mch-name }};
+        * трансфер.
+
+    1. Укажите в файле `ya-direct-to-mch.tf` переменные:
+
+        * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
+        * `app_token` — отладочный токен приложения.
+        * `bucket_name` — имя бакета {{ objstorage-short-name }}. Имя должно быть уникальным в сервисе.
+        * `ch_password` — пароль пользователя-администратора кластера {{ mch-name }}.
+
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
-        curl \
-          --header 'Authorization: Bearer <отладочный_токен>' \
-          --header 'Accept-Language: en' \
-          --data '
-              {
-                "method":"get",
-                "params": {
-                  "SelectionCriteria": {},
-                  "FieldNames": [
-                    "Id",
-                    "Name"
-                  ]
-                }
-              }' \
-          "https://api-sandbox.direct.yandex.com/json/v5/campaigns" | jq
+        terraform validate
         ```
 
-        {% endcut %}
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-        {% cut "Пример ответа" %}
+    1. Создайте необходимую инфраструктуру:
 
-        ```json
-        {
-          "result": {
-            "Campaigns": [
-              {
-                  "Id": 463476,
-                  "Name": "Test API Sandbox campaign 1"
-              },
-              {
-                  "Id": 463477,
-                  "Name": "Test API Sandbox campaign 2"
-              },
-              {
-                  "Id": 463478,
-                  "Name": "Test API Sandbox campaign 3"
-              }
-            ]
-          }
-        }
-        ```
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% endcut %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-1. Подготовьте инфраструктуру {{ yandex-cloud }}:
-
-    {% list tabs group=resources %}
-
-    - Вручную {#manual}
-
-        1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
-        1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-lockbox-sa`.
-        1. [Создайте секрет в {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
-
-            * `access_key:<открытый_ключ>`;
-            * `secret_key:<закрытый_ключ>`;
-            * `app_token:<отладочный_токен_приложения>`.
-
-        1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
-        1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
-
-            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
-
-        1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
-
-    - {{ TF }} {#tf}
-
-        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-        1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-        1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-
-        1. Скачайте в ту же рабочую директорию файл конфигурации [ya-direct-to-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-direct-to-clickhouse/blob/main/ya-direct-to-mch.tf).
-
-            В этом файле описаны:
-
-            * [сеть](../../vpc/concepts/network.md#network);
-            * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mch-name }};
-            * сервисный аккаунт с ролями `storage.uploader` и `lockbox.payloadViewer`.
-            * статический ключ для сервисного аккаунта;
-            * секрет {{ lockbox-name }};
-            * бакет {{ objstorage-short-name }};
-            * бессерверная функция {{ sf-name }};
-            * кластер-приемник {{ mch-name }};
-            * эндпоинт для приемника {{ mch-name }};
-            * трансфер.
-
-        1. Укажите в файле `ya-direct-to-mch.tf` переменные:
-
-            * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
-            * `app_token` — отладочный токен приложения.
-            * `bucket_name` — имя бакета {{ objstorage-short-name }}. Имя должно быть уникальным в сервисе.
-            * `ch_password` — пароль пользователя-администратора кластера {{ mch-name }}.
-
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Создайте необходимую инфраструктуру:
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
-
-    {% endlist %}
+{% endlist %}
 
 ## Перенесите данные из {{ yandex-direct }} в {{ objstorage-name }} с использованием {{ sf-name }} {#direct-objstorage}
 
@@ -222,7 +228,7 @@
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Yandex Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [созданный ранее](#before-you-begin) сервисный аккаунт.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [созданный ранее](#prepare-infrastructure) сервисный аккаунт.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.

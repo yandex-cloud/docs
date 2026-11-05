@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Раздел YCDR появится в интерфейсе Security Deck после одобрения заявки на доступ. О том, как подключить организацию к сервису, в разделе [Подключение к Yandex Cloud Detection and Response](../operations/connect.md).
 
 {% endnote %}
 
@@ -12,15 +12,9 @@ Yandex Cloud Detection and Response — это сервис для монито�
 
 ## Доступ к сервису {#access}
 
-{% note info %}
-
-Доступ к сервису YCDR осуществляется в интерфейсе Security Deck в [Cloud Center](https://center.yandex.cloud) после одобрения заявки на доступ.
-
-{% endnote %}
-
 Собранные данные анализируются с помощью SIEM-системы Yandex Cloud. В SIEM-систему события попадают через _коллектор_. Коллектор устанавливается в кластере Managed Service for Kubernetes, что позволяет обеспечить его масштабируемость и отказоустойчивость.
 
-Коллектор должен иметь доступ ко внешней сети для отправки событий в SIEM Yandex Cloud. При этом отправка событий происходит по протоколу TLS, и так как физически SIEM расположен в инфраструктуре Yandex Cloud, данные не покидают пределов дата-центра.
+Коллектор должен иметь доступ ко внешней сети для отправки событий в SIEM Yandex Cloud. Отправка событий происходит по протоколу TLS. Так как SIEM физически расположен в инфраструктуре Yandex Cloud, данные не покидают пределов дата-центра.
 
 Коллектор работает на уровне [облака](../../resource-manager/concepts/resources-hierarchy.md). В каждом облаке должен быть отдельный коллектор отправки событий.
 
@@ -33,6 +27,6 @@ Yandex Cloud Detection and Response — это сервис для монито�
 
 #### Полезные ссылки {#see-also}
 
-* [Изменение ландшафта киберугроз в первом полугодии 2026 года по данным Yandex Cloud](https://yandex.cloud/ru/blog/reflected-attacks-h1-20266)
+* [Изменение ландшафта киберугроз в первом полугодии 2026 года по данным Yandex Cloud](https://yandex.cloud/ru/blog/reflected-attacks-h1-2026)
 * [Закрываем уязвимости интерфейсов прикладных служб и веб-приложений Linux-инфраструктур](https://yandex.cloud/ru/blog/linux-vulnerability-june-2026)
 * [Анализ киберугроз в облачной среде за второе полугодие 2025 года](https://yandex.cloud/ru/blog/reflected-attacks-2025)

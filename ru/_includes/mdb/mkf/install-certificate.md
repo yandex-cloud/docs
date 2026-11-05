@@ -11,14 +11,4 @@
 
    Сертификат будет сохранен в файле `{{ crt-local-dir }}{{ crt-local-file }}`.
 
-- Windows (PowerShell) {#windows}
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-   ```
-
-   Сертификат будет сохранен в файле `$HOME\.kafka\{{ crt-local-file }}`.
-
-   Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../../managed-kafka/qa/index.md#get-ssl-error).
-
 {% endlist %}

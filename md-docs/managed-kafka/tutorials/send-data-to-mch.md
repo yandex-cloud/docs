@@ -142,48 +142,48 @@
 
 ## Выполните дополнительные настройки {#additional-settings}
 
-1. Установите утилиты:
+Установите утилиты:
 
-    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
+* [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики Apache Kafka®.
 
-        ```bash
-        sudo apt update && sudo apt install --yes kafkacat
-        ```
+    ```bash
+    sudo apt update && sudo apt install --yes kafkacat
+    ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластерам Managed Service for Apache Kafka® через SSL](../operations/connect/clients.md#bash-zsh).
+    Убедитесь, что можете с ее помощью [подключиться к кластерам Managed Service for Apache Kafka® через SSL](../operations/connect/clients.md#bash-zsh).
 
-    - [clickhouse-client](https://clickhouse.com/docs/ru/interfaces/cli) — для подключения к базе данных в кластере Managed Service for ClickHouse®.
+* [clickhouse-client](https://clickhouse.com/docs/ru/interfaces/cli) — для подключения к базе данных в кластере Managed Service for ClickHouse®.
 
-        1. Подключите [DEB-репозиторий](https://clickhouse.com/docs/ru/install#install-from-deb-packages) ClickHouse®:
-
-            ```bash
-            sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
-            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-            echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
-            /etc/apt/sources.list.d/clickhouse.list
-            ```
-
-        1. Установите зависимости:
-
-            ```bash
-            sudo apt update && sudo apt install --yes clickhouse-client
-            ```
-
-        1. Загрузите файл конфигурации для `clickhouse-client`:
-
-            ```bash
-            mkdir -p ~/.clickhouse-client && \
-            wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
-              --output-document ~/.clickhouse-client/config.xml
-            ```
-
-        Убедитесь, что можете с ее помощью [подключиться к кластеру Managed Service for ClickHouse® через SSL](../../managed-clickhouse/operations/connect/clients.md).
-
-    - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
+    1. Подключите [DEB-репозиторий](https://clickhouse.com/docs/ru/install#install-from-deb-packages) ClickHouse®:
 
         ```bash
-        sudo apt update && sudo apt-get install --yes jq
+        sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+        echo "deb https://packages.clickhouse.com/deb stable main" | sudo tee \
+        /etc/apt/sources.list.d/clickhouse.list
         ```
+
+    1. Установите зависимости:
+
+        ```bash
+        sudo apt update && sudo apt install --yes clickhouse-client
+        ```
+
+    1. Загрузите файл конфигурации для `clickhouse-client`:
+
+        ```bash
+        mkdir -p ~/.clickhouse-client && \
+        wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
+          --output-document ~/.clickhouse-client/config.xml
+        ```
+
+    Убедитесь, что можете с ее помощью [подключиться к кластеру Managed Service for ClickHouse® через SSL](../../managed-clickhouse/operations/connect/clients.md).
+
+* [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
+
+    ```bash
+    sudo apt update && sudo apt-get install --yes jq
+    ```
 
 ## Настройте интеграцию с Apache Kafka® для кластера Managed Service for ClickHouse® {#configure-mch-for-kf}
 
@@ -264,7 +264,7 @@
            kafka_broker_list = '<FQDN_хоста-брокера>:9091',
            kafka_topic_list = '<имя_топика>',
            kafka_group_name = 'sample_group',
-           kafka_format = 'JSONEachRow'
+           kafka_format = 'JSONEachRow',
            kafka_security_protocol = 'SASL_SSL',
            kafka_sasl_mechanism = 'SCRAM-SHA-512',
            kafka_sasl_username = '<имя_пользователя_для_потребителя>',

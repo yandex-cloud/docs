@@ -7,15 +7,17 @@ description: В разделе представлена история изме�
 
 ## Сентябрь 2026 {#september-2026}
 
-Доступна новая версия {{ TR }} [483](https://trino.io/docs/current/release/release-483.html).
+* Доступна новая версия {{ TR }} [483](https://trino.io/docs/current/release/release-483.html).
+* Для кластеров {{ mtr-name }} доступны хосты на новой [платформе v4a](concepts/instance-types.md#amd-zen4) (AMD Zen 4).
+* [Коннектор](concepts/greenplum-connector.md) {{ GP }}/Cloudberry перешел в стадию General Availability.
 
 ## Июль 2026 {#july-2026}
 
-* Добавлена возможность использовать [пользовательский бакет {{ objstorage-name }}](concepts/retry-policy.md#exchange-manager-storage) в качестве хранилища Exchange Manager.
+* Добавлена возможность выбирать [тип хранилища для Exchange Manager](concepts/retry-policy.md#exchange-manager-storage) при создании и изменении кластера: служебный бакет {{ mtr-name }} или пользовательский бакет {{ objstorage-name }}.
 
 ## Май 2026 {#may-2026}
 
-* [Доступен новый коннектор](concepts/greenplum-connector.md): {{ GP }}/Cloudberry.
+[Доступен новый коннектор](concepts/greenplum-connector.md): {{ GP }}/Cloudberry.
 
 ## Апрель 2026 {#april-2026}
 

@@ -50,6 +50,6 @@
 
     Пример настройки поставки данных из {{ yds-short-name }} приведен в [практическом руководстве по сохранению данных в {{ CH }}](../../data-streams/tutorials/send-to-clickhouse.md).
 
-1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) на Github.
+1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) на GitHub.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

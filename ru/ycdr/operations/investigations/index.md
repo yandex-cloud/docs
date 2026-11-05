@@ -5,7 +5,7 @@ description: Обзор возможностей работы с расслед�
 
 # Работа с расследованиями
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 * [{#T}](manage-investigations.md)
 * [{#T}](investigations-list.md)

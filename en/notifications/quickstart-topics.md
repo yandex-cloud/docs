@@ -18,7 +18,7 @@ To get started with topics:
    * [SMS](quickstart-sms.md)
 
      For SMS notifications, you may add phone numbers directly to the topic rather than the channel.
-
+   * [Queue in {{ message-queue-full-name }}](../message-queue/operations/message-queue-new-queue.md).
 1. [Create a topic](#create-topic).
 1. [Subscribe endpoints to the topic](#subscribe-endpoints).
 1. [Send a notification to the topic](#send-message).

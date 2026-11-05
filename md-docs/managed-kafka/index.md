@@ -178,20 +178,6 @@
 
  - [Overview](cli-ref/v0/index.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/v0/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -270,11 +256,19 @@
 
  - [Overview](cli-ref/v0/maintenance/index.md)
 
- - [get](cli-ref/v0/maintenance/get.md)
+##### change-freeze
 
- - [list](cli-ref/v0/maintenance/list.md)
+ - [Overview](cli-ref/v0/maintenance/change-freeze/index.md)
 
- - [reschedule](cli-ref/v0/maintenance/reschedule.md)
+ - [create](cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 #### topic
 
@@ -307,20 +301,6 @@
  - [revoke-permission](cli-ref/v0/user/revoke-permission.md)
 
  - [update](cli-ref/v0/user/update.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 
@@ -400,11 +380,19 @@
 
  - [Overview](cli-ref/maintenance/index.md)
 
- - [get](cli-ref/maintenance/get.md)
+#### change-freeze
 
- - [list](cli-ref/maintenance/list.md)
+ - [Overview](cli-ref/maintenance/change-freeze/index.md)
 
- - [reschedule](cli-ref/maintenance/reschedule.md)
+ - [create](cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/maintenance/change-freeze/terminate.md)
 
 ### topic
 

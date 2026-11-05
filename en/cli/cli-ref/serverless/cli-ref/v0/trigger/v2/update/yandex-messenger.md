@@ -18,26 +18,26 @@ Syntax:
 #|
 ||Flag | Description ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--new-name` | `string`
-
-Trigger new name. ||
-|| `--description` | `string`
-
-Trigger description. ||
-|| `--labels` | `key=value[,key=value...]`
-
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. All existing labels are replaced ||
-|| `--oauth-token` | `string`
-
-Bot oauth token. If set, webhook is re-registered ||
-|| `--force` | Overwrite a webhook the bot already has set to a different URL, instead of failing with "webhook already in use".
-If the webhook already points to this trigger, force does nothing - the existing webhook is kept. ||
 || `--id` | `string`
 
 Trigger id. ||
 || `--name` | `string`
 
 Trigger name. ||
+|| `--new-name` | `string`
+
+Trigger name. ||
+|| `--description` | `string`
+
+Trigger description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of label KEY=VALUE pairs to add. ||
+|| `--oauth-token` | `string`
+
+Bot oauth token. If set, webhook is re-registered ||
+|| `--force` | Overwrite a webhook the bot already has set to a different URL, instead of failing with "webhook already in use".
+If the webhook already points to this trigger, force does nothing - the existing webhook is kept. ||
 |#
 
 #### Global Flags

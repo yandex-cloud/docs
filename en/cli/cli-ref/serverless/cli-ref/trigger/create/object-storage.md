@@ -35,7 +35,7 @@ Object prefix filter. ||
 || `--suffix` | `string`
 
 Object suffix filter. ||
-|| `--events` | `value[,value]`
+|| `--events` | `[]string`
 
 List of object storage events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times.
 Available events are: 'create-object' , 'delete-object', 'update-object'. ||

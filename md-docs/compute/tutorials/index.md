@@ -19,7 +19,6 @@
 * [Маршрутизация через NAT-инстанс](nat-instance/index.md)
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](serverless-trigger-budget-vm.md)
 * [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](serverless-trigger-budget-queue-vm-tg.md)
-* [Создание интернет-магазина на платформе OpenCart](opencart/index.md)
 * [Создание веб-приложения на Python с использованием фреймворка Flask](flask.md)
 * [Развертывание сервера Minecraft в Yandex Cloud](minecraft-server.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)

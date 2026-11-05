@@ -4,14 +4,15 @@
 
 С помощью мониторинга вы можете следить за скоростью запросов к защищаемому ресурсу: разрешенных и заблокированных, направленных на проверки JS Challenge, Cookie Challenge или в SmartCaptcha и обработанных профилем ARL. Также можно [настроить уведомления](alerting.md) (алерты) о превышении каких-либо порогов скорости запросов.
 
-Чтобы посмотреть метрики в интерфейсе Smart Web Security:
+Для мониторинга защиты на уровнях L3–L4 [посмотрите метрики Network Protection](#network-protection) в Monium. Они показывают объем входящего, отброшенного и пропущенного трафика.
 
 Вы можете посмотреть дашборды одним из способов:
 
-* На [странице](https://console.yandex.cloud/link/smartwebsecurity) сервиса Smart Web Security выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
-* В разделе **Мониторинг** справа вверху нажмите **Открыть в Monium**. Выберите вкладку:
+* На [странице](https://console.yandex.cloud/link/smartwebsecurity) сервиса Smart Web Security выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **Мониторинг** и вкладку:
   * **Anti-DDoS** — графики профилей безопасности и ARL.
-  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md). 
+  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md).
+* Для просмотра метрик конкретного прокси-сервера в разделе **Защита доменов** выберите прокси-сервер и откройте вкладку **Мониторинг**. На ней доступны вкладки **Smart Web Security**, **HTTP статистика** и **Статистика масштабирования**.
+* Для просмотра дашборда на платформе Monium нажмите **Открыть в Monium** справа вверху раздела или вкладки **Мониторинг**. В Monium также можно [строить графики по выбранным метрикам](../../monium/metrics/metric-explorer.md).
 * На [странице](https://console.yandex.cloud/link/application-load-balancer) сервиса Application Load Balancer:
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Перейдите на вкладку **Мониторинг**, затем на вкладку **Smart Web Security**.
@@ -73,7 +74,28 @@
 
 Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monium/operations/dashboard/create.md) в сервисе Monium.
 
+## Посмотреть метрики Network Protection {#network-protection}
+
+Чтобы построить график отброшенного трафика:
+
+1. Узнайте публичный IPv4-адрес прокси-сервера. В [консоли управления](https://console.yandex.cloud/link/smartwebsecurity) выберите каталог с прокси-сервером, откройте раздел **Защита доменов** и выберите прокси-сервер. На вкладке **Обзор** скопируйте значение поля **Публичный IP**.
+1. Откройте [Monium](https://monium.yandex.cloud) и на панели сверху выберите проект `folder__<идентификатор_каталога>` каталога с прокси-сервером.
+1. На панели слева выберите ![compass](../../_assets/console-icons/compass.svg) **Обзор** → ![rectangle-pulse](../../_assets/console-icons/rectangle-pulse.svg) **Метрики**.
+1. Вверху на шкале времени задайте период просмотра.
+1. В строке запроса нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим, и введите:
+
+    ```text
+    non_negative_derivative({project = "folder__<идентификатор_каталога>", service = "__antiddos__", cluster = "default", ip = "<ip_адрес_прокси_сервера>", name = "drop_client_bytes"})
+    ```
+
+    Замените `<идентификатор_каталога>` на [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) с прокси-сервером, а `<ip_адрес_прокси_сервера>` — на адрес из первого шага.
+1. Нажмите **Выполнить**.
+
+График покажет, сколько байт клиентского трафика отбрасывается в секунду. Функция `non_negative_derivative` рассчитывает, на сколько увеличивается накопительный счетчик за секунду.
+
+Чтобы посмотреть входящий или пропущенный трафик, замените `drop_client_bytes` в метке `name` на `client_bytes` или `forward_client_bytes` соответственно. Для сравнения на одном графике добавьте отдельные запросы кнопкой **Добавить запрос**. Полный список метрик приведен в [справочнике](../metrics.md#network-protection-metrics).
+
 #### Полезные ссылки {#see-also}
 
-* [Справочник метрик Yandex Monium](../metrics.md)
+* [Справочник метрик Yandex Smart Web Security](../metrics.md)
 * [Дашборд в Monium](../../monium/concepts/visualization/dashboard.md)

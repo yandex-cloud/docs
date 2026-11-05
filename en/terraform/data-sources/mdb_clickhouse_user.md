@@ -26,6 +26,7 @@ output "permissions" {
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
 - `connection_manager` [Block]. **Deprecated**. Please use `user_connection_manager` instead. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
+- `deletion_protection_mode` (*Read-Only*) (String). Deletion protection mode of the user. Possible values: `DELETION_PROTECTION_MODE_INHERITED`, `DELETION_PROTECTION_MODE_ENABLED`, `DELETION_PROTECTION_MODE_DISABLED`.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). Name of the ClickHouse user. Provided by the client when the user is created.
 - `password` (*Read-Only*) (String). Password of the ClickHouse user. Provided by the client when the user is created.

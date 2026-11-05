@@ -221,5 +221,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Справочник метрик Yandex Monium](../metrics.md)
+* [Справочник метрик Yandex Smart Web Security](../metrics.md)
 * [Строка запроса в Monium](../../monium/concepts/visualization/query-string.md)

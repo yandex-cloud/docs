@@ -23,31 +23,31 @@ Workflow name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
-New workflow name. ||
+Workflow name. ||
 || `--description` | `string`
 
-New workflow description. ||
+Workflow description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--yaml-spec` | `string`
 
-New workflow specification file name. ||
+Workflow specification file name. ||
 || `--network-id` | `string`
 
-New workflow network id. ||
+Workflow network id. ||
 || `--service-account-id` | `string`
 
-New workflow service account id. ||
+Service account id. ||
 || `--schedule-cron-expression` | `string`
 
-Cron expression for workflow schedule. Example: '0 * * * * *'. ||
+Cron expression for workflow schedule. ||
 || `--schedule-timezone` | `string`
 
-Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone. ||
+Timezone for workflow schedule. ||
 || `--remove-schedule` | Remove schedule for the workflow. ||
-|| `--set-is-public` | Make workflow public for execution. ||
 || `--remove-is-public` | Make workflow private for execution. ||
+|| `--set-is-public` | Make workflow public for execution. ||
 || `--no-logging` | Disable logging from workflow. ||
 || `--log-group-id` | `string`
 

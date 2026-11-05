@@ -23,6 +23,7 @@ Connector id. ||
 || `--name` | `string`
 
 Connector name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--role` | `string`
 
 Binding role ID. ||
@@ -54,7 +55,6 @@ Update access for users of federation with specified ID ||
 || `--subject` | `string`
 
 Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:&lt;ID&gt;, serviceAccount:&lt;ID&gt;, system:&lt;ID&gt;. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags

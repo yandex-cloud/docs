@@ -15,7 +15,6 @@ description: Различные сценарии использования {{ m
 * [{#T}](wordpress-mysql/index.md)
 * [{#T}](bitrix-website/index.md)
 * [{#T}](bitrix-shop/index.md)
-* [{#T}](opencart/index.md)
 * [{#T}](mmy-ydb-migration.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](objs-mmy-migration.md)

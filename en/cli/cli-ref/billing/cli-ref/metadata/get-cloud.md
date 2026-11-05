@@ -15,7 +15,7 @@ Implementation details:
 - The method result does not contain empty cloud id information
 - Filtering is done using case-insensitive substring matching
 - Only clouds with at least one folder are included in the response
-- Folder pagination is based on folder IDs, ordered alphabetically
+- Folder pagination is based on cloud and folder names, ordered alphabetically (ties are broken by IDs)
 - NextPageToken is only returned when there are more results available
 - Base64-encoded page tokens are used for pagination state
 Error handling:

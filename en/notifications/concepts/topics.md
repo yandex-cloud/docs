@@ -8,10 +8,14 @@ To add endpoints to a topic, you can use a _subscription_. A subscription associ
 
 This is how you set up topics:
 
-1. Use {{ cns-short-name }} to create notification channels.
+1. Use {{ cns-short-name }} to create notification channels. You do not need to create channels to send notifications to {{ message-queue-full-name }} queues.
 1. Add endpoints to the notification channels. For SMS, adding an endpoint is optional.
 1. Create a topic and enable logging to keep track of sent notifications.
-1. Add a subscription to the topic, specifying the ARN of the previously created endpoint or a phone number for SMS notifications.
+1. Add a subscription to the topic and specify the following in it:
+
+   * ID (ARN) of the previously created endpoint: for mobile push notifications and browser notifications.
+   * Phone number: for SMS.
+   * Queue URL: for {{ message-queue-name }}.
 
 This is how you send notifications:
 

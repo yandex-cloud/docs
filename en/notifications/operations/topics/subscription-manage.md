@@ -22,27 +22,29 @@ description: Follow this guide to update or delete a subscription in {{ cns-name
 - AWS CLI {#aws-cli}
 
   1. View the list of subscriptions for the topic:
-     
+
      ```bash
-     aws sns set-subscription-attributes \
-      --subscription-arn **subscription_ARN** <attributes>
+     aws sns list-subscriptions-by-topic \
+      --topic-arn <topic_ARN>
      ```
-  
+
   1. Update the subscription:
-     
+
      ```bash
      aws sns set-subscription-attributes \
-      --subscription-arn **subscription_ARN** <attributes>
+      --subscription-arn **subscription_ARN** \
+      --attribute-name <attribute_name> \
+      --attribute-value <attribute_value>
      ```
-  
+
   1. View the new subscription settings:
-     
+
      ```bash
      aws sns get-subscription-attributes \
       --subscription-arn **subscription_ARN**
      ```
 
-  For more on commands, see these AWS guides: [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html) and [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
+  For more on commands, see these AWS guides: [list-subscriptions-by-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/list-subscriptions-by-topic.html), [set-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/set-subscription-attributes.html), and [get-subscription-attributes](https://docs.aws.amazon.com/cli/latest/reference/sns/get-subscription-attributes.html).
 
 - AWS SDK for Python {#python}
 

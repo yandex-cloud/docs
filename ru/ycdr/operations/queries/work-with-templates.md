@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Работа с шаблонами запросов
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 Шаблоны позволяют сохранять часто используемые запросы и быстро применять их в расследованиях.
 

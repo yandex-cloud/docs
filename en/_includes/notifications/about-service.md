@@ -1,1 +1,1 @@
-{{ cns-name }} ({{ cns-short-name }}) is a service for multichannel notifications of users. The service's HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).
+{{ cns-name }} ({{ cns-short-name }}): Service for multichannel user notifications. Its HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/Welcome.html).

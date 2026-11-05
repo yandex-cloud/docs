@@ -6536,6 +6536,30 @@ items:
                     href: cli-ref/managed-airflow/cli-ref/v0/cluster/stop.md
                   - name: update
                     href: cli-ref/managed-airflow/cli-ref/v0/cluster/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-airflow/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/terminate.md
           - name: change-freeze
             items:
               - name: Overview
@@ -6580,6 +6604,30 @@ items:
                 href: cli-ref/managed-airflow/cli-ref/cluster/stop.md
               - name: update
                 href: cli-ref/managed-airflow/cli-ref/cluster/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-airflow/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/terminate.md
       - name: managed-clickhouse
         items:
           - name: Overview
@@ -6598,25 +6646,6 @@ items:
                     href: cli-ref/managed-clickhouse/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-clickhouse/cli-ref/v0/backup/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: >-
-                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -6738,6 +6767,8 @@ items:
                     href: cli-ref/managed-clickhouse/cli-ref/v0/database/get.md
                   - name: list
                     href: cli-ref/managed-clickhouse/cli-ref/v0/database/list.md
+                  - name: update
+                    href: cli-ref/managed-clickhouse/cli-ref/v0/database/update.md
               - name: extension
                 items:
                   - name: Overview
@@ -6783,6 +6814,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-clickhouse/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -6892,20 +6943,6 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/backup/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-clickhouse/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7015,6 +7052,8 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/database/get.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/database/list.md
+              - name: update
+                href: cli-ref/managed-clickhouse/cli-ref/database/update.md
           - name: extension
             items:
               - name: Overview
@@ -7055,6 +7094,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-clickhouse/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-clickhouse/cli-ref/maintenance/get.md
               - name: list
@@ -7205,24 +7264,6 @@ items:
                     href: cli-ref/managed-greenplum/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-greenplum/cli-ref/v0/backup/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-greenplum/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-greenplum/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -7318,6 +7359,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-greenplum/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -7431,20 +7492,6 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-greenplum/cli-ref/backup/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-greenplum/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7532,6 +7579,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-greenplum/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-greenplum/cli-ref/maintenance/get.md
               - name: list
@@ -7632,22 +7699,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-kafka/cli-ref/v0/index.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-kafka/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-kafka/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-kafka/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -7741,12 +7792,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-kafka/cli-ref/v0/maintenance/index.md
-                  - name: get
-                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/get.md
-                  - name: list
-                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/list.md
-                  - name: reschedule
-                    href: cli-ref/managed-kafka/cli-ref/v0/maintenance/reschedule.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/terminate.md
               - name: topic
                 items:
                   - name: Overview
@@ -7779,20 +7844,6 @@ items:
                     href: cli-ref/managed-kafka/cli-ref/v0/user/revoke-permission.md
                   - name: update
                     href: cli-ref/managed-kafka/cli-ref/v0/user/update.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-kafka/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -7872,12 +7923,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-kafka/cli-ref/maintenance/index.md
-              - name: get
-                href: cli-ref/managed-kafka/cli-ref/maintenance/get.md
-              - name: list
-                href: cli-ref/managed-kafka/cli-ref/maintenance/list.md
-              - name: reschedule
-                href: cli-ref/managed-kafka/cli-ref/maintenance/reschedule.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/terminate.md
           - name: topic
             items:
               - name: Overview
@@ -8169,24 +8234,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-metastore/cli-ref/v0/index.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-metastore/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-metastore/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-metastore/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8226,20 +8273,30 @@ items:
                     href: cli-ref/managed-metastore/cli-ref/v0/cluster/stop.md
                   - name: update
                     href: cli-ref/managed-metastore/cli-ref/v0/cluster/update.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-metastore/cli-ref/change-freeze/terminate.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-metastore/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -8276,6 +8333,30 @@ items:
                 href: cli-ref/managed-metastore/cli-ref/cluster/stop.md
               - name: update
                 href: cli-ref/managed-metastore/cli-ref/cluster/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-metastore/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/terminate.md
       - name: managed-mongodb
         items:
           - name: Overview
@@ -8308,22 +8389,14 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/list.md
-              - name: change-freeze
+              - name: balancer
                 items:
                   - name: Overview
-                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-mongodb/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-mongodb/cli-ref/v0/change-freeze/terminate.md
+                    href: cli-ref/managed-mongodb/cli-ref/v0/balancer/index.md
+                  - name: disable
+                    href: cli-ref/managed-mongodb/cli-ref/v0/balancer/disable.md
+                  - name: enable
+                    href: cli-ref/managed-mongodb/cli-ref/v0/balancer/enable.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8417,6 +8490,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-mongodb/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -8489,20 +8582,14 @@ items:
               - name: list
                 href: >-
                   cli-ref/managed-mongodb/cli-ref/backup-retention-policy/list.md
-          - name: change-freeze
+          - name: balancer
             items:
               - name: Overview
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-mongodb/cli-ref/change-freeze/terminate.md
+                href: cli-ref/managed-mongodb/cli-ref/balancer/index.md
+              - name: disable
+                href: cli-ref/managed-mongodb/cli-ref/balancer/disable.md
+              - name: enable
+                href: cli-ref/managed-mongodb/cli-ref/balancer/enable.md
           - name: cluster
             items:
               - name: Overview
@@ -8590,6 +8677,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-mongodb/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-mongodb/cli-ref/maintenance/get.md
               - name: list
@@ -8667,22 +8774,6 @@ items:
                   - name: list-by-folder
                     href: >-
                       cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-mysql/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-mysql/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-mysql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -8771,6 +8862,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-mysql/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-mysql/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -8826,20 +8937,6 @@ items:
               - name: list-by-folder
                 href: >-
                   cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-mysql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -8923,6 +9020,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-mysql/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-mysql/cli-ref/maintenance/get.md
               - name: list
@@ -8981,25 +9098,6 @@ items:
                     href: cli-ref/managed-opensearch/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-opensearch/cli-ref/v0/backup/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: >-
-                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-opensearch/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9069,6 +9167,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-opensearch/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -9110,20 +9228,6 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-opensearch/cli-ref/backup/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-opensearch/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9191,6 +9295,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-opensearch/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-opensearch/cli-ref/maintenance/get.md
               - name: list
@@ -9247,25 +9371,6 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/backup-retention-policy/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: >-
-                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-postgresql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9363,6 +9468,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-postgresql/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -9447,20 +9572,6 @@ items:
               - name: list
                 href: >-
                   cli-ref/managed-postgresql/cli-ref/backup-retention-policy/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-postgresql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9550,6 +9661,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-postgresql/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-postgresql/cli-ref/maintenance/get.md
               - name: list
@@ -9635,22 +9766,6 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-redis/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-redis/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-redis/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -9726,6 +9841,26 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/managed-redis/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: cli-ref/managed-redis/cli-ref/v0/maintenance/get.md
                   - name: list
@@ -9788,20 +9923,6 @@ items:
                   cli-ref/managed-redis/cli-ref/backup-retention-policy/delete.md
               - name: list
                 href: cli-ref/managed-redis/cli-ref/backup-retention-policy/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-redis/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-redis/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-redis/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-redis/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-redis/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-redis/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -9871,6 +9992,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-redis/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-redis/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-redis/cli-ref/maintenance/get.md
               - name: list
@@ -9933,26 +10074,6 @@ items:
                   - name: list
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/backup/list.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -10041,6 +10162,26 @@ items:
                   - name: Overview
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/terminate.md
                   - name: get
                     href: >-
                       cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/get.md
@@ -10081,26 +10222,6 @@ items:
                 href: cli-ref/managed-sharded-postgresql/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-sharded-postgresql/cli-ref/backup/list.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/index.md
-              - name: create
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/create.md
-              - name: get
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: >-
-                  cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -10172,6 +10293,26 @@ items:
               - name: Overview
                 href: >-
                   cli-ref/managed-sharded-postgresql/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/terminate.md
               - name: get
                 href: cli-ref/managed-sharded-postgresql/cli-ref/maintenance/get.md
               - name: list
@@ -10203,22 +10344,6 @@ items:
             items:
               - name: Overview
                 href: cli-ref/managed-spark/cli-ref/v0/index.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-spark/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-spark/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-spark/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -10271,20 +10396,30 @@ items:
                     href: cli-ref/managed-spark/cli-ref/v0/job/list.md
                   - name: log
                     href: cli-ref/managed-spark/cli-ref/v0/job/log.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-spark/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-spark/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-spark/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-spark/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-spark/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-spark/cli-ref/change-freeze/terminate.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-spark/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -10331,6 +10466,30 @@ items:
                 href: cli-ref/managed-spark/cli-ref/job/list.md
               - name: log
                 href: cli-ref/managed-spark/cli-ref/job/log.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-spark/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-spark/cli-ref/maintenance/change-freeze/terminate.md
       - name: managed-trino
         items:
           - name: Overview
@@ -10431,22 +10590,6 @@ items:
                       - name: tpch
                         href: >-
                           cli-ref/managed-trino/cli-ref/v0/catalog/update/tpch.md
-              - name: change-freeze
-                items:
-                  - name: Overview
-                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/index.md
-                  - name: create
-                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/create.md
-                  - name: get
-                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/get.md
-                  - name: get-limits
-                    href: >-
-                      cli-ref/managed-trino/cli-ref/v0/change-freeze/get-limits.md
-                  - name: list
-                    href: cli-ref/managed-trino/cli-ref/v0/change-freeze/list.md
-                  - name: terminate
-                    href: >-
-                      cli-ref/managed-trino/cli-ref/v0/change-freeze/terminate.md
               - name: cluster
                 items:
                   - name: Overview
@@ -10498,6 +10641,30 @@ items:
                     href: cli-ref/managed-trino/cli-ref/v0/cluster/stop.md
                   - name: update
                     href: cli-ref/managed-trino/cli-ref/v0/cluster/update.md
+              - name: maintenance
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-trino/cli-ref/v0/maintenance/index.md
+                  - name: change-freeze
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/create.md
+                      - name: get
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/get.md
+                      - name: get-limits
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/get-limits.md
+                      - name: list
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/list.md
+                      - name: terminate
+                        href: >-
+                          cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/terminate.md
           - name: catalog
             items:
               - name: Overview
@@ -10564,20 +10731,6 @@ items:
                     href: cli-ref/managed-trino/cli-ref/catalog/update/tpcds.md
                   - name: tpch
                     href: cli-ref/managed-trino/cli-ref/catalog/update/tpch.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/managed-trino/cli-ref/change-freeze/index.md
-              - name: create
-                href: cli-ref/managed-trino/cli-ref/change-freeze/create.md
-              - name: get
-                href: cli-ref/managed-trino/cli-ref/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/managed-trino/cli-ref/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/managed-trino/cli-ref/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/managed-trino/cli-ref/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -10619,6 +10772,30 @@ items:
                 href: cli-ref/managed-trino/cli-ref/cluster/stop.md
               - name: update
                 href: cli-ref/managed-trino/cli-ref/cluster/update.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/managed-trino/cli-ref/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/create.md
+                  - name: get
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: >-
+                      cli-ref/managed-trino/cli-ref/maintenance/change-freeze/terminate.md
       - name: managed-ytsaurus
         items:
           - name: Overview

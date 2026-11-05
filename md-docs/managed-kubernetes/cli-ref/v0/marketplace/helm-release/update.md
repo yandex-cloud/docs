@@ -23,14 +23,14 @@ Syntax:
 ID of the Helm Release. ||
 || `--name` | `string`
 
- ||
+Helm Release name. ||
 || `--product-version-id` | `string`
 
 ID of the Marketplace Product Version. ||
-|| `--value` | `value[,value]`
+|| `--value` | `[]string`
 
 Value to pass to the Helm Release in KEY=VALUE format. Can be specified multiple times. For complex types (lists, objects) provide a YAML-encoded string as the value. ||
-|| `--value-from-file` | `value[,value]`
+|| `--value-from-file` | `[]string`
 
 Value to pass to the Helm Release in KEY=FILE format, where FILE content is used as the value. Can be specified multiple times. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||

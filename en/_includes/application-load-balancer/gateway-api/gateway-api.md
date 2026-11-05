@@ -24,7 +24,7 @@ The order of routes in virtual hosts is as per the algorithms described in the G
 
 - HTTP requests
 
-  The [algorithm](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.HTTPRouteRule) sorts routes by how well their parameters match those of the incoming HTTP request.
+  The [algorithm](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httprouterule) sorts routes by how well their parameters match those of the incoming HTTP request.
 
   Match conditions in descending order of priority:
 
@@ -38,7 +38,7 @@ The order of routes in virtual hosts is as per the algorithms described in the G
 
 - gRPC calls
 
-  The [algorithm](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.GRPCRouteRule) sorts routes by the number of characters in the parameters of the route and the incoming gRPC call. Matches are counted only based on headers.
+  The [algorithm](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcrouterule) sorts routes by the number of characters in the parameters of the route and the incoming gRPC call. Matches are counted only based on headers.
 
   Comparison conditions in descending order of priority:
 

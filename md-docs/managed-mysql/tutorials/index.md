@@ -12,7 +12,6 @@
 * [Создание сайта на WordPress с кластером базы данных MySQL®](wordpress-mysql/index.md)
 * [Создание сайта на базе «1С-Битрикс»](bitrix-website/index.md)
 * [Создание интернет-магазина на «1С-Битрикс: Управление сайтом»](bitrix-shop/index.md)
-* [Создание интернет-магазина на платформе OpenCart](opencart/index.md)
 * [Миграция базы данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](mmy-ydb-migration.md)
 * [Миграция базы данных из Managed Service for MySQL® в Yandex Object Storage](mmy-objs-migration.md)
 * [Миграция данных из Yandex Object Storage в Managed Service for MySQL® с помощью Yandex Data Transfer](objs-mmy-migration.md)

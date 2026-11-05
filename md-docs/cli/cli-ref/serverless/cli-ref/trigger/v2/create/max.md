@@ -23,14 +23,14 @@ Trigger name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--action` | `value[,value]`
+A list of label KEY=VALUE pairs to add. ||
+|| `--action` | `[]string`
 
 Action as JSON or '@path/to/file.json'. To set multiple actions, use multiple --action flags. ||
 || `--bot-token` | `string`
 
 MAX bot token. Required ||
-|| `--update-types` | `value[,value]`
+|| `--update-types` | `[]string`
 
 Types of MAX updates to receive, comma-separated. Optional, default is "message_created". ||
 || `--force` | Delete all existing webhook subscriptions before registering this trigger. ||

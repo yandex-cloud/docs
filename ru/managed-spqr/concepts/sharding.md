@@ -19,8 +19,8 @@ keywords:
 
 {{ mspqr-name }} поддерживает следующие стратегии шардирования данных:
 
-* [по хешу](https://pg-sharding.tech/sharding/hashed);
-* [по диапазону значений](https://pg-sharding.tech/sharding/ranged).
+* [по хешу](https://docs.pg-sharding.tech/sharding/hashed);
+* [по диапазону значений](https://docs.pg-sharding.tech/sharding/ranged).
 
 Узнайте больше о стратегиях шардирования данных в разделе [{#T}](sharding-keys.md#sharding-strategies).
 
@@ -47,7 +47,7 @@ keywords:
 
 ## Особенности управления шардированием в {{ mspqr-name }} {#shard-management}
 
-За управление шардированием в {{ mspqr-name }} отвечают хосты с ролями `ROUTER` ([маршрутизация запросов пользователей](https://pg-sharding.tech/sharding/cluster_components/router)) и `COORDINATOR` ([хранение конфигурации шардов](https://pg-sharding.tech/sharding/cluster_components/coordinator)).
+За управление шардированием в {{ mspqr-name }} отвечают хосты с ролями `ROUTER` ([маршрутизация запросов пользователей](https://docs.pg-sharding.tech/configuration/router)) и `COORDINATOR` ([хранение конфигурации шардов](https://docs.pg-sharding.tech/configuration/coordinator)).
 
 В {{ mspqr-name }} можно использовать шардирование двух типов:
 

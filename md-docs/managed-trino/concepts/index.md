@@ -50,7 +50,7 @@ _Коннектор_ — это интерфейс для доступа к ис
 
 * ClickHouse®
 * Delta Lake
-* [Greenplum®/Cloudberry](greenplum-connector.md) <code><b><small>Preview</small></b></code>
+* [Greenplum®/Cloudberry](greenplum-connector.md)
 * Hive
 * Hudi <code><b><small>Preview</small></b></code>
 * Iceberg

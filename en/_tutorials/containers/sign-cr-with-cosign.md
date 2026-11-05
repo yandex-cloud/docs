@@ -389,7 +389,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% note info %}
 
-      By default, when you create a policy, a signature verification request is made to the immutable Transparency Log storage. You can disable this behavior by adding the `rekor: ignoreTlog: true` parameter to the `keys` element in the policy specification. For more information, see [this Kyverno guide](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+      By default, when you create a policy, a signature verification request is made to the immutable Transparency Log storage. You can disable this behavior by adding the `rekor: ignoreTlog: true` parameter to the `keys` element in the policy specification. For more information, see [this Kyverno guide](https://kyverno.io/docs/policy-types/cluster-policy/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
 
       {% endnote %}
 

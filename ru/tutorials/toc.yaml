@@ -853,14 +853,6 @@ items:
                 href: web/bitrix-website/console.md
               - name: '{{ TF }}'
                 href: web/bitrix-website/terraform.md
-          - name: Интернет-магазин на платформе OpenCart
-            items:
-              - name: Обзор
-                href: internet-store/opencart/index.md
-              - name: Консоль управления
-                href: internet-store/opencart/console.md
-              - name: '{{ TF }}'
-                href: internet-store/opencart/terraform.md
           - name: Организация виртуального хостинга
             href: web/virtual-hosting.md
           - name: Привязка доменного имени к ВМ с веб-сервером

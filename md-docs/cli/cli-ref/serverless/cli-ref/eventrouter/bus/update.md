@@ -22,17 +22,15 @@ Bus id. ||
 Bus name. ||
 || `--new-name` | `string`
 
-New bus name. ||
+Bus name. ||
 || `--description` | `string`
 
 Bus description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--deletion-protection` | Prevents accidental bus removal. ||
-|| `--no-deletion-protection` | Remove bus deletion protection. ||
 || `--enable-logging` | Enable logging. ||
-|| `--disable-logging` | Disable logging. ||
 || `--log-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Logs delivery options
@@ -44,6 +42,8 @@ Possible property names:
 - `folder-id`: Write logs to default log group of this folder if log group id is not specified.
 
 - `min-level`: Minimal level of logs to write. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal' ||
+|| `--no-deletion-protection` | Remove bus deletion protection. ||
+|| `--disable-logging` | Disable logging. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

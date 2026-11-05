@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 Вам потребуется программа для записи видео и потокового вещания, например [Open Broadcaster Software (OBS)](https://obsproject.com).
 
-В программе укажите {{ ui-key.yacloud_video.stream-lines.label_stream-key }} и {{ ui-key.yacloud_video.stream-lines.label_server-address }}, полученные ранее, и запустите трансляцию.
+В программе укажите {{ ui-key.yacloud_video.stream-lines.label_stream-key }} и {{ ui-key.yacloud_video.stream-lines.label_server-address }}, полученные ранее.
 
 ### Пример настройки OBS {#configure-obs}
 
@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
    
 - API {#api}
 
-  Воспользуйтесь методом REST API [performAction](../../api-ref/Stream/performAction.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/PerformAction](../../api-ref/grpc/Stream/performAction.md).
+    Чтобы активировать трансляцию, воспользуйтесь методом REST API [performAction](../../api-ref/StreamLine/performAction.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/PerformAction](../../api-ref/grpc/StreamLine/performAction.md). Передайте `activate: {}` в теле запроса, затем начните передачу видеопотока в программе для трансляции.
 
 {% endlist %}
 

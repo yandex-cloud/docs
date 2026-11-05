@@ -1,7 +1,7 @@
 1. Enter a name for the rule.
 1. Optionally, enter a description.
 1. Set the rule priority. This priority applies only to ARL rules and is independent of the rule priority in the [security profile](../../smartwebsecurity/concepts/profiles.md).
-1. Optionally, enable **Enable dry run (logging only)** to test the rule and estimate the load on your web service. Requests will not be blocked in this mode.
+1. Optionally, enable **Enable dry run (logging only)** to test the rule and estimate the load on your web service. In this mode, the rule does not apply to requests.
 1. {% include [arl-rule-traffic-conditions](arl-rule-traffic-conditions.md) %}
 1. Under **Request counting**, select:
 

@@ -39,7 +39,7 @@ aws sns create-platform-application \
 
     Рекомендуется экранировать содержимое файла с помощью команды `jq @json <<< cat private_key.json`, так как AWS CLI принимает данный параметр в строковом формате.
 
-    Версия HTTP v1 API является предпочтительной, так как с июня 2024 года Legacy API [не будет поддерживаться FCM](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+    Версия HTTP v1 API является предпочтительной, так как с июня 2024 года Legacy API [не будет поддерживаться FCM](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
   * HMS:
 

@@ -697,6 +697,13 @@ apiPlayground:
               **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
               Resources allocated to ZooKeeper hosts.
             $ref: '#/definitions/Resources'
+          zoneIds:
+            description: |-
+              **string**
+              ZooKeeper availability zones.
+            type: array
+            items:
+              type: string
       Access:
         type: object
         properties:
@@ -721,6 +728,13 @@ apiPlayground:
               **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
               Resources allocated to KRaft controller hosts.
             $ref: '#/definitions/Resources'
+          zoneIds:
+            description: |-
+              **string**
+              Controller availability zones.
+            type: array
+            items:
+              type: string
       DiskSizeAutoscaling:
         type: object
         properties:
@@ -1116,7 +1130,10 @@ The maximum string length in characters is 50. ||
         "resourcePresetId": "string",
         "diskSize": "string",
         "diskTypeId": "string"
-      }
+      },
+      "zoneIds": [
+        "string"
+      ]
     },
     "zoneId": [
       "string"
@@ -1136,7 +1153,10 @@ The maximum string length in characters is 50. ||
         "resourcePresetId": "string",
         "diskSize": "string",
         "diskTypeId": "string"
-      }
+      },
+      "zoneIds": [
+        "string"
+      ]
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -1643,6 +1663,9 @@ Define whether the timestamp in the message is message create time or log append
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to ZooKeeper hosts. ||
+|| zoneIds[] | **string**
+
+ZooKeeper availability zones. ||
 |#
 
 ## Access {#yandex.cloud.mdb.kafka.v1.Access}
@@ -1670,6 +1693,9 @@ Is REST API enabled for this cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to KRaft controller hosts. ||
+|| zoneIds[] | **string**
+
+Controller availability zones. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}

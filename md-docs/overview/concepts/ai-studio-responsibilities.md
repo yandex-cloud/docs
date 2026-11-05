@@ -38,7 +38,6 @@
 
 * **Инструменты для разработки агентов и приложений**. Предоставление API, инструментов разработчика ([SDK](https://aistudio.yandex.ru/docs/ru/ai-studio/sdk/)), инструментов [Agent Atelier](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/) и [интерфейс AI Studio](https://aistudio.yandex.ru/platform).
 
-* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/)), среда для обучения.
 
 * **Компоненты для интеграции с внешними системами**: [MCP Hub](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/), [Yandex Search API](*search-api_service_info).
 
@@ -80,7 +79,6 @@
 
 * **Разработка агентов и приложений**. Разработка логики [агентов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/), настройка [рабочих процессов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
 
-* **Дообучение моделей**. Подготовка [датасетов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), выбор параметров дообучения, контроль качества результатов, защита тренировочных данных.
 
 * **Интеграция с внешними системами**. Настройка подключений к корпоративным системам, безопасность интеграций, управление внешними инструментами.
 

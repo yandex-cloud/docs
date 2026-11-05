@@ -4,10 +4,7 @@
 
 В этом разделе представлены настройки для подключения к хостам кластера Managed Service for Apache Kafka® с помощью [инструментов командной строки](#command-line-tools) и из [Docker-контейнера](#docker). О подключении из кода вашего приложения смотрите [Примеры кода](code-examples.md).
 
-Вы можете подключаться к хостам кластера Apache Kafka® в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории:
-
-* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
-* `$HOME\.kafka\` для Windows.
+Вы можете подключаться к хостам кластера Apache Kafka® в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории `/usr/local/share/ca-certificates/Yandex/`.
 
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
@@ -20,12 +17,6 @@
 * Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
 * OpenJDK: `11.0.24`.
 * Bash: `5.0.16`.
-
-Примеры для Windows проверялись в следующем окружении:
-
-* Виртуальная машина в Yandex Cloud с Windows Server 2019 Datacenter.
-* Microsoft OpenJDK: `11.0.11`.
-* PowerShell: `5.1.17763.1490 Desktop`.
 
 ## Инструменты командной строки {#command-line-tools}
 
@@ -401,150 +392,6 @@ sudo apt update && sudo apt install -y kafkacat
           --property parse.key=true \
           --property key.separator=":"
         ```
-
-{% endlist %}
-
-Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
-
-Убедитесь, что в первом терминале отобразилось сообщение `test message`, отправленное во втором.
-
-### Инструменты Apache Kafka® для Windows (PowerShell) {#powershell}
-
-В состав [архивов с бинарными файлами Apache Kafka®](https://kafka.apache.org/community/downloads/) включен набор инструментов, который позволяет управлять кластером Apache Kafka® и сущностями в нем. Подробнее об этих инструментах читайте в [документации вендора Apache Kafka®](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html).
-
-Далее на примере будет показано, как указать реквизиты пользователя для подключения и использовать инструменты с этими реквизитами:
-
-* С помощью [kafka-console-producer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-producer-sh) будет отправлено сообщение в топик.
-* С помощью [kafka-console-consumer](https://docs.confluent.io/kafka/operations-tools/kafka-tools.html#kafka-console-consumer-sh) будет получено сообщение из топика.
-
-Хотя документация по инструментам содержит упоминание скриптов `.sh`, она актуальна и при работе в Windows. Сами инструменты одинаковы для любой платформы, различаются лишь скрипты, которые запускают их, например:
-
-* `bin/kafka-console-producer.sh` для Linux (Bash)/macOS (Zsh).
-* `bin\windows\kafka-console-producer.bat` для Windows (PowerShell).
-
-Перед подключением:
-
-1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
-
-1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala неважна.
-
-1. Распакуйте архив.
-
-   {% note tip %}
-
-   Распаковывайте файлы Apache Kafka® в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
-
-   Если путь к исполняемым и пакетным файлам Apache Kafka® будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
-
-   {% endnote %}
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Создайте файлы с параметрами для подключения к кластеру: файл для производителя и файл для потребителя.
-     
-     Эти файлы имеют одинаковое содержимое, различаются только реквизиты пользователя:
-     
-     ```ini
-     sasl.mechanism=SCRAM-SHA-512
-     sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
-       username="<логин_производителя_или_потребителя>" \
-       password="<пароль_производителя_или_потребителя>";
-     security.protocol=SASL_PLAINTEXT
-     ```
-
-  1. Запустите команду получения сообщений из топика:
-
-      ```powershell
-      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
-          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> `
-          --bootstrap-server <FQDN_брокера>:9092 `
-          --topic <имя_топика> `
-          --property print.key=true `
-          --property key.separator=":"
-      ```
-
-     Команда будет непрерывно считывать новые сообщения из топика.
-
-  1. В отдельном терминале запустите команду отправки сообщения в топик:
-
-      ```powershell
-      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
-          --producer.config <путь_к_файлу_с_параметрами_для_производителя> `
-          --bootstrap-server <FQDN_брокера>:9092 `
-          --topic <имя_топика> `
-          --property parse.key=true `
-          --property key.separator=":"
-      ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
-
-     ```powershell
-     keytool.exe -importcert -alias YandexCA `
-       --file $HOME\.kafka\YandexInternalRootCA.crt `
-       --keystore $HOME\.kafka\ssl `
-       --storepass <пароль_хранилища_сертификатов> `
-       --noprompt
-     ```
-
-  1. Создайте файлы с параметрами для подключения к кластеру: файл для производителя и файл для потребителя.
-
-     Эти файлы имеют одинаковое содержимое, различаются только реквизиты пользователя:
-
-     ```ini
-     sasl.mechanism=SCRAM-SHA-512
-     sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
-       username="<логин_производителя_или_потребителя>" \
-       password="<пароль_производителя_или_потребителя>";
-     security.protocol=SASL_SSL
-     ssl.truststore.location=<значение_переменной_$HOME>\\.kafka\\ssl
-     ssl.truststore.password=<пароль_хранилища_сертификатов>
-     ```
-
-     В качестве значения параметра `ssl.truststore.location` укажите полный путь к хранилищу сертификатов, например:
-
-     ```ini
-     ssl.truststore.location=C:\\Users\\Administrator\\.kafka\\ssl
-     ```
-
-     Хранилище сертификатов расположено по пути `$HOME\.kafka\ssl`, но в значении нельзя использовать переменные среды окружения. Чтобы раскрыть переменную, выполните команду:
-
-     ```powershell
-     echo $HOME
-     ```
-
-     {% note warning %}
-
-     Используйте `\\` вместо `\` при указании значения параметра `ssl.truststore.location`, иначе при запуске команд не удастся получить доступ к хранилищу сертификатов.
-
-     {% endnote %}
-
-  1. Запустите команду получения сообщений из топика:
-
-      ```powershell
-      <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
-          --consumer.config <путь_к_файлу_с_параметрами_для_потребителя> `
-          --bootstrap-server <FQDN_брокера>:9091 `
-          --topic <имя_топика> `
-          --property print.key=true `
-          --property key.separator=":"
-      ```
-
-     Команда будет непрерывно считывать новые сообщения из топика.
-
-  1. В отдельном терминале запустите команду отправки сообщения в топик:
-
-      ```powershell
-      echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
-          --producer.config <путь_к_файлу_с_параметрами_для_производителя> `
-          --bootstrap-server <FQDN_брокера>:9091 `
-          --topic <имя_топика> `
-          --property parse.key=true `
-          --property key.separator=":"
-      ```
 
 {% endlist %}
 

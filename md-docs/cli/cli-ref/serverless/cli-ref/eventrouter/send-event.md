@@ -16,16 +16,16 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-Bus id. ||
+Connector id. ||
 || `--name` | `string`
 
-Bus name. ||
+Connector name. ||
 || `--event` | `string`
 
 Event to put. ||
 || `--file` | `string`
 
-One or many events from file. ||
+Event from file. ||
 |#
 
 #### Global Flags

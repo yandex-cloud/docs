@@ -26,20 +26,20 @@ Syntax:
 ID of the cluster. ||
 || `--cluster-name` | `string`
 
- ||
-|| `--product-version-id` | `string`
-
-ID of the Marketplace Product Version. ||
+Name of the cluster. ||
 || `--name` | `string`
 
 Name of the Helm Release. Sets the 'applicationName' user value. ||
 || `--namespace` | `string`
 
 Kubernetes namespace for the Helm Release. Sets the 'namespace' user value. ||
-|| `--value` | `value[,value]`
+|| `--product-version-id` | `string`
+
+ID of the Marketplace Product Version. ||
+|| `--value` | `[]string`
 
 Value to pass to the Helm Release in KEY=VALUE format. Can be specified multiple times. For complex types (lists, objects) provide a YAML-encoded string as the value. ||
-|| `--value-from-file` | `value[,value]`
+|| `--value-from-file` | `[]string`
 
 Value to pass to the Helm Release in KEY=FILE format, where FILE content is used as the value. Can be specified multiple times. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||

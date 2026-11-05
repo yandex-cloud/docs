@@ -48,10 +48,10 @@ Revision environment variables. ||
 || `--image` | `string`
 
 Image to run ||
-|| `--command` | `value[,value]`
+|| `--command` | `[]string`
 
 Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value. ||
-|| `--args` | `value[,value]`
+|| `--args` | `[]string`
 
 Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value. ||
 || `--secret` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
@@ -84,7 +84,7 @@ Network id to be used in new revision. ||
 || `--network-name` | `string`
 
 Network name to be used in new revision. ||
-|| `--subnets` | `value[,value]`
+|| `--subnets` | `[]string`
 
 DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
 

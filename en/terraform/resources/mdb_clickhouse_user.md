@@ -85,6 +85,7 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
 - `connection_manager` [Block]. **Deprecated**. Please use `user_connection_manager` instead. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
+- `deletion_protection_mode` (String). Deletion protection mode of the user. Possible values: `DELETION_PROTECTION_MODE_INHERITED` (default) - the user is protected if `deletion_protection` is enabled for the cluster, `DELETION_PROTECTION_MODE_ENABLED` - the user is protected regardless of the cluster setting, `DELETION_PROTECTION_MODE_DISABLED` - the user can be deleted even if the cluster is protected. The mode does not prevent deletion of the cluster.
 - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`.
 
 {% note warning %}

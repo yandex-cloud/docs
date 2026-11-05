@@ -1436,7 +1436,7 @@ You can take this project further with a wide range of community-created [Flask 
 
 * [Flask-Login](https://flask-login.readthedocs.io/en/latest/): Allows you to manage user sessions, i.e., handles login/logout tasks and user session management.
 * [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/latest/): Streamlines the use of Flask by supporting [SQLAlchemy](https://www.sqlalchemy.org/). It is a Python SQL toolkit and Object Relational Mapper designed for working with databases.
-* [Flask-Mail](https://pythonhosted.org/Flask-Mail/): Helps you send emails from Flask applications.
+* [Flask-Mail](https://pypi.org/project/Flask-Mail/): Helps you send emails from Flask applications.
 
 ## Delete the resources you created {#clear-out}
 

@@ -34,13 +34,13 @@ Proxy id. ||
 Proxy name. ||
 || `--new-database` | `string`
 
-PostgreSQL database. ||
+Database name. ||
 || `--new-password` | `string`
 
-PostgreSQL password. ||
+Database password. ||
 || `--new-user` | `string`
 
-PostgreSQL user. ||
+Database user. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

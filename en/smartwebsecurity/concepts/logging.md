@@ -35,6 +35,9 @@ The description of SWS log fields is given in the table below.
 
 ## Log contents {#log-contents}
 
+In the `action` field, the `JS_CHALLENGE` verdict means that the request was redirected to a [JS challenge](rules.md#client-checks), and the `COOKIE_CHALLENGE` verdict, to a cookie challenge.
+
+
 #|
 || **Field** | **Description** ||
 || `client_ip` | IP address of the client that sent the HTTP request. ||
@@ -51,11 +54,11 @@ The description of SWS log fields is given in the table below.
 || `security_profile_id` | Security profile ID. ||
 || `security_profile_name` | Security profile name. ||
 || `module_type` | [SWS module](index.md) that made the final decision on the request. The possible values are `RULE_CONDITION`, `SMART_PROTECTION`, `WAF`, `ARL`, or `DEFAULT` (the [default basic rule](rules.md#base-rules) in the security profile). ||
-|| `action` | Action applied to the request: `ALLOW`, `DENY`, or `CAPTCHA`. ||
+|| `action` | Action applied to the request: `ALLOW`, `DENY`, `CAPTCHA`, `JS_CHALLENGE`, or `COOKIE_CHALLENGE`. ||
 || `matched_rule_name` | Triggered rule name.
 The `sws_service_rule` name indicates the [service rule](../../smartwebsecurity/concepts/rules.md#service-rule) that can block traffic during attacks. ||
 || `dry_run_matched_rule_name` | Name of the triggered rule that is in **Dry run** mode. In this mode, the action is not applied to the request, while information about the trigger is logged. ||
-|| `matched_rule_verdict` | Expected action (verdict) applied by the rule to the request. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||
+|| `matched_rule_verdict` | Action (verdict) applied by the rule to the request. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `dry_run_matched_rule_verdict` | Expected action that would be applied by the rule to the request, but it is not applied in **Dry run** mode. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `waf_profile_id` | WAF profile ID, if used in the rule. ||
 || `dry_run_waf_profile_id` | WAF profile ID in dry run mode. ||
@@ -95,7 +98,7 @@ The `sws_service_rule` name indicates the [service rule](../../smartwebsecurity/
 || `dry_run_waf_matched_exclusion_rules` | List of exclusion rules triggered in the WAF profile in dry run mode. Nested fields are similar to `waf_matched_exclusion_rules`. ||
 || `arl_profile_id` | ARL profile ID. ||
 || `arl_profile_name` | ARL profile name. ||
-|| `arl_verdict` | Expected action (verdict) applied to the request by the ARL profile: `ALLOW`, `DENY`, or `CAPTCHA`. ||
+|| `arl_verdict` | Action (verdict) applied to the request by the ARL profile: `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `arl_applied_quota_name` | Name of the rule in the ARL profile that made the final decision on the request. ||
 || `arl_matched_quotas` | List of rules in the ARL profile triggered for the request. ||
 || 

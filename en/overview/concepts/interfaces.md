@@ -93,7 +93,6 @@ For the availability of interfaces for specific services, see the table below:
 || [{{ message-queue-full-name }}](../../message-queue/index.yaml) ^2^ | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ yq-full-name }}](../../query/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) ||
 || [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
-|| [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
 || **Resource management** | > | > | > | > ||
 || [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
 || [{{ billing-name }}](../../billing/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||

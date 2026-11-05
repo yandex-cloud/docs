@@ -23,8 +23,7 @@ Name of the node group. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--metadata` | `key=value[,key=value...]`
 
-Metadata to add.
-See for details /compute/concepts/vm-metadata ||
+Metadata to add. ||
 || `--metadata-from-file` | `key=value[,key=value...]`
 
 Same as --metadata except that the value for the entry will be read from a local file. ||

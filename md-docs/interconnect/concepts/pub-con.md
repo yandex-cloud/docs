@@ -116,7 +116,7 @@ BGP-связность настраивается внутри каждого п
 
 Если вам необходимо анонсировать собственные публичные IP-префиксы для организации BGP-связности в рамках публичного соединения, следуйте следующим правилам:
 
-1. Ваши публичные IP-префиксы должны быть надлежащим образом зарегистрированы — для них должны быть созданы соответствующие объекты [Route Object](https://docs.db.ripe.net/entire-documentation-HTML.html#creating-route-objects) и [Route Origin Authorization](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/resource-certification-roa-management/) у регионального регистратора.
+1. Ваши публичные IP-префиксы должны быть надлежащим образом зарегистрированы — для них должны быть созданы соответствующие объекты [Route Object](https://docs.db.ripe.net/RPSL-Object-Types/Descriptions-of-Primary-Objects#description-of-the-route-object) и [Route Origin Authorization](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/resource-certification-roa-management/) у регионального регистратора.
 1. Ваше оборудование должно устанавливать BGP-связность с оборудованием Yandex Cloud только с использованием публичной BGP ASN. Использование приватных BGP ASN для такого взаимодействия не допускается.
 1. Длина ваших IP-префиксов не должна быть меньше `/24`. Анонсы более специфичных префиксов (с длиной от `/25` до `/32`) будут отбрасываться оборудованием Yandex Cloud.
 

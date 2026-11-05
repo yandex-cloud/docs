@@ -1,6 +1,6 @@
 
 
-Вы можете сохранять данные из [кластера {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), используя отдельный [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
+Вы можете сохранять данные из [кластера {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), используя отдельный [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) для хранения метаданных таблиц. Это позволит работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
 
 Чтобы настроить совместное использование таблиц двумя кластерами {{ dataproc-name }} с помощью {{ metastore-name }}:
 
@@ -24,14 +24,12 @@
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластеры {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
 * Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера ([тарифы {{ metadata-hub-name }}](../../../metadata-hub/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -44,6 +42,13 @@
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../../vpc/operations/subnet-create.md) в любой [зоне доступности](../../../overview/concepts/geo-scope.md).
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.
+    1. Если в облачной сети используются [группы безопасности](../../../vpc/concepts/security-groups.md), [добавьте](../../../vpc/operations/security-group-add-rule.md) в группу безопасности кластеров {{ dataproc-name }} правило для исходящего трафика:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-metastore }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
     1. [Создайте два кластера {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../../../data-proc/concepts/instance-types.md) и следующими настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
@@ -54,13 +59,6 @@
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud`. Нужно для выполнения заданий PySpark и для интеграции с {{ metastore-name }}.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
-
-    1. Если в облачной сети используются [группы безопасности](../../../vpc/concepts/security-groups.md), [добавьте](../../../vpc/operations/security-group-add-rule.md) в группу безопасности кластеров {{ dataproc-name }} следующее правило для исходящего трафика:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-metastore }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 - {{ TF }} {#tf}
 
@@ -84,10 +82,10 @@
 
     1. Укажите в файле `dataproc-to-dataproc.tf`:
 
-        * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
-        * `input-bucket` — имя бакета для входных данных.
-        * `output-bucket` — имя бакета для выходных данных.
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластеров {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../../data-proc/operations/connect-ssh.md).
+        * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
+        * `input_bucket` — имя бакета для входных данных.
+        * `output_bucket` — имя бакета для выходных данных.
+        * `dp_ssh_key` — абсолютный путь к публичному SSH-ключу для кластеров {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../../data-proc/operations/connect-ssh.md).
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -111,7 +109,7 @@
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
-   Чтобы узнать IP-адрес кластера {{ metastore-name }}, откройте [консоль управления]({{ link-console-main }}), затем [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+   Чтобы узнать IP-адрес кластера {{ metastore-name }}, откройте [консоль управления]({{ link-console-main }}), затем [перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и в блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
 ## Создайте тестовую таблицу {#create-table}
 
@@ -128,7 +126,7 @@
             {% cut "create-table.py" %}
 
             ```python
-            from pyspark.sql.types import *
+            from pyspark.sql.types import IntegerType, StringType, StructField, StructType
             from pyspark.sql import SparkSession
 
             # Создание Spark-сессии
@@ -138,16 +136,23 @@
                 .getOrCreate()
 
             # Создание схемы данных
-            schema = StructType([StructField('Name', StringType(), True),
-            StructField('Capital', StringType(), True),
-            StructField('Area', IntegerType(), True),
-            StructField('Population', IntegerType(), True)])
+            schema = StructType([
+                StructField("Name", StringType(), True),
+                StructField("Capital", StringType(), True),
+                StructField("Area", IntegerType(), True),
+                StructField("Population", IntegerType(), True),
+            ])
 
             # Создание датафрейма
-            df = spark.createDataFrame([('Австралия', 'Канберра', 7686850, 19731984), ('Австрия', 'Вена', 83855, 7700000)], schema)
+            df = spark.createDataFrame([
+                ("Австралия", "Канберра", 7686850, 19731984),
+                ("Австрия", "Вена", 83855, 7700000),
+            ], schema)
 
             # Запись датафрейма в бакет в виде таблицы countries
-            df.write.mode("overwrite").option("path","s3a://<имя_выходного_бакета>/countries").saveAsTable("countries")
+            df.write.mode("overwrite") \
+                .option("path", "s3a://<имя_выходного_бакета>/countries") \
+                .saveAsTable("countries")
             ```
 
             {% endcut %}
@@ -158,7 +163,7 @@
 
     1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/create-table.py`.
 
-    1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `countries` появился файл `part-00000-...`.
+    1. Дождитесь завершения задания и убедитесь, что в выходном бакете в папке `countries` появился файл `part-00000-...`.
 
 {% endlist %}
 
@@ -196,7 +201,8 @@
             df = spark.sql("select * from countries")
 
             # Перенос таблицы в бакет для проверки
-            df.repartition(1).write.csv(path='s3a://<имя_выходного_бакета>/csv', header=True, sep=',')
+            df.repartition(1).write \
+                .csv(path="s3a://<имя_выходного_бакета>/csv", header=True, sep=",")
             ```
 
             {% endcut %}
@@ -205,16 +211,16 @@
         1. [Загрузите](../../../storage/operations/objects/upload.md#simple) файл `obtain-table.py` в бакет для входных данных в папку `scripts`.
 
     1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/obtain-table.py`.
-    1. Дождитесь выполнения задания и убедитесь, что в выходном бакете появилась папка `csv` с таблицей в формате CSV.
+    1. Дождитесь выполнения задания и убедитесь, что в выходном бакете в папке `csv` появился CSV-файл с таблицей.
 
 {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
-1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакетов.
+1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакетов {{ objstorage-name }}.
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -226,6 +232,7 @@
         1. [Подсеть](../../../vpc/operations/subnet-delete.md).
         1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
         1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Группы безопасности](../../../vpc/operations/security-group-delete.md).
         1. [Облачную сеть](../../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 

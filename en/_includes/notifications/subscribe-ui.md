@@ -15,6 +15,10 @@
       
        Enter your phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, e.g., `+79991112233`. You do not need to pre-add the phone number to the SMS notification channel, but you need to create the channel itself.
 
+    * **{{ message-queue-full-name }}**
+
+       Enter the {{ message-queue-name }} URL.
+
 1. Click **Create subscription**.
 
    Subscribe other endpoints to the topic in the same way.

@@ -115,7 +115,10 @@ Updates the specified Apache Kafka® cluster.
         "resource_preset_id": "string",
         "disk_size": "int64",
         "disk_type_id": "string"
-      }
+      },
+      "zone_ids": [
+        "string"
+      ]
     },
     "zone_id": [
       "string"
@@ -135,7 +138,10 @@ Updates the specified Apache Kafka® cluster.
         "resource_preset_id": "string",
         "disk_size": "int64",
         "disk_type_id": "string"
-      }
+      },
+      "zone_ids": [
+        "string"
+      ]
     },
     "disk_size_autoscaling": {
       "planned_usage_threshold": "int64",
@@ -636,6 +642,9 @@ Define whether the timestamp in the message is message create time or log append
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to ZooKeeper hosts. ||
+|| zone_ids[] | **string**
+
+ZooKeeper availability zones. ||
 |#
 
 ## Access {#yandex.cloud.mdb.kafka.v1.Access}
@@ -663,6 +672,9 @@ Is REST API enabled for this cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to KRaft controller hosts. ||
+|| zone_ids[] | **string**
+
+Controller availability zones. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling}

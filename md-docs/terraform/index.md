@@ -444,6 +444,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [organizationmanager_os_login_settings](data-sources/organizationmanager_os_login_settings.md)
 
+ - [organizationmanager_policy_authentication_policy_rule](data-sources/organizationmanager_policy_authentication_policy_rule.md)
+
  - [organizationmanager_saml_federation](data-sources/organizationmanager_saml_federation.md)
 
  - [organizationmanager_saml_federation_user_account](data-sources/organizationmanager_saml_federation_user_account.md)
@@ -489,6 +491,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [organizationmanager_organization_iam_member](resources/organizationmanager_organization_iam_member.md)
 
  - [organizationmanager_os_login_settings](resources/organizationmanager_os_login_settings.md)
+
+ - [organizationmanager_policy_authentication_policy_rule](resources/organizationmanager_policy_authentication_policy_rule.md)
 
  - [organizationmanager_saml_federation](resources/organizationmanager_saml_federation.md)
 

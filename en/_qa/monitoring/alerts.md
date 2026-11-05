@@ -20,9 +20,12 @@ You can use the following supported [notification channel](../../monitoring/conc
 
 #### I do not receive any alerts. Why? {#alert-receive-failed}
 
-Check your [notification channel](../../monitoring/concepts/alerting/notification-channel.md) account email address and phone number.
+If the alert fires but you do not get any notifications:
 
-{% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}
+1. Check the recipient list, sending method, and alert statuses for which notifications are enabled, in the [channel settings](../../monium/concepts/alerting/notification-channel.md#channel-parameters). You can also find the requirements for the recipient's permissions and account settings there.
+1. Make sure you specified the right email address and telephone number and enabled the monitoring notifications in the [management console settings]({{ link-console-settings }}). Also check the email address in your Yandex ID or federated account profile.
+1. Check the [sending status](../../monium/concepts/alerting/notification-channel.md#dispatch-statuses). The `{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` status means that you reached the limit for this sending method. In {{ monium-name }}, the daily [limit](../../monium/concepts/limits.md#limits-metrics-alerts) is 100 SMS per number.
+1. Check the **Spam** folder in your mail and on the telephone as well as the block list. If you have an SMS filter, disable it temporarily and check the delivery again. If you do not receive SMS still, contact your mobile operator to find out if any messages were sent to your number.
 
 #### What should I do if there is no data? {#alert-no-data}
 

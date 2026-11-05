@@ -29,16 +29,16 @@ Log group identifier. ||
 || `--log-group-name` | `string`
 
 Log group name. ||
-|| `--resource-ids` | `value[,value]`
+|| `--resource-ids` | `[]string`
 
 List of resources to subscribe. ||
-|| `--resource-types` | `value[,value]`
+|| `--resource-types` | `[]string`
 
 List of resource types to subscribe. ||
-|| `--stream-names` | `value[,value]`
+|| `--stream-names` | `[]string`
 
 List of stream names to subscribe. ||
-|| `--log-levels` | `value[,value]`
+|| `--log-levels` | `[]string`
 
 List of log levels to subscribe.
 Available levels are: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'. ||

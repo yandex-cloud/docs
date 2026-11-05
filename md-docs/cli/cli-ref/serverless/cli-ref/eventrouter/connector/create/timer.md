@@ -25,12 +25,12 @@ Connector name. ||
 Connector description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--deletion-protection` | Prevents accidental connector removal. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--cron-expression` | `string`
 
-Cron expression. See https://pkg.go.dev/github.com/robfig/cron#hdr-CRON_Expression_Format ||
+Cron expression. ||
 || `--time-zone` | `string`
 
 Time zone, e.g. Europe/Moscow. ||

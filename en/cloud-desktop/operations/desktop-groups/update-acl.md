@@ -56,7 +56,7 @@ description: In this tutorial, you will learn how to change access permissions f
       Where `--access-binding` contains access permission settings:
 
       * `role`: [Role](../../security/index.md#roles-list).
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Indicating a subject" %}
 
@@ -64,7 +64,7 @@ description: In this tutorial, you will learn how to change access permissions f
 
           {% endcut %}
 
-      For example, assign roles to several users and a service account:
+      For example, assign roles to several users and one service account:
 
       ```bash
       yc desktops group set-access-bindings my-desktop-group \

@@ -26,8 +26,8 @@ Trigger name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--action` | `value[,value]`
+A list of label KEY=VALUE pairs to add. ||
+|| `--action` | `[]string`
 
 Action as JSON or '@path/to/file.json'. To set multiple actions, use multiple --action flags. ||
 || `--log-group-id` | `string`
@@ -36,16 +36,16 @@ Log group identifier. ||
 || `--log-group-name` | `string`
 
 Log group name. ||
-|| `--resource-ids` | `value[,value]`
+|| `--resource-ids` | `[]string`
 
 Resource IDs to filter log events. ||
-|| `--resource-types` | `value[,value]`
+|| `--resource-types` | `[]string`
 
 Resource types to filter log events. ||
-|| `--stream-names` | `value[,value]`
+|| `--stream-names` | `[]string`
 
 Stream names to filter log events. ||
-|| `--log-levels` | `value[,value]`
+|| `--log-levels` | `[]string`
 
 Logging levels to filter log events.
 Available levels are: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'. ||

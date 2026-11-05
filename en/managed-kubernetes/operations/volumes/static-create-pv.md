@@ -72,7 +72,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 1. Save the `PersistentVolume` creation specification to a YAML file named `test-pv.yaml`.
 
-   For more information about the specification, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+   For more information about the specification, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    When providing the `spec.capacity.storage` parameter, make sure the exact disk size is specified. {{ CSI }} does not verify the disk size for statically provisioned volumes.
 
@@ -84,7 +84,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% endnote %}
 
-   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1
@@ -137,7 +137,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 1. Save the `PersistentVolumeClaim` creation specification to a YAML file named `test-claim.yaml`.
 
-   For more information about the specification, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   For more information about the specification, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1

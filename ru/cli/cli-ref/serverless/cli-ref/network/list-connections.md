@@ -21,15 +21,15 @@ Aliases:
 
 #|
 ||Flag | Description ||
+|| `--limit` | `int`
+
+The maximum number of items to list. Default is 1000 items ||
 || `--network-id` | `string`
 
 Network id. ||
 || `--network-name` | `string`
 
 Network name. ||
-|| `--limit` | `int`
-
-The maximum number of items to list. Default is 1000 items ||
 |#
 
 #### Global Flags

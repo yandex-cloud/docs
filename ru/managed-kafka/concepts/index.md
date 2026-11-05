@@ -42,6 +42,10 @@ description: '{{ KF }} — это распределенная система д
 
 Хосты {{ ZK }} нельзя удалить. Количество хостов {{ ZK }} фиксировано.
 
+
+Для каждого из трех отдельных хостов {{ ZK }} можно выбрать зону доступности независимо от расположения хостов-брокеров. Зоны задаются только при создании кластера. Для нескольких хостов {{ ZK }} можно задать одну и ту же зону доступности.
+
+
 Подробнее о создании кластера {{ mkf-name }} с {{ ZK }} в [инструкции](../operations/cluster-create.md#create-cluster).
 
 ### Конфигурация хостов в кластерах с {{ kraft-name }} {#kraft}
@@ -49,5 +53,9 @@ description: '{{ KF }} — это распределенная система д
 [Протокол {{ kraft-name }}](kraft.md) (сокращенно {{ kraft-short-name }}) используется для хранения метаданных вместо {{ ZK }}.
 
 {% include [kraft-cluster-topology](../../_includes/mdb/mkf/kraft-cluster-topology.md) %}
+
+
+{% include [kraft-controller-zones](../../_includes/mdb/mkf/kraft-controller-zones.md) %}
+
 
 Более подробная информация приведена [в документации {{ KF }}](https://kafka.apache.org/42/operations/kraft/).

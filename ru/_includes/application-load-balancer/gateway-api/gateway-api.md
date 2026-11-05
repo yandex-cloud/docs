@@ -24,7 +24,7 @@
 
 - HTTP-запросы
 
-  [Алгоритм](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.HTTPRouteRule) сортирует маршруты по условиям совпадения параметров маршрута и входящего HTTP-запроса.
+  [Алгоритм](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httprouterule) сортирует маршруты по условиям совпадения параметров маршрута и входящего HTTP-запроса.
 
   Условия совпадения в порядке уменьшения приоритета:
 
@@ -38,7 +38,7 @@
 
 - gRPC-вызовы
 
-  [Алгоритм](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.GRPCRouteRule) сортирует маршруты по количеству символов в параметрах маршрута и входящего gRPC-вызова. Совпадения учитываются только по заголовкам.
+  [Алгоритм](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcrouterule) сортирует маршруты по количеству символов в параметрах маршрута и входящего gRPC-вызова. Совпадения учитываются только по заголовкам.
 
   Условия сравнения в порядке уменьшения приоритета:
 

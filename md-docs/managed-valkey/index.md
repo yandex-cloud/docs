@@ -197,20 +197,6 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [list](cli-ref/v0/backup-retention-policy/list.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/v0/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -279,6 +265,20 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Overview](cli-ref/v0/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/v0/maintenance/list.md)
@@ -338,20 +338,6 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [delete](cli-ref/backup-retention-policy/delete.md)
 
  - [list](cli-ref/backup-retention-policy/list.md)
-
-### change-freeze
-
- - [Overview](cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/change-freeze/terminate.md)
 
 ### cluster
 
@@ -420,6 +406,20 @@ Yandex Managed Service for Valkey™ часто используется, что
 ### maintenance
 
  - [Overview](cli-ref/maintenance/index.md)
+
+#### change-freeze
+
+ - [Overview](cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/maintenance/change-freeze/terminate.md)
 
  - [get](cli-ref/maintenance/get.md)
 

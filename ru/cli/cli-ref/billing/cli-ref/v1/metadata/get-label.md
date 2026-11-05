@@ -10,6 +10,7 @@ with pagination support.
 This method retrieves all available label values for a specified label key
 within the given date range. It supports filtering by label value substring
 and provides pagination for handling large result sets.
+This method can additionally filter label values by provided clouds and folders.
 The method can be used in several ways:
 - With label_key only: Returns all values for that key with pagination
 - With label_key and label_value: Returns array of matching labelValues with pagination
@@ -51,10 +52,10 @@ Start date for data retrieval. The inclusive start of the date range for which t
 End date for data retrieval. The inclusive end of the date range for which to retrieve label metadata. Must be specified, cannot be empty, and must be greater than or equal to start_date. The time portion is ignored; the date is considered to end at 23:59:59. (RFC3339) ||
 || `--cloud-ids` | `[]string`
 
-Optional. Cloud IDs filter. Additional filter that works alongside the billing_account_id and date range. When specified, includes labels where cloud_id matches any of the provided values. Acts as an OR condition (cloud_id IN cloud_ids). If specified, will be used for addditional authorization check to provided clouds. If empty, this filter is not applied. ||
+Optional. Cloud IDs filter. Additional filter that works alongside the billing_account_id and date range. When specified, includes labels where cloud_id matches any of the provided values. Acts as an OR condition (cloud_id IN cloud_ids). If empty, this filter is not applied. ||
 || `--folder-ids` | `[]string`
 
-Optional. Folder IDs filter. Additional filter that works alongside the billing_account_id and date range. When specified, includes labels where folder_id matches any of the provided values. Acts as an OR condition (folder_id IN folder_ids). If specified, will be used for addditional authorization check to provided folders. If empty, this filter is not applied. ||
+Optional. Folder IDs filter. Additional filter that works alongside the billing_account_id and date range. When specified, includes labels where folder_id matches any of the provided values. Acts as an OR condition (folder_id IN folder_ids). If empty, this filter is not applied. ||
 || `--label-key` | `string`
 
 Label key to filter values for. If specified, response will contain values for this specific key. Must be a non-empty string representing a valid label key. ||

@@ -25,19 +25,19 @@ Proxy description. ||
 A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
 || `--cluster-id` | `string`
 
-Cluster identifier for Clickhouse. ||
+Cluster identifier. ||
 || `--cluster-name` | `string`
 
-Cluster name for Clickhouse. ||
+Cluster name. ||
 || `--user` | `string`
 
-Clickhouse user. ||
+Database user. ||
 || `--password` | `string`
 
-Clickhouse password. ||
+Database password. ||
 || `--database` | `string`
 
-Clickhouse database name. ||
+Database name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

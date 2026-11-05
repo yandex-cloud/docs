@@ -2,7 +2,7 @@
 
 The Security Assertion Markup Language (SAML) is used for transferring authentication and authorization data between two parties. With SAML, you can implement a single sign-on system (SSO) to switch between applications without re-authentication.
 
-When using SAML and SSO, a {{ mos-name }} cluster gets information from an identity provider (IdP). For more information about SAML and SSO, see [this OASIS guide](https://wiki.oasis-open.org/security/saml/).
+When using SAML and SSO, a {{ mos-name }} cluster gets information from an identity provider (IdP). For more information about SAML and SSO, see [this OASIS guide](https://wiki.oasis-open.org/security/).
 
 {{ mos-name }} works with any SAML 2.0-compatible identity provider.
 

@@ -27,6 +27,8 @@ Aliases:
 
 - [yc managed-clickhouse v0 database list](list.md) — List databases for a ClickHouse cluster.
 
+- [yc managed-clickhouse v0 database update](update.md) — Modify attributes of a ClickHouse database.
+
 #### Global Flags
 
 #|

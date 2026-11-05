@@ -3,23 +3,23 @@
 1. [Create a table](#create-table).
 1. [Test the application](#test-app).
 
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 {% include [paid-resources](paid-resources.md) %}
-
 
 ## Create an infrastructure {#deploy}
 
 {% include [terraform-definition](../terraform-definition.md) %}
 
-To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+To create an infrastructure with {{ TF }}:
+
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
@@ -90,7 +90,8 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more about the properties of resources in {{ TF }} in these provider guides:
+
    * [Service account](../../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Secret]({{ tf-provider-resources-link }}/lockbox_secret): [yandex_lockbox_secret](../../../lockbox/concepts/secret.md).
@@ -112,12 +113,9 @@ To create your infrastructure via {{ TF }}:
 
 After you have created the infrastructure, [create a table](#create-table) in YDB.
 
-
-
-
 ## Create a table {#create-table}
 
-1.  [Create a table](../../../ydb/operations/schema.md#create-table)  in YDB:
+1. [Create a table](../../../ydb/operations/schema.md#create-table) in YDB:
 
     * **{{ ui-key.yacloud.ydb.table.form.field_name }}**: `tasks`.
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
@@ -125,12 +123,9 @@ After you have created the infrastructure, [create a table](#create-table) in YD
 
 After you have created the table, [test the application](#test-app).
 
-
-
 ## Test the application {#test-app}
 
 {% include [test-app](test-app.md) %}
-
 
 ## How to delete the resources you created {#clear-out}
 

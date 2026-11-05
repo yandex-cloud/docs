@@ -742,14 +742,6 @@
 
  - [Terraform](web/bitrix-website/terraform.md)
 
-#### Интернет-магазин на платформе OpenCart
-
- - [Обзор](internet-store/opencart/index.md)
-
- - [Консоль управления](internet-store/opencart/console.md)
-
- - [Terraform](internet-store/opencart/terraform.md)
-
  - [Организация виртуального хостинга](web/virtual-hosting.md)
 
 #### Привязка доменного имени к ВМ с веб-сервером

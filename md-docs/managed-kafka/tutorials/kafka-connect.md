@@ -146,7 +146,9 @@ Managed Service for Apache Kafka® имеет встроенную поддер�
 1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с Apache Kafka®:
 
     ```bash
-    wget https://downloads.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz && tar -xvf kafka_2.12-3.1.0.tgz --strip 1 --directory /opt/kafka/
+    wget https://downloads.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz && \
+    mkdir -p ~/opt/kafka && \
+    tar -xvf kafka_2.12-3.1.0.tgz --strip 1 --directory ~/opt/kafka/
     ```
 
     В данном примере используется Apache Kafka® версии `3.1.0`.

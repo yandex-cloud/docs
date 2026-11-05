@@ -27,7 +27,7 @@
 
 - API {#api}
 
-  Для создания трансляции воспользуйтесь методом REST API [create](../../api-ref/Stream/create.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/Create](../../api-ref/grpc/Stream/create.md).
+  Для создания трансляции воспользуйтесь методом REST API [create](../../api-ref/StreamLine/create.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Create](../../api-ref/grpc/StreamLine/create.md). В параметрах укажите `autoLine`.
 
 {% endlist %}
 
@@ -73,7 +73,7 @@
 
 - API {#api}
 
-  Для создания эпизодов воспользуйтесь методом REST API [create](../../api-ref/Episode/create.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [Episode/Create](../../api-ref/grpc/Episode/create.md).
+  Для создания эпизодов воспользуйтесь методом REST API [create](../../api-ref/Episode/create.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [EpisodeService/Create](../../api-ref/grpc/Episode/create.md). В параметре `lineId` укажите идентификатор трансляции, созданной на предыдущем шаге.
 
 {% endlist %}
 

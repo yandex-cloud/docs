@@ -1342,6 +1342,9 @@ Possible property names:
 - `read-rows`: The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited.
 
 - `execution-time`: The total query execution time, in milliseconds (wall time). Possible to use time units - "1m30s". 0 - unlimited. ||
+|| `--deletion-protection` | `string`
+
+Protection of the user from accidental deletion. Values: inherited (as set for the cluster), enabled, disabled, true, false ||
 |#
 
 #### Global Flags

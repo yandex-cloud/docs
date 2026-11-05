@@ -27,7 +27,7 @@
 
 В консоли управления можно редактировать манифесты ресурсов `ConfigMap` и `Secret` в визуальном редакторе. Такой подход соответствует выполнению команды `kubectl apply -f <файл_манифеста.yaml>` и позволяет обновить конфигурацию ресурса без повторного создания.
 
-Список полей, которые можно редактировать, зависит от типа объекта и доступен в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/).
+Список полей, которые можно редактировать, зависит от типа объекта и доступен в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
 {% list tabs group=instructions %}
 

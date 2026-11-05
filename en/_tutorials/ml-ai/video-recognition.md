@@ -252,7 +252,7 @@ Go to the **Calculating the characteristics** section to:
 
 1. Load the ResNet50 model from the Keras package, with weights pretrained on the ImageNet dataset. This dataset contains 1.2 million images in 1,000 categories.
 1. Define the `featurize_images` function. It splits the list of images into chunks of 32 images each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) to feed to the Keras model. Next, the function calculates their features and returns them as a NumPy array.
-1. Use the function to calculate binary features (`1` means a car, `0` means other) and save them to a file. This step may take 10-15 minutes. [Learn more about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
+1. Use the function to calculate binary features (`1` means a car, `0` means other) and save them to a file. This step may take 10-15 minutes. [Learn more about the ResNet50 model](https://www.kaggle.com/models/google/resnet50).
 
 To prepare the model and calculate the features:
 

@@ -12,7 +12,7 @@
 
 `GRPCRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
-`GRPCRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` — ресурс Kubernetes, определенный [проектом Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer. Полное описание конфигурации ресурса приведено в [документации Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcroute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -166,7 +166,7 @@ rules:
           service: service.v2.example
     ```
 
-    Поддерживается только поле `method`. Поле `headers`, описанное в [справочнике Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCHeaderMatch), не поддерживается.
+    Поддерживается только поле `method`. Поле `headers`, описанное в [справочнике Gateway API](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcheadermatch), не поддерживается.
 
     * `method` (`GRPCMethodMatch`)
       

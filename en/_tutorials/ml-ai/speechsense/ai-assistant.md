@@ -136,7 +136,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
             If nothing of the above is suitable, specify "Other".
             ```
 
-        1. Select the `YandexGPT 5.1 Pro` model.
+        1. Select the **Medium** model.
 
         1. Under **Output**, specify:
 

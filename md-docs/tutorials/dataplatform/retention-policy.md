@@ -6,7 +6,7 @@
 
 Потеря сообщений в топике Apache Kafka® [группа потребителей](../../managed-kafka/concepts/producers-consumers.md#consumer-groups) возникает из-за сочетания двух факторов:
 1. В этом топике или во всем кластере включена политика очистки лога `Delete` и задано малое время жизни сегмента лога `Log retention`.
-2. Одна или несколько групп потребителей недостаточно быстро вычитывают сообщения из топика. В результате могут быть удалены даже те сообщения, которые еще не были прочитаны. 
+2. Одна или несколько групп потребителей недостаточно быстро вычитывают сообщения из топика. В результате могут быть удалены даже те сообщения, которые еще не были прочитаны.
 
 Потерю сообщений можно отслеживать с помощью [метрик](../../managed-kafka/metrics.md) сервиса Managed Service for Apache Kafka®, поставляемых в [Monitoring](../../monitoring/concepts/index.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
 
@@ -61,7 +61,7 @@
     * `ACCESS_ROLE_PRODUCER`.
 1. [Настройте группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 1. [Получите SSL-сертификат](../../managed-kafka/operations/connect/index.md#get-ssl-cert).
-   
+
    {% note info %}
 
    Подключение к хостам в публичном доступе возможно только с использованием SSL-сертификата.
@@ -180,68 +180,6 @@
        ssl.truststore.password=<пароль_хранилища_сертификатов>
        ```
 
-- CLI для PowerShell {#powershell}
-
-    1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
-
-    1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/community/downloads/) для версии Apache Kafka®, которая используется в кластере. Версия Scala не важна.
-
-    1. Распакуйте архив.
-
-       {% note tip %}
-
-       Распаковывайте файлы Apache Kafka® в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`.
-
-       Если путь к исполняемым и пакетным файлам Apache Kafka® будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
-
-       {% endnote %}
-
-    1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
-
-       ```powershell
-       keytool.exe -importcert -alias YandexCA `
-       --file $HOME\.kafka\YandexInternalRootCA.crt `
-       --keystore $HOME\.kafka\ssl `
-       --storepass <пароль_хранилища_сертификатов> `
-       --noprompt
-       ```
-
-    1. Создайте файл с параметрами для подключения к кластеру.
-
-       {% note info %}
-
-       В этом руководстве для простоты используется единственный пользователь, являющийся и производителем, и потребителем. Поэтому достаточно создать только один файл параметров, который будет использоваться и при отправке, и при получении сообщений.
-
-       {% endnote %}
-
-       ```ini
-       sasl.mechanism=SCRAM-SHA-512
-       sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
-         username="user" \
-         password="<пароль_пользователя_user>";
-       security.protocol=SASL_SSL
-       ssl.truststore.location=<значение_переменной_$HOME>\\.kafka\\ssl
-       ssl.truststore.password=<пароль_хранилища_сертификатов>
-       ```
-
-       В качестве значения параметра `ssl.truststore.location` укажите полный путь к хранилищу сертификатов, например:
-
-       ```ini
-       ssl.truststore.location=C:\\Users\\Administrator\\.kafka\\ssl
-       ```
-
-       Хранилище сертификатов расположено по пути `$HOME\.kafka\ssl`, но в значении нельзя использовать переменные среды окружения. Чтобы раскрыть переменную, выполните команду:
-
-       ```powershell
-       echo $HOME
-       ```
-
-       {% note warning %}
-
-       Используйте `\\` вместо `\` при указании значения параметра `ssl.truststore.location`, иначе при запуске команд не удастся получить доступ к хранилищу сертификатов.
-
-       {% endnote %}
-
 {% endlist %}
 
 ## Подготовьте команды для отправки и получения сообщений {#prepare-commands}
@@ -273,31 +211,6 @@
           --property key.separator=":"
         ```
 
-- CLI для PowerShell {#powershell}
-
-    * Команда отправки сообщения в топик `messages`:
-
-        ```powershell
-        echo "key:test message" | <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-producer.bat `
-            --producer.config <путь_к_файлу_с_параметрами> `
-            --bootstrap-server <FQDN_хоста>:9091 `
-            --topic messages `
-            --property parse.key=true `
-            --property key.separator=":"
-        ```
-
-    * Команда получения сообщений из топика `messages`:
-
-        ```powershell
-        <путь_к_директории_с_файлами_Apache_Kafka>\bin\windows\kafka-console-consumer.bat `
-            --consumer.config <путь_к_файлу_с_параметрами> `
-            --bootstrap-server <FQDN_хоста>:9091 `
-            --group test-consumer-group `
-            --topic messages `
-            --property print.key=true `
-            --property key.separator=":"
-        ```
-
 {% endlist %}
 
 ## Запустите команду получения сообщений {#start-receive}
@@ -309,10 +222,8 @@
     ```
     Processed a total of 0 messages
     ```
-   
-   Это сообщение означает, что потребитель успешно подключился к топику.
 
-3. Подтвердите завершение команды.
+   Это сообщение означает, что потребитель успешно подключился к топику.
 
 Теперь группа потребителей `test-consumer-group` зарегистрирована и может быть использована в качестве метки для метрик.
 
@@ -325,7 +236,7 @@
     * `host = <FQDN_хоста>`,
     * `topic = messages`,
     * `group = test-consumer-group`.
-* Для `kafka_log_Log_LogStartOffset` укажите метки: 
+* Для `kafka_log_Log_LogStartOffset` укажите метки:
     * `service = managed-kafka`,
     * `name = kafka_log_Log_LogStartOffset`,
     * `host = <FQDN_хоста>`,
@@ -354,7 +265,7 @@
 
 1. Спустя примерно 3 минуты запустите [команду получения сообщений](#prepare-commands). Проверьте, что в терминале отобразилось сообщение `key:test message`.
 
-1. Нажмите **Ctrl** + **C**, чтобы прервать команду получения сообщений из топика. 
+1. Нажмите **Ctrl** + **C**, чтобы прервать команду получения сообщений из топика.
 
 Поскольку удаление сообщений выключено, спустя три минуты сообщение все еще доступно для потребителей.
 
@@ -379,7 +290,7 @@
 
 1. Спустя примерно 3 минуты запустите [команду получения сообщений](#prepare-commands). Проверьте, что на этот раз сообщение не было получено.
 
-1. Нажмите **Ctrl** + **C**, чтобы прервать команду получения сообщений из топика. 
+1. Нажмите **Ctrl** + **C**, чтобы прервать команду получения сообщений из топика.
 
 Спустя 60 секунд после записи в топик все сообщения удаляются, поэтому для группы слишком «медленных» потребителей возникает ситуация потери сообщений.
 

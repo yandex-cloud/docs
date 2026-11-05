@@ -152,7 +152,7 @@
     ```bash
     curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
     ```
-    Подробнее о том, как установить Fluent Bit, смотрите в [официальной документации](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
+    Подробнее о том, как установить Fluent Bit, смотрите в [официальной документации](https://docs.fluentbit.io/manual/installation/downloads/linux/ubuntu).
 
 1. Запустите сервис `fluent-bit`:
     ```bash

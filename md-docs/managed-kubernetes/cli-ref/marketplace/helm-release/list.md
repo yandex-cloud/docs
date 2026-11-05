@@ -19,7 +19,7 @@ Syntax:
 ID of the cluster. ||
 || `--cluster-name` | `string`
 
- ||
+Name of the cluster. ||
 |#
 
 #### Global Flags

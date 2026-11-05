@@ -25,7 +25,7 @@ Bus name. ||
 Bus description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--deletion-protection` | Prevents accidental bus removal. ||
 || `--enable-logging` | Enable logging. ||
 || `--log-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`

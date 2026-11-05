@@ -328,7 +328,7 @@
 **Ссылки**:
 * [Custom Partitioning Key](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/)
 * [system.parts](https://clickhouse.com/docs/en/operations/system-tables/parts)
-* [system.part_log](https://clickhouse.com/docs/en/operations/system-tables/part-log)
+* [system.part_log](https://clickhouse.com/docs/en/operations/system-tables/part_log)
 
 ### 24. clickhouse-server Process Memory
 

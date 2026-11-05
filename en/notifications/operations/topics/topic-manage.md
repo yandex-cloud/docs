@@ -19,6 +19,7 @@ description: Follow this guide to update or delete a topic.
   1. Edit the topic name. It must be unique within {{ cns-name }}.
   1. Under **{{ ui-key.yacloud.cns.section_logging }}**, enable or disable **{{ ui-key.yacloud.cns.field_logging }}**.
   1. Update the existing log group or create a new one.
+  1. Enable or disable **{{ message-queue-full-name }}**.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
 - AWS CLI {#aws-cli}
@@ -30,6 +31,14 @@ description: Follow this guide to update or delete a topic.
      ```bash
      aws sns set-topic-attributes \
       --topic-arn <topic_ARN> <attributes>
+     ```
+
+     To unlink a service account from the topic and ban sending messages to the {{ message-queue-name }} queue, provide an empty string in `--attribute-value`:
+
+     ```bash
+     aws sns set-topic-attributes \
+      --topic-arn <topic_ARN> \
+      --attribute-value ""
      ```
   1. View the new topic settings:
 
@@ -47,12 +56,24 @@ description: Follow this guide to update or delete a topic.
 
      ```python
      try:
-       response = client.set_topic_attributes(
-          TopicArn = "<topic_ARN>",
-          AttributeName='<attribute_name>',
-          AttributeValue='<attribute_value>'
-       )
-     print("Response metadata:", response['ResponseMetadata'])
+         response = client.set_topic_attributes(
+             TopicArn="<topic_ARN>",
+             AttributeName="<attribute_name>",
+             AttributeValue="<attribute_value>",
+         )
+         print("Response metadata:", response['ResponseMetadata'])
+     except botocore.exceptions.ClientError as error:
+         print(f"Error: {error}")
+     ```
+
+     To unlink a service account from the topic and ban sending messages to the {{ message-queue-name }} queue, provide an empty string in `AttributeValue`:
+
+     ```python
+     response = client.set_topic_attributes(
+         TopicArn="<topic_ARN>",
+         AttributeName="SQSServiceAccountId",
+         AttributeValue="",
+     )
      ```
 
 {% endlist %}

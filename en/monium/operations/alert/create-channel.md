@@ -5,6 +5,8 @@ description: Follow this guide to create a notification channel and start sendin
 
 # Creating a notification channel with recipients
 
+A notification channel defines where and how {{ monium-name }} sends messages about alert status changes. You can use the same channel in multiple alerts, and the same alert can send notifications to multiple channels.
+
 {% list tabs group=instructions %}
 
 - {{ monium-name }} UI {#console}
@@ -13,11 +15,11 @@ description: Follow this guide to create a notification channel and start sendin
   1. At the top right, click **Create** → **Notification channel**.
   1. Specify the channel settings:
   
-     * **{{ ui-key.yacloud_monitoring.channel.field_name }}**: Name the channel.
-     * **ID**: Set a unique channel ID.
-     * Select the alert severity levels for notifications.
-     * **{{ ui-key.yacloud_monitoring.channel.field_method }}**: Specify the notification method.
-     * **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**: List notification recipients.
+     * **{{ ui-key.yacloud_monitoring.channel.field_name }}**: Channel name (can be any).
+     * **ID**: Unique ID. By default, it is formed from the project ID and channel name.
+     * **Default for levels**: Alert levels the notifications for which will be sent to this channel automatically.
+     * **{{ ui-key.yacloud_monitoring.channel.field_method }}**: Notification method.
+     * **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**: Notification recipients.
 
        {% note info %}
 
@@ -49,7 +51,11 @@ description: Follow this guide to create a notification channel and start sendin
 
        1. Run `/start` and copy the authorization code the bot generates in response.
        1. In the management console settings, paste the authorization code and click **{{ ui-key.yacloud_components.settings.button_submit }}**.
-  
-  1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The channel will appear in the list.
+
+           {{ messenger-full-name }} notifications can include a screenshot of the alert metrics chart.
+   
+   1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The channel will appear in the list.
+
+      After creating the channel, update the alert configuration: set the alert statuses that trigger notifications and choose how often the alert should resend notifications.
 
 {% endlist %}

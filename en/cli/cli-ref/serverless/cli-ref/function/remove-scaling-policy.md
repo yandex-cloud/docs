@@ -17,15 +17,15 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--tag` | `string`
-
-Version tag ||
 || `--id` | `string`
 
 Function id. ||
 || `--name` | `string`
 
 Function name. ||
+|| `--tag` | `string`
+
+Version tag ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

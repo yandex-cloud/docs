@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Раздел YCDR появится в интерфейсе Security Deck после одобрения заявки на доступ. О том, как подключить организацию к сервису, в разделе [Подключение к Yandex Cloud Detection and Response](../operations/connect.md).
 
 {% endnote %}
 

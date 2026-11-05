@@ -2,7 +2,7 @@
 
 # Как начать работать с API Yandex Cloud Video
 
-В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](index.md) и [gRPC API](grpc/index.md) Cloud Video.
+В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md), создавать [трансляции](../concepts/streams.md) и получать ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](index.md) и [gRPC API](grpc/index.md) Cloud Video.
 
 Чтобы начать работать с API Cloud Video:
 
@@ -10,6 +10,7 @@
 1. [Создайте видео](#create-video).
 1. [Добавьте обложку к видео](#add-thumbnail).
 1. [Получите ссылку на видеоплеер](#get-link).
+1. [Создайте трансляцию и эпизод](#create-stream).
 
 ## Перед началом работы {#before-begin}
 
@@ -649,7 +650,7 @@ curl \
   grpcurl \
     -rpc-header "Authorization: Bearer <IAM-токен>" \
     -d '{
-      "thumbnailId": "<идентификатор_обложки>"
+      "thumbnail_id": "<идентификатор_обложки>"
     }' \
     video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
   ```
@@ -843,3 +844,314 @@ curl \
 Где:
 * `playerUrl` — прямая ссылка на видео.
 * `html` — HTML-код для вставки видео в формате Iframe.
+
+## Создайте трансляцию и эпизод {#create-stream}
+
+Чтобы создать [трансляцию](../concepts/streams.md) в Cloud Video с помощью API, [создайте трансляцию](#create-stream-line) на канале, [получите ключ трансляции](#get-stream-key) для настройки программы для трансляции, [создайте эпизод](#create-episode) трансляции и [получите ссылку](#get-episode-link) на его видеоплеер.
+
+{% note info %}
+
+Методы создания трансляции и эпизода возвращают объект операции. Если `done: false`, проверяйте ее состояние методом REST API [get](Operation/get.md) или вызовом gRPC API [OperationService/Get](grpc/Operation/get.md), передавая идентификатор операции из поля `id` в корне ответа. Переходите к следующему шагу после успешного завершения операции: `done: true`, поле `error` отсутствует.
+
+{% endnote %}
+
+### Создайте трансляцию {#create-stream-line}
+
+Чтобы создать трансляцию, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    ```bash
+    curl \
+      --request POST \
+      --url 'https://video.api.cloud.yandex.net/video/v1/streamLines' \
+      --header 'Authorization: Bearer <IAM-токен>' \
+      --header 'Content-Type: application/json' \
+      --data '{
+        "channel_id": "<идентификатор_канала>",
+        "title": "<имя_трансляции>",
+        "rtmp_push": {},
+        "auto_line": {}
+      }'
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_канала>` — сохраненный ранее идентификатор созданного канала.
+    * `<имя_трансляции>` — имя создаваемой трансляции.
+
+    Результат:
+    
+    ```text
+    {
+      "done": true,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateStreamLineMetadata",
+        "streamLineId": "vplq3q9pdxck********"
+      },
+      "response": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.StreamLine",
+        "id": "vplq3q9pdxck********",
+        "channelId": "vplcdyphvqik********",
+        "title": "my-first-broadcast",
+        "rtmpPush": {
+          "url": "rtmp://rtmp.video.cloud.yandex.net:1935/live",
+          "backupUrl": "rtmp://rtmp-backup.video.cloud.yandex.net:1935/live"
+        },
+        "autoLine": {
+          "status": "DEACTIVATED"
+        },
+        "inputSource": "MAIN",
+        "createdAt": "2024-09-16T19:30:00.000000Z",
+        "updatedAt": "2024-09-16T19:30:00.000000Z"
+      },
+      "id": "vplp4vofhojp********",
+      "description": "StreamLine create",
+      "createdAt": "2024-09-16T19:30:00.000000Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2024-09-16T19:30:00.000000Z"
+    }
+    ```
+
+- gRPC API {#grpc-api}
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{
+        "channel_id": "<идентификатор_канала>",
+        "title": "<имя_трансляции>",
+        "rtmp_push": {},
+        "auto_line": {}
+      }' \
+      video.api.cloud.yandex.net:443 yandex.cloud.video.v1.StreamLineService/Create
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_канала>` — сохраненный ранее идентификатор созданного канала.
+    * `<имя_трансляции>` — имя создаваемой трансляции.
+
+    Результат:
+    
+    ```text
+    {
+      "id": "vplpvkqo2uyv********",
+      "description": "StreamLine create",
+      "createdAt": "2024-09-16T10:36:56.973051Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2024-09-16T10:36:56.973051Z",
+      "done": true,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateStreamLineMetadata",
+        "streamLineId": "vplq3q9pdxck********"
+      },
+      "response": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.StreamLine",
+        "createdAt": "2024-09-16T10:36:56.968240Z",
+        "id": "vplq3q9pdxck********",
+        "channelId": "vplcdyphvqik********",
+        "title": "my-first-broadcast",
+        "rtmpPush": {
+          "url": "rtmp://rtmp.video.cloud.yandex.net:1935/live",
+          "backupUrl": "rtmp://rtmp-backup.video.cloud.yandex.net:1935/live"
+        },
+        "autoLine": {
+          "status": "DEACTIVATED"
+        },
+        "inputSource": "MAIN",
+        "updatedAt": "2024-09-16T10:36:56.968240Z"
+      }
+    }
+    ```
+
+{% endlist %}
+
+Сохраните идентификатор трансляции из поля `response.id` или `metadata.streamLineId` — он понадобится позднее.
+
+### Получите ключ трансляции {#get-stream-key}
+
+Чтобы получить ключ трансляции для настройки программы для трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    ```bash
+    curl \
+      --request GET \
+      --header 'Authorization: Bearer <IAM-токен>' \
+      --url 'https://video.api.cloud.yandex.net/video/v1/streamLines/<идентификатор_трансляции>:getStreamKey'
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный на предыдущем шаге идентификатор трансляции.
+
+- gRPC API {#grpc-api}
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{
+        "stream_line_id": "<идентификатор_трансляции>"
+      }' \
+      video.api.cloud.yandex.net:443 yandex.cloud.video.v1.StreamLineService/GetStreamKey
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный на предыдущем шаге идентификатор трансляции.
+
+{% endlist %}
+
+Результат:
+
+```text
+{
+  "key": "<ключ_трансляции>"
+}
+```
+
+Значение `key` укажите в поле ключа трансляции в программе потокового вещания.
+
+Адрес RTMP-сервера указан отдельно — в поле `response.rtmpPush.url` ответа на создание трансляции. Его также можно получить в поле `rtmpPush.url` методом REST API [get](StreamLine/get.md) или вызовом gRPC API [StreamLineService/Get](grpc/StreamLine/get.md).
+
+### Создайте эпизод {#create-episode}
+
+Чтобы создать эпизод трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    ```bash
+    curl \
+      --request POST \
+      --url 'https://video.api.cloud.yandex.net/video/v1/episodes' \
+      --header 'Authorization: Bearer <IAM-токен>' \
+      --header 'Content-Type: application/json' \
+      --data '{
+        "line_id": "<идентификатор_трансляции>",
+        "title": "<имя_эпизода>",
+        "public_access": {},
+        "start_time": "<время_начала_эпизода>",
+        "finish_time": "<время_окончания_эпизода>"
+      }'
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+    * `<имя_эпизода>` — имя создаваемого эпизода.
+    * `<время_начала_эпизода>` и `<время_окончания_эпизода>` — время начала и окончания эпизода в формате [RFC3339](https://www.rfc-editor.org/rfc/rfc3339), например `2024-09-16T19:35:00Z`.
+
+- gRPC API {#grpc-api}
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{
+        "line_id": "<идентификатор_трансляции>",
+        "title": "<имя_эпизода>",
+        "public_access": {},
+        "start_time": "<время_начала_эпизода>",
+        "finish_time": "<время_окончания_эпизода>"
+      }' \
+      video.api.cloud.yandex.net:443 yandex.cloud.video.v1.EpisodeService/Create
+    ```
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+    * `<имя_эпизода>` — имя создаваемого эпизода.
+    * `<время_начала_эпизода>` и `<время_окончания_эпизода>` — время начала и окончания эпизода в формате [RFC3339](https://www.rfc-editor.org/rfc/rfc3339), например `2024-09-16T19:35:00Z`.
+
+{% endlist %}
+
+Результат:
+
+```text
+{
+  "done": true,
+  "metadata": {
+    "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateEpisodeMetadata",
+    "episodeId": "vpleof6lm40k********"
+  },
+  "response": {
+    "@type": "type.googleapis.com/yandex.cloud.video.v1.Episode",
+    "publicAccess": {},
+    "id": "vpleof6lm40k********",
+    "lineId": "vplq3q9pdxck********",
+    "title": "my-first-episode",
+    "startTime": "2024-09-16T19:35:00Z",
+    "finishTime": "2024-09-16T21:35:00Z",
+    "visibilityStatus": "PUBLISHED",
+    "createdAt": "2024-09-16T19:35:00.000000Z",
+    "updatedAt": "2024-09-16T19:35:00.000000Z"
+  },
+  "id": "vplp4vofhojp********",
+  "description": "Episode create",
+  "createdAt": "2024-09-16T19:35:00.000000Z",
+  "createdBy": "ajeol2afu1js********",
+  "modifiedAt": "2024-09-16T19:35:00.000000Z"
+}
+```
+
+Сохраните идентификатор эпизода из поля `response.id` или `metadata.episodeId` — он понадобится позднее.
+
+### Получите ссылку на видеоплеер эпизода {#get-episode-link}
+
+Чтобы получить ссылку на видеоплеер эпизода трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    ```bash
+    curl \
+      --request GET \
+      --header 'Authorization: Bearer <IAM-токен>' \
+      --url 'https://video.api.cloud.yandex.net/video/v1/episodes/<идентификатор_эпизода>:getPlayerUrl'
+    ```
+
+- gRPC API {#grpc-api}
+
+    ```bash
+    grpcurl \
+      -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{
+        "episode_id": "<идентификатор_эпизода>"
+      }' \
+      video.api.cloud.yandex.net:443 yandex.cloud.video.v1.EpisodeService/GetPlayerURL
+    ```
+
+{% endlist %}
+
+Где:
+
+* `<IAM-токен>` — полученный перед началом работы IAM-токен.
+* `<идентификатор_эпизода>` — сохраненный ранее идентификатор созданного эпизода.
+
+Результат:
+
+```text
+{
+  "playerUrl": "https://runtime.video.cloud.yandex.net/player/episode/vpleof6lm40k********?autoplay=0\u0026mute=0",
+  "html": "\u003ciframe width=\"560\" height=\"315\" src=\"https://runtime.video.cloud.yandex.net/player/episode/vpleof6lm40k********?autoplay=0\u0026mute=0\" allow=\"autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media\" frameborder=\"0\" scrolling=\"no\"\u003e\u003c/iframe\u003e"
+}
+```
+
+Где:
+* `playerUrl` — прямая ссылка на трансляцию.
+* `html` — HTML-код для вставки трансляции в формате Iframe.
+
+Для начала эфира [настройте программу для трансляции](../operations/streams/start.md#configure-soft), указав полученные адрес сервера и ключ, [активируйте трансляцию](../operations/streams/start.md#start-stream) и начните передачу видеопотока.

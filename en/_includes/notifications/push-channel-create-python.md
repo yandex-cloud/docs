@@ -43,7 +43,7 @@ Where:
 
   * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the Legacy API.
 
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting June 2024.
+    The HTTP v1 API is preferred as [FCM will no longer support](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting June 2024.
 
   * HMS:
 

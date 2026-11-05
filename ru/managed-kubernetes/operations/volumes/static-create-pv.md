@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Сохраните спецификацию для создания объекта `PersistentVolume` в YAML-файл с названием `test-pv.yaml`.
 
-   Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+   Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    При указании параметра `spec.capacity.storage` убедитесь, что задан точный объем диска. {{ CSI }} не обеспечивает проверку объема диска для статически подготовленных томов.
 
@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endnote %}
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1
@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Сохраните спецификацию для создания объекта `PersistentVolumeClaim` YAML-файл с названием `test-claim.yaml`.
 
-   Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1

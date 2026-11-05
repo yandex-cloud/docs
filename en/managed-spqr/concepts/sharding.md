@@ -19,8 +19,8 @@ The {{ SPQR }} cluster contains:
 
 {{ mspqr-name }} supports the following data sharding strategies:
 
-* [By hash](https://pg-sharding.tech/sharding/hashed)
-* [By value range](https://pg-sharding.tech/sharding/ranged)
+* [By hash](https://docs.pg-sharding.tech/sharding/hashed)
+* [By value range](https://docs.pg-sharding.tech/sharding/ranged)
 
 Learn more about data sharding in [{#T}](sharding-keys.md#sharding-strategies).
 
@@ -47,7 +47,7 @@ With sharding, you can:
 
 ## Sharding specifics in {{ mspqr-name }} {#shard-management}
 
-In {{ mspqr-name }}, sharding is managed by the hosts with the `ROUTER` ([routing user queries](https://pg-sharding.tech/sharding/cluster_components/router)) and `COORDINATOR` ([storing shard configuration](https://pg-sharding.tech/sharding/cluster_components/coordinator)) roles.
+In {{ mspqr-name }}, sharding is managed by the hosts with the `ROUTER` ([routing user queries](https://docs.pg-sharding.tech/configuration/router)) and `COORDINATOR` ([storing shard configuration](https://docs.pg-sharding.tech/configuration/coordinator)) roles.
 
 You can use two types of sharding in {{ mspqr-name }}:
 

@@ -670,7 +670,7 @@ description: Следуя этой инструкции, вы создадите
 
 {% endlist %}
 
-### Коннектор {{ GP }}/Cloudberry {{ preview-stage }} {#gp-clouberry}
+### Коннектор {{ GP }}/Cloudberry {#gp-clouberry}
 
 {% include [connection-type](../../_includes/managed-trino/connection-type.md) %}
 

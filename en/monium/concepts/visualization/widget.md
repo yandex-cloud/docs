@@ -48,7 +48,7 @@ The widget displays the current status of the selected alert on the dashboard. I
 
 ## List of alerts {#alert-list}
 
-The widget displays the current status of alerts or multialert sub-alerts matching the selector as colored tiles on the dashboard. You can aggregate alerts from any project you have access to.
+The widget displays the current status of alerts or multialert sub-alerts matching the selector as colored dashboard tiles. You can aggregate alerts from any project you have access to.
 
 ## SLO {#slo}
 

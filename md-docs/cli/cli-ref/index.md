@@ -64,7 +64,7 @@ Syntax:
 
 - [yc logging](logging/cli-ref/index.md) — Yandex Cloud Logging
 
-- [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters.
+- [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters
 
 - [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models
 
@@ -84,7 +84,7 @@ Syntax:
 
 - [yc managed-opensearch](managed-opensearch/cli-ref/index.md) — Manage OpenSearch clusters, hosts, indexes and backups
 
-- [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
+- [yc managed-postgresql](managed-postgresql/cli-ref/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users
 
 - [yc managed-redis](managed-redis/cli-ref/index.md) — Manage Redis clusters, hosts, databases, backups and users
 

@@ -18,28 +18,28 @@ Syntax:
 #|
 ||Flag | Description ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--new-name` | `string`
-
-Trigger new name. ||
-|| `--description` | `string`
-
-Trigger description. ||
-|| `--labels` | `key=value[,key=value...]`
-
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. All existing labels are replaced ||
-|| `--bot-token` | `string`
-
-MAX bot token. If set, subscription is re-registered ||
-|| `--update-types` | `value[,value]`
-
-Types of MAX updates to receive, comma-separated. Optional, default is "message_created". ||
-|| `--force` | Delete all existing webhook subscriptions before registering this trigger. ||
 || `--id` | `string`
 
 Trigger id. ||
 || `--name` | `string`
 
 Trigger name. ||
+|| `--new-name` | `string`
+
+Trigger name. ||
+|| `--description` | `string`
+
+Trigger description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of label KEY=VALUE pairs to add. ||
+|| `--bot-token` | `string`
+
+MAX bot token. If set, subscription is re-registered ||
+|| `--update-types` | `[]string`
+
+Types of MAX updates to receive, comma-separated. Optional, default is "message_created". ||
+|| `--force` | Delete all existing webhook subscriptions before registering this trigger. ||
 |#
 
 #### Global Flags

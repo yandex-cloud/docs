@@ -11,10 +11,12 @@ You can use the following SDKs to embed a [video player](../concepts/player.md) 
 * [Video player SDK for iOS](./ios-sdk.md)
 * [Video player SDK for JavaScript](./javascript/index.md)
 
-We are also planning to add an SDK for Android going forward.
+There are also plans to add an Android SDK.
 
 #### Useful links {#see-also}
 
-* [CloudVideoPlayerSDK reference](./CloudVideoPlayerSDK/Environment.md): Reference of the main iOS SDK library.
-* [CloudVideoPlayerSDKUI reference](./CloudVideoPlayerSDKUI/VideoView.md): iOS SDK UI elements library reference.
+References for the service's SDK libraries and APIs:
+
+* [CloudVideoPlayer](./CloudVideoPlayerSDK/Environment.md): Main SDK library for iOS.
+* [CloudVideoPlayerUI](./CloudVideoPlayerSDKUI/VideoView.md): UI components library for the iOS SDK.
 * [{{ video-name }} API reference](../api-ref/authentication.md).

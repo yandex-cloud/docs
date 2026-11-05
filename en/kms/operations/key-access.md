@@ -56,7 +56,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
      * `--id`: Symmetric key ID.
      * `--role`: [Role](../security/index.md#roles-list).
-     * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
          {% cut "Subject designations" %}
 
@@ -87,7 +87,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
       * `role`: [Role](../security/index.md#roles-list).
-      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -230,7 +230,7 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
       * `role`: [Role](../security/index.md#roles-list).
-      * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 

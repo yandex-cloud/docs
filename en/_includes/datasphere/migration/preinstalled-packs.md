@@ -207,10 +207,10 @@
 * [iniconfig](https://github.com/RonnyPfannschmidt/iniconfig) 2.0.0
 * intel-openmp 2023.2.0
 * [ipykernel](https://github.com/ipython/ipykernel) 5.4.2
-* [ipython](https://ipython.org/install.html) 7.19.0
+* [ipython](https://ipython.readthedocs.io/en/stable/install/index.html) 7.19.0
 * [ipython-genutils](https://github.com/ipython/ipython_genutils) 0.2.0
 * [ipython-sql](https://github.com/catherinedevlin/ipython-sql) 0.4.1
-* [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/user_guide.html) 7.7.1
+* [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/examples/Widget%20List.html) 7.7.1
 * [iterative-telemetry](https://github.com/iterative/telemetry-python) 0.0.8
 * [itsdangerous](https://github.com/pallets/itsdangerous) 2.1.2
 * [jax](https://github.com/google/jax) 0.4.13
@@ -220,7 +220,7 @@
 * [jieba](https://github.com/fxsjy/jieba) 0.42.1
 * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/intro) 3.1.2
 * [jmespath](https://github.com/jmespath/jmespath.py) 0.10.0
-* [joblib](https://joblib.readthedocs.io/en/latest/installing.html) 1.3.1
+* [joblib](https://joblib.readthedocs.io/en/stable/user_guide/installing.html) 1.3.1
 * [jsonpickle](https://jsonpickle.readthedocs.io/en/latest/) 3.0.1
 * [jsonschema](https://python-jsonschema.readthedocs.io/en/stable/) 4.19.1
 * [jsonschema-specifications](https://github.com/python-jsonschema/jsonschema-specifications) 2023.7.1
@@ -234,7 +234,7 @@
 * [Keras](https://keras.io/) 2.12.0
 * [keyring](https://github.com/jaraco/keyring) 23.5.0
 * [kiwisolver](https://kiwisolver.readthedocs.io/en/latest/basis/installation.html) 1.4.5
-* [kombu](https://readthedocs.org/projects/kombu/downloads/pdf/latest/) 5.3.1
+* [kombu](https://docs.celeryq.dev/projects/kombu/en/latest/) 5.3.1
 * [langcodes](https://langcodes-hickford.readthedocs.io/en/sphinx/index.html) 3.3.0
 * [launchpadlib](https://help.launchpad.net/API/launchpadlib) 1.10.16
 * [lazr.restfulclient](https://lazr-restfulclient.readthedocs.io/en/latest/) 0.14.4
@@ -280,7 +280,7 @@
 * [multipledispatch](https://github.com/mrocklin/multipledispatch) 1.0.0
 * [multitasking](https://github.com/ranaroussi/multitasking) 0.0.11
 * [murmurhash](https://github.com/hajimes/mmh3) 1.0.9
-* [music21](https://music21.readthedocs.io/en/latest/) 8.1.0
+* [music21](https://music21.org/music21docs/usersGuide/index.html) 8.1.0
 * [nanotime](https://github.com/jbenet/nanotime) 0.5.2
 * [natsort](https://natsort.readthedocs.io/en/stable/) 8.3.1
 * [nbclient](https://nbclient.readthedocs.io/en/latest/) 0.8.0
@@ -413,7 +413,7 @@
 * [rpds-py](https://github.com/crate-py/rpds) 0.10.6
 * [rpy2](https://github.com/rpy2/rpy2) 3.4.2
 * [RSA](https://stuvel.eu/software/rsa/) 4.9
-* [ruamel.yaml](https://yaml.readthedocs.io/en/latest/) 0.17.32
+* [ruamel.yaml](https://yaml.dev/doc/ruamel.yaml/) 0.17.32
 * [ruamel.yaml.clib](https://github.com/ruamel/yaml.clib) 0.2.7
 * [S3Fs](https://s3fs.readthedocs.io/en/latest/) 0.5.2
 * [s3transfer](https://github.com/boto/s3transfer) 0.5.2
@@ -444,7 +444,7 @@
 * [spaCy](https://spacy.io/usage/spacy-101) 3.5.4
 * [spaCy-legacy](https://github.com/explosion/spacy-legacy) 3.0.12
 * [spaCy-loggers](https://github.com/explosion/spacy-loggers) 1.0.4
-* [Sphinx](https://sphinx-ru.readthedocs.io/ru/latest/sphinx.html) 5.0.2
+* [Sphinx](https://www.sphinx-doc.org/en/master/) 5.0.2
 * [sphinxcontrib-applehelp](https://github.com/sphinx-doc/sphinxcontrib-applehelp) 1.0.4
 * [sphinxcontrib-devhelp](https://github.com/sphinx-doc/sphinxcontrib-devhelp) 1.0.2
 * [sphinxcontrib-htmlhelp](https://github.com/sphinx-doc/sphinxcontrib-htmlhelp) 2.0.1
@@ -516,7 +516,7 @@
 * [webcolors](https://webcolors.readthedocs.io/en/1.11.1/) 1.13
 * [webencodings](https://pythonhosted.org/webencodings/) 0.5.1
 * [websocket-client](https://websocket-client.readthedocs.io/en/latest/) 1.6.1
-* [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) 2.3.6
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/stable/) 2.3.6
 * [wheel](https://wheel.readthedocs.io/en/stable/) 0.41.1
 * [widgetsnbextension](https://packages.ubuntu.com/cs/groovy/python3-widgetsnbextension) 3.6.4
 * [wordcloud](https://github.com/amueller/word_cloud) 1.8.2.2

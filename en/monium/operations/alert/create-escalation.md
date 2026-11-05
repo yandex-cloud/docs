@@ -46,14 +46,14 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
 
           {% note info %}
 
-          The **No notification on weekends and holidays** setting has a higher priority than the **Sending days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
+          The **No notification on weekends and holidays** setting has a higher priority than the **Send days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
 
           {% endnote %}
 
   1. Configure escalation steps, i.e., channel sequence and notification parameters:
   
       * **Initial delay**: First iteration delay when an escalation starts, 2 minutes by default. To start without delay, clear this field.
-      * Specify the parameters of the first escalation step: 
+      * Specify the parameters of the first escalation step:
         * **Method**: [Notification method](../../concepts/alerting/notification-channel.md#channel-parameters):
 
             {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
@@ -99,7 +99,7 @@ You will see the escalation policy that you have just created on the right of th
 
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, select ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** → ![alt](../../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}** on the left.
   1. Open an alert for editing or [create a new one](create-alert.md).
-  1. Add a [notification method](../../operations/alert/create-alert.md) and select an escalation policy from the list.
+  1. Add a notification method and select an escalation policy from the list.
 
 {% endlist %}
 

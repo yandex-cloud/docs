@@ -448,7 +448,7 @@
 
   The default value is `""` (empty string, query filtering is disabled).
 
-  For more information, see [this Percona guide](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+  For more information, see [this Percona guide](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_filter).
 
 - **Log slow rate limit**{#setting-log-slow-rate-limit} {{ tag-all }}
 
@@ -460,7 +460,7 @@
 
   The valid values range from `1` to `1000`. The default value is `1`.
 
-  For more information, see [this Percona guide](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+  For more information, see [this Percona guide](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_rate_limit).
 
 - **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-all }}
 
@@ -471,7 +471,7 @@
 
   The default value is `query`.
 
-  For more information, see [this Percona guide](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+  For more information, see [this Percona guide](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_rate_type).
 
 - **Log slow sp statements**{#setting-log-slow-sp-statements} {{ tag-all }}
 
@@ -479,7 +479,7 @@
 
   By default, statement logging is enabled.
 
-  For more information, see [this Percona guide](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+  For more information, see [this Percona guide](https://docs.percona.com/percona-server/8.0/slow-extended.html#log_slow_sp_statements).
 
 - **Long query time**{#setting-long-query-time} {{ tag-all }}
 
@@ -724,7 +724,7 @@
 
   The valid values range from `0` to `3600` (1 hour). The default value is `10`.
 
-  For more information, see [this Percona guide](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+  For more information, see [this Percona guide](https://docs.percona.com/percona-server/8.0/slow-extended.html#slow_query_log_always_write_time).
 
 - **Sort buffer size**{#setting-sort-buffer-size} {{ tag-all }}
 

@@ -2,6 +2,10 @@
 
 # История изменений в Yandex Managed Service for YTsaurus
 
+## Сентябрь 2026 {#september-2026}
+
+При создании и изменении кластера добавлена возможность настраивать список разрешенных диапазонов IPv4-адресов.
+
 ## Декабрь 2025 {#december-2025}
 
 Сервис Yandex Managed Service for YTsaurus перешел на стадию [General Availability](../overview/concepts/launch-stages.md).

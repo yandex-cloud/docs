@@ -139,16 +139,6 @@
    
       Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
    
-   - Windows (PowerShell) {#windows}
-   
-      ```powershell
-      mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
-      ```
-   
-      Сертификат будет сохранен в файле `$HOME\.kafka\YandexInternalRootCA.crt`.
-   
-      Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](qa/index.md#get-ssl-error).
-   
    {% endlist %}
 
 1. Создайте каталог `~/.config/kafkactl` и поместите в него конфигурационный файл `config.yml` с параметрами подключения к кластеру Apache Kafka®:

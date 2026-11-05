@@ -155,7 +155,7 @@ To speed up file writes to {{ objstorage-name }}, you can:
 
 ### Using S3A committers {#s3a-committers}
 
-S3A committers are Apache Hadoop software modules used for writing data to an object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) guides.
+S3A committers are Apache Hadoop software modules used for writing data to an object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/latest/cloud-integration.html) guides.
 
 {% note info %}
 
@@ -254,7 +254,7 @@ If these values are excessively high, you may run out of {{ metastore-name }} sy
 
 {% endnote %}
 
-For more information, see the [Apache Spark guides](https://spark.apache.org/docs/3.5.3/cloud-integration.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
+For more information, see the [Apache Spark guides](https://spark.apache.org/docs/latest/cloud-integration.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
 
 ## Using s3fs {#s3fs}
 

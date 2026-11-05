@@ -125,6 +125,9 @@ When to move data to Yandex Object Storage. ||
 || `--cloud-storage-data-cache-max-size` | `byteSize`
 
 Limit for cache for data on Yandex Object Storage. ||
+|| `--cloud-storage-bucket-max-size` | `byteSize`
+
+Maximum size of the Object Storage bucket used for hybrid storage. Must be greater than zero and cannot be decreased once set. ||
 || `--cloud-storage-prefer-not-to-merge` | Disable merge of data parts stored in Yandex Object Storage. ||
 || `--enable-sql-database-management` | Whether database management through SQL commands is enabled. ||
 || `--enable-sql-user-management` | Whether user management through SQL commands is enabled. ||

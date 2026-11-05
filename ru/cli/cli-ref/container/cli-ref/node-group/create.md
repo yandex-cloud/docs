@@ -105,13 +105,13 @@ Possible property names:
 || `--version` | `string`
 
 Node Kubernetes components version. Default depends on Cluster release channel. See available in 'yc managed-kubernetes list-versions'. ||
-|| `--allowed-unsafe-sysctls` | `value[,value]`
+|| `--allowed-unsafe-sysctls` | `[]string`
 
 List of strings containing allowed unsafe sysctls for use on nodes. ||
 || `--node-labels` | `key=value[,key=value...]`
 
 Kubernetes labels that are assigned to the nodes of the node group. ||
-|| `--node-taints` | `value[,value]`
+|| `--node-taints` | `[]string`
 
 Kubernetes taints that are applied to the nodes of the node group. ||
 || `--auto-upgrade` | Sets auto upgrade maintenance policy. 'true' by default.

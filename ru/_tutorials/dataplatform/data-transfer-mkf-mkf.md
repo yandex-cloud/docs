@@ -20,20 +20,25 @@
 
 Чтобы запустить перенос данных:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластеры {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -147,10 +152,11 @@
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-           Выберите кластер-приемник из списка и укажите настройки подключения к нему.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-приемник из списка.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` и укажите имя и пароль [созданного ранее](#prepare-infrastructure) пользователя кластера-приемника.
 
          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — `measurements`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — укажите имя топика, например `measurements`.
 
   1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -158,9 +164,10 @@
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-          Выберите кластер-источник из списка и укажите настройки подключения к нему.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-источник из списка.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` и укажите имя и пароль [созданного ранее](#prepare-infrastructure) пользователя кластера-источника.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — `sensors`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}** — укажите имя топика, например `sensors`.
 
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа {{ dt-type-repl }}, использующий созданные эндпоинты.
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
@@ -246,7 +253,7 @@
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     1. Убедитесь, что в кластер-приемник {{ mkf-name }} перенеслись данные из кластера-источника, с помощью утилиты `kafkacat`:
 

@@ -7,16 +7,13 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 {% include [paid-resources](paid-resources.md) %}
-
 
 ## Set up resources {#create-resources}
 
@@ -26,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    git clone https://github.com/yandex-cloud-examples/yc-serverless-video-gif-converter.git
    ```
 
-1. [Create](../../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the following roles to it:
+1. [Create](../../../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the following roles:
 
    * `ymq.reader`
    * `ymq.writer`
@@ -36,20 +33,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `ydb.admin`
    * `{{ roles-functions-invoker }}`
 
-1. [Create a static key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the **Key ID** and **Your secret key**.
+1. [Create a static key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the key ID and secret key.
 1. [Create a secret](../../../lockbox/operations/secret-create.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}:
 
-      1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+      1. Select the **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}** secret type.
       1. Set two key-value pairs:
 
-         * `ACCESS_KEY_ID` as the key and **Key ID** from the previous step as the value.
-         * `SECRET_ACCESS_KEY` as the key and **Your secret key** from the previous step as the value.
+         * `ACCESS_KEY_ID` as the key and key ID from the previous step as the value.
+         * `SECRET_ACCESS_KEY` as the key and the secret key from the previous step as the value.
 
-         Save the secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** from the **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-general-section }}** section.
+         Save the secret ID from the **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-general-section }}** section.
 
-1. [Create a message queue](../../../message-queue/operations/message-queue-new-queue.md) named `converter-queue` in {{ message-queue-full-name }}. Save the queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** from the **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** section.
-1. [Create a {{ ydb-short-name }} database](../../../ydb/quickstart.md#serverless) in `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}` mode. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** section.
-1.  [Create a table](../../../ydb/operations/schema.md#create-table)  in the database:
+1. [Create a message queue](../../../message-queue/operations/message-queue-new-queue.md) named `converter-queue` in {{ message-queue-full-name }}. Navigate to the created queue and save the value of the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field from the **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** section.
+1. [Create a {{ ydb-short-name }} database](../../../ydb/quickstart.md#serverless) in `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}` mode. Navigate to the created database and save the value of the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section.
+1. [Create a table](../../../ydb/operations/schema.md#create-table) in the database:
 
     * **{{ ui-key.yacloud.ydb.table.form.field_name }}**: `tasks`.
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
@@ -76,11 +73,15 @@ The function implements an API which you can use to perform the following action
 
         ```text
         boto3
+        requests
         yandexcloud
         ```
 
-     1. Create a file named `index.py` and paste into it the contents of the `ffmpeg-api.py` file from the `ffmpeg-api.zip` archive.
-     1. Specify the following settings:
+     1. Create a file named `index.py` and paste into it the contents of the `index.py` file from the `ffmpeg-api.zip` archive.
+
+        You can also upload a ready-made `ffmpeg-api.zip` archive on the function version creation page.
+
+     1. Specify the parameters:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_api`.
@@ -123,7 +124,7 @@ The video is converted using FFmpeg. The FFmpeg executable is larger than 70 MB
   1. [Upload](../../../storage/operations/objects/upload.md) `src.zip` to the bucket you created earlier.
   1. [Create](../../../functions/operations/function/version-manage.md) a function version:
 
-     1. Specify the following settings:
+     1. Specify the parameters:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method.
@@ -136,10 +137,10 @@ The video is converted using FFmpeg. The FFmpeg executable is larger than 70 MB
 
      1. Add these environment variables:
 
-        * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
-        * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**.
-        * `YMQ_QUEUE_URL`: {{ message-queue-name }} **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**.
-        * `S3_BUCKET`: Name of the bucket you created earlier.
+        * `DOCAPI_ENDPOINT`: Document API endpoint from the database configuration.
+        * `SECRET_ID`: {{ lockbox-name }} secret ID.
+        * `YMQ_QUEUE_URL`: {{ message-queue-name }} queue URL.
+        * `S3_BUCKET`: Bucket name.
 
 {% endlist %}
 
@@ -157,11 +158,11 @@ A message queue is processed using a [trigger for {{ message-queue-name }}](../.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-     * Name the trigger: `ffmpeg-trigger`.
+     * Specify the trigger name: `ffmpeg-trigger`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the `converter-queue` message queue and the service account named `ffmpeg-sa` with permission to read messages from it.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a `converter-queue` message queue and the `ffmpeg-sa` service account with the permission to read messages from that queue.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
-     * Select the function the trigger will invoke: `ffmpeg-converter`.
+     * Select `ffmpeg-converter`.
      * Specify the [function version tag](../../../functions/concepts/function.md#tag): `$latest`.
      * Specify the service account that will invoke the function: `ffmpeg-sa`.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.

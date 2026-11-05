@@ -220,6 +220,8 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Защита доменов](concepts/domain-protect.md)
 
+ - [Network Protection (защита от DDoS L3–L4)](concepts/network-protection.md)
+
  - [Шаблоны ответов](concepts/response-templates.md)
 
  - [Логирование](concepts/logging.md)

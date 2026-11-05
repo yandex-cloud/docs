@@ -1,3 +1,8 @@
+---
+title: 'YaPlayer: {{ video-full-name }} player SDK for iOS'
+description: Managing playback and monitoring the player state in the {{ video-name }} SDK for iOS.
+---
+
 # YaPlayer
 
 ```swift
@@ -6,28 +11,48 @@ public final class YaPlayer
 
 Main player object for video content playback.
 
-## Contents
+## Contents {#contents}
+
+This page displays:
 
 - [Properties](#properties)
 - [Methods](#methods)
 
-## Discussion
+## Description {#discussion}
 
-`YaPlayer` manages the full playback lifecycle: source loading, start, pause, rewind/fast forward, audio management, and speed.
+`YaPlayer` manages playback, including source loading, play, pause, rewind/fast forward, volume, and payback speed.
 
-Create instances via `Environment/player()`.
+To create a player instance, call the `player()` method on the [Environment](./Environment.md#methods) struct.
 
-## State monitoring
+## State monitoring {#state-monitoring}
 
-Use Combine publishers to respond to state changes.
+To monitor changes in the player’s state, subscribe to events using Combine. The subscription methods return `PlayerPublisher` objects that provide subscribers with updated values. For a subscription example, see [Monitoring the player state](../ios-sdk.md#state-monitoring).
 
-## Properties
+All subscription methods use the `queue` parameter to specify the event delivery queue. Its default value is `.main`.
 
-| Name | Type | Description |
-|------|------|-------------|
-| `currentSource` | `ContentIdEndpoint?` | Current playback source. |
+## Properties {#properties}
 
-## Methods
+#|
+|| **Name** | **Type** | **Description** ||
+|| `currentSource` | `ContentIdEndpoint?` | Current playback source ||
+|| `vsid` | `String` | View session ID ||
+|| `status` | `PlayerStatus` | Current state of the player ||
+|| `watchedTime` | `Time` | Total playback time for the current content since the source was last set ||
+|| `currentTime` | `Time?` | Current playback position ||
+|| `duration` | `Time?` | Total content duration ||
+|| `remainingBufferedTime` | `Time?` | Duration of the buffered fragment starting at the current playback position ||
+|| `bufferTimeRanges` | `[Range<Time>]` | Buffered time ranges ||
+|| `seekableTimeRanges` | `[Range<Time>]` | Seekable time ranges ||
+|| `isMuted` | `Bool?` | Current audio state ||
+|| `volume` | `Float?` | Current volume level, from `0.0` to `1.0` ||
+|| `videoType` | `VideoType?` | Playback content type ||
+|| `onAir` | `Bool` | `true` if playback is at the live edge of the broadcast timeline ||
+|| `latency` | `TimeInterval` | Current playback latency behind live, in seconds ||
+|| `targetLatency` | `TimeInterval` | Target playback latency behind live, in seconds ||
+|| `playbackSpeed` | `PlaybackSpeed` | Current playback speed ||
+|#
+
+## Methods {#methods}
 
 ```swift
 public func set<AdditionalParams: Encodable>(source endpoint: ContentIdEndpoint, config: PlaybackConfig, additionalParams: AdditionalParams)
@@ -75,11 +100,11 @@ public func seek(to time: Time) async -> Bool
 
 Rewinds/fast forwards to a specified position.
 
-**Parameters:**
+Parameters:
 
 - `time`: Target position.
 
-**Returns**: `true` if rewind/fast forward is successful.
+Return value: `true` if rewind/fast forward is successful.
 
 ---
 
@@ -89,7 +114,7 @@ public func set(isMute: Bool)
 
 Enables or disables audio.
 
-**Parameters:**
+Parameters:
 
 - `isMute`: `true` to mute, `false` to unmute.
 
@@ -101,9 +126,9 @@ public func set(volume: Float)
 
 Sets volume level.
 
-**Parameters:**
+Parameters:
 
-- `volume`: Volume level from `0.0` (silence) to `1.0` (maximum).
+- `volume`: Volume level from `0.0` (muted) to `1.0` (maximum).
 
 ---
 
@@ -113,11 +138,11 @@ public func set(playbackSpeed: PlaybackSpeed) throws
 
 Sets playback speed.
 
-**Parameters:**
+Parameters:
 
 - `playbackSpeed`: Desired playback speed.
 
-**Throws:** Error if the specified speed is not supported for the current content.
+Exceptions: Throws an error if the specified speed is not supported for the current content.
 
 ---
 
@@ -127,13 +152,91 @@ public func canSet(playbackSpeed: PlaybackSpeed) -> Bool
 
 Checks whether current content supports the specified playback speed.
 
-**Parameters:**
+Parameters:
 
 - `playbackSpeed`: Speed to check.
 
-**Returns:** `true` if the speed is available for the current content.
+Return value: `true` if the speed is available for the current content.
 
-## Examples
+---
+
+```swift
+public func playerStatusDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<PlayerStatus>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the player state.
+
+---
+
+```swift
+public func bufferTimeRangesDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<[Range<Time>]>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the buffered ranges.
+
+---
+
+```swift
+public func seekableTimeRangeDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<[Range<Time>]>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the seekable ranges.
+
+---
+
+```swift
+public func periodicTimePublisher(interval: TimeInterval, queue: DispatchQueue = .main) -> PlayerPublisher<TimeInterval>
+```
+
+Returns a `PlayerPublisher` object to periodically retrieve the playback position.
+
+Parameters:
+
+- `interval`: Playback position update interval, in seconds.
+
+---
+
+```swift
+public func isMutedDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<Bool>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the audio state.
+
+---
+
+```swift
+public func volumeDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<Float>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the volume level.
+
+---
+
+```swift
+public func errorDidDetected(queue: DispatchQueue = .main) -> PlayerPublisher<PlayerError>
+```
+
+Returns a `PlayerPublisher` object to get notified of playback errors.
+
+---
+
+```swift
+public func goToLive() async throws
+```
+
+Moves the playback position to the live edge of the broadcast timeline.
+
+Exceptions: Throws an error if the operation is not available, e.g., during video-on-demand (VOD) playback.
+
+---
+
+```swift
+public func playbackSpeedDidChange(queue: DispatchQueue = .main) -> PlayerPublisher<PlaybackSpeed>
+```
+
+Returns a `PlayerPublisher` object to monitor changes in the playback speed.
+
+## Examples {#examples}
 
 ```swift
 let environment = Environment(configuration: Configuration(from: From(raw: "my-app")))

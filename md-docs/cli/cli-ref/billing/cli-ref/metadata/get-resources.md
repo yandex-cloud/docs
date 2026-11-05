@@ -21,7 +21,7 @@ Error handling:
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
 Required permissions:
-- `billing.accounts.getReport` or `billingInternal.accounts.getReport` on the specified billing account
+- `billing.accounts.getReport` on the specified billing account
 
 #### Command Usage
 

@@ -1,6 +1,8 @@
 title: '{{ ycdr-full-name }}'
 href: index.yaml
 items:
+  - name: Подключение
+    href: operations/connect.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции

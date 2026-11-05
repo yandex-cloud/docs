@@ -6,8 +6,9 @@ description:
     href="https://docs.aws.amazon.com/sns/latest/api/Welcome.html">Amazon SNS
     API</a>.
   - >-
-    The service can send push notifications to iOS and Android devices,
-    browsers, and via SMS.
+    {{ cns-name }} supports sending push notifications to iOS and Android
+    devices, browsers, message queues in {{ message-queue-full-name }}, and via
+    SMS.
   - >-
     The service is subject to a <a
     href="https://yandex.ru/legal/cloud_terms_cns/ru/">service level agreement

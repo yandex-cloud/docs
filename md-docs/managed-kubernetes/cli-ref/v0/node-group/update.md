@@ -16,10 +16,10 @@ Syntax:
 ||Flag | Description ||
 || `--id` | `string`
 
-ID of the node group. ||
+ID of the Kubernetes node group. ||
 || `--name` | `string`
 
-Name of the node group. ||
+Name of the Kubernetes node group. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
@@ -33,7 +33,7 @@ List of node group labels as key-value pairs. ||
 || `--node-labels` | `key=value[,key=value...]`
 
 List of node group NODE labels as key-value pairs. ||
-|| `--node-taints` | `value[,value]`
+|| `--node-taints` | `[]string`
 
 Kubernetes taints that are applied to the nodes of the node group. ||
 || `--metadata` | `key=value[,key=value...]`

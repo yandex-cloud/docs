@@ -256,7 +256,7 @@
 
 ### 2.0.42 {#2-0-42}
 
-* Apache Spark обновлен до версии 3.0.3 и собран с профилем [hadoop-cloud](https://spark.apache.org/docs/3.0.3/cloud-integration.html) для использования [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) и формата Parquet.
+* Apache Spark обновлен до версии 3.0.3 и собран с профилем [hadoop-cloud](https://spark.apache.org/docs/latest/cloud-integration.html) для использования [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) и формата Parquet.
 * Исправлена ошибка с игнорированием настроек `hive.metastore.uris` для Spark при использовании внешнего Hive metastore.
 
 ### 2.0.41 {#2-0-41}

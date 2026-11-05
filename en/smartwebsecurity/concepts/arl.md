@@ -16,7 +16,7 @@ ARL pros and features:
 * Dry Run mode for rule testing and traffic analysis.
 * ARL logging.
 
-You can configure ARL using profiles. A profile consists of rules that impose limits on requests of a certain type. ARL uses these rules to analyze incoming HTTP requests and blocks them when their number exceeds the specified limits.
+You can configure ARL using profiles. A profile consists of rules that impose limits on requests of a certain type and specify actions to trigger when these limits are exceeded.
 
 An ARL profile is connected to a [security profile](profiles.md). ARL rules are applied to the traffic that has already been through the security profile's rules check. This makes it possible to analyze only the allowed instead of all incoming traffic and makes the ARL module more fault tolerant.
 
@@ -46,11 +46,11 @@ You can group requests:
 
 You can also select a time interval from 1 second to 24 hours and [configure actions](#over-limit-actions) for requests that exceed the limit within that interval.
 
-You can use the **Logging only (Dry run)** mode to calculate limits and test ARL rules. Requests will not be blocked in this mode. This allows you to evaluate backend capabilities and find the optimum limit values.
+You can use the **Logging only (Dry run)** mode to calculate limits and test ARL rules. In this mode, rule actions do not apply to requests. This allows you to evaluate backend capabilities and find the optimum limit values.
 
 ## Actions on exceeding the limit {#over-limit-actions}
 
-When the number of requests within the set interval goes over the limit, you can block them or send them for CAPTCHA verification. When a request is blocked, the client gets the `429` error (`Too Many Requests`).
+Requests exceeding the limit can be blocked or redirected to a CAPTCHA challenge. When a request is blocked, the client gets the `429` error (`Too Many Requests`).
 
 You can opt for the following actions:
 
@@ -62,9 +62,11 @@ You can opt for the following actions:
 
    Use this action to provide enhanced protection against bots, scrapers, brute-force attacks, or spam, prioritizing reliability over availability. For example, it is a good fit for login pages or message submission forms. This action requires request grouping.
 
+
 * Send over-limit requests for CAPTCHA verification: Requests that exceed the limit will be sent to [{{ captcha-name }}](../../smartcaptcha/). You can configure CAPTCHA through the security profile associated with the ARL profile. This action helps differentiate legitimate users from bots, ensuring requests are not fully blocked and that the application remains available.
 
    Use this action as a softer restriction on pages with registration, login, feedback, search, or similar forms.
+
 
 To standardize client response pages whenever an individual rule or any rule in the profile triggers, you can create custom [response templates](response-templates.md).
 

@@ -11,8 +11,8 @@
 
 Managed Service for Sharded PostgreSQL поддерживает следующие стратегии шардирования данных:
 
-* [по хешу](https://pg-sharding.tech/sharding/hashed);
-* [по диапазону значений](https://pg-sharding.tech/sharding/ranged).
+* [по хешу](https://docs.pg-sharding.tech/sharding/hashed);
+* [по диапазону значений](https://docs.pg-sharding.tech/sharding/ranged).
 
 Узнайте больше о стратегиях шардирования данных в разделе [Стратегии шардирования](sharding-keys.md#sharding-strategies).
 
@@ -39,7 +39,7 @@ Managed Service for Sharded PostgreSQL поддерживает следующи
 
 ## Особенности управления шардированием в Managed Service for Sharded PostgreSQL {#shard-management}
 
-За управление шардированием в Managed Service for Sharded PostgreSQL отвечают хосты с ролями `ROUTER` ([маршрутизация запросов пользователей](https://pg-sharding.tech/sharding/cluster_components/router)) и `COORDINATOR` ([хранение конфигурации шардов](https://pg-sharding.tech/sharding/cluster_components/coordinator)).
+За управление шардированием в Managed Service for Sharded PostgreSQL отвечают хосты с ролями `ROUTER` ([маршрутизация запросов пользователей](https://docs.pg-sharding.tech/configuration/router)) и `COORDINATOR` ([хранение конфигурации шардов](https://docs.pg-sharding.tech/configuration/coordinator)).
 
 В Managed Service for Sharded PostgreSQL можно использовать шардирование двух типов:
 

@@ -5,7 +5,7 @@ description: Расследования в {{ ycdr-name }} позволяют а
 
 # Расследования
 
-{% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../_includes/ycdr/connect-to-ycdr.md) %}
 
 _Расследование_ — это основная сущность для анализа событий безопасности в {{ ycdr-full-name }}. Расследование объединяет один или несколько запросов, которые позволяют искать и анализировать события за последние 90 дней.
 

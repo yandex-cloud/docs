@@ -62,12 +62,14 @@ resource "yandex_mdb_clickhouse_database" "bar" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the database is created.
+- `deletion_protection_mode` (String). Deletion protection mode of the database. Possible values: `DELETION_PROTECTION_MODE_INHERITED` (default) - the database is protected if `deletion_protection` is enabled for the cluster, `DELETION_PROTECTION_MODE_ENABLED` - the database is protected regardless of the cluster setting, `DELETION_PROTECTION_MODE_DISABLED` - the database can be deleted even if the cluster is protected. The mode does not prevent deletion of the cluster.
 - `engine` (String). Database engine, possible values are: atomic,replicated.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the database.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

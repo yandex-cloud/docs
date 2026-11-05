@@ -49,10 +49,10 @@ Delta Lake and {{ dataproc-name }} versions are only compatible if the Delta Lak
 
 Here are the key advantages of Delta Lake 2.x as compared to 0.8.0:
 
-* Support for [multi-cluster mode](https://docs.delta.io/2.0.2/delta-storage.html#multi-cluster-setup) provides automated orchestration of changes to data in a single table from different {{ SPRK }} jobs and {{ dataproc-name }} clusters.
+* Support for [multi-cluster mode](https://docs.delta.io/delta-storage.html#multi-cluster-setup) provides automated orchestration of changes to data in a single table from different {{ SPRK }} jobs and {{ dataproc-name }} clusters.
 * The [idempotent data write](https://docs.delta.io/latest/delta-streaming.html#idempotent-table-writes-in-foreachbatch) feature allows maintaining _exactly-once_ processing of data streams.
-* The [Change Data Feed](https://docs.delta.io/2.0.2/delta-change-data-feed.html) feature allows tracking changes to data in Delta Lake tables.
-* The [Z-Ordering](https://docs.delta.io/2.0.2/optimizations-oss.html#z-ordering-multi-dimensional-clustering) feature implements multidimensional clustering of Delta Lake tables. It speeds up running requests with restrictions on columns used for clustering.
-* Support for [dynamic partition overwrites](https://docs.delta.io/2.0.2/delta-batch.html#dynamic-partition-overwrites).
-* [Request performance optimization](https://docs.delta.io/2.0.2/optimizations-oss.html#compaction-bin-packing) by merging small files into larger ones.
-* Support for [table rollbacks](https://docs.delta.io/2.0.2/delta-utility.html#restore-a-delta-table-to-an-earlier-state) to the previous state.
+* The [Change Data Feed](https://docs.delta.io/delta-change-data-feed.html) feature allows tracking changes to data in Delta Lake tables.
+* The [Z-Ordering](https://docs.delta.io/optimizations-oss.html#z-ordering-multi-dimensional-clustering) feature implements multidimensional clustering of Delta Lake tables. It speeds up running requests with restrictions on columns used for clustering.
+* Support for [dynamic partition overwrites](https://docs.delta.io/delta-batch.html#dynamic-partition-overwrites).
+* [Request performance optimization](https://docs.delta.io/optimizations-oss.html#compaction-bin-packing) by merging small files into larger ones.
+* Support for [table rollbacks](https://docs.delta.io/delta-utility.html#restore-a-delta-table-to-an-earlier-state) to the previous state.

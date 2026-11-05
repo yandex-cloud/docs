@@ -20,6 +20,9 @@ Error handling:
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
+This method supports additional filtering by cloud_ids, label_keys, service_ids, and sku_ids.
+These filters work as supplementary conditions to the primary billing_account_id and date range filters.
+When provided, they further narrow down the results by applying additional OR conditions for each filter type.
 Required permissions:
 - `billing.accounts.getReport` on the specified billing account
 

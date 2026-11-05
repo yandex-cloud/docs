@@ -109,6 +109,12 @@ The key used to access a specific secret entry.
 Cluster settings. Can be set only at cluster creation.
 >> - public-network-access (structure)\
 Access of the cluster to the public network. Disabled by default. Can be set only at cluster creation.
+>> - components ([]structure)\
+Explicit component settings. Omitted components use their individual defaults. Each component may appear at most once. Can be set only at cluster creation.
+>>> - component (structure)\
+Component to configure. Must be specified and unique within the settings.
+>>> - enabled (boolean)\
+Explicit component state. If omitted in a supplied entry, defaults to false.
 
 {% endcut %}
 
@@ -163,6 +169,12 @@ Access of the cluster to the public network. Disabled by default. Can be set onl
   name = string,
   preset = MINIMAL|FULL,
   settings = {
+    components = [
+      {
+        component = STORAGE,
+        enabled = boolean
+      }, ...
+    ],
     public-network-access = ENABLED|DISABLED
   },
   version = string
@@ -236,6 +248,12 @@ Access of the cluster to the public network. Disabled by default. Can be set onl
   "name": "string",
   "preset": "MINIMAL|FULL",
   "settings": {
+    "components": [
+      {
+        "component": "STORAGE",
+        "enabled": "boolean"
+      }, ...
+    ],
     "public-network-access": "ENABLED|DISABLED"
   },
   "version": "string"

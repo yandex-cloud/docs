@@ -5,6 +5,8 @@
 
 Чтобы настроить поставку данных из {{ RMQ }} в {{ mch-name }}:
 
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Выполните дополнительные настройки](#additional-settings).
 1. [Настройте интеграцию с {{ RMQ }} для кластера {{ mch-name }}](#configure-mch-for-rmq).
 1. [Создайте в кластере {{ mch-name }} таблицу на движке {{ RMQ }}](#create-rmq-table).
 1. [Отправьте тестовые данные в очередь {{ RMQ }}](#send-sample-data-to-rmq).
@@ -13,16 +15,18 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-### Подготовьте инфраструктуру {#deploy-infrastructure}
+## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -75,7 +79,7 @@
 
 {% endlist %}
 
-### Выполните дополнительные настройки {#additional-settings}
+## Выполните дополнительные настройки {#additional-settings}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
 

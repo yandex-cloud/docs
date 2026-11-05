@@ -41,13 +41,13 @@ INSERT INTO db_name.table_name FROM INFILE '<полный_путь_к_файлу
 Если для пользователя установлена настройка [Async insert](../concepts/settings-list.md#setting-async-insert), то все запросы на вставку от этого пользователя сначала попадают в буфер в оперативной памяти. Данные из буфера сбрасываются в таблицу при выполнении одного из условий:
 
 * Размер буфера достиг значения настройки [Async insert max data size](../concepts/settings-list.md#setting-async-insert-max-data-size).
-* С момента первого после сброса данных `INSERT`-запроса прошло время, указанное в настройке [Async insert busy timeout](../concepts/settings-list.md#setting-async-insert-busy-timeout).
+* С момента первого `INSERT`-запроса после сброса данных прошло время, указанное в настройке [Async insert busy timeout](../concepts/settings-list.md#setting-async-insert-busy-timeout).
 
 Чтобы включить асинхронную вставку данных, [установите значение настройки](../operations/change-query-level-settings.md#yandex-cloud-interfaces) **Async insert** на `1`.
 
 При использовании асинхронных вставок недоступна [дедупликация строк](https://clickhouse.com/docs/ru/guides/developer/deduplication).
 
-Подробную информацию об асинхронной вставке данных смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/best-practices/use-materialized-views).
+Подробную информацию об асинхронной вставке данных смотрите в [документации ClickHouse®](https://clickhouse.com/docs/ru/reference/settings/session-settings#async-insert).
 
 ### Вставка данных через буферную таблицу {#buffer-table}
 
@@ -160,7 +160,7 @@ _Схема формата_ данных (format schema) описывает фо
 1. Изучите формат данных, который будет использоваться при вставке, чтобы [подготовить](#prepare-format-schemas) корректные схемы формата.
 
    В этом сценарии использования для иллюстрации принимается, что:
-   - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`Uint64` в Cap'n Proto и ClickHouse®, `uint64` в Protobuf);
+   - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`UInt64` в Cap'n Proto и ClickHouse®, `uint64` в Protobuf);
    - имя пользователя `name` представлено в виде строки (`Text` в Cap'n Proto, `string` в Protobuf, `String` в ClickHouse®).
 
    Подробнее о поддерживаемых типах данных смотрите в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/data-types).
@@ -204,7 +204,7 @@ pip3 install protobuf varint pycapnp
    - Protobuf {#protobuf}
 
      `user.proto`
-     ```capnproto
+     ```protobuf
      syntax = "proto3";
 
      message User {
@@ -223,7 +223,7 @@ pip3 install protobuf varint pycapnp
 
 1. [Подключите схему формата данных](../operations/format-schemas.md#add-format-schema) к кластеру `chcluster`:
    - Для схемы формата данных Cap'n Proto (файл `user.capnp`) задайте имя `schema-capnproto`.
-   - Для схемы формата данных Protobuf (файл `user.protobuf`) задайте имя `schema-protobuf`.
+   - Для схемы формата данных Protobuf (файл `user.proto`) задайте имя `schema-protobuf`.
 
 
 ### Подготовка скриптов {#prepare-scripts}

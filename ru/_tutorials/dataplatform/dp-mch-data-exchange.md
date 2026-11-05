@@ -1,10 +1,16 @@
 # Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
 
 
-С помощью {{ dataproc-name }} вы можете:
+С помощью сервиса {{ dataproc-name }} вы можете настроить обмен данными между кластерами {{ mch-full-name }} и {{ dataproc-full-name }}. В этом руководстве рассматривается:
 
-* [Загрузить данные из {{ mch-name }} в Spark DataFrame](#export-from-mch).
-* [Выгрузить данные из Spark DataFrame в {{ mch-name }}](#import-to-mch).
+* перенос данных из таблицы {{ CH }} в Spark DataFrame с последующим сохранением в бакет {{ objstorage-full-name }};
+* выгрузка данных из Spark DataFrame в таблицу {{ CH }}.
+
+Чтобы настроить обмен данными:
+
+1. [Подготовьте инфраструктуру](#infra).
+1. [Загрузите данные из {{ mch-name }} в Spark DataFrame](#export-from-mch).
+1. [Выгрузите данные из Spark DataFrame в {{ mch-name }}](#import-to-mch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -47,6 +53,13 @@
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
+        * Правило для доступа к NTP-серверам для синхронизации времени:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
         * Правило для исходящего трафика по протоколу TCP на порт {{ port-mch-http }} для доступа к {{ CH }}:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mch-http }}`.
@@ -67,6 +80,7 @@
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
+        * В сети `dataproc-network`.
         * С базой данных `db1`.
         * С пользователем `user1`.
         * С публичным доступом к хостам кластера.
@@ -74,7 +88,7 @@
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
-    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
+    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и разрешают входящий трафик на порты {{ port-mch-http }} и {{ port-mch-cli }}.
 
 
 - {{ TF }} {#tf}
@@ -100,11 +114,11 @@
 
     1. Укажите в файле `data-proc-data-exchange-with-mch.tf`:
 
-        * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
+        * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
         * `input_bucket` — имя бакета для входных данных.
         * `output_bucket` — имя бакета для выходных данных.
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
-        * `ch_password` — пароль пользователя {{ CH }}.
+        * `dp_ssh_key` — абсолютный путь к публичному SSH-ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
+        * `mch_password` — пароль пользователя `user1` кластера {{ mch-name }}.
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -122,19 +136,20 @@
 
 {% endlist %}
 
-## Загрузите данные из {{ mch-name }} {#export-from-mch}
+## Загрузите данные из {{ mch-name }} в Spark DataFrame {#export-from-mch}
 
 ### Подготовьте таблицу в кластере {{ mch-name }} {#prepare-mch}
 
 1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
-1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей.
+1. Наполните базу тестовыми данными. В качестве примера используется таблица с именами и возрастом людей.
 
-    1. Создайте таблицу:
+    1. Создайте таблицу `persons`:
 
         ```sql
         CREATE TABLE persons (
             `name` String,
-            `age` UInt8) ENGINE = MergeTree ()
+            `age` UInt8
+        ) ENGINE = MergeTree()
         ORDER BY
             `name`;
         ```
@@ -143,16 +158,16 @@
 
         ```sql
         INSERT INTO persons VALUES
-           ('Anna', 19),
-           ('Michael', 65),
-           ('Alvar', 28),
-           ('Lilith', 50),
-           ('Max', 27),
-           ('Jaimey', 34),
-           ('Dmitry', 42),
-           ('Qiang', 19),
-           ('Augustyna', 20),
-           ('Maria', 28);
+            ('Anna', 19),
+            ('Michael', 65),
+            ('Alvar', 28),
+            ('Lilith', 50),
+            ('Max', 27),
+            ('Jaimey', 34),
+            ('Dmitry', 42),
+            ('Qiang', 19),
+            ('Augustyna', 20),
+            ('Maria', 28);
         ```
 
     1. Проверьте результат:
@@ -183,22 +198,22 @@
 
         # Перенос таблицы persons из {{ CH }} в DataFrame
         df = spark.read.format("jdbc") \
-        .option("url", jdbcUrl) \
-        .option("user","user1") \
-        .option("password","<пароль_пользователя_user1>") \
-        .option("dbtable","persons") \
-        .load()
+            .option("url", jdbcUrl) \
+            .option("user", "user1") \
+            .option("password", "<пароль_пользователя_user1>") \
+            .option("dbtable", "persons") \
+            .load()
 
         # Перенос DataFrame в бакет для проверки
         df.repartition(1).write.mode("overwrite") \
-        .csv(path='s3a://<имя_выходного_бакета>/csv', header=True, sep=',')
+            .csv(path="s3a://<имя_выходного_бакета>/csv", header=True, sep=",")
         ```
 
         {% endcut %}
 
     1. Укажите в скрипте:
 
-        * Идентификатор кластера {{ mch-name }}.
+        * Идентификатор кластера {{ mch-name }} — его можно [получить со списком кластеров](../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
         * Пароль пользователя `user1`.
         * Имя выходного бакета.
 
@@ -206,11 +221,16 @@
 
 1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/ch-to-dataproc.py`.
 
-1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
+1. Дождитесь завершения задания и убедитесь, что в выходном бакете появился результат выгрузки:
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+    1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Выберите бакет для выходных данных.
+    1. Перейдите в папку `csv` и убедитесь, что в ней появился CSV-файл с выгруженной таблицей.
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
-## Выгрузите данные в {{ mch-name }} {#import-to-mch}
+## Выгрузите данные из Spark DataFrame в {{ mch-name }} {#import-to-mch}
 
 1. Подготовьте файл скрипта:
 
@@ -220,23 +240,27 @@
 
         ```python
         from pyspark.sql import SparkSession
-        from pyspark.sql.types import *
+        from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
         # Создание Spark-сессии
         spark = SparkSession.builder.appName("DataprocClickhouse").getOrCreate()
 
         # Создание схемы данных
-        schema = StructType([StructField('name', StringType(), True),
-        StructField('age', IntegerType(), True)])
+        schema = StructType([
+            StructField("name", StringType(), True),
+            StructField("age", IntegerType(), True),
+        ])
 
         # Создание DataFrame
-        df = spark.createDataFrame([('Alim', 19),
-                                    ('Fred' ,65),
-                                    ('Guanmin' , 28),
-                                    ('Till', 60),
-                                    ('Almagul', 27),
-                                    ('Mary', 34),
-                                    ('Dmitry', 42)], schema)
+        df = spark.createDataFrame([
+            ("Alim", 19),
+            ("Fred", 65),
+            ("Guanmin", 28),
+            ("Till", 60),
+            ("Almagul", 27),
+            ("Mary", 34),
+            ("Dmitry", 42),
+        ], schema)
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
@@ -246,23 +270,23 @@
 
         # Перенос DataFrame в {{ CH }}
         df.write.format("jdbc") \
-        .mode("error") \
-        .option("url", jdbcUrl) \
-        .option("dbtable", "people") \
-        .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
-        .option("user","user1") \
-        .option("password","<пароль_к_базе_данных_{{ CH }}>") \
-        .save()
+            .mode("error") \
+            .option("url", jdbcUrl) \
+            .option("dbtable", "people") \
+            .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
+            .option("user", "user1") \
+            .option("password", "<пароль_пользователя_user1>") \
+            .save()
         ```
 
         {% endcut %}
 
     1. Укажите в скрипте:
 
-        * Идентификатор кластера {{ mch-name }}.
+        * Идентификатор кластера {{ mch-name }} — его можно [получить со списком кластеров](../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
         * Пароль пользователя `user1`.
 
-    1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `dataproc-to-ch.py`.
+    1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `dataproc-to-ch.py` в бакет для входных данных в папку `scripts`.
 
 1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/dataproc-to-ch.py`.
 
@@ -275,15 +299,16 @@
         SELECT * FROM people;
         ```
 
-    Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с данными.
+    Если выгрузка прошла успешно, ответ на запрос будет содержать новую таблицу `people` с добавленными записями.
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов. Остальные ресурсы удалите в зависимости от способа их создания:
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов {{ objstorage-name }}.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
@@ -295,6 +320,7 @@
         1. [Подсеть](../../vpc/operations/subnet-delete.md).
         1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
         1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+        1. [Группы безопасности](../../vpc/operations/security-group-delete.md).
         1. [Облачную сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 

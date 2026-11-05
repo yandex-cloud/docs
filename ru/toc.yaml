@@ -127,8 +127,6 @@ items:
     href: monium/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
-  - name: Neurosupport
-    href: neurosupport/index.yaml
   - name: Identity Hub
     href: organization/index.yaml
   - name: Cloud Postbox

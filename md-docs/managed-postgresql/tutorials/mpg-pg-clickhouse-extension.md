@@ -4,7 +4,9 @@
 
 # Выполнение аналитических запросов в Yandex Managed Service for PostgreSQL с обработкой в Yandex Managed Service for ClickHouse® при помощи pg_clickhouse и Yandex Data Transfer
 
-Вы можете выполнять аналитические запросы к данным из [Yandex Managed Service for PostgreSQL](../index.md), используя для обработки запросов вычислительные ресурсы [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md). Для этого в Managed Service for ClickHouse® с помощью [Yandex Data Transfer](../../data-transfer/index.md) создается копия данных из Managed Service for PostgreSQL, которая затем поддерживается в актуальном состоянии. В базу данных Managed Service for PostgreSQL добавляется расширение `pg_clickhouse`. С его помощью в Managed Service for PostgreSQL создаются внешние таблицы, которые ссылаются на таблицы в Managed Service for ClickHouse®. Работать с внешними таблицами можно так же, как с обычными таблицами. Аналитические запросы к внешним таблицам выполняются в Managed Service for PostgreSQL и обрабатываются на стороне Managed Service for ClickHouse®, после чего в Managed Service for PostgreSQL возвращается результат этих запросов.
+Вы можете выполнять аналитические запросы к данным из [Yandex Managed Service for PostgreSQL](../index.md), используя для обработки запросов вычислительные ресурсы [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md). Для этого в Managed Service for ClickHouse® с помощью [Yandex Data Transfer](../../data-transfer/index.md) создается копия данных из Managed Service for PostgreSQL, которая затем поддерживается в актуальном состоянии.
+
+С помощью расширения `pg_clickhouse` в Managed Service for PostgreSQL создаются внешние таблицы, которые ссылаются на таблицы в Managed Service for ClickHouse®. Работать с внешними таблицами можно так же, как с обычными таблицами. Аналитические запросы к внешним таблицам выполняются в Managed Service for PostgreSQL и обрабатываются на стороне Managed Service for ClickHouse®, после чего в Managed Service for PostgreSQL возвращается результат этих запросов.
 
 Расширение `pg_clickhouse` доступно в кластерах Managed Service for PostgreSQL версии `17` и выше.
 
@@ -33,8 +35,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Кластер Managed Service for PostgreSQL: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
@@ -330,9 +332,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.

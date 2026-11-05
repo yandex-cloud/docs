@@ -120,7 +120,7 @@ description: Обучающие курсы, пошаговые инструкц�
 
 ## Устаревшее {#outdated}
 
-[DataYoga: марафон по {{ datalens-short-name }}](https://datayoga.ru/datalens)
+[DataYoga: марафон по {{ datalens-short-name }}](https://datayoga.ru)
 
 :   7 дней, 7 возможностей {{ datalens-short-name }}, 7 практических задач визуализации данных — в занимательном формате марафона от наших друзей DataYoga. Марафон также доступен в формате [книги](https://datayoga.ru/datalensbook).
 

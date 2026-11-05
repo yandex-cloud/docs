@@ -311,6 +311,10 @@ items:
         href: concepts/visualization/dashboard.md
       - name: Widgets
         href: concepts/visualization/widget.md
+      - name: Notebooks
+        href: concepts/visualization/notebooks.md
+      - name: Context links
+        href: concepts/visualization/context-links.md
       - name: Working with dashboards
         items:
           - name: Creating and managing dashboards
@@ -335,6 +339,10 @@ items:
         items:
           - name: Creating an alert
             href: operations/alert/create-alert.md
+          - name: Creating a composite alert
+            href: operations/alert/create-composite-alert.md
+          - name: Creating an SLO alert
+            href: operations/alert/create-slo-alert.md
           - name: Creating a notification channel with a recipient
             href: operations/alert/create-channel.md
           - name: Creating a notification channel that invokes a function

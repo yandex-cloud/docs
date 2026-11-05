@@ -22,6 +22,7 @@ output "dbname" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the database is created.
+- `deletion_protection_mode` (*Read-Only*) (String). Deletion protection mode of the database. Possible values: `DELETION_PROTECTION_MODE_INHERITED`, `DELETION_PROTECTION_MODE_ENABLED`, `DELETION_PROTECTION_MODE_DISABLED`.
 - `engine` (*Read-Only*) (String). Database engine, possible values are: atomic,replicated.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the database.

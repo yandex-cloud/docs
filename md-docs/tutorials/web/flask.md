@@ -1467,7 +1467,7 @@ Flask использует простой веб-сервер для обслу�
 
 * [Flask-Login](https://flask-login.readthedocs.io/en/latest/) — позволяет управлять сеансами пользователей: решает задачи входа в систему и выхода из системы, а также управления сеансами пользователей.
 * [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/latest/) — упрощает использование Flask за счет поддержки [SQLAlchemy](https://www.sqlalchemy.org/). Это инструментарий Python SQL и Object Relational Mapper, разработанный для взаимодействия с базами данных.
-* [Flask-Mail](https://pythonhosted.org/Flask-Mail/) — помогает отправлять сообщения электронной почты из приложений Flask.
+* [Flask-Mail](https://pypi.org/project/Flask-Mail/) — помогает отправлять сообщения электронной почты из приложений Flask.
 
 ## Удалите созданные ресурсы {#clear-out}
 

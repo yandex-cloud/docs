@@ -5,7 +5,7 @@
 GetServiceInstance returns service instance usage metadata for a specific billing account and date range.
 This method provides a view of all available service instance entities
 that can be used for usage reporting within the specified date range
-for the billing account and all its sub-accounts including:
+for the billing account and all its sub-accounts.
 Implementation details:
 - All data is filtered to only include items that had usage during the specified date range
 Error handling:
@@ -14,10 +14,10 @@ Error handling:
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
 This method supports additional filtering by service_instance_ids.
-These filters work as supplementary conditions to the primary billing_account_id and date range filters.
-When provided, they further narrow down the results by applying additional OR conditions for each filter type.
+This filter works as a supplementary condition to the primary billing_account_id and date range filters.
+When provided, it further narrows down the results by applying an additional OR condition.
 Required permissions:
-- `billing.accounts.getReport` or `billingInternal.accounts.getReport` on the specified billing account
+- `billing.accounts.getReport` on the specified billing account
 
 #### Command Usage
 

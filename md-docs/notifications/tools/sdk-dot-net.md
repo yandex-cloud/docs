@@ -160,7 +160,7 @@ catch (Exception ex)
     
     * FCM: `PlatformCredential` — ключ сервисного аккаунта Google Cloud в формате JSON для аутентификации с помощью HTTP v1 API или API-ключ (server key) для аутентификации с помощью Legacy API.
     
-        Используйте HTTP v1 API, так как с июля 2024 года [FCM legacy API не поддерживается](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+        Используйте HTTP v1 API, так как с июля 2024 года [FCM legacy API не поддерживается](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1).
     
     * HMS:
     

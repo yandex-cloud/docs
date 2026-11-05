@@ -47,25 +47,6 @@
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
-
-Полный текст ошибки:
-
-```text
-curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
-The revocation function was unable to check revocation for the certificate
-```
-Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
-
-Чтобы исправить ошибку:
-
-* убедитесь, что проверку не блокируют настройки корпоративной сети;
-* выполните команду с параметром `--ssl-no-revoke`.
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
-   ```
-
 #### Можно ли управлять кластером с помощью скриптов из дистрибутива {{ KF }}? {#script-apache-kafka}
 
 Да, можно, но с ограничениями.
@@ -170,7 +151,7 @@ SASL authentication error: Authentication failed during authentication due to in
        * `topic = <имя_топика>`,
        * `partition = <номер_раздела>`,
        * `group = <имя_группы_потребителей>`.
-   * Для `kafka_log_Log_LogStartOffset` укажите метки: 
+   * Для `kafka_log_Log_LogStartOffset` укажите метки:
        * `service = managed-kafka`,
        * `name = kafka_log_Log_LogStartOffset`,
        * `host = <FQDN_хоста>`,

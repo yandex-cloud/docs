@@ -2,6 +2,8 @@
 
 # Yandex Cloud Detection and Response
 
+ - [Подключение](operations/connect.md)
+
  - [Начало работы](quickstart.md)
 
 ## Пошаговые инструкции

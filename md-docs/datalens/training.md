@@ -117,7 +117,7 @@
 
 ## Устаревшее {#outdated}
 
-[DataYoga: марафон по DataLens](https://datayoga.ru/datalens)
+[DataYoga: марафон по DataLens](https://datayoga.ru)
 
 :   7 дней, 7 возможностей DataLens, 7 практических задач визуализации данных — в занимательном формате марафона от наших друзей DataYoga. Марафон также доступен в формате [книги](https://datayoga.ru/datalensbook).
 

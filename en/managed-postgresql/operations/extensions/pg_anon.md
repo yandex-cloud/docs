@@ -7,7 +7,7 @@ The extension utilizes a declarative approach for anonymization: you can declare
 Data anonymization methods:
   
   * [Static masking](https://postgresql-anonymizer.readthedocs.io/en/stable/static_masking/): Replaces sensitive information with other data according to the masking rules. This method makes it impossible to restore the original data.
-  * [Generalization](https://postgresql-anonymizer.readthedocs.io/en/stable/generalization/): Replaces a value, e.g., number or date, with a range that contains it.
+  * [Generalization](https://postgresql-anonymizer.readthedocs.io/en/stable/tutorials/4-generalization/): Replaces a value, e.g., number or date, with a range that contains it.
 
 ## Installing postresql_anonymizer in a {{ PG }} cluster {#anon-install}
 

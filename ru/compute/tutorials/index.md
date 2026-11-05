@@ -22,7 +22,6 @@ description: Различные сценарии использования {{ c
 * [{#T}](nat-instance/index.md)
 * [{#T}](serverless-trigger-budget-vm.md)
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
-* [{#T}](opencart/index.md)
 * [{#T}](flask.md)
 * [{#T}](minecraft-server.md)
 * [{#T}](jenkins.md)

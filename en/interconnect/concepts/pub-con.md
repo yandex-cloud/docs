@@ -41,7 +41,7 @@ You can set up a point-to-point subnet for public connection using the following
 
 If you need to announce your own public IP prefixes for setting up BGP peering for a public connection, follow these rules:
 
-1. Your public IP prefixes must be properly registered. This involves creating the [Route Object](https://docs.db.ripe.net/entire-documentation-HTML.html#creating-route-objects) and [Route Origin Authorization](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/resource-certification-roa-management/) objects with the regional registrar.
+1. Your public IP prefixes must be properly registered. This involves creating the [Route Object](https://docs.db.ripe.net/RPSL-Object-Types/Descriptions-of-Primary-Objects#description-of-the-route-object) and [Route Origin Authorization](https://www.ripe.net/manage-ips-and-asns/resource-management/rpki/resource-certification-roa-management/) objects with the regional registrar.
 1. A public BGP ASN can only be used for setting up BGP peering between your equipment and {{ yandex-cloud }} equipment. Using private BGP ASNs for such communication is not allowed.
 1. Your IP prefixes must be longer than or equal to `/24`. {{ yandex-cloud }} equipment will discard any more specific prefixes, i.e., `/25` to `/32`.
 

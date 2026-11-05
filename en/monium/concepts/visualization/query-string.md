@@ -7,7 +7,7 @@ description: 'In {{ monium-name }}''s query string, you can specify your chart a
 
 You can use the query string to specify your chart and data selection parameters. For descriptions of the [query language](../querying.md), data model, and configuration objects, see [{#T}](../data-model.md) and [{#T}](../configuration-model.md).
 
-Enter your query in token or text mode.
+Enter your query in token (![chart](../../../_assets/monitoring/chart.svg)) or text (![code](../../../_assets/console-icons/code.svg)) mode.
 
 ## Tokenized query {#query-token}
 
@@ -28,7 +28,7 @@ You can select tokens using the cursor or by entering their names. Use the follo
 * **Option/Alt + →** and **Option/Alt + ←** to switch between token fields.
 * **Cmd/Ctrl + Delete** to delete the current token.
 * **Cmd/Ctrl + Z** to cancel an action.
-* **cmd + Shift + Z** or **Ctrl + Y** to repeat an action.
+* **Cmd + Shift + Z** or **Ctrl + Y** to repeat an action.
 * **Shift + Space** to go to the label value.
 * **Cmd/Ctrl + I** to open the suggestion menu.
 * **Escape** to close the suggestion menu. Press again to remove focus.

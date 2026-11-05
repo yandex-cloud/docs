@@ -64,7 +64,8 @@ blocks:
           light: ../_assets/console-icons/book.svg
           dark: ../_assets/console-icons/book.svg
   - type: card-layout-block
-    title: Yandex Cloud services
+    title:
+      text: Yandex Cloud services
     colSizes:
       all: 12
       sm: 6
@@ -115,7 +116,8 @@ blocks:
           light: ../_assets/console-icons/circle-question.svg
           dark: ../_assets/console-icons/circle-question.svg
   - type: card-layout-block
-    title: Service interfaces
+    title:
+      text: Service interfaces
     colSizes:
       all: 12
       lg: 4
@@ -131,7 +133,6 @@ blocks:
         controlPosition: content
         animated: false
         icon: ../_assets/console-icons/code.svg
-        iconPosition: left
       - type: basic-card
         title: SDK
         text: Development tools for interfacing with cloud infrastructure
@@ -141,7 +142,6 @@ blocks:
         controlPosition: content
         animated: false
         icon: ../_assets/console-icons/folder-tree.svg
-        iconPosition: left
       - type: basic-card
         title: Mobile app
         text: Manage resources from your mobile device
@@ -151,7 +151,6 @@ blocks:
         controlPosition: content
         animated: false
         icon: ../_assets/console-icons/smartphone.svg
-        iconPosition: left
   - type: content-layout-block
     textContent:
       title: ''

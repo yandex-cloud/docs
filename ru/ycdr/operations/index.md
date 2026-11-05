@@ -5,6 +5,10 @@ description: Из статьи вы узнаете, как работать с �
 
 # Инструкции по работе с {{ ycdr-full-name }}
 
+## Подключение {#connect}
+
+* [{#T}](connect.md)
+
 ## Расследования {#investigations}
 
 * [{#T}](investigations/index.md)

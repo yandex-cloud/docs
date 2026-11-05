@@ -22,7 +22,7 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
           * **{{ ui-key.yacloud.common.name }}**.
           * **{{ ui-key.yacloud.common.description }}**.
           * Rule **priority**. The smaller the value, the higher is the rule priority.
-          * Dry run (logging without request blocking) settings.
+          * Dry run (logging without applying the rule) settings.
 
       1. {% include [arl-rule-traffic-conditions](../../_includes/smartwebsecurity/arl-rule-traffic-conditions.md) %}
 

@@ -5,7 +5,7 @@ description: 'В данном разделе вы научитесь работ�
 
 # Как начать работать с API {{ video-full-name }}
 
-В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](../api-ref/) и [gRPC API](../api-ref/grpc/) {{ video-name }}.
+В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md), создавать [трансляции](../concepts/streams.md) и получать ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](../api-ref/) и [gRPC API](../api-ref/grpc/) {{ video-name }}.
 
 Чтобы начать работать с API {{ video-name }}:
 
@@ -13,6 +13,7 @@ description: 'В данном разделе вы научитесь работ�
 1. [Создайте видео](#create-video).
 1. [Добавьте обложку к видео](#add-thumbnail).
 1. [Получите ссылку на видеоплеер](#get-link).
+1. [Создайте трансляцию и эпизод](#create-stream).
 
 ## Перед началом работы {#before-begin}
 
@@ -347,3 +348,134 @@ description: 'В данном разделе вы научитесь работ�
 * `<идентификатор_видео>` — сохраненный ранее идентификатор видео, загруженного в канал.
 
 {% include [get-video-link-output](../../_includes/video/get-video-link-output.md) %}
+
+## Создайте трансляцию и эпизод {#create-stream}
+
+Чтобы создать [трансляцию](../concepts/streams.md) в {{ video-name }} с помощью API, [создайте трансляцию](#create-stream-line) на канале, [получите ключ трансляции](#get-stream-key) для настройки программы для трансляции, [создайте эпизод](#create-episode) трансляции и [получите ссылку](#get-episode-link) на его видеоплеер.
+
+{% note info %}
+
+Методы создания трансляции и эпизода возвращают объект операции. Если `done: false`, проверяйте ее состояние методом REST API [get](Operation/get.md) или вызовом gRPC API [OperationService/Get](grpc/Operation/get.md), передавая идентификатор операции из поля `id` в корне ответа. Переходите к следующему шагу после успешного завершения операции: `done: true`, поле `error` отсутствует.
+
+{% endnote %}
+
+### Создайте трансляцию {#create-stream-line}
+
+Чтобы создать трансляцию, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    {% include [create-streamline-rest-api-command](../../_includes/video/create-streamline-rest-api-command.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_канала>` — сохраненный ранее идентификатор созданного канала.
+    * `<имя_трансляции>` — имя создаваемой трансляции.
+
+    {% include [create-streamline-rest-api-output](../../_includes/video/create-streamline-rest-api-output.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [create-streamline-grpc-api-command](../../_includes/video/create-streamline-grpc-api-command.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_канала>` — сохраненный ранее идентификатор созданного канала.
+    * `<имя_трансляции>` — имя создаваемой трансляции.
+
+    {% include [create-streamline-grpc-api-output](../../_includes/video/create-streamline-grpc-api-output.md) %}
+
+{% endlist %}
+
+Сохраните идентификатор трансляции из поля `response.id` или `metadata.streamLineId` — он понадобится позднее.
+
+### Получите ключ трансляции {#get-stream-key}
+
+Чтобы получить ключ трансляции для настройки программы для трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    {% include [get-streamline-key-rest](../../_includes/video/get-streamline-key-rest.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный на предыдущем шаге идентификатор трансляции.
+
+- gRPC API {#grpc-api}
+
+    {% include [get-streamline-key-grpc](../../_includes/video/get-streamline-key-grpc.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный на предыдущем шаге идентификатор трансляции.
+
+{% endlist %}
+
+{% include [get-streamline-key-output](../../_includes/video/get-streamline-key-output.md) %}
+
+Адрес RTMP-сервера указан отдельно — в поле `response.rtmpPush.url` ответа на создание трансляции. Его также можно получить в поле `rtmpPush.url` методом REST API [get](StreamLine/get.md) или вызовом gRPC API [StreamLineService/Get](grpc/StreamLine/get.md).
+
+### Создайте эпизод {#create-episode}
+
+Чтобы создать эпизод трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    {% include [create-episode-rest](../../_includes/video/create-episode-rest.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+    * `<имя_эпизода>` — имя создаваемого эпизода.
+    * `<время_начала_эпизода>` и `<время_окончания_эпизода>` — время начала и окончания эпизода в формате [RFC3339](https://www.rfc-editor.org/rfc/rfc3339), например `2024-09-16T19:35:00Z`.
+
+- gRPC API {#grpc-api}
+
+    {% include [create-episode-grpc](../../_includes/video/create-episode-grpc.md) %}
+
+    Где:
+
+    * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+    * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+    * `<имя_эпизода>` — имя создаваемого эпизода.
+    * `<время_начала_эпизода>` и `<время_окончания_эпизода>` — время начала и окончания эпизода в формате [RFC3339](https://www.rfc-editor.org/rfc/rfc3339), например `2024-09-16T19:35:00Z`.
+
+{% endlist %}
+
+{% include [create-episode-output](../../_includes/video/create-episode-output.md) %}
+
+### Получите ссылку на видеоплеер эпизода {#get-episode-link}
+
+Чтобы получить ссылку на видеоплеер эпизода трансляции, выполните команду:
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    {% include [get-episode-link-rest](../../_includes/video/get-episode-link-rest.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [get-episode-link-grpc](../../_includes/video/get-episode-link-grpc.md) %}
+
+{% endlist %}
+
+Где:
+
+* `<IAM-токен>` — полученный перед началом работы IAM-токен.
+* `<идентификатор_эпизода>` — сохраненный ранее идентификатор созданного эпизода.
+
+{% include [get-episode-link-output](../../_includes/video/get-episode-link-output.md) %}
+
+Для начала эфира [настройте программу для трансляции](../operations/streams/start.md#configure-soft), указав полученные адрес сервера и ключ, [активируйте трансляцию](../operations/streams/start.md#start-stream) и начните передачу видеопотока.

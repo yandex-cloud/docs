@@ -52,6 +52,6 @@
 
     Пример настройки поставки данных из Data Streams приведен в [практическом руководстве по сохранению данных в ClickHouse®](../../data-streams/tutorials/send-to-clickhouse.md).
 
-1. Подключите произвольную функцию обработки данных к Yandex Data Transfer. Код функции приведен в [примере](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) на Github.
+1. Подключите произвольную функцию обработки данных к Yandex Data Transfer. Код функции приведен в [примере](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) на GitHub.
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

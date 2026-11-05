@@ -7,7 +7,7 @@
 Способы анонимизации данных:
   
   * [Статическое маскирование](https://postgresql-anonymizer.readthedocs.io/en/stable/static_masking/) — заменяет конфиденциальные данные другими в соответствии с правилами маскирования. Восстановить исходные данные невозможно.
-  * [Обобщение](https://postgresql-anonymizer.readthedocs.io/en/stable/generalization/) — заменяет значение (число или дату) диапазоном, который содержит это значение.
+  * [Обобщение](https://postgresql-anonymizer.readthedocs.io/en/stable/tutorials/4-generalization/) — заменяет значение (число или дату) диапазоном, который содержит это значение.
 
 ## Установить расширение postgresql_anonymizer в кластер {{ PG }} {#anon-install}
 

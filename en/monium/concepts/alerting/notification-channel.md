@@ -1,12 +1,15 @@
 # Notification channel
 
-To enable notifications of alert status changes, specify a notification channel. The channel contains information about notification recipients and sending methods.
+To enable notifications of alert status changes, specify a notification channel. This channel contains information about the recipients, send method, and notification parameters.
 
-One channel can be used multiple times for different alerts.
+You can use the same channel in multiple alerts; and the same alert can send notifications to multiple channels.
 
 ## Notification channel parameters {#channel-parameters}
 
-* **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**. List of users to get notified if an alert function is triggered.
+* **{{ ui-key.yacloud_monitoring.channel.field_name }}**. Notification channel name.
+* **ID**. Unique channel ID. By default, it is formed from the project ID and channel name.
+* **Default for levels**. Alert levels for which notifications to this channel will be sent without adding the channel to each alert.
+* **{{ ui-key.yacloud_monitoring.channel.field_recipients }}**. List of users to be notified of the alert.
 
   {% note info %}
 
@@ -22,18 +25,23 @@ One channel can be used multiple times for different alerts.
 
 As soon as a notification channel is created, the following additional parameters become available:
 
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Select the alert statuses that will prompt notification.
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monium-name }} will repeat alert status notifications. Does not apply for the `OK` status.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Alert statuses to trigger a notification from {{ monium-name }}.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Interval to resend the notification if the alert remains in the same status. Does not apply for the `OK` status.
 
-## Notification sending statuses {#dispatch-statuses}
+**{{ messenger-full-name }}** notifications can include a screenshot of the alert metrics chart.
 
-Each sending can have one of the following statuses:
+## Notification delivery statuses {#dispatch-statuses}
+
+Each notification can have one of the following delivery statuses:
 
 Status | Description
 ----- | -----
 `{{ ui-key.yacloud_monitoring.channel.status-description_success }}` | Notification successful.
 `{{ ui-key.yacloud_monitoring.channel.status-description_error }}` | Notification not sent due to an error.
-`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Notification not sent due to a sending method restriction.
+`Invalid request` | Notification not sent due to invalid channel parameters. No retry attempts are made.
+`Retry error` | Notification not sent due to a temporary send method error. {{ monium-name }} will retry.
+`Obsolete` | Notification was not sent before the next event in the channel.
+`{{ ui-key.yacloud_monitoring.channel.status-description_resource_exhausted }}` | Notification not sent due to channel restrictions.
 
 #### Useful links {#see-also}
 

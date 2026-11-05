@@ -174,20 +174,6 @@
 
  - [Overview](cli-ref/v0/index.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/v0/cluster/index.md)
@@ -220,19 +206,23 @@
 
  - [update](cli-ref/v0/cluster/update.md)
 
-#### change-freeze
+##### maintenance
 
- - [Overview](cli-ref/change-freeze/index.md)
+ - [Overview](cli-ref/v0/maintenance/index.md)
 
- - [create](cli-ref/change-freeze/create.md)
+###### change-freeze
 
- - [get](cli-ref/change-freeze/get.md)
+ - [Overview](cli-ref/v0/maintenance/change-freeze/index.md)
 
- - [get-limits](cli-ref/change-freeze/get-limits.md)
+ - [create](cli-ref/v0/maintenance/change-freeze/create.md)
 
- - [list](cli-ref/change-freeze/list.md)
+ - [get](cli-ref/v0/maintenance/change-freeze/get.md)
 
- - [terminate](cli-ref/change-freeze/terminate.md)
+ - [get-limits](cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 #### cluster
 
@@ -265,6 +255,24 @@
  - [stop](cli-ref/cluster/stop.md)
 
  - [update](cli-ref/cluster/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/maintenance/change-freeze/terminate.md)
 
  - [Справочник Terraform](metastore-tf-ref.md)
 

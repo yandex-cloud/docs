@@ -31,12 +31,14 @@ Tag. Default $latest. ||
 The maximum number of items to list. ||
 || `--since` | `timestamp`
 
-Show logs since this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
+Show logs since this time timestamp in HH:MM:SS format or RFC-3339, or duration since now.
+Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
 || `--until` | `timestamp`
 
-Show logs until this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
+Show logs until this time timestamp in HH:MM:SS format or RFC-3339, or duration since now.
+Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago' ||
 || `-f`, `--follow` | Output logs as they arrive ||
-|| `--levels` | `value[,value]`
+|| `--levels` | `[]string`
 
 Show logs with these levels (comma-separated) ||
 || `--filter` | `string`

@@ -224,7 +224,6 @@
 || Размерность выходного вектора | 256 ||
 || [Классификация текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/classifier/index) {#text-classification-limits} |  ||
 || Количество классов в классификаторах по промпту | 20 ||
-|| Количество классов в дообученных классификаторах | 100 ||
 || [Генерация изображений](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index) {#image-generation-limits} |  ||
 || Максимальная длина промпта | 500 символов ||
 || Срок хранения сгенерированных изображений | 12 часов ||

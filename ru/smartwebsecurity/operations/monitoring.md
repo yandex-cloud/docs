@@ -7,14 +7,15 @@ description: Следуя данной инструкции, вы сможете
 
 С помощью мониторинга вы можете следить за скоростью запросов к защищаемому ресурсу: разрешенных и заблокированных, направленных на проверки JS Challenge, Cookie Challenge или в {{ captcha-name }} и обработанных профилем ARL. Также можно [настроить уведомления](alerting.md) (алерты) о превышении каких-либо порогов скорости запросов.
 
-Чтобы посмотреть метрики в интерфейсе {{ sws-name }}:
+Для мониторинга защиты на уровнях L3–L4 [посмотрите метрики Network Protection](#network-protection) в {{ monium-name }}. Они показывают объем входящего, отброшенного и пропущенного трафика.
 
 Вы можете посмотреть дашборды одним из способов:
 
-* На [странице]({{ link-console-main }}/link/smartwebsecurity) сервиса {{ sws-name }} выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
-* В разделе **{{ ui-key.yacloud.common.monitoring }}** справа вверху нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}**. Выберите вкладку:
+* На [странице]({{ link-console-main }}/link/smartwebsecurity) сервиса {{ sws-name }} выберите раздел ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** и вкладку:
   * **Anti-DDoS** — графики профилей безопасности и ARL.
-  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md). 
+  * **SolidWall WAF** — графики профиля [SolidWall WAF](../concepts/solidwall-waf.md).
+* Для просмотра метрик конкретного прокси-сервера в разделе **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** выберите прокси-сервер и откройте вкладку **{{ ui-key.yacloud.common.monitoring }}**. На ней доступны вкладки **{{ sws-name }}**, **HTTP статистика** и **Статистика масштабирования**.
+* Для просмотра дашборда на платформе {{ monium-name }} нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** справа вверху раздела или вкладки **{{ ui-key.yacloud.common.monitoring }}**. В {{ monium-name }} также можно [строить графики по выбранным метрикам](../../monium/metrics/metric-explorer.md).
 * На [странице]({{ link-console-main }}/link/application-load-balancer) сервиса {{ alb-name }}:
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**, затем на вкладку **Smart Web Security**.
@@ -75,6 +76,27 @@ description: Следуя данной инструкции, вы сможете
     {% endnote %}
 
 Вы можете комбинировать несколько метрик на одном графике и [настраивать свои дашборды](../../monium/operations/dashboard/create.md) в сервисе {{ monium-name }}.
+
+## Посмотреть метрики Network Protection {#network-protection}
+
+Чтобы построить график отброшенного трафика:
+
+1. Узнайте публичный IPv4-адрес прокси-сервера. В [консоли управления]({{ link-console-main }}/link/smartwebsecurity) выберите каталог с прокси-сервером, откройте раздел **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** и выберите прокси-сервер. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значение поля **{{ ui-key.yacloud.smart-web-security.proxy-servers.publicIpColumn_dPwQF }}**.
+1. Откройте [{{ monium-name }}]({{ link-monium }}) и на панели сверху выберите проект `folder__<идентификатор_каталога>` каталога с прокси-сервером.
+1. На панели слева выберите ![compass](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![rectangle-pulse](../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+1. Вверху на шкале времени задайте период просмотра.
+1. В строке запроса нажмите ![code](../../_assets/console-icons/code.svg), чтобы переключиться в текстовый режим, и введите:
+
+    ```text
+    non_negative_derivative({project = "folder__<идентификатор_каталога>", service = "__antiddos__", cluster = "default", ip = "<ip_адрес_прокси_сервера>", name = "drop_client_bytes"})
+    ```
+
+    Замените `<идентификатор_каталога>` на [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) с прокси-сервером, а `<ip_адрес_прокси_сервера>` — на адрес из первого шага.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+
+График покажет, сколько байт клиентского трафика отбрасывается в секунду. Функция `non_negative_derivative` рассчитывает, на сколько увеличивается накопительный счетчик за секунду.
+
+Чтобы посмотреть входящий или пропущенный трафик, замените `drop_client_bytes` в метке `name` на `client_bytes` или `forward_client_bytes` соответственно. Для сравнения на одном графике добавьте отдельные запросы кнопкой **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**. Полный список метрик приведен в [справочнике](../metrics.md#network-protection-metrics).
 
 #### Полезные ссылки {#see-also}
 

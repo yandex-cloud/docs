@@ -5,7 +5,7 @@ description: Обзор возможностей работы с запроса�
 
 # Работа с запросами
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 * [{#T}](manage-queries.md)
 * [{#T}](work-with-templates.md)

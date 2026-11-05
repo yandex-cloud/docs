@@ -69,7 +69,7 @@
 
 1. Сохраните спецификацию для создания объекта `PersistentVolume` в YAML-файл с названием `test-pv.yaml`.
 
-   Подробнее о спецификации читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+   Подробнее о спецификации читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    При указании параметра `spec.capacity.storage` убедитесь, что задан точный объем диска. Container Storage Interface не обеспечивает проверку объема диска для статически подготовленных томов.
 
@@ -81,7 +81,7 @@
 
    {% endnote %}
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1
@@ -134,7 +134,7 @@
 
 1. Сохраните спецификацию для создания объекта `PersistentVolumeClaim` YAML-файл с названием `test-claim.yaml`.
 
-   Подробнее о спецификации читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1

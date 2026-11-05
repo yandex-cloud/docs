@@ -1,6 +1,8 @@
 # Выполнение аналитических запросов в {{ mpg-full-name }} с обработкой в {{ mch-full-name }} при помощи pg_clickhouse и {{ data-transfer-full-name }}
 
-Вы можете выполнять аналитические запросы к данным из [{{ mpg-full-name }}](../../../managed-postgresql/index.yaml), используя для обработки запросов вычислительные ресурсы [{{ mch-full-name }}](../../../managed-clickhouse/index.yaml). Для этого в {{ mch-name }} с помощью [{{ data-transfer-full-name }}](../../../data-transfer/index.yaml) создается копия данных из {{ mpg-name }}, которая затем поддерживается в актуальном состоянии. В базу данных {{ mpg-name }} добавляется расширение `pg_clickhouse`. С его помощью в {{ mpg-name }} создаются внешние таблицы, которые ссылаются на таблицы в {{ mch-name }}. Работать с внешними таблицами можно так же, как с обычными таблицами. Аналитические запросы к внешним таблицам выполняются в {{ mpg-name }} и обрабатываются на стороне {{ mch-name }}, после чего в {{ mpg-name }} возвращается результат этих запросов.
+Вы можете выполнять аналитические запросы к данным из [{{ mpg-full-name }}](../../../managed-postgresql/index.yaml), используя для обработки запросов вычислительные ресурсы [{{ mch-full-name }}](../../../managed-clickhouse/index.yaml). Для этого в {{ mch-name }} с помощью [{{ data-transfer-full-name }}](../../../data-transfer/index.yaml) создается копия данных из {{ mpg-name }}, которая затем поддерживается в актуальном состоянии.
+
+С помощью расширения `pg_clickhouse` в {{ mpg-name }} создаются внешние таблицы, которые ссылаются на таблицы в {{ mch-name }}. Работать с внешними таблицами можно так же, как с обычными таблицами. Аналитические запросы к внешним таблицам выполняются в {{ mpg-name }} и обрабатываются на стороне {{ mch-name }}, после чего в {{ mpg-name }} возвращается результат этих запросов.
 
 Расширение `pg_clickhouse` доступно в кластерах {{ mpg-name }} версии `17` и выше.
 
@@ -23,8 +25,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
+* Кластер {{ mpg-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Кластер {{ mch-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
 
@@ -161,7 +163,7 @@
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ PG }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-    * **Кластер управляемой БД** — имя созданного ранее кластера {{ mpg-name }}.
+    * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.cluster_id.title }}** — имя созданного ранее кластера {{ mpg-name }}.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `pgdb`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pguser`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — пароль пользователя `pguser`.
@@ -316,9 +318,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
-
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Деактивируйте](../../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../../data-transfer/operations/transfer.md#delete) трансфер.
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.

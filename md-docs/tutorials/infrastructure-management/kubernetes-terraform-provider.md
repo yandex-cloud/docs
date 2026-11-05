@@ -51,6 +51,9 @@
    * группа узлов Kubernetes.
 
 1. Укажите значения переменных в файле `k8s-cluster.tf`.
+
+   Для параметра `k8s_version` укажите актуальную версию Kubernetes. Список поддерживаемых версий и сроки прекращения их поддержки приведены в разделе [Поддержка версий Kubernetes в Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/k8s-supported-versions.md).
+   
 1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
    ```bash
@@ -425,7 +428,7 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
     * Класс хранилища — `pv-sc`. Если не указать, будет использоваться класс хранилища по умолчанию.
     * Источник данных — диск `pv-disk`.
 
-    [Подробнее о параметрах PersistentVolume](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+    [Подробнее о параметрах PersistentVolume](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
 * Объект `PersistentVolumeClaim`:
 
@@ -435,7 +438,7 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
     * Класс хранилища — `pv-sc`. Если не указать, будет использоваться класс хранилища по умолчанию.
     * Имя тома — объект `PersistentVolume`, с которым будет связан объект `PersistentVolumeClaim`.
 
-  [Подробнее о параметрах PersistentVolumeClaim](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
+  [Подробнее о параметрах PersistentVolumeClaim](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).  
 
 #### Полезные ссылки {#see-also}
 

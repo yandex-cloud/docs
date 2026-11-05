@@ -15,7 +15,7 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Select the profile where you want to edit a rule.
-  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to the rule.
+  1. Under **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}**, click ![options](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to the rule.
   1. In the window that opens, configure the new rule:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}

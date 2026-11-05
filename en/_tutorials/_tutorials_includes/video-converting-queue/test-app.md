@@ -4,7 +4,7 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
+  1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `ffmpeg-api`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
@@ -33,11 +33,11 @@ Once the task is created, the queued message count will increase by one and a tr
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing `converter-queue`.
+  1. In the [management console]({{ link-console-main }}), select the folder with the queue named `converter-queue`.
   1. [Navigate]({{ link-console-main }}/link/message-queue) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Select `converter-queue`.
   1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see the queued and processed message counts.
-  1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab. View the **Overall queue stats** charts.
+  1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab and view the **Overall queue stats** charts.
 
 {% endlist %}
 
@@ -49,10 +49,10 @@ The trigger should invoke the converter function for each message in the queue. 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-converter` function.
+  1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-converter` function.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `ffmpeg-converter`.
-  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify the period for which you want to view logs.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and specify a time period for viewing logs.
 
 {% endlist %}
 
@@ -62,7 +62,7 @@ The trigger should invoke the converter function for each message in the queue. 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
+  1. In the [management console]({{ link-console-main }}), select the folder with the `ffmpeg-api` function.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select `ffmpeg-api`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.

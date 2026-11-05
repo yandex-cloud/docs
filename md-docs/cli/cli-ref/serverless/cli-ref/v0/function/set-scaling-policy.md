@@ -14,6 +14,12 @@ Syntax:
 
 #|
 ||Flag | Description ||
+|| `--id` | `string`
+
+Function id. ||
+|| `--name` | `string`
+
+Function name. ||
 || `--tag` | `string`
 
 Version tag ||
@@ -26,12 +32,6 @@ Upper limit for requests count in each zone ||
 || `--provisioned-instances-count` | `int`
 
 Provisioned instances count in each zone ||
-|| `--id` | `string`
-
-Function id. ||
-|| `--name` | `string`
-
-Function name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

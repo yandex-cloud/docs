@@ -22,6 +22,35 @@ You can create security profiles in different ways:
 
 {% include [sws-type-resources](../../_includes/smartwebsecurity/sws-type-resources.md) %}
 
+## Protection modes {#protection-mode}
+
+The _protection mode_ decides which profile rules will apply to traffic and how strict Smart Protection will be. These modes allow you to pre-configure additional rules and activate them during a load surge or attack.
+
+For each rule, you choose when it applies: in all modes (default), in _Enhanced protection_ and _Under attack_ modes, or _Under attack_ only. The final action for a request is determined by the priorities of the active rules.
+
+There are three modes in the profile:
+
+* **Normal**: For standard load. The _All modes_ rules apply.
+* **Enhanced protection**: For suspicious load spikes. The _Enhanced protection_ and _Under attack_ mode rules additionally apply. Smart Protection more commonly applies lenient checks to suspicious traffic.
+* **Under attack**: For an attack or critical load. Rules selected specifically for this mode additionally apply. Smart Protection checks automated traffic more strictly and requires users to pass verification more frequently.
+
+You can configure the mode switching method when [creating](../operations/profile-create.md) or [editing](../operations/profile-update.md) a profile.
+
+### Automatic switching {#automatic-protection-mode}
+
+The service switches modes based on incoming load. The _Normal_ mode is on by default. For the _Enhanced protection_ and _Under attack_ modes, the following are configured separately:
+
+* _Activation threshold_: Number of incoming requests over a selected interval. If the number of requests over this interval exceeds the threshold, relevant mode gets activated.
+* _Mode retention time_: Delay before returning to normal mode after the load drops below the threshold. This delay prevents frequent switching during load fluctuations.
+
+Estimate the standard load based on [traffic monitoring](../operations/monitoring.md#monitoring-dashboards), and the permissible load based on application metrics or load testing results. Set the _Enhanced Protection_ mode threshold above normal peaks with a margin for permissible surges. Set a higher threshold for the _Under attack_ mode – but one below the load level at which the application begins to slow down or throw errors.
+
+Use the same counting interval to compare thresholds. With a one-second interval, you can compare thresholds directly to RPS. After you enable the automatic mode, check if the protection is getting strengthened during normal peak loads and adjust the thresholds as needed.
+
+### Manual switching {#manual-protection-mode}
+
+The selected mode is retained regardless of the load. [Manual switching](../operations/profile-update.md) disables automatic control until you turn it back on.
+
 ## Request body analysis {#analyze-request-body}
 
 In the security profile, you can enable request body inspection to improve the web application's performance and security. Limiting the maximum request body size prevents excessive resource consumption and mitigates the effects of DoS/DDoS attacks, where attackers submit large requests in order to exhaust the server's resources.

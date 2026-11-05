@@ -97,7 +97,7 @@ For more information, see [{#T}](../operations/volumes/volume-expansion.md).
 
 Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volumes and disks can be deleted automatically or manually.
 * For dynamically provisioned volumes, after removing a `PersistentVolumeClaim` based on `yc-network-hdd` or `yc-network-ssd`, the relevant `PersistentVolume` and {{ compute-name }} disk **will be deleted**.
-* For statically provisioned volumes, the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) specification always uses `persistentVolumeReclaimPolicy: Retain`, and the {{ compute-name }} disk **is not deleted** when deleting a `PersistentVolumeClaim`. If the `Delete` parameter value is set manually, the disk will not be deleted.
+* For statically provisioned volumes, the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core) specification always uses `persistentVolumeReclaimPolicy: Retain`, and the {{ compute-name }} disk **is not deleted** when deleting a `PersistentVolumeClaim`. If the `Delete` parameter value is set manually, the disk will not be deleted.
 
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 

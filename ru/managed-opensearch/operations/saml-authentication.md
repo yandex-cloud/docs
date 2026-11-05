@@ -2,7 +2,7 @@
 
 SAML (Security Assertion Markup Language) — это язык разметки для обмена данными аутентификации и авторизации между сторонами. SAML позволяет реализовать систему единого входа (Single Sign-On, SSO), с помощью которой можно переключаться между приложениями без повторной аутентификации.
 
-При работе с SAML и SSO кластер {{ mos-name }} получает сведения от провайдера идентификации (Identity Provider, IdP). Подробнее о SAML и SSO в [документации OASIS](https://wiki.oasis-open.org/security/saml/).
+При работе с SAML и SSO кластер {{ mos-name }} получает сведения от провайдера идентификации (Identity Provider, IdP). Подробнее о SAML и SSO в [документации OASIS](https://wiki.oasis-open.org/security/).
 
 {{ mos-name }} поддерживает все SAML 2.0-совместимые провайдеры идентификации.
 

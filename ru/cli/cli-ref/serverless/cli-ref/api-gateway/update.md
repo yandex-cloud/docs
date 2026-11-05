@@ -23,31 +23,31 @@ Api-gateway id. ||
 || `--name` | `string`
 
 Api-gateway name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
 New api-gateway name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--description` | `string`
 
-New api-gateway description. ||
+Api-gateway description. ||
 || `--labels` | `key=value[,key=value...]`
 
-New list of label KEY=VALUE pairs to replace existing list. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--spec` | `string`
 
-New api-gateway specification file name. ||
+Api-gateway specification file name. ||
 || `--network-name` | `string`
 
-New api-gateway network name. ||
+Api-gateway network name. ||
 || `--network-id` | `string`
 
-New api-gateway network id. ||
-|| `--subnet-name` | `value[,value]`
+Api-gateway network id. ||
+|| `--subnet-name` | `[]string`
 
-New api-gateway subnet names. ||
-|| `--subnet-id` | `value[,value]`
+Api-gateway subnet names. ||
+|| `--subnet-id` | `[]string`
 
-New api-gateway subnet ids. ||
+Api-gateway subnet ids. ||
 || `--no-logging` | Disable logging from api-gateway. ||
 || `--log-group-id` | `string`
 

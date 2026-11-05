@@ -30,18 +30,6 @@ Aliases:
 
   - [yc managed-trino catalog list](catalog/list.md) — List Trino catalogs
 
-- [yc managed-trino change-freeze](change-freeze/index.md) — Manage change freezes.
-
-  - [yc managed-trino change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
-
-  - [yc managed-trino change-freeze get](change-freeze/get.md) — Show the specified change freeze.
-
-  - [yc managed-trino change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
-
-  - [yc managed-trino change-freeze list](change-freeze/list.md) — List change freezes.
-
-  - [yc managed-trino change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
-
 - [yc managed-trino cluster](cluster/index.md) — Manage Trino clusters
 
   - [yc managed-trino cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Trino cluster
@@ -79,6 +67,10 @@ Aliases:
   - [yc managed-trino cluster stop](cluster/stop.md) — Stop the specified Trino cluster
 
   - [yc managed-trino cluster update](cluster/update.md) — Update the specified Trino cluster
+
+- [yc managed-trino maintenance](maintenance/index.md) — Manage maintenances.
+
+
 
 #### Global Flags
 

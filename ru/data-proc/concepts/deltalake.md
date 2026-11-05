@@ -48,10 +48,10 @@ description: Из статьи вы узнаете, что такое Delta Lake
 
 Основные преимущества Delta Lake 2.x, по сравнению с версией 0.8.0:
 
-* Поддержка [мультикластерного режима](https://docs.delta.io/2.0.2/delta-storage.html#multi-cluster-setup), который обеспечивает автоматическую координацию изменений данных в одной таблице из разных заданий {{ SPRK }} и кластеров {{ dataproc-name }}.
+* Поддержка [мультикластерного режима](https://docs.delta.io/delta-storage.html#multi-cluster-setup), который обеспечивает автоматическую координацию изменений данных в одной таблице из разных заданий {{ SPRK }} и кластеров {{ dataproc-name }}.
 * Функция [идемпотентной записи данных](https://docs.delta.io/latest/delta-streaming.html#idempotent-table-writes-in-foreachbatch), которая позволяет решить задачу однократного применения изменений при потоковой обработке данных.
-* Функция [Change Data Feed](https://docs.delta.io/2.0.2/delta-change-data-feed.html), которая обеспечивает отслеживание изменений данных в таблицах Delta Lake.
-* Функция [Z-Ordering](https://docs.delta.io/2.0.2/optimizations-oss.html#z-ordering-multi-dimensional-clustering), которая реализует многомерную кластеризацию таблиц Delta Lake. Функция позволяет ускорить выполнение запросов с ограничениями на столбцы, которые используются для кластеризации.
-* Поддержка [динамической перезаписи партиций](https://docs.delta.io/2.0.2/delta-batch.html#dynamic-partition-overwrites).
-* [Оптимизация производительности запросов](https://docs.delta.io/2.0.2/optimizations-oss.html#compaction-bin-packing) за счет объединения небольших файлов в более крупные.
-* Возможность [отката таблицы](https://docs.delta.io/2.0.2/delta-utility.html#restore-a-delta-table-to-an-earlier-state) к предыдущему состоянию.
+* Функция [Change Data Feed](https://docs.delta.io/delta-change-data-feed.html), которая обеспечивает отслеживание изменений данных в таблицах Delta Lake.
+* Функция [Z-Ordering](https://docs.delta.io/optimizations-oss.html#z-ordering-multi-dimensional-clustering), которая реализует многомерную кластеризацию таблиц Delta Lake. Функция позволяет ускорить выполнение запросов с ограничениями на столбцы, которые используются для кластеризации.
+* Поддержка [динамической перезаписи партиций](https://docs.delta.io/delta-batch.html#dynamic-partition-overwrites).
+* [Оптимизация производительности запросов](https://docs.delta.io/optimizations-oss.html#compaction-bin-packing) за счет объединения небольших файлов в более крупные.
+* Возможность [отката таблицы](https://docs.delta.io/delta-utility.html#restore-a-delta-table-to-an-earlier-state) к предыдущему состоянию.

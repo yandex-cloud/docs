@@ -4,7 +4,7 @@ You can authenticate with FCM using the API:
 
 {% note info %}
 
-[FCM no longer supports](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting June 2024.
+[FCM no longer supports](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting June 2024.
 
 {% endnote %}
 

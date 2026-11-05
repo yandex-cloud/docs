@@ -192,9 +192,11 @@ Array of partitions created on the storage.
 >>> - type (structure)\
 Partition type.
 >>> - size-gib (integer)\
-Size of the storage partition in gibibytes (2^30 bytes).
+Deprecated. Size of the storage partition in gibibytes (2^30 bytes). Use size_bytes instead.
 >>> - mount-point (string)\
 Storage mount point.
+>>> - size-bytes (integer)\
+Size in bytes.
 >> - storage-type (oneof)\
 Oneof storage-type field
 >>> - disk (structure)\
@@ -204,7 +206,9 @@ ID of the disk.
 >>>> - type (structure)\
 Type of the disk drive.
 >>>> - size-gib (integer)\
-Size of the disk in gibibytes (2^30 bytes).
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead.
+>>>> - size-bytes (integer)\
+Size in bytes.
 >>> - raid (structure)\
 RAID storage.
 >>>> - type (structure)\
@@ -216,7 +220,9 @@ ID of the disk.
 >>>>> - type (structure)\
 Type of the disk drive.
 >>>>> - size-gib (integer)\
-Size of the disk in gibibytes (2^30 bytes).
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead.
+>>>>> - size-bytes (integer)\
+Size in bytes.
 > - ssh-key (oneof)\
 Oneof ssh-key field
 >> - ssh-public-key (string)\
@@ -254,18 +260,21 @@ The key used to access a specific secret entry.
       partitions = [
         {
           mount-point = string,
+          size-bytes = integer,
           size-gib = integer,
           type = EXT4|SWAP|EXT3|XFS
         }, ...
       ],
       storage-type = disk={
         id = string,
+        size-bytes = integer,
         size-gib = integer,
         type = HDD|SSD|NVME
       } | raid={
         disks = [
           {
             id = string,
+            size-bytes = integer,
             size-gib = integer,
             type = HDD|SSD|NVME
           }, ...
@@ -301,6 +310,7 @@ The key used to access a specific secret entry.
       "partitions": [
         {
           "mount-point": "string",
+          "size-bytes": "integer",
           "size-gib": "integer",
           "type": "EXT4|SWAP|EXT3|XFS"
         }, ...
@@ -308,6 +318,7 @@ The key used to access a specific secret entry.
       "storage-type": {
         "disk": {
           "id": "string",
+          "size-bytes": "integer",
           "size-gib": "integer",
           "type": "HDD|SSD|NVME"
         },
@@ -315,6 +326,7 @@ The key used to access a specific secret entry.
           "disks": [
             {
               "id": "string",
+              "size-bytes": "integer",
               "size-gib": "integer",
               "type": "HDD|SSD|NVME"
             }, ...

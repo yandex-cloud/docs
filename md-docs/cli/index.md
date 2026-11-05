@@ -5866,6 +5866,24 @@
 
  - [update](cli-ref/managed-airflow/cli-ref/v0/cluster/update.md)
 
+##### maintenance
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/v0/maintenance/index.md)
+
+###### change-freeze
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-airflow/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
 #### change-freeze
 
  - [Overview](cli-ref/managed-airflow/cli-ref/change-freeze/index.md)
@@ -5908,6 +5926,24 @@
 
  - [update](cli-ref/managed-airflow/cli-ref/cluster/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-airflow/cli-ref/maintenance/change-freeze/terminate.md)
+
 ### managed-clickhouse
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/index.md)
@@ -5925,20 +5961,6 @@
  - [get](cli-ref/managed-clickhouse/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-clickhouse/cli-ref/v0/backup/list.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-clickhouse/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -6034,6 +6056,8 @@
 
  - [list](cli-ref/managed-clickhouse/cli-ref/v0/database/list.md)
 
+ - [update](cli-ref/managed-clickhouse/cli-ref/v0/database/update.md)
+
 ##### extension
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/extension/index.md)
@@ -6073,6 +6097,20 @@
 ##### maintenance
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/index.md)
+
+###### change-freeze
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
  - [get](cli-ref/managed-clickhouse/cli-ref/v0/maintenance/get.md)
 
@@ -6172,20 +6210,6 @@
 
  - [list](cli-ref/managed-clickhouse/cli-ref/backup/list.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/managed-clickhouse/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-clickhouse/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-clickhouse/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-clickhouse/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-clickhouse/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-clickhouse/cli-ref/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/cluster/index.md)
@@ -6280,6 +6304,8 @@
 
  - [list](cli-ref/managed-clickhouse/cli-ref/database/list.md)
 
+ - [update](cli-ref/managed-clickhouse/cli-ref/database/update.md)
+
 #### extension
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/extension/index.md)
@@ -6319,6 +6345,20 @@
 #### maintenance
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-clickhouse/cli-ref/maintenance/change-freeze/terminate.md)
 
  - [get](cli-ref/managed-clickhouse/cli-ref/maintenance/get.md)
 
@@ -6470,20 +6510,6 @@
 
  - [list](cli-ref/managed-greenplum/cli-ref/v0/backup/list.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-greenplum/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/v0/cluster/index.md)
@@ -6565,6 +6591,20 @@
 ##### maintenance
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/v0/maintenance/index.md)
+
+###### change-freeze
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-greenplum/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
  - [get](cli-ref/managed-greenplum/cli-ref/v0/maintenance/get.md)
 
@@ -6656,20 +6696,6 @@
 
  - [list](cli-ref/managed-greenplum/cli-ref/backup/list.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/managed-greenplum/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-greenplum/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-greenplum/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-greenplum/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-greenplum/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-greenplum/cli-ref/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/cluster/index.md)
@@ -6751,6 +6777,20 @@
 #### maintenance
 
  - [Overview](cli-ref/managed-greenplum/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-greenplum/cli-ref/maintenance/change-freeze/terminate.md)
 
  - [get](cli-ref/managed-greenplum/cli-ref/maintenance/get.md)
 
@@ -6840,20 +6880,6 @@
 
  - [Overview](cli-ref/managed-kafka/cli-ref/v0/index.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/managed-kafka/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-kafka/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-kafka/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-kafka/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-kafka/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-kafka/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/managed-kafka/cli-ref/v0/cluster/index.md)
@@ -6932,11 +6958,19 @@
 
  - [Overview](cli-ref/managed-kafka/cli-ref/v0/maintenance/index.md)
 
- - [get](cli-ref/managed-kafka/cli-ref/v0/maintenance/get.md)
+###### change-freeze
 
- - [list](cli-ref/managed-kafka/cli-ref/v0/maintenance/list.md)
+ - [Overview](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/index.md)
 
- - [reschedule](cli-ref/managed-kafka/cli-ref/v0/maintenance/reschedule.md)
+ - [create](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-kafka/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 ##### topic
 
@@ -6969,20 +7003,6 @@
  - [revoke-permission](cli-ref/managed-kafka/cli-ref/v0/user/revoke-permission.md)
 
  - [update](cli-ref/managed-kafka/cli-ref/v0/user/update.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-kafka/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-kafka/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-kafka/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-kafka/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-kafka/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-kafka/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -7062,11 +7082,19 @@
 
  - [Overview](cli-ref/managed-kafka/cli-ref/maintenance/index.md)
 
- - [get](cli-ref/managed-kafka/cli-ref/maintenance/get.md)
+##### change-freeze
 
- - [list](cli-ref/managed-kafka/cli-ref/maintenance/list.md)
+ - [Overview](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/index.md)
 
- - [reschedule](cli-ref/managed-kafka/cli-ref/maintenance/reschedule.md)
+ - [create](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-kafka/cli-ref/maintenance/change-freeze/terminate.md)
 
 #### topic
 
@@ -7316,20 +7344,6 @@
 
  - [Overview](cli-ref/managed-metastore/cli-ref/v0/index.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/managed-metastore/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-metastore/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-metastore/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-metastore/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-metastore/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-metastore/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/managed-metastore/cli-ref/v0/cluster/index.md)
@@ -7362,19 +7376,23 @@
 
  - [update](cli-ref/managed-metastore/cli-ref/v0/cluster/update.md)
 
-#### change-freeze
+##### maintenance
 
- - [Overview](cli-ref/managed-metastore/cli-ref/change-freeze/index.md)
+ - [Overview](cli-ref/managed-metastore/cli-ref/v0/maintenance/index.md)
 
- - [create](cli-ref/managed-metastore/cli-ref/change-freeze/create.md)
+###### change-freeze
 
- - [get](cli-ref/managed-metastore/cli-ref/change-freeze/get.md)
+ - [Overview](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/index.md)
 
- - [get-limits](cli-ref/managed-metastore/cli-ref/change-freeze/get-limits.md)
+ - [create](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/create.md)
 
- - [list](cli-ref/managed-metastore/cli-ref/change-freeze/list.md)
+ - [get](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/get.md)
 
- - [terminate](cli-ref/managed-metastore/cli-ref/change-freeze/terminate.md)
+ - [get-limits](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-metastore/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 #### cluster
 
@@ -7408,6 +7426,24 @@
 
  - [update](cli-ref/managed-metastore/cli-ref/cluster/update.md)
 
+#### maintenance
+
+ - [Overview](cli-ref/managed-metastore/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-metastore/cli-ref/maintenance/change-freeze/terminate.md)
+
 ### managed-mongodb
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/index.md)
@@ -7436,19 +7472,13 @@
 
  - [list](cli-ref/managed-mongodb/cli-ref/v0/backup-retention-policy/list.md)
 
-##### change-freeze
+##### balancer
 
- - [Overview](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/index.md)
+ - [Overview](cli-ref/managed-mongodb/cli-ref/v0/balancer/index.md)
 
- - [create](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/create.md)
+ - [disable](cli-ref/managed-mongodb/cli-ref/v0/balancer/disable.md)
 
- - [get](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-mongodb/cli-ref/v0/change-freeze/terminate.md)
+ - [enable](cli-ref/managed-mongodb/cli-ref/v0/balancer/enable.md)
 
 ##### cluster
 
@@ -7534,6 +7564,20 @@
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mongodb/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-mongodb/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-mongodb/cli-ref/v0/maintenance/list.md)
@@ -7598,19 +7642,13 @@
 
  - [list](cli-ref/managed-mongodb/cli-ref/backup-retention-policy/list.md)
 
-#### change-freeze
+#### balancer
 
- - [Overview](cli-ref/managed-mongodb/cli-ref/change-freeze/index.md)
+ - [Overview](cli-ref/managed-mongodb/cli-ref/balancer/index.md)
 
- - [create](cli-ref/managed-mongodb/cli-ref/change-freeze/create.md)
+ - [disable](cli-ref/managed-mongodb/cli-ref/balancer/disable.md)
 
- - [get](cli-ref/managed-mongodb/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-mongodb/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-mongodb/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-mongodb/cli-ref/change-freeze/terminate.md)
+ - [enable](cli-ref/managed-mongodb/cli-ref/balancer/enable.md)
 
 #### cluster
 
@@ -7696,6 +7734,20 @@
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mongodb/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-mongodb/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-mongodb/cli-ref/maintenance/list.md)
@@ -7767,20 +7819,6 @@
  - [list](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list.md)
 
  - [list-by-folder](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-mysql/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-mysql/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-mysql/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-mysql/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-mysql/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-mysql/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -7864,6 +7902,20 @@
 
  - [Overview](cli-ref/managed-mysql/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mysql/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-mysql/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-mysql/cli-ref/v0/maintenance/list.md)
@@ -7915,20 +7967,6 @@
  - [list](cli-ref/managed-mysql/cli-ref/backup-retention-policy/list.md)
 
  - [list-by-folder](cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-mysql/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-mysql/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-mysql/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-mysql/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-mysql/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-mysql/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -8012,6 +8050,20 @@
 
  - [Overview](cli-ref/managed-mysql/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-mysql/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-mysql/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-mysql/cli-ref/maintenance/list.md)
@@ -8067,20 +8119,6 @@
  - [get](cli-ref/managed-opensearch/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-opensearch/cli-ref/v0/backup/list.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-opensearch/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -8142,6 +8180,20 @@
 
  - [Overview](cli-ref/managed-opensearch/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-opensearch/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-opensearch/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-opensearch/cli-ref/v0/maintenance/list.md)
@@ -8181,20 +8233,6 @@
  - [get](cli-ref/managed-opensearch/cli-ref/backup/get.md)
 
  - [list](cli-ref/managed-opensearch/cli-ref/backup/list.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-opensearch/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-opensearch/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-opensearch/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-opensearch/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-opensearch/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-opensearch/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -8256,6 +8294,20 @@
 
  - [Overview](cli-ref/managed-opensearch/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-opensearch/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-opensearch/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-opensearch/cli-ref/maintenance/list.md)
@@ -8307,20 +8359,6 @@
  - [delete](cli-ref/managed-postgresql/cli-ref/v0/backup-retention-policy/delete.md)
 
  - [list](cli-ref/managed-postgresql/cli-ref/v0/backup-retention-policy/list.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-postgresql/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -8406,6 +8444,20 @@
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-postgresql/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-postgresql/cli-ref/v0/maintenance/list.md)
@@ -8475,20 +8527,6 @@
  - [delete](cli-ref/managed-postgresql/cli-ref/backup-retention-policy/delete.md)
 
  - [list](cli-ref/managed-postgresql/cli-ref/backup-retention-policy/list.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-postgresql/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-postgresql/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-postgresql/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-postgresql/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-postgresql/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-postgresql/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -8574,6 +8612,20 @@
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-postgresql/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-postgresql/cli-ref/maintenance/list.md)
@@ -8652,20 +8704,6 @@
 
  - [list](cli-ref/managed-redis/cli-ref/v0/backup-retention-policy/list.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/managed-redis/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-redis/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-redis/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-redis/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-redis/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-redis/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/managed-redis/cli-ref/v0/cluster/index.md)
@@ -8734,6 +8772,20 @@
 
  - [Overview](cli-ref/managed-redis/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-redis/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-redis/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-redis/cli-ref/v0/maintenance/list.md)
@@ -8793,20 +8845,6 @@
  - [delete](cli-ref/managed-redis/cli-ref/backup-retention-policy/delete.md)
 
  - [list](cli-ref/managed-redis/cli-ref/backup-retention-policy/list.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-redis/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-redis/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-redis/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-redis/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-redis/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-redis/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -8876,6 +8914,20 @@
 
  - [Overview](cli-ref/managed-redis/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-redis/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-redis/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-redis/cli-ref/maintenance/list.md)
@@ -8933,20 +8985,6 @@
  - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/backup/list.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -9010,6 +9048,20 @@
 
  - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/index.md)
 
+###### change-freeze
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/get.md)
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/v0/maintenance/list.md)
@@ -9041,20 +9093,6 @@
  - [get](cli-ref/managed-sharded-postgresql/cli-ref/backup/get.md)
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/backup/list.md)
-
-#### change-freeze
-
- - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/change-freeze/terminate.md)
 
 #### cluster
 
@@ -9118,6 +9156,20 @@
 
  - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/index.md)
 
+##### change-freeze
+
+ - [Overview](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/change-freeze/terminate.md)
+
  - [get](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/get.md)
 
  - [list](cli-ref/managed-sharded-postgresql/cli-ref/maintenance/list.md)
@@ -9147,20 +9199,6 @@
 #### v0
 
  - [Overview](cli-ref/managed-spark/cli-ref/v0/index.md)
-
-##### change-freeze
-
- - [Overview](cli-ref/managed-spark/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-spark/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-spark/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-spark/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-spark/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-spark/cli-ref/v0/change-freeze/terminate.md)
 
 ##### cluster
 
@@ -9208,19 +9246,23 @@
 
  - [log](cli-ref/managed-spark/cli-ref/v0/job/log.md)
 
-#### change-freeze
+##### maintenance
 
- - [Overview](cli-ref/managed-spark/cli-ref/change-freeze/index.md)
+ - [Overview](cli-ref/managed-spark/cli-ref/v0/maintenance/index.md)
 
- - [create](cli-ref/managed-spark/cli-ref/change-freeze/create.md)
+###### change-freeze
 
- - [get](cli-ref/managed-spark/cli-ref/change-freeze/get.md)
+ - [Overview](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/index.md)
 
- - [get-limits](cli-ref/managed-spark/cli-ref/change-freeze/get-limits.md)
+ - [create](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/create.md)
 
- - [list](cli-ref/managed-spark/cli-ref/change-freeze/list.md)
+ - [get](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/get.md)
 
- - [terminate](cli-ref/managed-spark/cli-ref/change-freeze/terminate.md)
+ - [get-limits](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-spark/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 #### cluster
 
@@ -9267,6 +9309,24 @@
  - [list](cli-ref/managed-spark/cli-ref/job/list.md)
 
  - [log](cli-ref/managed-spark/cli-ref/job/log.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/managed-spark/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-spark/cli-ref/maintenance/change-freeze/terminate.md)
 
 ### managed-trino
 
@@ -9342,20 +9402,6 @@
 
  - [tpch](cli-ref/managed-trino/cli-ref/v0/catalog/update/tpch.md)
 
-##### change-freeze
-
- - [Overview](cli-ref/managed-trino/cli-ref/v0/change-freeze/index.md)
-
- - [create](cli-ref/managed-trino/cli-ref/v0/change-freeze/create.md)
-
- - [get](cli-ref/managed-trino/cli-ref/v0/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-trino/cli-ref/v0/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-trino/cli-ref/v0/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-trino/cli-ref/v0/change-freeze/terminate.md)
-
 ##### cluster
 
  - [Overview](cli-ref/managed-trino/cli-ref/v0/cluster/index.md)
@@ -9395,6 +9441,24 @@
  - [stop](cli-ref/managed-trino/cli-ref/v0/cluster/stop.md)
 
  - [update](cli-ref/managed-trino/cli-ref/v0/cluster/update.md)
+
+##### maintenance
+
+ - [Overview](cli-ref/managed-trino/cli-ref/v0/maintenance/index.md)
+
+###### change-freeze
+
+ - [Overview](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-trino/cli-ref/v0/maintenance/change-freeze/terminate.md)
 
 #### catalog
 
@@ -9462,20 +9526,6 @@
 
  - [tpch](cli-ref/managed-trino/cli-ref/catalog/update/tpch.md)
 
-#### change-freeze
-
- - [Overview](cli-ref/managed-trino/cli-ref/change-freeze/index.md)
-
- - [create](cli-ref/managed-trino/cli-ref/change-freeze/create.md)
-
- - [get](cli-ref/managed-trino/cli-ref/change-freeze/get.md)
-
- - [get-limits](cli-ref/managed-trino/cli-ref/change-freeze/get-limits.md)
-
- - [list](cli-ref/managed-trino/cli-ref/change-freeze/list.md)
-
- - [terminate](cli-ref/managed-trino/cli-ref/change-freeze/terminate.md)
-
 #### cluster
 
  - [Overview](cli-ref/managed-trino/cli-ref/cluster/index.md)
@@ -9515,6 +9565,24 @@
  - [stop](cli-ref/managed-trino/cli-ref/cluster/stop.md)
 
  - [update](cli-ref/managed-trino/cli-ref/cluster/update.md)
+
+#### maintenance
+
+ - [Overview](cli-ref/managed-trino/cli-ref/maintenance/index.md)
+
+##### change-freeze
+
+ - [Overview](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/index.md)
+
+ - [create](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/create.md)
+
+ - [get](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/get.md)
+
+ - [get-limits](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/get-limits.md)
+
+ - [list](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/list.md)
+
+ - [terminate](cli-ref/managed-trino/cli-ref/maintenance/change-freeze/terminate.md)
 
 ### managed-ytsaurus
 

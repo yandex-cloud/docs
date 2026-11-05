@@ -23,7 +23,7 @@ The settings are provided in the iframe URL after `?` as query parameters. To pr
 
 Auto video playback at startup.
 
-The possible values are:
+Its possible values are:
 * `0`: Auto playback off (default).
 * `1`: Auto playback on.
 
@@ -39,8 +39,8 @@ Here is an example:
 
 Mute at startup.
 
-The possible values are:
-* `false`: Sound on (default).
+Its possible values are:
+* `false` or `0`: Sound on (default).
 * `true` or `1`: Sound off.
 
 Here is an example:
@@ -81,7 +81,7 @@ Here is an example:
 
 Playback looping.
 
-The possible values are:
+Its possible values are:
 * `false`: Playback looping off (default).
 * `true`: Playback looping on.
 
@@ -95,7 +95,7 @@ Here is an example:
 
 Auto video playback in mute mode at startup.
 
-The possible values are:
+Its possible values are:
 * `false`: Muted autoplay not allowed.
 * `true`: Muted autoplay allowed.
 
@@ -111,7 +111,7 @@ Here is an example:
 
 Video preload.
 
-The possible values are:
+Its possible values are:
 * `false`: Video preload off (default).
 * `true`: Video preload on.
 
@@ -153,7 +153,7 @@ Here is an example:
 
 With this parameter, you can hide the player's interface elements. By default, all elements are displayed.
 
-The possible values are:
+Its possible values are:
 
 * `*`: All interface elements.
 * `*,!<excluded_item>`: All interface elements except the excluded one. For example, use `*,!play` to hide all interface elements except the play button.
@@ -194,7 +194,7 @@ Here is an example:
 
 Player interface language.
 
-The possible values are:
+Its possible values are:
 
 * `ru`: Russian
 * `en`: English
@@ -219,7 +219,7 @@ Here is an example:
 
 Scale the thumbnail to fit the screen size when loading a video.
 
-The possible values are:
+Its possible values are:
 
 * `contain`: Keep the original thumbnail aspect ratio, no cropping.
 * `cover`: Resize the thumbnail to fill the entire frame by changing its aspect ratio or cropping (default).

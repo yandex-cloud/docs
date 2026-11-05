@@ -18,15 +18,21 @@ Syntax:
 #|
 ||Flag | Description ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--id` | `string`
+
+Trigger id. ||
+|| `--name` | `string`
+
+Trigger name. ||
 || `--new-name` | `string`
 
-Trigger new name. ||
+Trigger name. ||
 || `--description` | `string`
 
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. All existing labels are replaced ||
+A list of label KEY=VALUE pairs to add. ||
 || `--bucket-id` | `string`
 
 ID of the bucket to monitor. ||
@@ -36,7 +42,7 @@ Filter events by object key prefix. Optional. ||
 || `--suffix` | `string`
 
 Filter events by object key suffix. Optional. ||
-|| `--events` | `value[,value]`
+|| `--events` | `[]string`
 
 Event types to listen for. At least one value is required. ||
 || `--batch-max-count` | `int`
@@ -48,12 +54,6 @@ Maximum size of events in a batch. ||
 || `--batch-cutoff` | `duration`
 
 Maximum time to wait before flushing an incomplete batch. ||
-|| `--id` | `string`
-
-Trigger id. ||
-|| `--name` | `string`
-
-Trigger name. ||
 |#
 
 #### Global Flags

@@ -1,9 +1,9 @@
-Общие метки для всех метрик {{ sws-name }}:
+Метки для метрик профилей безопасности и ARL:
 
 | Метка | Значение |
 | --- | --- |
 | **Общие метки** |
-| load_balancer | Имя [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) |
+| load_balancer | Имя [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) или [прокси-сервера](../../../smartwebsecurity/concepts/domain-protect.md#proxy) {{ sws-name }} |
 | http_router | Имя [HTTP-роутера](../../../application-load-balancer/concepts/http-router.md) |
 | virtual_host | Имя [виртуального хоста](../../../application-load-balancer/concepts/http-router.md#virtual-host) |
 | **Специальные метки** |

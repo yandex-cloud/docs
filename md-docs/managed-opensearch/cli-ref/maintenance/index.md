@@ -8,7 +8,7 @@ Manage maintenances.
 
 Syntax:
 
-`yc managed-opensearch maintenance <command>`
+`yc managed-opensearch maintenance <group|command>`
 
 #### Command Tree
 
@@ -17,6 +17,18 @@ Syntax:
 - [yc managed-opensearch maintenance list](list.md) — List maintenances.
 
 - [yc managed-opensearch maintenance reschedule](reschedule.md) — Reschedule the specified maintenance.
+
+- [yc managed-opensearch maintenance change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-opensearch maintenance change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-opensearch maintenance change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-opensearch maintenance change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-opensearch maintenance change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-opensearch maintenance change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
 
 #### Global Flags
 

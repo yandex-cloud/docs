@@ -11,7 +11,7 @@ Labels shared by all {{ cns-name }} metrics:
 * `conveyed`: Sent successfully.
 * `filtered`: Filtered out.
 * `--message`: Message TTL expired.
-* `client_error`: Failed to send the message. Request or data error, see the `error` label.
+* `client_error`: Failed to send the message. Request or data error; see the `error` label.
 * `server_error`: Failed to send the message. Server error.||
 |#
 
@@ -56,5 +56,14 @@ Labels:
 `IGAUGE`, count | Number of in-browser push notification send errors within one minute.
 Labels:
 * `channel_name`: Channel name.
+* `error`: Description of the `client_error` status when sending a message.||
+
+|| `sqs.notifications.count`
+`IGAUGE`, count | Number of messages enqueued in {{ message-queue-full-name }} per minute.<br/>`topic_name` label: Topic name.||
+
+|| `sqs.notifications.errors.count`
+`IGAUGE`, count | Number of {{ message-queue-full-name }} messages enqueue errors per minute.
+Labels:
+* `topic_name`: Topic name.
 * `error`: Description of the `client_error` status when sending a message.||
 |#

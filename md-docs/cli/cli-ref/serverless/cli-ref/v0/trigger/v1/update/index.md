@@ -36,6 +36,13 @@ Syntax:
 
 #|
 ||Flag | Description ||
+|| `--id` | `string`
+
+Trigger id. ||
+|| `--name` | `string`
+
+Trigger name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
 New trigger name. ||
@@ -44,14 +51,7 @@ New trigger name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs. ||
-|| `--id` | `string`
-
-Trigger id. ||
-|| `--name` | `string`
-
-Trigger name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+A list of label KEY=VALUE pairs to add. ||
 |#
 
 #### Global Flags

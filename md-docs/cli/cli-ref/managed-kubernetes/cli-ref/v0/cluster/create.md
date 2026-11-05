@@ -35,7 +35,7 @@ ID of the availability zone where the Kubernetes cluster zonal master resides. |
 || `--cluster-ipv4-range` | `string`
 
 IPv4 range for the Kubernetes cluster pods in CIDR notation. ||
-|| `--cluster-ipv4-range-list` | `value[,value]`
+|| `--cluster-ipv4-range-list` | `[]string`
 
 List of IPv4 ranges for the Kubernetes cluster pods in CIDR notation. Use instead of --cluster-ipv4-range; the two flags cannot be combined. ||
 || `--service-ipv4-range` | `string`
@@ -44,7 +44,7 @@ IPv4 range for the Kubernetes cluster services in CIDR notation. ||
 || `--cluster-ipv6-range` | `string`
 
 IPv6 range for the Kubernetes cluster pods in CIDR notation. IPv6 only clusters aren't yet supported, specifying this flag is only valid as a part of a dual IPv4/IPv6 stack cluster creation ||
-|| `--cluster-ipv6-range-list` | `value[,value]`
+|| `--cluster-ipv6-range-list` | `[]string`
 
 List of IPv6 ranges for the Kubernetes cluster pods in CIDR notation. Use instead of --cluster-ipv6-range; the two flags cannot be combined. IPv6 only clusters aren't yet supported, specifying this flag is only valid as a part of a dual IPv4/IPv6 stack cluster creation ||
 || `--service-ipv6-range` | `string`
@@ -149,7 +149,7 @@ KMS key for Kubernetes secrets encryption. ||
 || `--kms-key-name` | `string`
 
 KMS key for Kubernetes secrets encryption. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 Security group IDs to use for cluster. ||
 || `--master-logging` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`

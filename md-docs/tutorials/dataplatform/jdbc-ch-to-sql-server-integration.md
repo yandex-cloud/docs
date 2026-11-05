@@ -2,10 +2,14 @@
 
 # Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Microsoft SQL Server через ClickHouse® JDBC Bridge
 
-С помощью [ClickHouse® JDBC Bridge](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse) вы можете:
+С помощью [ClickHouse® JDBC Bridge](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse) вы можете запрашивать данные из таблицы внешней базы данных Microsoft SQL Server [функцией JDBC Table Function](https://clickhouse.com/docs/ru/sql-reference/table-functions/jdbc). Для создания таблиц в кластере ClickHouse®, которые ссылаются на таблицу внешней базы данных Microsoft SQL Server, будет использоваться [инструмент JDBC Table Engine](https://clickhouse.com/docs/ru/engines/table-engines/integrations/jdbc).
 
-* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function](https://clickhouse.com/docs/ru/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Microsoft SQL Server.
-* [Создавать таблицы](#jdbc-table-engine) в ClickHouse® с помощью [JDBC Table Engine](https://clickhouse.com/docs/ru/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Microsoft SQL Server.
+Чтобы интегрировать кластер ClickHouse® с БД Microsoft SQL Server через ClickHouse® JDBC Bridge:
+
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Подготовьте внешнюю базу данных Microsoft SQL Server](#prepare-source).
+1. [Запросите данные с помощью JDBC Table Function](#jdbc-table-function).
+1. [Создайте таблицу с помощью JDBC Table Engine](#jdbc-table-engine).
 
 ## Подготовьте облако к работе {#before-begin}
 
@@ -19,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик, если для хостов кластера не включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
@@ -34,7 +38,7 @@
     * **Источник** — `Диапазон адресов`;
     * **IPv4 CIDR** — `0.0.0.0/0`.
 
-    Это правило разрешает любой исходящий трафик, что позволит ClickHouse® JDBC Bridge подключаться к внешним базам данных, в т. ч. к Microsoft SQL Server.
+    Это правило разрешает любой исходящий трафик, что позволит ClickHouse® JDBC Bridge подключаться к внешним базам данных, в том числе к Microsoft SQL Server.
 
 1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md).
 
@@ -50,8 +54,7 @@
 ## Подготовьте внешнюю базу данных Microsoft SQL Server {#prepare-source}
 
 1. Убедитесь, что к вашей инсталляции внешней базы данных Microsoft SQL Server разрешено подключение по портам `9019` и `1433`.
-
-1. Подключитесь к вашей инсталляции внешней базы данных Microsoft SQL Server и загрузите [JDBC драйвер](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) в директорию `/opt/drivers`:
+1. Подключитесь к вашей инсталляции внешней базы данных Microsoft SQL Server и загрузите [JDBC-драйвер](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) в директорию `/opt/drivers`:
 
     ```bash
     sudo mkdir -p /opt/drivers && \
@@ -194,7 +197,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 * [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
 * [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

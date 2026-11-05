@@ -5,6 +5,7 @@ description: Use cases for {{ container-registry-full-name }} in {{ yandex-cloud
 
 # {{ container-registry-name }} tutorials
 
+* [{#T}](container-registry-migration.md)
 * [{#T}](run-docker-on-vm/index.md)
 * [{#T}](sign-cr-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)

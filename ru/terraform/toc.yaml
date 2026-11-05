@@ -639,6 +639,10 @@ items:
                   - name: organizationmanager_os_login_settings
                     href: data-sources/organizationmanager_os_login_settings.md
                     title: ''
+                  - name: organizationmanager_policy_authentication_policy_rule
+                    href: >-
+                      data-sources/organizationmanager_policy_authentication_policy_rule.md
+                    title: ''
                   - name: organizationmanager_saml_federation
                     href: data-sources/organizationmanager_saml_federation.md
                     title: ''
@@ -717,6 +721,10 @@ items:
                     title: ''
                   - name: organizationmanager_os_login_settings
                     href: resources/organizationmanager_os_login_settings.md
+                    title: ''
+                  - name: organizationmanager_policy_authentication_policy_rule
+                    href: >-
+                      resources/organizationmanager_policy_authentication_policy_rule.md
                     title: ''
                   - name: organizationmanager_saml_federation
                     href: resources/organizationmanager_saml_federation.md

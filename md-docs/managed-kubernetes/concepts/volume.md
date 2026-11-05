@@ -94,7 +94,7 @@ Managed Service for Kubernetes поддерживает два режима по
 
 В зависимости от настроек объектов `PersistentVolume` и `PersistentVolumeClaim` соответствующие тома и диски могут удаляться автоматически или вручную.
 * При динамической подготовке тома: после удаления объекта `PersistentVolumeClaim` на основе классов хранилищ `yc-network-hdd` или `yc-network-ssd`, соответствующие объект `PersistentVolume` и диск Compute Cloud **будут удалены**.
-* При статической подготовке тома: для спецификации [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) всегда используется значение параметра `persistentVolumeReclaimPolicy: Retain`, при этом диск Compute Cloud **не удаляется** при удалении объекта `PersistentVolumeClaim`. Значение параметра `Delete`, заданное вручную, не приведет к удалению диска.
+* При статической подготовке тома: для спецификации [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core) всегда используется значение параметра `persistentVolumeReclaimPolicy: Retain`, при этом диск Compute Cloud **не удаляется** при удалении объекта `PersistentVolumeClaim`. Значение параметра `Delete`, заданное вручную, не приведет к удалению диска.
 
 При удалении кластера Managed Service for Kubernetes диски Compute Cloud, связанные с `PersistentVolumes`, не удаляются автоматически.
 

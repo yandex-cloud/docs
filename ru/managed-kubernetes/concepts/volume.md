@@ -97,7 +97,7 @@ _Том_ — общее хранилище для совместного исп�
 
 В зависимости от настроек объектов `PersistentVolume` и `PersistentVolumeClaim` соответствующие тома и диски могут удаляться автоматически или вручную.
 * При динамической подготовке тома: после удаления объекта `PersistentVolumeClaim` на основе классов хранилищ `yc-network-hdd` или `yc-network-ssd`, соответствующие объект `PersistentVolume` и диск {{ compute-name }} **будут удалены**.
-* При статической подготовке тома: для спецификации [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec) всегда используется значение параметра `persistentVolumeReclaimPolicy: Retain`, при этом диск {{ compute-name }} **не удаляется** при удалении объекта `PersistentVolumeClaim`. Значение параметра `Delete`, заданное вручную, не приведет к удалению диска.
+* При статической подготовке тома: для спецификации [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core) всегда используется значение параметра `persistentVolumeReclaimPolicy: Retain`, при этом диск {{ compute-name }} **не удаляется** при удалении объекта `PersistentVolumeClaim`. Значение параметра `Delete`, заданное вручную, не приведет к удалению диска.
 
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 

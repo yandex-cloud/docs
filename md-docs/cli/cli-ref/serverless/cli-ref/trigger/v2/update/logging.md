@@ -15,31 +15,37 @@ Syntax:
 #|
 ||Flag | Description ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--id` | `string`
+
+Trigger id. ||
+|| `--name` | `string`
+
+Trigger name. ||
 || `--new-name` | `string`
 
-Trigger new name. ||
+Trigger name. ||
 || `--description` | `string`
 
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. All existing labels are replaced ||
+A list of label KEY=VALUE pairs to add. ||
 || `--log-group-id` | `string`
 
 Log group identifier. ||
 || `--log-group-name` | `string`
 
 Log group name. ||
-|| `--resource-ids` | `value[,value]`
+|| `--resource-ids` | `[]string`
 
 Resource IDs to filter log events. ||
-|| `--resource-types` | `value[,value]`
+|| `--resource-types` | `[]string`
 
 Resource types to filter log events. ||
-|| `--stream-names` | `value[,value]`
+|| `--stream-names` | `[]string`
 
 Stream names to filter log events. ||
-|| `--log-levels` | `value[,value]`
+|| `--log-levels` | `[]string`
 
 Logging levels to filter log events.
 Available levels are: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'. ||
@@ -52,12 +58,6 @@ Maximum size of events in a batch. ||
 || `--batch-cutoff` | `duration`
 
 Maximum time to wait before flushing an incomplete batch. ||
-|| `--id` | `string`
-
-Trigger id. ||
-|| `--name` | `string`
-
-Trigger name. ||
 |#
 
 #### Global Flags

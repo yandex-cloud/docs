@@ -24,7 +24,7 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 (MEMORY_LIMIT_EXCEEDED), Stack trace (when copying this message, always include the lines below)
 ```
 
-Максимальное значение **Max memory usage** ограничено настройкой **Max server memory usage**. Если **Max memory usage** равно `0`, причиной ошибки `MEMORY_LIMIT_EXCEEDED` может быть достижение общего лимита памяти сервера. Увеличение **Max memory usage** в этом случае не поможет. [Оптимизируйте запрос]({{ ch.docs }}resources/support-center/knowledge-base/performance-optimization/memory-limit-exceeded-for-query), чтобы сократить потребление памяти, или [измените класс хостов](../../managed-clickhouse/operations/update.md#change-resource-preset). Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md).
+Максимальное значение **Max memory usage** ограничено настройкой **Max server memory usage**. Если **Max memory usage** равно `0`, причиной ошибки `MEMORY_LIMIT_EXCEEDED` может быть достижение общего лимита памяти сервера. Увеличение **Max memory usage** в этом случае не поможет. [Оптимизируйте запрос]({{ ch.docs }}{{ lang }}resources/support-center/knowledge-base/performance-optimization/memory-limit-exceeded-for-query), чтобы сократить потребление памяти, или [измените класс хостов](../../managed-clickhouse/operations/update.md#change-resource-preset). Подробнее в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
 [Увеличить](../../managed-clickhouse/operations/cluster-users.md#update-settings) значение **Max memory usage** можно в настройках пользователя или с помощью SQL-запросов:
 

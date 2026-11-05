@@ -4,6 +4,15 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.244.0 (November 4, 2026)
+
+##### FEATURES:
+* organizationmanager: add `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: add `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* mdb_clickhouse: add deletion_protection_mode support for databases and users
+
+
+
 ## 0.243.0 (October 30, 2026)
 
 ##### BUG FIXES:

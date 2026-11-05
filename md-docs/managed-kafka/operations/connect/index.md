@@ -111,16 +111,6 @@
 
    Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
 
-- Windows (PowerShell) {#windows}
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
-   ```
-
-   Сертификат будет сохранен в файле `$HOME\.kafka\YandexInternalRootCA.crt`.
-
-   Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее в разделе [Вопросы и ответы](../../qa/index.md#get-ssl-error).
-
 {% endlist %}
 
 При работе с [Managed Service for Apache Kafka® REST API](../../concepts/available-apis.md) используется этот же сертификат.

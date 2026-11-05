@@ -17,16 +17,16 @@ Syntax:
 
 #|
 ||Flag | Description ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--name` | `string`
 
 Workflow name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--description` | `string`
 
 Workflow description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--yaml-spec` | `string`
 
 Workflow specification file name. ||
@@ -38,10 +38,10 @@ Workflow network id. ||
 Service account id. ||
 || `--schedule-cron-expression` | `string`
 
-Cron expression for workflow schedule. Example: '0/1 * * * * *'. ||
+Cron expression for workflow schedule. ||
 || `--schedule-timezone` | `string`
 
-Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone. ||
+Timezone for workflow schedule. ||
 || `--set-is-public` | Make workflow public for execution. ||
 || `--no-logging` | Disable logging from workflow. ||
 || `--log-group-id` | `string`

@@ -4,6 +4,7 @@
 
 Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
 1. [Проверьте работу репликации](#check-replication).
@@ -11,7 +12,11 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
@@ -26,7 +31,7 @@
     * [По фактическому использованию](../../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 Подготовьте инфраструктуру:
 
@@ -40,7 +45,7 @@
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. [Выдайте пользователю административные привилегии](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
+    1. [Выдайте пользователю административные привилегии](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
     
     1. Настройте [группы безопасности](../../../managed-mysql/operations/connect/index.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
@@ -90,7 +95,7 @@
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Создайте поток данных {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
+1. [Создайте поток данных {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) с именем `mmy-stream`.
 
 1. [Подключитесь к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
 
@@ -115,7 +120,7 @@
 1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/data-streams.md) типа `{{ yds-name }}` со следующими настройками:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — `ydb-example`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — `mpg-stream`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — `mmy-stream`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — `yds-sa`.
 
 1. Создайте эндпоинт-источник и трансфер:

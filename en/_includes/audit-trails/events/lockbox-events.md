@@ -2,6 +2,7 @@ Event name | Description
 --- | ---
 `AddVersion` | Adding a version of a secret
 `ActivateSecret` | Activating a secret
+`CancelDeleteSecret` | Canceling secret deletion
 `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version
 `CreateSecret` | Creating a secret
 `DeactivateSecret` | Deactivating a secret

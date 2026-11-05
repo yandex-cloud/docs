@@ -11,7 +11,7 @@ In this example, you will install [Spring PetClinic](https://github.com/spring-p
      sudo apt install -y git openjdk-17-jdk
      ```
 
-  1. Install [Fluent Bit](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) 4.0 or higher.
+  1. Install [Fluent Bit](https://docs.fluentbit.io/manual/4.0/installation/getting-started-with-fluent-bit) 4.0 or higher.
 
   1. Set these environment variables:
 

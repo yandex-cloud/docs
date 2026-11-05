@@ -17,7 +17,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Кластер {{ mkf-name }}: использование вычислительных ресурсов выделенных хостов и объем хранилища ([тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
 * Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
@@ -67,7 +67,7 @@
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `dataproc-kafka`.
       * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
-      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `3.5`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `3.7`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-b`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-security-group`.
@@ -111,7 +111,7 @@
 
    1. Укажите в файле `kafka-and-data-proc.tf`:
 
-      * `folder_id` — идентификатор облачного каталога, такой же, как в настройках провайдера.
+      * `folder_id` — идентификатор каталога, такой же, как в настройках провайдера.
       * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../../data-proc/operations/connect-ssh.md).
 
    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -177,8 +177,8 @@
    ```python
    #!/usr/bin/env python3
 
-   from pyspark.sql import SparkSession, Row
-   from pyspark.sql.functions import to_json, col, struct
+   from pyspark.sql import SparkSession
+   from pyspark.sql.functions import col
 
    def main():
       spark = SparkSession.builder.appName("dataproc-kafka-read-batch-app").getOrCreate()
@@ -213,8 +213,8 @@
    ```python
    #!/usr/bin/env python3
 
-   from pyspark.sql import SparkSession, Row
-   from pyspark.sql.functions import to_json, col, struct
+   from pyspark.sql import SparkSession
+   from pyspark.sql.functions import col
 
    def main():
       spark = SparkSession.builder.appName("dataproc-kafka-read-stream-app").getOrCreate()
@@ -253,9 +253,9 @@
 
 1. [Получите FQDN хоста {{ KF }}](../../../managed-kafka/operations/connect/index.md#get-fqdn) и укажите FQDN в каждом скрипте.
 1. [Загрузите в корень бакета](../../../storage/operations/objects/upload.md) подготовленные скрипты.
-1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create) для записи сообщения в топик {{ KF }}. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-write.py`.
+1. [Создайте задание PySpark](../../../data-proc/operations/jobs-pyspark.md#create) для записи сообщений в топик {{ KF }}. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь к скрипту `s3a://<имя_созданного_бакета>/kafka-write.py`.
 1. Дождитесь, когда [статус задания](../../../data-proc/operations/jobs-pyspark.md#get-info) изменится на `Done`.
-1. Убедитесь, что данные в топик были успешно записаны. Для этого создайте новое задание PySpark для чтения из топика и для пакетной обработки данных. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-batch.py`.
+1. Убедитесь, что данные успешно записаны в топик. Для этого создайте новое задание PySpark для чтения из топика и пакетной обработки данных. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь к скрипту `s3a://<имя_созданного_бакета>/kafka-read-batch.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. [Скачайте из бакета](../../../storage/operations/objects/download.md) файл с прочитанными данными:
 
@@ -270,7 +270,7 @@
 
    Файл хранится в новой папке `kafka-read-batch-output` в бакете.
 
-1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь до скрипта `s3a://<имя_созданного_бакета>/kafka-read-stream.py`.
+1. Прочитайте сообщения из топика при потоковой обработке. Для этого создайте еще одно задание PySpark. В поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** укажите путь к скрипту `s3a://<имя_созданного_бакета>/kafka-read-stream.py`.
 1. Дождитесь, когда статус нового задания изменится на `Done`.
 1. Скачайте из бакета файлы с прочитанными данными:
 
@@ -296,7 +296,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
 1. Остальные ресурсы удалите в зависимости от способа их создания:

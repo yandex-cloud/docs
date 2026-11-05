@@ -1,7 +1,11 @@
-С помощью [{{ CH }} JDBC Bridge]({{ ch.docs }}{{ lang }}/integrations/jdbc/jdbc-with-clickhouse) вы можете:
+С помощью [{{ CH }} JDBC Bridge]({{ ch.docs }}{{ lang }}/integrations/jdbc/jdbc-with-clickhouse) вы можете запрашивать данные из таблицы внешней базы данных Microsoft SQL Server [функцией JDBC Table Function]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/jdbc). Для создания таблиц в кластере {{ CH }}, которые ссылаются на таблицу внешней базы данных Microsoft SQL Server, будет использоваться [инструмент JDBC Table Engine]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/jdbc).
 
-* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Microsoft SQL Server.
-* [Создавать таблицы](#jdbc-table-engine) в {{ CH }} с помощью [JDBC Table Engine]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Microsoft SQL Server.
+Чтобы интегрировать кластер {{ CH }} с БД Microsoft SQL Server через {{ CH }} JDBC Bridge:
+
+1. [Подготовьте инфраструктуру](#deploy-infrastructure).
+1. [Подготовьте внешнюю базу данных Microsoft SQL Server](#prepare-source).
+1. [Запросите данные с помощью JDBC Table Function](#jdbc-table-function).
+1. [Создайте таблицу с помощью JDBC Table Engine](#jdbc-table-engine).
 
 ## Подготовьте облако к работе {#before-begin}
 
@@ -9,7 +13,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Кластер {{ mch-name }}: использование вычислительных ресурсов выделенных хостов, объем хранилища и резервных копий ([тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик, если для хостов кластера не включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
@@ -19,12 +23,12 @@
 
     Также добавьте правило для исходящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `0-65535`;
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`;
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-    Это правило разрешает любой исходящий трафик, что позволит {{ CH }} JDBC Bridge подключаться к внешним базам данных, в т. ч. к Microsoft SQL Server.
+    Это правило разрешает любой исходящий трафик, что позволит {{ CH }} JDBC Bridge подключаться к внешним базам данных, в том числе к Microsoft SQL Server.
 
 1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md).
 
@@ -40,8 +44,7 @@
 ## Подготовьте внешнюю базу данных Microsoft SQL Server {#prepare-source}
 
 1. Убедитесь, что к вашей инсталляции внешней базы данных Microsoft SQL Server разрешено подключение по портам `9019` и `1433`.
-
-1. Подключитесь к вашей инсталляции внешней базы данных Microsoft SQL Server и загрузите [JDBC драйвер](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) в директорию `/opt/drivers`:
+1. Подключитесь к вашей инсталляции внешней базы данных Microsoft SQL Server и загрузите [JDBC-драйвер](https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) в директорию `/opt/drivers`:
 
     ```bash
     sudo mkdir -p /opt/drivers && \
@@ -184,7 +187,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 * [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

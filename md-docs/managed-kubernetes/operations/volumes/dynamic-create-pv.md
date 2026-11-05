@@ -25,7 +25,7 @@
 
    {% endnote %}
 
-   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
    ```yaml
    apiVersion: v1

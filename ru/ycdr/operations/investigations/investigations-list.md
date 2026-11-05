@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Работа со списком расследований
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 В этом разделе описано, как работать со списком расследований: фильтровать по дате, искать по названию и тегам, сортировать по дате изменения.
 

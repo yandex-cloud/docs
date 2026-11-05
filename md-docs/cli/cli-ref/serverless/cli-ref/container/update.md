@@ -14,21 +14,21 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--new-name` | `string`
-
-New container name. ||
-|| `--description` | `string`
-
-Container description. ||
-|| `--labels` | `key=value[,key=value...]`
-
-A list of label KEY=VALUE pairs. ||
 || `--id` | `string`
 
 Container id. ||
 || `--name` | `string`
 
 Container name. ||
+|| `--new-name` | `string`
+
+Container name. ||
+|| `--description` | `string`
+
+Container description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of label KEY=VALUE pairs. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

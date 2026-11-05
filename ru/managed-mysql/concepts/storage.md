@@ -81,5 +81,4 @@ description: Из статьи вы узнаете, какие типы диск
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)
 * [{#T}](../tutorials/bitrix-website/index.md)
-* [{#T}](../tutorials/opencart/index.md)
 

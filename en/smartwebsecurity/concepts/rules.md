@@ -5,15 +5,14 @@ description: Learn about the available rule types in {{ sws-name }}, how they ap
 
 # Rules
 
-Using rules, you can define [conditions](conditions.md) for selecting HTTP request, specify [actions](#rule-action) for requests that match these conditions, and prioritize rules.
+A _rule_ sets the [conditions](conditions.md) for selection of HTTP requests and the [action](#rule-action) applied to them. If a request satisfies several rules, the resulting action is determined by their [priorities](#rules-order).
 
-The rule priority is set as a numeric parameter from `1` to `1000000`.
+For setup instructions, see [Rule management](../operations/index.md#rules).
 
-{% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
-
-You can also log information about the traffic matching your conditions, without applying any action to it.
+## Types of rules {#rule-types}
 
 {{ sws-full-name }} provides the following rule types:
+
 * [Basic](#base-rules)
 * [Smart Protection](#smart-protection-rules)
 * [Web Application Firewall](#waf-rules)
@@ -21,43 +20,146 @@ You can also log information about the traffic matching your conditions, without
 
 There is also an internal [service rule](#service-rule) which can trigger during attacks.
 
-You can learn more in [Managing rules](../operations/index.md#rules).
+### Basic rules {#base-rules}
 
-## Basic rules {#base-rules}
+A _basic rule_ allows you to manage access based on HTTP request parameters, e.g., client's IP address, request path, or headers. Requests can be allowed, denied, or sent to a [CAPTCHA](#captcha-settings) page. For example, you can allow requests from trusted IP addresses or activate a CAPTCHA check for the login page.
 
-_Basic rule_ is a rule that allows, denies, or directs traffic to [{{ captcha-full-name }}](../../smartcaptcha/) based on specified conditions. It is used for simple traffic filtering based on specific parameters.
+Each [security profile](profiles.md) has a _basic default rule_ with the lowest priority. It allows or denies requests not covered by the conditions of the other rules of the profile.
 
-Each [security profile](profiles.md) includes a _basic default rule_ with the lowest priority (`1000000`) that allows or denies all traffic.
+### Smart Protection rules {#smart-protection-rules}
 
-{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
+_Smart Protection_ analyzes traffic based on specified criteria using machine learning algorithms and behavioral analysis. This rule provides Layer 7 DDoS protection and supports [full protection and API protection](#smart-protection-actions).
 
-## Smart Protection rules {#smart-protection-rules}
+### WAF + Smart Protection rules {#waf-rules}
 
-_Smart Protection_ is a rule that sends traffic, based on specified conditions, for automatic analysis using machine learning and behavioral analysis algorithms. This rule ensures L7 DDoS protection. If there is no such rule, or the rule is in `Logging only` mode, the protection does not apply and traffic reaches the protected resource. Depending on the selected [action](#rule-action), suspicious requests are sent to {{ captcha-name }} for additional verification or get blocked.
+The _Web Application Firewall_ (WAF) rule connects a [WAF profile](waf.md) with [basic rule sets](waf.md#rules-set) for traffic analysis. It also includes Smart Protection and supports the same [actions](#smart-protection-actions). With WAF connected, no separate Smart Protection rule for the same traffic is required.
 
-## WAF + Smart Protection rules {#waf-rules}
+### Advanced Rate Limiter rules {#arl-rules}
 
-Web Application Firewall rules engage a [WAF profile](waf.md) to analyze traffic for compliance with the [WAF basic rule sets](waf.md#rules-set). These rules also enable Smart Protection against L7 DDoS. Depending on the selected [action](#rule-action), suspicious requests are sent to [{{ captcha-name }}](../../smartcaptcha/) for additional verification or get blocked.
+An _Advanced Rate Limiter_ (ARL) rule limits the number of requests over a specific time period. You can set the limit for all traffic or its specific segments.
 
-You can use the following {{ captcha-name }} CAPTCHA options to verify requests compliant with the Smart Protection and Web Application Firewall rules:
+Rules are configured in a separate [ARL profile](arl.md), which is linked to the security profile. Available [actions](#arl-rule-actions) apply to requests in excess of the limit.
+
+## Rule actions {#rule-action}
+
+Available actions depend on the rule type. Requests permitted by all rules and allowed to reach the protected resource are called _legitimate_.
+
+You can create custom [response templates](response-templates.md) to ensure a consistent format of responses triggered by rules.
+
+### Basic rules {#base-rule-actions}
+
+For basic rules, you can select the following actions:
+
+* _{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}_: Block requests.
+* _{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}_: Skip requests.
+* _{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}_: Redirect the client to a [CAPTCHA](#captcha-settings).
+
+### Smart Protection and WAF {#smart-protection-actions}
+
+There are two modes available for Smart Protection and WAF rules:
+
+* _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}_: Suspicious requests are sent for one of the following [checks](#client-checks): JS challenge, cookie challenge, or CAPTCHA. Smart Protection automatically selects a check based on its request analysis.
+* _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}_: Requests are not sent for additional checks, but protection policies block obvious attack attempts. In this mode, a request that would be sent for a check in full protection mode can be allowed to access the resource.
+
+Use the _API protection_ mode for endpoints:
+
+* Of mobile apps.
+* With automated calls.
+* With dynamic content loading (`ajax`, `xhr`, `iframe`).
+
+### Advanced Rate Limiter {#arl-rule-actions}
+
+For requests exceeding the limit, you can select the following actions:
+
+* _{{ ui-key.yacloud.smart-web-security.arl.label_rule-action-deny_3kenc }}_: Block requests until the end of the limit period.
+* _Temporarily block all requests_: Block requests for a fixed period from 1 second to 24 hours after the limit is exceeded.
+* _{{ ui-key.yacloud.smart-web-security.arl.label_rule-action-captcha }} requests exceeding the limit_: Redirect the client to {{ captcha-name }}.
+
+On blocking, the client gets the `429` error. [CAPTCHA](#captcha-settings) allows you to check requests in excess of the limit without immediate blocking.
+
+{% note warning %}
+
+Do not use CAPTCHA for HTTP requests with dynamic content loading (`ajax`, `xhr`, `iframe`) and requests to mobile applications.
+
+{% endnote %}
+
+## JS challenge, cookie challenge, and CAPTCHA {#client-checks}
+
+In [full protection](#smart-protection-actions) mode, Smart Protection either allows the request to reach the resource or automatically selects a check for suspicious traffic.
+
+* _JS Challenge_: Automatically checks the execution of JavaScript code on the client side.
+* _Cookie challenge_: Automatically checks whether the client can save a cookie and provide it in the next request.
+* _CAPTCHA_: Redirects the user to [{{ captcha-name }}](../../smartcaptcha/), where they may be required to complete a [challenge](../../smartcaptcha/concepts/tasks.md).
+
+In [normal](profiles.md#protection-mode) mode, only unmistakably robotic requests go to CAPTCHA, which Smart Protection can see by their high [Bot score](conditions.md). The rest of the requests are either redirected to a JS or cookie challenge or allowed through without any additional check.
+
+A successful JS or cookie challenge does not prove that the request was sent by a human: automated browsers also support JavaScript and cookies. Moreover, if JavaScript or cookies are disabled, even a legitimate client may fail the check.
+
+
+### Configuring CAPTCHA {#captcha-settings}
+
+All rules that forward requests to a CAPTCHA use the CAPTCHA from the security profile. The following options are available:
 
 {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
-## Advanced Rate Limiter rules {#arl-rules}
+{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
-An [Advanced Rate Limiter](arl.md) rule calculates the number of requests received over a certain period of time. Requests are counted after they are allowed by the Smart Protection and Web Application Firewall rules, meaning that ARL rules have their own priority independent of other rules.
+## Rule application modes {#protection-modes}
 
-ARL rules allow you to set limits either for the whole traffic or some of its segments.
+For each security profile rule, you select a set of [protection modes](profiles.md#protection-mode) it operates in:
 
-Unlike Smart Protection and WAF rules, ARL rules are configured in an ARL profile.
+* **All modes** (default).
+* **_Enhanced protection_ and _Under attack_**.
+* **_Under attack_**.
+
+When you switch the profile mode, the selected rule set becomes active.
+
+Application modes are set when [adding](../operations/rule-add.md) or [modifying](../operations/rule-update.md) a rule and displayed in the profile rule table.
+
+## General principles of rules {#rules-order}
+
+First, requests are processed by the security profile rules. Then, the allowed requests are checked by the ARL profile rules, if there is an ARL. The priorities in these profiles are independent of each other.
+
+### Security profile {#security-profile-rules-order}
+
+Set the rule priority using a number from `1` to `1000000`. Rules active in the current [protection mode](profiles.md#protection-mode) will trigger simultaneously. One request may be subject to several rules. The final action is determined by the highest priority rule.
+
+{% include [preconfigured-rules-priority](../../_includes/smartwebsecurity/preconfigured-rules-priority.md) %}
+
+Assign higher priority to:
+
+* Rules that allow requests.
+* Rules with filtering conditions based on specific parameters.
+
+Otherwise, general rules with broader conditions may apply.
+
+{% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
+
+### ARL profile {#arl-profile-rules-order}
+
+ARL rules can block requests permitted by the security profile. If this traffic needs not be limited, exclude it from the [ARL rule conditions](arl.md#traffic-conditions).
+
+The lower the number, the higher the ARL rule priority. You can choose any priority values​ at will. Rule order example:
+
+Priority | Rule name | Action | Rule description
+--- | --- | --- | ---
+1,000 | arl-rule-1 | Block requests in excess of the limit | Limits general load on resource
+2,000 | arl-rule-2 | Temporarily block all requests | Protects against bots, parsers, brute-force attacks, spam
+3,000 | arl-rule-3 | Send requests in excess of limit to captcha | Checks browser clients if the limit is exceeded
+
+### _Logging only_ mode {#dry-run}
+
+The `Logging only` mode allows you to check rule conditions and priorities prior to enabling protection. This rule logs information about matching requests but does not apply an action to them. For ARL rules, limit violations are logged.
+
+Such rules do not affect traffic processing: the next suitable highest priority rule applies for which protection is enabled. Thus, a Smart Protection rule in the `Logging only` mode does not protect against DDoS attacks.
+
+For security profile rules, the `dry_run_matched_rule_verdict` field contains the expected rule action in the `Logging only` mode. The actual action performed with the request is in the `action` field. Learn more about [log fields](logging.md#log-contents) and [rule filters in logging mode](../operations/configure-logging.md#dry-run-filters).
 
 ## Service rule {#service-rule}
 
-To maximize protection against attacks, {{ sws-name }} may block requests that are explicitly allowed by the user profile. This defense mechanism is used exclusively for malicious requests. For other requests, the user’s custom security profile will continue to apply.
+For enhanced protection from attacks, {{ sws-name }} can block malicious requests even if the security profile allows them. The rest of the requests are processed according to the profile settings.
 
-Service rule trigger events are registered in [logs](logging.md) with the `sws_service_rule` label.
-
-**Log examples**
+Service rule trigger events get [logged](logging.md) with the `sws_service_rule` label. Log examples:
 
 * In {{ sws-name }}:
 
@@ -77,75 +179,3 @@ Service rule trigger events are registered in [logs](logging.md) with the `sws_s
       "verdict": "DENY"
     }
     ```
-
-## Rule actions {#rule-action}
-
-Actions for basic rules:
-* _Deny_ traffic whose parameters match the conditions.
-* _Allow_ traffic whose parameters match the conditions.
-
-Actions for Smart Protection and Web Application Firewall rules:
-* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Redirect suspicious requests to {{ captcha-name }}.
-
-     {% note warning %}
-
-     To ensure your application works correctly, apply _API protection_ to HTTP requests with dynamic content loading.
-
-     {% endnote %}
-
-* Use _API protection_ for endpoints that:
-     
-     * Belong to mobile apps.
-     * Receive automated calls.
-     * Process requests with dynamic content loading, such as `ajax`, `xhr`, `iframe`, etc.
-          
-  Traffic is checked by ML models and behavioral analysis algorithms. Requests are not sent to {{ captcha-name }}, which allows making legitimate API calls to the protected resources. Special DDoS protection policies block only overt attack attempts. If, in full protection mode, a request was redirected to a CAPTCHA challenge, the API protection mode may let it through to the protected resource.
-
-Actions for Advanced Rate Limiter rules:
-
-* _Block requests in excess of the limit_. Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
-
-* _Temporarily block all requests_. Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for a period from 1 second to 24 hours.
-
-* _Send requests in excess of the limit to captcha_. Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
-
-    Requests exceeding the limit will be sent to CAPTCHA. You can configure CAPTCHA in the security profile to which the ARL profile is connected. This helps differentiate legitimate users from bots, ensuring that requests are not fully blocked and the application remains available.
-
-    {% note warning %}
-
-    Do not use CAPTCHA for HTTP requests with dynamic content loading (`ajax`, `xhr`, `iframe`) and requests to mobile applications.
-
-    {% endnote %}
-    
-To standardize client response pages for triggered rules, you can create your own [response templates](response-templates.md).
-
-The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.
-
-## Overview of how rules work {#rules-order}
-
-* All rules within a profile trigger simultaneously, and a single request may match several rules. The highest-priority rule determines how to handle the request.
-* Assign higher priority to:
-     * Rules that allow requests.
-     * Rules with filtering conditions based on specific parameters.
-
-  Otherwise, general rules with broader conditions may apply.
-* If you are using a WAF rule for a traffic slice, a separate Smart Protection rule against DDoS attacks is not required for that same slice, as it is already included in the WAF rule. Therefore, WAF rules have full protection and API protection modes.
-* In API protection mode, requests are not sent to {{ captcha-name }}. Use this mode for automated traffic, mobile applications, and requests with dynamic content loading, e.g., `ajax`, `xhr`, and `iframe`.
-* ARL profile rules apply after the security profile and may block some legitimate requests. Therefore, if you have configured allowing rules in the security profile, duplicate them in the ARL profile.
-* In `Logging only` mode, traffic handling is not affected by the rules; instead of them, the next lower priority rule in regular operation mode applies.
-
-### Security profile {#security-profile-rules-order}
-
-{% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
-
-### ARL profile {#arl-profile-rules-order}
-
-ARL profile rules are applied to traffic that has already been validated by security profile rules. The ARL profile has its own priority system, independent of how the security profile rules are prioritized. The lower the number, the higher the ARL rule priority. The sequence in which the rules will apply is provided in the table below.
-
-Priority | Rule name | Action | Rule description
---- | --- | --- | ---
-1000 | arl-rule-1 | Block requests in excess of the limit | Limits general load on resource
-2000 | arl-rule-2 | Temporarily block all requests | Protects against bots, parsers, brute-force attacks, spam
-3000 | arl-rule-3 | Send requests in excess of limit to captcha | Limits requests to the API
-
-You can configure ARL rules with any priority values. In `Logging only` mode, ARL rules do not block requests but log over-limit events.

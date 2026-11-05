@@ -71,4 +71,3 @@ FQDN можно использовать для доступа к хосту в 
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)
 * [{#T}](../tutorials/bitrix-website/index.md)
-* [{#T}](../tutorials/opencart/index.md)

@@ -76,7 +76,7 @@ This tutorial uses the current Fluent Bit version, 1.9.
     ```bash
     curl https://raw.githubusercontent.com/fluent/fluent-bit/master/install.sh | sh
     ```
-    For more information on how to install Fluent Bit, see [this Fluent Bit guide](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
+    For more information on how to install Fluent Bit, see [this Fluent Bit guide](https://docs.fluentbit.io/manual/installation/downloads/linux/ubuntu).
 
 1. Start `fluent-bit`:
     ```bash

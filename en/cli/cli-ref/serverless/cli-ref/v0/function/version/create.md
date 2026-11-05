@@ -60,7 +60,7 @@ Version description. ||
 || `--environment` | `map<string><string>`
 
 Version environment variables. ||
-|| `--tags` | `value[,value]`
+|| `--tags` | `[]string`
 
 Version tags. ||
 || `--network-name` | `string`
@@ -69,12 +69,12 @@ Version network name. ||
 || `--network-id` | `string`
 
 Version network id. ||
-|| `--subnet-name` | `value[,value]`
+|| `--subnet-name` | `[]string`
 
 DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
 
 Version subnet names. ||
-|| `--subnet-id` | `value[,value]`
+|| `--subnet-id` | `[]string`
 
 DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
 

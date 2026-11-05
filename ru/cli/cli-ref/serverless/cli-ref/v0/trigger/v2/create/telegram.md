@@ -26,14 +26,14 @@ Trigger name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
-|| `--action` | `value[,value]`
+A list of label KEY=VALUE pairs to add. ||
+|| `--action` | `[]string`
 
 Action as JSON or '@path/to/file.json'. To set multiple actions, use multiple --action flags. ||
 || `--bot-token` | `string`
 
 Telegram bot token. Required ||
-|| `--allowed-updates` | `value[,value]`
+|| `--allowed-updates` | `[]string`
 
 Types of Telegram updates to receive, comma-separated.  Optional, default is "message". ||
 || `--force` | Overwrite a webhook the bot already has set to a different URL, instead of failing with "webhook already in use".

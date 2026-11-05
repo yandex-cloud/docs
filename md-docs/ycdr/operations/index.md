@@ -2,6 +2,10 @@
 
 # Инструкции по работе с Yandex Cloud Detection and Response
 
+## Подключение {#connect}
+
+* [Подключение к Yandex Cloud Detection and Response](connect.md)
+
 ## Расследования {#investigations}
 
 * [Работа с расследованиями](investigations/index.md)

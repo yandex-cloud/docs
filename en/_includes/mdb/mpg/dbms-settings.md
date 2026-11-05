@@ -691,7 +691,7 @@
 
 - **Gin pending list limit**{#setting-gin-list-limit} {{ tag-all }}
 
-  Defines the maximum size (in bytes) of the [GIN index's](https://www.postgresql.org/docs/current/gin-intro.html) pending list. This list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, all its entries are moved to the main GIN index structure and the list is cleared.
+  Defines the maximum size (in bytes) of the [GIN index's](https://www.postgresql.org/docs/current/gin.html) pending list. This list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, all its entries are moved to the main GIN index structure and the list is cleared.
 
   The minimum value is `64`, the maximum is `2147483647` (2 GB), and the default is `4194304`.
 

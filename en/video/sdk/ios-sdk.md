@@ -7,7 +7,7 @@ description: Follow this guide to integrate {{ video-player-name }} into your mo
 
 The [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) allows you to embed a [player](../concepts/player.md) for {{ video-name }} content into your iOS app.
 
-To use the SDK, you need the [Xcode](https://developer.apple.com/xcode/) IDE version 16.4 or higher and [Swift](https://www.swift.org/install/macos/) version 5.8 or higher.
+To use the SDK, you need the [Xcode](https://developer.apple.com/xcode/) IDE version 16.4 or higher and [Swift](https://www.swift.org/install/macos/) version 5.10 or higher. Minimum supported iOS version: 15.
 
 ## Adding a video player SDK library {#add-library}
 
@@ -18,7 +18,7 @@ To use the SDK, you need the [Xcode](https://developer.apple.com/xcode/) IDE ver
   1. In the **Project Navigator** Xcode window, select your project. 
   1. In the top panel, click **File** and select **Add Package Dependencies...**.
   1. In the search box ![image](../../_assets/console-icons/magnifier.svg), enter `https://github.com/yandex-cloud/cloud-video-player-ios-sdk/`. Then, select the `cloud-video-player-ios-sdk` package.
-  1. In the **Dependency Rule** field, select **Up to Next Major Version** and specify the version: `0.1.6`.
+  1. In the **Dependency Rule** field, select **Up to Next Major Version** and specify the version: `0.1.7`.
   1. In the **Add to Project** field, select the project you want to add libraries to and click **Add Package**.
   1. In the pop-up window, specify the target to add the libraries to and click **Add Package**.
       
@@ -36,7 +36,7 @@ To use the SDK, you need the [Xcode](https://developer.apple.com/xcode/) IDE ver
       dependencies: [
         .package(
           url: "https://github.com/yandex-cloud/cloud-video-player-ios-sdk/",
-          from: "0.1.6"
+          from: "0.1.7"
         )
       ],
       ```
@@ -317,6 +317,88 @@ struct ContentView: View {
 {% include [video-content-id-desc](../../_includes/video/video-content-id-desc.md) %}
 
 {% endcut %}
+
+### Configuring playback {#playback-settings}
+
+To specify the initial position, audio state, and automatic playback start, provide a [PlaybackConfig](./CloudVideoPlayerSDK/PlaybackConfig.md) object to the `set(source:config:)` method:
+
+```swift
+let config = PlaybackConfig(
+  autoplay: true,
+  isMuted: false,
+  startPosition: Time(sec: 30)
+)
+player.set(source: source, config: config)
+```
+
+In the example, `player` is an earlier created `YaPlayer` instance, and `source` is a `ContentIdEndpoint` source. The player will start playback from the 30-second mark, with sound on. If no `config` is specified, the following `PlaybackConfig.base` configuration is used: playback from the beginning, not muted, no automatic start.
+
+To change the playback speed, check its availability using the `canSet(playbackSpeed:)` method, then call `set(playbackSpeed:)`:
+
+```swift
+if player.canSet(playbackSpeed: .x150) {
+  do {
+    try player.set(playbackSpeed: .x150)
+  } catch {
+    print("Failed to change speed: \(error)")
+  }
+}
+```
+
+For predefined speed values, see the [PlaybackSpeed](./CloudVideoPlayerSDK/PlaybackSpeed.md#properties) reference.
+
+### Monitoring the player state {#state-monitoring}
+
+To receive notifications about changes in the player's state, subscribe to events using [Combine](https://developer.apple.com/documentation/combine). For example, create an object that tracks the player's state, playback position, and errors:
+
+```swift
+import Combine
+import CloudVideoPlayer
+
+final class PlayerObserver {
+  private var subscriptions = Set<AnyCancellable>()
+
+  init(player: YaPlayer) {
+    player.playerStatusDidChange()
+      .sink { status in
+        print("Player state: \(status)")
+      }
+      .store(in: &subscriptions)
+
+    player.periodicTimePublisher(interval: 1)
+      .sink { time in
+        print("Playback position: \(time)")
+      }
+      .store(in: &subscriptions)
+
+    player.errorDidDetected()
+      .sink { error in
+        print("Playback error: \(error)")
+      }
+      .store(in: &subscriptions)
+  }
+}
+```
+
+Create a `PlayerObserver(player: player)` instance and store it, e.g., in a controller property. Subscriptions must be maintained while you are tracking events. Releasing an object cancels its associated subscriptions. By default, events are delivered to the `.main` queue. To select a different queue, provide the `queue` parameter to the subscription method.
+
+For the full list of properties and methods, see the [YaPlayer](./CloudVideoPlayerSDK/YaPlayer.md) reference.
+
+### Returning to live {#go-to-live}
+
+To return to live after rewinding the broadcast, call the `goToLive()` asynchronous method:
+
+```swift
+Task {
+  do {
+    try await player.goToLive()
+  } catch {
+    print("Failed to return to live: \(error)")
+  }
+}
+```
+
+The method moves the playback position to the right edge of the broadcast timeline. If the transition is not possible, e.g., during video-on-demand (VOD) playback, the method returns an error.
 
 #### Useful links {#see-also}
 

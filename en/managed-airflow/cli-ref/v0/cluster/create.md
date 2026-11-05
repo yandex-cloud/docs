@@ -11,7 +11,7 @@ Create Airflow cluster
 
 Syntax:
 
-`yc managed-airflow cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
+`yc managed-airflow v0 cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -26,7 +26,7 @@ Description of the cluster. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of Airflow cluster labels as key-value pairs. ||
-|| `--webserver` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--webserver` | `key=value[,key=value...]`
 
 Configuration of webserver instances.
 
@@ -35,7 +35,7 @@ Possible property names:
 - `count`: The number of instances in the cluster.
 
 - `resource-preset-id`: ID of the preset for computational resources available to the component (CPU, memory etc.). ||
-|| `--scheduler` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--scheduler` | `key=value[,key=value...]`
 
 Configuration of scheduler instances.
 
@@ -44,7 +44,7 @@ Possible property names:
 - `count`: The number of instances in the cluster.
 
 - `resource-preset-id`: ID of the preset for computational resources available to the component (CPU, memory etc.). ||
-|| `--dag-processor` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--dag-processor` | `key=value[,key=value...]`
 
 Configuration of dag-processor instances.
 
@@ -53,7 +53,7 @@ Possible property names:
 - `count`: The number of instances in the cluster.
 
 - `resource-preset-id`: ID of the preset for computational resources available to the component (CPU, memory etc.). ||
-|| `--triggerer` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--triggerer` | `key=value[,key=value...]`
 
 Configuration of triggerer instances.
 
@@ -62,7 +62,7 @@ Possible property names:
 - `count`: The number of instances in the cluster.
 
 - `resource-preset-id`: ID of the preset for computational resources available to the component (CPU, memory etc.). ||
-|| `--worker` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--worker` | `key=value[,key=value...]`
 
 Configuration of worker instances.
 
@@ -73,7 +73,7 @@ Possible property names:
 - `max-count`: The max number of instances in the cluster.
 
 - `resource-preset-id`: ID of the preset for computational resources available to the component (CPU, memory etc.). ||
-|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--maintenance-window` | `key=value[,key=value...]`
 
 Maintenance window settings.
 
@@ -83,15 +83,15 @@ Possible property names:
 
 - `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
 
-- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. ||
 || `--airflow-config` | `key=value[,key=value...]`
 
 Configuration of the Apache Airflow application itself. The key format is "&lt;section-name&gt;.&lt;property-name&gt;". For more information about possible properties see documentation https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html.
 Example of usage: --airflow-config api.maximum_page_limit=150. ||
-|| `--deb-packages` | `value[,value]`
+|| `--deb-packages` | `[]string`
 
 A list of system packages that are installed in the cluster. ||
-|| `--pip-packages` | `value[,value]`
+|| `--pip-packages` | `[]string`
 
 A list of python packages that are installed in the cluster. ||
 || `--airflow-version` | `string`
@@ -102,10 +102,10 @@ Version of Apache Airflow. ||
 Version of Python that Airflow will run on ||
 || `--lockbox-secrets-backend` | Whether the Lockbox Secret Backend will be allowed for the cluster. ||
 || `--datacatalog-enabled` | Whether sending data to Datacatalog will be allowed for the cluster. ||
-|| `--subnet-ids` | `value[,value]`
+|| `--subnet-ids` | `[]string`
 
 List of IDs of VPC network subnets where instances of the cluster are attached. ||
-|| `--security-group-ids` | `value[,value]`
+|| `--security-group-ids` | `[]string`
 
 A list of security groups for the Airflow cluster. ||
 || `--service-account-id` | `string`
@@ -126,7 +126,7 @@ Logs will be written to log group resolved by ID. ||
 
 Minimum log entry level. Possible values: TRACE, DEBUG, INFO, WARN, ERROR, FATAL ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--gitsync` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--gitsync` | `key=value[,key=value...]`
 
 Configuration of gitsync.
 
@@ -158,15 +158,10 @@ A name of the s3 bucket to store dags. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
-|| `--debug` | Debug logging. ||
-|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
-|| `--no-user-output` | Disable printing user intended output to stderr. ||
-|| `--retry` | `int`
+Set the custom profile. ||
+|| `--region` | `string`
 
-Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
-Pass 0 to disable retries. Pass any negative value for infinite retries.
-Even infinite retries are capped with 2 minutes timeout. ||
+Set the region. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -176,21 +171,47 @@ Set the ID of the folder to use. ||
 || `--folder-name` | `string`
 
 Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
 
-Set the Cloud API endpoint (host:port). ||
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
 || `--token` | `string`
 
 Set the OAuth token to use. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

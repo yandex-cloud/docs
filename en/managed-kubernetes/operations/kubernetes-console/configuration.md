@@ -30,7 +30,7 @@ You can create `ConfigMap` and `Secret` resources in the management console in t
 
 In the management console, you can edit `ConfigMap` and `Secret` resource manifests in a visual editor. This approach is equivalent to running the `kubectl apply -f <manifest_file.yaml>` command and allows you to update the resource configuration without re-creating it.
 
-The list of editable fields depends on the object type and is available in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/).
+The list of editable fields depends on the object type and is available in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
 {% list tabs group=instructions %}
 

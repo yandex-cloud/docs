@@ -3,15 +3,13 @@
 # Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™
 
 
-В бакетах Yandex Object Storage можно хранить как файлы, необходимые для выполнения заданий в кластере Yandex Managed Service for Apache Spark™, так и результаты выполнения заданий.
+В бакетах Yandex Object Storage можно хранить как файлы, необходимые для выполнения заданий в кластере Yandex Managed Service for Apache Spark™, так и результаты выполнения заданий. Кластеры Yandex Managed Service for Apache Spark™ уже сконфигурированы для работы с S3-хранилищами.
 
-Кластеры Yandex Managed Service for Apache Spark™ уже сконфигурированы для работы с S3-хранилищами. Чтобы использовать бакет Object Storage в PySpark-задании:
-* Предоставьте сервисному аккаунту кластера Yandex Managed Service for Apache Spark™ разрешение на доступ к бакету Object Storage.
-* Укажите путь к каталогу в бакете Object Storage в аргументах задания.
+Чтобы использовать бакет Object Storage в PySpark-задании, необходимо предоставить сервисному аккаунту кластера Yandex Managed Service for Apache Spark™ разрешение на доступ к бакету Object Storage и указать путь к каталогу в бакете Object Storage в аргументах задания.
 
 В этом руководстве показан пример работы с таблицей в бакете Object Storage из PySpark-задания с использованием встроенного локального каталога Hive.
 
-Чтобы реализовать описанный пример:
+Чтобы использовать Object Storage в сервисе Yandex Managed Service for Apache Spark™:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте PySpark-задание](#prepare-a-job).
@@ -42,13 +40,13 @@
 
     1. [Создайте бакеты](../../storage/operations/buckets/create.md):
 
-        * `<бакет_для_исходного_кода_PySpark_задания>`.
-        * `<бакет_для_выходных_данных_PySpark_задания>`.
+        * для исходного кода PySpark-задания;
+        * для выходных данных PySpark-задания.
 
     1. [Предоставьте разрешения](../../storage/operations/buckets/edit-acl.md) для сервисного аккаунта `spark-agent` на созданные бакеты:
 
-        * `<бакет_для_исходного_кода_PySpark_задания>` — разрешение `READ`.
-        * `<бакет_для_выходных_данных_PySpark_задания>` — разрешение `READ и WRITE`.
+        * бакет для исходного кода PySpark-задания — разрешение `READ`;
+        * бакет для выходных данных PySpark-задания — разрешение `READ и WRITE`.
 
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `spark-network`.
 
@@ -131,7 +129,7 @@
 
        {% endcut %}
 
-    1. Создайте в бакете `<бакет_для_исходного_кода_PySpark_задания>` папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_save_table.py`.
+    1. Создайте в бакете для исходного кода папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `job_save_table.py`.
     1. [Создайте задание](../../managed-spark/operations/jobs-pyspark.md) с параметрами:
         * **Тип задания** — `PySpark`.
         * **Main python файл** – `s3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_save_table.py`.
@@ -149,19 +147,20 @@
     1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите **Задания**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
-    1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage в формате JSON.
+    1. Убедитесь, что в бакете для выходных данных в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage в формате JSON.
 
 {% endlist %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
+Чтобы перестать платить за созданные ресурсы:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. [Бакеты Object Storage](../../storage/operations/buckets/delete.md).
-    1. [Кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-delete.md).
+    1. [Удалите все объекты из бакетов](../../storage/operations/objects/delete.md).
+    1. [Удалите бакеты](../../storage/operations/buckets/delete.md).
+    1. [Удалите кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-delete.md).
 
 {% endlist %}

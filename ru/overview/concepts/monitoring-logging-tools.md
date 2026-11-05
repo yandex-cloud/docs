@@ -12,7 +12,7 @@ description: В {{ yandex-cloud }} доступны несколько инст�
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml) — *логи* содержат записи о событиях в приложениях и сервисах и помогают разбирать ошибки и отдельные запросы.
 * [{{ at-full-name }}](../../audit-trails/index.yaml) — *аудитные логи* фиксируют, кто, когда и какие действия выполнял с ресурсами {{ yandex-cloud }}.
 
-Метрики, логи и трейсы используют [SRE](https://ru.wikipedia.org/wiki/Site_Reliability_Engineering)-, [DevOps](https://ru.wikipedia.org/wiki/DevOps) и инженерные команды. Аудитные логи используют администраторы безопасности, [SOC](https://yandex.cloud/ru/blog/soc-security-operations-center)- и [compliance](https://yandex.cloud/ru/security/compliance-portal)-команды.
+Метрики, логи и трейсы используют [SRE](https://en.wikipedia.org/wiki/Site_reliability_engineering)-, [DevOps](https://ru.wikipedia.org/wiki/DevOps) и инженерные команды. Аудитные логи используют администраторы безопасности, [SOC](https://yandex.cloud/ru/blog/soc-security-operations-center)- и [compliance](https://yandex.cloud/ru/security/compliance-portal)-команды.
 
 При расследовании инцидентов аудитные логи дополняют данные [Observability](../../glossary/observability.md): помогают сопоставить ошибки и задержки с изменениями ресурсов и прав доступа.
 

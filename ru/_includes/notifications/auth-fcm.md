@@ -4,7 +4,7 @@
 
 {% note info %}
 
-С июня 2024 года Legacy API [не поддерживается FCM](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+С июня 2024 года Legacy API [не поддерживается FCM](https://web.archive.org/web/20241219012402/https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
 {% endnote %}
 

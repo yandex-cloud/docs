@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Управление запросами
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 В этом разделе описано, как создавать и выполнять запросы на языке [KQL (Kusto Query Language)](../../kql-reference.md), а также управлять ими.
 
@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы научите
 
   {% note tip %}
 
-  Используйте подсказку в редакторе: {{ ui-key.yacloud_org.security.ycdr.query-placeholder_auE1D }}.
+  Используйте подсказку в редакторе: **{{ ui-key.yacloud_org.security.ycdr.query-placeholder_auE1D }}**.
 
   {% endnote %}
 
@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы научите
 
   1. Нажмите на название запроса на вкладке.
   1. Введите новое название.
-  1. Нажмите клавишу **Enter** или кликните вне поля ввода.
+  1. Нажмите **Enter** или кликните вне поля ввода.
 
 {% endlist %}
 

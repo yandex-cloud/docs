@@ -15,7 +15,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
-  alerting-metrics-limit: 1 000
+  alerting-metrics-limit: 1,000
   alerts-name: Alerts
   alice-ai-pro-name:
     d: Alice AI Pro
@@ -109,7 +109,7 @@ default:
   CH: ClickHouse®
   ch-domain: clickhouse.com
   ch:
-    docs: https://clickhouse.com/docs/en
+    docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-svc1-ip: 213.180.193.243/32
   ciem-full-name: Cloud Infrastructure Entitlement Management
@@ -297,6 +297,7 @@ default:
   kraft-short-name: KRaft
   kspm-full-name: Kubernetes® Security Posture Management
   kspm-name: KSPM
+  labels_per_mtetric_limit: 64
   lang: en
   lets-encrypt: Let's Encrypt®
   license-manager: License Manager
@@ -2461,7 +2462,6 @@ default:
         access_tab_add-to-group: Add to group
         access_tab_assign-roles: Assign roles
         action_next: Next
-        action_send-invitation_6LqIj: Send invitation
         action:
           add: Add
           create: "Create a\_new organization"
@@ -2882,6 +2882,8 @@ default:
         vis:
           chart-type: Chart type
           color-scheme: Color scheme
+          downsampling:
+            none: No downsampling
           interpolate-key-value: Interpolation
           normalize: Normalize
           scheme-auto: Auto
@@ -4171,7 +4173,6 @@ default:
         upload: Upload
       dashboard:
         action_add-user: Add a participant
-        action_go-to-org: Go to organization
       episodes:
         label_allow-access: Allow access
       organization:
@@ -7604,6 +7605,7 @@ default:
           label_connected-security-profiles: Connecting a security profile
           label_create-profile: Create ARL profile
           label_profiles: ARL profiles
+          label_rule-action-captcha: Send to CAPTCHA
           label_rule-action-deny_3kenc: Block requests exceeding the limit
           label_rule-without-grouping: No grouping
           label_save-rule: Save rule
@@ -7714,6 +7716,10 @@ default:
           label_waf-rule: Web Application Firewall
           title_security-rules: Security rules
           title_waf-profile: WAF profile
+        PanicModeLabel:
+          mode-name_green_5oA4f: Normal
+          mode-name_red_iPa4X: Under attack
+          mode-name_yellow_sc1Te: Elevated protection
         proxy-servers:
           publicIpColumn_dPwQF: Public IP
         ProxyServer:
@@ -7727,6 +7733,12 @@ default:
         ProxyServers:
           createProxyServer_jatYQ: Create proxy server
         SecurityProfileForm:
+          AdaptiveProtectionSection:
+            controlModeAutomatic: Automatic
+            controlModeManual: Manual
+            holdLabel: Keep the mode after the load decreases
+            sectionTitle: Protection mode
+            thresholdLabelBefore: Activation threshold
           LoggingSection:
             allowPercentageTitle_3334: How many logs with the ALLOW verdict should not be recorded
             allowTitle_g6CLe: ALLOW

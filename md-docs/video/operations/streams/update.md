@@ -27,7 +27,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [update](../../api-ref/Stream/update.md) для ресурса [Stream](../../api-ref/Stream/index.md) или вызовом gRPC API [StreamService/Update](../../api-ref/grpc/Stream/update.md).
+  Воспользуйтесь методом REST API [update](../../api-ref/StreamLine/update.md) для ресурса [StreamLine](../../api-ref/StreamLine/index.md) или вызовом gRPC API [StreamLineService/Update](../../api-ref/grpc/StreamLine/update.md).
 
 {% endlist %}
   

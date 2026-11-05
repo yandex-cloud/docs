@@ -27,6 +27,9 @@ Name of the ClickHouse cluster. ||
 || `--engine` | `string`
 
 Set database engine to atomic or replicated Values: 'database-engine-atomic', 'database-engine-replicated' ||
+|| `--deletion-protection` | `string`
+
+Protection of the database from accidental deletion. Values: inherited (as set for the cluster), enabled, disabled, true, false ||
 |#
 
 #### Global Flags

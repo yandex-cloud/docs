@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # История запросов
 
-{% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
+{% include [connect-to-ycdr](../../_includes/ycdr/connect-to-ycdr.md) %}
 
 В этом разделе описано, как работать с историей запросов.
 

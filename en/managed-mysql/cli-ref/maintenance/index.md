@@ -11,7 +11,7 @@ Manage maintenances.
 
 Syntax:
 
-`yc managed-mysql maintenance <command>`
+`yc managed-mysql maintenance <group|command>`
 
 #### Command Tree
 
@@ -20,6 +20,18 @@ Syntax:
 - [yc managed-mysql maintenance list](list.md) — List maintenances.
 
 - [yc managed-mysql maintenance reschedule](reschedule.md) — Reschedule the specified maintenance.
+
+- [yc managed-mysql maintenance change-freeze](change-freeze/index.md) — Manage change freezes.
+
+  - [yc managed-mysql maintenance change-freeze create](change-freeze/create.md) — Create a change freeze for the specified resource.
+
+  - [yc managed-mysql maintenance change-freeze get](change-freeze/get.md) — Show the specified change freeze.
+
+  - [yc managed-mysql maintenance change-freeze get-limits](change-freeze/get-limits.md) — Show change freeze limits for the specified resource.
+
+  - [yc managed-mysql maintenance change-freeze list](change-freeze/list.md) — List change freezes.
+
+  - [yc managed-mysql maintenance change-freeze terminate](change-freeze/terminate.md) — Terminate the specified change freeze.
 
 #### Global Flags
 

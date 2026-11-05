@@ -3,7 +3,7 @@
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
-`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}ai-studio/concepts/generation/dedicated-instance)
+`dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}ai-studio/release-notes/deprecations#dedicated-instances)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
@@ -38,7 +38,7 @@
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
-`tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}ai-studio/concepts/tuning/index) модели
+`tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}ai-studio/release-notes/deprecations#model-tuning) модели
 `tuning.StartTuning` | Запуск дообучения модели
 `createWorkflow` | Создание рабочего процесса
 `deleteWorkflow` | Удаление рабочего процесса

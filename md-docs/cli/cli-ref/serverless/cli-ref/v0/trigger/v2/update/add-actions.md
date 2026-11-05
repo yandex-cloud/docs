@@ -14,6 +14,12 @@ Syntax:
 
 #|
 ||Flag | Description ||
+|| `--id` | `string`
+
+Trigger id. ||
+|| `--name` | `string`
+
+Trigger name. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--new-name` | `string`
 
@@ -23,14 +29,8 @@ Trigger new name. ||
 Trigger description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. All existing labels are replaced ||
-|| `--id` | `string`
-
-Trigger id. ||
-|| `--name` | `string`
-
-Trigger name. ||
-|| `--action` | `value[,value]`
+A list of label KEY=VALUE pairs to add. ||
+|| `--action` | `[]string`
 
 Action as JSON or '@path/to/file.json'. To set multiple actions, use multiple --action flags. ||
 |#

@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [performAction](../../api-ref/Episode/create.md) для ресурса [Episode](../../api-ref/Video/index.md) или вызовом gRPC API [Episode/PerformAction](../../api-ref/grpc/Episode/performAction.md).
+    Воспользуйтесь методом REST API [performAction](../../api-ref/Episode/performAction.md) для ресурса [Episode](../../api-ref/Episode/index.md) или вызовом gRPC API [EpisodeService/PerformAction](../../api-ref/grpc/Episode/performAction.md). Передайте `unpublish: {}` в теле запроса, чтобы запретить просмотр эпизода.
 
 {% endlist %}
 

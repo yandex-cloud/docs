@@ -17,6 +17,8 @@ When using {{ cns-name }}, you are charged for the following:
 * Processing registration requests and supporting the registration of [individual sender names](concepts/sms.md#individual-sender) for SMS text messaging with Beeline, MegaFon, MTS, and T2.
 * Processing [text message notification](concepts/sms.md) sending events within Russia.
 
+Sending messages to {{ message-queue-full-name }} queues is billed according to the [{{ message-queue-name }} pricing policy](../message-queue/pricing.md). No additional {{ cns-short-name }} charges apply.
+
 {% note info %}
 
 By default, {{ cns-name }} has limits on sending notifications. For more information, see [{#T}](concepts/limits.md). If you want to send more notifications, contact [our support]({{ link-console-support }}).

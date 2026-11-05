@@ -1,6 +1,6 @@
 ---
 title: '{{ monium-name }}. Visualization'
-description: '{{ monium-name }} allows presenting telemetry data as charts on dashboards.'
+description: '{{ monium-name }} allows you to visualize telemetry data as dashboard charts.'
 ---
 
 # Visualizing telemetry data
@@ -17,8 +17,10 @@ Visualization tools:
 
 * [Dashboards](../operations/dashboard/create.md) combine multiple widgets on the same screen for integrated data presentation.
 * Overview page gives a real-time view of the data. There is an overview page for each data type: [metrics](../metrics/metric-explorer.md), [logs](../logs/logs-explorer.md), and [traces](../traces/operations/traces-explorer.md).
+* [Notebooks](../concepts/visualization/notebooks.md) help you collect charts, logs, notes, and links for incident analysis.
+* [Context links](../concepts/visualization/context-links.md) enable fast navigation from charts to linked dashboards and external systems.
 
-You can filter chart data by time intervals, services, environments, etc. Also, you can also break the data down by specific attributes for a more detailed analysis.
+You can filter chart data by time intervals, services, environments, etc. You can also break down the data by specific attributes for a more detailed analysis.
 
 You can create dashboards manually or use ready-made ones that come with the {{ yandex-cloud }} services.
 

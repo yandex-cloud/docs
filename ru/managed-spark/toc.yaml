@@ -117,20 +117,6 @@ items:
         items:
           - name: Overview
             href: cli-ref/v0/index.md
-          - name: change-freeze
-            items:
-              - name: Overview
-                href: cli-ref/v0/change-freeze/index.md
-              - name: create
-                href: cli-ref/v0/change-freeze/create.md
-              - name: get
-                href: cli-ref/v0/change-freeze/get.md
-              - name: get-limits
-                href: cli-ref/v0/change-freeze/get-limits.md
-              - name: list
-                href: cli-ref/v0/change-freeze/list.md
-              - name: terminate
-                href: cli-ref/v0/change-freeze/terminate.md
           - name: cluster
             items:
               - name: Overview
@@ -177,20 +163,24 @@ items:
                 href: cli-ref/v0/job/list.md
               - name: log
                 href: cli-ref/v0/job/log.md
-      - name: change-freeze
-        items:
-          - name: Overview
-            href: cli-ref/change-freeze/index.md
-          - name: create
-            href: cli-ref/change-freeze/create.md
-          - name: get
-            href: cli-ref/change-freeze/get.md
-          - name: get-limits
-            href: cli-ref/change-freeze/get-limits.md
-          - name: list
-            href: cli-ref/change-freeze/list.md
-          - name: terminate
-            href: cli-ref/change-freeze/terminate.md
+          - name: maintenance
+            items:
+              - name: Overview
+                href: cli-ref/v0/maintenance/index.md
+              - name: change-freeze
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/maintenance/change-freeze/index.md
+                  - name: create
+                    href: cli-ref/v0/maintenance/change-freeze/create.md
+                  - name: get
+                    href: cli-ref/v0/maintenance/change-freeze/get.md
+                  - name: get-limits
+                    href: cli-ref/v0/maintenance/change-freeze/get-limits.md
+                  - name: list
+                    href: cli-ref/v0/maintenance/change-freeze/list.md
+                  - name: terminate
+                    href: cli-ref/v0/maintenance/change-freeze/terminate.md
       - name: cluster
         items:
           - name: Overview
@@ -237,6 +227,24 @@ items:
             href: cli-ref/job/list.md
           - name: log
             href: cli-ref/job/log.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: change-freeze
+            items:
+              - name: Overview
+                href: cli-ref/maintenance/change-freeze/index.md
+              - name: create
+                href: cli-ref/maintenance/change-freeze/create.md
+              - name: get
+                href: cli-ref/maintenance/change-freeze/get.md
+              - name: get-limits
+                href: cli-ref/maintenance/change-freeze/get-limits.md
+              - name: list
+                href: cli-ref/maintenance/change-freeze/list.md
+              - name: terminate
+                href: cli-ref/maintenance/change-freeze/terminate.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

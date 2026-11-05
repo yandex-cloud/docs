@@ -5,6 +5,7 @@ description: This section contains the {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+
 ## August 2026 {#aug-2026}
 
 Added new events for the services:
@@ -1616,7 +1617,7 @@ Added new events for the services:
   `saml.DeleteSignatureCertificate` | Deleting a signature certificate
   `saml.ReactivateApplication` | Activating a SAML app
   `saml.SetApplicationAccessBindings` | Assigning access permissions for a SAML app
-  `saml.SuspendApplication` | Suspending a SAML app
+  `saml.SuspendApplication` | Pausing a SAML app
   `saml.UpdateApplication` | Updating a SAML app
   `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app
   `saml.UpdateApplicationAssignments` | Updating a list of SAML app users
@@ -2213,7 +2214,7 @@ Added new events for the services:
   `DeleteNode` | Deleting a node
   `OpenProject` | Opening a project
   `ResumeNode` | Resuming a node
-  `SuspendNode` | Suspending a node
+  `SuspendNode` | Pausing a node
   `UpdateNode` | Updating a node
 
   {% endcut %}

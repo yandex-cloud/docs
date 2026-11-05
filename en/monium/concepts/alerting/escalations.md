@@ -4,7 +4,7 @@
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
-An escalation policy can be used as a [notification method](notification-channel.md#channel-parameters) for an alert. You can add one escalation policy to any number of alerts.
+An escalation policy is added to an alert as a [notification method](notification-channel.md#channel-parameters). You can add one escalation policy to any number of alerts.
 
 There are differences between an escalation and other notification methods:
 
@@ -29,9 +29,9 @@ There are differences between an escalation and other notification methods:
 
 ### Escalation steps {#steps}
 
-The escalation step settings allow you to configure the notification method (transport) and a list of recipients or parameters for integration with an external service, as well as the latency period before the next step if the notification is successful. The number of steps in an escalation is unlimited.
+The escalation step settings allow you to configure the notification method and a list of recipients or parameters for integration with an external service. You can also set a delay before proceeding to the next step after a successful notification. The number of steps in an escalation is unlimited.
 
-An escalation step is successful if the transport API returns a response within a specified period. For example, a phone call will be successful if the user answers the call and presses `5` in tone dialing mode.
+An escalation step is successful if the transport API returns a response within the specified period. For example, a phone call will be successful if the user answers the call and presses `5` in tone dialing mode.
 
 {% note info %}
 

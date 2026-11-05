@@ -35,7 +35,7 @@ Container image name filter. ||
 || `--new-tag` | `string`
 
 Container image tag filter. ||
-|| `--new-events` | `value[,value]`
+|| `--new-events` | `[]string`
 
 List of container registry events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times.
 Available events are: 'create-image' , 'delete-image', 'create-image-tag', 'delete-image-tag'. ||

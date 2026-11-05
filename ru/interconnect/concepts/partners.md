@@ -31,7 +31,7 @@
 [MSK-IX](https://www.msk-ix.ru/) | M9 | 1 000 | - |
 [ЭрТелеком](https://ertelecom.ru/) | M9, NORD | 1 000 | - |
 [Билайн](https://beeline.ru) | M9 | 1 000 | - |
-[Obit](https://www.obit.ru/company/channels/) | M9 | 1 000 | - |
+[Obit](https://obit.ru/) | M9 | 1 000 | - |
 [Selectel](https://selectel.ru) | M9, OST | 1 000 | - |
 [Юл-ком](https://ul-com.ru) | TEHNO | 10 000 | - |
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO, M9 | 10 000 | - |

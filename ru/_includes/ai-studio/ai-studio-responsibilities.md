@@ -36,7 +36,6 @@
 
 * **Инструменты для разработки агентов и приложений**. Предоставление API, инструментов разработчика ([SDK]({{ link-docs-ai }}ai-studio/sdk/)), инструментов [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/) и [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
 
-* **Дообучение моделей**. Инфраструктура дообучения моделей ([Tuning API]({{ link-docs-ai }}ai-studio/concepts/tuning/)), среда для обучения.
 
 * **Компоненты для интеграции с внешними системами**: [{{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/), [{{ search-api-full-name }}](*search-api_service_info).
 
@@ -78,7 +77,6 @@
 
 * **Разработка агентов и приложений**. Разработка логики [агентов]({{ link-docs-ai }}ai-studio/concepts/agents/), настройка [рабочих процессов]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), тестирование промптов, интеграция в бизнес-процессы.
 
-* **Дообучение моделей**. Подготовка [датасетов]({{ link-docs-ai }}ai-studio/concepts/resources/dataset), выбор параметров дообучения, контроль качества результатов, защита тренировочных данных.
 
 * **Интеграция с внешними системами**. Настройка подключений к корпоративным системам, безопасность интеграций, управление внешними инструментами.
 

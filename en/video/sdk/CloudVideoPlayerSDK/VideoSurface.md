@@ -1,31 +1,38 @@
+---
+title: 'VideoSurface: {{ video-full-name }} player SDK for iOS'
+description: Displaying video with VideoSurface in the {{ video-full-name }} player SDK for iOS.
+---
+
 # VideoSurface
 
 ```swift
 public final class VideoSurface: UIView
 ```
 
-UIView component for displaying videos.
+`UIView` for displaying videos.
 
-## Contents
+## Contents {#contents}
 
-- [Methods](#methods)
+This page displays:
+
 - [Initializers](#initializers)
+- [Methods](#methods)
 
-## Discussion
+## Description {#discussion}
 
-Add `VideoSurface` to the view hierarchy and attach a `YaPlayer` instance to the component. The surface automatically scales to fit its `bounds`.
+Add `VideoSurface` to the view hierarchy and attach a [YaPlayer](./YaPlayer.md) instance to the component. The video display area automatically resizes to match the `bounds` value.
 
 To use `VideoSurface` in SwiftUI, wrap it in `UIViewRepresentable`.
 
-## Inheritance
+## Inheritance {#inheritance}
 
-- `UIView`
+The class is inherited from `UIView`.
 
-## Notes
+## Notes {#notes}
 
-If you need a built-in player skin, use `VideoView` from `CloudVideoPlayerUI`.
+To add a ready-made player shell, use [VideoView](../CloudVideoPlayerSDKUI/VideoView.md) from the `CloudVideoPlayerUI` library.
 
-## Initializers
+## Initializers {#initializers}
 
 ```swift
 public init()
@@ -33,7 +40,7 @@ public init()
 
 Creates a surface for the video.
 
-## Methods
+## Methods {#methods}
 
 ```swift
 public func reset()
@@ -49,9 +56,21 @@ public func getPipController() -> PictureInPictureController?
 
 Returns the Picture-in-Picture (PiP) mode controller, if available.
 
-**Returns:** `PictureInPictureController` instance, or `nil` if the device does not support PiP.
+Return value: `PictureInPictureController` instance or `nil` if your device does not support PiP.
 
-## Examples
+---
+
+```swift
+public func attach(player: YaPlayer)
+```
+
+Attaches the player to the video display surface.
+
+Parameters:
+
+- `player`: Player instance whose video you want to display.
+
+## Examples {#examples}
 
 ```swift
 let surface = VideoSurface()

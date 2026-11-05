@@ -34,7 +34,7 @@ You can create storage resources in the management console in the same way as wh
 
 In the management console, you can edit storage resource manifests in a visual editor. This approach is equivalent to running the `kubectl apply -f <manifest_file.yaml>` command and allows you to update the resource configuration without re-creating it.
 
-The list of editable fields depends on the object type and is available in [this Kubernetes guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/).
+The list of editable fields depends on the object type and is available in [this Kubernetes guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumespec-v1-core).
 
 {% list tabs group=instructions %}
 

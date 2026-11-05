@@ -230,7 +230,7 @@ To set up OIDC authentication in MWS, create and configure an [identity federati
 
         {% note info %}
 
-        For more details on configuring roles for federated users, see the [MWS guide](https://mws.ru/docs/cloud-platform/org-rm/general/federation-roles.html).
+        For more details on configuring roles for federated users, see the [MWS guide](https://mws.ru/docs/cloud-platform/org-rm/general/federation-create.html).
 
         {% endnote %}
 

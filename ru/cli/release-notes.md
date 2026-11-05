@@ -7,13 +7,46 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.44.0 (05.11.26) {#v-1-44-0}
+
+#### {{ mch-name }} {#v-1-44-0-mch-name}
+
+* Добавлен параметр `--cloud-storage-bucket-max-size` в команды для задания максимального размера бакета гибридного хранилища:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+
+#### {{ mmg-name }} {#v-1-44-0-mmg-name}
+
+* Добавлена группа команд `yc managed-mongodb balancer` для управления балансировщиком шардированного кластера:
+  * `yc managed-mongodb balancer enable`;
+  * `yc managed-mongodb balancer disable`.
+
+#### {{ ydb-name }} {#v-1-44-0-ydb-name}
+
+* Добавлен параметр `--paths-to-restore` в команду `yc ydb database restore` для восстановления выбранных путей из резервной копии.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.43.0 (02.11.26) {#v-1-43-0}
+
+#### {{ mch-name }} {#v-1-43-0-mch-name}
+
+* Добавлена команда `yc managed-clickhouse database update` для изменения режима защиты базы данных от удаления.
+* Добавлен параметр `--deletion-protection` со значениями `inherited` (по умолчанию), `enabled`, `disabled` в команды для управления защитой от удаления баз данных и пользователей:
+  * `yc managed-clickhouse database create`;
+  * `yc managed-clickhouse user create`;
+  * `yc managed-clickhouse user update`.
+
+#### {{ mpg-name }} {#v-1-43-0-mpg-name}
+
+* Команды управления окнами запрета изменений перенесены в группу `maintenance change-freeze`; старый путь `change-freeze` оставлен для совместимости и помечен устаревшим.
+
 ### Версия 1.42.0 (26.10.26) {#v-1-42-0}
 
 #### {{ dataproc-name }} {#v-1-42-0-dataproc-name}
 
 * Удалены группы команд `yc dataproc change-freeze` и `yc dataproc v0 change-freeze`, поскольку плановое обслуживание не поддерживается.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.41.0 (12.10.26) {#v-1-41-0}
 

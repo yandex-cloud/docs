@@ -6,7 +6,7 @@ The `GRPCRoute` resource sets rules for routing between {{ k8s }} services opera
 
 `GRPCRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcroute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -156,7 +156,7 @@ Where:
           service: service.v2.example
     ```
 
-    Only the `method` field is supported. The `headers` field described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCHeaderMatch) is not supported.
+    Only the `method` field is supported. The `headers` field described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#grpcheadermatch) is not supported.
 
     * `method` (`GRPCMethodMatch`)
       

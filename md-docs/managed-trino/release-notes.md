@@ -4,15 +4,17 @@
 
 ## Сентябрь 2026 {#september-2026}
 
-Доступна новая версия Trino [483](https://trino.io/docs/current/release/release-483.html).
+* Доступна новая версия Trino [483](https://trino.io/docs/current/release/release-483.html).
+* Для кластеров Managed Service for Trino доступны хосты на новой [платформе v4a](concepts/instance-types.md#amd-zen4) (AMD Zen 4).
+* [Коннектор](concepts/greenplum-connector.md) Greenplum®/Cloudberry перешел в стадию General Availability.
 
 ## Июль 2026 {#july-2026}
 
-* Добавлена возможность использовать [пользовательский бакет Object Storage](concepts/retry-policy.md#exchange-manager-storage) в качестве хранилища Exchange Manager.
+* Добавлена возможность выбирать [тип хранилища для Exchange Manager](concepts/retry-policy.md#exchange-manager-storage) при создании и изменении кластера: служебный бакет Managed Service for Trino или пользовательский бакет Object Storage.
 
 ## Май 2026 {#may-2026}
 
-* [Доступен новый коннектор](concepts/greenplum-connector.md): Greenplum®/Cloudberry.
+[Доступен новый коннектор](concepts/greenplum-connector.md): Greenplum®/Cloudberry.
 
 ## Апрель 2026 {#april-2026}
 

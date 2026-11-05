@@ -24,20 +24,31 @@
 
 Чтобы запустить перенос данных:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластеры Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и объем хранилища ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 1. Подготовьте инфраструктуру поставки данных:
 
@@ -172,10 +183,11 @@
 
          * **Настройки подключения** — `Кластер Managed Service for Apache Kafka`.
 
-           Выберите кластер-приемник из списка и укажите настройки подключения к нему.
+           * **Кластер Managed Service for Apache Kafka** — выберите кластер-приемник из списка.
+           * **Аутентификация** — выберите `SASL` и укажите имя и пароль [созданного ранее](#prepare-infrastructure) пользователя кластера-приемника.
 
          * **Топик**:
-           * **Полное имя топика** — `measurements`.
+            * **Полное имя топика** — укажите имя топика, например `measurements`.
 
   1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -183,9 +195,10 @@
       * **Параметры эндпоинта**:
         * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
 
-          Выберите кластер-источник из списка и укажите настройки подключения к нему.
+           * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+           * **Аутентификация** — выберите `SASL` и укажите имя и пароль [созданного ранее](#prepare-infrastructure) пользователя кластера-источника.
 
-        * **Полное имя топика** — `sensors`.
+        * **Полное имя топика** — укажите имя топика, например `sensors`.
 
   1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
   1. [Активируйте](../../data-transfer/operations/transfer.md#activate) трансфер.
@@ -288,7 +301,7 @@
            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
         ```
 
-        Данные отправляются от имени [созданного пользователя](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
+        Данные отправляются от имени [созданного пользователя](#prepare-infrastructure). Подробнее о настройке SSL-сертификата и работе с `kafkacat` смотрите в разделе [Подключение к кластеру Apache Kafka® из приложений](../operations/connect/clients.md).
 
     1. Убедитесь, что в кластер-приемник Managed Service for Apache Kafka® перенеслись данные из кластера-источника, с помощью утилиты `kafkacat`:
 

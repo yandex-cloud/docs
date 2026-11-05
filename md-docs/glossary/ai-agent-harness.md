@@ -115,7 +115,7 @@ Yandex Cloud предоставляет инструменты для созда
 
 ### SourceCraft {#src}
 
-[SourceCraft](https://sourcecraft.dev) — платформа для разработки со встроенным [ИИ-ассистентом](https://sourcecraft.dev/portal/docs/ru/sourcecraft/code-assistant/overview). Code Assistant использует принципы agent harness для помощи разработчикам: анализирует код, предлагает исправления, генерирует документацию и выполняет другие задачи, взаимодействуя с репозиторием через контролируемый интерфейс.
+[SourceCraft](https://sourcecraft.dev) — платформа для разработки со встроенным [ИИ-ассистентом](https://sourcecraft.dev/portal/docs/ru/code-assistant/). Code Assistant использует принципы agent harness для помощи разработчикам: анализирует код, предлагает исправления, генерирует документацию и выполняет другие задачи, взаимодействуя с репозиторием через контролируемый интерфейс.
 
 SourceCraft Code Assistant доступен в двух вариантах:
 
@@ -138,4 +138,4 @@ SourceCraft Code Assistant доступен в двух вариантах:
 
 * [Стандарт безопасности для внедрения и эксплуатации ИИ-систем в Yandex Cloud](../security/standard-ai/all.md)
 * [Фреймворк безопасной работы с агентами AI-SAFE](../security/ai-safe.md)
-* [Документация SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/code-assistant/)
+* [Документация SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/)

@@ -28,12 +28,12 @@ Connector name. ||
 Connector description. ||
 || `--labels` | `key=value[,key=value...]`
 
-A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
+A list of label KEY=VALUE pairs to add. ||
 || `--deletion-protection` | Prevents accidental connector removal. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--database` | `string`
 
-Stream database. Example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
+Stream database. ||
 || `--stream-name` | `string`
 
 Stream name, absolute or relative. ||

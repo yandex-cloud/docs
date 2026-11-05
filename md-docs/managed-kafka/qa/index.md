@@ -18,8 +18,6 @@
 
 * [Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя?](#connect-ssh)
 
-* [Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва?](#get-ssl-error)
-
 * [Можно ли управлять кластером с помощью скриптов из дистрибутива Apache Kafka®?](#script-apache-kafka)
 
 * [Что делать, если возникает ошибка kafkacat: command not found?](#kafkacat-not-found)
@@ -102,25 +100,6 @@
 #### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
 
 Подключиться к хостам через SSH не получится. Это сделано в целях безопасности и отказоустойчивости пользовательских кластеров, так как прямые изменения внутри хоста могут привести к его полной неработоспособности.
-
-#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
-
-Полный текст ошибки:
-
-```text
-curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
-The revocation function was unable to check revocation for the certificate
-```
-Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
-
-Чтобы исправить ошибку:
-
-* убедитесь, что проверку не блокируют настройки корпоративной сети;
-* выполните команду с параметром `--ssl-no-revoke`.
-
-   ```powershell
-   mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/RootCA.pem
-   ```
 
 #### Можно ли управлять кластером с помощью скриптов из дистрибутива Apache Kafka®? {#script-apache-kafka}
 
@@ -226,7 +205,7 @@ Karapace разворачивается на каждом хосте-броке�
        * `topic = <имя_топика>`,
        * `partition = <номер_раздела>`,
        * `group = <имя_группы_потребителей>`.
-   * Для `kafka_log_Log_LogStartOffset` укажите метки: 
+   * Для `kafka_log_Log_LogStartOffset` укажите метки:
        * `service = managed-kafka`,
        * `name = kafka_log_Log_LogStartOffset`,
        * `host = <FQDN_хоста>`,

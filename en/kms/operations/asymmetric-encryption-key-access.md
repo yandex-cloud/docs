@@ -42,7 +42,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
       yc kms asymmetric-encryption-key list
       ```
 
-   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which (or to the users of which) you are assigning a role.
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which or to the users of which you are assigning a role.
    1. To assign a role, run this command:
 
       ```bash
@@ -56,7 +56,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
       * `--id`: ID of the encryption key pair.
       * `--role`: [Role](../security/index.md#roles-list).
-      * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -87,7 +87,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list).
-       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
            {% cut "Subject designations" %}
 
@@ -168,7 +168,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
       yc kms asymmetric-encryption-key list
       ```
 
-   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which (or to the users of which) you are assigning roles.
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), user group, organization, or identity federation to which or to the users of which you are assigning roles.
    1. To assign roles, run this command:
 
       ```bash
@@ -230,7 +230,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list).
-       * `member`: [Subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+       * `member`: Designation of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
            {% cut "Subject designations" %}
 

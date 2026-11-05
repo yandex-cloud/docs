@@ -29,6 +29,9 @@ ID of backup to restore. ||
 || `--target-path` | `string`
 
 Specify restore target path. ||
+|| `--paths-to-restore` | `[]string`
+
+Comma-separated paths to restore from the backup. If omitted, all paths are restored. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

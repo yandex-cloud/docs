@@ -508,14 +508,6 @@
 
  - [Создание триггеров, которые вызывают функции для остановки ВМ и отправки уведомлений в Telegram](tutorials/serverless-trigger-budget-queue-vm-tg.md)
 
-### Интернет-магазин на платформе OpenCart
-
- - [Обзор](tutorials/opencart/index.md)
-
- - [Консоль управления](tutorials/opencart/console.md)
-
- - [Terraform](tutorials/opencart/terraform.md)
-
  - [Создание веб-приложения на Python с использованием фреймворка Flask](tutorials/flask.md)
 
  - [Развертывание сервера Minecraft в Yandex Cloud](tutorials/minecraft-server.md)
