@@ -22,7 +22,7 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
    
    [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-1. [Получите доступ](https://jupyter.org/install) к окружению JupyterLab или Jupyter Notebook.
+1. Установите окружение JupyterLab или Jupyter Notebook согласно [инструкции](https://jupyter.org/install).
 
 ## Установка и настройка пакета yandex_query_magic {#setup-plugin}
 
@@ -38,19 +38,19 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
 - Shell
 
-  1. Установите пакет [yandex_query_magic](https://pypi.org/project/yandex-query-magic/) c помощью pip:
+  1. Установите пакет [yandex_query_magic](https://pypi.org/project/yandex-query-magic/) с помощью pip:
 
      ```shell
      pip install yandex_query_magic --upgrade
      ```
 
-  1. Включите Jupyter-расширение для элементов управления интерфейса в Jupyter Notebook:
+  1. Включите расширение Jupyter для элементов управления интерфейса в Jupyter Notebook:
 
      ```shell
-     %jupyter contrib nbextension install --user
+     jupyter contrib nbextension install --user
      ```
 
-     Если вы столкнетесь с ошибкой `"No module named 'notebook.base'"`, попробуйте перейти на версию Jupyter Notebook 6.4.12:
+     Если вы столкнетесь с ошибкой `"No module named 'notebook.base'"` или `"No module named 'notebook.extensions'"` (последняя возникает в Jupyter Notebook версии 7.x), попробуйте перейти на версию Jupyter Notebook 6.4.12:
 
      ```shell
      pip install --upgrade notebook==6.4.12
@@ -60,7 +60,7 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
 ### Настройка пакета {#global-settings}
 
-Настройки пакета `yandex_query_magic` можно задать с помощью line команды `yq_settings`, где указываются необходимые аргументы:
+Настройки пакета `yandex_query_magic` можно задать с помощью line-команды `yq_settings`, где указываются необходимые аргументы:
 
 ```shell
 %yq_settings --folder-id <идентификатор_каталога> ...
@@ -68,14 +68,14 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
 Доступные параметры:
 
-* `--folder-id <идентификатор_каталога>` — идентификатор каталога для выполнения запросов Query. По умолчанию используется каталог, где запущена виртуальная машина с Jupyter.
-* `--vm-auth` — устанавливает режим аутентификации ключом учетной записи виртуальной машины. Подробнее в инструкции [Работа с Yandex Cloud изнутри виртуальной машины](../../compute/operations/vm-connect/auth-inside-vm.md).
+* `--folder-id <идентификатор_каталога>` — идентификатор каталога для выполнения запросов Query. Если параметр не указан, каталог определяется автоматически через [сервис метаданных](../../compute/operations/vm-info/get-info.md#inside-instance) — только когда Jupyter запущен внутри виртуальной машины Yandex Cloud. На локальной машине без указания этого параметра выполнение запроса завершится ошибкой `Folder id is not specified`.
+* `--vm-auth` — устанавливает режим аутентификации через сервисный аккаунт, привязанный к виртуальной машине. Подробнее в инструкции [Работа с Yandex Cloud изнутри виртуальной машины](../../compute/operations/vm-connect/auth-inside-vm.md).
 * `--env-auth <переменная_окружения_environment_variable>` — устанавливает режим аутентификации авторизованным ключом, содержимое которого находится в переменной окружения (Environment Variable). Этот режим предназначен для работы в условиях, когда нет доступа к файловой системе компьютера, где установлен Jupyter. Например, в [Yandex DataSphere](../../datasphere/concepts/index.md). В этом случае создайте [секрет DataSphere](../../datasphere/operations/data/secrets.md), а имя созданного секрета укажите в параметре `--env-auth`.
 * `--sa-file-auth <авторизованный_ключ>` — устанавливает режим аутентификации авторизованными ключами. Подробнее в инструкции [Создать авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 ### Проверка работы пакета {#check-installation}
 
-Команду `%yq line magic` можно использовать, когда весь SQL-запрос представлен одной строкой. В этом случае SQL-запрос выполняется с помощью ключевого слова `%yq`.
+Если SQL-запрос представлен одной строкой, используйте ключевое слово `%yq` (line magic).
 
 Если Jupyter запущен в виртуальной машине с [привязанным к ней сервисным аккаунтом](../../compute/operations/vm-connect/auth-inside-vm.md), загрузите расширение в Jupyter:
 
@@ -91,7 +91,7 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
 Если к виртуальной машине не привязан сервисный аккаунт:
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `yq.viewer`.
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `yq.invoker` — она необходима для создания и запуска запросов Query.
 
 1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта.
 
@@ -99,7 +99,7 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
     ```sql
     %load_ext yandex_query_magic
-    %yq_settings --sa-file-auth '<путь_к_файлу_с_ключом>'
+    %yq_settings --sa-file-auth <путь_к_файлу_с_ключом>
     %yq SELECT "Hello, world!"
     ```
 
@@ -107,13 +107,13 @@ Yandex Query поддерживает интеграцию с [Jupyter](https://
 
     ```sql
     %load_ext yandex_query_magic
-    %yq_settings --sa-file-auth '/home/test/authorized_key.json'
+    %yq_settings --sa-file-auth /home/test/authorized_key.json
     %yq SELECT "Hello, world!"
     ```
 
-    Путь к файлу `authorized_key.json` указывается относительно директории, в которой сохранен файл с текущим Jupyter Notebook.
+    Путь к файлу `authorized_key.json` может быть абсолютным или относительным — относительно директории, в которой сохранен файл с текущим Jupyter Notebook.
 
-Чтобы выполнять многострочные SQL-запросы, необходимо использовать `%%yq cell magic`. Текст запроса должен начинаться с ключевого слова `%%yq`:
+Чтобы выполнять многострочные SQL-запросы, используйте ключевое слово `%%yq` (cell magic). Текст запроса должен начинаться с `%%yq`:
 
 ```sql
 %%yq --folder-id <идентификатор_каталога> --name "Мой запрос" --description "Тестовый запрос" --raw-results
@@ -268,7 +268,7 @@ lst=["Academy", "Physics"]
 
     | Ключ | Значение |
     |---|---|
-    | а | "1" |
+    | a | "1" |
     | b | "2" |
     | c | "test" |
     | d | "4" |
@@ -332,9 +332,9 @@ df = pandas.DataFrame(lst,
 
 ### Шаблоны Jinja {#jinja}
 
-Шаблоны Jinja удобно использовать для создания SQL-запросов. Они позволяют автоматически вставлять в них разные данные, например, условия поиска, без необходимости писать каждый запрос вручную. Это упрощает работу, избавляет от ошибок и делает код более понятным.
+Шаблоны Jinja удобно использовать для создания SQL-запросов. Они позволяют автоматически вставлять в них разные данные, например условия поиска, без необходимости писать каждый запрос вручную. Это упрощает работу, избавляет от ошибок и делает код более понятным.
 
-Используя шаблоны Jinja, можно также автоматизировать создание запросов с повторяющимися элементами, добавляя, например, список значений для проверки в запросе, с помощью циклов в самом шаблоне. Это делает процесс ещё более гибким и экономит время на написание сложных запросов, когда нужно работать с множеством данных.
+Используя шаблоны Jinja, можно также автоматизировать создание запросов с повторяющимися элементами, добавляя, например, список значений для проверки в запросе, с помощью циклов в самом шаблоне. Это делает процесс более гибким и экономит время на написание сложных запросов, когда нужно работать с множеством данных.
 
 Ниже показано как отфильтровать данные в Yandex Query, используя переменную Python.
 
@@ -395,13 +395,13 @@ varname << <запрос>
 
 После этого результат выполнения можно использовать, как обычную переменную Jupyter.
 
-Например, захватим результат выполнения команды в переменные `output` с помощью cell magic:
+Например, захватим результат выполнения команды в переменную `output` с помощью line magic:
 
 ```sql
 output = %yq SELECT 1 as column1
 ```
 
-А в данном примере захватим результат выполнения в переменную `output2` с помощью line magic:
+А в данном примере захватим результат выполнения в переменную `output2` с помощью cell magic:
 
 ```sql
 %%yq
@@ -414,7 +414,7 @@ output2 << SELECT 'Two' as column2, 3 as column3
 output
 ```
 
-По умолчанию результатом выполнения команд `%yq` и `%%yq` является [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) с колонками, совпадающими с названиями колонок из SQL-запроса и со строками, содержащими результаты запроса. Конвертацию в `Pandas DataFrame` можно отключить с помощью [аргумента --raw-results](yq.md#check-installation).
+По умолчанию результатом выполнения команд `%yq` и `%%yq` является [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) с колонками, совпадающими с названиями колонок из SQL-запроса и со строками, содержащими результаты запроса. Конвертацию в `Pandas DataFrame` можно отключить с помощью [аргумента --raw-results](jupyter.md#check-installation).
 
 В примере выше переменная `output` будет обладать следующей структурой:
 

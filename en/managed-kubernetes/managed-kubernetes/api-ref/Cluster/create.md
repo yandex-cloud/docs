@@ -383,21 +383,23 @@ apiPlayground:
           enabled:
             description: |-
               **boolean**
-              Identifies whether Cloud Logging is enabled for master components.
+              Specifies whether master logs should be exported.
             type: boolean
           logGroupId:
             description: |-
               **string**
               ID of the log group where logs of master components should be stored.
+              Deprecated: Cloud Logging is no longer supported; this field has no effect.
               Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               The destination of master components' logs.
+            deprecated: true
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
             type: string
           folderId:
             description: |-
               **string**
-              ID of the folder where logs should be stored (in default group).
+              ID of the folder where logs should be stored.
               Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               The destination of master components' logs.
@@ -406,22 +408,26 @@ apiPlayground:
           auditEnabled:
             description: |-
               **boolean**
-              Identifies whether Cloud Logging is enabled for audit logs.
+              Specifies whether audit logs should be exported
+              when master log delivery is enabled.
             type: boolean
           clusterAutoscalerEnabled:
             description: |-
               **boolean**
-              Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+              Specifies whether cluster-autoscaler logs should be exported
+              when master log delivery is enabled.
             type: boolean
           kubeApiserverEnabled:
             description: |-
               **boolean**
-              Identifies whether Cloud Logging is enabled for kube-apiserver.
+              Specifies whether kube-apiserver logs should be exported
+              when master log delivery is enabled.
             type: boolean
           eventsEnabled:
             description: |-
               **boolean**
-              Identifies whether Cloud Logging is enabled for events.
+              Specifies whether Kubernetes events should be exported
+              when master log delivery is enabled.
             type: boolean
         oneOf:
           - required:
@@ -498,7 +504,7 @@ apiPlayground:
           masterLogging:
             description: |-
               **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
-              Cloud Logging for master components.
+              Export configuration of master logs.
             $ref: '#/definitions/MasterLogging'
         oneOf:
           - required:
@@ -862,7 +868,7 @@ Scale policy of the master. ||
 Master security groups. ||
 || masterLogging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
 
-Cloud Logging for master components. ||
+Export configuration of master logs. ||
 |#
 
 ## ZonalMasterSpec {#yandex.cloud.k8s.v1.ZonalMasterSpec}
@@ -1081,10 +1087,11 @@ Required field. Preset of computing resources to be used as lower boundary for s
 ||Field | Description ||
 || enabled | **boolean**
 
-Identifies whether Cloud Logging is enabled for master components. ||
+Specifies whether master logs should be exported. ||
 || logGroupId | **string**
 
 ID of the log group where logs of master components should be stored.
+Deprecated: Cloud Logging is no longer supported; this field has no effect.
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
@@ -1093,7 +1100,7 @@ Includes only one of the fields `logGroupId`, `folderId`.
 The destination of master components' logs. ||
 || folderId | **string**
 
-ID of the folder where logs should be stored (in default group).
+ID of the folder where logs should be stored.
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
@@ -1102,16 +1109,20 @@ Includes only one of the fields `logGroupId`, `folderId`.
 The destination of master components' logs. ||
 || auditEnabled | **boolean**
 
-Identifies whether Cloud Logging is enabled for audit logs. ||
+Specifies whether audit logs should be exported
+when master log delivery is enabled. ||
 || clusterAutoscalerEnabled | **boolean**
 
-Identifies whether Cloud Logging is enabled for cluster-autoscaler. ||
+Specifies whether cluster-autoscaler logs should be exported
+when master log delivery is enabled. ||
 || kubeApiserverEnabled | **boolean**
 
-Identifies whether Cloud Logging is enabled for kube-apiserver. ||
+Specifies whether kube-apiserver logs should be exported
+when master log delivery is enabled. ||
 || eventsEnabled | **boolean**
 
-Identifies whether Cloud Logging is enabled for events. ||
+Specifies whether Kubernetes events should be exported
+when master log delivery is enabled. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy}

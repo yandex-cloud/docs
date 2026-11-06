@@ -38,7 +38,7 @@ You must [register](https://yandex.ru/support/id/authorization/registration.html
 
 #### Do I need a license to sell {{ yandex-cloud }} services? {#license}
 
-No, {{ yandex-cloud }} services fall under the definition of hosting services in the Information Act. According to the [clarification](https://rkn.gov.ru/it/control/p852/) of Roskomnadzor posted on the official website, hosting services are not communication services.
+No, {{ yandex-cloud }} services fall under the definition of hosting services in the Information Act. According to the [clarification](https://rkn.gov.ru/activity/it/control/p852/) of Roskomnadzor posted on the official website, hosting services are not communication services.
 
 
 #### Why does the subaccount balance always equal zero? {#balance}

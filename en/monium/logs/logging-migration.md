@@ -145,6 +145,8 @@ You can continue using Fluent Bit or configure delivery via [OTel Collector](../
 
    In the `service.name` property, specify the log group name to save the data structure. The `cluster` property is optional. The default value is `default`.
 
-## Reading logs via the API {#api-reading}
+## Accessing {{ cloud-logging-name }} logs {#api-reading}
 
-[Reading logs via the {{ cloud-logging-name }} API](../../logging/api-ref/grpc/LogReading/read.md) will be supported until March 1, 2027 if you preserve the `folder__<folder_ID>` → `default` → `log group name` structure. All data remains accessible within the 31-day retention period. Make sure to migrate read requests to the new API before the old API support is discontinued.
+The {{ cloud-logging-name }} API is unavailable for reading and writing logs.
+
+If you need an export of historical logs from {{ cloud-logging-name }}, contact [support]({{ link-console-support }}).

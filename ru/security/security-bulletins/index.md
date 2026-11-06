@@ -399,7 +399,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 
 Уязвимость в Windows Netlogon Remote Protocol позволяет неаутентифицированному атакующему с сетевым доступом к контроллеру домена скомпрометировать все службы идентификации Active Directory.
 
-Исходный отчёт Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
+Исходный отчёт Secura: [Zerologon](https://cybersecurity.bureauveritas.com/uploads/whitepapers/Zerologon.pdf).
 
 Описание уязвимости, составленное Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 

@@ -137,7 +137,22 @@ PATCH https://baremetal.api.cloud.yandex.net/baremetal/v2/clouds/{server.cloud_i
       "ram": {
         "id": "string",
         "sizeBytes": "string"
-      }
+      },
+      "networkInterfaces": [
+        {
+          "id": "string",
+          "name": "string",
+          "configurationId": "string",
+          "linkSpeedGbps": "string",
+          "availableModes": [
+            "string"
+          ],
+          "mcLagOptions": {
+            "interfaceCount": "string"
+          },
+          "mainMode": "string"
+        }
+      ]
     },
     "stockConfigurationId": "string",
     // end of the list of possible fields
@@ -246,9 +261,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.baremetal.v2.NetworkInterface)**
 
-Array of network interfaces that are attached to the instance.
-
-The number of elements must be in the range 1-2. ||
+Array of network interfaces that are attached to the instance. ||
 || prolongationState | **enum** (ProlongationState)
 
 Prolongation state of the server's rent.
@@ -628,6 +641,9 @@ Array of disk drive configurations. ||
 || ram | **[UserRAM](#yandex.cloud.baremetal.v2.UserRAM)**
 
 Random-access memory (RAM). ||
+|| networkInterfaces[] | **[ConfigurationNetworkInterface](#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface)**
+
+Network interfaces of the custom configuration. ||
 |#
 
 ## UserCPU {#yandex.cloud.baremetal.v2.UserCPU}
@@ -688,6 +704,51 @@ ID of the RAM from configurator. ||
 || sizeBytes | **string** (int64)
 
 Ram size. ||
+|#
+
+## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Id of the network interface
+Not used while creating interfaces ||
+|| name | **string**
+
+Name of the network interface ||
+|| configurationId | **string**
+
+Id of the configuration ||
+|| linkSpeedGbps | **string** (int64)
+
+Link speed in gigabits per second ||
+|| availableModes[] | **enum** (InterfaceMode)
+
+Available modes for the network interface
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|| mcLagOptions | **[MCLagAggregationOptions](#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface.MCLagAggregationOptions)**
+
+MC-LAG configuration options for aggregated interfaces ||
+|| mainMode | **enum** (InterfaceMode)
+
+Primary mode of the network interface.
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|#
+
+## MCLagAggregationOptions {#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface.MCLagAggregationOptions}
+
+MC-LAG aggregation options for the network interface.
+
+#|
+||Field | Description ||
+|| interfaceCount | **string** (int64)
+
+Number of interfaces in the MC-LAG aggregation. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

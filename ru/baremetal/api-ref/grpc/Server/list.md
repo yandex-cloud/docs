@@ -87,7 +87,8 @@ Both snake_case and camelCase are supported for fields. ||
           {
             "type": "DiskDriveType",
             "disk_count": "int64",
-            "disk_size_gib": "int64"
+            "disk_size_gib": "int64",
+            "disk_size_bytes": "int64"
           }
         ],
         "network_capacity_gbps": "int64",
@@ -106,7 +107,8 @@ Both snake_case and camelCase are supported for fields. ||
             }
           }
         ],
-        "mounting_availability": "MountingAvailability"
+        "mounting_availability": "MountingAvailability",
+        "server_type": "ServerType"
       },
       "stock_configuration_id": "string",
       // end of the list of possible fields
@@ -127,7 +129,8 @@ Both snake_case and camelCase are supported for fields. ||
             "disk": {
               "id": "string",
               "type": "DiskDriveType",
-              "size_gib": "int64"
+              "size_gib": "int64",
+              "size_bytes": "int64"
             },
             "raid": {
               "type": "RaidType",
@@ -135,7 +138,8 @@ Both snake_case and camelCase are supported for fields. ||
                 {
                   "id": "string",
                   "type": "DiskDriveType",
-                  "size_gib": "int64"
+                  "size_gib": "int64",
+                  "size_bytes": "int64"
                 }
               ]
             },
@@ -144,7 +148,8 @@ Both snake_case and camelCase are supported for fields. ||
               {
                 "type": "StoragePartitionType",
                 "size_gib": "int64",
-                "mount_point": "string"
+                "mount_point": "string",
+                "size_bytes": "int64"
               }
             ]
           }
@@ -198,7 +203,8 @@ Both snake_case and camelCase are supported for fields. ||
         {
           "id": "string",
           "type": "DiskDriveType",
-          "size_gib": "int64"
+          "size_gib": "int64",
+          "size_bytes": "int64"
         }
       ],
       "created_at": "google.protobuf.Timestamp",
@@ -336,6 +342,12 @@ Indicates whether the mounting option is available or not for this configuration
 
 - `AVAILABLE`: Mounting is available.
 - `UNAVAILABLE`: Mounting is unavailable. ||
+|| server_type | enum **ServerType**
+
+Type of servers represented by the configuration.
+
+- `SERVER_TYPE_BAREMETAL`: Standard bare metal server.
+- `SERVER_TYPE_MAC_MINI`: Apple Mac Mini server. ||
 |#
 
 ## CPU {#yandex.cloud.baremetal.v1alpha.CPU}
@@ -382,7 +394,10 @@ Type of the disk drive.
 Number of disk drives. ||
 || disk_size_gib | **int64**
 
-Size of a single disk drive in gibibytes (2^30 bytes). ||
+Deprecated. Size of a single disk drive in gibibytes (2^30 bytes). Use disk_size_bytes instead. ||
+|| disk_size_bytes | **int64**
+
+Size of a single disk drive in bytes. ||
 |#
 
 ## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface}
@@ -483,7 +498,10 @@ Type of the disk drive.
 - `NVME`: Solid state drive with NVMe interface. ||
 || size_gib | **int64**
 
-Size of the disk in gibibytes (2^30 bytes). ||
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead. ||
+|| size_bytes | **int64**
+
+Size in bytes. ||
 |#
 
 ## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
@@ -518,10 +536,13 @@ Partition type.
 - `XFS`: XFS file system partition type. ||
 || size_gib | **int64**
 
-Size of the storage partition in gibibytes (2^30 bytes). ||
+Deprecated. Size of the storage partition in gibibytes (2^30 bytes). Use size_bytes instead. ||
 || mount_point | **string**
 
 Storage mount point. ||
+|| size_bytes | **int64**
+
+Size in bytes. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.baremetal.v1alpha.NetworkInterface}

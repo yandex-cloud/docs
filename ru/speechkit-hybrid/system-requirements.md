@@ -13,7 +13,7 @@ description: В этой статье описаны системные и пр�
 
 ## Программные требования {#software}
 
-На выделенном для работы {{ sk-hybrid-name }} сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/ru-ru/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах читайте в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов {{ sk-hybrid-name }}.
+На выделенном для работы {{ sk-hybrid-name }} сервере должны быть установлены [драйверы NVIDIA LTS 535](https://www.nvidia.com/en-us/drivers/unix/) и [NVIDIA Container Toolkit 1.15](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) или выше. Подробнее о драйверах читайте в [официальной документации NVIDIA](https://docs.nvidia.com/datacenter/tesla/drivers/index.html#lifecycle). Устанавливать CUDA Toolkit не требуется, поскольку они входят в состав образов {{ sk-hybrid-name }}.
 
 Для установки и настройки сервисов {{ sk-hybrid-name }} понадобятся интерфейс командной строки {{ yandex-cloud }} и реестр в {{ container-registry-full-name }}.
 

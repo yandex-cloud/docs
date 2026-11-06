@@ -26,7 +26,7 @@
 
 {% note alert "**Примечание**" %}
 
-При работе в Terraform заполняйте содержимое секрета Lockbox [скриптом](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version), а не значением прямо в манифесте. Иначе значение секрета попадёт ещё и в файл `.tfstate`.
+При работе в Terraform заполняйте содержимое секрета Lockbox [скриптом]({{ tf-provider-resources-link }}/lockbox_secret_version), а не значением прямо в манифесте. Иначе значение секрета попадёт ещё и в файл `.tfstate`.
 
 {% endnote %}
 

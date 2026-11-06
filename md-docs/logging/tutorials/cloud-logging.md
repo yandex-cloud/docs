@@ -3,25 +3,26 @@
 # Обработка логов Yandex Cloud Logging
 
 
-[Yandex Cloud Logging](../index.md) — это сервис, который позволяет читать и записывать логи сервисов Yandex Cloud и пользовательских приложений.
+[Yandex Cloud Logging](../index.md) — сервис для чтения и записи логов сервисов Yandex Cloud и пользовательских приложений.
 
 Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams и далее обработать в реальном времени с помощью Yandex Query. Обработанные данные можно:
 
-* отправить в Yandex Monitoring для построения графиков и алертинга;
+* отправить в Yandex Monitoring для построения графиков и алертов;
 * записать в поток Data Streams и далее отправить на обработку в Yandex Cloud Functions;
 * записать в поток Data Streams и далее передать в Yandex Data Transfer [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-В этом сценарии вы отправите логи Cloud Logging в поток Data Streams, а затем выполните к ним запрос с помощью Query. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
+В этом руководстве вы отправите логи Cloud Logging в поток Data Streams, а затем выполните к ним запрос с помощью Query. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
 
-Для выполнения сценария:
+Чтобы выполнить это руководство:
 
 1. [Создайте поток данных Data Streams](#create-yds-stream).
 1. [Создайте лог-группу Cloud Logging](#create-log-group).
 1. [Запустите отправку данных в лог-группу](#send-to-loggroup).
 1. [Подключите Query к потоку данных](#connect-query).
 1. [Выполните запрос к данным](#query).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -35,13 +36,16 @@
 
 Установите [интерфейс командной строки](../../cli/quickstart.md#install) Yandex Cloud.
 
+
 ## Создайте поток данных Data Streams {#create-yds-stream}
 
-[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) c именем `cloud-logging-stream`.
+[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) с именем `cloud-logging-stream`.
+
 
 ## Создайте лог-группу Cloud Logging {#create-log-group}
 
-[Создайте лог-группу](../operations/create-group.md) c именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
+[Создайте лог-группу](../operations/create-group.md) с именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
+
 
 ## Запустите отправку данных в лог-группу {#send-to-loggroup}
 
@@ -54,21 +58,24 @@ while true; do yc logging write \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
-  --folder-id b1kmrhakmf8a********; \
+  --folder-id <идентификатор_каталога>; \
   sleep 1; \
 done
 ```
 
+Где:
+
 * `--group-name` — название лог-группы, в которую отправляются сообщения;
 * `--message` — текст сообщения;
-* `--json_payload` — дополнительные данные сообщения в формате JSON;
+* `--json-payload` — дополнительные данные сообщения в формате JSON;
 * `--folder-id` — идентификатор каталога, в котором создана лог-группа.
 
 {% note info %}
 
-   Параметры `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров. Например: `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+Параметры `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров. Например: `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
 
-   {% endnote %}
+{% endnote %}
+
 
 ## Подключите Query к потоку данных {#connect-query}
 
@@ -79,6 +86,7 @@ done
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.
 1. Нажмите кнопку **Создать**.
+
 
 ## Выполните запрос к данным {#query}
 
@@ -115,6 +123,7 @@ LIMIT 2;
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+
+#### Полезные ссылки {#see-also}
 
 * [Чтение данных из Data Streams с помощью соединений в Query](../../query/sources-and-sinks/data-streams.md).

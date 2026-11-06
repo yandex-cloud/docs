@@ -41,6 +41,12 @@
 
 Воспользуйтесь инструкцией в разделе [Мониторинг состояния кластера и хостов](../operations/monitoring.md), чтобы отслеживать состояние хостов или настроить алерты.
 
+{% note warning %}
+
+Начиная с 1 сентября 2026 года создание новых кластеров с сервисом координации ZooKeeper будет недоступно. Существующие кластеры будут поддерживаться до 1 февраля 2028 года, после чего они будут переведены на сервис координации [ClickHouse® Keeper](../concepts/coordination-system.md#ck).
+
+{% endnote %}
+
 #### Как отслеживать объем, занимаемый данными в гибридном хранилище? {#hybrid}
 
 Воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе Yandex Monitoring. Она показывает, какой объем занимают куски таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в сервисе Object Storage. Метрика доступна только для кластеров Managed Service for ClickHouse® с настроенным [гибридным хранилищем](../concepts/storage.md#hybrid-storage-features). Подробнее о том, как выполнить запрос с метрикой, в [руководстве](../tutorials/hybrid-storage.md#metrics).

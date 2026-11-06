@@ -89,10 +89,7 @@ By default, the video loads without sound. If unable to increase volume in your 
 
   Windows versions 7, 8, and 10 indexed N and KN feature no codecs required for the video player to work.
 
-  You can download and install them yourself:
-
-  * [Windows 7](https://support.microsoft.com/en-us/help/968212/description-of-the-windows-media-format-feature-pack-for-windows-7-n-a)
-  * [Windows 8 or higher](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
+  You can download and install them yourself for [Windows 8 or higher](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
 
 - Ubuntu {#ubuntu}
 

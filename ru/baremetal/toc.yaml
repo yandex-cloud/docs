@@ -1395,6 +1395,8 @@ items:
                             href: api-ref/grpc/Image/getImage.md
                           - name: ListImages
                             href: api-ref/grpc/Image/listImages.md
+                          - name: ListCompatibleImages
+                            href: api-ref/grpc/Image/listCompatibleImages.md
                           - name: ResolveImages
                             href: api-ref/grpc/Image/resolveImages.md
                       - name: Operation
@@ -1568,6 +1570,9 @@ items:
                               - name: ListStacklandClusterOperations
                                 href: >-
                                   extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md
+                              - name: ListStacklandVersions
+                                href: >-
+                                  extend/api-ref/grpc/StacklandCluster/listStacklandVersions.md
                   - name: REST (англ.)
                     items:
                       - name: Overview
@@ -1617,6 +1622,8 @@ items:
                             href: api-ref/Image/getImage.md
                           - name: ListImages
                             href: api-ref/Image/listImages.md
+                          - name: ListCompatibleImages
+                            href: api-ref/Image/listCompatibleImages.md
                           - name: ResolveImages
                             href: api-ref/Image/resolveImages.md
                       - name: Operation
@@ -1786,6 +1793,9 @@ items:
                               - name: ListStacklandClusterOperations
                                 href: >-
                                   extend/api-ref/StacklandCluster/listStacklandClusterOperations.md
+                              - name: ListStacklandVersions
+                                href: >-
+                                  extend/api-ref/StacklandCluster/listStacklandVersions.md
           - name: Метрики {{ monitoring-name }}
             href: metrics.md
       - name: Квоты и лимиты

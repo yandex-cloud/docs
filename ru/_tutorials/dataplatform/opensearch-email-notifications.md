@@ -1,13 +1,13 @@
 # Отправка оповещений по электронной почте в {{ mos-full-name }}
 
-Вы можете настроить отправку оповещений по почте с помощью [плагина](../../managed-opensearch/concepts/plugins.md) Notifications в [{{ mos-name }}](../../managed-opensearch/index.yaml). Для этого в веб-интерфейсе {{ OS }} Dashboards необходимо создать канал уведомлений, настроить SMTP отправителя и указать получателей. Пароль отправителя необходимо добавить в хранилище ключей {{ OS }}.
+Вы можете настроить отправку оповещений по почте с помощью [плагина](../../managed-opensearch/concepts/plugins.md) Notifications в [{{ mos-name }}](../../managed-opensearch/index.yaml). Для этого в веб-интерфейсе {{ OS }} Dashboards необходимо создать канал уведомлений, настроить SMTP-сервер отправителя и указать получателей. Пароль отправителя необходимо добавить в хранилище ключей {{ OS }}.
 
 Чтобы настроить отправку оповещений по почте, выполните следующие действия:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Создайте отправителя](#create-sender).
 1. [Добавьте данные аутентификации в хранилище ключей {{ OS }}](#set-keystore-settings).
-1. [Обновите настройки кластера](#reload_secure_settings).
+1. [Обновите настройки кластера](#reload-secure-settings).
 1. [Создайте группу получателей](#create-recipient-group).
 1. [Создайте канал уведомлений](#create-channel).
 1. [Отправьте тестовое письмо](#send-email).
@@ -73,7 +73,7 @@
 
 - REST API {#api}
 
-  1. [Получите IAM-токен для аутентификации в API](../../managed-opensearch/api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  1. [Получите IAM-токен для аутентификации в API](../../managed-opensearch/api-ref/authentication.md) и поместите токен в переменную окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
   
@@ -116,7 +116,7 @@
 
 - gRPC API {#grpc-api}
 
-  1. [Получите IAM-токен для аутентификации в API](../../managed-opensearch/api-ref/authentication.md) и поместите токен в переменную среды окружения:
+  1. [Получите IAM-токен для аутентификации в API](../../managed-opensearch/api-ref/authentication.md) и поместите токен в переменную окружения:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -169,9 +169,9 @@
 
 {% endlist %}
 
-После добавления ключей [обновите](#reload_secure_settings) защищенные настройки кластера.
+После добавления ключей [обновите](#reload-secure-settings) защищенные настройки кластера.
 
-## Обновите настройки кластера {#reload_secure_settings}
+## Обновите настройки кластера {#reload-secure-settings}
 
 1. Установите SSL-сертификат:
 
@@ -220,11 +220,10 @@
     - Windows (PowerShell) {#windows}
 
       ```powershell
-      curl `
-        -Certificate $HOME\.opensearch\root.crt `
-        -Uri https://<FQDN_хоста_с_ролью_DATA>:{{ port-mos }}/_nodes/reload_secure_settings `
-        -Method Post `
-        -Credential admin
+      curl.exe `
+        --user "admin:<пароль>" `
+        --cacert $HOME\.opensearch\root.crt `
+        -X POST "https://<FQDN_хоста_с_ролью_DATA>:{{ port-mos }}/_nodes/reload_secure_settings"
       ```
 
     {% endlist %}
@@ -254,7 +253,7 @@
 ## Отправьте тестовое письмо {#send-email}
 
 1. В левом верхнем углу {{ OS }} Dashboards нажмите на значок ![image](../../_assets/console-icons/bars.svg) и в блоке **Management** выберите **Notifications**.
-1. В списке каналов нажмите на имя `my_channel`. 
+1. В списке каналов нажмите на имя `my_channel`.
 1. В меню **Actions** выберите пункт **Send test message**.
 
 {% note warning %}

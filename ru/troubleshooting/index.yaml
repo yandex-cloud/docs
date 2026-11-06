@@ -21,6 +21,3 @@ links:
   - title: '{{ network-load-balancer-name }}'
     description: Решения для {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
-    description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
-    href: terraform/

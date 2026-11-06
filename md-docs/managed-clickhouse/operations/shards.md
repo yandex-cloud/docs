@@ -507,11 +507,7 @@
 
 Вы можете изменить [вес шарда](../concepts/sharding.md#shard-weight), а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.
 
-{% note warning %}
-
 При изменении типа диска хосты кластера пересоздаются. Данные реплицированных таблиц сохраняются автоматически. Данные нереплицированных таблиц будут потеряны. Если необходимо сохранить данные в нереплицированных таблицах, перед изменением типа диска [преобразуйте их в реплицированные](https://clickhouse.com/docs/ru/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree).
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 

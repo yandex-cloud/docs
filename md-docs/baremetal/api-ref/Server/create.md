@@ -81,7 +81,8 @@ POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers
         "disk": {
           "id": "string",
           "type": "string",
-          "sizeGib": "string"
+          "sizeGib": "string",
+          "sizeBytes": "string"
         },
         "raid": {
           "type": "string",
@@ -89,7 +90,8 @@ POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers
             {
               "id": "string",
               "type": "string",
-              "sizeGib": "string"
+              "sizeGib": "string",
+              "sizeBytes": "string"
             }
           ]
         },
@@ -98,7 +100,8 @@ POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers
           {
             "type": "string",
             "sizeGib": "string",
-            "mountPoint": "string"
+            "mountPoint": "string",
+            "sizeBytes": "string"
           }
         ]
       }
@@ -148,11 +151,7 @@ The maximum string length in characters is 20. ||
 || networkInterfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured
-to interact with other servers on the internal network and on the internet.
-Currently up to 2 network interfaces are supported: required private network interface and
-optional public network interface.
-
-The maximum number of elements is 2. ||
+to interact with other servers on the internal network and on the internet. ||
 || osSettingsSpec | **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
 
 Operating system specific settings for provisioning the server. Optional, if omitted, the
@@ -437,7 +436,10 @@ Type of the disk drive.
 - `NVME`: Solid state drive with NVMe interface. ||
 || sizeGib | **string** (int64)
 
-Size of the disk in gibibytes (2^30 bytes). ||
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead. ||
+|| sizeBytes | **string** (int64)
+
+Size in bytes. ||
 |#
 
 ## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
@@ -472,10 +474,13 @@ Partition type.
 - `XFS`: XFS file system partition type. ||
 || sizeGib | **string** (int64)
 
-Size of the storage partition in gibibytes (2^30 bytes). ||
+Deprecated. Size of the storage partition in gibibytes (2^30 bytes). Use size_bytes instead. ||
 || mountPoint | **string**
 
 Storage mount point. ||
+|| sizeBytes | **string** (int64)
+
+Size in bytes. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

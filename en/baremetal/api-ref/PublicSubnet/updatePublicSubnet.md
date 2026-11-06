@@ -51,6 +51,49 @@ apiPlayground:
               ID of the public prefix pool that the CIDR block belongs to.
               To get a list of available public prefix pools, use the [PublicPrefixPoolService.List] request.
             type: string
+      DnsServer:
+        type: object
+        properties:
+          ipAddress:
+            description: |-
+              **string**
+              Manual DNS server IP address.
+              The maximum string length in characters is 15. Value must match the regular expression ` (?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:[.](?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3} `.
+              Includes only one of the fields `ipAddress`, `dnsInboundEndpointId`.
+            pattern: (?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:[.](?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3}
+            type: string
+          dnsInboundEndpointId:
+            description: |-
+              **string**
+              ID of the Cloud DNS inbound endpoint.
+              Value must match the regular expression ` [a-z][a-z0-9]* `.
+              Includes only one of the fields `ipAddress`, `dnsInboundEndpointId`.
+            pattern: '[a-z][a-z0-9]*'
+            type: string
+        oneOf:
+          - required:
+              - ipAddress
+          - required:
+              - dnsInboundEndpointId
+      DnsOptions:
+        type: object
+        properties:
+          servers:
+            description: |-
+              **[DnsServer](#yandex.cloud.baremetal.v2.DnsServer)**
+              DNS servers handed out to servers via DHCP option 6.
+              The order is preserved.
+              The maximum number of elements is 3.
+            type: array
+            items:
+              $ref: '#/definitions/DnsServer'
+          domainName:
+            description: |-
+              **string**
+              DNS Domain name handed out to servers via DHCP options 15 and 119.
+              The maximum string length in characters is 253. Value must match the regular expression ` ([a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?)*)| `.
+            pattern: ([a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?)*)|
+            type: string
       DhcpOptions:
         type: object
         properties:
@@ -58,12 +101,19 @@ apiPlayground:
             description: |-
               **string**
               Start IP address of the DHCP range (inclusive).
+              The absence or null value indicates that calculation will be performed based on CIDR.
             type: string
           endIp:
             description: |-
               **string**
               End IP address of the DHCP range (inclusive).
+              The absence or null value indicates that calculation will be performed based on CIDR.
             type: string
+          dnsOptions:
+            description: |-
+              **[DnsOptions](#yandex.cloud.baremetal.v2.DnsOptions)**
+              DNS configuration handed out to servers via DHCP.
+            $ref: '#/definitions/DnsOptions'
       PublicSubnet:
         type: object
         properties:
@@ -250,7 +300,18 @@ PATCH https://baremetal.{{ api-host }}/baremetal/v2/clouds/{public_subnet.cloud_
     "cidr": "string",
     "dhcpOptions": {
       "startIp": "string",
-      "endIp": "string"
+      "endIp": "string",
+      "dnsOptions": {
+        "servers": [
+          {
+            // Includes only one of the fields `ipAddress`, `dnsInboundEndpointId`
+            "ipAddress": "string",
+            "dnsInboundEndpointId": "string"
+            // end of the list of possible fields
+          }
+        ],
+        "domainName": "string"
+      }
     },
     "gatewayIp": "string",
     "publicPrefixPoolId": "string",
@@ -417,10 +478,56 @@ DHCP options for a subnet.
 ||Field | Description ||
 || startIp | **string**
 
-Start IP address of the DHCP range (inclusive). ||
+Start IP address of the DHCP range (inclusive).
+The absence or null value indicates that calculation will be performed based on CIDR. ||
 || endIp | **string**
 
-End IP address of the DHCP range (inclusive). ||
+End IP address of the DHCP range (inclusive).
+The absence or null value indicates that calculation will be performed based on CIDR. ||
+|| dnsOptions | **[DnsOptions](#yandex.cloud.baremetal.v2.DnsOptions)**
+
+DNS configuration handed out to servers via DHCP. ||
+|#
+
+## DnsOptions {#yandex.cloud.baremetal.v2.DnsOptions}
+
+DNS configuration distributed through DHCP.
+
+#|
+||Field | Description ||
+|| servers[] | **[DnsServer](#yandex.cloud.baremetal.v2.DnsServer)**
+
+DNS servers handed out to servers via DHCP option 6.
+The order is preserved.
+
+The maximum number of elements is 3. ||
+|| domainName | **string**
+
+DNS Domain name handed out to servers via DHCP options 15 and 119.
+
+The maximum string length in characters is 253. Value must match the regular expression ``` ([a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?)*)| ```. ||
+|#
+
+## DnsServer {#yandex.cloud.baremetal.v2.DnsServer}
+
+Represents a DNS server specified either by an IP address or by a Cloud DNS inbound endpoint.
+
+#|
+||Field | Description ||
+|| ipAddress | **string**
+
+Manual DNS server IP address.
+
+The maximum string length in characters is 15. Value must match the regular expression ``` (?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:[.](?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3} ```.
+
+Includes only one of the fields `ipAddress`, `dnsInboundEndpointId`. ||
+|| dnsInboundEndpointId | **string**
+
+ID of the Cloud DNS inbound endpoint.
+
+Value must match the regular expression ` [a-z][a-z0-9]* `.
+
+Includes only one of the fields `ipAddress`, `dnsInboundEndpointId`. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

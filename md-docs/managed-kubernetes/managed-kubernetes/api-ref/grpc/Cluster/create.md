@@ -253,7 +253,7 @@ Scale policy of the master. ||
 Master security groups. ||
 || master_logging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
 
-Cloud Logging for master components. ||
+Export configuration of master logs. ||
 |#
 
 ## ZonalMasterSpec {#yandex.cloud.k8s.v1.ZonalMasterSpec}
@@ -455,10 +455,11 @@ Required field. Preset of computing resources to be used as lower boundary for s
 ||Field | Description ||
 || enabled | **bool**
 
-Identifies whether Cloud Logging is enabled for master components. ||
+Specifies whether master logs should be exported. ||
 || log_group_id | **string**
 
 ID of the log group where logs of master components should be stored.
+Deprecated: Cloud Logging is no longer supported; this field has no effect.
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
@@ -467,7 +468,7 @@ Includes only one of the fields `log_group_id`, `folder_id`.
 The destination of master components' logs. ||
 || folder_id | **string**
 
-ID of the folder where logs should be stored (in default group).
+ID of the folder where logs should be stored.
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
@@ -476,16 +477,20 @@ Includes only one of the fields `log_group_id`, `folder_id`.
 The destination of master components' logs. ||
 || audit_enabled | **bool**
 
-Identifies whether Cloud Logging is enabled for audit logs. ||
+Specifies whether audit logs should be exported
+when master log delivery is enabled. ||
 || cluster_autoscaler_enabled | **bool**
 
-Identifies whether Cloud Logging is enabled for cluster-autoscaler. ||
+Specifies whether cluster-autoscaler logs should be exported
+when master log delivery is enabled. ||
 || kube_apiserver_enabled | **bool**
 
-Identifies whether Cloud Logging is enabled for kube-apiserver. ||
+Specifies whether kube-apiserver logs should be exported
+when master log delivery is enabled. ||
 || events_enabled | **bool**
 
-Identifies whether Cloud Logging is enabled for events. ||
+Specifies whether Kubernetes events should be exported
+when master log delivery is enabled. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy}

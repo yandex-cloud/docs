@@ -31,6 +31,7 @@
 * [Yandex DataLens](#source-datalens)
 * Trino
 * Apache Airflow™
+* Apache Iceberg™
 
 
 ### PostgreSQL {#source-pg}

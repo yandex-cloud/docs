@@ -13,6 +13,7 @@ service | Идентификатор сервиса: `managed-clickhouse`
 shard | Идентификатор шарда
 subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`, `keeper_subcluster`
 
+{% include [note-deprecated-zookeeper](../../mdb/note-deprecated-zookeeper.md) %}
 
 ## Метрики CPU {#managed-clickhouse-cpu-metrics}
 

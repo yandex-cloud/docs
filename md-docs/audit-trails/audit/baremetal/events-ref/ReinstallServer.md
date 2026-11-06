@@ -95,14 +95,20 @@
           {
             "type": "string",
             "sizeGib": "string",
-            "mountPoint": "string"
+            "mountPoint": "string",
+            // Includes only one of the fields `sizeBytes`
+            "sizeBytes": "string"
+            // end of the list of possible fields
           }
         ],
         // Includes only one of the fields `disk`, `raid`
         "disk": {
           "diskId": "string",
           "type": "string",
-          "diskSizeGb": "string"
+          "diskSizeGb": "string",
+          // Includes only one of the fields `diskSizeBytes`
+          "diskSizeBytes": "string"
+          // end of the list of possible fields
         },
         "raid": {
           "type": "string",
@@ -110,7 +116,10 @@
             {
               "diskId": "string",
               "type": "string",
-              "diskSizeGb": "string"
+              "diskSizeGb": "string",
+              // Includes only one of the fields `diskSizeBytes`
+              "diskSizeBytes": "string"
+              // end of the list of possible fields
             }
           ]
         }
@@ -318,6 +327,9 @@ Includes only one of the fields `disk`, `raid`. ||
 - `XFS` ||
 || sizeGib | **string** (int64) ||
 || mountPoint | **string** ||
+|| sizeBytes | **string** (int64)
+
+Includes only one of the fields `sizeBytes`. ||
 |#
 
 ## Disk {#yandex.cloud.audit.baremetal.Server.Disk}
@@ -330,6 +342,9 @@ Includes only one of the fields `disk`, `raid`. ||
 - `HDD`
 - `SSD` ||
 || diskSizeGb | **string** (int64) ||
+|| diskSizeBytes | **string** (int64)
+
+Includes only one of the fields `diskSizeBytes`. ||
 |#
 
 ## Raid {#yandex.cloud.audit.baremetal.Server.Raid}

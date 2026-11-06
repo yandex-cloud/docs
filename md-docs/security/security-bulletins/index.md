@@ -3439,7 +3439,7 @@ CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.
 
 * <https://infosecwriteups.com/text4shell-poc-cve-2022-42889-f6e9df41b3b7>
 * <https://sysdig.com/blog/cve-2022-42889-text4shell/>
-* <https://kyverno.io/policies/other/verify_image_cve-2022-42889/>
+* <https://release-1-8-0.kyverno.io/policies/other/verify_image_cve-2022-42889/>
 
 ### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-42889}
 
@@ -3623,7 +3623,7 @@ CVE ID: CVE-2022-27228
 ### Исходный отчет {#original-report-CVE-2022-27228}
 
 <https://bdu.fstec.ru/vul/2022-01141>
-<https://helpdesk.bitrix24.com/open/15536776/>
+<https://www.1c-bitrix.ru/vul/18645212/>
 
 ### Краткое описание {#brief-description-CVE-2022-27228}
 
@@ -4349,7 +4349,7 @@ Yandex Managed Service for Valkey™ использует 64-битную вер
 
 Уязвимость в Windows Netlogon Remote Protocol позволяет неаутентифицированному атакующему с сетевым доступом к контроллеру домена скомпрометировать все службы идентификации Active Directory.
 
-Исходный отчёт Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
+Исходный отчёт Secura: [Zerologon](https://cybersecurity.bureauveritas.com/uploads/whitepapers/Zerologon.pdf).
 
 Описание уязвимости, составленное Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 

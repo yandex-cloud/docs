@@ -2021,7 +2021,7 @@ yc compute instance update <идентификатор_или_имя_ВМ> \
 
 {% note alert "**Примечание**" %}
 
-При работе в Terraform заполняйте содержимое секрета Lockbox [скриптом](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version), а не значением прямо в манифесте. Иначе значение секрета попадёт ещё и в файл `.tfstate`.
+При работе в Terraform заполняйте содержимое секрета Lockbox [скриптом](../../terraform/resources/lockbox_secret_version.md), а не значением прямо в манифесте. Иначе значение секрета попадёт ещё и в файл `.tfstate`.
 
 {% endnote %}
 
@@ -2293,7 +2293,7 @@ Managed Service for Kubernetes предоставляет возможность
 
 * Группы безопасности на каждом объекте облака
 * Отдельная ВМ NGFW из Cloud Marketplace
-* Принцип [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system), например [собственный образ](../../compute/operations/image-create/upload.md) диска
+* Принцип [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html), например [собственный образ](../../compute/operations/image-create/upload.md) диска
 
 **Риски при невыполнении правила:** Без явных правил групп безопасности ВМ защищены только группой по умолчанию, которая разрешает весь входящий и исходящий трафик. Это означает, что любая ВМ с доступом из интернета доступна на всех портах, что значительно расширяет поверхность атаки. Злоумышленники могут зондировать и эксплуатировать любой открытый сервис на ВМ без каких-либо сетевых барьеров.
 

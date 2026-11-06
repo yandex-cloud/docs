@@ -126,7 +126,7 @@ Publication date: 08/04/24.
     * In **1.20 The correct resource model is used**, extended the description of the resource model and recommendation on how to use it.
     * In **1.21 There is no <q>public access</q> to resources in the organization**, added commands for checks via the CLI in PowerShell.
     * In **1.25 The date of the last service account authentication and the last use of the access keys in {{ iam-full-name }} are tracked**, added commands for checks via the CLI.
-    * In **2.1 For cloud objects, a firewall or security groups are used**, updated the description of the principle of using custom VM disk images (the [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle).
+    * In **2.1 For cloud objects, a firewall or security groups are used**, updated the description of the principle of using custom VM disk images (the [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html) principle).
     * Renumbered items **2.9 Outgoing internet access is controlled** (formerly `2.7`) and **2.10 DNS queries are not provided to third-party recursive resolvers** (formerly `2.8`).
     * Renumbered item **3.11 Logging of actions with buckets is enabled in {{ objstorage-name }}** (formerly `3.9`), clarified the description of bucket operation logging in {{ at-short-name }}, fixed punctuation.
     * Renumbered item **3.19 Access from the management console is disabled on managed databases** (formerly `3.17`), extended the command for checks in Bash, and added a command for checks in PowerShell.

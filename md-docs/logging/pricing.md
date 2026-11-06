@@ -8,6 +8,8 @@
 
 Используйте вместо Cloud Logging Observability-платформу [Monium](../monium/index.md).
 
+Для выгрузки исторических логов из Cloud Logging обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+
 {% endnote %}
 
 Чтобы рассчитать стоимость использования сервиса, ознакомьтесь с тарифами в этом разделе.

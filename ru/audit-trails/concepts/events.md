@@ -330,12 +330,6 @@ description: В данном разделе приведены описания 
 
 {% include [storage-events](../../_includes/audit-trails/events/storage-events.md) %}
 
-## {{ yq-full-name }} {#yq}
-
-Имя сервиса — `yq`.
-
-{% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
-
 ## {{ myt-full-name }} {#ytsaurus}
 
 Имя сервиса — `ytsaurus`.

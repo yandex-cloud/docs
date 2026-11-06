@@ -100,11 +100,7 @@ The maximum string length in characters is 1024. ||
 || networkInterfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured
-to interact with other servers on the internal network and on the internet.
-Currently up to 2 network interfaces are supported: required private network interface and
-optional public network interface.
-
-The number of elements must be in the range 1-2. ||
+to interact with other servers on the internal network and on the internet. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.

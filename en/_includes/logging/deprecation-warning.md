@@ -4,4 +4,6 @@ As of October 22, 2026, the {{ cloud-logging-full-name }} service has been disco
 
 Use the [{{ monium-name }}](../../monium/) observability platform instead of {{ cloud-logging-name }}.
 
+To export historical logs from {{ cloud-logging-name }}, contact [support]({{ link-console-support }}).
+
 {% endnote %}

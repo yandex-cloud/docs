@@ -11,21 +11,9 @@ links:
   - title: '{{ datalens-name }}'
     description: Solutions for {{ datalens-name }}
     href: datalens/
-  - title: '{{ iam-name }}'
-    description: Solutions for {{ iam-short-name }}
-    href: ../iam/qa/index.md
   - title: Legal
     description: Solutions for legal
     href: legal/
-  - title: '{{ managed-k8s-name }}'
-    description: Solutions for {{ managed-k8s-name }}
-    href: ../managed-kubernetes/qa/troubleshooting.md
-  - title: '{{ mkf-name }}'
-    description: Solutions for {{ mkf-name }}
-    href: managed-kafka/
   - title: '{{ network-load-balancer-name }}'
     description: Solutions for {{ network-load-balancer-name }}
     href: network-load-balancer/
-  - title: '{{ yandex-cloud }} {{ TF }} provider'
-    description: Solutions for the {{ yandex-cloud }} {{ TF }} provider
-    href: terraform/

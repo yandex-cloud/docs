@@ -42,7 +42,8 @@ Each value must match the regular expression ` [a-z][a-z0-9]* `. The number of e
           "disk": {
             "id": "string",
             "type": "DiskDriveType",
-            "size_gib": "int64"
+            "size_gib": "int64",
+            "size_bytes": "int64"
           },
           "raid": {
             "type": "RaidType",
@@ -50,7 +51,8 @@ Each value must match the regular expression ` [a-z][a-z0-9]* `. The number of e
               {
                 "id": "string",
                 "type": "DiskDriveType",
-                "size_gib": "int64"
+                "size_gib": "int64",
+                "size_bytes": "int64"
               }
             ]
           },
@@ -59,7 +61,8 @@ Each value must match the regular expression ` [a-z][a-z0-9]* `. The number of e
             {
               "type": "StoragePartitionType",
               "size_gib": "int64",
-              "mount_point": "string"
+              "mount_point": "string",
+              "size_bytes": "int64"
             }
           ]
         }
@@ -133,7 +136,10 @@ Type of the disk drive.
 - `NVME`: Solid state drive with NVMe interface. ||
 || size_gib | **int64**
 
-Size of the disk in gibibytes (2^30 bytes). ||
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead. ||
+|| size_bytes | **int64**
+
+Size in bytes. ||
 |#
 
 ## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
@@ -168,8 +174,11 @@ Partition type.
 - `XFS`: XFS file system partition type. ||
 || size_gib | **int64**
 
-Size of the storage partition in gibibytes (2^30 bytes). ||
+Deprecated. Size of the storage partition in gibibytes (2^30 bytes). Use size_bytes instead. ||
 || mount_point | **string**
 
 Storage mount point. ||
+|| size_bytes | **int64**
+
+Size in bytes. ||
 |#

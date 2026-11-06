@@ -1,7 +1,0 @@
-[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Terraform-провайдер Yandex Cloud](../index.md) > Решения для известных проблем c Terraform-провайдером Yandex Cloud
-
-## Решения для известных проблем c провайдером Terraform Yandex Cloud {#known-issues-resolving}
-
-* [Устранение ошибки `Failed to query available provider packages` при использовании Terraform](failed-to-quety-available-provider-packages.md)
-* [Зона создается публичной и приватной одновременно](zone-private-and-public.md)
-* [Устранение ошибки `Invalid provider registry host`](invalid-provider-registry-host.md)

@@ -213,7 +213,7 @@ NAT (network address translation) выполняется непосредств�
 
 **VMware Cloud Director**
 
-Для поиска и устранения неисправностей, связанных с сетевой связностью внутри оверлейного сегмента сети, в NSX-T можно использовать встроенный инструмент [Traceflow](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/administration/GUID-A85621BC-1CFD-4703-846A-2B3D36E7ABAC.html). Он позволяет не только проверить топологию и целостность виртуальных каналов, но и провести комплексную data-plane-диагностику кастомным сетевым пакетом.
+Для поиска и устранения неисправностей, связанных с сетевой связностью внутри оверлейного сегмента сети, в NSX-T можно использовать встроенный инструмент [Traceflow](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/network-monitoring/advanced-monitoring-tools/traceflow.html). Он позволяет не только проверить топологию и целостность виртуальных каналов, но и провести комплексную data-plane-диагностику кастомным сетевым пакетом.
 
 Для диагностики проблем на стыках между виртуальной и физической сетью, а также построения карты сетевых взаимодействий информационных систем между собой в NSX-T используется [VMware Aria Operations for Networks](https://www.vmware.com/products/cloud-infrastructure/aria-operations-for-networks#features). 
 

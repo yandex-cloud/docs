@@ -13,6 +13,9 @@ blocks:
     colSizes:
       all: 12
       md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Price calculator
@@ -92,4 +95,5 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

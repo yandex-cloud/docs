@@ -34,6 +34,8 @@ description: Из статьи вы узнаете, как осуществля�
 
 ### Доступные графики {#monitoring-dashboards}
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 Если в кластере присутствует сервис координации, то в зависимости от выбранного сервиса на странице **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** доступны следующие вкладки:
 
 * **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** — информация о состоянии всего кластера и хостов {{ CH }}.

@@ -13,6 +13,8 @@ description: На этой странице приведен справочни�
 {{ at-event-prefix }}.audit.mdb.clickhouse.<имя_события>
 ```
 
+{% include [note-deprecated-zookeeper](../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [mch-events](../_includes/audit-trails/events/mch-events.md) %}

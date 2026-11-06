@@ -35,6 +35,7 @@
        * DataLens
        * Trino
        * Apache Airflow™
+       * Apache Iceberg™
 
     1. Укажите параметры источника для выбранного типа бэкенда:
 

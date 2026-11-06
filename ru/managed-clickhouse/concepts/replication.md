@@ -12,6 +12,8 @@ description: Из статьи вы узнаете, как работает ре
 
 Кластер {{ mch-name }}, в котором функционирует репликация с использованием сервиса координации {{ CK }} или {{ ZK }} на отдельных хостах, считается [высокодоступным](high-availability.md). В таком кластере доступно создание [реплицируемых таблиц](#replicated-tables) и [реплицируемых баз данных](#replicated-db).
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 ## Реплицируемые таблицы {#replicated-tables}
 
 {{ CH }} поддерживает автоматическую репликацию только для таблиц на [движке семейства ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication). Чтобы обеспечить репликацию, вы можете создать такие таблицы на каждом хосте по отдельности или использовать распределенный DDL-запрос.

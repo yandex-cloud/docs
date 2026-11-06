@@ -1,6 +1,7 @@
 Чтобы управлять инфраструктурой {{ yandex-cloud }} с помощью {{ TF }}, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
 Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local), однако этот способ является менее безопасным. Подробности смотрите в конце раздела.
+
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md#install) его.
 1. Если у вас еще нет сервисного аккаунта, создайте его:
 
@@ -17,7 +18,7 @@
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
@@ -88,6 +89,7 @@
         ```
 
         Где:
+        
         * `<service-name>` — название [сервиса](../../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
         * `<resource>` — категория ресурса, например `cloud` — для назначения роли на все [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или `folder` — для назначения роли на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
         * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору (имя облака или каталога).
@@ -128,6 +130,7 @@
       ```
 
       Где:
+      
       * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
       * `YC_CLOUD_ID` — идентификатор облака.
       * `YC_FOLDER_ID` — идентификатор каталога.
@@ -141,6 +144,7 @@
       ```
 
       Где:
+      
       * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
       * `YC_CLOUD_ID` — идентификатор облака.
       * `YC_FOLDER_ID` — идентификатор каталога.

@@ -1,7 +1,7 @@
 # Setting up a UserGate firewall
 
 
-[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall created by the Russia-based company UserGate.
+[UserGate](https://usergate.com/products/next-generation-firewall) is a next-generation firewall created by the Russia-based company UserGate.
 
 In this tutorial, you will create and configure a {{ yandex-cloud }} VM running the UserGate firewall. To learn more about UserGate, sign up to our free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 

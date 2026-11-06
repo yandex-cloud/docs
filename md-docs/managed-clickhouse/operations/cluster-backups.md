@@ -135,7 +135,7 @@
 
 {% note alert "Важно" %}
 
-При восстановлении резервной копии в кластер без хостов ZooKeeper, все таблицы на движке семейства ReplicatedMergeTree будут преобразованы в простые MergeTree-таблицы. Данные в преобразованных таблицах сохраняются. Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
+При восстановлении резервной копии в кластер без хостов ClickHouse® Keeper, все таблицы на движке семейства ReplicatedMergeTree будут преобразованы в простые MergeTree-таблицы. Данные в преобразованных таблицах сохраняются. Подробнее в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
 {% endnote %}
 

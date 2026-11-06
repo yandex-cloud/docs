@@ -68,6 +68,12 @@ ClickHouse® поддерживает только добавление и чт�
 
 Кластеры Managed Service for ClickHouse® используют репликацию с помощью ClickHouse® Keeper или ZooKeeper. В обоих случаях для обеспечения репликации и [высокой доступности](../concepts/high-availability.md) в кластере создается минимум три хоста ClickHouse® Keeper или ZooKeeper.
 
+{% note warning %}
+
+Начиная с 1 сентября 2026 года создание новых кластеров с сервисом координации ZooKeeper будет недоступно. Существующие кластеры будут поддерживаться до 1 февраля 2028 года, после чего они будут переведены на сервис координации [ClickHouse® Keeper](../concepts/coordination-system.md#ck).
+
+{% endnote %}
+
 #### Почему кластер ClickHouse® занимает на 3 хоста больше, чем должен? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
 Когда вы создаете кластер ClickHouse® из 2 и более хостов, Managed Service for ClickHouse® автоматически создает 3 хоста сервиса координации (ClickHouse® Keeper или ZooKeeper, в зависимости от выбора пользователя) для управления репликацией и высокой доступностью. Эти хосты учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в расчете стоимости кластера. По умолчанию хосты ClickHouse® Keeper или ZooKeeper создаются с минимальным [классом хостов](../concepts/instance-types.md).

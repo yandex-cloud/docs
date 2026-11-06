@@ -9,7 +9,6 @@ description: Различные сценарии использования {{ a
 * [{#T}](search-cloud-logging.md)
 * [{#T}](alerts-monitoring.md)
 * [{#T}](logging-functions.md)
-* [{#T}](audit-trails.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}
 

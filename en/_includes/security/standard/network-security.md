@@ -32,7 +32,7 @@ Make sure that your [clouds](../../../resource-manager/concepts/resources-hierar
 
 * Security groups in each cloud object.
 * A separate NGFW VM from {{ marketplace-name }}.
-* [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle, e.g., [your own disk image](../../../compute/operations/image-create/upload.md).
+* [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html) principle, e.g., [your own disk image](../../../compute/operations/image-create/upload.md).
 
 | Requirement ID | Severity |
 | --- | --- |

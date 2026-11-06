@@ -1,19 +1,19 @@
 # Обработка логов {{ cloud-logging-full-name }}
 
 
-[{{ cloud-logging-full-name }}](../../logging/index.yaml) — это сервис, который позволяет читать и записывать логи сервисов {{ yandex-cloud }} и пользовательских приложений.
+[{{ cloud-logging-full-name }}](../../logging/index.yaml) — сервис для чтения и записи логов сервисов {{ yandex-cloud }} и пользовательских приложений.
 
 Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} и далее обработать в реальном времени с помощью {{ yq-full-name }}. Обработанные данные можно:
 
-* отправить в {{ monitoring-full-name }} для построения графиков и алертинга;
+* отправить в {{ monitoring-full-name }} для построения графиков и алертов;
 * записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
 * записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 ![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
-В этом сценарии вы отправите логи {{ cloud-logging-short-name }} в поток {{ yds-short-name }}, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
+В этом руководстве вы отправите логи {{ cloud-logging-short-name }} в поток {{ yds-short-name }}, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество сообщений по каждому хосту, сгруппированное по интервалам продолжительностью 10 секунд.
 
-Для выполнения сценария:
+Чтобы выполнить это руководство:
 
 1. [Создайте поток данных {{ yds-name }}](#create-yds-stream).
 1. [Создайте лог-группу {{ cloud-logging-name }}](#create-log-group).
@@ -21,19 +21,23 @@
 1. [Подключите {{ yq-name }} к потоку данных](#connect-query).
 1. [Выполните запрос к данным](#query).
 
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 
+
 ## Создайте поток данных {{ yds-name }} {#create-yds-stream}
 
-[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) c именем `cloud-logging-stream`.
+[Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream) с именем `cloud-logging-stream`.
+
 
 ## Создайте лог-группу {{ cloud-logging-name }} {#create-log-group}
 
-[Создайте лог-группу](../../logging/operations/create-group.md) c именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
+[Создайте лог-группу](../../logging/operations/create-group.md) с именем `cloud-logging-group`. При задании параметров лог-группы укажите созданный на предыдущем шаге поток данных `cloud-logging-stream`.
+
 
 ## Запустите отправку данных в лог-группу {#send-to-loggroup}
 
@@ -46,21 +50,24 @@ while true; do yc logging write \
   --timestamp="1s ago" \
   --level=INFO \
   --json-payload='{"request_id": "1234", "host":"test_host"}' \
-  --folder-id b1kmrhakmf8a********; \
+  --folder-id <идентификатор_каталога>; \
   sleep 1; \
 done
 ```
 
+Где:
+
 * `--group-name` — название лог-группы, в которую отправляются сообщения;
 * `--message` — текст сообщения;
-* `--json_payload` — дополнительные данные сообщения в формате JSON;
+* `--json-payload` — дополнительные данные сообщения в формате JSON;
 * `--folder-id` — идентификатор каталога, в котором создана лог-группа.
 
 {% note info %}
 
-   Параметры `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров. Например: `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
+Параметры `--group-name`, `--message`, `--json-payload` можно опустить и указать только значения параметров. Например: `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
 
-   {% endnote %}
+{% endnote %}
+
 
 ## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
@@ -71,6 +78,7 @@ done
     * Укажите поток данных `cloud-logging-stream`.
     * Задайте формат `json-list`.
 1. Нажмите кнопку **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
+
 
 ## Выполните запрос к данным {#query}
 
@@ -103,6 +111,7 @@ LIMIT 2;
 
 {% include [limit](../../query/_includes/select-limit.md) %}
 
-## Полезные ссылки {#see-also}
+
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../../query/sources-and-sinks/data-streams.md).

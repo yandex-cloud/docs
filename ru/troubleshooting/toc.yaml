@@ -238,26 +238,4 @@ items:
         href: legal/how-to/fl-152.md
       - name: Как стать поставщиком услуг для Яндекса
         href: legal/how-to/becoming-a-service-supplier.md
-  - name: '{{TF}}-провайдер {{ yandex-cloud }}'
-    items:
-      - name: Все решения для {{ TF }}-провайдера {{ yandex-cloud }}
-        href: terraform/index.md
-      - name: >-
-          Решения для известных проблем c {{ TF }}-провайдером {{ yandex-cloud
-          }}
-        href: terraform/known-issues/index.md
-        hidden: true
-      - name: >-
-          Устранение ошибки `Failed to query available provider packages при
-          использовании` {{ TF }}
-        href: terraform/known-issues/failed-to-quety-available-provider-packages.md
-      - name: Зона создается публичной и приватной одновременно
-        href: terraform/known-issues/zone-private-and-public.md
-      - name: Устранение ошибки `Invalid provider registry host`
-        href: terraform/known-issues/invalid-provider-registry-host.md
-      - name: >-
-          Примеры конфигураций и сценариев {{ TF }}-провайдера {{ yandex-cloud
-          }}
-        href: terraform/how-to/index.md
-        hidden: true
 path: ru/troubleshooting/toc.yaml

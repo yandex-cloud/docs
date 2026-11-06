@@ -13,6 +13,9 @@ blocks:
     colSizes:
       all: 12
       md: 6
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
@@ -108,4 +111,5 @@ blocks:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

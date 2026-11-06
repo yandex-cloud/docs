@@ -26,7 +26,7 @@ More details: [Lockbox documentation](https://yandex.cloud/en/docs/lockbox/).
 
 {% note alert "**Note**" %}
 
-When using Terraform, fill in the contents of a Lockbox secret with a [script](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version) instead of putting it directly in the manifest. Otherwise the secret value also ends up in the `.tfstate` file.
+When using Terraform, fill in the contents of a Lockbox secret with a [script]({{ tf-provider-resources-link }}/lockbox_secret_version) instead of putting it directly in the manifest. Otherwise the secret value also ends up in the `.tfstate` file.
 
 {% endnote %}
 

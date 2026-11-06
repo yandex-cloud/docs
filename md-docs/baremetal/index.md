@@ -1392,6 +1392,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListImages](api-ref/grpc/Image/listImages.md)
 
+ - [ListCompatibleImages](api-ref/grpc/Image/listCompatibleImages.md)
+
  - [ResolveImages](api-ref/grpc/Image/resolveImages.md)
 
 ####### Operation
@@ -1548,6 +1550,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListStacklandClusterOperations](extend/api-ref/grpc/StacklandCluster/listStacklandClusterOperations.md)
 
+ - [ListStacklandVersions](extend/api-ref/grpc/StacklandCluster/listStacklandVersions.md)
+
 ###### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -1593,6 +1597,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [GetImage](api-ref/Image/getImage.md)
 
  - [ListImages](api-ref/Image/listImages.md)
+
+ - [ListCompatibleImages](api-ref/Image/listCompatibleImages.md)
 
  - [ResolveImages](api-ref/Image/resolveImages.md)
 
@@ -1749,6 +1755,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [GetStacklandClusterConfigs](extend/api-ref/StacklandCluster/getStacklandClusterConfigs.md)
 
  - [ListStacklandClusterOperations](extend/api-ref/StacklandCluster/listStacklandClusterOperations.md)
+
+ - [ListStacklandVersions](extend/api-ref/StacklandCluster/listStacklandVersions.md)
 
  - [Метрики Monitoring](metrics.md)
 

@@ -4,4 +4,6 @@
 
 Используйте вместо {{ cloud-logging-name }} Observability-платформу [{{ monium-name }}](../../monium/).
 
+Для выгрузки исторических логов из {{ cloud-logging-name }} обратитесь в [техническую поддержку]({{ link-console-support }}).
+
 {% endnote %}

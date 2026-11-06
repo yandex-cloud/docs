@@ -179,17 +179,3 @@
  - [Нужно ли заключать отдельный договор по № 152-ФЗ для размещения персональных данных](legal/how-to/fl-152.md)
 
  - [Как стать поставщиком услуг для Яндекса](legal/how-to/becoming-a-service-supplier.md)
-
-## Terraform-провайдер Yandex Cloud
-
- - [Все решения для Terraform-провайдера Yandex Cloud](terraform/index.md)
-
- - [Решения для известных проблем c Terraform-провайдером Yandex Cloud](terraform/known-issues/index.md)
-
- - [Устранение ошибки `Failed to query available provider packages при использовании` Terraform](terraform/known-issues/failed-to-quety-available-provider-packages.md)
-
- - [Зона создается публичной и приватной одновременно](terraform/known-issues/zone-private-and-public.md)
-
- - [Устранение ошибки `Invalid provider registry host`](terraform/known-issues/invalid-provider-registry-host.md)
-
- - [Примеры конфигураций и сценариев Terraform-провайдера Yandex Cloud](terraform/how-to/index.md)

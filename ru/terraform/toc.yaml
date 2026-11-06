@@ -31,6 +31,8 @@ items:
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
         href: tutorials/terraform-state-lock.md
+  - name: Вопросы и ответы
+    href: qa/index.md
   - name: Библиотека решений
     href: solution-library.md
   - name: Справочник {{ TF }}

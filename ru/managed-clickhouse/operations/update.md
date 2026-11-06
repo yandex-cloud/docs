@@ -49,11 +49,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить класс хостов {#change-resource-preset}
 
-{% note info %}
-
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md).
-
-{% endnote %}
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
 
 При смене класса хостов:
 
@@ -311,17 +307,13 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
-{% note info %}
-
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md).
-
-{% endnote %}
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
-При изменении типа диска или размера хранилища хост кластера с хранилищем на локальных SSD-дисках может быть недоступен длительное время, если потребуется миграция данных на другой физический сервер.
+Также при изменении типа диска или размера хранилища хост кластера с хранилищем на локальных SSD-дисках может быть недоступен длительное время, если потребуется миграция данных на другой физический сервер.
 
 Вы также можете [изменить тип диска и размер хранилища у отдельного шарда](shards.md#shard-update).
 
@@ -556,15 +548,13 @@ description: Следуя данной инструкции, вы сможете
 
 ## Настроить сервис координации {#coordination}
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 Вы можете [включить сервис координации](#enable-coordination) {{ CK }} или {{ ZK }} на отдельных хостах, если он не был задан. Если в кластере используется встроенный {{ CK }}, то можно включить только сервис координации {{ CK }} на отдельных хостах. Для включенного сервиса координации можно [изменить его настройки](#change-coordination).
 
 ### Включить сервис координации {#enable-coordination}
 
-{% note warning %}
-
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
-
-{% endnote %}
 
 {% list tabs group=instructions %}
 

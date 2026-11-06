@@ -13,6 +13,9 @@ blocks:
     colSizes:
       all: 12
       sm: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен

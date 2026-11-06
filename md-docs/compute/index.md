@@ -1888,6 +1888,8 @@
 
  - [Delete](api-ref/grpc/Image/delete.md)
 
+ - [Export](api-ref/grpc/Image/export.md)
+
  - [ListOperations](api-ref/grpc/Image/listOperations.md)
 
  - [ListAccessBindings](api-ref/grpc/Image/listAccessBindings.md)
@@ -2057,6 +2059,8 @@
  - [Update](api-ref/grpc/Snapshot/update.md)
 
  - [Delete](api-ref/grpc/Snapshot/delete.md)
+
+ - [Export](api-ref/grpc/Snapshot/export.md)
 
  - [ListOperations](api-ref/grpc/Snapshot/listOperations.md)
 

@@ -3,6 +3,12 @@
 # Миграция хостов кластера ClickHouse® в другую зону доступности
 
 
+{% note warning %}
+
+Начиная с 1 сентября 2026 года создание новых кластеров с сервисом координации ZooKeeper будет недоступно. Существующие кластеры будут поддерживаться до 1 февраля 2028 года, после чего они будут переведены на сервис координации [ClickHouse® Keeper](../concepts/coordination-system.md#ck).
+
+{% endnote %}
+
 Хосты ClickHouse® и ZooKeeper кластера Managed Service for ClickHouse® располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) Yandex Cloud. Хосты ClickHouse® и ZooKeeper можно перенести из одной зоны в другую с помощью этой инструкции, а хосты со встроенным ClickHouse® Keeper — с помощью обращения в [службу поддержки](https://center.yandex.cloud/support).
 
 ## Перенести хосты ClickHouse® {#clickhouse-hosts}

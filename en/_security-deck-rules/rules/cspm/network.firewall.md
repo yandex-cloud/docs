@@ -29,7 +29,7 @@ Make sure that your [clouds](https://yandex.cloud/en/docs/resource-manager/conce
 
 * Security groups in each cloud object.
 * A separate NGFW VM from Cloud Marketplace.
-* [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system) principle, e.g., [your own disk image](https://yandex.cloud/en/docs/compute/operations/image-create/upload).
+* [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html) principle, e.g., [your own disk image](https://yandex.cloud/en/docs/compute/operations/image-create/upload).
 
 **Risks if the rule is not followed:** Without explicit security group rules, VMs are protected only by the default group which allows all inbound and outbound traffic. This means any internet-accessible VM is reachable on all ports, dramatically increasing the attack surface. Attackers can probe and exploit any open service on the VM without any network-level barrier.
 

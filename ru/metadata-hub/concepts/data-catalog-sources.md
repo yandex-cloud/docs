@@ -26,6 +26,7 @@ description: Источник данных — это то подключени�
 * [{{ datalens-full-name }}](#source-datalens)
 * {{ TR }}
 * {{ AF }}
+* {{ IBRG }}
 
 
 ### {{ PG }} {#source-pg}

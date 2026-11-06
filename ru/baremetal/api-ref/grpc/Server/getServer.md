@@ -169,7 +169,22 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
     "ram": {
       "id": "string",
       "size_bytes": "int64"
-    }
+    },
+    "network_interfaces": [
+      {
+        "id": "string",
+        "name": "string",
+        "configuration_id": "string",
+        "link_speed_gbps": "int64",
+        "available_modes": [
+          "InterfaceMode"
+        ],
+        "mc_lag_options": {
+          "interface_count": "int64"
+        },
+        "main_mode": "InterfaceMode"
+      }
+    ]
   },
   "stock_configuration_id": "string",
   // end of the list of possible fields
@@ -243,9 +258,7 @@ Timestamp indicating the end date and time of the server's rental period. Option
 unset initially and should be set when the rental actually starts. ||
 || network_interfaces[] | **[NetworkInterface](#yandex.cloud.baremetal.v2.NetworkInterface)**
 
-Array of network interfaces that are attached to the instance.
-
-The number of elements must be in the range 1-2. ||
+Array of network interfaces that are attached to the instance. ||
 || prolongation_state | enum **ProlongationState**
 
 Prolongation state of the server's rent.
@@ -611,6 +624,9 @@ Array of disk drive configurations. ||
 || ram | **[UserRAM](#yandex.cloud.baremetal.v2.UserRAM)**
 
 Random-access memory (RAM). ||
+|| network_interfaces[] | **[ConfigurationNetworkInterface](#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface)**
+
+Network interfaces of the custom configuration. ||
 |#
 
 ## UserCPU {#yandex.cloud.baremetal.v2.UserCPU}
@@ -671,4 +687,49 @@ ID of the RAM from configurator. ||
 || size_bytes | **int64**
 
 Ram size. ||
+|#
+
+## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Id of the network interface
+Not used while creating interfaces ||
+|| name | **string**
+
+Name of the network interface ||
+|| configuration_id | **string**
+
+Id of the configuration ||
+|| link_speed_gbps | **int64**
+
+Link speed in gigabits per second ||
+|| available_modes[] | enum **InterfaceMode**
+
+Available modes for the network interface
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|| mc_lag_options | **[MCLagAggregationOptions](#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface.MCLagAggregationOptions)**
+
+MC-LAG configuration options for aggregated interfaces ||
+|| main_mode | enum **InterfaceMode**
+
+Primary mode of the network interface.
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|#
+
+## MCLagAggregationOptions {#yandex.cloud.baremetal.v2.ConfigurationNetworkInterface.MCLagAggregationOptions}
+
+MC-LAG aggregation options for the network interface.
+
+#|
+||Field | Description ||
+|| interface_count | **int64**
+
+Number of interfaces in the MC-LAG aggregation. ||
 |#

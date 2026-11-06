@@ -10,6 +10,8 @@
 
 Используйте вместо Cloud Logging Observability-платформу [Monium](../monium/index.md).
 
+Для выгрузки исторических логов из Cloud Logging обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
+
 {% endnote %}
 
 ## Сравнение Cloud Logging и Monium {#comparison}
@@ -163,6 +165,8 @@
 
    В параметре `service.name` укажите имя лог-группы, чтобы сохранить структуру данных. Параметр `cluster` необязателен, значение по умолчанию — `default`.
 
-## Чтение логов по API {#api-reading}
+## Доступ к логам Cloud Logging {#api-reading}
 
-[Чтение через API Cloud Logging](api-ref/grpc/LogReading/read.md) будет поддерживаться до 1 марта 2027 года, если сохранена структура `folder__<идентификатор_каталога>` → `default` → `имя лог-группы`. Данные доступны в пределах срока хранения — 31 день. Переведите запросы на чтение на новый API до окончания поддержки старого API.
+API Cloud Logging недоступен для чтения и записи логов.
+
+Если вам нужна выгрузка исторических логов из Cloud Logging, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).

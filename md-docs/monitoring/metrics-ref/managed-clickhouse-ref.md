@@ -19,6 +19,11 @@ service | Идентификатор сервиса: `managed-clickhouse`
 shard | Идентификатор шарда
 subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`, `keeper_subcluster`
 
+{% note warning %}
+
+Начиная с 1 сентября 2026 года создание новых кластеров с сервисом координации ZooKeeper будет недоступно. Существующие кластеры будут поддерживаться до 1 февраля 2028 года, после чего они будут переведены на сервис координации [ClickHouse® Keeper](../../managed-clickhouse/concepts/coordination-system.md#ck).
+
+{% endnote %}
 
 ## Метрики CPU {#managed-clickhouse-cpu-metrics}
 

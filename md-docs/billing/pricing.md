@@ -9,6 +9,9 @@ blocks:
     colSizes:
       all: 12
       md: 4
+    indent:
+      top: '0'
+      bottom: '0'
     children:
       - type: basic-card
         title: Калькулятор цен
@@ -49,12 +52,6 @@ blocks:
         indent:
           top: '0'
           bottom: '0'
-  - type: card-layout-block
-    animated: false
-    colSizes:
-      all: 12
-      md: 6
-    children: []
 :::
 
 

@@ -3969,28 +3969,6 @@ items:
             href: audit/ymq/events-ref/DeleteMessageQueue.md
           - name: UpdateMessageQueue
             href: audit/ymq/events-ref/UpdateMessageQueue.md
-      - name: yq
-        items:
-          - name: ControlQuery
-            href: audit/yq/events-ref/ControlQuery.md
-          - name: CreateBinding
-            href: audit/yq/events-ref/CreateBinding.md
-          - name: CreateConnection
-            href: audit/yq/events-ref/CreateConnection.md
-          - name: CreateQuery
-            href: audit/yq/events-ref/CreateQuery.md
-          - name: DeleteBinding
-            href: audit/yq/events-ref/DeleteBinding.md
-          - name: DeleteConnection
-            href: audit/yq/events-ref/DeleteConnection.md
-          - name: DeleteQuery
-            href: audit/yq/events-ref/DeleteQuery.md
-          - name: UpdateBinding
-            href: audit/yq/events-ref/UpdateBinding.md
-          - name: UpdateConnection
-            href: audit/yq/events-ref/UpdateConnection.md
-          - name: UpdateQuery
-            href: audit/yq/events-ref/UpdateQuery.md
       - name: ytsaurus
         items:
           - name: CreateCluster

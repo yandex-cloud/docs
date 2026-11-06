@@ -24,3 +24,6 @@ links:
   - title: Провайдер {{ yandex-cloud }}
     description: Справочник ресурсов и источников данных {{ yandex-cloud }}
     href: tf-ref/overview
+  - title: Вопросы и ответы
+    description: Ответы на частые вопросы и решения проблем при работе с {{ TF }}
+    href: qa/

@@ -1918,6 +1918,8 @@ items:
                 href: api-ref/grpc/Image/update.md
               - name: Delete
                 href: api-ref/grpc/Image/delete.md
+              - name: Export
+                href: api-ref/grpc/Image/export.md
               - name: ListOperations
                 href: api-ref/grpc/Image/listOperations.md
               - name: ListAccessBindings
@@ -2088,6 +2090,8 @@ items:
                 href: api-ref/grpc/Snapshot/update.md
               - name: Delete
                 href: api-ref/grpc/Snapshot/delete.md
+              - name: Export
+                href: api-ref/grpc/Snapshot/export.md
               - name: ListOperations
                 href: api-ref/grpc/Snapshot/listOperations.md
               - name: ListAccessBindings

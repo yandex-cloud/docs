@@ -126,7 +126,10 @@ editable: false
         {
           "diskId": "string",
           "type": "string",
-          "diskSizeGb": "string"
+          "diskSizeGb": "string",
+          // Includes only one of the fields `diskSizeBytes`
+          "diskSizeBytes": "string"
+          // end of the list of possible fields
         }
       ],
       "imageId": "string",
@@ -385,4 +388,7 @@ Includes only one of the fields `privateInterface`, `publicInterface`. ||
 - `HDD`
 - `SSD` ||
 || diskSizeGb | **string** (int64) ||
+|| diskSizeBytes | **string** (int64)
+
+Includes only one of the fields `diskSizeBytes`. ||
 |#

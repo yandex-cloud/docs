@@ -54,13 +54,9 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
-
  - [Настройка дашбордов и алертов в Monitoring](tutorials/alerts-monitoring.md)
 
  - [Настройка реагирования в Cloud Functions](tutorials/logging-functions.md)
-
- - [Обработка аудитных логов Audit Trails](tutorials/audit-trails.md)
 
 ### Экспорт аудитных логов в SIEM
 
@@ -3863,28 +3859,6 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteMessageQueue](audit/ymq/events-ref/DeleteMessageQueue.md)
 
  - [UpdateMessageQueue](audit/ymq/events-ref/UpdateMessageQueue.md)
-
-### yq
-
- - [ControlQuery](audit/yq/events-ref/ControlQuery.md)
-
- - [CreateBinding](audit/yq/events-ref/CreateBinding.md)
-
- - [CreateConnection](audit/yq/events-ref/CreateConnection.md)
-
- - [CreateQuery](audit/yq/events-ref/CreateQuery.md)
-
- - [DeleteBinding](audit/yq/events-ref/DeleteBinding.md)
-
- - [DeleteConnection](audit/yq/events-ref/DeleteConnection.md)
-
- - [DeleteQuery](audit/yq/events-ref/DeleteQuery.md)
-
- - [UpdateBinding](audit/yq/events-ref/UpdateBinding.md)
-
- - [UpdateConnection](audit/yq/events-ref/UpdateConnection.md)
-
- - [UpdateQuery](audit/yq/events-ref/UpdateQuery.md)
 
 ### ytsaurus
 

@@ -194,20 +194,6 @@ items:
         href: datalens/known-issues/error-ssl-is-required.md
       - name: Resolving an incorrect `Total` value in a pivot table
         href: datalens/known-issues/incorrect-value-in-field-total.md
-  - name: '{{ mkf-name }}'
-    items:
-      - name: All solutions for {{ mkf-name }}
-        href: managed-kafka/index.md
-      - name: Sample {{ mkf-name }} configurations and use cases
-        href: managed-kafka/how-to/index.md
-        hidden: true
-      - name: How to monitor memory usage
-        href: managed-kafka/how-to/process-read-topic.md
-      - name: Solutions for known {{ mkf-name }} issues
-        href: managed-kafka/known-issues/index.md
-        hidden: true
-      - name: Resolving the `Failed authentication with /` error
-        href: managed-kafka/known-issues/error-failed-authentification.md
   - name: '{{ network-load-balancer-name }}'
     items:
       - name: All solutions for {{ network-load-balancer-name }}
@@ -247,24 +233,4 @@ items:
           data to comply with the requirements of the Russian Federal Law No.
           152-FZ on Personal Data
         href: legal/how-to/fl-152.md
-  - name: '{{ yandex-cloud }} {{ TF }} provider'
-    items:
-      - name: All solutions for the {{ yandex-cloud }} {{ TF }} provider
-        href: terraform/index.md
-      - name: Solutions for known {{ yandex-cloud }} {{ TF }} provider issues
-        href: terraform/known-issues/index.md
-        hidden: true
-      - name: >-
-          Resolving the `Failed to query available provider packages` error when
-          using {{ TF }}
-        href: terraform/known-issues/failed-to-quety-available-provider-packages.md
-      - name: Zone appears as both public and private
-        href: terraform/known-issues/zone-private-and-public.md
-      - name: Resolving the `Invalid provider registry host` error
-        href: terraform/known-issues/invalid-provider-registry-host.md
-      - name: >-
-          Sample {{ yandex-cloud }} {{ TF }} provider configurations and use
-          cases
-        href: terraform/how-to/index.md
-        hidden: true
 path: en/troubleshooting/toc.yaml

@@ -29,7 +29,7 @@
 
 * Группы безопасности на каждом объекте облака
 * Отдельная ВМ NGFW из Cloud Marketplace
-* Принцип [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system), например [собственный образ](https://yandex.cloud/ru/docs/compute/operations/image-create/upload) диска
+* Принцип [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html), например [собственный образ](https://yandex.cloud/ru/docs/compute/operations/image-create/upload) диска
 
 **Риски при невыполнении правила:** Без явных правил групп безопасности ВМ защищены только группой по умолчанию, которая разрешает весь входящий и исходящий трафик. Это означает, что любая ВМ с доступом из интернета доступна на всех портах, что значительно расширяет поверхность атаки. Злоумышленники могут зондировать и эксплуатировать любой открытый сервис на ВМ без каких-либо сетевых барьеров.
 

@@ -47,7 +47,8 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
         "disk": {
           "id": "string",
           "type": "string",
-          "sizeGib": "string"
+          "sizeGib": "string",
+          "sizeBytes": "string"
         },
         "raid": {
           "type": "string",
@@ -55,7 +56,8 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
             {
               "id": "string",
               "type": "string",
-              "sizeGib": "string"
+              "sizeGib": "string",
+              "sizeBytes": "string"
             }
           ]
         },
@@ -64,7 +66,8 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
           {
             "type": "string",
             "sizeGib": "string",
-            "mountPoint": "string"
+            "mountPoint": "string",
+            "sizeBytes": "string"
           }
         ]
       }
@@ -190,7 +193,10 @@ Type of the disk drive.
 - `NVME`: Solid state drive with NVMe interface. ||
 || sizeGib | **string** (int64)
 
-Size of the disk in gibibytes (2^30 bytes). ||
+Deprecated. Size of the disk in gibibytes (2^30 bytes). Use size_bytes instead. ||
+|| sizeBytes | **string** (int64)
+
+Size in bytes. ||
 |#
 
 ## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
@@ -225,10 +231,13 @@ Partition type.
 - `XFS`: XFS file system partition type. ||
 || sizeGib | **string** (int64)
 
-Size of the storage partition in gibibytes (2^30 bytes). ||
+Deprecated. Size of the storage partition in gibibytes (2^30 bytes). Use size_bytes instead. ||
 || mountPoint | **string**
 
 Storage mount point. ||
+|| sizeBytes | **string** (int64)
+
+Size in bytes. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

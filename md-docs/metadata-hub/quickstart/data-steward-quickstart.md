@@ -27,6 +27,7 @@ Data Catalog поддерживает получение метаданных и
 * DataLens
 * Trino
 * Apache Airflow™
+* Apache Iceberg™
 
 Чтобы начать работу с сервисом:
 

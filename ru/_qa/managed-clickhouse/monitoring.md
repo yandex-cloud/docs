@@ -23,6 +23,8 @@
 
 Воспользуйтесь инструкцией в разделе [Мониторинг состояния кластера и хостов](../../managed-clickhouse/operations/monitoring.md), чтобы отслеживать состояние хостов или настроить алерты.
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 #### Как отслеживать объем, занимаемый данными в гибридном хранилище? {#hybrid}
 
 Воспользуйтесь метрикой `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она показывает, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в сервисе {{ objstorage-name }}. Метрика доступна только для кластеров {{ mch-name }} с настроенным [гибридным хранилищем](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features). Подробнее о том, как выполнить запрос с метрикой, в [руководстве](../../managed-clickhouse/tutorials/hybrid-storage.md#metrics).

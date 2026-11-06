@@ -117,10 +117,13 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || authorization | **[Authorization](#yandex.cloud.audit.Authorization)** ||
 || resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
 || requestMetadata | **[RequestMetadata](#yandex.cloud.audit.RequestMetadata)** ||
-|| eventStatus | **enum** (SynchronousEventStatus)
+|| eventStatus | **enum** (EventStatus)
 
+- `STARTED`
 - `ERROR`
-- `DONE` ||
+- `DONE`
+- `CANCELLED`
+- `RUNNING` ||
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||

@@ -6,6 +6,7 @@
 На этой странице рассказано, как подключить модули и использовать их для создания тестовой инфраструктуры: [облачной сети](../../vpc/concepts/network.md#network) с тремя [подсетями](../../vpc/concepts/network.md#subnet) [{{ vpc-full-name }}](../../vpc/) и [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите {{ TF }}](#install-terraform).
 1. [Получите данные для аутентификации](#get-credentials).

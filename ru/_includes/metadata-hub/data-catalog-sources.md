@@ -9,3 +9,4 @@
 * {{ datalens-name }}
 * {{ TR }}
 * {{ AF }}
+* {{ IBRG }}

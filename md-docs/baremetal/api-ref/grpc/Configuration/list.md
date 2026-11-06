@@ -83,7 +83,8 @@ The maximum string length in characters is 50. Value must match the regular expr
         {
           "type": "DiskDriveType",
           "disk_count": "int64",
-          "disk_size_gib": "int64"
+          "disk_size_gib": "int64",
+          "disk_size_bytes": "int64"
         }
       ],
       "network_capacity_gbps": "int64",
@@ -102,7 +103,8 @@ The maximum string length in characters is 50. Value must match the regular expr
           }
         }
       ],
-      "mounting_availability": "MountingAvailability"
+      "mounting_availability": "MountingAvailability",
+      "server_type": "ServerType"
     }
   ],
   "next_page_token": "string"
@@ -156,6 +158,12 @@ Indicates whether the mounting option is available or not for this configuration
 
 - `AVAILABLE`: Mounting is available.
 - `UNAVAILABLE`: Mounting is unavailable. ||
+|| server_type | enum **ServerType**
+
+Type of servers represented by the configuration.
+
+- `SERVER_TYPE_BAREMETAL`: Standard bare metal server.
+- `SERVER_TYPE_MAC_MINI`: Apple Mac Mini server. ||
 |#
 
 ## CPU {#yandex.cloud.baremetal.v1alpha.CPU}
@@ -202,7 +210,10 @@ Type of the disk drive.
 Number of disk drives. ||
 || disk_size_gib | **int64**
 
-Size of a single disk drive in gibibytes (2^30 bytes). ||
+Deprecated. Size of a single disk drive in gibibytes (2^30 bytes). Use disk_size_bytes instead. ||
+|| disk_size_bytes | **int64**
+
+Size of a single disk drive in bytes. ||
 |#
 
 ## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface}

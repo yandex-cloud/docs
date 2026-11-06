@@ -8,6 +8,7 @@ Yandex Cloud предоставляет ![](../../_assets/overview/solution-libr
 На этой странице рассказано, как подключить модули и использовать их для создания тестовой инфраструктуры: [облачной сети](../concepts/network.md#network) с тремя [подсетями](../concepts/network.md#subnet) [Yandex Virtual Private Cloud](../index.md) и [кластера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Чтобы создать вашу первую инфраструктуру в Yandex Cloud с помощью Terraform:
+
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Установите Terraform](#install-terraform).
 1. [Получите данные для аутентификации](#get-credentials).
@@ -85,6 +86,7 @@ export PATH=$PATH:/path/to/terraform
 Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
 Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local), однако этот способ является менее безопасным. Подробности смотрите в конце раздела.
+
 1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../../cli/quickstart.md#install) его.
 1. Если у вас еще нет сервисного аккаунта, создайте его:
 
@@ -184,6 +186,7 @@ export PATH=$PATH:/path/to/terraform
         ```
 
         Где:
+        
         * `<service-name>` — название [сервиса](../../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
         * `<resource>` — категория ресурса, например `cloud` — для назначения роли на все [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или `folder` — для назначения роли на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
         * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору (имя облака или каталога).
@@ -322,6 +325,7 @@ export PATH=$PATH:/path/to/terraform
       ```
 
       Где:
+      
       * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
       * `YC_CLOUD_ID` — идентификатор облака.
       * `YC_FOLDER_ID` — идентификатор каталога.
@@ -335,6 +339,7 @@ export PATH=$PATH:/path/to/terraform
       ```
 
       Где:
+      
       * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
       * `YC_CLOUD_ID` — идентификатор облака.
       * `YC_FOLDER_ID` — идентификатор каталога.
@@ -496,7 +501,8 @@ export PATH=$PATH:/path/to/terraform
    terraform {
      required_providers {
        yandex = {
-         source = "yandex-cloud/yandex"
+         source  = "yandex-cloud/yandex"
+         version = ">= 0.96.0"
        }
      }
      required_version = ">= 0.13"

@@ -1,7 +1,7 @@
 # Setting up a UserGate proxy server
 
 
-[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall from a Russia-based company UserGate.
+[UserGate](https://usergate.com/products/next-generation-firewall) is a next-generation firewall from a Russia-based company UserGate.
 
 In this tutorial, we will create a {{ yandex-cloud }} UserGate VM configured as a proxy server. This configuration will give your employees secure internet access from the office or anywhere else, like home or public places. To learn more about UserGate, sign up to our free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 

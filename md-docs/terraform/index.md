@@ -38,6 +38,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [Блокировка состояний Terraform с помощью Yandex Managed Service for YDB](tutorials/terraform-state-lock.md)
 
+ - [Вопросы и ответы](qa/index.md)
+
  - [Библиотека решений](solution-library.md)
 
 ## Справочник Terraform

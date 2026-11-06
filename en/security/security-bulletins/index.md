@@ -385,7 +385,7 @@ All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols wil
 
 A Windows Netlogon Remote Protocol vulnerability that allows an unauthenticated attacker with network access permissions to a domain controller to compromise all Active Directory identification services.
 
-Original report from Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
+Original report from Secura: [Zerologon](https://cybersecurity.bureauveritas.com/uploads/whitepapers/Zerologon.pdf).
 
 Vulnerability description by Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 

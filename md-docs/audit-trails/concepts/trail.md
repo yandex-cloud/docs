@@ -203,7 +203,6 @@ include_rules:  # Включение событий; для исключения
 * [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md)
 * [Настройка дашбордов и алертов в Yandex Monitoring](../tutorials/alerts-monitoring.md)
 * [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](../tutorials/logging-functions.md)
-* [Обработка аудитных логов Yandex Audit Trails](../tutorials/audit-trails.md)
 * [Загрузка аудитных логов в MaxPatrol SIEM](../tutorials/maxpatrol/index.md)
 * [Загрузка аудитных логов в SIEM Splunk](../tutorials/export-logs-to-splunk.md)
 * [Загрузка аудитных логов в SIEM ArcSight](../tutorials/export-logs-to-arcsight.md)

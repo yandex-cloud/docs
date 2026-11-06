@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Миграция хостов кластера {{ CH }} в другую зону доступности
 
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 Хосты {{ CH }} и {{ ZK }} кластера {{ mch-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Хосты {{ CH }} и {{ ZK }} можно перенести из одной зоны в другую с помощью этой инструкции, а хосты со встроенным {{ CK }} — с помощью обращения в [службу поддержки]({{ link-console-support }}).
 
 ## Перенести хосты {{ CH }} {#clickhouse-hosts}

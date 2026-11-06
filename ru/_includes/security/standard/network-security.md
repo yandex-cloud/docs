@@ -35,7 +35,7 @@
 
 * Группы безопасности на каждом объекте облака.
 * Отдельная ВМ NGFW из {{ marketplace-name }}.
-* Принцип [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system), например: [собственный образ](../../../compute/operations/image-create/upload.md) диска.
+* Принцип [BYOI](https://docs.oracle.com/en/engineered-systems/private-cloud-appliance/3.0-latest/concept/concept-byoi.html), например: [собственный образ](../../../compute/operations/image-create/upload.md) диска.
 
 | ID требования | Критичность |
 | --- | --- |

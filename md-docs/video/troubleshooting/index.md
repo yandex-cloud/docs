@@ -174,10 +174,7 @@
 
   В Windows версий 7, 8 и 10 с индексами N и KN нет нужных кодеков для работы видеоплеера.
 
-  Вы можете скачать и установить их самостоятельно:
-
-  * [Windows 7](https://support.microsoft.com/ru-ru/help/968212/description-of-the-windows-media-format-feature-pack-for-windows-7-n-a)
-  * [Windows 8 и выше](https://support.microsoft.com/ru-ru/help/3145500/media-feature-pack-list-for-windows-n-editions)
+  Вы можете скачать и установить их самостоятельно для [Windows 8 и выше](https://support.microsoft.com/ru-ru/help/3145500/media-feature-pack-list-for-windows-n-editions)
 
 - Ubuntu {#ubuntu}
 

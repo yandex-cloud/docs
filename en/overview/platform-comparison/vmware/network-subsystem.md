@@ -213,7 +213,7 @@ Currently, {{ yandex-cloud }} has no equivalents to Distributed IDS and Distribu
 
 **VMware Cloud Director**
 
-To troubleshoot network connectivity issues within an overlay network segment, NSX-T offers a built-in tool called [Traceflow](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/administration/GUID-A85621BC-1CFD-4703-846A-2B3D36E7ABAC.html). Not only does it allow you to verify the topology and integrity of virtual channels, but also enables performing comprehensive data plane diagnostics using custom network packets.
+To troubleshoot network connectivity issues within an overlay network segment, NSX-T offers a built-in tool called [Traceflow](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/network-monitoring/advanced-monitoring-tools/traceflow.html). Not only does it allow you to verify the topology and integrity of virtual channels, but also enables performing comprehensive data plane diagnostics using custom network packets.
 
 To diagnose virtual and physical network interface issues, as well as map networking between information systems, NSX-T offers [VMware Aria Operations for Networks](https://www.vmware.com/products/cloud-infrastructure/aria-operations-for-networks#features). 
 

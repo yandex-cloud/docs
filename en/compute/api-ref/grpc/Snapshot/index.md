@@ -15,6 +15,7 @@ A set of methods for managing Snapshot resources.
 || [Create](create.md) | Creates a snapshot of the specified disk. ||
 || [Update](update.md) | Updates the specified snapshot. ||
 || [Delete](delete.md) | Deletes the specified snapshot. ||
+|| [Export](export.md) | Exports the specified snapshot to an S3-compatible storage. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified snapshot. ||
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the snapshot. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the snapshot. ||

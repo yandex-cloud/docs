@@ -14,6 +14,7 @@ A set of methods for managing Image resources.
 || [Create](create.md) | Creates an image in the specified folder. ||
 || [Update](update.md) | Updates the specified image. ||
 || [Delete](delete.md) | Deletes the specified image. ||
+|| [Export](export.md) | Exports the specified image to an S3-compatible storage. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified image. ||
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the image. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the image. ||

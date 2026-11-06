@@ -18,6 +18,8 @@ description: Основная сущность, которой оперируе�
 
 * Из хостов {{ CH }} и отдельных хостов {{ ZK }}.
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 
 На минимальное количество хостов {{ CH }} в кластере влияют:
     

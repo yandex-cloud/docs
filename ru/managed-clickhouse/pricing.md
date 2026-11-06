@@ -52,6 +52,8 @@ blocks:
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [note-deprecated-zookeeper](../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}

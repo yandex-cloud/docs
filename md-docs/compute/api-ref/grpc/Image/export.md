@@ -1,0 +1,150 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > Export
+
+# Compute Cloud API, gRPC: ImageService.Export
+
+Exports the specified image to an S3-compatible storage.
+
+## gRPC request
+
+**rpc Export ([ExportImageRequest](#yandex.cloud.compute.v1.ExportImageRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## ExportImageRequest {#yandex.cloud.compute.v1.ExportImageRequest}
+
+```json
+{
+  "image_id": "string",
+  "destination": {
+    "endpoint": "string",
+    "region": "string",
+    "bucket": "string",
+    "prefix": "string"
+  },
+  "credentials": {
+    "access_key_id": "string",
+    "secret_access_key": "string"
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| image_id | **string**
+
+ID of the image to export.
+To get the image ID, use a [ImageService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
+|| destination | **[ExportDestination](#yandex.cloud.compute.v1.ExportDestination)**
+
+Destination of the export. ||
+|| credentials | **[ExportS3Credentials](#yandex.cloud.compute.v1.ExportS3Credentials)**
+
+Credentials used to access the destination storage. ||
+|#
+
+## ExportDestination {#yandex.cloud.compute.v1.ExportDestination}
+
+Destination of an export to an S3-compatible storage.
+
+#|
+||Field | Description ||
+|| endpoint | **string**
+
+HTTP(S) endpoint of an S3-compatible storage. ||
+|| region | **string**
+
+Signing region; empty when the storage does not use one. ||
+|| bucket | **string**
+
+The bucket must exist. ||
+|| prefix | **string**
+
+Optional prefix of the exported objects. ||
+|#
+
+## ExportS3Credentials {#yandex.cloud.compute.v1.ExportS3Credentials}
+
+Credentials used to access the destination storage.
+
+#|
+||Field | Description ||
+|| access_key_id | **string**
+
+S3 Access Key ID ||
+|| secret_access_key | **string**
+
+S3 Secret Access Key ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": "google.protobuf.Any",
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Any"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#

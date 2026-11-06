@@ -6,15 +6,6 @@ editable: false
 
 # {{ myt-full-name }} pricing policy
 
-::: page-constructor
-blocks:
-  - type: card-layout-block
-    animated: false
-    colSizes:
-      all: 12
-      md: 6
-    children: []
-:::
 
 
 
@@ -147,4 +138,5 @@ Suppose we calculate the 30-day usage cost of a cluster with the following confi
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

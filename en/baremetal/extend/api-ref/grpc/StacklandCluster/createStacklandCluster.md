@@ -118,7 +118,13 @@ Creates new Stackland cluster.
       // end of the list of possible fields
     },
     "settings": {
-      "public_network_access": "PublicNetworkAccess"
+      "public_network_access": "PublicNetworkAccess",
+      "components": [
+        {
+          "component": "Component",
+          "enabled": "bool"
+        }
+      ]
     }
   }
 }
@@ -207,7 +213,7 @@ Optional CIDR to preselect in subnet. ||
 Version of Stackland to be used. ||
 || license | **string**
 
-License to activate Stackland. ||
+License to activate Stackland. Supports raw json and encoded base64 formats. ||
 || credentials_lockbox_secret_id | **string**
 
 ID of secret with cluster credentials in lockbox. ||
@@ -427,6 +433,24 @@ Can be set only at cluster creation.
 
 - `ENABLED`: Cluster is accessible from the public network.
 - `DISABLED`: Cluster is not accessible from the public network. ||
+|| components[] | **[StacklandComponentSettings](#yandex.cloud.baremetal.v2.extend.StacklandComponentSettings)**
+
+Explicit component settings. Omitted components use their individual defaults.
+Each component may appear at most once. Can be set only at cluster creation. ||
+|#
+
+## StacklandComponentSettings {#yandex.cloud.baremetal.v2.extend.StacklandComponentSettings}
+
+#|
+||Field | Description ||
+|| component | enum **Component**
+
+Required field. Component to configure. Must be specified and unique within the settings.
+
+- `STORAGE`: Storage. Enabled by default when omitted from the component settings. ||
+|| enabled | **bool**
+
+Explicit component state. If omitted in a supplied entry, defaults to false. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

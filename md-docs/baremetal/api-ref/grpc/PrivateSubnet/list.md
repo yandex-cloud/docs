@@ -81,7 +81,18 @@ Both snake_case and camelCase are supported for fields. ||
         "cidr": "string",
         "dhcp_options": {
           "start_ip": "string",
-          "end_ip": "string"
+          "end_ip": "string",
+          "dns_options": {
+            "servers": [
+              {
+                // Includes only one of the fields `ip_address`, `dns_inbound_endpoint_id`
+                "ip_address": "string",
+                "dns_inbound_endpoint_id": "string"
+                // end of the list of possible fields
+              }
+            ],
+            "domain_name": "string"
+          }
         },
         "gateway_ip": "string"
       },
@@ -188,4 +199,48 @@ Start IP address of the DHCP range (inclusive). ||
 || end_ip | **string**
 
 End IP address of the DHCP range (inclusive). ||
+|| dns_options | **[DnsOptions](#yandex.cloud.baremetal.v1alpha.DnsOptions)**
+
+DNS configuration handed out to servers via DHCP. ||
+|#
+
+## DnsOptions {#yandex.cloud.baremetal.v1alpha.DnsOptions}
+
+DNS configuration distributed through DHCP.
+
+#|
+||Field | Description ||
+|| servers[] | **[DnsServer](#yandex.cloud.baremetal.v1alpha.DnsServer)**
+
+DNS servers handed out to servers via DHCP option 6.
+The order is preserved.
+
+The maximum number of elements is 3. ||
+|| domain_name | **string**
+
+DNS Domain name handed out to servers via DHCP options 15 and 119.
+
+The maximum string length in characters is 253. Value must match the regular expression ``` ([a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]*[a-zA-Z0-9])?)*)| ```. ||
+|#
+
+## DnsServer {#yandex.cloud.baremetal.v1alpha.DnsServer}
+
+Represents a DNS server specified either by an IP address or by a Cloud DNS inbound endpoint.
+
+#|
+||Field | Description ||
+|| ip_address | **string**
+
+Manual DNS server IP address.
+
+The maximum string length in characters is 15. Value must match the regular expression ``` (?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])(?:[.](?:0|[1-9][0-9]?|1[0-9]{2}|2[0-4][0-9]|25[0-5])){3} ```.
+
+Includes only one of the fields `ip_address`, `dns_inbound_endpoint_id`. ||
+|| dns_inbound_endpoint_id | **string**
+
+ID of the Cloud DNS inbound endpoint.
+
+Value must match the regular expression ` [a-z][a-z0-9]* `.
+
+Includes only one of the fields `ip_address`, `dns_inbound_endpoint_id`. ||
 |#

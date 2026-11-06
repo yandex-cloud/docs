@@ -15,4 +15,5 @@ A set of methods for managing StacklandCluster resources.
 || [DeleteStacklandCluster](deleteStacklandCluster.md) | Deletes the specified Stackland cluster. ||
 || [GetStacklandClusterConfigs](getStacklandClusterConfigs.md) | Returns a zip archive with the cluster config.yaml and secrets.yaml. ||
 || [ListStacklandClusterOperations](listStacklandClusterOperations.md) | Lists operations for the specified Stackland cluster. ||
+|| [ListStacklandVersions](listStacklandVersions.md) | Lists of available stackland versions. ||
 |#

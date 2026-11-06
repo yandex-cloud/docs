@@ -6,7 +6,6 @@
 * [Поиск событий Yandex Cloud в Cloud Logging](search-cloud-logging.md)
 * [Настройка дашбордов и алертов в Yandex Monitoring](alerts-monitoring.md)
 * [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](logging-functions.md)
-* [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}
 

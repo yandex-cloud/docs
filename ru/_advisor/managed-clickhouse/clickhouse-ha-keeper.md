@@ -16,4 +16,6 @@
 1. Укажите новую подсеть и зону доступности, куда переносятся хосты.
 1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
+{% include [note-deprecated-zookeeper](../../_includes/mdb/note-deprecated-zookeeper.md) %}
+
 Больше информации в инструкции по [миграции хостов](../../managed-clickhouse/operations/host-migration.md).

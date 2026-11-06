@@ -69,7 +69,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex MetaData Hub](events.md#metadata-hub)
 * [Yandex Network Load Balancer](events.md#network-load-balancer)
 * [Yandex Object Storage](events.md#objstorage)
-* [Yandex Query](events.md#yq)
 * [Yandex Managed Service for YTsaurus](events.md#ytsaurus)
 * [Yandex Cloud Notification Service](events.md#notifications)
 * [Yandex Resource Manager](events.md#resmgr)
@@ -1556,23 +1555,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `BucketTagsUpdate` | Изменение тегов бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации сайта
-
-## Yandex Query {#yq}
-
-Имя сервиса — `yq`.
-
-Имя события | Описание
---- | ---
-`ControlQuery` | Управление запросом
-`CreateBinding` | Создание привязки к данным
-`CreateConnection` | Создание соединения
-`CreateQuery` | Создание запроса
-`DeleteBinding` | Удаление привязки к данным
-`DeleteConnection` | Удаление соединения
-`DeleteQuery` | Удаление запроса
-`UpdateBinding` | Изменение привязки к данным
-`UpdateConnection` | Изменение соединения
-`UpdateQuery` | Изменение запроса
 
 ## Yandex Managed Service for YTsaurus {#ytsaurus}
 
