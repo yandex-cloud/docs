@@ -98,7 +98,10 @@
     "loggingPath": "string",
     // end of the list of possible fields
     // Includes only one of the fields `sqsServiceAccountId`
-    "sqsServiceAccountId": "string"
+    "sqsServiceAccountId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `lambdaServiceAccountId`
+    "lambdaServiceAccountId": "string"
     // end of the list of possible fields
   },
   "requestParameters": "object",
@@ -281,4 +284,7 @@ Includes only one of the fields `loggingPath`. ||
 || sqsServiceAccountId | **string**
 
 Includes only one of the fields `sqsServiceAccountId`. ||
+|| lambdaServiceAccountId | **string**
+
+Includes only one of the fields `lambdaServiceAccountId`. ||
 |#

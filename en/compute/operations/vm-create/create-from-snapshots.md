@@ -5,6 +5,8 @@ description: Use this guide to create a VM with disks recovered from snapshots a
 
 # Creating a VM with disks recovered from snapshots
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 You can create a VM with disks recovered from snapshots available in the folder. For more information on how to create a disk snapshot, see [{#T}](../disk-control/create-snapshot.md).
 

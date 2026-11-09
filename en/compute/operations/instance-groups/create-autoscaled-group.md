@@ -5,6 +5,8 @@ description: Follow this guide to create an autoscaling instance group.
 
 # Creating an autoscaling instance group
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 You can create an [autoscaling](../../concepts/instance-groups/scale.md#auto-scale) [group of same-type instances](../../concepts/instance-groups/index.md). This [instance](../../concepts/vm.md) group will scale up or down automatically.
 

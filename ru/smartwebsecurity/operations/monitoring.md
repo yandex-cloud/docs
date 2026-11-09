@@ -79,6 +79,11 @@ description: Следуя данной инструкции, вы сможете
 
 ## Посмотреть метрики Network Protection {#network-protection}
 
+Для просмотра метрик нужны роли:
+
+* [smart-web-security.auditor](../security/index.md#smart-web-security-auditor) — на прокси-сервер.
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — на каталог, в котором находится прокси-сервер.
+
 Чтобы построить график отброшенного трафика:
 
 1. Узнайте публичный IPv4-адрес прокси-сервера. В [консоли управления]({{ link-console-main }}/link/smartwebsecurity) выберите каталог с прокси-сервером, откройте раздел **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** и выберите прокси-сервер. На вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте значение поля **{{ ui-key.yacloud.smart-web-security.proxy-servers.publicIpColumn_dPwQF }}**.

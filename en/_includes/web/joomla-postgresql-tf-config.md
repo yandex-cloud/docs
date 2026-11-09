@@ -39,7 +39,7 @@ locals {
   cert_name          = "joomla-cert"
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -188,7 +188,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = yandex_compute_image.joomla-pg-vm-image.id
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "joomla-pg-vm" {
   name               = local.vm_name
@@ -255,6 +255,8 @@ resource "yandex_mdb_postgresql_database" "joomla-pg-tutorial-db" {
   cluster_id = yandex_mdb_postgresql_cluster.joomla-pg-cluster.id
   name       = local.db_name
   owner      = local.db_user
+  
+  depends_on = [yandex_mdb_postgresql_user.joomla-user]
 }
 
 # Creating a database user

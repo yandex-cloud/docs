@@ -53,6 +53,7 @@
 * [{{ search-api-full-name }}](../../audit-trails/concepts/events.md#searchapi)
 * [{{ src-full-name }}](../../audit-trails/concepts/events.md#sourcecraft)
 * [{{ sd-full-name }}](../../audit-trails/concepts/events.md#security-deck)
+* [{{ yandex-siem-full-name }}](../../audit-trails/concepts/events.md#siem)
 * [{{ serverless-containers-full-name }}](../../audit-trails/concepts/events.md#serverless-containers)
 * [{{ captcha-full-name }}](../../audit-trails/concepts/events.md#smartcaptcha)
 * [{{ sws-full-name }}](../../audit-trails/concepts/events.md#smartwebsecurity)

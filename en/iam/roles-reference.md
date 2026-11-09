@@ -6,6 +6,10 @@ description: This article provides a full reference and description of roles for
 # Role reference {{ yandex-cloud }}
 
 
+
+
+
+
 ## Primitive roles {#primitive-roles}
 
 The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role inherits all the `{{ roles-viewer }}` role permissions. You can find role descriptions below the diagram.
@@ -131,151 +135,6 @@ For more information, see [Managing access in the {{ yandex-cloud }} partner pro
 For more information, see [{#T}](../metadata-hub/security/metastore-roles.md).
 
 
-## {{ api-gw-full-name }} {#api-gateway-roles}
-
-#### api-gateway.auditor {#api-gateway-auditor}
-
-{% include [api-gateway.auditor](../_roles/api-gateway/auditor.md) %}
-
-#### api-gateway.viewer {#api-gateway-viewer}
-
-{% include [api-gateway.viewer](../_roles/api-gateway/viewer.md) %}
-
-#### api-gateway.editor {#api-gateway-editor}
-
-{% include [api-gateway.editor](../_roles/api-gateway/editor.md) %}
-
-#### api-gateway.websocketWriter {#api-gateway-websocketwriter}
-
-{% include [api-gateway.websocketWriter](../_roles/api-gateway/websocketWriter.md) %}
-
-#### api-gateway.websocketBroadcaster {#api-gateway-websocketBroadcaster}
-
-{% include [api-gateway.websocketBroadcaster](../_roles/api-gateway/websocketBroadcaster.md) %}
-
-#### api-gateway.admin {#api-gateway-admin}
-
-{% include [api-gateway.admin](../_roles/api-gateway/admin.md) %}
-
-For more information, see [{#T}](../api-gateway/security/index.md).
-
-
-## {{ alb-full-name }} {#alb-roles}
-
-#### alb.auditor {#alb-auditor}
-
-{% include [alb.auditor](../_roles/alb/auditor.md) %}
-
-#### alb.viewer {#alb-viewer}
-
-{% include [alb.viewer](../_roles/alb/viewer.md) %}
-
-#### alb.user {#alb-user}
-
-{% include [alb.user](../_roles/alb/user.md) %}
-
-#### alb.editor {#alb-editor}
-
-{% include [alb.editor](../_roles/alb/editor.md) %}
-
-#### alb.admin {#alb-admin}
-
-{% include [alb.admin](../_roles/alb/admin.md) %}
-
-For more information, see [{#T}](../application-load-balancer/security/index.md).
-
-
-## {{ at-full-name }} {#at-roles}
-
-#### audit-trails.auditor {#at-auditor}
-
-{% include [audit-trails.auditor](../_roles/audit-trails/auditor.md) %}
-
-#### audit-trails.viewer {#at-viewer}
-
-{% include [audit-trails.viewer](../_roles/audit-trails/viewer.md) %}
-
-#### audit-trails.editor {#at-editor}
-
-{% include [audit-trails.editor](../_roles/audit-trails/editor.md) %}
-
-#### audit-trails.admin {#at-admin}
-
-{% include [audit-trails.admin](../_roles/audit-trails/admin.md) %}
-
-#### audit-trails.configViewer {#at-configviewer}
-
-{% include [audit-trails.configviewer](../_roles/audit-trails/configViewer.md) %}
-
-For more information, see [{#T}](../audit-trails/security/index.md).
-
-
-## {{ baremetal-full-name }} {#baremetal-roles}
-
-#### baremetal.auditor {#baremetal-auditor}
-
-{% include [baremetal-auditor](../_roles/baremetal/auditor.md) %}
-
-#### baremetal.viewer {#baremetal-viewer}
-
-{% include [baremetal-viewer](../_roles/baremetal/viewer.md) %}
-
-#### baremetal.operator {#baremetal-operator}
-
-{% include [baremetal-operator](../_roles/baremetal/operator.md) %}
-
-#### baremetal.editor {#baremetal-editor}
-
-{% include [baremetal-editor](../_roles/baremetal/editor.md) %}
-
-{% note warning %}
-
-Starting August 1, 2026, the `baremetal.editor` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
-
-{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
-
-{% endnote %}
-
-#### baremetal.admin {#baremetal-admin}
-
-{% include [baremetal-admin](../_roles/baremetal/admin.md) %}
-
-{% note warning %}
-
-Starting August 1, 2026, the `baremetal.admin` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
-
-{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
-
-{% endnote %}
-
-For more information, see [{#T}](../baremetal/security/index.md).
-
-
-## {{ certificate-manager-full-name }} {#certificate-manager-roles}
-
-#### certificate-manager.auditor {#certificate-manager-auditor}
-
-{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
-
-#### certificate-manager.viewer {#certificate-manager-viewer}
-
-{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
-
-#### certificate-manager.editor {#certificate-manager-editor}
-
-{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
-
-#### certificate-manager.admin {#certificate-manager-admin}
-
-{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
-
-#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
-
-{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
-
-For more information, see [{#T}](../certificate-manager/security/index.md).
-
-
 ## {{ ai-studio-full-name }} {#fm-roles}
 
 #### ai.playground.user {#ai-playground-user}
@@ -305,6 +164,38 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 #### ai.assistants.admin {#ai-assistants-admin}
 
 {% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+{% include [ai.canvasAgents.auditor](../_roles/ai/canvasAgents/auditor.md) %}
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+{% include [ai.canvasAgents.viewer](../_roles/ai/canvasAgents/viewer.md) %}
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+{% include [ai.canvasAgents.editor](../_roles/ai/canvasAgents/editor.md) %}
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+{% include [ai.canvasAgents.admin](../_roles/ai/canvasAgents/admin.md) %}
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+{% include [ai.agentChannels.auditor](../_roles/ai/agentChannels/auditor.md) %}
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+{% include [ai.agentChannels.viewer](../_roles/ai/agentChannels/viewer.md) %}
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+{% include [ai.agentChannels.editor](../_roles/ai/agentChannels/editor.md) %}
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+{% include [ai.agentChannels.admin](../_roles/ai/agentChannels/admin.md) %}
 
 #### ai.datasets.auditor {#ai-datasets-auditor}
 
@@ -474,8 +365,197 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 
 {% include [ai.workProfiles.admin](../_roles/ai/workProfiles/admin.md) %}
 
+#### search-api.executor {#search-api-executor}
+
+{% include [searchapi-executor](../_roles/search-api/executor.md) %}
+
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
+
+#### search-api.auditor {#search-api-auditor}
+
+{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
+
+#### search-api.viewer {#search-api-viewer}
+
+{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
+
+#### search-api.editor {#search-api-editor}
+
+{% include [searchapi-editor](../_roles/search-api/editor.md) %}
+
+#### search-api.admin {#search-api-admin}
+
+{% include [searchapi-admin](../_roles/search-api/admin.md) %}
+
 For more information, see [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
+
+## {{ api-gw-full-name }} {#api-gateway-roles}
+
+#### api-gateway.auditor {#api-gateway-auditor}
+
+{% include [api-gateway.auditor](../_roles/api-gateway/auditor.md) %}
+
+#### api-gateway.viewer {#api-gateway-viewer}
+
+{% include [api-gateway.viewer](../_roles/api-gateway/viewer.md) %}
+
+#### api-gateway.editor {#api-gateway-editor}
+
+{% include [api-gateway.editor](../_roles/api-gateway/editor.md) %}
+
+#### api-gateway.websocketWriter {#api-gateway-websocketwriter}
+
+{% include [api-gateway.websocketWriter](../_roles/api-gateway/websocketWriter.md) %}
+
+#### api-gateway.websocketBroadcaster {#api-gateway-websocketBroadcaster}
+
+{% include [api-gateway.websocketBroadcaster](../_roles/api-gateway/websocketBroadcaster.md) %}
+
+#### api-gateway.admin {#api-gateway-admin}
+
+{% include [api-gateway.admin](../_roles/api-gateway/admin.md) %}
+
+For more information, see [{#T}](../api-gateway/security/index.md).
+
+
+## {{ alb-full-name }} {#alb-roles}
+
+#### alb.auditor {#alb-auditor}
+
+{% include [alb.auditor](../_roles/alb/auditor.md) %}
+
+#### alb.viewer {#alb-viewer}
+
+{% include [alb.viewer](../_roles/alb/viewer.md) %}
+
+#### alb.user {#alb-user}
+
+{% include [alb.user](../_roles/alb/user.md) %}
+
+#### alb.editor {#alb-editor}
+
+{% include [alb.editor](../_roles/alb/editor.md) %}
+
+#### alb.admin {#alb-admin}
+
+{% include [alb.admin](../_roles/alb/admin.md) %}
+
+For more information, see [{#T}](../application-load-balancer/security/index.md).
+
+
+## {{ at-full-name }} {#at-roles}
+
+#### audit-trails.auditor {#at-auditor}
+
+{% include [audit-trails.auditor](../_roles/audit-trails/auditor.md) %}
+
+#### audit-trails.viewer {#at-viewer}
+
+{% include [audit-trails.viewer](../_roles/audit-trails/viewer.md) %}
+
+#### audit-trails.editor {#at-editor}
+
+{% include [audit-trails.editor](../_roles/audit-trails/editor.md) %}
+
+#### audit-trails.admin {#at-admin}
+
+{% include [audit-trails.admin](../_roles/audit-trails/admin.md) %}
+
+#### audit-trails.configViewer {#at-configviewer}
+
+{% include [audit-trails.configviewer](../_roles/audit-trails/configViewer.md) %}
+
+For more information, see [{#T}](../audit-trails/security/index.md).
+
+
+## {{ baremetal-full-name }} {#baremetal-roles}
+
+#### baremetal.auditor {#baremetal-auditor}
+
+{% include [baremetal-auditor](../_roles/baremetal/auditor.md) %}
+
+#### baremetal.viewer {#baremetal-viewer}
+
+{% include [baremetal-viewer](../_roles/baremetal/viewer.md) %}
+
+#### baremetal.operator {#baremetal-operator}
+
+{% include [baremetal-operator](../_roles/baremetal/operator.md) %}
+
+#### baremetal.editor {#baremetal-editor}
+
+{% include [baremetal-editor](../_roles/baremetal/editor.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.editor` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
+#### baremetal.admin {#baremetal-admin}
+
+{% include [baremetal-admin](../_roles/baremetal/admin.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.admin` role gets new permissions from the [backup.user](../backup/security/index.md#backup-user) role allowing it to connect servers to [{{ backup-full-name }}](../backup/index.yaml), link and unlink them from [backup policies](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
+For more information, see [{#T}](../baremetal/security/index.md).
+
+
+## {{ certificate-manager-full-name }} {#certificate-manager-roles}
+
+#### certificate-manager.auditor {#certificate-manager-auditor}
+
+{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
+
+#### certificate-manager.viewer {#certificate-manager-viewer}
+
+{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
+
+#### certificate-manager.editor {#certificate-manager-editor}
+
+{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
+
+#### certificate-manager.admin {#certificate-manager-admin}
+
+{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
+
+#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
+
+{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
+
+For more information, see [{#T}](../certificate-manager/security/index.md).
+
+
+## {{ cloud-apps-full-name }} {#cloud-apps-roles}
+
+#### cloudapps.auditor {#cloudapps-auditor}
+
+{% include [cloudapps.auditor](../_roles/cloudapps/auditor.md) %}
+
+#### cloudapps.viewer {#cloudapps-viewer}
+
+{% include [cloudapps.viewer](../_roles/cloudapps/viewer.md) %}
+
+#### cloudapps.editor {#cloudapps-editor}
+
+{% include [cloudapps.editor](../_roles/cloudapps/editor.md) %}
+
+#### cloudapps.admin {#cloudapps-admin}
+
+{% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
+
+For more information, see [{#T}](../cloud-apps/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -2664,35 +2744,6 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 For more information, see [{#T}](../metadata-hub/security/schema-registry-roles.md).
 
 
-## {{ search-api-full-name }} {#search-api-roles}
-
-#### search-api.executor {#search-api-executor}
-
-{% include [searchapi-executor](../_roles/search-api/executor.md) %}
-
-#### search-api.webSearch.user {#search-api-webSearch-user}
-
-{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
-
-#### search-api.auditor {#search-api-auditor}
-
-{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
-
-#### search-api.viewer {#search-api-viewer}
-
-{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
-
-#### search-api.editor {#search-api-editor}
-
-{% include [searchapi-editor](../_roles/search-api/editor.md) %}
-
-#### search-api.admin {#search-api-admin}
-
-{% include [searchapi-admin](../_roles/search-api/admin.md) %}
-
-Learn more in [Access management in {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
-
-
 ## {{ sd-full-name }} {#security-deck-roles}
 
 ### Common {{ sd-name }} roles {#general-sd-roles}
@@ -2795,7 +2846,6 @@ Learn more in [Access management in {{ kspm-name }}](../security-deck/security/k
 
 Learn more in [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
-
 ### {{ td-full-name }} ({{ td-name }}) service roles {#td-roles}
 
 #### threat-detector.worker {#threat-detector-worker}
@@ -2839,7 +2889,6 @@ Learn more in [Access management in {{ td-name }}](../security-deck/security/td-
 {% include [vulnerability-manager.admin](../_roles/vulnerability-manager/admin.md) %}
 
 Learn more in [Access management in {{ vuln-man-short-name }}](../security-deck/security/vm-roles.md).
-
 
 ### Service roles for {{ atr-name }} data analysis {#access-transparency-roles}
 
@@ -2930,32 +2979,6 @@ For more information, see [Access management in Alerts](../security-deck/securit
 
 For more information, see [{#T}](../serverless-containers/security/index.md).
 
-
-## {{ si-full-name }} {#serverless-integrations-roles}
-
-### {{ er-full-name }} service roles {#eventrouter-roles}
-
-#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
-
-{% include [serverless.eventrouter.auditor](../_roles/serverless/eventrouter/auditor.md) %}
-
-#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
-
-{% include [serverless.eventrouter.viewer](../_roles/serverless/eventrouter/viewer.md) %}
-
-#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
-
-{% include [serverless.eventrouter.supplier](../_roles/serverless/eventrouter/supplier.md) %}
-
-#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
-
-{% include [serverless.eventrouter.editor](../_roles/serverless/eventrouter/editor.md) %}
-
-#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
-
-{% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
-
-Learn more in [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
 ## {{ yandex-siem-full-name }} {#yandex-siem-roles}
 

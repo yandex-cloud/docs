@@ -17,6 +17,8 @@ A resource record is the main unit of information in a DNS. Using resource recor
 
 Resource records only support ASCII characters.
 
+Resource record values do not support uppercase letters in domain names without quotation marks.
+
 {% endnote %}
 
 {{ dns-name }} uses record sets. A set may contain a single record or a collection of resource records with the same name and type but different values.
@@ -171,7 +173,7 @@ Learn more about PTR records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html
 
 It consists of the following parts:
 
-* `MNAME`: Domain name of the server in charge of the zone. The default value is
+* `MNAME`: Domain name of the server in charge of the zone. The default value is as follows:
     * `ns.internal.` for private zones.
     * `ns1.{{ dns-ns-host-sld }}.` for public zones.
 * `RNAME`: Domain name of the mail server in charge of the zone. The default value is `{{ dns-mx-host }}.`.
@@ -300,6 +302,8 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
     ```
 
     If you have to keep the spaces, enclose the whole string in double quotes (`""`).
+
+* If a TXT record contains line breaks, quotes are automatically deleted when saving such a record. As a result, when querying a TXT record, you only get a part of the string, which makes the record invalid.
 
 | Name                              | Type | TTL  | Value                                                                           |
 |----------------------------------|-----|------|------------------------------------------------------------------------------------|

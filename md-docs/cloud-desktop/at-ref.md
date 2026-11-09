@@ -14,26 +14,8 @@ yandex.cloud.audit.clouddesktop.<имя_события>
 
 Имя события | Описание
 --- | ---
-`CopyDesktopImage` | Создание образа рабочего стола с помощью копирования образа Compute Cloud
-`CopyDesktopImageFromDesktop` | Создание образа рабочего стола с помощью копирования образа существующего рабочего стола
-`CreateDesktop` | Создание рабочего стола
-`CreateDesktopGroup` | Создание группы рабочих столов
-`DeleteDesktop` | Удаление рабочего стола
-`DeleteDesktopGroup` | Удаление группы рабочих столов
-`DeleteDesktopImage` | Удаление образа рабочего стола
-`RestartDesktop` | Перезагрузка рабочего стола
-`SetDesktopGroupAccessBindings` | Назначение прав доступа к группе рабочих столов
-`StartDesktop` | Запуск рабочего стола
-`StopDesktop` | Остановка рабочего стола
-`UpdateDesktop` | Изменение рабочего стола
-`UpdateDesktopGroup` | Изменение группы рабочих столов
-`UpdateDesktopGroupAccessBindings` | Изменение прав доступа к группе рабочих столов
-`UpdateDesktopImage` | Изменение образа рабочего стола
-`UpdateDesktopProperties ` | Изменение свойств рабочего стола
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 
 Имя события | Описание
 --- | ---
-`GenerateDesktopRDPFile` | Генерация RDP-файла для подключения к рабочему столу
-`ResetDesktopPassword` | Сброс пароля рабочего стола

@@ -83,6 +83,19 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### September {#sept2026}
+
+
+* Added support for replication from [{{ PG }}](../operations/endpoint/source/postgresql.md) to [{{ IBRG }}](../operations/endpoint/target/iceberg.md).
+* The Confluent Schema Registry parser for [{{ KF }}](../operations/endpoint/source/kafka.md) and [{{ DS }}](../operations/endpoint/source/data-streams.md) sources is now available via the API (gRPC) and Terraform.
+
+
+* For the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target, added support for:
+  
+  * Time-based grouping of your data or grouping by {{ KF }} and {{ DS }} fields.
+  * Number of record per file.
+  * Enabling regular rotation in case of low traffic or without the need for the `exactly once` guarantee.
+
 ### August {#august2026}
 
 * Supported data cleanup policy in the [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target.

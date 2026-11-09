@@ -163,7 +163,7 @@ description: Следуя данной инструкции, вы сможете
 
 По умолчанию GitHub ищет секреты {{ yandex-cloud }} в публичных репозиториях и отправляет все подозрительные фрагменты в {{ yandex-cloud }}.
 
-В публичных репозиториях поиск выполняется автоматически. [Включить secret scanning](https://docs.github.com/en/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories) для приватного репозитория может администратор репозитория или владелец организации.
+В публичных репозиториях поиск выполняется автоматически. [Включить secret scanning](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning) для приватного репозитория может администратор репозитория или владелец организации.
 
 ## GitLab {#gitlab-secret-detection}
 

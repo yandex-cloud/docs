@@ -1683,7 +1683,7 @@ const params = Editor.getParams();
 
 #### Поддерживаемые виды чартов {#set-raw-data-charts}
 
-[Advanced-чарт](./widgets/advanced.md).
+Все.
 
 #### Аргументы {#set-raw-data-args}
 

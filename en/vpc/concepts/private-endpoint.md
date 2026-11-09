@@ -59,7 +59,7 @@ Currently, you can create service connections for the following cloud services:
 
 #### Bucket policies {#s3-policy}
 
-To allow access to {{ objstorage-short-name }} only from {{ vpc-short-name }} via a service connection, you must apply the following access policy to the bucket:
+Using a service connection, you can restrict access to {{ objstorage-short-name }} from any network other than {{ vpc-short-name }}. To do this, apply this access policy to the bucket:
 
 {% include [policy-scheme-json](../../_includes/vpc/policy-scheme-json.md) %}
 

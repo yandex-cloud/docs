@@ -6,7 +6,7 @@ Make sure the service account has roles for the resource it works with or for th
 
 Assign the necessary roles to the service account as detailed in [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
 
-#### What should I do if I get the `Service account is not available` error?
+#### What should I do if I get the `Service account is not available` error? {#service-account-not-available}
 
 You may encounter this error when working through the console, CLI, API, or other tools if the requesting account has no permissions to use the selected service account.
 

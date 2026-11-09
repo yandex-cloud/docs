@@ -11,4 +11,4 @@ To create an infrastructure for a [website on a LAMP or LEMP stack](index.md) us
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md).
+[{#T}](terraform.md)

@@ -39,7 +39,7 @@ Managed Service for Kubernetes позволяет перенести рабоч�
 
 #|
 || **Инструмент** | **Назначение** ||
-|| [Gwin](https://github.com/yandex-cloud/gwin) | Gateway API-контроллер для Yandex Application Load Balancer. Рекомендуемый способ настройки L7-балансировщиков ||
+|| [Gwin](../../alb-ref/gwin-index.md) | Gateway API-контроллер для Yandex Application Load Balancer. Рекомендуемый способ настройки L7-балансировщиков ||
 || [Velero](https://velero.io/) | Резервное копирование и восстановление Persistent Volumes ||
 || [Yandex Data Transfer](../../../data-transfer/index.md) | Перенос данных из управляемых баз данных ||
 || [Yandex Container Registry](../../../container-registry/index.md) | Хранение образов контейнеров в Yandex Cloud ||

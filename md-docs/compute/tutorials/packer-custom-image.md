@@ -5,24 +5,26 @@
 
 Yandex Compute Cloud можно использовать для создания [образа дисков виртуальных машин](../concepts/image.md) с набором дополнительных инфраструктурных инструментов с помощью утилиты [Packer](https://www.packer.io/).
 
-Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с Yandex Cloud инструменты:
+Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с Yandex Cloud инструменты:
+
 * [Yandex Cloud CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
-* [Terraform](https://www.terraform.io/) версии 1.1.9.
-* [kubectl](https://kubernetes.io/ru/docs/reference/kubectl/) версии 1.23.
+* [Terraform](https://www.terraform.io/) версии 1.1.9 или выше.
+* [kubectl](https://kubernetes.io/ru/docs/reference/kubectl/) версии 1.23 или выше.
 * [Docker](https://docs.docker.com/get-started/overview/) версии 20.10.16 или выше.
 * [Git](https://git-scm.com/about) версии 2.25.1 или выше.
-* [Helm](https://helm.sh/ru/docs/) версии 3.9.0.
+* [Helm](https://helm.sh/ru/docs/) версии 3.9.0 или выше.
 * [jq](https://stedolan.github.io/jq/manual/) версии 1.6 или выше.
-* [tree](https://manpages.ubuntu.com/manpages/focal/en/man1/tree.1.html) версии 1.8.0 или выше.
-* [gRPCurl](https://github.com/fullstorydev/grpcurl) версии 1.8.6.
-* [Pulumi](https://www.pulumi.com/docs/) версии 3.33.2.
-* [tmux](https://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html) версии 3.0a или выше.
+* [tree](https://manpages.ubuntu.com/manpages/jammy/en/man1/tree.1.html) версии 1.8.0 или выше.
+* [gRPCurl](https://github.com/fullstorydev/grpcurl) версии 1.8.6 или выше.
+* [Pulumi](https://www.pulumi.com/docs/) версии 3.33.2 или выше.
+* [tmux](https://manpages.ubuntu.com/manpages/jammy/man1/tmux.1.html) версии 3.0a или выше.
 
 С помощью Packer будет создана и запущена вспомогательная ВМ, на которую будет установлено необходимое ПО. Затем на основе ее загрузочного диска будет собран образ. После этого вспомогательная ВМ и загрузочный диск будут удалены.
 
 Аналогично вы можете создать собственный образ с необходимым набором ПО.
 
 Чтобы собрать образ и создать на его основе ВМ:
+
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте рабочее окружение](#environment-prepare).
 1. [Подготовьте конфигурацию образа](#prepare-image-config).
@@ -44,15 +46,17 @@ Yandex Compute Cloud можно использовать для создания
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость сборки образа ВМ с последующим созданием ВМ входит: 
+
 * плата за хранение собранных образов ([тарифы Yandex Compute Cloud](../pricing.md#disk));
 * плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../pricing.md#instance-resources)).
 
 ## Подготовьте рабочее окружение {#environment-prepare}
 
 1. Установите Packer:
+    
     1. Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала Yandex Cloud](https://hashicorp-releases.yandexcloud.net/packer/).
+        Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала Yandex Cloud](https://hashicorp-releases.yandexcloud.net/packer/). В примере указана версия `1.11.2`, актуальную версию смотрите в зеркале.
 
     1. После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду: 
 
@@ -141,6 +145,7 @@ Yandex Compute Cloud можно использовать для создания
     * `YC_ZONE` — зона доступности, в которой будет размещена вспомогательная ВМ, на основе которой создается образ. Получена ранее.
     * `YC_SUBNET_ID` — идентификатор подсети, в которой будет размещена вспомогательная ВМ, на основе которой создается образ. Получен ранее.
     * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md). Нужен для создания образа ВМ, заполняется автоматически.
+
 1. [Сгенерируйте](../operations/vm-connect/ssh.md#creating-ssh-keys) пару [SSH-ключей](../../glossary/ssh-keygen.md). Они понадобятся при создании и подключении к ВМ.
 
 ## Подготовьте конфигурацию образа {#prepare-image-config}
@@ -150,7 +155,7 @@ Yandex Compute Cloud можно использовать для создания
 
     
     ```hcl
-    # Yandex Cloud Toolbox VM Image based on Ubuntu 20.04 LTS
+    # Yandex Cloud Toolbox VM Image based on Ubuntu 22.04 LTS
     #
     # Provisioner docs:
     # https://www.packer.io/docs/builders/yandex
@@ -203,7 +208,7 @@ Yandex Compute Cloud можно использовать для создания
 
     source "yandex" "yc-toolbox" {
       folder_id           = "${var.YC_FOLDER_ID}"
-      source_image_family = "ubuntu-2004-lts"
+      source_image_family = "ubuntu-2204-lts"
       ssh_username        = "ubuntu"
       use_ipv4_nat        = "true"
       image_description   = "Yandex Cloud Ubuntu Toolbox image"
@@ -222,7 +227,7 @@ Yandex Compute Cloud можно использовать для создания
           # Global Ubuntu things
           "sudo apt-get update",
           "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
-          "sudo apt-get install -y unzip python3-pip python3.8-venv",
+          "sudo apt-get install -y unzip python3-pip python3-venv",
 
           # Yandex Cloud CLI tool
           "curl --silent --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh",
@@ -331,10 +336,10 @@ Yandex Compute Cloud можно использовать для создания
 1. Проверьте корректность конфигурационного файла образа с помощью команды:
 
     ```bash
-    packer validate yc-toolbox.pkr.hcl
+    packer validate toolbox.pkr.hcl
     ```
 
-    Где `yc-toolbox.pkr.hcl` — имя конфигурационного файла.
+    Где `toolbox.pkr.hcl` — имя конфигурационного файла.
 
     Если конфигурация является корректной, появится сообщение:
      
@@ -345,16 +350,16 @@ Yandex Compute Cloud можно использовать для создания
 1. Запустите сборку образа с помощью команды:
 
     ```bash
-    packer build yc-toolbox.pkr.hcl
+    packer build toolbox.pkr.hcl
     ```
 
-    Где `yc-toolbox.pkr.hcl` — имя конфигурационного файла.
+    Где `toolbox.pkr.hcl` — имя конфигурационного файла.
 1. После завершения сборки будет выведено сообщение о том, что образ успешно создан:
 
     ```bash
     ...
     ==> Builds finished. The artifacts of successful builds are:
-    --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posv********) with family name infra-images
+    --> yandex.yc-toolbox: A disk image was created: yc-toolbox (id: fd83j475posv********) with family name my-images
     ```
 
     Запишите идентификатор собранного образа — параметр `id`. Используйте этот идентификатор в дальнейшем, чтобы создать ВМ.
@@ -464,5 +469,6 @@ Yandex Compute Cloud можно использовать для создания
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 * [удалите ВМ](../operations/vm-control/vm-delete.md);
 * [удалите образ](../operations/image-control/delete.md).

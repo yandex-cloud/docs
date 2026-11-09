@@ -64,6 +64,42 @@ To add a domain to an API gateway:
         1. Select a different value in the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, if required.
         1. Click **{{ ui-key.yacloud.common.create }}**.
         
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and add the `custom_domains` section to the `yandex_api_gateway` resource description:
+
+     ```hcl
+     resource "yandex_api_gateway" "<API_gateway_name>" {
+       name = "<API_gateway_name>"
+       ...
+       custom_domains {
+         fqdn           = "<domain_name>"
+         certificate_id = "<certificate_ID>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `fqdn`: FQDN of the domain you are adding.
+     * `certificate_id`: Domain [certificate](../../certificate-manager/concepts/index.md) ID in {{ certificate-manager-full-name }}.
+
+     For more information about the properties of the `yandex_api_gateway` resource, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the result using the [management console]({{ link-console-main }}) or this CLI command:
+
+     ```bash
+     yc serverless api-gateway get <API_gateway_ID>
+     ```
+
 - API {#api}
 
   To add a domain to an API gateway, use the [addDomain](../apigateway/api-ref/ApiGateway/addDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/AddDomain](../apigateway/api-ref/grpc/ApiGateway/addDomain.md) gRPC API call.

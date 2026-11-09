@@ -5,6 +5,8 @@ description: Follow this guide to update an instance group based on a YAML speci
 
 # Updating an instance group based on a YAML specification
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 To update an [instance group](../../concepts/instance-groups/index.md) based on a YAML [specification](../../concepts/instance-groups/specification.md):
 
 {% list tabs group=instructions %}

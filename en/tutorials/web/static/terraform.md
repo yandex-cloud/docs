@@ -6,4 +6,4 @@ To host a [static website in {{ objstorage-name }}](index.md) using {{ TF }}:
 
 #### Useful links {#see-also}
 
-* [{#T}](./console.md).
+* [{#T}](./console.md)

@@ -13,7 +13,7 @@ noIndex: true
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
 ## {{ metrika }} data transfer scenarios {#scenarios}
@@ -39,11 +39,19 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}**: Specify the [numbers of the tags](https://yandex.ru/support/metrica/general/tag-id.html) the data will be coming from.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a). The token’s validity period is one year. In this case, the following applies:
+        
+        * Activated transfers continue to operate after the token expires.
+        * Modifying the list of counters you need to transfer will trigger a transfer error if the token has expired or if the token owner lacks access to the counters.
+        * Deactivating a transfer deletes the export, so you will need a current token to reactivate it. In the event of a transfer error, the export is preserved, and reactivation does not require a token refresh.
+
     * Optionally, specify a time interval to export data for. This option is supported for the {{ dt-type-copy-repl }} transfer type. The end date must be at least 7 days later than the start date.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.title }}**: Select whether information about hits should be transferred.
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.hits.columns.title }}**: Select the hit fields to export. In addition to the fields you select, there are certain mandatory fields that are always exported.
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.title }}**: Select whether information about sessions (visits) should be transferred.
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.visits.columns.title }}**: Select the session fields to export. In addition to the fields you select, there are certain mandatory fields that are always exported.
 
 - {{ TF }} {#tf}
@@ -56,7 +64,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
     * {% include [streams](../../../../_includes/data-transfer/fields/metrika/streams.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {

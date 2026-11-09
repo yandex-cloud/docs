@@ -35,7 +35,7 @@
 * Централизованное управление с помощью решения Check Point Security Management;
 * Решение Check Point в данном примере настроено с базовыми политиками доступа (Access Control) и NAT.
 
-Решение Check Point CloudGuard IaaS доступно в Yandex Cloud Marketplace в варианте BYOL с Trial периодом 15 дней:
+Решение Check Point CloudGuard IaaS доступно в {{ yandex-cloud }} Marketplace в варианте BYOL с Trial периодом 15 дней:
 * ВМ NGFW Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL;
 * ВМ сервера управления Check Point CloudGuard IaaS - Security Management BYOL для задач управления NGFW.
 
@@ -204,72 +204,14 @@
    sudo apt install git
    ```
 
-1. Установите {{ TF }}:
+1. Установите {{ TF }} и укажите источник для установки провайдера:
 
-   1. Перейдите в корневую папку:
-
-      ```bash
-      cd ~
-      ```
-
-   1. Создайте папку `terraform` и перейдите в нее:
-   
-      ```bash
-      mkdir terraform
-      cd terraform
-      ```
-
-   1. Скачайте файл `terraform_1.3.9_linux_amd64.zip` с официального сайта, выполнив команду:
-
-      ```bash
-      curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
-      ```
-
-   1. Установите утилиту `zip` и распакуйте zip-архив:
-      
-      ```bash
-      apt install zip
-      unzip terraform_1.3.9_linux_amd64.zip
-      ```
-
-   1. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
-      
-      ```bash
-      export PATH=$PATH:~/terraform
-      ```
-
-   1. Проверьте, что {{ TF }} установлен, выполнив команду:
-   
-      ```bash
-      terraform -help
-      ```
-
-1. Создайте конфигурационный файл с указанием источника провайдеров для {{ TF }}:
-
-   1. Создайте файл `.terraformrc` с помощью встроенного редактора `nano`:
-
-      ```bash
-      cd ~
-      nano .terraformrc
-      ```
-
-   1. Добавьте в него следующий блок:
-
-      ```text
-      provider_installation {
-        network_mirror {
-          url = "https://terraform-mirror.yandexcloud.net/"
-          include = ["registry.terraform.io/*/*"]
-        }
-        direct {
-          exclude = ["registry.terraform.io/*/*"]
-        }
-      }
-      ```
-
-      Подробнее о настройках зеркал смотрите в [документации {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+   * [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   * [Задайте источник для установки провайдера {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 ## Разверните ресурсы {#create-resources}
+
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint) из GitHub и перейдите в папку сценария `yc-network-segmentation-with-checkpoint`:
    
@@ -378,8 +320,8 @@
 
    | Название<br>параметра | Нужно<br>изменение | Описание | Тип | Пример |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | да | Идентификатор вашего облака в Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
-   | `az_name` | - | <a href="https://yandex.cloud/ru/docs/overview/concepts/geo-scope">Зона доступности</a> Yandex Cloud для размещения ресурсов | `string` | `{{ region-id }}-d` |
+   | `cloud_id` | да | Идентификатор вашего облака в {{ yandex-cloud }} | `string` | `b1g8dn6s3v2e********` |
+   | `az_name` | - | [Зона доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }} для размещения ресурсов | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | Список названий сегментов. Первый сегмент для размещения ресурсов управления, второй с публичным доступом в интернет, третий для DMZ. Если требуются дополнительные сегменты, то нужно добавлять их в конец списка. При добавлении сегмента обязательно добавьте префикс для подсети в список `subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | Список сетевых префиксов для подсетей, соответствующих списку названия сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP порт для опубликованного в DMZ приложения для подключения из внешнего интернета | `number` | `80` |
@@ -398,31 +340,9 @@
 
 1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-   1. Выполните инициализацию {{ TF }}:
-       
-      ```bash
-      terraform init
-      ```
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   1. Проверьте конфигурацию {{ TF }} файлов:
-       
-      ```bash
-      terraform validate
-      ```
-
-   1. Проверьте список создаваемых облачных ресурсов:
-       
-      ```bash
-      terraform plan
-      ```
-
-   1. Создайте ресурсы:
-       
-      ```bash
-      terraform apply
-      ```
-
-1. После завершения процесса `terraform apply` в командной строке будет выведен список информации о развернутых ресурсах. В дальнейшем его можно будет посмотреть с помощью команды `terraform output`:
+1. После завершения процесса `terraform apply` в командной строке будет выведена информация о развернутых ресурсах. В дальнейшем его можно будет посмотреть с помощью команды `terraform output`:
 
    {% cut "Посмотреть информацию о развернутых ресурсах" %}
 
@@ -440,6 +360,16 @@
    | `path_for_private_ssh_key` | Файл с private ключом для подключения по протоколу SSH к ВМ (jump-vm, fw, mgmt-server, веб-сервер в сегменте dmz) | `./pt_key.pem` |
    
    {% endcut %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+   * [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — [yandex_resourcemanager_folder]({{ tf-provider-resources-link }}/resourcemanager_folder).
+   * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Таблица маршрутизации](../../vpc/concepts/routing.md) — [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table).
+   * [Группа безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+   * [Публичный IP-адрес](../../vpc/concepts/address.md) — [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address).
+   * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+   * [Образ ВМ](../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
 
 ## Настройте шлюз межсетевого экрана {#configure-gateway}
 
@@ -686,11 +616,17 @@ Destination NAT трансляции направляют запросы пол�
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, выполните команду:
+Чтобы перестать платить за созданные ресурсы:
 
-   ```bash
-   terraform destroy
-   ```
-   {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, каталоги и т.д.
+1. Откройте конфигурационный файл сценария `yc-network-segmentation-with-checkpoint` и удалите описание создаваемой инфраструктуры из файла.
+1. Примените изменения:
+
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    {% note alert %}
+
+    {{ TF }} удалит все созданные ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, каталоги и т.д.
+
+    {% endnote %}
 
 Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через консоль {{ yandex-cloud }} с дальнейшим удалением файла `terraform.tfstate` из папки `yc-network-segmentation-with-checkpoint` на вашем ПК.

@@ -18,16 +18,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ container-registry-full-name }}: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* {{ GL }} instance. The cost depends on the instance creation method:
-
-   * {{ mgl-name }}: You pay for the VM computing resources, volume of stored data and backups, and the amount of outgoing traffic (see [{{ mgl-name }} pricing](../../managed-gitlab/pricing.md)).
-   * VM with a {{ GL }} image: You pay for the VM computing resources and the {{ GL }} image ([{{ compute-name }} pricing](../../compute/pricing.md)).
-
-* Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes and for the {{ GL }} image VM with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* NAT gateway if used instead of public IP addresses for your cluster nodes: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* {{ managed-k8s-name }} master: Computing resources (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* The {{ GL }} cost depends on where it is deployed:
+    * {{ mgl-name }} instance: Computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+    * VM instance with {{ GL }}:
+      * Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+      * VM public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ container-registry-name }} registry: Fee for storing Docker images and the vulnerability scanner (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
+* Public IP addresses of {{ managed-k8s-name }} cluster nodes or a NAT gateway and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -78,7 +77,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. Specify the following in the configuration file:
+  1. In the configuration file, specify the following:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * {{ managed-k8s-name }} cluster CIDR.
@@ -304,7 +303,7 @@ Install the following tools in the local environment:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 1. [Delete the created Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 1. Delete the {{ managed-k8s-name }} cluster and {{ container-registry-name }}:
 

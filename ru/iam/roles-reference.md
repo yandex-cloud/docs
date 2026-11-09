@@ -367,6 +367,30 @@ description: В статье приведен полный справочник 
 
 {% include [ai.workProfiles.admin](../_roles/ai/workProfiles/admin.md) %}
 
+#### search-api.executor {#search-api-executor}
+
+{% include [searchapi-executor](../_roles/search-api/executor.md) %}
+
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
+
+#### search-api.auditor {#search-api-auditor}
+
+{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
+
+#### search-api.viewer {#search-api-viewer}
+
+{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
+
+#### search-api.editor {#search-api-editor}
+
+{% include [searchapi-editor](../_roles/search-api/editor.md) %}
+
+#### search-api.admin {#search-api-admin}
+
+{% include [searchapi-admin](../_roles/search-api/admin.md) %}
+
 Подробнее в [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
@@ -952,7 +976,6 @@ description: В статье приведен полный справочник 
 {% include [cloud-registry-artifacts-scanner](../_roles/cloud-registry/artifacts/scanner.md) %}
 
 Подробнее в [{#T}](../cloud-registry/security/index.md).
-
 
 
 ## {{ cr-full-name }} {#cloudrouter-roles}
@@ -1943,6 +1966,7 @@ description: В статье приведен полный справочник 
 
 {% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
 
+
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
 #### managed-airflow.auditor {#managed-airflow-auditor}
@@ -2720,35 +2744,6 @@ description: В статье приведен полный справочник 
 {% include [schema-registry.admin](../_roles/schema-registry/admin.md) %}
 
 Подробнее в [{#T}](../metadata-hub/security/schema-registry-roles.md).
-
-
-## {{ search-api-full-name }} {#search-api-roles}
-
-#### search-api.executor {#search-api-executor}
-
-{% include [searchapi-executor](../_roles/search-api/executor.md) %}
-
-#### search-api.webSearch.user {#search-api-webSearch-user}
-
-{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
-
-#### search-api.auditor {#search-api-auditor}
-
-{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
-
-#### search-api.viewer {#search-api-viewer}
-
-{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
-
-#### search-api.editor {#search-api-editor}
-
-{% include [searchapi-editor](../_roles/search-api/editor.md) %}
-
-#### search-api.admin {#search-api-admin}
-
-{% include [searchapi-admin](../_roles/search-api/admin.md) %}
-
-Подробнее в [Управление доступом в {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}

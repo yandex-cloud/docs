@@ -42,7 +42,7 @@ These estimates assume a team of two or three engineers. Timelines may increase 
 
 #|
 || **Tool** | **Description** ||
-|| [Gwin](https://github.com/yandex-cloud/gwin) | Gateway API controller for {{ alb-full-name }}. Recommended for setting up an L7 load balancer. ||
+|| [Gwin](../../alb-ref/gwin-index.md) | Gateway API controller for {{ alb-full-name }}. Recommended for setting up an L7 load balancer. ||
 || [Velero](https://velero.io/) | Backup and recovery tool for persistent volumes ||
 || [{{ data-transfer-full-name }}](../../../data-transfer/index.yaml) | Data migration from managed databases ||
 || [{{ container-registry-full-name }}](../../../container-registry/index.yaml) | Storage for container images in {{ yandex-cloud }} ||

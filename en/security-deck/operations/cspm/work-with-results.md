@@ -7,8 +7,8 @@ description: Follow this guide to learn about the operations you can perform wit
 
 Once a check is complete, you can perform the following operations with its results in the interface:
 
-* [View history](#view)
-* [Download results](#download)
+* [Viewing history](#view)
+* [Downloading the results](#download)
 
 Results for certain checks may be unavailable. For more information, see [{{ cspm-name }} limits](../../concepts/limits.md#sd-cspm-limits).
 

@@ -8,7 +8,7 @@ description: Follow this guide to run automatic Docker image scans on push to {{
 
 {% note info %}
 
-You can enable automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](../../concepts/docker-image.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) in the [vulnerability scanner settings](../../operations/scanning-docker-image.md#automatically) without creating any [{{ sf-full-name }}](../../../functions/) [functions](../../../functions/concepts/function.md) and [triggers](../../../functions/concepts/trigger/index.md).
+You can enable automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](../../concepts/docker-image.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) in the [vulnerability scanner settings](../../operations/scanning-docker-image.md#automatically) without creating any [functions](../../../functions/concepts/function.md) or [triggers](../../../functions/concepts/trigger/index.md) in [{{ sf-full-name }}](../../../functions/).
 
 {% endnote %}
 
@@ -280,7 +280,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
 
 {% endlist %}
 
-## Push the Docker image {#download-image}
+## Push your Docker image {#download-image}
 
 {% include [upload-image](../../../_tutorials/_tutorials_includes/image-auto-scan/upload-image.md) %}
 

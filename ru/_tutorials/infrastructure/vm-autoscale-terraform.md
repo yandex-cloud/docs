@@ -19,6 +19,7 @@
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 Чтобы создать инфраструктуру для автоматического масштабирования группы ВМ с помощью {{ TF }}:
+
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -33,6 +34,7 @@
         ```
 
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        
         * `vm-autoscale.tf` — конфигурация создаваемой инфраструктуры.
         * `declaration.yaml` — описание Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис.
         * `config.tpl` — описание параметров пользователя ВМ.
@@ -42,6 +44,7 @@
 
      1. Создайте папку для конфигурационных файлов.
      1. Создайте в папке:
+        
         1. Конфигурационный файл `vm-autoscale.tf`:
 
            {% cut "vm-autoscale.tf" %}
@@ -75,7 +78,7 @@
              - name: "${VM_USER}"
                groups: sudo
                shell: /bin/bash
-               sudo: 'ALL=(ALL) NOPASSWD:ALL'
+               sudo: ['ALL=(ALL) NOPASSWD:ALL']
                ssh_authorized_keys:
                  - "${SSH_KEY}"
            ```
@@ -106,9 +109,11 @@
    * [Сетевой балансировщик](../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
 1. В файле `vm-autoscale.auto.tfvars` задайте пользовательские параметры:
+   
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
    * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

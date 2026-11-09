@@ -97,14 +97,70 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Create a secure store for the certificate:
 
-    ```bash
-    sudo keytool \
-         -keystore /etc/schema-registry/client.truststore.jks \
-         -alias CARoot \
-         -import -file {{ crt-local-dir }}{{ crt-local-file }} \
-         -storepass <secure_certificate_storage_password> \
-         --noprompt
-    ```
+    {% list tabs group=operating_system %}
+
+    - Linux (Bash) {#linux}
+
+      ```bash
+      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+        < {{ crt-local-dir }}{{ crt-local-file }}
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /etc/schema-registry/client.truststore.jks \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /etc/schema-registry/client.truststore.jks
+      ```
+
+    - macOS (Zsh) {#macos}
+     
+      ```bash     
+      split -p "-----BEGIN CERTIFICATE-----" \
+        {{ crt-local-dir }}{{ crt-local-file }} \
+        YandexCA-
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /etc/schema-registry/client.truststore.jks \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /etc/schema-registry/client.truststore.jks
+      ```
+
+    {% endlist %}
+
+    Where `-storepass` is the certificate store password. The password must contain at least six characters.
 
 1. Create a file named `/etc/schema-registry/jaas.conf` with settings for connecting to the cluster:
 

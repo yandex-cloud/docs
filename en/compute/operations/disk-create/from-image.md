@@ -5,6 +5,8 @@ description: Follow this guide to recover a disk from an image.
 
 # Recovering a disk from an image
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% note info %}
 
 {% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}
@@ -93,14 +95,14 @@ To create a disk from an [image](../../concepts/image.md):
       * `--source-image-name`: Source image name. Instead of a name, you can provide the source image ID in the `--source-image-id` parameter.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
       * `--description`: Text description of the new disk. This is an optional setting.
-      * `--hardware-generation-id`: Virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. The possible values are:
+      * `--hardware-generation-id`: Virtualized hardware [generation](../../concepts/hardware-generations.md#configurations) assigned to the disk. This is an optional setting. Its possible values are:
 
           {% include [generation-types-cli](../../../_includes/compute/generation-types-cli.md) %}
 
           If not specified, the disk will get the same hardware generation assigned as the source image.
-      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. The possible values are:
+      * `--hardware-features`: Additional settings for `Gen 1`. This is an optional setting. Its possible values are:
 
-          * `pci_topology=v1`: `PCI_TOPOLOGY_V1` topology.
+          * `pci_topology=v1`: Adopts the `PCI_TOPOLOGY_V1` topology.
           * `pci_topology=v2`: Adopts the `PCI_TOPOLOGY_V2` topology.
 
           If the source image has `Gen 2` assigned, by default the new disk will get `--hardware-features` set to `pci_topology=v1`.
@@ -194,7 +196,7 @@ To create a disk from an [image](../../concepts/image.md):
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
      
       ```hcl
       resource "yandex_compute_disk" "my-disk" {

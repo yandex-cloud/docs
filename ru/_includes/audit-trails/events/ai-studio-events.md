@@ -3,6 +3,20 @@
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
+`cpl.ChangeRuntimeVersion` | Изменение версии [рабочего места]({{ link-docs-ai }}ai-studio/manage/concepts/index#work-runtime)
+`cpl.CreateProfile` | Создание [профиля рабочих мест]({{ link-docs-ai }}ai-studio/manage/concepts/index#runtime-profile)
+`cpl.CreateRuntime` | Создание рабочего места пользователя
+`cpl.DeleteActiveProfile` | Снятие активного профиля пользователя
+`cpl.DeleteProfile` | Удаление профиля рабочих мест
+`cpl.DeleteRuntime` | Удаление рабочего места пользователя
+`cpl.DeleteUserSecret` | Удаление секрета пользователя
+`cpl.PauseRuntime` | Приостановка работы рабочего места
+`cpl.RemoveUserKmsKey` | Удаление привязки ключа {{ kms-name }} к пользователю
+`cpl.ResumeRuntime` | Возобновление работы рабочего места
+`cpl.SetActiveProfile` | Назначение активного профиля пользователю
+`cpl.SetUserKmsKey` | Привязка ключа {{ kms-name }} к пользователю
+`cpl.UpdateProfile` | Изменение профиля рабочих мест
+`cpl.UpdateUserSecret` | Создание или изменение секрета пользователя
 `dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса]({{ link-docs-ai }}ai-studio/release-notes/deprecations#dedicated-instances)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
@@ -38,6 +52,10 @@
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
+`subscription.CreateSubscription` | Создание [подписки]({{ link-docs-ai }}ai-studio/manage/concepts/subscription#subscription)
+`subscription.DeleteSubscription` | Удаление подписки
+`subscription.ResetSubscription` | Сброс окна потребления подписки
+`subscription.UpdateSubscription` | Изменение подписки
 `tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}ai-studio/release-notes/deprecations#model-tuning) модели
 `tuning.StartTuning` | Запуск дообучения модели
 `createWorkflow` | Создание рабочего процесса

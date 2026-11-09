@@ -19,7 +19,6 @@ Packer создаст и запустит виртуальную машину с
 
 Если созданный образ больше не нужен, [удалите его](#clear-out).
 
-
 ## Подготовьте облако к работе {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -29,7 +28,6 @@ Packer создаст и запустит виртуальную машину с
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
-
 
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
@@ -41,14 +39,12 @@ Packer создаст и запустит виртуальную машину с
 
     Если вы хотите создавать ресурсы в других сервисах Yandex Cloud, например подсети в VPC, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость создания образа диска с помощью Packer входит:
 
 * плата за хранение созданных образов ([тарифы Yandex Compute Cloud](../../compute/pricing.md#disk));
 * плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#instance-resources)).
-
 
 ## Установите и настройте Packer {#install-packer}
 
@@ -61,7 +57,6 @@ Packer создаст и запустит виртуальную машину с
 {% endnote %}
 
 Вы можете установить Packer [из зеркала](#from-y-mirror) или [с сайта HashiCorp](#from-hashicorp-site).
-
 
 ### Из зеркала {#from-y-mirror}
 
@@ -173,11 +168,9 @@ Packer создаст и запустит виртуальную машину с
 
 {% endlist %}
 
-
 ### С сайта HashiCorp {#from-hashicorp-site}
 
 Скачайте и установите дистрибутив Packer по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
-
 
 ### Настройте плагин Yandex Compute Builder {#configure-plugin}
 
@@ -253,7 +246,6 @@ Packer создаст и запустит виртуальную машину с
 
 
 
-
     Где:
 
     * `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
@@ -268,7 +260,6 @@ Packer создаст и запустит виртуальную машину с
 {% endnote %}
 
 Подробнее о параметрах конфигурации образа смотрите в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
-
 
 ## Создайте образ {#create-image}
 
@@ -286,7 +277,6 @@ Packer создаст и запустит виртуальную машину с
     ==> Builds finished. The artifacts of successful builds are:
     --> yandex: A disk image was created: debian-11-nginx-2024-08-26t15-30-39z (id: fd82d63b9bgc********) with family name debian-web-server
     ```
-
 
 ## Проверьте созданный образ {#check-image}
 
@@ -325,7 +315,6 @@ Packer создаст и запустит виртуальную машину с
   ```
 
 {% endlist %}
-
 
 ### Удалите созданные ресурсы {#clear-out}
 

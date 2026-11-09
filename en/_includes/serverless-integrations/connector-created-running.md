@@ -1,1 +1,0 @@
-By default, the system creates a running connector. [Stop](../../serverless-integrations/operations/eventrouter/connector/stop.md) the connector to prevent it from sending messages to the bus.

@@ -5,6 +5,8 @@ description: Follow this guide to disable or enable availability zones for an in
 
 # Disabling and enabling availability zones for a {{ compute-full-name }} instance group
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 
 For more on what you get when disabling an availability zone, see [{#T}](../../concepts/instance-groups/disable-enable-zone.md).

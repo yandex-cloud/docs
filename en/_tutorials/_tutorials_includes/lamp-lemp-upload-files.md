@@ -1,6 +1,6 @@
 To test the web server, upload the `index.html` file to the VM. You can use a [test file](https://{{ s3-storage-host }}/doc-files/index.html.zip). Download and unpack the archive.
-1. Find the VM public IP address under **Network** on the VM page in the [management console]({{ link-console-main }}).
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. Under **Network** on the VM page in the [management console]({{ link-console-main }}), find the VM’s public IP address.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. If you use [OS Login](../../compute/operations/vm-connect/os-login.md) to access the VM, connect using the guide for OS Login.
 1. Grant your user write permissions for the `/var/www/html` directory:
 
     ```bash

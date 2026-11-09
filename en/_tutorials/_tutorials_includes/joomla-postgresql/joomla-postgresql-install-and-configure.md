@@ -53,13 +53,13 @@ At this step, you will prepare the VM environment to deploy and set up Joomla.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
-1. Install and run the [Apache HTTP server](https://en.wikipedia.org/wiki/Apache_HTTP_Server):
+1. Install and run the [Apache HTTP server](https://{{ lang }}.wikipedia.org/wiki/Apache_HTTP_Server):
 
     ```bash
     sudo apt install apache2
     sudo systemctl start apache2 && sudo systemctl enable apache2
     ```
-1. Install [PHP](https://en.wikipedia.org/wiki/PHP) with the required libraries:
+1. Install [PHP](https://{{ lang }}.wikipedia.org/wiki/PHP) with the required libraries:
 
     ```bash
     sudo apt install php libapache2-mod-php php-common php-pgsql php-xml php-mbstring php-curl php-zip php-intl php-json unzip

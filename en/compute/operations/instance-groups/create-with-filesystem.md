@@ -5,6 +5,8 @@ description: Follow this guide to create an instance group connected to a file s
 
 # Creating an instance group connected to a file storage
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 One of the ways to handle [stateful workloads](../../concepts/instance-groups/stateful-workload.md) is to store the application state in a [file storage](../../concepts/filesystem.md) independent of the instance group.
 

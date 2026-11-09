@@ -43,7 +43,7 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 * [Roles for data management ({{ dspm-full-name }})](./dspm-roles.md).
 * [Roles for security management with {{ kspm-name }}](./kspm-roles.md).
-* [Roles for entitlement management ({{ ciem-full-name }})](./ciem-roles.md).
+* [Roles for working with {{ access-analyzer-name }}](./access-analyzer-roles.md).
 * [Roles for security management with {{ cspm-name }}](./cspm-roles.md).
 * [Roles for using {{ td-full-name }}](./td-roles.md).
 * [Roles for using {{ vuln-man-name }}](./vm-roles.md).

@@ -224,47 +224,16 @@ Next-Generation Firewall используется для защиты и сег�
    sudo apt install git
    ```
 
-1. Установите {{ TF }}:
+1. Установите {{ TF }} и укажите источник для установки провайдера:
 
-   1. Перейдите в корневую папку:
-
-      ```bash
-      cd ~
-      ```
-
-   1. Создайте папку `terraform` и перейдите в нее:
-
-      ```bash
-      mkdir terraform
-      cd terraform
-      ```
-
-   1. Скачайте файл `terraform_1.3.9_linux_amd64.zip`:
-
-      ```bash
-      curl \
-        --location \
-        --remote-name \
-        https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
-      ```
+   * [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   * [Задайте источник для установки провайдера {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
    1. Установите утилиту `zip` и распакуйте zip-архив:
 
       ```bash
       apt install zip
       unzip terraform_1.3.9_linux_amd64.zip
-      ```
-
-   1. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
-
-      ```bash
-      export PATH=$PATH:~/terraform
-      ```
-
-   1. Убедитесь, что {{ TF }} установлен, выполнив команду:
-
-      ```bash
-      terraform -help
       ```
 
 1. Создайте конфигурационный файл с указанием источника провайдеров для {{ TF }}:
@@ -293,6 +262,8 @@ Next-Generation Firewall используется для защиты и сег�
       Подробнее о настройках зеркал смотрите в [документации {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Разверните ресурсы {#create-resources}
+
+{% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 1. Склонируйте репозиторий `yandex-cloud-examples/yc-dmz-with-high-available-ngfw` из GitHub и перейдите в папку сценария `yc-dmz-with-high-available-ngfw`:
 
@@ -399,29 +370,22 @@ Next-Generation Firewall используется для защиты и сег�
 
 1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-   1. Выполните инициализацию {{ TF }}:
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       ```bash
-       terraform init
-       ```
-
-   1. Проверьте конфигурацию {{ TF }} файлов:
-
-       ```bash
-       terraform validate
-       ```
-
-   1. Проверьте список создаваемых облачных ресурсов:
-
-       ```bash
-       terraform plan
-       ```
-
-   1. Создайте ресурсы:
-
-       ```bash
-       terraform apply
-       ```
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+   * [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — [yandex_resourcemanager_folder]({{ tf-provider-resources-link }}/resourcemanager_folder).
+   * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+   * [Подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+   * [Таблица маршрутизации](../../vpc/concepts/routing.md) — [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table).
+   * [Группа безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+   * [Публичный IP-адрес](../../vpc/concepts/address.md) — [yandex_vpc_address]({{ tf-provider-resources-link }}/vpc_address).
+   * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+   * [Группа виртуальных машин](../../compute/concepts/instance-groups/index.md) — [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group).
+   * [Балансировщик {{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer).
+   * [Группа бэкендов](../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group).
+   * [Целевая группа](../../application-load-balancer/concepts/target-group.md) — [yandex_alb_target_group]({{ tf-provider-resources-link }}/alb_target_group).
+   * [Сетевой балансировщик нагрузки](../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
 
 ## Настройте шлюзы межсетевых экранов {#configure-gateways}
 
@@ -680,7 +644,7 @@ terraform apply
 
 1. Убедитесь, что запрещающие правила политики безопасности выполняются.
 
-   Чтобы проверить отсутствие доступа к ВМ `Jump ВМ` в сегменте `mgmt` из сегмента `dmz`, выполните команду:
+   Чтобы проверить отсутствие доступа к ВМ `jump-vm` в сегменте `mgmt` из сегмента `dmz`, выполните команду:
 
    ```bash
    ping 192.168.1.101
@@ -745,11 +709,17 @@ terraform apply
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы выполните команду:
+Чтобы перестать платить за созданные ресурсы:
 
-  ```bash
-  terraform destroy
-  ```
-  {{ TF }} удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т.д.
+1. Откройте конфигурационные файлы сценария `yc-dmz-with-high-available-ngfw` и удалите описание создаваемой инфраструктуры из них.
+1. Примените изменения:
+
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+    {% note alert %}
+
+    {{ TF }} удалит все созданные ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т.д.
+
+    {% endnote %}
 
 Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через консоль {{ yandex-cloud }} с последующим удалением файла `terraform.tfstate` из папки `yc-dmz-with-high-available-ngfw` на вашем ПК.

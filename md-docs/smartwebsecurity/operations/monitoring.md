@@ -76,6 +76,11 @@
 
 ## Посмотреть метрики Network Protection {#network-protection}
 
+Для просмотра метрик нужны роли:
+
+* [smart-web-security.auditor](../security/index.md#smart-web-security-auditor) — на прокси-сервер.
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — на каталог, в котором находится прокси-сервер.
+
 Чтобы построить график отброшенного трафика:
 
 1. Узнайте публичный IPv4-адрес прокси-сервера. В [консоли управления](https://console.yandex.cloud/link/smartwebsecurity) выберите каталог с прокси-сервером, откройте раздел **Защита доменов** и выберите прокси-сервер. На вкладке **Обзор** скопируйте значение поля **Публичный IP**.

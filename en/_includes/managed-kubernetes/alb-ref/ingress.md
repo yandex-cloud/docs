@@ -1,4 +1,4 @@
-# Ingress resource fields and annotations
+# Fields and annotations of the Ingress resource
 
 The `Ingress` resource defines rules for incoming traffic distribution across {{ k8s }} services. The [{{ alb-name }} ingress controller]({{ ingress-local-link }}/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md), its listeners, and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). You can specify {{ alb-name }} backend [services]({{ configuration-local-link }}/service-for-ingress.md) in `Ingress` directly or as part of [`HttpBackendGroup` backend groups]({{ configuration-local-link }}/http-backend-group.md).
 

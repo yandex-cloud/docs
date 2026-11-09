@@ -494,7 +494,7 @@ To view configurations and metadata, use service roles without access to data, e
 
 Analyze the accounts you found with the `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` primitive roles assigned and replace these roles with [granular service roles](../../../iam/roles-reference.md) based on your role matrix.
 
-Follow [this guide](../../../security-deck/operations/ciem/view-permissions.md) to view the full list of a subject's access permissions.
+Follow [this guide](../../../security-deck/operations/access-analyzer/analyze-permissions.md#view) to view the full list of a subject's access permissions.
 
 {% include [check-security-deck](../check-security-deck.md) %}
 
@@ -729,8 +729,8 @@ Follow the principle of least privilege and [assign to the service account](../.
 
 **Guides and solutions to use**:
 
-* Use {{ sd-full-name }} to [view](../../../security-deck/operations/ciem/view-permissions.md) the full list of a service account's access permissions.
-* Use {{ sd-name }} to [revoke](../../../security-deck/operations/ciem/revoke-permissions.md) the service account’s excessive access permissions.
+* Use {{ sd-full-name }} to [view](../../../security-deck/operations/access-analyzer/analyze-permissions.md#view) the full list of a service account's access permissions.
+* Use {{ sd-name }} to [revoke](../../../security-deck/operations/access-analyzer/analyze-permissions.md#revoke) the service account’s excessive access permissions.
 * [Remove](../../../iam/operations/roles/revoke.md) the excessive permissions from the service account using {{ iam-short-name }}.
 
 {% include [check-security-deck](../check-security-deck.md) %}
@@ -2175,13 +2175,13 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 
 {% endlist %}
 
-#### 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }} {#ciem-access-control}
+#### 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ access-analyzer-name }} {#access-analyzer-access-control}
 
 To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, is a tool providing a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
+[{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/), is a tool providing a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
-For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
+For more information, see [{#T}](../../../security-deck/concepts/access-analyzer.md).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -2189,8 +2189,7 @@ For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
 
 **Guides and solutions to use**:
 
-[{#T}](../../../security-deck/operations/ciem/view-permissions.md).
-[{#T}](../../../security-deck/operations/ciem/revoke-permissions.md).
+[{#T}](../../../security-deck/operations/access-analyzer/analyze-permissions.md).
 
 {% include [check-security-deck](../check-security-deck.md) %}
 

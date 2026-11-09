@@ -78,14 +78,18 @@ blocks:
 * [SourceCraft Code Assistant](https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing)
 * [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/pricing)
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing)
+    
     * [Генеративные модели и ИИ-агенты](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-model-gallery)
     * [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/pricing)
     * [Yandex SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing)
+        
         * [Синтез речи](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#prices-tts)
         * [SpeechKit Brand Voice](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#brand-voice)
         * [Распознавание речи](https://aistudio.yandex.ru/docs/ru/speechkit/pricing#prices-stt)
+    
     * [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/pricing)
     * [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing#rules-image-recognition)
+
 * [Yandex API Gateway](../api-gateway/pricing.md)
 * [Yandex Application Load Balancer](../application-load-balancer/pricing.md)
 * [Yandex Audit Trails](../audit-trails/pricing.md)
@@ -104,10 +108,12 @@ blocks:
 * [Yandex Cloud Stackland](../stackland/pricing.md)
 * [Yandex Cloud Video](../video/pricing.md)
 * [Yandex Compute Cloud](../compute/pricing.md)
+    
     * [Вычислительные ресурсы ВМ](../compute/pricing.md#instance-resources)
     * [Кластеры GPU](../compute/pricing.md#prices)
     * [Диски, снимки и образы](../compute/pricing.md#disk)
     * [Файловые хранилища](../compute/pricing.md#prices)
+
 * [Yandex Container Registry](../container-registry/pricing.md)
 * [Yandex Data Processing](../data-proc/pricing.md)
 * [Yandex Data Streams](../data-streams/pricing.md)
@@ -135,20 +141,24 @@ blocks:
 * [Yandex Message Queue](../message-queue/pricing.md)
 * [Yandex MetaData Hub](../metadata-hub/pricing.md)
 * [Yandex Monitoring](../monitoring/pricing.md)
+    
     * [Monitoring API](../monitoring/pricing.md#rules)
     * [Prometheus Remote API](../monitoring/pricing.md#rules)
+
 * [Yandex Network Load Balancer](../network-load-balancer/pricing.md)
 * [Yandex MPP Analytics for PostgreSQL](../managed-greenplum/pricing/index.md)
 * [Yandex Object Storage](../storage/pricing.md)
-* [Yandex Query](../query/pricing.md)
 * [Yandex Security Deck](../security-deck/pricing.md)
 * [Yandex Serverless Containers](../serverless-containers/pricing.md)
 * <code><b><small>Preview</small></b></code> [Yandex SIEM](../siem/pricing.md)
 * [Yandex SmartCaptcha](../smartcaptcha/pricing.md)
 * [Yandex Smart Web Security](../smartwebsecurity/pricing.md)
+
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/pricing)
+    
     * [Анализ аудиозаписей диалогов](https://aistudio.yandex.ru/docs/ru/speechsense/pricing#speech)
     * [Анализ текстовых диалогов](https://aistudio.yandex.ru/docs/ru/speechsense/pricing#text)
+
 * [Yandex StoreDoc](../storedoc/pricing.md)
 * [Yandex Virtual Private Cloud](../vpc/pricing.md)
 

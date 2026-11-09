@@ -42,7 +42,7 @@ description: В этом разделе собраны руководства п
 
 #|
 || **Инструмент** | **Назначение** ||
-|| [Gwin](https://github.com/yandex-cloud/gwin) | Gateway API-контроллер для {{ alb-full-name }}. Рекомендуемый способ настройки L7-балансировщиков ||
+|| [Gwin](../../alb-ref/gwin-index.md) | Gateway API-контроллер для {{ alb-full-name }}. Рекомендуемый способ настройки L7-балансировщиков ||
 || [Velero](https://velero.io/) | Резервное копирование и восстановление Persistent Volumes ||
 || [{{ data-transfer-full-name }}](../../../data-transfer/index.yaml) | Перенос данных из управляемых баз данных ||
 || [{{ container-registry-full-name }}](../../../container-registry/index.yaml) | Хранение образов контейнеров в {{ yandex-cloud }} ||

@@ -30,6 +30,16 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
+        title: Restoring database clusters in case of an availability zone failure
+        text: >-
+          The process of restoring managed database clusters depending on host
+          placement and cluster status.
+        urlTitle: Restoring database clusters in case of an availability zone failure
+        url: mdb-recovery
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
         title: Deploying a web app in a fault-tolerant configuration
         text: >-
           This is an example of how to deploy a web app in a fault-tolerant

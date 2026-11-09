@@ -118,6 +118,7 @@ description: Из статьи вы узнаете, как задать наст
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}** — дополнительные настройки записи выходных файлов:
 
+
     {% list tabs group=writer-settings %}
 
     - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.title }} {#snapshot}

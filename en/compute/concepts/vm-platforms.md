@@ -41,6 +41,8 @@ Platform | Processor | Maximum number of</br> cores (vCPUs) per VM | CPU base</b
 {{ highfreq-ice-lake }}</br>(`highfreq-v3`) | [Intel® Xeon® Processor 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 56 | 3.00
 AMD Zen 4 Compute-Optimized</br>(`highfreq-v4a`) | [AMD EPYC™ 9374F](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9374f.html) | 80 | 3.85
 
+{% include [preemptible-no-highfreq](../../_includes/compute/preemptible-no-highfreq.md) %}
+
 ## Platforms with GPUs {#gpu-platforms}
 
 Platform | Graphics</br> accelerator | Processor | Specifications

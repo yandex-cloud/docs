@@ -24,7 +24,7 @@ You pay for the following modules:
 
 You do not pay for:
 
-* [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md)
+* [{{ access-analyzer-name }} module](concepts/access-analyzer.md)
 * [Threat detection ({{ td-name }})](concepts/threat-detector.md)
 * [AI assistant](concepts/ai-assistant.md)
 

@@ -75,6 +75,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Search API](events.md#searchapi)
 * [SourceCraft](events.md#sourcecraft)
 * [Yandex Security Deck](events.md#security-deck)
+* [Yandex SIEM](events.md#siem)
 * [Yandex Serverless Containers](events.md#serverless-containers)
 * [Yandex SmartCaptcha](events.md#smartcaptcha)
 * [Yandex Smart Web Security](events.md#smartwebsecurity)
@@ -149,6 +150,20 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
+`cpl.ChangeRuntimeVersion` | Изменение версии [рабочего места](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/index#work-runtime)
+`cpl.CreateProfile` | Создание [профиля рабочих мест](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/index#runtime-profile)
+`cpl.CreateRuntime` | Создание рабочего места пользователя
+`cpl.DeleteActiveProfile` | Снятие активного профиля пользователя
+`cpl.DeleteProfile` | Удаление профиля рабочих мест
+`cpl.DeleteRuntime` | Удаление рабочего места пользователя
+`cpl.DeleteUserSecret` | Удаление секрета пользователя
+`cpl.PauseRuntime` | Приостановка работы рабочего места
+`cpl.RemoveUserKmsKey` | Удаление привязки ключа Key Management Service к пользователю
+`cpl.ResumeRuntime` | Возобновление работы рабочего места
+`cpl.SetActiveProfile` | Назначение активного профиля пользователю
+`cpl.SetUserKmsKey` | Привязка ключа Key Management Service к пользователю
+`cpl.UpdateProfile` | Изменение профиля рабочих мест
+`cpl.UpdateUserSecret` | Создание или изменение секрета пользователя
 `dedicated_instance.CreateDedicatedInstance` | Создание [выделенного инстанса](https://aistudio.yandex.ru/docs/ru/ai-studio/release-notes/deprecations#dedicated-instances)
 `dedicated_instance.DeleteDedicatedInstance` | Удаление выделенного инстанса
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
@@ -184,6 +199,10 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `responses.McpToolList` | Получение списка MCP-инструментов
 `responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
+`subscription.CreateSubscription` | Создание [подписки](https://aistudio.yandex.ru/docs/ru/ai-studio/manage/concepts/subscription#subscription)
+`subscription.DeleteSubscription` | Удаление подписки
+`subscription.ResetSubscription` | Сброс окна потребления подписки
+`subscription.UpdateSubscription` | Изменение подписки
 `tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/release-notes/deprecations#model-tuning) модели
 `tuning.StartTuning` | Запуск дообучения модели
 `createWorkflow` | Создание рабочего процесса
@@ -346,22 +365,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
-`CopyDesktopImage` | Создание образа рабочего стола с помощью копирования образа Compute Cloud
-`CopyDesktopImageFromDesktop` | Создание образа рабочего стола с помощью копирования образа существующего рабочего стола
-`CreateDesktop` | Создание рабочего стола
-`CreateDesktopGroup` | Создание группы рабочих столов
-`DeleteDesktop` | Удаление рабочего стола
-`DeleteDesktopGroup` | Удаление группы рабочих столов
-`DeleteDesktopImage` | Удаление образа рабочего стола
-`RestartDesktop` | Перезагрузка рабочего стола
-`SetDesktopGroupAccessBindings` | Назначение прав доступа к группе рабочих столов
-`StartDesktop` | Запуск рабочего стола
-`StopDesktop` | Остановка рабочего стола
-`UpdateDesktop` | Изменение рабочего стола
-`UpdateDesktopGroup` | Изменение группы рабочих столов
-`UpdateDesktopGroupAccessBindings` | Изменение прав доступа к группе рабочих столов
-`UpdateDesktopImage` | Изменение образа рабочего стола
-`UpdateDesktopProperties ` | Изменение свойств рабочего стола
 
 ## Yandex Cloud DNS {#dns}
 
@@ -636,15 +639,18 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`ActivateUserTariff` | Активация [подписки](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/assign-subscription) участника организации
 `AddPersonalEmail` | Добавление личного адреса электронной почты
 `AddPersonalPublicGpgKey` | Добавление личного открытого ключа GPG
 `AddPersonalPublicSshKey` | Добавление личного [открытого SSH-ключа](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/ssh)
 `CreatePersonalAccessToken` | Создание [персонального токена (PAT)](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/pat)
+`CreateProject` | Создание [проекта](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#projects)
 `CreateRepository` | Создание [репозитория](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/#repos)
 `CreateSecret` | Создание [секрета](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/secrets)
 `CreateServiceConnection` | Создание [сервисного подключения](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections)
 `DeleteAllSecrets` | Удаление всех секретов
 `DeletePersonalAccessToken` | Удаление персонального токена (PAT)
+`DeleteProject` | Удаление проекта
 `DeleteRepository` | Удаление репозитория
 `DeleteSecret` | Удаление секрета
 `DeleteServiceConnection` | Удаление сервисного подключения
@@ -652,12 +658,19 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `OffboardOrganization` | Отключение организации
 `OnboardCloudRegistry` | Подключение реестра pkg.sourcecraft.tech
 `OnboardOrganization` | Подключение организации
+`RedeemGiftLink` | Получение подарка по ссылке
 `RemovePersonalEmail` | Удаление личного адреса электронной почты
 `RemovePersonalPublicGpgKey` | Удаление личного открытого ключа GPG
 `RemovePersonalPublicSshKey` | Удаление личного открытого ключа SSH
+`SetBulkUserTariffs` | Назначение подписок нескольким участникам организации
+`SetUserCUExtraLimit` | Установка [дополнительной квоты нейрокредитов](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/increase-neurocredit-quota) для участника организации
+`SetUserCUExtraLimitBulk` | Установка дополнительной квоты нейрокредитов для нескольких участников организации
+`SetUserTariff` | Назначение подписки участнику организации
 `UpdateAppsecSettings` | Изменение настроек [SourceCraft Security](https://sourcecraft.dev/portal/docs/ru/sourcecraft/security/security-overview)
 `UpdateOrganization` | Изменение организации
 `UpdatePersonalAccessToken` | Изменение персонального токена (PAT)
+`UpdateProject` | Изменение проекта
+`UpdateProjectAccessBindings` | Изменение прав доступа к проекту
 `UpdateRepository` | Изменение репозитория
 `UpdateRepositoryAccessBindings` | Изменение прав доступа к репозиторию
 `UpdateSecret` | Изменение секрета
@@ -757,6 +770,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DetachInstanceNetworkInterface` | Отключение сетевого интерфейса
 `DisableSnapshotSchedule` | Отключение расписания снимков диска
 `EnableSnapshotSchedule` | Включение расписания снимков диска
+`ExportImage` | Экспорт образа диска
+`ExportSnapshot` | Экспорт снимка диска
 `GuestStopInstance` | Остановка ВМ по команде из этой ВМ
 `PreemptInstance` | Прерывание работы ВМ
 `RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ
@@ -905,6 +920,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `platform.DeleteSparkCluster` | Удаление кластера Apache Spark™
 `platform.DeleteTrinoCluster` | Удаление кластера Trino
 `platform.UpdateCloudEnvironment` | Изменение облачного окружения
+`platform.UpdateSparkCluster` | Изменение кластера Apache Spark™
 `platform.UpdateTrinoCluster` | Изменение кластера Trino
 `DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам
@@ -1428,9 +1444,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`CreateEnvironment` | Создание [окружения](../../managed-spark/operations/environment-create.md)
+`DeleteEnvironment` | Удаление окружения
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+`UpdateEnvironment` | Изменение окружения
 
 ## Yandex Managed Service for Valkey™ {#managed-service-for-redis}
 
@@ -1689,6 +1708,16 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateScope` | Изменение области действия
 `UpdateWorkspace` | Изменение окружения
 
+## Yandex SIEM {#siem}
+
+Имя сервиса — `siem`.
+
+Имя события | Описание
+--- | ---
+`queries.CreateSearch` | Создание [запроса](../../siem/concepts/queries.md)
+`queries.CreateSearchLaunch` | Запуск запроса
+`queries.CreateSession` | Создание [расследования](../../siem/concepts/investigations.md)
+
 ## Yandex Serverless Containers {#serverless-containers}
 
 Имя сервиса — `serverless.containers`.
@@ -1727,6 +1756,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateSecurityProfile` | Создание профиля безопасности
 `CreateSolidWafProfile` | Создание профиля SolidWall WAF
 `CreateWafProfile` | Создание профиля WAF
+`CreateWebApp` | Создание [приложения SolidWall WAF](../../smartwebsecurity/concepts/solidwall-waf.md#resources)
 `DeleteArlProfile` | Удаление профиля ARL
 `DeleteCustomPage` | Удаление шаблона страницы ответа
 `DeleteDomain` | Удаление домена
@@ -1735,6 +1765,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteSecurityProfile` | Удаление профиля безопасности
 `DeleteSolidWafProfile` | Удаление профиля SolidWall WAF
 `DeleteWafProfile` | Удаление профиля WAF
+`DeleteWebApp` | Удаление приложения SolidWall WAF
 `StartLoadBalancer` | Запуск прокси-сервера
 `StopLoadBalancer` | Остановка прокси-сервера
 `UpdateArlProfile` | Изменение профиля ARL
@@ -1745,6 +1776,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateSecurityProfile` | Изменение профиля безопасности
 `UpdateSolidWafProfile` | Изменение профиля SolidWall WAF
 `UpdateWafProfile` | Изменение профиля WAF
+`UpdateWebApp` | Изменение приложения SolidWall WAF
+`UpdateWebAppDomains` | Изменение списка доменов приложения SolidWall WAF
 
 ## Yandex SpeechSense {#speechsense}
 

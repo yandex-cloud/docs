@@ -5,7 +5,7 @@
 || Maximum number of recipients per email
 `postbox.recipients_per_email.count` | 200 ||
 || Maximum size of an email with attachments 
-`postbox.email.size` | 10 MB ||
+`postbox.email.size` | 30 MB ||
 || Maximum number of [addresses](../../postbox/concepts/glossary.md#address) 
 `postbox.identities.count` | 10 ||
 || Maximum email send rate 
@@ -15,7 +15,7 @@
 || Maximum number of emails that can be sent within a 24-hour time interval 
 `postbox.emails_sent.count` | 200 ||
 || Maximum number of [configurations](../../postbox/concepts/glossary.md#configuration) 
-`postbox.configuration_sets.count` | 5 ||
+`postbox.configuration_sets.count` | 10 ||
 |#
 
 #### Limits {#postbox-limits}

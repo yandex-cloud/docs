@@ -112,7 +112,7 @@ The [{{ yandex-cloud }} CLI](../../cli/quickstart.md) provides `docker-credentia
 
    {% include [credential-helper](../../_includes/credential-helper.md) %}
 
-1. Make sure Docker is configured.
+1. Make sure Docker is now configured.
 
    The `${HOME}/.docker/config.json` configuration file should now contain this line:
 

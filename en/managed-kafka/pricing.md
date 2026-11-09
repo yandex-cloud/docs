@@ -55,7 +55,7 @@ This section describes the {{ mkf-name }} pricing [policy](#rules) and [current 
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -85,7 +85,7 @@ You can choose the host class for {{ KF }} broker hosts, {{ ZK }} and {{ kraft-s
 * {{ kraft-short-name }} hosts are added to the cluster if its {{ KF }} version is 3.6 or higher and if it contains more than one {{ KF }} host and uses {{ kraft-short-name }} as the coordination service (on separate hosts).
 * {{ kraft-short-name }} hosts are not added to the cluster if its {{ KF }} version is 3.6 or higher and if it uses {{ kraft-short-name }} as the coordination service (combined mode). 
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as two minutes). You do not pay for the time when a broker host, {{ ZK }}, or {{ kraft-short-name }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -115,17 +115,6 @@ Suppose we calculate the 30-day usage cost of a cluster with the following confi
 {% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../_includes/mdb/cvos.md) %}
-
-{{ mkf-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-A CVoS discount is only available for certain types of resources. For unsupported resource types, the relevant CVoS columns under [Prices for the Russia region](#prices) are blank. Currently, you cannot order storage or web traffic this way.
-
-{% endnote %}
 
 
 ## Prices for the Russia region {#prices}
@@ -139,8 +128,6 @@ A CVoS discount is only available for certain types of resources. For unsupporte
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
-
-You cannot order {{ ZK }} host resources via CVoS.
 
 {% include [local-ssd for Intel Ice Lake only by request](../_includes/ice-lake-local-ssd-note.md) %}
 

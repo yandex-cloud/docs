@@ -14,8 +14,10 @@
 ## Что нужно для привязки облака {#bind-roles}
 
 Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что соблюдены следующие условия:
+
 1. [Платежный аккаунт](../concepts/billing-account.md) прошел активацию (находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`).
 1. Пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
+   
    * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако;
    * [billing.accounts.editor](../security/index.md#billing-accounts-editor) и выше в платежном аккаунте.
 
@@ -49,7 +51,7 @@
 
      1. В поле **Тип** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
      1. Нажмите кнопку **Привязать** — добавленное облако или сервис появится в списке.
-     1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
+     1. [Погасите задолженность](../concepts/billing-threshold.md#arrears) на старом платежном аккаунте, если перепривязали облако.
 
          ![image](../../_assets/billing/pin-cloud-billable-entities-window.png)
 
@@ -74,10 +76,12 @@
      ```
 
      Где:
+     
      * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
      * `cloud_id` — идентификатор облака, которое вы хотите привязать к платежному аккаунту.
 
      Подробнее о параметрах ресурса `yandex_billing_cloud_binding` в Terraform в [документации провайдера](../../terraform/resources/billing_cloud_binding.md).
+  
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.

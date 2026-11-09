@@ -17,7 +17,10 @@ To create a new [security group](../concepts/security-groups.md):
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. Enter a name for the security group.
+  1. Enter a name for the security group. The naming requirements are as follows:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to.
   1. {% include [security-group-add-rule](../../_includes/vpc/security-group-add-rule.md) %}
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -31,12 +34,15 @@ To create a new [security group](../concepts/security-groups.md):
     --name test-sg-cli \
     --description "My security group" \
     --rule "description=Allow HTTPS,direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
-    --network-id c645mh47vscb********
+    --network-id <network_ID>
   ```
 
   Where:
 
-  * `--name`: Security group name.
+  * `--name`: Security group name. The naming requirements are as follows:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   * `--description`: Security group description.
   * `--labels`: Security group labels in `key=value` format.
   * `--rule`: Security group rule:
@@ -52,13 +58,16 @@ To create a new [security group](../concepts/security-groups.md):
   ```bash
   yc vpc security-group create \
     --name allow-connection-from-app \
-    --rule "direction=ingress,port=443,protocol=tcp,security-group-id=enp099cqehlf********" \
+    --rule "direction=ingress,port=443,protocol=tcp,security-group-id=<other_security_group_ID>" \
     --network-name infra2
   ```
 
   Where:
 
-  * `--name`: Security group name.
+  * `--name`: Security group name. The naming requirements are as follows:
+
+      {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
   * `--rule`: Security group rule:
     * `direction`: Traffic direction, with `ingress` for incoming traffic and `egress` for outgoing traffic.
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
@@ -88,7 +97,10 @@ To create a new [security group](../concepts/security-groups.md):
     
   1. In the configuration file, specify the properties of the resources you want to create:
 
-     * `name`: Security group name.
+     * `name`: Security group name. The naming requirements are as follows:
+
+        {% include [name-format-security-group](../../_includes/name-format-security-group.md) %}
+
      * `description`: Optional description of the security group.
      * `network_id`: ID of the network the security group will be assigned to.
      * `ingress` and `egress`: Incoming and outgoing traffic rule parameters:
@@ -103,7 +115,7 @@ To create a new [security group](../concepts/security-groups.md):
 
      ```hcl
      resource "yandex_vpc_security_group" "test-sg" {
-       name        = "Test security group"
+       name        = "test-security-group"
        description = "Description for security group"
        network_id  = "<network_ID>"
 

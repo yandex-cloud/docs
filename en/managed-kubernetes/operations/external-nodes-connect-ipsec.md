@@ -37,13 +37,7 @@ You can see the solution architecture in the diagram below:
 
 1. In the main network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-1`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
 
-    {% list tabs group=traffic %}
-
-    - Outgoing traffic {#outgoing}
-
-      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
-      --- | --- | --- | --- | ---
-      `any` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+    {% list tabs %}
 
     - Incoming traffic {#incoming}
       
@@ -55,17 +49,17 @@ You can see the solution architecture in the diagram below:
       `ipsec-udp-4500` | `4500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_public_address>/32`
       `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<VM-2_subnet_CIDR>`
 
-    {% endlist %}
-
-1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
-
-    {% list tabs group=traffic %}
-
     - Outgoing traffic {#outgoing}
 
       {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | --- | ---
       `any` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+
+    {% endlist %}
+
+1. In the additional network, [create](../../vpc/operations/security-group-create.md) a security group and associate it with `VM-2`. [Add](../../vpc/operations/security-group-add-rule.md) the following rules to the group:
+
+    {% list tabs %}
 
     - Incoming traffic {#incoming}
 
@@ -78,11 +72,17 @@ You can see the solution architecture in the diagram below:
       `k8s-VM-1-subnets` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<main_subnet1_CIDR>`, `<main_subnet2_CIDR>`, `<<main_subnet3_CIDR>`
       `cluster&services` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<cluster_CIDR>`, `<CIDRs_of_services>`
 
+    - Outgoing traffic {#outgoing}
+
+      {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+      --- | --- | --- | --- | ---
+      `any` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+
     {% endlist %}
 
 1. [Add](../../vpc/operations/security-group-add-rule.md) the following rule to the security group of the {{ managed-k8s-name }} cluster and node groups:
 
-    {% list tabs group=traffic %}
+    {% list tabs %}
 
     - Incoming traffic {#incoming}
 

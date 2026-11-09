@@ -12,13 +12,14 @@ The transfer type you select depends on data changes on the source endpoint, req
 
 ### Copy {#copy}
 
-The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Changes occurring on the source after the transfer is completed will not be transferred. This type of transfer can prove useful when there is no writing load on the source or no need to keep the target database up-to-date, e.g., [when deploying test environments](./use-cases.md#testing).
+The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Any changes made on the source after the transfer is completed will not be transferred. This type of transfer can prove useful when there is no writing load on the source or no need to keep the target database up-to-date, e.g., [when deploying test environments](use-cases.md#testing).
 
 When the transfer is ready, its status automatically switches to {{ dt-status-copy }}. It is maintained until all data in the source is transferred to the target. Then the transfer is automatically deactivated and switches its status to {{ dt-status-finished }}.
 
 The transition between statuses for the _{{ dt-type-copy }}_ transfer type is shown below:
 
 ![lifecycle-copy](../../_assets/data-transfer/lifecycle/copy.svg)
+
 
 {{ data-transfer-full-name }} supports three types of data copy:
 

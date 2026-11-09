@@ -9,17 +9,7 @@ description: A data source is a connection to a database or service used to inge
 
 A data source is a connection to a database or service used to ingest metadata into a [catalog](data-catalog.md). User data is never ingested. When profiling is enabled, the system runs additional read queries against data or samples to calculate column and table statistics.
 
-The metadata ingested into a catalog contains the following source information:
-
-| Source information | Description  |
-| ----------------------- | --------- |
-| Stored objects | Databases, schemas, tables, views, and indexes |
-| Data structure | Column or field names, their data types and support for storing `NULL` values (nullability), nested columns or fields |
-| Comments | Descriptions of tables and columns |
-| Data lineage | Links between tables and views |
-| Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects removed from the source since the previous ingestion |
-
+{% include [sources](../../_includes/dlp/metadata/metadata-types.md) %}
 
 ## Source metadata
 
@@ -42,56 +32,14 @@ The scope of ingested metadata depends on the data source:
 
 Metadata with the following source information is ingested from {{ PG }} into the catalog:
 
-| Source information | Description  |
-| ----------------------- | --------- |
-| Databases and schemas | Databases and schemas available in the source |
-| Tables | Tables, their technical names, and parent schema mapping |
-| Views | Views and their SQL definitions |
-| Stored procedures | Stored procedures and their SQL definitions |
-| Columns | Names, data types, and parent schema mapping |
-| Comments | Table and column descriptions defined via `COMMENT ON` |
-| Data lineage | Links between tables and views, as well as between views |
-| Column-level data lineage | Links between columns in views |
-| Data profiling | Statistics on tables, rows, and columns |
-| Deleted objects | Objects removed from the source since the previous ingestion |
-
-Within a catalog, metadata has the following structure: database → schema → table/view → column.
-
-There are two methods for data lineage tracing:
-
-* Parsing the SQL definitions of views.
-* Analyzing SQL queries.
-  
-  SQL query analysis requires {{ PG }} version `13` or higher and the `pg_stat_statements` extension.
-
-For data profiling, the user needs the `SELECT` permissions for the tables.
+{% include [sources-pg](../../_includes/dlp/metadata/metadata-types-pg.md) %}
 
 
 ### {{ MY }} {#source-my}
 
 Metadata with the following source information is ingested from {{ MY }} into the catalog:
 
-| Source information | Description  |
-| ----------------------- | --------- |
-| Databases | Databases available in the source |
-| Tables | Tables and their parent database mapping |
-| Views | Views and their SQL definitions |
-| Stored procedures | Stored procedures and their SQL definitions |
-| Columns | Names and data types |
-| Comments | Comments to tables and columns |
-| Data lineage | Links between tables and views, as well as between views |
-| Column-level data lineage | Links between source columns and view columns |
-| Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects removed from the source since the previous ingestion |
-
-Metadata is ingested from the {{ MY }} system tables. Within a catalog, metadata has the following structure: database → table/view → column.
-
-Data lineage is traced by parsing SQL definitions of views.
-
-To collect metadata, the user needs the following privileges:
-
-* `SHOW VIEW` for views.
-* `SELECT` for tables to access data profiling metrics.
+{% include [sources-my](../../_includes/dlp/metadata/metadata-types-my.md) %}
 
 Learn more about [user privileges in {{ MY }}](../../managed-mysql/concepts/user-rights.md).
 
@@ -100,27 +48,7 @@ Learn more about [user privileges in {{ MY }}](../../managed-mysql/concepts/user
 
 Metadata with the following source information is ingested from {{ CH }} into the catalog:
 
-| Source information | Description  |
-| ----------------------- | --------- |
-| Databases | Databases available in the source |
-| Tables | User tables |
-| Views | Views and their SQL definitions |
-| Materialized views | Materialized views and their SQL definitions |
-| [Dictionaries](../../managed-clickhouse/concepts/dictionaries.md) | Dictionaries and their structure |
-| Columns | Names and data types |
-| Comments | Comments to tables and columns |
-| Data lineage | Links between tables and views, as well as between views |
-| Column-level data lineage | Links between columns |
-| Use of objects | Object access statistics |
-| Data profiling | Statistics on tables and columns |
-| Deleted objects | Objects removed from the source since the previous ingestion |
-
-Metadata is ingested from the {{ CH }} system tables using `SQLAlchemy`. Within a catalog, metadata has the following structure: database → table/view → column.
-
-Data lineage is traced by parsing SQL definitions of views stored in `system.tables.create_table_query`.
-
-For data profiling, the user needs the `SELECT` permissions for the tables.
-
+{% include [sources-ch](../../_includes/dlp/metadata/metadata-types-ch.md) %}
 
 ### {{ OS }} {#source-os}
 

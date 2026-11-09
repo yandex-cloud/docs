@@ -34,7 +34,7 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
           * {% include [select-external-ip](../../_includes/network-load-balancer/select-external-ip.md) %}
 
-  1. Optionally, enable DDoS protection in the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** field.
+  1. Optionally, enable [DDoS protection](../../vpc/ddos-protection/index.md) in the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** field. The option is [billable](../../vpc/pricing.md#prices-ddos-protection) and available only when the automatic IP address assignment was selected in the previous step.
   1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_deletion-protection }}** field, enable load balancer protection from deletion.
 
       {% note warning %}

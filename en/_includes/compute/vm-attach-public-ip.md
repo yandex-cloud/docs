@@ -6,11 +6,12 @@
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM.
-  1. In the window that opens, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**. In the window that opens:
-      * In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address from the list.
-      * Optionally, if you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, enable **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}**. For more information, see [{#T}](../../vpc/ddos-protection/index.md).
-      * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` in the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field, choose the IP address you want to assign to your VM. The IP address and the VM must be in the same availability zone.
-      * Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  1. On the **{{ ui-key.yacloud.common.overview }}** tab, scroll down to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section.
+  1. In the network interface section, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner and then click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+  1. In the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** field of the window that opens, select `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}` to get an IP address automatically or `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}` to choose a reserved address.
+     * Optionally, enable **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_ddos-protection-provider }}** if you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}`. For details, see [{#T}](../../vpc/ddos-protection/index.md).
+     * If you selected `{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_list }}`, choose the IP address you want to assign to your VM. The IP address and the VM must be in the same availability zone.
+  1. Click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
 
 - CLI {#cli}
 

@@ -16,6 +16,8 @@ There are two types of roles:
 
 Currently, users are not allowed to create new roles with a custom set of permissions.
 
+Using [{{ sd-full-name }}](../../../security-deck/index.yaml) [{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/), you can view the full list of roles assigned to a subject and get recommendations for optimizing the granted permissions. For more information, see [{#T}](../../../security-deck/concepts/access-analyzer.md).
+
 ## Role reference {#roles-reference}
 
 {% note info "" %}

@@ -7,6 +7,8 @@ items:
     items:
       - name: Recommendations on fault tolerance in {{ yandex-cloud }}
         href: fault-tolerance.md
+      - name: Restoring database clusters in case of an availability zone failure
+        href: mdb-recovery.md
       - name: >-
           Deploying a web app in a fault-tolerant configuration in {{
           yandex-cloud }}

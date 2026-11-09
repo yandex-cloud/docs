@@ -218,4 +218,6 @@
 
  - [Управление доступом](security/index.md)
 
+ - [Аудитные логи Audit Trails](at-ref.md)
+
  - [Правила тарификации](pricing.md)

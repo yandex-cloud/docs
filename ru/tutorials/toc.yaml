@@ -1458,8 +1458,6 @@ items:
             href: dataplatform/debezium-yq.md
           - name: Анализ данных с помощью {{ jlab }}
             href: dataplatform/jupyter-yq.md
-          - name: Обработка файлов детализации в сервисе {{ billing-name }}
-            href: dataplatform/billing-detail-files-processing.md
       - name: '{{ yds-full-name }}'
         items:
           - name: Ввод данных в системы хранения

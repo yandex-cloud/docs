@@ -155,7 +155,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endlist %}
 
-1. Create a [security group](../../vpc/concepts/security-groups.md):
+1. Create a [security group](../../vpc/concepts/security-groups.md) named `sg-autoscale` with [rules](../../vpc/concepts/security-groups.md#security-groups-rules) from the table below:
+
+   #|
+   || **Traffic direction** | **Description** | **Port range** | **Protocol** | **Source / destination type** | **Source / destination** ||
+   || Outbound | `any` | All | Any | CIDR | `0.0.0.0/0` ||
+   || Inbound | `ext-http` | `80` | `TCP` | CIDR | `0.0.0.0/0` ||
+   || Inbound | `healthchecks` | `80` | `TCP` | Load balancer health checks | — ||
+   |#
 
    {% list tabs group=instructions %}
 
@@ -164,28 +171,146 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Open the [management console]({{ link-console-main }}).
      1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-     1. Create a security group for the load balancer:
-        1. Click **Create group**.
-        1. Enter the group **Name**: `sg-autoscale`.
-        1. Select `yc-auto-network` for **Network**.
-        1. Under **Rules**, create rules by following the steps below the table:
+     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter a name for the security group: `sg-autoscale`.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `yc-auto-network`.
+     1. Create rules based on the table. To do this, under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**, and in the window that opens:
 
-           Traffic<br>direction | Description | Port<br>range | Protocol | Source type /<br>destination type | Source /<br>destination
-           --- | --- | --- | --- | --- | ---
-           Egress | any | All | Any | CIDR | 0.0.0.0/0
-           Ingress | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
-           Inbound | healthchecks | 80 | TCP | Load balancer health checks | —
+        1. Select **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** to match the traffic direction.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify port `80` or leave it blank for the entire port range.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify `TCP` or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-           1. Select the **Egress** or **Ingress** tab.
-           1. Click **Add**.
-           1. In the **Port range** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic.
-           1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
-           1. In the **Destination name** or **Source** field, select the scope of the rule:
-              * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR ranges of the source or destination subnets. To add more CIDRs, click **Add CIDR**.
-              * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-              * **Load balancer health checks**: Rule allowing a load balancer to health-check VMs.
-           1. Click **Save**. Repeat these steps to create all rules from the table.
-        1. Click **Save**.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: The rule will apply to a range of [IP addresses](../../vpc/concepts/address.md). In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify `0.0.0.0/0`.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows [checking the health of resources](../../network-load-balancer/concepts/health-check.md) by the {{ network-load-balancer-name }}.
+
+        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat for all rules based on the table.
+
+     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+   - CLI {#cli}
+
+     To create a group with rules, run [this command](../../cli/cli-ref/vpc/cli-ref/security-group/create.md):
+
+     ```bash
+     yc vpc security-group create \
+       --network-name yc-auto-network \
+       --name sg-autoscale \
+       --rule "description=any,direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
+       --rule "description=ext-http,direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
+       --rule "description=healthchecks,direction=ingress,port=80,protocol=tcp,predefined=loadbalancer_healthchecks"
+     ```
+
+     Where:
+
+     * `--name`: Security group name.
+     * `--network-name`: Name of the [network](../../vpc/concepts/network.md#network) the security group will be connected to.
+     * `--rule`: [Rule](../../vpc/concepts/security-groups.md#security-groups-rules) in the security group:
+
+       * `description`: Rule description.
+       * `direction`: Traffic direction.
+         * `ingress`: Inbound.
+         * `egress`: Outbound.
+       * `port`: Port for receiving or transmitting traffic.
+       * `protocol`: Data transfer protocol.
+       * `v4-cidrs`: List of IPv4 subnets in CIDR format to apply the rule to.
+       * `predefined=loadbalancer_healthchecks`: Addresses for the {{ network-load-balancer-full-name }} to perform [resource health checks](../../network-load-balancer/concepts/health-check.md) from.
+
+     Result:
+
+     ```text
+     id: enp7mt3ti1bl********
+     folder_id: b1g437oggp0u********
+     created_at: "2026-08-28T11:08:42Z"
+     name: sg-autoscale
+     network_id: enpnnitngdbv********
+     status: ACTIVE
+     rules:
+       - id: enpplmcdqr5a********
+         description: any
+         direction: EGRESS
+         protocol_name: ANY
+         protocol_number: "-1"
+         cidr_blocks:
+           v4_cidr_blocks:
+             - 0.0.0.0/0
+       - id: enprdipsiv5e********
+         description: ext-http
+         direction: INGRESS
+         ports:
+           from_port: "80"
+           to_port: "80"
+         protocol_name: TCP
+         protocol_number: "6"
+         cidr_blocks:
+           v4_cidr_blocks:
+             - 0.0.0.0/0
+       - id: enp2t99026uo********
+         description: healthchecks
+         direction: INGRESS
+         ports:
+           from_port: "80"
+           to_port: "80"
+         protocol_name: TCP
+         protocol_number: "6"
+     ```
+
+   - API {#api}
+
+     Use the [create](../../vpc/api-ref/SecurityGroup/create.md) REST API method for the [SecurityGroup](../../vpc/api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Create](../../vpc/api-ref/grpc/SecurityGroup/create.md) gRPC API call, and provide the settings of security group rules in the [ruleSpecs[]](../../vpc/api-ref/SecurityGroup/create.md#yandex.cloud.vpc.v1.SecurityGroupRuleSpec) array in your request:
+
+       ```json
+       "ruleSpecs": [
+         {
+           "description": "any",
+           "direction": "EGRESS",
+           "protocolName": "any",
+           "cidrBlocks": {
+             "v4CidrBlocks": ["0.0.0.0/0"]
+           }
+         },
+         {
+           "description": "ext-http",
+           "direction": "INGRESS",
+           "protocolName": "tcp",
+           "ports": {
+             "fromPort": "80",
+             "toPort": "80"
+           },
+           "cidrBlocks": {
+             "v4CidrBlocks": ["0.0.0.0/0"]
+           }
+         },
+         {
+           "description": "healthchecks",
+           "direction": "INGRESS",
+           "protocolName": "tcp",
+           "ports": {
+             "fromPort": "80",
+             "toPort": "80"
+           },
+           "predefinedTarget": "loadbalancer_healthchecks"
+         }
+       ]
+       ```
+
+       Where:
+
+       * `description`: Rule description.
+       * `direction`: Traffic direction.
+         * `INGRESS`: Inbound.
+         * `EGRESS`: Outbound.
+       * `protocolName`: Name of the traffic transmission protocol.
+       * `ports`: Range of ports the rule applies to:
+
+         * `fromPort`: First port in the range.
+         * `toPort`: Last port in the range.
+
+       * `cidrBlocks`: CIDR blocks the rule applies to:
+
+         * `v4CidrBlocks[]`: List of IPv4 CIDR blocks.
+
+       * `predefinedTarget`: Predefined purpose of the rule. For example, `loadbalancer_healthchecks` allows traffic from {{ network-load-balancer-full-name }} health checks.
 
    {% endlist %}
 

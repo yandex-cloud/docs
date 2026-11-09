@@ -20,7 +20,7 @@ terraform {
   required_providers {
     yandex = {
       source = "yandex-cloud/yandex"
-      version = ">= 0.47.0"
+      version = ">= 0.96.0"
     }
   }
 }
@@ -37,7 +37,13 @@ resource "yandex_iam_service_account" "for-autoscale" {
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-autoscale-sa-role-compute" {
   folder_id = var.folder_id
-  role      = "editor"
+  role      = "compute.editor"
+  member    = "serviceAccount:${yandex_iam_service_account.for-autoscale.id}"
+}
+
+resource "yandex_resourcemanager_folder_iam_member" "vm-autoscale-sa-role-lb" {
+  folder_id = var.folder_id
+  role      = "load-balancer.editor"
   member    = "serviceAccount:${yandex_iam_service_account.for-autoscale.id}"
 }
 

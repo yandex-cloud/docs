@@ -5,6 +5,8 @@ description: Follow this guide to create a non-replicated disk.
 
 # Creating a non-replicated disk
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) disk or add such a disk to a [disk placement group](../../concepts/disk-placement-group.md).
 

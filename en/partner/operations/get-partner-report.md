@@ -112,14 +112,13 @@ The table contains the following columns:
 * `sku_id`: Consumed product ID.
 * `sku_name`: Product name.
 * `date`: Consumption charge date. A date is set as an interval from 0:00 to 23:59 (UTC+3).
-* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
+* `currency`: Billing account currency. The possible values are `RUB`, `USD`, and `KZT`.
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.
 * `credit`: Total discounts. Not included in the total cost of consumption (`credit`). Always negative. The decimal separator is a period.
 * `monetary_grant_credit`: Grant discount, including the platform introduction grant. The decimal separator is a period.
 * `volume_incentive_credit`: Consumption volume discount. The decimal separator is a period.
-* `cud_credit`: Discount for the [committed](../../billing/concepts/cvos.md) resource volume. The cost of the consumption volume above the committed one equals the sum of the `cost` and `credit` column values. The decimal separator is a period.
 * `misc_credit`: Other types of discounts, including discounts for consumption after the platform introduction grant expires but before switching to the paid version. The decimal separator is a period.
 * `reward`: Partner discount amount. The decimal separator is a period.
 * `label.user_labels.<label_name>`: Labels added to the resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).

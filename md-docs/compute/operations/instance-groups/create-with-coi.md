@@ -76,9 +76,11 @@
    - Yandex Cloud Marketplace {#marketplace}
    
      1. Перейдите на страницу Cloud Marketplace и выберите образ с нужной конфигурацией:
+        
         * [Container Optimized Image](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
         * [Container Optimized Image GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
-     1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
+     
+     1. В блоке **Идентификаторы продукта** скопируйте значение `Образ ВМ`.
    
    {% endlist %}
 

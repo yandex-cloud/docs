@@ -58,6 +58,6 @@ The [IP address](../../vpc/concepts/address.md) sending the Docker image pull re
 
 ## What should I do if I get the "You have reached your pull rate limit" error when downloading an image from Docker Hub? {#docker-hub-pull-limit}
 
-The `toomanyrequests: You have reached your pull rate limit` error means that you have exceeded your Docker Hub image pull limit. For current limits and ways to check your limit balance, see [this Docker guide](https://docs.docker.com/docker-hub/usage/pulls/).
+The `toomanyrequests: You have reached your pull rate limit` error means that you have exceeded the limit on image pulls from Docker Hub. For the current limits and ways to check your remaining limit, see [this Docker guide](https://docs.docker.com/docker-hub/usage/pulls/).
 
-To reduce the number of requests to Docker Hub, use [{{ cloud-registry-full-name }}](../../cloud-registry/). [Create a remote registry](../../cloud-registry/operations/registry/remote.md) with `Docker Hub` as the source and use it to pull images. The remote registry will [cache images after the first pull](../../cloud-registry/concepts/registry.md#remote-registry) thus reducing the load on Docker Hub.
+To reduce requests to Docker Hub, use [{{ cloud-registry-full-name }}](../../cloud-registry/). [Create a remote registry](../../cloud-registry/operations/registry/remote.md) with `Docker Hub` as the source and use it to pull images. The remote registry will [cache images after the first pull](../../cloud-registry/concepts/registry.md#remote-registry), reducing the load on Docker Hub.

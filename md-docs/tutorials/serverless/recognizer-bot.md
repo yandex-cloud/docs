@@ -48,7 +48,7 @@
 ## Подготовьте ресурсы {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `functions.editor` на ваш каталог.
-1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK SpeechKit в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK SpeechKit в [среде выполнения функции](../../functions/concepts/runtime/index.md).
 1. Извлеките из архива бинарные файлы `ffmpeg`, `ffprobe` и сделайте их исполняемыми, выполнив команды:
 
     ```bash

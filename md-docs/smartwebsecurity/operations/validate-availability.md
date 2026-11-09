@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Домены > Проверить доступность ресурсов
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Прокси-сервер и домен > Проверить доступность ресурсов
 
 # Проверить доступность ресурсов
 

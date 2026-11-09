@@ -1,5 +1,7 @@
 # Updating a file storage
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 After creating a [file storage](../../concepts/filesystem.md), you can change its name, description, and size.
 
 {% note info %}

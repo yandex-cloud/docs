@@ -5,6 +5,8 @@ description: Follow this guide to make a VM preemptible.
 
 # Making a VM preemptible
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of a VM that already exists.
 
@@ -40,6 +42,9 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
       * Navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
       * Select a [platform](../../../compute/concepts/vm-platforms.md).
+
+        {% include [preemptible-no-highfreq](../../../_includes/compute/preemptible-no-highfreq.md) %}
+        
       * Specify the [guaranteed performance](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
       * In the **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** field, enable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
       * Optionally, enable a [software accelerated network](../../concepts/software-accelerated-network.md).

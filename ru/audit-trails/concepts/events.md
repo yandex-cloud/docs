@@ -388,6 +388,12 @@ description: В данном разделе приведены описания 
 
 {% include [sd-orchestrator-events](../../_includes/audit-trails/events/sd-orchestrator-events.md) %}
 
+## {{ yandex-siem-full-name }} {#siem}
+
+Имя сервиса — `siem`.
+
+{% include [siem-events](../../_includes/audit-trails/events/siem-events.md) %}
+
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 Имя сервиса — `serverless.containers`.

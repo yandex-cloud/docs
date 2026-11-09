@@ -877,6 +877,10 @@ items:
             href: audit/compute/events-ref/EnableSnapshotSchedule.md
           - name: EnableZones
             href: audit/compute/events-ref/EnableZones.md
+          - name: ExportImage
+            href: audit/compute/events-ref/ExportImage.md
+          - name: ExportSnapshot
+            href: audit/compute/events-ref/ExportSnapshot.md
           - name: GuestStopInstance
             href: audit/compute/events-ref/GuestStopInstance.md
           - name: MigrateInstance
@@ -3331,6 +3335,14 @@ items:
           - name: UpdateWorkflowAccessBindings
             href: >-
               audit/serverless/workflows/events-ref/UpdateWorkflowAccessBindings.md
+      - name: siem
+        items:
+          - name: CreateSearch
+            href: audit/siem/events-ref/CreateSearch.md
+          - name: CreateSearchLaunch
+            href: audit/siem/events-ref/CreateSearchLaunch.md
+          - name: CreateSession
+            href: audit/siem/events-ref/CreateSession.md
       - name: smartcaptcha
         items:
           - name: CreateCaptcha
@@ -3365,6 +3377,8 @@ items:
             href: audit/smartwebsecurity/events-ref/CreateSolidWafProfile.md
           - name: CreateWafProfile
             href: audit/smartwebsecurity/events-ref/CreateWafProfile.md
+          - name: CreateWebApp
+            href: audit/smartwebsecurity/events-ref/CreateWebApp.md
           - name: DeleteArlProfile
             href: audit/smartwebsecurity/events-ref/DeleteArlProfile.md
           - name: DeleteCustomPage
@@ -3381,6 +3395,8 @@ items:
             href: audit/smartwebsecurity/events-ref/DeleteSolidWafProfile.md
           - name: DeleteWafProfile
             href: audit/smartwebsecurity/events-ref/DeleteWafProfile.md
+          - name: DeleteWebApp
+            href: audit/smartwebsecurity/events-ref/DeleteWebApp.md
           - name: SolidWallMatchedRequest
             href: audit/smartwebsecurity/events-ref/SolidWallMatchedRequest.md
           - name: StartLoadBalancer
@@ -3405,6 +3421,10 @@ items:
             href: audit/smartwebsecurity/events-ref/UpdateSolidWafProfile.md
           - name: UpdateWafProfile
             href: audit/smartwebsecurity/events-ref/UpdateWafProfile.md
+          - name: UpdateWebApp
+            href: audit/smartwebsecurity/events-ref/UpdateWebApp.md
+          - name: UpdateWebAppDomains
+            href: audit/smartwebsecurity/events-ref/UpdateWebAppDomains.md
           - name: WafMatchedExclusionRule
             href: audit/smartwebsecurity/events-ref/WafMatchedExclusionRule.md
           - name: WafMatchedRule
@@ -3421,6 +3441,8 @@ items:
             href: audit/sourcecraft/events-ref/AddPersonalPublicSshKey.md
           - name: CreatePersonalAccessToken
             href: audit/sourcecraft/events-ref/CreatePersonalAccessToken.md
+          - name: CreateProject
+            href: audit/sourcecraft/events-ref/CreateProject.md
           - name: CreateRepository
             href: audit/sourcecraft/events-ref/CreateRepository.md
           - name: CreateSecret
@@ -3431,6 +3453,8 @@ items:
             href: audit/sourcecraft/events-ref/DeleteAllSecrets.md
           - name: DeletePersonalAccessToken
             href: audit/sourcecraft/events-ref/DeletePersonalAccessToken.md
+          - name: DeleteProject
+            href: audit/sourcecraft/events-ref/DeleteProject.md
           - name: DeleteRepository
             href: audit/sourcecraft/events-ref/DeleteRepository.md
           - name: DeleteSecret
@@ -3475,6 +3499,10 @@ items:
             href: audit/sourcecraft/events-ref/UpdateOrganization.md
           - name: UpdatePersonalAccessToken
             href: audit/sourcecraft/events-ref/UpdatePersonalAccessToken.md
+          - name: UpdateProject
+            href: audit/sourcecraft/events-ref/UpdateProject.md
+          - name: UpdateProjectAccessBindings
+            href: audit/sourcecraft/events-ref/UpdateProjectAccessBindings.md
           - name: UpdateRepository
             href: audit/sourcecraft/events-ref/UpdateRepository.md
           - name: UpdateRepositoryAccessBindings
@@ -3965,6 +3993,28 @@ items:
             href: audit/ymq/events-ref/DeleteMessageQueue.md
           - name: UpdateMessageQueue
             href: audit/ymq/events-ref/UpdateMessageQueue.md
+      - name: yq
+        items:
+          - name: ControlQuery
+            href: audit/yq/events-ref/ControlQuery.md
+          - name: CreateBinding
+            href: audit/yq/events-ref/CreateBinding.md
+          - name: CreateConnection
+            href: audit/yq/events-ref/CreateConnection.md
+          - name: CreateQuery
+            href: audit/yq/events-ref/CreateQuery.md
+          - name: DeleteBinding
+            href: audit/yq/events-ref/DeleteBinding.md
+          - name: DeleteConnection
+            href: audit/yq/events-ref/DeleteConnection.md
+          - name: DeleteQuery
+            href: audit/yq/events-ref/DeleteQuery.md
+          - name: UpdateBinding
+            href: audit/yq/events-ref/UpdateBinding.md
+          - name: UpdateConnection
+            href: audit/yq/events-ref/UpdateConnection.md
+          - name: UpdateQuery
+            href: audit/yq/events-ref/UpdateQuery.md
       - name: ytsaurus
         items:
           - name: CreateCluster

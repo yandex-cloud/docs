@@ -5,6 +5,8 @@ description: This guide will show you how to use `cloud-init` scripts to install
 
 # Creating a VM with a custom configuration script
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 You can create a VM with a preset software configuration by using the `user-data` key in the VM [metadata](../../concepts/vm-metadata.md).
 
 The [cloud-init](https://cloudinit.readthedocs.io/en/latest/) agent running on the VM will process the configuration you set in the `user-data` key. `Cloud-init` supports different metadata transmission formats, e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).

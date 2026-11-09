@@ -5,6 +5,8 @@ description: Follow this guide to create a VM running on virtualized Gen 2 hardw
 
 # Creating a VM with Gen 2 hardware
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 The [VM](../../concepts/vm.md) runs on virtualized hardware of the [generation](../../concepts/hardware-generations.md) [assigned](../../concepts/hardware-generations.md#locking-generations) to the medium (i.e., [image](../../concepts/image.md), [snapshot](../../concepts/snapshot.md), or [disk](../../concepts/disk.md)) the VM was created based on.
 
 Therefore, to create a VM running on `Gen 2` hardware, you must first create a medium with `Gen 2` assigned, and then create your [VM](#create-vm) from this medium.
@@ -134,7 +136,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `source_url`: Image link in {{ objstorage-name }}.
-      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. The possible values are:
+      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. Its possible values are:
       
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
@@ -193,7 +195,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `uri`: Image link in {{ objstorage-name }}.
-      * `pooled`: Enables [image optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. The possible values are:
+      * `pooled`: Enables [image optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. Its possible values are:
       
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
@@ -376,7 +378,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
 
           {% endnote %}
 
-      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. The possible values are:
+      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. Its possible values are:
       
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
@@ -451,7 +453,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
 
           {% endnote %}
 
-      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. The possible values are:
+      * `pooled`: Enables image [optimization](../../concepts/image.md#images-optimized-for-deployment) for deployment. Its possible values are:
       
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
@@ -691,7 +693,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
           {% include [name-format](../../../_includes/name-format.md) %}
       1. In the **{{ ui-key.yacloud.compute.disk-form.field_zone }}** field, select an [availability zone](../../../overview/concepts/geo-scope.md) for the new disk.
       1. Depending on the source you are creating the disk from, in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` or `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the snapshot or image from the list that opens.
-      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Valid values:
+      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Available values:
 
           * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`: Fast network drive; SSD network block storage.
           * `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`: Standard network drive; HDD network block storage.
@@ -731,7 +733,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
+      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -781,7 +783,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_compute_disk" "my-disk" {
@@ -803,7 +805,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `type`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
+      * `type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -878,7 +880,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
+      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Available values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -1057,7 +1059,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
                   {% include [name-format](../../../_includes/name-format.md) %}
               
-              * `type`: Disk [type](../../concepts/disk.md#disks-types). Valid values:
+              * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
 
                   * `network-ssd`: Fast network drive; SSD network block storage.
                   * `network-hdd`: Standard network drive; HDD network block storage.
@@ -1184,7 +1186,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `type`: Disk [type](../../concepts/disk.md#disks-types). Valid values:
+          * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
 
               * `network-ssd`: Fast network drive; SSD network block storage.
               * `network-hdd`: Standard network drive; HDD network block storage.

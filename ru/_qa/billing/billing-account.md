@@ -148,6 +148,6 @@
 #### Как перестать пользоваться платформой и удалить платежный аккаунт? {#delete-account}
 
 
-Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** на странице платежного аккаунта в сервисе [**{{ billing-name }}**]({{ link-console-billing }}). Подробнее в разделе [{#T}](../../billing/operations/delete-account.md).
+Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, [погасите существующую задолженность](../../billing/concepts/billing-threshold.md#arrears) и выберите **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}** на странице платежного аккаунта в сервисе [**{{ billing-name }}**]({{ link-console-billing }}). Подробнее в разделе [{#T}](../../billing/operations/delete-account.md).
 
 

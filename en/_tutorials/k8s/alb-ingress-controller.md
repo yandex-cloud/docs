@@ -22,7 +22,7 @@ See the full configuration of {{ alb-name }} ingress controller resources in the
 
 * Public DNS requests and DNS zones (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Each active L7 load balancer: use of computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).

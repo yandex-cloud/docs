@@ -79,12 +79,6 @@
 * {{ serverless-containers-name }} and other new serverless releases, 2021. Watch our video on [YouTube](https://youtu.be/cwi8hvYSDFI) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvfleteamx53wtdmhr).
 * <code><b><small>External resource</small></b></code> How to use Puppeteer in {{ serverless-containers-name }}, 2025. Read the [article](https://nikolaymatrosov.ru/2025-02-01-Puppeteer-in-Yandex-Cloud-Serverless-container).
 
-## {{ sw-full-name }} {#workflows}
-
-* Creating reliable workflows with {{ sw-full-name }}, 2025. Watch our video on [YouTube](https://youtube.com/live/pdH6cHRzJtc) and [Yandex](https://runtime.strm.yandex.ru/player/episode/vpleszm5yapipi4cqmkk).
-* {{ sw-full-name }} visual constructor: No-code process orchestration, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).
-* Serverless integrations: LowCode and LowOps applied, 2024. Watch our video on [YouTube](https://youtu.be/BLlmaHx_Mu0) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplv5rf75k4fz5cc763n).
-
 ## Examples of serverless computing business applications {#serverless-ecom}
 
 * First Bit: Serverless technologies in production line automation, 2025. Watch our video on [YouTube](https://youtu.be/4qGrj5k9kKc) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvmbin6nti7zjtgzfg).

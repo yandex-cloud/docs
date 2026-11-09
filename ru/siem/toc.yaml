@@ -213,6 +213,8 @@ items:
                     href: queries/siem/api-ref/Session/create.md
   - name: Управление доступом
     href: security/index.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Правила тарификации
     href: pricing.md
 path: ru/siem/toc.yaml

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Концепции](index.md) > Профили безопасности
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Концепции](index.md) > Профиль безопасности
 
 # Профили безопасности
 

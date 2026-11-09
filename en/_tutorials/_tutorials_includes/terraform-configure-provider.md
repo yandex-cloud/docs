@@ -1,6 +1,6 @@
 {% note info %}
 
-These settings apply to {{ TF }} `0.13` and higher. We recommend using the latest stable version of {{ TF }}.
+These settings apply to {{ TF }} `0.13` and higher. We recommend using the latest stable version of {{ TF }}.
 
 {% endnote %}
 
@@ -80,6 +80,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
 
 
    Where:
+   
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `required_version`: Minimum {{ TF }} version the provider is compatible with.
    * `provider`: Provider name.
@@ -95,8 +96,10 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 Where:
+
 * `-net-mirror`: Address of the mirror to upload the provider from.
-* `-platform`: Platforms to use the configuration on. The possible values are:
+* `-platform`: Platforms to use the configuration on. Its possible values are:
+  
   * `windows_amd64`: Windows 64-bit.
   * `linux_amd64`: Linux 64-bit.
   * `darwin_arm64`: macOS 64-bit.

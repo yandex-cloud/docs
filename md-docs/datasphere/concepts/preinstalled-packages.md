@@ -515,7 +515,7 @@
 * [Torch](https://pytorch.org/) 2.0.1+cu118
 * [torchaudio](https://pytorch.org/audio/main/torchaudio.html) 2.0.2+cu118
 * [torchdata](https://pytorch.org/data/main/index.html) 0.6.1
-* [torchsummary](https://github.com/dsp6414/torch-summary) 1.5.1
+* [torchsummary](https://github.com/TylerYep/torchinfo) 1.5.1
 * [torchtext](https://pytorch.org/text/stable/index.html) 0.15.2
 * [torchvision](https://pytorch.org/vision/stable/index.html) 0.15.2+cu118
 * [Tornado](https://www.tornadoweb.org/en/stable/) 6.3.3

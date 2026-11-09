@@ -24,7 +24,7 @@ You can [view](#get-client-stat) detailed information on how the customers are u
 
     - Workspaces {#instances}
 
-      You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments and [CVoS](../../billing/concepts/cvos.md).
+      You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments.
         
       By default, the displayed information covers all clouds, workspaces, and additional agreements associated with your billing account. To filter this view, select specific clouds, services, and additional agreements in the **All workspaces** list.
 

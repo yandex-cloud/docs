@@ -1,0 +1,1 @@
+To view recommendations in the [{{ sd-name }} UI]({{ link-sd-main }}access-analyzer/), users must have the `security-deck.viewer` [role](../../security-deck/security/index.md#security-deck-viewer) or higher for the [workspace](../../security-deck/concepts/workspace.md).

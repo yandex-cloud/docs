@@ -5,4 +5,10 @@ In this tutorial, you will learn how to create a fault-tolerant website with loa
 
 For the website, you will use the [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [{{ MY }}](https://www.mysql.com/), [PHP](https://www.php.net/)) or LEMP (Apache web server is replaced with [Nginx](https://www.nginx.com/)) stack.
 
-You can create an infrastructure for your website using one of these tools:
+{% note info %}
+
+Each VM in the instance group has its own independent {{ MY }} database, with no data replication between them. If you write data to one VM, that data might not be available on your next request as the load balancer may route your request to another VM. Use an external managed service, such as [{{ mmy-full-name }}](../../managed-mysql/), to store shared data.
+
+{% endnote %}
+
+You can create the infrastructure for your website using one of these tools:

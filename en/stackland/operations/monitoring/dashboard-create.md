@@ -10,4 +10,4 @@ To create a new dashboard and add metrics to it:
 * In the **Metric** field, specify a metric, labels, or values. To check query visualization, click **Run queries** and make sure the dashboard displays the correct data.
 * Click **Save dashboard**.
 
-You can also create dashboards using a custom resource. For more information, see [this grafana-operator guide](https://grafana.github.io/grafana-operator/docs/dashboards/).
+You can also create dashboards using a custom resource. For more information, see [this grafana-operator guide](https://grafana.github.io/grafana-operator/docs/examples/dashboard/).

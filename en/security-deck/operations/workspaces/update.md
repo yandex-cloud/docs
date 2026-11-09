@@ -67,14 +67,12 @@ To update a {{ sd-name }} [workspace](../../concepts/workspace.md):
           {% endlist %}
 
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
-  1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}** tab to update the list of standards against which workspace-controlled resources will be checked:
+  1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}** tab to update the list of {{ sd-name }} modules used in your workspace and that of standards against which workspace-controlled resources will be assessed for compliance:
 
-      1. Under **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}**, select the required standards:
-      
-          {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
-      
-          You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** section will thus get new {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
-      1. {% include [workspace-create-step3-additional-modules](../../../_includes/security-deck/workspace-create-step3-additional-modules.md) %}
+      1. Optionally, activate the {{ sd-name }} modules you need in your workspace.
+      1. Optionally, expand the **{{ ui-key.yacloud_org.security.workspaces.module-cspm_gozhj }}** and **{{ ui-key.yacloud_org.security.workspaces.module-kspm_n9o93 }}** (if enabled) modules and select the [industry standards and regulations](../../concepts/standard-compliance/index.md#security-rule-sets) against which workspace resources will be assessed for compliance.
+
+          You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}** section will display the selected standards and regulations against which workspace resources will be assessed for compliance.
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
   1. Optionally, navigate to the **Kubernetes® Security Posture Management** tab to update the security control settings for {{ k8s }} clusters.
 

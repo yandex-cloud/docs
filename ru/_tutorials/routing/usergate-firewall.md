@@ -12,7 +12,7 @@
 1. [Зарезервируйте статический публичный IP-адрес](#get-static-ip).
 1. [Создайте виртуальную машину UserGate](#create-vm).
 1. [Настройте UserGate NGFW через веб-консоль администратора](#admin-console).
-1. [Настройте маршрутизацию в подсети](#subnet-routing).
+1. [Настройте маршрутизацию для подсети](#subnet-routing).
 1. [Проведите тестирование работы межсетевого экрана](#test-firewall).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -101,7 +101,7 @@
        name = "usergate-network"
      }
 
-     resource "yandex_vpc_subnet" {
+     resource "yandex_vpc_subnet" "usergate-subnet" {
        name           = "usergate-subnet-{{ region-id }}-d"
        zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
@@ -110,27 +110,10 @@
      ```
 
      Подробнее в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
-     
-  1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-        ```bash
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 
@@ -232,7 +215,6 @@
 - CLI {#cli}
   
   1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей SSH.
-  
   1. Выполните команду:
 
      ```bash
@@ -240,10 +222,9 @@
        --name usergate-firewall \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-d \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь_к_открытой_части_SSH-ключа> \
-       --public-address=<зарезервированный_IP_адрес>
+       --network-interface subnet-name=usergate-subnet-{{ region-id }}-d,nat-address=<зарезервированный_IP_адрес>
      ```
 
      Результат:
@@ -315,32 +296,16 @@
        network_interface {
          subnet_id          = "${yandex_vpc_subnet.usergate-subnet.id}"
          nat                = true
-         nat_ip_address     = <зарезервированный_IP_адрес>
+         nat_ip_address     = yandex_vpc_address.usergate-addr.external_ipv4_address[0].address
        }
+     }
      ```
 
      Подробнее смотрите в описании ресурса [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) в документации провайдера {{ TF }}.
-     
-  1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где находится конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-        ```bash
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-  
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 
@@ -483,7 +448,7 @@
      yc vpc route-table create \
        --name=test-route-table \
        --network-id=enp846vf5fus******** \
-       --route destination=0.0.0.0/0,next-hop=10.129.0.24
+       --route destination=0.0.0.0/0,next-hop=10.1.0.24
      ```
 
      Где:
@@ -504,7 +469,7 @@
      network_id: enp846vf5fus********
      static_routes:
      - destination_prefix: 0.0.0.0/0
-       next_hop_address: 10.129.0.24
+       next_hop_address: 10.1.0.24
      ```
 
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
@@ -520,14 +485,14 @@
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      |          ID          |               NAME            |      NETWORK ID      |    ROUTE TABLE ID    |       ZONE    |      RANGE      |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
-     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-d | enpjsdf771h0******** |                      | {{ region-id }}-d | [10.130.0.0/24] |
+     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-d | enpjsdf771h0******** |                      | {{ region-id }}-d | [10.1.0.0/16] |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      ```
 
   1. Привяжите таблицу маршрутизации к подсети, в которой будет работать веб-сервис, например, к подсети `usergate-subnet-{{ region-id }}-d`:
 
      ```bash
-     yc vpc subnet update b0c4l3v9jrgd******** --route-table-id e2l5345dlgr1********
+     yc vpc subnet update b0c4l3v9jrgd******** --route-table-id enpsi6b08q2v********
      ```
 
      Результат:
@@ -536,12 +501,12 @@
      id: b0c4l3v9jrgd********
      folder_id: b1gqs1teo2q2********
      created_at: "2019-03-12T13:27:22Z"
-     name: subnet-1
+     name: usergate-subnet-{{ region-id }}-d
      network_id: enp846vf5fus********
      zone_id: {{ region-id }}-d
      v4_cidr_blocks:
-     - 192.168.0.0/24
-     route_table_id: e2l5345dlgr1********
+     - 10.1.0.0/16
+     route_table_id: enpsi6b08q2v********
      ```
 
 - {{ TF }} {#tf}
@@ -563,45 +528,22 @@
 
      ```hcl
      resource "yandex_vpc_route_table" "usergate-rt-d" {
-	   name       = "<имя_таблицы_маршрутизации>"
+	       name       = "<имя_таблицы_маршрутизации>"
        network_id = "<идентификатор_сети>"
        static_route {
          destination_prefix = "0.0.0.0/0"
-         next_hop_address   = "10.129.0.24"
+         next_hop_address   = "10.1.0.24"
        }
      }
      ```
 
-     Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `netword id` (например, `network_id = "${yandex_vpc_network.lab-net.id}"`).
+     Чтобы добавить, изменить или удалить таблицу маршрутизации, используйте ресурс `yandex_vpc_route_table` с указанием на сеть в поле `network_id` (например, `network_id = "${yandex_vpc_network.usergate-network.id}"`).
 
      Подробнее о параметрах ресурса `yandex_vpc_route_table` в {{ TF }} смотрите в [документации провайдера]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Разверните ресурсы в облаке с помощью {{ TF }}:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-
-        ```hcl
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```hcl
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-        ```bash
-        yc vpc route-table list
-        ```
+   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 {% endlist %}
 
@@ -646,7 +588,7 @@
 1. Выберите **Серверы reverse-прокси** и добавьте новый сервер:
    1. Нажмите кнопку **Добавить**, чтобы открыть диалог добавления сервера.
    1. В поле **Название** введите `Локальный сервер`.
-   1. В поле **Адрес сервера** введите `<внутренний_IP_тестовой_ВМ>`, например, `10.129.0.24`.
+   1. В поле **Адрес сервера** введите `<внутренний_IP_тестовой_ВМ>`, например, `10.1.0.24`.
    1. В поле **Порт** введите `80`.
    1. Нажмите **Сохранить**.
 1. Выберите **Правила reverse-прокси** и добавьте новое правило:
@@ -674,7 +616,65 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Чтобы перестать платить за созданные ресурсы, удалите их:
 
-1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `usergate-firewall` и `local-service`.
-1. [Удалите статический публичный IP-адрес](../../vpc/operations/address-delete.md).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `usergate-firewall` и тестовую ВМ, созданную для [тестирования межсетевого экрана](#test-firewall).
+  1. [Отвяжите](../../vpc/operations/delete-route-table.md#unlink-route-table) таблицу маршрутизации от подсети и [удалите](../../vpc/operations/delete-route-table.md#delete-route-table) таблицу маршрутизации.
+  1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `usergate-subnet-{{ region-id }}-d`.
+  1. [Удалите](../../vpc/operations/network-delete.md) сеть `usergate-network`.
+  1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес.
+
+- CLI {#cli}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Удалите ВМ `usergate-firewall` и тестовую ВМ:
+
+     ```bash
+     yc compute instance delete usergate-firewall
+     yc compute instance delete <имя_тестовой_ВМ>
+     ```
+
+  1. Отвяжите таблицу маршрутизации от подсети `usergate-subnet-{{ region-id }}-d`:
+
+     ```bash
+     yc vpc subnet update --name usergate-subnet-{{ region-id }}-d --disassociate-route-table
+     ```
+
+  1. Удалите таблицу маршрутизации:
+
+     ```bash
+     yc vpc route-table delete <имя_или_идентификатор_таблицы_маршрутизации>
+     ```
+
+  1. Удалите подсеть и сеть:
+
+     ```bash
+     yc vpc subnet delete --name usergate-subnet-{{ region-id }}-d
+     yc vpc network delete --name usergate-network
+     ```
+
+  1. Удалите зарезервированный статический публичный IP-адрес:
+
+     ```bash
+     yc vpc address delete usergate-addr
+     ```
+
+- {{ TF }} {#tf}
+
+  1. Откройте конфигурационный файл и удалите описание созданной инфраструктуры из него.
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {% note alert %}
+
+     {{ TF }} удалит все созданные ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, каталоги и т.д.
+
+     {% endnote %}
+
+{% endlist %}

@@ -51,6 +51,8 @@ yandex.cloud.audit.compute.<имя_события>
 `DetachInstanceNetworkInterface` | Отключение сетевого интерфейса
 `DisableSnapshotSchedule` | Отключение расписания снимков диска
 `EnableSnapshotSchedule` | Включение расписания снимков диска
+`ExportImage` | Экспорт образа диска
+`ExportSnapshot` | Экспорт снимка диска
 `GuestStopInstance` | Остановка ВМ по команде из этой ВМ
 `PreemptInstance` | Прерывание работы ВМ
 `RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ

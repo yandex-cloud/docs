@@ -2,7 +2,7 @@
 
 [Kyverno](https://kyverno.io) is an application to manage {{ k8s }} security policies. Security policies appear in Kyverno as {{ k8s }} resources. Kyverno supports `kubectl`, `git`, and `kustomize`. You can use the Kyverno command line interface to test policies and validate resources as part of the CI/CD pipeline.
 
-[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of the {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security) repository.
+[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) is a Kyverno extension. Kyverno policies includes an implementation of the {{ k8s }} [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). The original policies are stored in a separate [Kyverno-policies](https://github.com/kyverno/policies/tree/main/pod-security-vpol) repository.
 
 {% note tip %}
 

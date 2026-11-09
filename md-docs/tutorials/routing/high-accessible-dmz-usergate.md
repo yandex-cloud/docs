@@ -293,50 +293,12 @@ UserGate NGFW в данном руководстве настроен с баз�
    sudo apt install git
    ```
 
-1. Установите Terraform:
+1. Установите Terraform и укажите источник для установки провайдера:
 
-   1. Перейдите в корневую папку:
+   * [Установите Terraform](../infrastructure-management/terraform-quickstart.md#install-terraform).
+   * [Задайте источник для установки провайдера Yandex Cloud](../infrastructure-management/terraform-quickstart.md#configure-provider).
 
-      ```bash
-      cd ~
-      ```
-
-   1. Создайте папку `terraform` и перейдите в нее:
-   
-      ```bash
-      mkdir terraform
-      cd terraform
-      ```
-
-   1. Скачайте файл `terraform_1.9.5_linux_amd64.zip`:
-
-      ```bash
-      curl \
-        --location \
-        --remote-name \
-        https://hashicorp-releases.yandexcloud.net/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
-      ```
-
-   1. Установите утилиту `zip` и распакуйте zip-архив:
-      
-      ```bash
-      apt install zip
-      unzip terraform_1.9.5_linux_amd64.zip
-      ```
-
-   1. Добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
-      
-      ```bash
-      export PATH=$PATH:~/terraform
-      ```
-
-   1. Убедитесь, что Terraform установлен, выполнив команду:
-   
-      ```bash
-      terraform -help
-      ```
-
-1. Создайте конфигурационный файл с указанием источника провайдеров для Terraform:
+1. Создайте конфигурационный файл с указанием источника провайдеров для Terraform, если он не был создан ранее при [установке Terraform](../infrastructure-management/terraform-quickstart.md#configure-provider):
 
    1. Создайте файл `.terraformrc` с помощью встроенного редактора `nano`:
 
@@ -360,11 +322,17 @@ UserGate NGFW в данном руководстве настроен с баз�
       ```
 
       Подробнее о настройках зеркал смотрите в [документации Terraform](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
-
+      
 ## Разверните ресурсы {#create-resources}
 
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+
+Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+
 1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw) из GitHub и перейдите в папку сценария `yc-dmz-with-high-available-usergate-ngfw`:
-   
+
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw.git
    cd yc-dmz-with-high-available-usergate-ngfw
@@ -436,6 +404,8 @@ UserGate NGFW в данном руководстве настроен с баз�
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)
+         export YC_CLOUD_ID=$(yc config get cloud-id)
+         export YC_FOLDER_ID=$(yc config get folder-id)
          ```
 
    {% endlist %}
@@ -471,7 +441,7 @@ UserGate NGFW в данном руководстве настроен с баз�
    | Название<br>параметра | Нужно<br>изменение | Описание | Тип | Пример |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | да | Идентификатор вашего облака в Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
-   | `az_name_list` | - | Список из двух <a href="../../overview/concepts/geo-scope">зон доступности</a> Yandex Cloud для размещения ресурсов | `list(string)` | `["ru-central1-a", "ru-central1-b"]` |
+   | `az_name_list` | - | Список из двух [зон доступности](../../overview/concepts/geo-scope.md) Yandex Cloud для размещения ресурсов | `list(string)` | `["ru-central1-a", "ru-central1-b"]` |
    | `security_segment_names` | - | Список названий сегментов. Первый сегмент для размещения ресурсов управления, второй с публичным доступом в интернет, третий для DMZ. Если требуются дополнительные сегменты, то нужно добавлять их в конец списка. При добавлении сегмента обязательно добавьте префиксы для подсетей в списки `zone1_subnet_prefix_list` и `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `zone1_subnet_prefix_list` | - | Список сетевых префиксов в первой зоне доступности для подсетей, соответствующих списку названия сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `zone2_subnet_prefix_list` | - | Список сетевых префиксов во второй зоне доступности для подсетей, соответствующих списку названия сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
@@ -486,29 +456,33 @@ UserGate NGFW в данном руководстве настроен с баз�
 
 1. Разверните ресурсы в облаке с помощью Terraform:
 
-   1. Выполните инициализацию Terraform:
-       
-      ```bash
-      terraform init
-      ```
-
-   1. Проверьте конфигурацию Terraform файлов:
-       
+   1. В терминале перейдите в директорию с конфигурационным файлом.
+   1. Проверьте корректность конфигурации с помощью команды:
+   
       ```bash
       terraform validate
       ```
-
-   1. Проверьте список создаваемых облачных ресурсов:
-       
+   
+      Если конфигурация является корректной, появится сообщение:
+   
+      ```bash
+      Success! The configuration is valid.
+      ```
+   
+   1. Выполните команду:
+   
       ```bash
       terraform plan
       ```
-
-   1. Создайте ресурсы:
-       
+   
+      В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+   1. Примените изменения конфигурации:
+   
       ```bash
       terraform apply
       ```
+   
+   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
 1. После завершения процесса `terraform apply` в командной строке будет выведен список информации о развернутых ресурсах. В дальнейшем его можно будет посмотреть с помощью команды `terraform output`:
 
@@ -525,6 +499,21 @@ UserGate NGFW в данном руководстве настроен с баз�
    | `path_for_private_ssh_key` | Файл с private ключом для подключения по протоколу SSH к ВМ (jump-vm, fw-a, fw-b, веб-серверы в сегменте dmz) | `"./pt_key.pem"` |
    
    {% endcut %}
+
+1. Более подробную информацию о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
+   * [Каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — [yandex_resourcemanager_folder](../../terraform/resources/resourcemanager_folder.md).
+   * [Сеть](../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../terraform/resources/vpc_network.md).
+   * [Подсеть](../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md).
+   * [Таблица маршрутизации](../../vpc/concepts/routing.md) — [yandex_vpc_route_table](../../terraform/resources/vpc_route_table.md).
+   * [Группа безопасности](../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../terraform/resources/vpc_security_group.md).
+   * [Публичный IP-адрес](../../vpc/concepts/address.md) — [yandex_vpc_address](../../terraform/resources/vpc_address.md).
+   * [Виртуальная машина](../../compute/concepts/vm.md) — [yandex_compute_instance](../../terraform/resources/compute_instance.md).
+   * [Группа виртуальных машин](../../compute/concepts/instance-groups/index.md) — [yandex_compute_instance_group](../../terraform/resources/compute_instance_group.md).
+   * [Балансировщик Application Load Balancer](../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer](../../terraform/resources/alb_load_balancer.md).
+   * [Группа бэкендов](../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group](../../terraform/resources/alb_backend_group.md).
+   * [Целевая группа](../../application-load-balancer/concepts/target-group.md) — [yandex_alb_target_group](../../terraform/resources/alb_target_group.md).
+   * [Сетевой балансировщик нагрузки](../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer](../../terraform/resources/lb_network_load_balancer.md).
+   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../terraform/resources/iam_service_account.md).
 
 ## Настройте NGFW {#configure-ngfw}
 
@@ -739,7 +728,7 @@ UserGate NGFW в данном руководстве настроен с баз�
 
 1. В меню слева в секции **Сеть** выберите **DNS**. В разделе **Системные DNS-серверы** добавьте IP-адрес `192.168.2.2` облачного DNS-сервера в сегменте `mgmt`.
 
-#### Диагностика применения настроек и обновление ПО { #diagnostics-update-fw-b }
+#### Диагностика применения настроек и обновление ПО {#diagnostics-update-fw-b}
 
 1. [Проверьте корректность применения базовых настроек](#diagnostics-base-settings) аналогично FW-A.
 
@@ -812,7 +801,7 @@ UserGate NGFW в данном руководстве настроен с баз�
 
 После завершения настройки NGFW убедитесь, что проверка состояния FW-A и FW-B выдает значение `Healthy`. Для этого в [консоли управления](https://console.yandex.cloud) Yandex Cloud в каталоге `mgmt` [перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer** и выберите страницу сетевого балансировщика `route-switcher-lb-...`. Раскройте целевую группу и убедитесь, что состояния целевых ресурсов — `Healthy`. Если их состояние — `Unhealthy`, то необходимо проверить, что FW-A и FW-B запущены, функционируют и [настроены](#configure-ngfw).
 
-Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Для включения работы модуля и выполните команды:
+Когда статус FW-A и FW-B изменится на `Healthy`, в файле `route-switcher.tf` измените значение параметра `start_module` модуля `route-switcher` на `true`. Чтобы включить работу модуля, выполните команды:
 
 ```bash
 terraform plan
@@ -931,16 +920,43 @@ terraform apply
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы, выполните команду:
+Чтобы перестать платить за созданные ресурсы:
 
-   ```bash
-   terraform destroy
-   ```
+1. Откройте конфигурационный файл сценария `yc-dmz-with-high-available-usergate-ngfw` и удалите описание создаваемой инфраструктуры из файла.
+1. Примените изменения:
 
-   {% note warning %}
+    1. В терминале перейдите в директорию с конфигурационным файлом.
+    1. Проверьте корректность конфигурации с помощью команды:
+    
+       ```bash
+       terraform validate
+       ```
+    
+       Если конфигурация является корректной, появится сообщение:
+    
+       ```bash
+       Success! The configuration is valid.
+       ```
+    
+    1. Выполните команду:
+    
+       ```bash
+       terraform plan
+       ```
+    
+       В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+    1. Примените изменения конфигурации:
+    
+       ```bash
+       terraform apply
+       ```
+    
+    1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-   Terraform удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т.д.
+    {% note alert %}
 
-   {% endnote %}
+    Terraform удалит все ресурсы **без возможности восстановления**: сети, подсети, виртуальные машины, балансировщики, каталоги и т.д.
+
+    {% endnote %}
 
 Так как созданные ресурсы расположены в каталогах, то в качестве более быстрого способа удаления всех ресурсов можно использовать удаление всех каталогов через [консоль управления](https://console.yandex.cloud) Yandex Cloud с последующим удалением файла `terraform.tfstate` из папки `yc-dmz-with-high-available-usergate-ngfw` на вашем ПК.

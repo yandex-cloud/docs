@@ -382,8 +382,6 @@ items:
             href: tutorials/airflow-auto-tasks.md
           - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
             href: tutorials/dp-mch-data-exchange.md
-          - name: Обработка файлов детализации в сервисе {{ billing-name }}
-            href: tutorials/billing.md
           - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
             href: tutorials/spark-objstorage-integration.md
           - name: Использование {{ objstorage-name }} в {{ msp-full-name }} без Hive

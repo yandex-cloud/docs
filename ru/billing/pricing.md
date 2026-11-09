@@ -76,14 +76,18 @@ blocks:
 * [{{ ca-full-name }}]({{ link-src-docs }}/sourcecraft/pricing)
 * [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)
+    
     * [Генеративные модели и ИИ-агенты]({{ link-docs-ai }}ai-studio/pricing#rules-model-gallery)
     * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/pricing)
     * [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/pricing)
+        
         * [Синтез речи]({{ link-docs-ai }}speechkit/pricing#prices-tts)
         * [{{ brand-voice-name }}]({{ link-docs-ai }}speechkit/pricing#brand-voice)
         * [Распознавание речи]({{ link-docs-ai }}speechkit/pricing#prices-stt)
+    
     * [{{ translate-full-name }}]({{ link-docs-ai }}translate/pricing)
     * [{{ vision-full-name }}]({{ link-docs-ai }}ai-studio/pricing#rules-image-recognition)
+
 * [{{ api-gw-full-name }}](../api-gateway/pricing.md)
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
 * [{{ at-full-name }}](../audit-trails/pricing.md)
@@ -102,10 +106,12 @@ blocks:
 * [{{ stackland-full-name }}](../stackland/pricing.md)
 * [{{ video-full-name }}](../video/pricing.md)
 * [{{ compute-full-name }}](../compute/pricing.md)
+    
     * [Вычислительные ресурсы ВМ](../compute/pricing.md#instance-resources)
     * [Кластеры GPU](../compute/pricing.md#prices)
     * [Диски, снимки и образы](../compute/pricing.md#disk)
     * [Файловые хранилища](../compute/pricing.md#prices)
+
 * [{{ container-registry-full-name }}](../container-registry/pricing.md)
 * [{{ dataproc-full-name }}](../data-proc/pricing.md)
 * [{{ yds-full-name }}](../data-streams/pricing.md)
@@ -133,20 +139,24 @@ blocks:
 * [{{ message-queue-full-name }}](../message-queue/pricing.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * [{{ monitoring-full-name }}](../monitoring/pricing.md)
+    
     * [{{ monitoring-short-name }} API](../monitoring/pricing.md#rules)
     * [{{ prometheus-name }} Remote API](../monitoring/pricing.md#rules)
+
 * [{{ network-load-balancer-full-name }}](../network-load-balancer/pricing.md)
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ objstorage-full-name }}](../storage/pricing.md)
-* [{{ yq-full-name }}](../query/pricing.md)
 * [{{ sd-full-name }}](../security-deck/pricing.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
 * {{ preview-stage }} [{{ yandex-siem-full-name }}](../siem/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
+
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/pricing)
+    
     * [Анализ аудиозаписей диалогов]({{ link-docs-ai }}speechsense/pricing#speech)
     * [Анализ текстовых диалогов]({{ link-docs-ai }}speechsense/pricing#text)
+
 * [{{ mmg-full-name }}](../storedoc/pricing.md)
 * [{{ vpc-full-name }}](../vpc/pricing.md)
 

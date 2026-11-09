@@ -5,6 +5,8 @@ description: In this article, you will learn how to move a {{ compute-full-name 
 
 # Moving an instance group with an L7 load balancer to a different availability zone
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ alb-full-name }}](../../../application-load-balancer/) [L7 load balancer](../../../application-load-balancer/concepts/application-load-balancer.md):
 

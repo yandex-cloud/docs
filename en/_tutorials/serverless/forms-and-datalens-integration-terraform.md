@@ -69,7 +69,7 @@ To set up your infrastructure via {{ TF }}:
 
 ## Create and configure a function in {{ sf-name }} {#create-function}
 
-1. Download the [function code archive](https://github.com/yandex-cloud-examples/yc-serverless-forms-datalens-integration/blob/main/function-zip) to the directory with the `forms-and-datalens-integration.tf` file.    
+1. Download the [function code archive](https://github.com/yandex-cloud-examples/yc-serverless-forms-datalens-integration/blob/main/function.zip) to the directory with the `forms-and-datalens-integration.tf` file.    
 
 1. Under the local variables section of the `forms-and-datalens-integration.tf` file, specify the following values:
 

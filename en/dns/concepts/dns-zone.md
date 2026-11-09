@@ -54,7 +54,7 @@ We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as
 
 ## Private zones {#private-zones}
 
-Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the selected network's subnets, including `internal.` and `.`.
+Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the selected network's subnets, including `internal.` and `.`. To resolve names from an internal DNS zone within connected VPC networks, there is no need to delegate the domain.
 
 {% note warning %}
 

@@ -22,6 +22,7 @@ yandex.cloud.audit.smartwebsecurity.<имя_события>
 `CreateSecurityProfile` | Создание профиля безопасности
 `CreateSolidWafProfile` | Создание профиля SolidWall WAF
 `CreateWafProfile` | Создание профиля WAF
+`CreateWebApp` | Создание [приложения SolidWall WAF](concepts/solidwall-waf.md#resources)
 `DeleteArlProfile` | Удаление профиля ARL
 `DeleteCustomPage` | Удаление шаблона страницы ответа
 `DeleteDomain` | Удаление домена
@@ -30,6 +31,7 @@ yandex.cloud.audit.smartwebsecurity.<имя_события>
 `DeleteSecurityProfile` | Удаление профиля безопасности
 `DeleteSolidWafProfile` | Удаление профиля SolidWall WAF
 `DeleteWafProfile` | Удаление профиля WAF
+`DeleteWebApp` | Удаление приложения SolidWall WAF
 `StartLoadBalancer` | Запуск прокси-сервера
 `StopLoadBalancer` | Остановка прокси-сервера
 `UpdateArlProfile` | Изменение профиля ARL
@@ -40,6 +42,8 @@ yandex.cloud.audit.smartwebsecurity.<имя_события>
 `UpdateSecurityProfile` | Изменение профиля безопасности
 `UpdateSolidWafProfile` | Изменение профиля SolidWall WAF
 `UpdateWafProfile` | Изменение профиля WAF
+`UpdateWebApp` | Изменение приложения SolidWall WAF
+`UpdateWebAppDomains` | Изменение списка доменов приложения SolidWall WAF
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 

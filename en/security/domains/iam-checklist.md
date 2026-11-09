@@ -33,7 +33,7 @@ This section provides recommendations for protecting authentication, authorizati
 
    * **Protect `organization-manager.organizations.owner`**: Delegate the role to a federated or local account, then delete the Yandex account with this role from your organization. To protect your reserved Yandex ID, use a complex password and log in only if the federation operates abnormally. See the steps in [Deleting a Yandex account from an organization](../operations/account-deletion.md).
 
-&#x2713; **Audit access permissions on a regular basis**: Check permissions of users and service accounts using [{{ ciem-name }}](../../security-deck/concepts/ciem.md) or the [{{ yandex-cloud }} CLI](../../cli/), revoke excessive roles, and block or delete unused accounts that are over 30 days old.
+&#x2713; **Audit access permissions on a regular basis**: Check permissions of users and service accounts using [{{ access-analyzer-name }}](../../security-deck/concepts/access-analyzer.md) or the [{{ yandex-cloud }} CLI](../../cli/), revoke excessive roles, and block or delete unused accounts that are over 30 days old.
 
 &#x2713; **Use a correct resource model**:
 

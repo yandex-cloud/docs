@@ -11,7 +11,7 @@ Restoring from quarantine is only available in the {{ yandex-cloud }} management
 
 {% endnote %}
 
-You have 72 hours to restore a quarantined server for further use. Upon restoration, the the server’s quarantine time will be included into the paid rental period. For more information about quarantine, see [{#T}](../../concepts/servers.md#quarantine).
+You have 24 hours to restore a quarantined server for further use. Upon restoration, the server’s quarantine time will be included into the paid rental period. For more information about quarantine, see [{#T}](../../concepts/servers.md#quarantine).
 
 {% list tabs group=instructions %}
 

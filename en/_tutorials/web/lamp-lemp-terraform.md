@@ -43,7 +43,7 @@ To create an infrastructure using {{ TF }}:
 
           {% endcut %}
 
-      1. In the directory, create a user data file named `lamp-lemp.auto.tfvars`:
+      1. In the folder, create a user data file named `lamp-lemp.auto.tfvars`:
 
           {% cut "lamp-lemp.auto.tfvars" %}
 
@@ -64,7 +64,7 @@ To create an infrastructure using {{ TF }}:
   1. In the `lamp-lemp.auto.tfvars` file, set the following user parameters:
       * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-      * `family_id`: Specify the family of a VM [image](../../compute/concepts/image.md) with the required components:
+      * `vm_image_family`: Specify the family of a VM [image](../../compute/concepts/image.md) with the required components:
         * `lamp`: [LAMP](/marketplace/products/yc/lamp) (Linux, Apache, {{ MY }}, and PHP).
         * `lemp`: [LEMP](/marketplace/products/yc/lemp) (Linux, Nginx, {{ MY }}, and PHP).
       * `vm_user`: VM user name.
@@ -76,9 +76,7 @@ To create an infrastructure using {{ TF }}:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [Get the VM public IP address](../../compute/operations/vm-info/get-info.md): you will need it later to [upload the website files](#upload-files).
-
-After creating the infrastructure, [upload the website files](#upload-files).
+1. [Get the VM public IP address](../../compute/operations/vm-info/get-info.md): you will need it later to [upload the website files](#upload-files) once the infrastructure has been set up.
 
 ## Upload the website files {#upload-files}
 

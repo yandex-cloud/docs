@@ -145,7 +145,6 @@ The following services are always free of charge:
 * {{ preview-stage }} [{{ cr-full-name }}](../cloud-router/pricing.md)
 * [{{ iam-full-name }}](../iam/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
-* {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
 * {{ preview-stage }} [{{ vc-name }}]({{ link-src-docs }}/vibecraft/pricing)
 * [{{ websql-full-name }}](../websql/pricing.md)
 

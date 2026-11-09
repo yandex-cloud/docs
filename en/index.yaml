@@ -194,7 +194,7 @@ links:
     href: serverless-containers/
   - title: Serverless Integrations
     description: Integrations across Yandex Cloud services
-    href: serverless-integrations/
+    href: serverless-integrations/sunset
   - title: Stackland
     description: Managing Kubernetes on-premises
     href: stackland/

@@ -4,7 +4,7 @@
 
 [Kyverno](https://kyverno.io) — приложение для управления политиками безопасности Kubernetes. Политики безопасности представлены в Kyverno как ресурсы Kubernetes. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).
 
-[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию Kubernetes [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security).
+[Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) — расширение для Kyverno. Kyverno policies содержит реализацию Kubernetes [Pod Security Standards (PSS)](https://kubernetes.io/docs/concepts/security/pod-security-standards/). Оригиналы политик загружены в отдельный репозиторий [Kyverno policies](https://github.com/kyverno/policies/tree/main/pod-security-vpol).
 
 {% note tip %}
 

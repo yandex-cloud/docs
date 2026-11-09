@@ -874,6 +874,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [EnableZones](audit/compute/events-ref/EnableZones.md)
 
+ - [ExportImage](audit/compute/events-ref/ExportImage.md)
+
+ - [ExportSnapshot](audit/compute/events-ref/ExportSnapshot.md)
+
  - [GuestStopInstance](audit/compute/events-ref/GuestStopInstance.md)
 
  - [MigrateInstance](audit/compute/events-ref/MigrateInstance.md)
@@ -3228,6 +3232,14 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateWorkflowAccessBindings](audit/serverless/workflows/events-ref/UpdateWorkflowAccessBindings.md)
 
+### siem
+
+ - [CreateSearch](audit/siem/events-ref/CreateSearch.md)
+
+ - [CreateSearchLaunch](audit/siem/events-ref/CreateSearchLaunch.md)
+
+ - [CreateSession](audit/siem/events-ref/CreateSession.md)
+
 ### smartcaptcha
 
  - [CreateCaptcha](audit/smartcaptcha/events-ref/CreateCaptcha.md)
@@ -3260,6 +3272,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateWafProfile](audit/smartwebsecurity/events-ref/CreateWafProfile.md)
 
+ - [CreateWebApp](audit/smartwebsecurity/events-ref/CreateWebApp.md)
+
  - [DeleteArlProfile](audit/smartwebsecurity/events-ref/DeleteArlProfile.md)
 
  - [DeleteCustomPage](audit/smartwebsecurity/events-ref/DeleteCustomPage.md)
@@ -3275,6 +3289,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteSolidWafProfile](audit/smartwebsecurity/events-ref/DeleteSolidWafProfile.md)
 
  - [DeleteWafProfile](audit/smartwebsecurity/events-ref/DeleteWafProfile.md)
+
+ - [DeleteWebApp](audit/smartwebsecurity/events-ref/DeleteWebApp.md)
 
  - [SolidWallMatchedRequest](audit/smartwebsecurity/events-ref/SolidWallMatchedRequest.md)
 
@@ -3300,6 +3316,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateWafProfile](audit/smartwebsecurity/events-ref/UpdateWafProfile.md)
 
+ - [UpdateWebApp](audit/smartwebsecurity/events-ref/UpdateWebApp.md)
+
+ - [UpdateWebAppDomains](audit/smartwebsecurity/events-ref/UpdateWebAppDomains.md)
+
  - [WafMatchedExclusionRule](audit/smartwebsecurity/events-ref/WafMatchedExclusionRule.md)
 
  - [WafMatchedRule](audit/smartwebsecurity/events-ref/WafMatchedRule.md)
@@ -3316,6 +3336,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreatePersonalAccessToken](audit/sourcecraft/events-ref/CreatePersonalAccessToken.md)
 
+ - [CreateProject](audit/sourcecraft/events-ref/CreateProject.md)
+
  - [CreateRepository](audit/sourcecraft/events-ref/CreateRepository.md)
 
  - [CreateSecret](audit/sourcecraft/events-ref/CreateSecret.md)
@@ -3325,6 +3347,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteAllSecrets](audit/sourcecraft/events-ref/DeleteAllSecrets.md)
 
  - [DeletePersonalAccessToken](audit/sourcecraft/events-ref/DeletePersonalAccessToken.md)
+
+ - [DeleteProject](audit/sourcecraft/events-ref/DeleteProject.md)
 
  - [DeleteRepository](audit/sourcecraft/events-ref/DeleteRepository.md)
 
@@ -3369,6 +3393,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateOrganization](audit/sourcecraft/events-ref/UpdateOrganization.md)
 
  - [UpdatePersonalAccessToken](audit/sourcecraft/events-ref/UpdatePersonalAccessToken.md)
+
+ - [UpdateProject](audit/sourcecraft/events-ref/UpdateProject.md)
+
+ - [UpdateProjectAccessBindings](audit/sourcecraft/events-ref/UpdateProjectAccessBindings.md)
 
  - [UpdateRepository](audit/sourcecraft/events-ref/UpdateRepository.md)
 
@@ -3859,6 +3887,28 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteMessageQueue](audit/ymq/events-ref/DeleteMessageQueue.md)
 
  - [UpdateMessageQueue](audit/ymq/events-ref/UpdateMessageQueue.md)
+
+### yq
+
+ - [ControlQuery](audit/yq/events-ref/ControlQuery.md)
+
+ - [CreateBinding](audit/yq/events-ref/CreateBinding.md)
+
+ - [CreateConnection](audit/yq/events-ref/CreateConnection.md)
+
+ - [CreateQuery](audit/yq/events-ref/CreateQuery.md)
+
+ - [DeleteBinding](audit/yq/events-ref/DeleteBinding.md)
+
+ - [DeleteConnection](audit/yq/events-ref/DeleteConnection.md)
+
+ - [DeleteQuery](audit/yq/events-ref/DeleteQuery.md)
+
+ - [UpdateBinding](audit/yq/events-ref/UpdateBinding.md)
+
+ - [UpdateConnection](audit/yq/events-ref/UpdateConnection.md)
+
+ - [UpdateQuery](audit/yq/events-ref/UpdateQuery.md)
 
 ### ytsaurus
 

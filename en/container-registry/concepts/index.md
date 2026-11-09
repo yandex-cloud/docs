@@ -21,4 +21,4 @@ You can provide internet access in the following ways:
 * [By configuring a VM as a NAT instance](../../tutorials/routing/nat-instance/index.md).
 * [By setting up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
-{{ container-registry-full-name }} supports [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/), which means you can run the commands available in the Docker CLI.
+{{ container-registry-name }} supports [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/), which means you can run the commands available in the Docker CLI.

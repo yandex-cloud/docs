@@ -5,6 +5,12 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
 
 # Creating a {{ network-load-balancer-name }} target group
 
+{% note info %}
+
+You can create a target group either when [creating a VM group with a network load balancer](../../compute/operations/instance-groups/create-with-balancer.md), or by following the guide below. For more details on VM groups with load balancers, see [this section](../../compute/concepts/instance-groups/balancers.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -48,7 +54,7 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
 
   1. In the configuration file, describe the settings for the target in the target group.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      resource "yandex_lb_target_group" "foo" {
@@ -86,3 +92,4 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
   After you create a target group, add targets for load distribution. To do this, use the [addTargets](../api-ref/TargetGroup/addTargets) REST API method for the [TargetGroup](../api-ref/TargetGroup/index.md) resource or the [TargetGroupService/AddTargets](../api-ref/grpc/TargetGroup/addTargets.md) gRPC API call.
 
 {% endlist %}
+

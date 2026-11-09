@@ -38,7 +38,7 @@ The cost of Telegram bot support includes:
 ## Set up resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
-1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) the FFmpeg package archive to ensure the {{ speechkit-name }} Python SDK works correctly in the [function runtime environment](../../functions/concepts/runtime/index.md).
+1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz) the FFmpeg package archive to ensure the {{ speechkit-name }} Python SDK works correctly in the [function runtime environment](../../functions/concepts/runtime/index.md).
 1. Extract the `ffmpeg` and `ffprobe` binary files from the archive and make them executable by running the following commands:
 
     ```bash

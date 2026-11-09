@@ -128,7 +128,6 @@ description: На странице представлен список прак�
 
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](./dp-mch-data-exchange.md)
-* [{#T}](billing.md)
 
 
 * [{#T}](spark-objstorage-integration.md)

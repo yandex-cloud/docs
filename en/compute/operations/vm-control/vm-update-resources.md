@@ -5,6 +5,8 @@ description: Follow this guide to change the computing resources of a VM.
 
 # Changing VM computing resources
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 After you create a VM, you can change its computing resources. For more information on how to change a VM name, description, and labels, see [{#T}](vm-update.md).
 

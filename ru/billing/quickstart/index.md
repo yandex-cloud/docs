@@ -45,11 +45,13 @@ keywords:
 
 ### Узнайте больше {#see-also}
 
-- [Платежный аккаунт](../concepts/billing-account.md)
-- [Пробный период](../../getting-started/free-trial/concepts/quickstart.md)
+* [Платежный аккаунт](../concepts/billing-account.md)
+* [Пробный период](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Начните знакомство с {{ yandex-cloud }} {#start}
 
 {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+[*promo-code]:{% include notitle [promo-code](../../_popups/billing/paying-account.md#promo-code) %}

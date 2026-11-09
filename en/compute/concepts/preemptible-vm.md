@@ -19,6 +19,7 @@ This will change pricing for the VM instance. For more information, see our [pri
 
 In addition to the fact that preemptible VMs can be forcibly stopped, they have the following limitations:
 
+* You cannot create preemptible VMs on the [{{ highfreq-ice-lake }}](../concepts/vm-platforms.md#compute-optimized-platforms) (`highfreq-v3`) platform.
 * If there are not enough resources in the specified availability zone to launch a preemptible VM, it will not get launched.
 * Preemptible VMs are not subject to the [SLA](../../overview/sla.md).
 

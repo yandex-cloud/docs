@@ -1,5 +1,5 @@
 ```hcl
-# Declaring variables for confidential parameters
+# Declaring variables with sensitive data
 
 variable "folder_id" {
   type = string
@@ -22,7 +22,7 @@ variable "mysql_password" {
   sensitive = true
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -34,7 +34,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = var.folder_id
+  folder_id = var.folder_id
 }
 
 # Creating a cloud network and subnets
@@ -138,7 +138,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = data.yandex_compute_image.ubuntu-image.id
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "vm-bitrix" {
   name        = "bitrixwebsite"

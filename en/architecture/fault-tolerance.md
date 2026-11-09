@@ -285,7 +285,13 @@ To quickly restore a service and address faults, you need to have action plans r
 
 Any fault tolerance solutions require regular testing in various fault scenarios. Learn more about testing fault tolerance in a cloud from this webinar: [Disabling a data center, or How to test fault tolerance in a cloud](https://yandex.cloud/ru/events/841).
 
-## Workload recovery actions in case of failure {#workload-recovery}
+## Recovering workloads after a failure {#workload-recovery}
+
+{% note warning %}
+
+The recovery procedure for managed database clusters in the event of an availability zone failure is described in [this guide](mdb-recovery.md), using the `ru-central1-b` availability zone as an example.
+
+{% endnote %}
 
 ### {{ mmy-name }} {#workload-recovery-mysql}
 
@@ -312,7 +318,7 @@ Any fault tolerance solutions require regular testing in various fault scenarios
 ### {{ mmg-name }} {#workload-recovery-storedoc}
 
 * [Adding a host to a cluster](../storedoc/operations/hosts.md#add-host).
-* [Switching the primary replica](../storedoc/operations/stepdown.md).
+* [Primary replica failover](../storedoc/operations/stepdown.md).
 * [Restoring a cluster from a backup](../storedoc/operations/cluster-backups.md#restore).
 
 ### {{ mos-name }} {#workload-recovery-opensearch}
@@ -328,24 +334,24 @@ Any fault tolerance solutions require regular testing in various fault scenarios
 
 * [Restoring a cluster from a backup](../managed-spqr/operations/cluster-backups.md#restore).
 
-The cluster backup contains the shard configuration. If needed, restore the shard data separately in {{ mpg-name }}.
+A cluster backup contains the shard configuration. Restore the shard data separately in {{ mpg-name }} if needed.
 
 ### {{ compute-name }} {#workload-recovery-compute}
 
 * [Creating a VM with disks recovered from snapshots](../compute/operations/vm-create/create-from-snapshots.md).
-* [Restoring a disk from a snapshot](../compute/operations/disk-create/from-snapshot.md).
-* [Disabling an availability zone for an instance group](../compute/operations/instance-groups/disable-enable-zone.md#disable).
+* [Recovering a disk from a snapshot](../compute/operations/disk-create/from-snapshot.md).
+* [Temporarily disabling an availability zone for an instance group](../compute/operations/instance-groups/disable-enable-zone.md#disable).
 
 ### {{ backup-name }} {#workload-recovery-backup}
 
 * [Restoring a VM from a backup](../backup/operations/backup-vm/recover.md).
-* [Restoring a VM from another VM's backup](../backup/operations/backup-vm/non-native-recovery.md).
+* [Restoring a VM from a backup of another VM](../backup/operations/backup-vm/non-native-recovery.md).
 
 ### {{ managed-k8s-name }} {#workload-recovery-kubernetes}
 
 * [Creating a node group](../managed-kubernetes/operations/node-group/node-group-create.md).
 * [Restoring a persistent volume from a snapshot](../managed-kubernetes/tutorials/pvc-snapshot-restore.md#restore-from-snapshot).
-* [Recommendations for high availability and fault tolerance](../managed-kubernetes/concepts/usage-recommendations.md#high-availability).
+* [High availability and fault tolerance recommendations](../managed-kubernetes/concepts/usage-recommendations.md#high-availability).
 
 #### See also {#see-also}
 

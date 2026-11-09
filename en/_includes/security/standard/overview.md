@@ -50,15 +50,15 @@ The standard can be used as the basis for developing company-specific recommenda
 ### Standard structure {#structure}
 
 The standard describes recommendations for the following security objectives:
-* Authentication and access management
-* Network security
+* Authentication and access management.
+* Network security.
 * Secure virtual environment configuration.
-* Data encryption and key management
-* Collecting, monitoring, and analyzing audit logs
-* Backup
-* Physical security
-* Application security
-* {{ k8s }} security
+* Data encryption and key management.
+* Collecting, monitoring, and analyzing audit logs.
+* Backup.
+* Physical security.
+* Application security.
+* {{ k8s }} security.
 
 ### Requirements and preparation {#requirements-and-preparation}
 
@@ -72,7 +72,7 @@ You can automate the audit of compliance with all recommendations using [{{ sd-f
 * [Data Security Posture Management](../../../security-deck/concepts/dspm.md) ({{ dspm-name }}).
 * [Cloud Security Posture Management](../../../security-deck/concepts/cspm.md) ({{ cspm-name }}).
 * [{{ k8s }} Security Posture Management](../../../security-deck/concepts/kspm.md) ({{ kspm-name }}).
-* [Cloud Infrastructure Entitlement Management](../../../security-deck/concepts/ciem.md) ({{ ciem-name }}).
+* [{{ access-analyzer-name }}](../../../security-deck/concepts/access-analyzer.md).
 * [Alerts](../../../security-deck/concepts/alerts.md).
 
 {{ sd-full-name }} also offers a {{ yagpt-name }}-powered [AI assistant](../../../security-deck/concepts/ai-assistant.md) to provide you with security recommendations.

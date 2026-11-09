@@ -17,9 +17,13 @@
       {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 
    1. {% include [create-ba-contacts-step](../../billing/_includes/create-ba-contacts-step.md) %}
-   1. Выберите **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** — с помощью привязанной банковской карты или пополнение вручную:
+   1. Выберите **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** — с помощью привязанной банковской карты, пополнения вручную или [промокода](*promo-code):
 
-      * Привяжите банковскую карту. Если к аккаунту пользователя уже привязаны банковские карты, вы можете выбрать одну из них, не добавляя новую.
+      {% list tabs %}
+
+      - Банковская карта
+      
+        Привяжите банковскую карту. Если к аккаунту пользователя уже привязаны банковские карты, вы можете выбрать одну из них, не добавляя новую.
 
         
         После привязки карты вам начислится [стартовый грант](../../billing/concepts/bonus-account.md), если ранее вы не пользовались сервисами {{ yandex-cloud }}. 
@@ -30,10 +34,22 @@
 
 
         {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
-                
+                  
         {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
-      * **{{ ui-key.yacloud_billing_account.create-account.label_option_card }}** — пополняйте баланс вручную по мере необходимости.
+      - Пополнение вручную
+      
+        Выберите **{{ ui-key.yacloud_billing_account.create-account.label_option_card }}** — пополняйте баланс вручную по мере необходимости.
+      
+      - Промокод
+      
+        Выберите **{{ ui-key.yacloud_billing_account.create-account.button_has-promo-code }}** и введите промокод.
+        
+        После его успешной проверки будет создан аккаунт и на лицевой счет начислится сумма промокода. Вы можете использовать ее для оплаты ресурсов {{ yandex-cloud }}.
+
+        Чтобы продолжить пользоваться сервисами {{ yandex-cloud }}, когда промокод будет израсходован, [привяжите](../../billing/operations/pin-card.md) к аккаунту банковскую карту и [пополните лицевой счет](../../billing/operations/pay-the-bill.md).
+
+      {% endlist %}
    
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

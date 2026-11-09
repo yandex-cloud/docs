@@ -683,7 +683,7 @@ items:
                 href: container-infrastructure/custom-dns.md
               - name: DNS autoscaling based on the cluster size
                 href: container-infrastructure/dns-autoscaler.md
-              - name: Setting up NodeLocal DNS Cache
+              - name: Setting up NodeLocal DNSCache
                 href: container-infrastructure/node-local-dns.md
               - name: DNS challenge for {{ lets-encrypt }} certificates
                 href: container-infrastructure/dnschallenge.md
@@ -1728,6 +1728,8 @@ items:
             href: serverless/domain-identity-creating.md
           - name: Configuring Postfix to send emails via {{ postbox-full-name }}
             href: serverless/postfix-integration.md
+          - name: Web application on {{ src-name }} Sites and {{ sf-full-name }}
+            href: serverless/sourcecraft-sites-web-app.md
       - name: Serverless-based bots
         items:
           - name: Developing a Telegram bot
@@ -1764,8 +1766,8 @@ items:
           - name: '{{ tracker-name }}: Data export and visualization'
             href: serverless/data-from-tracker.md
           - name: >-
-              Transferring {{ forms-full-name }} data to {{ datalens-full-name
-              }} via {{ sf-full-name }} and {{ yq-full-name }}
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: serverless/forms-and-datalens-integration/index.md

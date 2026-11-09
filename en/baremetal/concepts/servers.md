@@ -91,11 +91,11 @@ A server can have one of the following statuses:
 * `DELETING`: Server deletion is in progress. The time required to clean up all server disks depends on their number and capacity.
 * `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
 
-`ASSEMBLING` and `PROVISIONING` a custom configuration server may take up to four calendar days in total.
+Assembling and preparing a custom-configured server may take up to four calendar days in total across the `ASSEMBLING` and `PROVISIONING` statuses.
 
 ## Quarantine {#quarantine}
 
-Quarantine: A transition state before server rent is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+Quarantine: A transition state before server rent is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 24 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
 
 At any time during the quarantine period, you can restore the server for further use. For more information, see [{#T}](../operations/servers/restore-from-quarantine.md).
 

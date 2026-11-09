@@ -65,6 +65,37 @@ description: In this tutorial, you will learn how to remove a domain from an API
 
       * If a third-party DNS provider manages your domain, delete the record on the domain management page of your provider.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and delete the `custom_domains` section with the domain to remove from the `yandex_api_gateway` description:
+
+     ```hcl
+     resource "yandex_api_gateway" "<API_gateway_name>" {
+       name = "<API_gateway_name>"
+       ...
+       custom_domains {
+         fqdn           = "<domain_name>"
+         certificate_id = "<certificate_ID>"
+       }
+     }
+     ```
+
+     For more information about the properties of the `yandex_api_gateway` resource, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  1. Delete the resource record created when adding the domain to the API gateway:
+
+      * If your domain is delegated to {{ dns-name }}, [delete](../../dns/operations/resource-record-delete.md) the ANAME record in the DNS zone.
+
+      * If a third-party DNS provider manages your domain, delete the record on the domain management page of your provider.
+
 - API {#api}
 
   To remove a domain from an API gateway, use the [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md) gRPC API call.

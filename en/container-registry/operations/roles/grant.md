@@ -39,7 +39,7 @@ To grant access to a [resource](../../../iam/concepts/access-control/resources-w
   * `<resource>`: `registry` or `repository` resource type.
   * `<resource_name_or_ID>`: Name or ID of the resource to assign the role for.
   * `--role`: [Role](../../security/index.md#service-roles) you want to assign.
-  * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+  * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to.
 
       {% cut "Subject designations" %}
 

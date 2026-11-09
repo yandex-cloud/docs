@@ -16,7 +16,7 @@ description: Вы можете создавать пользователей {{ 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный кластер.
   1. [Перейдите]({{ link-console-main }}/link/managed-valkey) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   
   
   1. Выберите способ авторизации:
@@ -48,11 +48,12 @@ description: Вы можете создавать пользователей {{ 
       * `Pub Sub Channels` — разрешения на каналы Pub/Sub.
       * `Categories` — разрешения на категории команд.
       * `Commands` — разрешения на команды.
-      * `Sanitize Payload` — разрешение на очистку данных. Возможные значения:
-        
-        * `sanitize-payload` (по умолчанию) — очистка данных включена;
-        * `skip-sanitize-payload` — очистка данных отключена.
-        
+      * `Databases` — разрешение на доступ к базам данных. Возможные значения:
+
+        * `alldbs` (по умолчанию) — доступ ко всем БД.
+        * `db=<id>` — доступ к определенным БД. Чтобы указать несколько баз, перечислите их идентификаторы через запятую, например `db=0,1,2`.
+        * `resetdbs` — сброс разрешений на доступ к БД, включая `alldbs`.
+
       {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
 
       Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).

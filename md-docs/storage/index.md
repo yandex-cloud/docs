@@ -338,8 +338,6 @@
 
  - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
 
- - [Обработка файлов детализации в сервисе Yandex Cloud Billing](tutorials/billing.md)
-
  - [Использование Object Storage в Yandex Managed Service for Apache Spark™](tutorials/spark-objstorage-integration.md)
 
  - [Использование Object Storage в Yandex Managed Service for Apache Spark™ без Hive](tutorials/spark-without-hive.md)

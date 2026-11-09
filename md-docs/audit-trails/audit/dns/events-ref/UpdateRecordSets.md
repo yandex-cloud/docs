@@ -332,6 +332,6 @@ The string length in characters must be 1-20. ||
 Acceptable values are 0 to 2147483647, inclusive. ||
 || data[] | **string**
 
-The string length in characters for each value must be 1-1024. The number of elements must be in the range 1-100. ||
+The string length in characters for each value must be 1-1024. The number of elements must be in the range 1-1024. ||
 || description | **string** ||
 |#

@@ -1748,7 +1748,7 @@ max_headers 1000;
 ### Исходный отчет {#original-report-CVE-2026-43284}
 
 * Dirty Frag (PoC и write-up): <https://github.com/V4bel/dirtyfrag>
-* Copy Fail 2: Electric Boogaloo (PoC xfrm-ESP): <https://github.com/0xdeadbeefnetwork/Copy_Fail2-Electric_Boogaloo>
+* Copy Fail 2: Electric Boogaloo (PoC xfrm-ESP): <https://web.archive.org/web/20261013001716/https://github.com/0xdeadbeefnetwork/Copy_Fail2-Electric_Boogaloo>
 * Рассылка oss-security: <https://www.openwall.com/lists/oss-security/2026/05/07/8>
 
 ### Краткое описание {#brief-description-CVE-2026-43284}
@@ -2169,7 +2169,7 @@ CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H
 
 Общедоступные фрагменты вредоносного кода:
 
-* <https://github.com/Wall1e/CVE-2024-21626-POC>
+* <https://github.com/V0WKeep3r/CVE-2024-21626-runcPOC>
 * <https://github.com/NitroCao/CVE-2024-21626>
 
 ### Безопасная версия уязвимого продукта или патч {#safe-version}

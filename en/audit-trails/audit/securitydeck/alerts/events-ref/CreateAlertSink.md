@@ -92,7 +92,8 @@ editable: false
     "alertSinkName": "string",
     "folderId": "string",
     "name": "string",
-    "description": "string"
+    "description": "string",
+    "alertNumberPrefix": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -268,4 +269,5 @@ A list of messages that carry the error details. ||
 || folderId | **string** ||
 || name | **string** ||
 || description | **string** ||
+|| alertNumberPrefix | **string** ||
 |#

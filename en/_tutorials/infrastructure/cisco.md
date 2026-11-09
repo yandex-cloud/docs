@@ -49,6 +49,7 @@ Save the private key in a secure location, as you will not be able to connect to
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside. If you do not know which availability zone you need, leave the default one.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -65,11 +66,10 @@ Save the private key in a secure location, as you will not be able to connect to
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. To perform operations requiring superuser privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, disable `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, disable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can use the serial console.
@@ -85,8 +85,8 @@ Save the private key in a secure location, as you will not be able to connect to
   1. In the [management console]({{ link-console-main }}), select the folder containing the new VM.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the VM list, select `cisco-router`.
-  1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
-  1. Wait for the operating system to start up completely.
+  1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+  1. Wait for the operating system to boot.
   1. To switch to privileged mode, run the `enable` command in the serial console:
 
       ```text
@@ -183,14 +183,20 @@ Create a user with administrator privileges and password authentication disabled
 1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
-   ssh -i <private_key_file_path> test-user@<router_public_IP_address> 
+   ssh -i <private_key_file_path> \
+    -oKexAlgorithms=+diffie-hellman-group-exchange-sha1 \
+    -oHostkeyAlgorithms=+ssh-rsa \
+    -oPubkeyAcceptedAlgorithms=+ssh-rsa \
+    test-user@<router_public_IP_address>
    ```
 
    If the configuration is correct, you will log in to the router as `test-user`. If you cannot establish a connection, make sure the router configuration is correct in the serial console: the `aaa new-model` command has been executed, key hashes on your computer and the router match, password authorization is off for the test user. If still unable to locate the issue, repeat the previous steps.
+
 1. Enter the `enable` command and password. If the configuration is correct, you can proceed to configuring the router.
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
+
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 * [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

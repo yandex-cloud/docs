@@ -2655,6 +2655,7 @@ default:
         details: Детализация
         grant: Гранты
       create-account:
+        button_has-promo-code: У меня есть промокод
         label_option_card: Пополнение вручную
         label_payment_invoice: Банковский перевод
         section_account_type: Тип аккаунта
@@ -2875,6 +2876,8 @@ default:
         StockConfigurations: Выбрать из готовых
         type: Тип
         withReserve: Есть
+      common:
+        save: Сохранить
       fileinput:
         button_attach-file: Прикрепить файл
       iam:

@@ -6,4 +6,4 @@ To host a [static website in {{ objstorage-name }}](index.md) using the {{ yande
 
 #### Useful links {#see-also}
 
-* [{#T}](./terraform.md).
+* [{#T}](./terraform.md)

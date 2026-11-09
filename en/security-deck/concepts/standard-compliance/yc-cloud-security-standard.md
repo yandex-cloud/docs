@@ -1,15 +1,15 @@
 ---
 title: Cloud infrastructure security standard {{ yandex-cloud }}
-description: This section lists the control rules forming part of {{ yandex-cloud }}'s cloud infrastructure security standard.
+description: This section lists the control rules included in the Cloud infrastructure protection standard of {{ yandex-cloud }}.
 ---
 
 # Cloud infrastructure security standard {{ yandex-cloud }}
 
-The provided rule set contains security controls based on {{ yandex-cloud }}'s cloud infrastructure security [standard](../../../security/standard/all.md).
+The set of rules provided contains security controls based on the Cloud infrastructure protection [standard](../../../security/standard/all.md) of {{ yandex-cloud }}.
 
-{{ yandex-cloud }}'s cloud infrastructure security standard provides comprehensive security requirements and best practices for protection of cloud infrastructure and applications deployed on the {{ yandex-cloud }} platform.
+The cloud infrastructure protection standard of {{ yandex-cloud }} provides comprehensive security requirements and best practices for protecting cloud infrastructure and applications deployed on the {{ yandex-cloud }} platform.
 
-These controls help ensure security policy compliance and protection against common threats and security vulnerabilities in cloud environments:
+These controls help ensure compliance with security policies and protection against common threats and security vulnerabilities in cloud environments:
 
 #|
 || Requirement ID | [Security standard](../../../security/standard/all.md) requirement | Check IDs in the [{{ cspm-name }} module](../cspm.md) ||
@@ -26,13 +26,13 @@ These controls help ensure security policy compliance and protection against com
 ||
 || `IAM10` | [Only trusted administrators have access to service accounts](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#privileged-sa-access) ||
 || `IAM11` | [Service account keys are periodically rotated](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
-|| `IAM12` | [Minimum required scopes are configured for service account API keys](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
+|| `IAM12` | [The minimum required scopes for service account API keys are defined](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || `IAM16` | [Getting a token via AWS IMDSv1 is disabled on the VM](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
 || `IAM17` | [Two-factor authentication for privileged accounts is in place](../../../security/standard/all.md#twofa) | [cspm.access.userpool-mfa](../../rules-reference/cspm.md#userpool-mfa) ||
 || `IAM18` | [Only trusted administrators have privileged roles](../../../security/standard/all.md#privileged-users) | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || `IAM22` | [There is no public access to resources within the organization](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || `IAM24` | [Resource labels are used](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
-|| `IAM26` | [The date of last service account authentication and last access key use in {{ iam-name }} are tracked](../../../security/standard/all.md#key-usage-control) |
+|| `IAM26` | [Tracking the date of last service account authentication and last access key use in {{ iam-name }}](../../../security/standard/all.md#key-usage-control) |
 [cspm.iam.unused-service-account](../../rules-reference/cspm.md#unused-service-account)
 [cspm.iam.unused-key](../../rules-reference/cspm.md#unused-key)
 ||
@@ -43,15 +43,15 @@ These controls help ensure security policy compliance and protection against com
 [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope)
 [cspm.k8s.network-firewall-scope](../../rules-reference/cspm.md#k8s-network-firewall-scope)
 ||
-|| `NET4` | [Access through control ports is open only for trusted IPs](../../../security/standard/all.md#trusted-ip) |
+|| `NET4` | [Access through control ports is only allowed for trusted IPs](../../../security/standard/all.md#trusted-ip) |
 [cspm.trusted-ip](../../rules-reference/cspm.md#trusted-ip)
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 ||
-|| `NET5` | [Protection against DDoS attacks is on](../../../security/standard/all.md#ddos-protection) |
+|| `NET5` | [Protection against DDoS attacks is enabled](../../../security/standard/all.md#ddos-protection) |
 [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#l3)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
 ||
-|| `NET10` | [Outbound internet access is controlled](../../../security/standard/all.md#outgoing-access) | [cspm.network.check-outgoing-internet-connection](../../rules-reference/cspm.md#check-outgoing-internet-connection) ||
+|| `NET10` | [Outbound internet access control is performed](../../../security/standard/all.md#outgoing-access) | [cspm.network.check-outgoing-internet-connection](../../rules-reference/cspm.md#check-outgoing-internet-connection) ||
 || **Secure virtual environment configuration** {align="center"} | > | > ||
 || `ENV1` | [A serial console is either used under control or not used](../../../security/standard/all.md#serial-console) | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || `ENV7` | [There is no public access to the {{ objstorage-name }} bucket](../../../security/standard/all.md#bucket-access) | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
@@ -60,7 +60,7 @@ These controls help ensure security policy compliance and protection against com
 || `ENV14` | [A security group is assigned in managed databases](../../../security/standard/all.md#db-security-group) | [cspm.network.db-security-group](../../rules-reference/cspm.md#db-security-group) ||
 || `ENV15` | [No public IP address is assigned in managed databases](../../../security/standard/all.md#db-ip) | [cspm.network.db-ip](../../rules-reference/cspm.md#db-ip) ||
 || `ENV16` | [The deletion protection feature is enabled](../../../security/standard/all.md#deletion-protection) | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
-|| `ENV17` | [The setting for access from {{ datalens-name }} is off if not needed](../../../security/standard/all.md#db-datalens-access) | [cspm.access.db-datalens-access](../../rules-reference/cspm.md#db-datalens-access) ||
+|| `ENV17` | [The setting for access from {{ datalens-name }} is not active if not needed](../../../security/standard/all.md#db-datalens-access) | [cspm.access.db-datalens-access](../../rules-reference/cspm.md#db-datalens-access) ||
 || `ENV18` | [Access from the management console is disabled in managed databases](../../../security/standard/all.md#db-console-access) | [cspm.access.db-console-access](../../rules-reference/cspm.md#db-console-access) ||
 || `ENV19` | [{{ serverless-containers-name }}/{{ sf-short-name }} uses the internal {{ vpc-short-name }} network](../../../security/standard/all.md#vpc-functions) | [cspm.network.serverless-uses-vpc](../../rules-reference/cspm.md#serverless-uses-vpc) ||
 || `ENV26` | [No public access is allowed for {{ ydb-short-name }}](../../../security/standard/all.md#ydb-public) | [cspm.network.ydb-public](../../rules-reference/cspm.md#ydb-public) ||
@@ -75,15 +75,15 @@ These controls help ensure security policy compliance and protection against com
 || `CRYPT3` | [{{ alb-full-name }} uses HTTPS](../../../security/standard/all.md#alb-https) | [cspm.appsec.alb-https](../../rules-reference/cspm.md#alb-https) ||
 || `CRYPT4` | [{{ api-gw-full-name }} uses HTTPS and its own domain](../../../security/standard/all.md#api-gateway-https) | [cspm.appsec.api-gateway-https](../../rules-reference/cspm.md#api-gateway-https) ||
 || `CRYPT5` | [{{ cdn-full-name }} uses HTTPS and its own SSL certificate](../../../security/standard/all.md#cdn-https) | [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https) ||
-|| `CRYPT8` | [Disk and virtual machine snapshot encryption is used](../../../security/standard/all.md#managed-vm-kms) | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
+|| `CRYPT8` | [Encryption of disks and virtual machine snapshots is used](../../../security/standard/all.md#managed-vm-kms) | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || `CRYPT9` | [{{ kms-name }} keys are stored in a Hardware Security Module (HSM)](../../../security/standard/all.md#keys-hsm) | [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm) ||
-|| `CRYPT10` | [Permissions to manage keys in {{ kms-short-name }} are issued to controlled users](../../../security/standard/all.md#keys-controlled-users) | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
-|| `CRYPT11` | [Rotation is enabled for {{ kms-short-name }} keys](../../../security/standard/all.md#keys-rotation) | [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation) ||
+|| `CRYPT10` | [Permissions to manage keys in {{ kms-short-name }} are granted to controlled users](../../../security/standard/all.md#keys-controlled-users) | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
+|| `CRYPT11` | [For {{ kms-short-name }} keys, rotation is enabled](../../../security/standard/all.md#keys-rotation) | [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation) ||
 || `CRYPT12` | [Deletion protection is enabled for {{ kms-short-name }} keys](../../../security/standard/all.md#keys-deletion-protection) | [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection) ||
 || `CRYPT13` | [The organization uses {{ lockbox-full-name }} for secure secret storage](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || `CRYPT14` | [For {{ serverless-containers-name }} and {{ sf-name }}, {{ lockbox-short-name }}](../../../security/standard/all.md#secrets-serverless-functions) secrets are used | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
-|| `CRYPT16` | [Cloud administrator is instructed what to do if cloud secrets get compromised](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
-|| **Collection, monitoring, and analysis of audit logs** {align="center"} | > | > ||
+|| `CRYPT16` | [There is a guide for cloud administrators on handling compromised secrets](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
+|| **Collecting, monitoring, and analyzing audit logs** {align="center"} | > | > ||
 || `AUDIT1` | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#audit-trails-no-errors)
@@ -95,7 +95,7 @@ These controls help ensure security policy compliance and protection against com
 || `APPSEC1` | [{{ captcha-full-name }}](../../../security/standard/all.md#use-smartcaptcha) is used | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || `APPSEC2` | [Docker images are scanned when uploaded to {{ container-registry-full-name }}](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || `APPSEC3` | [Docker images stored in {{ container-registry-name }} are regularly scanned](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
-|| `APPSEC4` | [Container images used in production environment were last scanned one week ago or less](../../../security/standard/all.md#last-scan-date) | [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan) ||
+|| `APPSEC4` | [Container images used in the production environment have the last scan date of one week ago or less](../../../security/standard/all.md#last-scan-date) | [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan) ||
 || `APPSEC9` | [A {{ sws-full-name }} profile is used](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
 || `APPSEC10` | [A web application firewall is used](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || `APPSEC11` | [Advanced Rate Limiter is used](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||

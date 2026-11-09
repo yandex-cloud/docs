@@ -24,6 +24,7 @@ Free tier применяется к платежному аккаунту. Ес�
 
 
 Free tier распространяется на сервисы:
+
 * [{{ api-gw-full-name }}](#api-gw)
 * [{{ dns-full-name }}](#dns)
 * [{{ sf-full-name }}](#sf)
@@ -40,7 +41,6 @@ Free tier распространяется на сервисы:
 * [{{ monium-name }}](#monium)
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
-* [{{ yq-full-name }}](#yq)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
@@ -195,16 +195,6 @@ Free tier распространяется на сервисы:
 {% include [not-charged-storage.md](../../_includes/pricing/price-formula/not-charged-storage.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../storage/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ yq-full-name }} {#yq}
-
-[{{ yq-full-name }}](../../query/quickstart/index.md) — интерактивный, полностью управляемый сервис для инженеров данных и аналитиков. Сервис позволяет выполнять аналитические и потоковые запросы реального времени к структурированным или частично структурированным данным с помощью единого диалекта SQL.
-
-{% include [not-charged-query.md](../../_includes/pricing/price-formula/not-charged-query.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../query/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

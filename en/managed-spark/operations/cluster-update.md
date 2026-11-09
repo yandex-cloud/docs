@@ -91,7 +91,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -231,7 +231,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -366,7 +366,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -543,7 +543,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -745,7 +745,7 @@ Learn more about other cluster updates:
        --log-folder-id <folder_ID> \
        --maintenance-window type=<maintenance_type>,`
                            `day=<day_of_week>,`
-                           `hour=<hour> \
+                           `hour=<sequence_number_of_hour_interval> \
        --deletion-protection
      ```
 
@@ -775,7 +775,7 @@ Learn more about other cluster updates:
 
      * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
-       {% include [Maintenance window](../../_includes/managed-spark/maintenance-window-console.md) %}
+       {% include [Maintenance window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
      * `--deletion-protection`: Enables cluster protection against accidental deletion.
 
@@ -793,7 +793,7 @@ Learn more about other cluster updates:
 
     1. To change cluster settings, change the required field values in the configuration file.
 
-        Here is an example of the configuration file structure:
+        Configuration file structure example:
 
         ```hcl
         resource "yandex_spark_cluster" "my_spark_cluster" {
@@ -861,7 +861,7 @@ Learn more about other cluster updates:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

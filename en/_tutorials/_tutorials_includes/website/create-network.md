@@ -23,7 +23,7 @@ Create a [cloud network](../../../vpc/concepts/network.md) and [subnets](../../.
   1. Create a cloud network in the default folder:
 
       ```
-      yc vpc network create --name wordpress-network
+      yc vpc network create --name my-network
       ```
 
   1. Get the list of the cloud networks in the folder:
@@ -35,34 +35,43 @@ Create a [cloud network](../../../vpc/concepts/network.md) and [subnets](../../.
       Result:
 
       ```
-      +----------------------+-------------------+
-      |          ID          |      NAME         |
-      +----------------------+-------------------+
-      | enpavfmgapum******** | wordpress-network |
-      | enplom7a98s1******** | default           |
-      +----------------------+-------------------+
+      +----------------------+------------+
+      |          ID          |    NAME    |
+      +----------------------+------------+
+      | enpavfmgapum******** | my-network |
+      | enplom7a98s1******** | default    |
+      +----------------------+------------+
       ```
 
   1. Select `NAME` or `ID` of the cloud network you need. Create a subnet in the `{{ region-id }}-a` availability zone:
 
       ```
       yc vpc subnet create \
+        --name my-subnet-a \
         --network-id enpavfmgapum******** \
         --zone {{ region-id }}-a \
-        --range 192.168.0.0/24
+        --range 192.168.1.0/24
       ```
 
       Where:
+
+      * `--name`: Subnet name. The naming requirements are as follows:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
 
       * `--network-id`: Cloud network ID. When creating a subnet, specify the cloud network for the subnet and CIDR.
       * `--zone`: Subnet availability zone.
       * `--range`: List of internal IPv4 addresses specified for this subnet, such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, and the maximum subnet size is /16. Only IPv4 is supported.
 
-      The subnet naming requirements are as follows:
+  1. Similarly, create a subnet in the `{{ region-id }}-d` availability zone:
 
-      {% include [name-format](../../../_includes/name-format.md) %}
-
-  1. Similarly, create a subnet in the `{{ region-id }}-d` availability zone.
+      ```
+      yc vpc subnet create \
+        --name my-subnet-d \
+        --network-id enpavfmgapum******** \
+        --zone {{ region-id }}-d \
+        --range 192.168.2.0/24
+      ```
 
 - API {#api}
 

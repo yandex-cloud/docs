@@ -1,2 +1,0 @@
-* `--bus-id`: {{ er-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md) ID.
-* `--filter`: [jq template](https://jqlang.github.io/jq/manual/) for event [filtering](../../serverless-integrations/concepts/eventrouter/rule.md#filter).

@@ -26,7 +26,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Next to the subcluster, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -176,7 +176,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -208,7 +208,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
     To configure autoscaling for subclusters:
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_subclusters }}** tab.
     1. Next to the subcluster, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -304,7 +304,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -402,7 +402,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -416,7 +416,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
     1. Click the host name.
@@ -443,7 +443,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

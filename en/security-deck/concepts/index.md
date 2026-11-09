@@ -17,11 +17,11 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
 * **{{ vuln-man-name }}**. The [vulnerability management](./vulnerability-management.md) module that enables you to centrally manage container image vulnerability scanning and view scan results. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
 
-* **User access management**. [{{ ciem-full-name }}](./ciem.md) ({{ ciem-full-name }}) allows you to manage user [access](../../iam/concepts/access-control/index.md) to various corporate resources with full control over who has access to which data, and what actions are allowed with that data.
+* **User access management**. [{{ access-analyzer-name }}](./access-analyzer.md) allows you to manage user [access](../../iam/concepts/access-control/index.md) to various corporate resources with full control over who has access to which data, and what actions are allowed with that data.
 
     One of the fundamental principles of [{{ iam-full-name }}](../../iam/index.yaml) is that of least privilege, where users get only the access permissions they need to perform their job duties.
 
-    {{ ciem-name }} implements this principle and helps to ensure:
+    {{ access-analyzer-name }} implements this principle and helps to ensure:
 
     * Data security by managing user access to company resources.
     * Prevention of unauthorized access to sensitive information.

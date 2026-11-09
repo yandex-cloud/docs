@@ -28,7 +28,7 @@ To create a network and subnets:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **Create network**.
   1. Enter `web-network` for the network **Name**.
@@ -47,7 +47,7 @@ To create a security group:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **Security groups** tab.
   1. Create a security group for your VM:
@@ -56,15 +56,15 @@ To create a security group:
       1. Select `web-network` for **Network**.
       1. Under **Rules**, create the following rules using the instructions below the table:
 
-          | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+          | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
           | --- | --- | --- | --- | --- | --- |
-          | `Egress` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `CIDR` | `0.0.0.0/0` |
-          | `Ingress` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | `Ingress` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | `Ingress` | `ext-ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |         
+          | `Egress` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `CIDR` | `0.0.0.0/0` | `any` |
+          | `Ingress` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` |
+          | `Ingress` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-https` |
+          | `Ingress` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-ssh` |
 
           1. Select the **Egress** or **Ingress** tab.
-          1. Click **Add rule**.
+          1. Click **Add**.
           1. In the **Port range** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic.
           1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
           1. In the **Source** or **Destination** field, select the scope of the rule:
@@ -97,6 +97,7 @@ To create a security group:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `web-network` and the subnet to create your VM in.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `sg-web`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -124,8 +125,6 @@ To create a security group:
 
       {% endnote %}
 
-  1. Click **Create VM**.
-
       It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
 {% endlist %}
@@ -144,7 +143,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Copy the IP address of the VM you created.
   1. On the website of your DNS hosting provider, navigate to the DNS settings.
@@ -160,7 +159,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
 
       {% cut "Configuring DNS records for {{ dns-name }}" %}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select the folder.
       1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
           1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
@@ -176,14 +175,13 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
           1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied IP address of the VM.
           1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Create a [CNAME](../../dns/concepts/resource-record.md#cname) record:
-         * Select the `example.com` DNS zone from the list.
-         * Click **Create record**.
-         * Specify the record settings:
-           * **Name**: `www`.
-           * **Record type**: Select `CNAME`.
-           * **TTL** (record time to live): Keep the default value.
-           * **Value**: Enter `example.com`.
-         * Click **Create**.
+          1. Select `example-zone-1` from the list.
+          1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+          1. In the **{{ ui-key.yacloud.common.name }}** field, specify `www`.
+          1. Select the record **{{ ui-key.yacloud.common.type }}**: `CNAME`.
+          1. Keep the **{{ ui-key.yacloud.dns.label_ttl }}** at its default.
+          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify `example.com`.
+          1. Click **{{ ui-key.yacloud.common.create }}**.
       
       {% endcut %}
 
@@ -225,5 +223,7 @@ To stop paying for the resources you created:
   1. [Delete](../../compute/operations/vm-control/vm-delete.md) `lamp-vm` (`lemp-vm`).
   1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one for your VM.
   1. [Delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone if you used {{ dns-name }}.
+  1. [Delete](../../vpc/operations/security-group-delete.md) the `sg-web` security group.
+  1. [Delete](../../vpc/operations/subnet-delete.md) the subnets and then [delete](../../vpc/operations/network-delete.md) `web-network`.
 
 {% endlist %}

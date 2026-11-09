@@ -14,7 +14,7 @@
 
 * [с помощью Packer](../../tutorials/infrastructure-management/packer-quickstart.md). Тогда образ автоматически загрузится в Compute Cloud.<br>Рекомендации по созданию образа:
     * В качестве базового используйте образ из [публичного каталога](../../compute/operations/images-with-pre-installed-software/get-list.md) Yandex Cloud.
-    * Посмотрите [примеры packer-рецептов](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer/packer).
+    * Посмотрите [примеры packer-рецептов](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer/tree/main/packer).
     * [Автоматизируйте](../../tutorials/infrastructure-management/jenkins.md) сборку образов с помощью Jenkins.
 * используя другие удобные для вас инструменты. Тогда вам потребуется самостоятельно [загрузить](../../compute/operations/image-create/upload.md) образ в Compute Cloud.
 

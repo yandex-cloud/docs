@@ -5,6 +5,7 @@ description: Follow this guide to set up access to a bucket using a service conn
 
 # Configuring access to a bucket using a service connection from {{ vpc-full-name }}
 
+
 {% include [intro-access-via-vpc](../../../_includes/storage/intro-access-via-vpc.md) %}
 
 To enable access to a bucket using a service connection from {{ vpc-short-name }}:

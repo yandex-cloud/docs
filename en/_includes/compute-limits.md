@@ -6,12 +6,12 @@
 || Type of limit | Value ||
 || Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud)
 `compute.instances.count` | 12 ||
-|| Total VM RAM per cloud^1^
-`compute.instanceMemory.size` | 128 GB ||
 || Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud
 `compute.instanceGroups.count` | 10 ||
 || Number of [placement groups](../compute/concepts/placement-groups.md) per cloud
 `compute.placementGroups.count` | 2 ||
+|| Total VM RAM per availability zone^1,2^
+`compute.instanceMemory.size.ru-central1-*` | 16 GB ||
 || Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 ||
 || Maximum number of [security groups](../vpc/concepts/security-groups.md) per [network interface](../compute/concepts/network.md)
 
@@ -29,10 +29,10 @@ You can increase this quota only upon agreement with your account manager.
 
 #|
 || Type of limit | Value ||
-|| Number of [vCPUs](../compute/concepts/performance-levels.md) for instances per cloud^1^
-`compute.instanceCores.count` | 32 ||
-|| Number of vCPUs for Compute Optimized instances per cloud^1^
-`compute.instanceHighFreqCores.count` | 0 ||
+|| Number of [vCPUs](../compute/concepts/performance-levels.md) for instances per availability zone^1,2^
+`compute.instanceCores.count.ru-central1-*` | 2 ||
+|| Number of vCPUs for Compute Optimized instances per availability zone^1,2^
+`compute.instanceHighFreqCores.count.ru-central1-*` | 0 ||
 |#
 
 
@@ -44,14 +44,14 @@ You can increase this quota only upon agreement with your account manager.
 `compute.instanceGpus.count` | 0 ||
 || Number of NVIDIA® Ampere® A100 GPUs per cloud^1^
 `compute.instanceA100Gpus.count` | 0 ||
-|| Number of GPUs powered by AMD EPYC™ 9474F with Gen2 per cloud^1^
+|| Number of GPUs on the AMD EPYC™ 9474F with Gen2 platform per cloud^1^
 `compute.instanceV3IGpus.count` | 0 ||
 || Number of NVIDIA® Tesla® T4 GPUs per cloud^1^
 `compute.instanceT4Gpus.count` | 0 ||
-|| Number of NVIDIA® Tesla® T4 GPUs per cloud in the `{{ region-id }}-d` availability zone^1^
-`compute.instanceT4Gpus.count.ru-central1-d` | 0 ||
-|| Number of GPUs powered by {{ t4i-ice-lake }} per cloud^1^
+|| Number of GPUs on the {{ t4i-ice-lake }} platform per cloud^1^
 `compute.instanceT4IGpus.count` | 0 ||
+|| Number of NVIDIA® Tesla® T4 GPUs in the {{ region-id }}-d availability zone^1,2^
+`compute.instanceT4Gpus.count` | 0 ||
 |#
 
 
@@ -61,16 +61,16 @@ You can increase this quota only upon agreement with your account manager.
 || Type of limit | Value ||
 || Number of [disks](../compute/concepts/disk.md) per cloud
 `compute.disks.count` | 32 ||
-|| Total [HDD](../compute/concepts/disk.md#disks-types) capacity per cloud
-`compute.hddDisks.size` | 500 GB ||
-|| Total SSD capacity per cloud
-`compute.ssdDisks.size` | 200 GB ||
-|| Total size of non-replicated SSDs per cloud
-`compute.ssdNonReplicatedDisks.size` | 558 GB ||
-|| Total size of high-performance SSDs per cloud
-`compute.ssdIOM3Disks.size` | 186 GB ||
 || Number of [disk placement groups](../compute/concepts/disk-placement-group.md) per cloud
 `compute.diskPlacementGroups.count` | 5 ||
+|| Total [HDD](../compute/concepts/disk.md#disks-types) capacity per availability zone^2^
+`compute.hddDisks.size.ru-central1-*` | 20 GB ||
+|| Total SSD capacity per availability zone^2^
+`compute.ssdDisks.size.ru-central1-*` | 10 GB ||
+|| Total non-replicated SSD capacity per availability zone^2^
+`compute.ssdNonReplicatedDisks.size.ru-central1-*` | 0 GB ||
+|| Total high-performance SSD capacity per availability zone^2^
+`compute.ssdIOM3Disks.size.ru-central1-*` | 0 GB ||
 |#
 
 
@@ -80,10 +80,10 @@ You can increase this quota only upon agreement with your account manager.
 || Type of limit | Value ||
 || Number of [network file storages](../compute/concepts/filesystem.md) per cloud
 `compute.filesystems.count` | 100 ||
-|| Total network file storage HDD capacity per cloud
-`compute.hddFilesystems.size` | 512 GB ||
-|| Total network file storage SSD capacity per cloud
-`compute.ssdFilesystems.size` | 512 GB ||
+|| Total network file storage HDD capacity per availability zone^2^
+`compute.hddFilesystems.size.ru-central1-*` | 0 GB ||
+|| Total network file storage SSD capacity per availability zone^2^
+`compute.ssdFilesystems.size.ru-central1-*` | 0 GB ||
 |#
 
 
@@ -93,9 +93,9 @@ You can increase this quota only upon agreement with your account manager.
 || Type of limit | Value ||
 || Number of [images](../compute/concepts/image.md) per cloud
 `compute.images.count` | 32 ||
-|| Total size of images per cloud
+|| Total volume of images per cloud
 `compute.images.size` | 1,024 GB ||
-|| Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^2^
+|| Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^3^
 `compute.diskPools.count` | 0 ||
 |#
 
@@ -112,9 +112,9 @@ When deploying optimized images, the quotas for the number of images per cloud a
 || Type of limit | Value ||
 || Number of [disk snapshots](../compute/concepts/snapshot.md) per cloud
 `compute.snapshots.count` | 32 ||
-|| Total volume of disk snapshots per cloud
+|| Total disk snapshot size per cloud
 `compute.snapshots.size` | 400 GB ||
-|| Number of [schedules for disk snapshots](../compute/concepts/snapshot-schedule.md) per cloud 
+|| Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud 
 `compute.snapshotSchedules.count` | 32 ||
 |#
 
@@ -123,7 +123,7 @@ When deploying optimized images, the quotas for the number of images per cloud a
 
 #|
 || Type of limit | Value ||
-|| Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per cloud^2^
+|| Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per cloud^3^
 `compute.dedicatedHosts.count` | 0 ||
 || Number of dedicated host groups per cloud 
 `compute.hostGroups.count` | 6 ||
@@ -134,14 +134,18 @@ When deploying optimized images, the quotas for the number of images per cloud a
 
 #|
 || Type of limit | Value ||
-|| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 ||
-|| Number of [reserved instance pools](../compute/concepts/reserved-pools.md) per cloud^2^
+|| Number of [reserved instance pools](../compute/concepts/reserved-pools.md) per cloud^3^
 `compute.reservedInstancePools.count` | 1 ||
+|| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15 ||
 |#
 
 ^1^ This quota includes resources associated with vacant slots in [reserved instance pools](../compute/concepts/reserved-pools.md).
 
-^2^ To increase [quotas]({{ link-console-quotas }}) for deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).
+
+^2^ Zonal quota IDs include the `ru-central1-*` suffix, where `*` is the availability zone identifier. For example, `compute.instanceCores.count.ru-central1-d`.
+
+
+^3^ To increase [quotas]({{ link-console-quotas }}) for deployment-optimized images, dedicated hosts, or reserved instance pools, contact [support]({{ link-console-support }}).
 
 ## Limits {#compute-limits}
 
@@ -159,12 +163,12 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   || Maximum virtual memory per VM | > | Without GPU | 256 GB ||
   || ^ | > | With GPU | 384 GB ||
   || Maximum number of GPUs connected to a single VM | > | > | 4 ||
-  || Maximum number of disks and file storages connected to a single VM^3^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 18 | 8 ||
-  || ^ | ^ | Number of VCPUs > 18 | 16^4^ ||
+  || Maximum number of disks and file storages connected to a single VM^4^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 18 | 8 ||
+  || ^ | ^ | Number of VCPUs > 18 | 16^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
   || ^ | ^ | Number of VCPUs >= 6 | 80 ||
   || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
-  `PCI_TOPOLOGY_V1` | > | 8^4^ ||
+  `PCI_TOPOLOGY_V1` | > | 8^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
   || ^ | ^ | Number of VCPUs >= 6 | 32 ||
   || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
@@ -179,12 +183,12 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   || Maximum virtual memory per VM | > | Without GPU | 1,280 GB ||
   || ^ | > | With GPU | 384 GB ||
   || Maximum number of GPUs connected to a single VM | > | > | 8 ||
-  || Maximum number of disks and file storages connected to a single VM^3^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 20 | 8 ||
-  || ^ | ^ | Number of VCPUs > 20 | 16^4^ ||
+  || Maximum number of disks and file storages connected to a single VM^4^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 20 | 8 ||
+  || ^ | ^ | Number of VCPUs > 20 | 16^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
   || ^ | ^ | Number of VCPUs >= 6 | 80 ||
   || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
-  `PCI_TOPOLOGY_V1` | > | 8^4^ ||
+  `PCI_TOPOLOGY_V1` | > | 8^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
   || ^ | ^ | Number of VCPUs >= 6 | 32 ||
   || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
@@ -196,12 +200,12 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   || **Type of limit** | > | > | **Value** ||
   || Maximum number of vCPUs per VM | > | > | 96 ||
   || Maximum virtual memory per VM | > | > | 640 GB ||
-  || Maximum number of disks and file storages connected to a single VM^3^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
-  || ^ | ^ | Number of VCPUs > 32 | 16^4^ ||
+  || Maximum number of disks and file storages connected to a single VM^4^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
+  || ^ | ^ | Number of VCPUs > 32 | 16^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
   || ^ | ^ | Number of VCPUs >= 6 | 80 ||
   || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
-  `PCI_TOPOLOGY_V1` | > | 8^4^ ||
+  `PCI_TOPOLOGY_V1` | > | 8^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
   || ^ | ^ | Number of VCPUs >= 6 | 32 ||
   || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
@@ -213,12 +217,12 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   || **Type of limit** | > | > | **Value** ||
   || Maximum number of vCPUs per VM | > | > | 56 ||
   || Maximum virtual memory per VM | > | > | 448 GB ||
-  || Maximum number of disks and file storages connected to a single VM^3^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
-  || ^ | ^ | Number of VCPUs > 32 | 16^4^ ||
+  || Maximum number of disks and file storages connected to a single VM^4^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
+  || ^ | ^ | Number of VCPUs > 32 | 16^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
   || ^ | ^ | Number of VCPUs >= 6 | 80 ||
   || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
-  `PCI_TOPOLOGY_V1` | > | 8^4^ ||
+  `PCI_TOPOLOGY_V1` | > | 8^5^ ||
   || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
   || ^ | ^ | Number of VCPUs >= 6 | 32 ||
   || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
@@ -226,9 +230,9 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% endlist %}
 
-^3^ Including the boot disk.
+^4^ Including the boot disk.
 
-^4^ At startup, you can connect no more than 14 devices to a VM, including the boot disk and network card. You should connect other devices when your VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
+^5^ At startup, you can connect no more than 14 devices to a VM, including the boot disk and network card. You should connect other devices when your VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
 
 {% include [warn-performance-many-devices](../compute/_includes_service/warn-performance-many-devices.md) %}
 
@@ -250,34 +254,34 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
 
   Type of limit | Value
   --- | ---
-  Maximum^5^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 3,500
-  Maximum^6^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 45 MB/s
+  Maximum^6^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 3,500
+  Maximum^7^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 45 MB/s
 
 - Network HDD {#net-hdd}
 
   Type of limit  | Value
   --- | ---
-  Maximum^5^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 3,500
-  Maximum^6^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 45 MB/s
+  Maximum^6^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 3,500
+  Maximum^7^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 45 MB/s
 
 - Non-replicated SSD {#non-replicated-ssd}
 
   Type of limit  | Value
   --- | ---
   Total number of non-replicated SSDs per placement group | 8
-  Maximum^5^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 10,000
-  Maximum^5^ IOPS per VM | 100,000
-  Maximum^6^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 100 MB/s
-  Maximum^6^ bandwidth per VM | 1 GB/s
+  Maximum^6^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 10,000
+  Maximum^6^ IOPS per VM | 100,000
+  Maximum^7^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 100 MB/s
+  Maximum^7^ bandwidth per VM | 1 GB/s
 
 - Ultra high-speed network storage with three replicas (SSD) {#high-perf-ssd}
 
   Type of limit | Value
   --- | ---
-  Maximum^5^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 10,000
-  Maximum^5^ IOPS per VM | 100,000
-  Maximum^6^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 100 MB/s
-  Maximum^6^ bandwidth per VM | 1 GB/s
+  Maximum^6^ [IOPS](../compute/concepts/storage-read-write.md) per VM vCPU | 10,000
+  Maximum^6^ IOPS per VM | 100,000
+  Maximum^7^ [bandwidth](../compute/concepts/storage-read-write.md) per VM vCPU | 100 MB/s
+  Maximum^7^ bandwidth per VM | 1 GB/s
 
 {% endlist %}
 
@@ -291,14 +295,14 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
   --- | ---
   Maximum disk size | 256 TB
   [Allocation unit](../compute/concepts/storage-read-write.md) size | 32 GB
-  Maximum^5^ IOPS for writes per disk | 40,000
-  Maximum^5^ IOPS for writes per allocation unit | 1,000
-  Maximum^6^ bandwidth for writes per disk | 450 MB/s
-  Maximum^6^ bandwidth for writes per allocation unit | 15 MB/s
-  Maximum^5^ IOPS for reads per disk | 20,000
-  Maximum^5^ IOPS for reads per allocation unit | 1,000
-  Maximum^6^ bandwidth for reads per disk | 450 MB/s
-  Maximum^6^ bandwidth for reads per allocation unit | 15 MB/s
+  Maximum^6^ IOPS for writes per disk | 40,000
+  Maximum^6^ IOPS for writes per allocation unit | 1,000
+  Maximum^7^ bandwidth for writes per disk | 450 MB/s
+  Maximum^7^ bandwidth for writes per allocation unit | 15 MB/s
+  Maximum^6^ IOPS for reads per disk | 20,000
+  Maximum^6^ IOPS for reads per allocation unit | 1,000
+  Maximum^7^ bandwidth for reads per disk | 450 MB/s
+  Maximum^7^ bandwidth for reads per allocation unit | 15 MB/s
 
 - Network HDD {#net-hdd}
 
@@ -306,14 +310,14 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
   --- | ---
   Maximum disk size | 256 TB
   [Allocation unit](../compute/concepts/storage-read-write.md) size | 256 GB
-  Maximum^5^ IOPS for writes per disk | 11,000
-  Maximum^5^ IOPS for writes per allocation unit | 300
-  Maximum^6^ bandwidth for writes per disk | 240 MB/s
-  Maximum^6^ bandwidth for writes per allocation unit | 30 MB/s
-  Maximum^5^ IOPS for reads per disk | 2,000
-  Maximum^5^ IOPS for reads per allocation unit | 300
-  Maximum^6^ bandwidth for reads per disk | 240 MB/s
-  Maximum^6^ bandwidth for reads per allocation unit | 30 MB/s
+  Maximum^6^ IOPS for writes per disk | 11,000
+  Maximum^6^ IOPS for writes per allocation unit | 300
+  Maximum^7^ bandwidth for writes per disk | 240 MB/s
+  Maximum^7^ bandwidth for writes per allocation unit | 30 MB/s
+  Maximum^6^ IOPS for reads per disk | 2,000
+  Maximum^6^ IOPS for reads per allocation unit | 300
+  Maximum^7^ bandwidth for reads per disk | 240 MB/s
+  Maximum^7^ bandwidth for reads per allocation unit | 30 MB/s
 
 - Non-replicated SSD {#non-replicated-ssd}
 
@@ -321,14 +325,14 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
   --- | ---
   Minimum non-replicated disk size | 93 GB
   [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB
-  Maximum^5^ IOPS for writes per disk | 75,000
-  Maximum^5^ IOPS for writes per allocation unit | 5,600
-  Maximum^6^ bandwidth for writes per disk | 1 GB/s
-  Maximum^6^ bandwidth for writes per allocation unit | 82 MB/s
-  Maximum^5^ IOPS for reads per disk | 75,000
-  Maximum^5^ IOPS for reads per allocation unit | 28,000
-  Maximum^6^ bandwidth for reads per disk | 1 GB/s
-  Maximum^6^ bandwidth for reads per allocation unit | 110 MB/s
+  Maximum^6^ IOPS for writes per disk | 75,000
+  Maximum^6^ IOPS for writes per allocation unit | 5,600
+  Maximum^7^ bandwidth for writes per disk | 1 GB/s
+  Maximum^7^ bandwidth for writes per allocation unit | 82 MB/s
+  Maximum^6^ IOPS for reads per disk | 75,000
+  Maximum^6^ IOPS for reads per allocation unit | 28,000
+  Maximum^7^ bandwidth for reads per disk | 1 GB/s
+  Maximum^7^ bandwidth for reads per allocation unit | 110 MB/s
 
 - Ultra high-speed network storage with three replicas (SSD) {#high-perf-ssd}
 
@@ -336,14 +340,14 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
   --- | ---
   Minimum capacity of ultra high-speed network storage with three replicas (SSD) | 93 GB
   [Allocation unit](../compute/concepts/storage-read-write.md) size | 93 GB
-  Maximum^5^ IOPS for writes per disk | 40,000
-  Maximum^5^ IOPS for writes per allocation unit | 5,600
-  Maximum^6^ bandwidth for writes per disk | 1 GB/s
-  Maximum^6^ bandwidth for writes per allocation unit | 82 MB/s
-  Maximum^5^ IOPS for reads per disk | 75,000
-  Maximum^5^ IOPS for reads per allocation unit | 28,000
-  Maximum^6^ bandwidth for reads per disk | 1 GB/s
-  Maximum^6^ bandwidth for reads per allocation unit | 110 MB/s
+  Maximum^6^ IOPS for writes per disk | 40,000
+  Maximum^6^ IOPS for writes per allocation unit | 5,600
+  Maximum^7^ bandwidth for writes per disk | 1 GB/s
+  Maximum^7^ bandwidth for writes per allocation unit | 82 MB/s
+  Maximum^6^ IOPS for reads per disk | 75,000
+  Maximum^6^ IOPS for reads per allocation unit | 28,000
+  Maximum^7^ bandwidth for reads per disk | 1 GB/s
+  Maximum^7^ bandwidth for reads per allocation unit | 110 MB/s
 
 {% endlist %}
 
@@ -371,9 +375,9 @@ IOPS and bandwidth limits of an individual disk depend on the number of [allocat
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. For more information, see [{#T}](../compute/concepts/storage-read-write.md).
 
-^5^ For maximum IOPS, we recommend keeping your read and write operations close to the disk block size (4 KB by default).
+^6^ For maximum IOPS, we recommend keeping your read and write operations close to the disk block size (4 KB by default).
 
-^6^ For maximum bandwidth, we recommend 4 MB reads and writes.
+^7^ For maximum bandwidth, we recommend 4 MB reads and writes.
 
 ### Limits of disk snapshot schedules {#compute-limits-snapshot-schedule}
 
@@ -386,6 +390,6 @@ Number of schedules a disk is added to | 1,000
 
 Type of limit | Value
 --- | ---
-Time to complete processes when stopping a VM^7^ | 30 seconds
+Time to complete processes when stopping a VM^8^ | 30 seconds
 
-^7^ When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS has 30 seconds to gracefully terminate all running processes to avoid data loss. After this time elapses, the VM will be forcibly terminated.
+^8^ When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS has 30 seconds to gracefully terminate all running processes to avoid data loss. After this time elapses, the VM will be forcibly terminated.

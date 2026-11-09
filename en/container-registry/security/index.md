@@ -59,6 +59,10 @@ You can also assign roles for individual resources within the service:
 
 ### Service roles {#service-roles}
 
+#### container-registry.registries.forceDeleter {#container-registry-registries-forceDeleter}
+
+{% include [container-registry.registries.forceDeleter](../../_roles/container-registry/registries/forceDeleter.md) %}
+
 #### container-registry.viewer {#container-registry.viewer}
 
 {% include [container-registry.viewer](../../_roles/container-registry/viewer.md) %}

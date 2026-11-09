@@ -1182,8 +1182,6 @@
 
  - [Анализ данных с помощью Jupyter](dataplatform/jupyter-yq.md)
 
- - [Обработка файлов детализации в сервисе Yandex Cloud Billing](dataplatform/billing-detail-files-processing.md)
-
 ### Yandex Data Streams
 
  - [Ввод данных в системы хранения](dataplatform/data-ingestion.md)

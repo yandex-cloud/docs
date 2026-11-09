@@ -1509,7 +1509,8 @@ editable: false
           "moveFactor": "number",
           "dataCacheEnabled": "boolean",
           "dataCacheMaxSize": "string",
-          "preferNotToMerge": "boolean"
+          "preferNotToMerge": "boolean",
+          "bucketMaxSize": "string"
         },
         "sqlDatabaseManagement": "boolean",
         "sqlUserManagement": "boolean",
@@ -2821,6 +2822,7 @@ Acceptable values are 0 to 1, inclusive. ||
 || dataCacheEnabled | **boolean** ||
 || dataCacheMaxSize | **string** (int64) ||
 || preferNotToMerge | **boolean** ||
+|| bucketMaxSize | **string** (int64) ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}

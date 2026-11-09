@@ -5,6 +5,8 @@ description: Follow this guide to create and configure a VM instance or an insta
 
 # Getting started with {{ compute-name }}
 
+{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
+
 {% include [compute-description](../../_includes/compute/compute-description.md) %}
 
 To get started, select the relevant guide:

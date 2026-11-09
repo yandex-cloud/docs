@@ -11,16 +11,17 @@ description: '{{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creati
 
 With {{ vpc-short-name }}, you can:
 
-- Create subnets and connect cloud resources to them.
-- Enable information transfer between the cloud resources.
-- Connect the cloud resources to the internet.
-- Create static routes and manage traffic using security groups.
-- Route traffic to the internet via a NAT gateway.
+* Create subnets and connect cloud resources to them.
+* Enable information transfer between the cloud resources.
+* Connect the cloud resources to the internet.
+* Create static routes and manage traffic using security groups.
+* Route traffic to the internet via a NAT gateway.
 
-The diagram above provides a general overview of how {{ yandex-cloud }} networks, subnets, and resources are related. In the management console, you can open the [infrastructure map](../../console/concepts/infrastructure-map.md), which, similarly to the diagram above, shows the relationships between your resources in the selected folder.
+The example above shows an allocation of {{ yandex-cloud }} resources across {{ vpc-short-name }} networks. In the management console, you can open the [infrastructure map](../../console/concepts/infrastructure-map.md), which shows the relationships between your resources in the selected folder in more detail.
 
-For more information about cloud networks, see:
-- [Cloud networks and subnets](network.md)
-- [Cloud resource addresses](address.md)
-- [Static routing](routing.md)
-- [Security groups](security-groups.md)
+#### Useful links {#see-also}
+
+* [Cloud networks and subnets](network.md)
+* [Cloud resource addresses](address.md)
+* [Static routing](routing.md)
+* [Security groups](security-groups.md)

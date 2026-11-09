@@ -48,7 +48,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
 - {{ at-name }} {#at}
 
-  You can log {{ at-name }} events to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts), or {{ er-name }} [bus](../../serverless-integrations/concepts/eventrouter/bus.md). In this guide, we will set up logging of audit events to a log group.
+  You can log {{ at-name }} events to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) or {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts). In this guide, we will set up logging of audit events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/audit-trails) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.

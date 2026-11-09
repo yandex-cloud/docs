@@ -125,7 +125,6 @@
 
 * [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
 * [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](dp-mch-data-exchange.md)
-* [Обработка файлов детализации в сервисе Yandex Cloud Billing](billing.md)
 
 
 * [Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™](spark-objstorage-integration.md)

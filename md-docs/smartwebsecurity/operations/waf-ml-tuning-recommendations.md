@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили Cloud WAF > Мониторинг и корректировка защиты ML WAF
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профиль Cloud WAF > Мониторинг и корректировка защиты ML WAF
 
 # Мониторинг и корректировка защиты ML WAF
 

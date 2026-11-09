@@ -211,7 +211,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
        Where:
        
-       * `type`: Transfer type. The possible values are:
+       * `type`: Transfer type. Its possible values are:
          
          * `SNAPSHOT_ONLY`: Copying.
          * `INCREMENT_ONLY`: Replication.
@@ -333,7 +333,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `sourceId` parameter.
     * Target endpoint ID in the `targetId` parameter.
-    * Transfer type in the `type` parameter. The possible values are:
+    * Transfer type in the `type` parameter. Its possible values are:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.
@@ -356,7 +356,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     * Transfer name in the `name` parameter.
     * Source endpoint ID in the `source_id` parameter.
     * Target endpoint ID in the `target_id` parameter.
-    * Transfer type in the `type` parameter. The possible values are:
+    * Transfer type in the `type` parameter. Its possible values are:
       
       * `SNAPSHOT_ONLY`: Copying.
       * `INCREMENT_ONLY`: Replication.
@@ -556,7 +556,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
 
 ## Activating a transfer {#activate}
 
-Each new transfer needs activation, except for an `INCREMENT_ONLY` or `SNAPSHOT_AND_INCREMENT` type transfer [created](../operations/transfer.md#create) using Terraform.
+Each new transfer needs activation, except an `INCREMENT_ONLY` or `SNAPSHOT_AND_INCREMENT` transfer [created](../operations/transfer.md#create) using Terraform.
 
 {% list tabs group=instructions %}
 
@@ -595,12 +595,12 @@ Each new transfer needs activation, except for an `INCREMENT_ONLY` or `SNAPSHOT_
 
 ## Deactivating a transfer {#deactivate}
 
-During transfer deactivation, the system performs actions to clean up the execution artifacts. For example:
+During transfer deactivation, the system performs actions to clean up the execution artifacts. Here is an example:
 
-* Disables the replication slot on the source (for the {{ dt-type-copy-repl }} type).
+* For {{ dt-type-copy-repl }} transfers, disables the replication slot on the source.
 * Deletes temporary data transfer logs.
 * Synchronizes the target:
-    * Transfers the data schema objects of the source for the final deactivation stage.
+    * Transfers the source data schema objects for the final deactivation stage.
     * Creates indexes.
 
 {% list tabs group=instructions %}

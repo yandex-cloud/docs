@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили SolidWall WAF > Создать приложение и подключить к нему домен
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профиль SolidWall WAF > Создать приложение и подключить к нему домен
 
 # Создать приложение SolidWall WAF и подключить к нему домен
 

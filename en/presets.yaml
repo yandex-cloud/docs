@@ -2,6 +2,7 @@ default:
   360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
+  access-analyzer-name: Access Analyzer
   ad-sync-agent: Yandex Identity Hub Sync Agent
   ad-sync-agent-linuxlink: https://storage.yandexcloud.net/yc-identityhub-sync/install.sh
   ad-sync-agent-windowslink: https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1
@@ -17,13 +18,6 @@ default:
   alb-name: Application Load Balancer
   alerting-metrics-limit: 1,000
   alerts-name: Alerts
-  alice-ai-pro-name:
-    d: Alice AI Pro
-    i: Alice AI Pro
-    p: Alice AI Pro
-    r: Alice AI Pro
-    t: Alice AI Pro
-    v: Alice AI Pro
   all-mdb:
     max-databases: 1000
   allowed-captcha-request: /tmgrdfrend.*
@@ -112,8 +106,6 @@ default:
     docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-svc1-ip: 213.180.193.243/32
-  ciem-full-name: Cloud Infrastructure Entitlement Management
-  ciem-name: CIEM
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
   cloud-apps-name: Cloud Apps
@@ -303,7 +295,6 @@ default:
   license-manager: License Manager
   link-adfs: >-
     https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services
-  link-ai-agent: https://aistudio.yandex.ru/agents
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
@@ -3574,6 +3565,23 @@ default:
           general:
             section_default-storage_label: Default storage
       security:
+        access-analyzer:
+          AccessAnalyzerPageLayout:
+            diagnostics_w1waz: Access diagnostics
+            recommendations_24yZa: Recommendations
+          ApplyRecommendationDialog:
+            replace_tQxKb: Save
+            revoke_dTPYb: Revoke
+          recommendations:
+            hidden: Hidden
+            hide: Hide recommendation
+            recommendation: Recommendation
+            replace-role: Replace role
+            resource: Resource
+            restore: Restore to active
+            revoke: Revoke role
+            role: Current role
+            subject: Subject
         alerts-base:
           action_create-exception_kyUtB: Create exception
         alerts:
@@ -3862,6 +3870,7 @@ default:
           module_dspm_xxxxx: |
             Data Security Posture Management (DSPM)
           module-cspm_gozhj: Configuration Monitoring (CSPM)
+          module-kspm_n9o93: KSPM
           namespace-checkbox_85krx: Namespaces
           section-title_9BLTm: Objects (optional)
           ServiceAccountResourceSelectDialog:
@@ -7374,23 +7383,6 @@ default:
         section_parameters: Settings
         section_resources: Resources
         section-revisions: Revisions
-      serverless-event-router:
-        button_create-bus: Create bus
-        button_create-connector: Create connector
-        button_create-rule: Create rule
-        button_send-event: Send event
-        button_submit: Send
-        label_additional-parameters: Additional parameters
-        label_buses: Buses
-        label_connector-source: Source
-        label_connectors: Connectors
-        label_filter: Filter
-        label_rules: Rules
-        label_service: EventRouter
-        label_target-dead-letter-settings: Dead Letter settings
-        label_target-transformer: Transformer
-        label_target-type: Type
-        label_targets: Targets
       serverless-functions:
         gateways:
           domains:
@@ -7576,7 +7568,6 @@ default:
         button_create-workflow: Create workflow
         label_additional-parameters: Additional parameters
         label_execution-url: Start URL
-        label_input_data: Input data
         label_public-access: Public workflow
         label_run-workflow: Execute
         label_service: Workflows
@@ -8019,6 +8010,7 @@ default:
         title_object-lock: Object version lock
         value_cold: Cold
         value_ice: Ice
+        value_intelligent_tiering: Intelligent-Tiering
         value_standard: Standard
       trino:
         catalogs:
@@ -9589,26 +9581,6 @@ default:
             Transformer:
               convert_to_string:
                 title: Convert values to string
-    yc-eventrouter:
-      dynamic-forms:
-        event_service_name: EventRouter API
-        template_connector_batch_options_batch_size_title: Batch size
-        template_connector_batch_options_polling_timeout_title: Polling timeout, ms
-        template_connector_batch_options_title: Batch message settings
-        template_connector_batch_options_visibility_timeout_title: Visibility timeout, s
-        template_connector_timer_base_options_title: Timer settings
-        template_connector_timer_cron_expression_title: Cron expression
-        template_connector_timer_payload_title: Payload
-        template_connector_timer_timezone_title: Time zone
-        template_connector_yds_base_options_title: Data Streams settings
-        template_connector_ymq_base_options_title: Message Queue settings
-        template_target_batch_cutoff: Cutoff, s
-        template_target_batch_max_bytes: Batch byte count
-        template_target_batch_max_count: Batch message count
-        template_target_retry_max_age: Interval, h
-        template_target_retry_max_attempts: Number of attempts
-        template_target_retry_title: Repeat send settings
-        timer_name: Timer
     yc-serverless-apigw:
       dynamic-forms:
         cloud_datasphere_folder_id_name: Folder
@@ -10239,7 +10211,6 @@ default:
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
   yds-short-name: Data Streams
-  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
   yq-iceberg-name: Iceberg
   yq-name: Query

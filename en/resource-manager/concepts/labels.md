@@ -79,7 +79,6 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ sf-full-name }}](../../functions/index.yaml)
 * [{{ iot-full-name }}](../../iot-core/index.yaml)
 * [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
-* [{{ si-full-name }}](../../serverless-integrations/index.yaml) ({{ er-name }})
 
 ### Security {#security}
 

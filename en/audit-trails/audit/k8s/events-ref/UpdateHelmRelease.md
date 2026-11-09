@@ -4,7 +4,7 @@ editable: false
 
 # Managed Services for Kubernetes Audit Trails Events: UpdateHelmRelease
 
-## Event JSON schema {#yandex.cloud.audit.k8s.UpdateHelmRelease2-schema}
+## Event JSON schema {#yandex.cloud.audit.k8s.marketplace.v1.UpdateHelmRelease2-schema}
 
 ```json
 {
@@ -88,19 +88,37 @@ editable: false
     ]
   },
   "details": {
-    "helmReleaseId": "string",
     "clusterId": "string",
+    // Includes only one of the fields `clusterName`
+    "clusterName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseId`
+    "helmReleaseId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseNamespace`
+    "helmReleaseNamespace": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `helmReleaseName`
+    "helmReleaseName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `productId`
     "productId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `productName`
+    "productName": "string",
+    // end of the list of possible fields
     "productVersionId": "string",
-    "appNamespace": "string",
-    "appName": "string"
+    // Includes only one of the fields `status`
+    "status": "string",
+    // end of the list of possible fields
+    "createdAt": "string"
   },
   "requestParameters": "object",
   "response": "object"
 }
 ```
 
-## Field description {#yandex.cloud.audit.k8s.UpdateHelmRelease2}
+## Field description {#yandex.cloud.audit.k8s.marketplace.v1.UpdateHelmRelease2}
 
 #|
 ||Field | Description ||
@@ -129,7 +147,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.k8s.UpdateHelmRelease.EventDetails)** ||
+|| details | **[HelmReleaseDetails](#yandex.cloud.audit.k8s.marketplace.v1.HelmReleaseDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -237,40 +255,6 @@ Includes only one of the fields `resourceName`. ||
 ||Field | Description ||
 || remoteAddress | **string** ||
 || userAgent | **string** ||
-|| requestId | **string** ||
-|| remotePort | **string** (int64)
-
-Includes only one of the fields `remotePort`. ||
-|#
-
-## Status {#google.rpc.Status}
-
-The error result of the operation in case of failure or cancellation.
-
-#|
-||Field | Description ||
-|| code | **integer** (int32)
-
-Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
-|| message | **string**
-
-An error message. ||
-|| details[] | **object**
-
-A list of messages that carry the error details. ||
-|#
-
-## EventDetails {#yandex.cloud.audit.k8s.UpdateHelmRelease.EventDetails}
-
-#|
-||Field | Description ||
-|| helmReleaseId | **string** ||
-|| clusterId | **string** ||
-|| productId | **string** ||
-|| productVersionId | **string** ||
-|| appNamespace | **string** ||
-|| appName | **string** ||
-|#tring** ||
 || requestId | **string** ||
 || remotePort | **string** (int64)
 

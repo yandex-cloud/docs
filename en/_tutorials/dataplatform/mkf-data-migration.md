@@ -129,7 +129,7 @@ Once created, the connector is automatically activated and data transfer starts.
 
 ### Delete the resources you created {#clear-out-connector}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=instructions %}
 
@@ -257,10 +257,10 @@ If you no longer need the resources you created, [delete them](#clear-out-mm).
     1. Download an [SSL certificate](../../managed-kafka/operations/connect#get-ssl-cert) for connecting to the {{ mkf-name }} cluster:
 
         ```bash
-        sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-            --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-        sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+        sudo mkdir -p {{ crt-local-dir }} && \
+        sudo wget "{{ crt-web-path }}" \ 
+            --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+        sudo chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     1. Install [kafkacat](https://github.com/edenhill/kcat):
@@ -280,15 +280,73 @@ If you no longer need the resources you created, [delete them](#clear-out-mm).
    mkdir --parents /home/<home_directory>/mirror-maker
    ```
 
-1. Choose a password of at least 6 characters for a certificate store, create the store, and add the SSL certificate for cluster connection:
+1. Add the SSL certificate to the trusted certificate store:
 
-   ```bash
-   sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
-      -file {{ crt-local-dir }}{{ crt-local-file }} \
-      -keystore /home/<home_directory>/mirror-maker/keystore \
-      -storepass <certificate_store_password>
-   ```
+    {% list tabs group=operating_system %}
 
+    - Linux (Bash) {#linux}
+
+      ```bash
+      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+        < {{ crt-local-dir }}{{ crt-local-file }}
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /home/<home_directory>/mirror-maker/keystore \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /home/<home_directory>/mirror-maker/keystore
+      ```
+
+    - macOS (Zsh) {#macos}
+     
+      ```bash     
+      split -p "-----BEGIN CERTIFICATE-----" \
+        {{ crt-local-dir }}{{ crt-local-file }} \
+        YandexCA-
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore /home/<home_directory>/mirror-maker/keystore \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 /home/<home_directory>/mirror-maker/keystore
+      ```
+
+    {% endlist %}
+
+    Where `-storepass` is the certificate store password. The password must contain at least six characters.
+    
 1. Create a MirrorMaker configuration file named `mm2.properties` in the `mirror-maker` folder:
 
    ```text
@@ -387,7 +445,7 @@ To learn more about MirrorMaker 2.0, see [this {{ KF }} article](https://cwiki.a
 
 ### Delete the resources you created {#clear-out-mm}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=instructions %}
 

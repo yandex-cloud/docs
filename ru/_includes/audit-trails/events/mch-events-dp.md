@@ -18,6 +18,7 @@
 `ListUsers` | Получение списка пользователей
 `RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `SetClusterExtensions` | Установка расширений для кластера
+`UpdateDatabase` | Изменение базы данных
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateUser` | Изменение пользователя базы данных

@@ -1,4 +1,4 @@
-# Backing up to {{ objstorage-name }} with GeeseFS
+# Backing up to {{ objstorage-full-name }} with GeeseFS
 
 In this tutorial, you will configure backup of local files to [{{ objstorage-full-name }}](../../storage/) with [GeeseFS](../../storage/tools/geesefs.md).
 
@@ -69,7 +69,7 @@ When mounting a bucket, you can also configure GeeseFS settings for system [perf
 
 ## Synchronize the local folder with the bucket {#sync}
 
-As the final backup configuration step, set up [manual](#manual-sync) or [automatic](#auto-sync) synchronization between the local folder and the bucket.
+To complete the backup setup, configure [manual](#manual-sync) or [automatic](#auto-sync) synchronization of the local folder with the bucket.
 
 
 ### Manual synchronization {#manual-sync}

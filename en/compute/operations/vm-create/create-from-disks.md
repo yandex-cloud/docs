@@ -5,6 +5,8 @@ description: Follow this guide to create a VM from existing disks.
 
 # Creating a VM from disks
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts/disk.md). Make sure the disks reside in one of the [availability zones](../../../overview/concepts/geo-scope.md) and are not added to other VMs.
 

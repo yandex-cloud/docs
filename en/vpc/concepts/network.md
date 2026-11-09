@@ -14,6 +14,12 @@ A _cloud network_ is similar to a traditional LAN in a data center. Cloud networ
 
 Internet access to and from {{ compute-full-name }} VMs and database hosts is provided through [public IP addresses](address.md#public-addresses).
 
+{% note info %}
+
+Using the IPv6 protocol in {{ vpc-name }} is currently not supported: you can only use IPv4 addresses in cloud networks and subnets.
+
+{% endnote %}
+
 You can manage cloud network and subnet traffic using [security groups](security-groups.md). They contain rules that define the protocols and IP addresses for receiving and sending traffic.
 
 ## Subnets {#subnet}

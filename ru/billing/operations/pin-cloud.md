@@ -10,8 +10,10 @@ description: Следуя данной инструкции, вы сможете
 ## Что нужно для привязки облака {#bind-roles}
 
 Перед привязкой [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) убедитесь, что соблюдены следующие условия:
+
 1. [Платежный аккаунт](../concepts/billing-account.md) прошел активацию (находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`).
 1. Пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
+   
    * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако;
    * [billing.accounts.editor](../security/index.md#billing-accounts-editor) и выше в платежном аккаунте.
 
@@ -45,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
      1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите нужный тип сущности из списка, а затем — ресурс, который хотите привязать к платежному аккаунту.
      1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
-     1. Погасите задолженность на старом платежном аккаунте, если перепривязали облако.
+     1. [Погасите задолженность](../concepts/billing-threshold.md#arrears) на старом платежном аккаунте, если перепривязали облако.
 
          ![image](../../_assets/billing/pin-cloud-billable-entities-window.png)
 
@@ -67,10 +69,12 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     
      * `billing_account_id` — идентификатор платежного аккаунта, к которому вы хотите привязать облако.
      * `cloud_id` — идентификатор облака, которое вы хотите привязать к платежному аккаунту.
 
      Подробнее о параметрах ресурса `yandex_billing_cloud_binding` в {{ TF }} в [документации провайдера]({{ tf-provider-resources-link }}/billing_cloud_binding).
+  
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

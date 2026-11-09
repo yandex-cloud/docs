@@ -115,3 +115,5 @@ To create a private [DNS zone](../concepts/dns-zone.md):
   To create a private DNS zone, use the [create](../api-ref/DnsZone/create.md) REST API method for the [DnsZone](../api-ref/DnsZone/index.md) resource or the [DnsZoneService/Create](../api-ref/grpc/DnsZone/create.md) gRPC API call.
 
 {% endlist %}
+
+To resolve names from an internal DNS zone within connected VPC networks, there is no need to delegate the domain.

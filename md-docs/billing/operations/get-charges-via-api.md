@@ -461,4 +461,3 @@ Yandex Cloud Billing предоставляет публичный API для п
 
 * [Посмотреть детализацию использования сервисов](check-charges.md)
 * [Экспортировать расширенную детализацию](get-folder-report.md)
-* [Поиск данных в детализации с помощью запросов Yandex Query](query-integration.md)

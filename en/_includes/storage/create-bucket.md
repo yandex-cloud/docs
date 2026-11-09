@@ -39,7 +39,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `{{ ui-key.yacloud.storage.value_standard }}`
           * `{{ ui-key.yacloud.storage.value_cold }}`
           * `{{ ui-key.yacloud.storage.value_ice }}`
-          * `Intelligent`
+          * `{{ ui-key.yacloud.storage.value_intelligent_tiering }}`
           
           {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
          
@@ -194,7 +194,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**
@@ -225,7 +225,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         name = "<service_account_name>"
       }
 
-      # Assigning roles to a service account
+      # Assigning a role to a service account
       
       resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<folder_ID>"
@@ -273,7 +273,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 
         * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
-        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Valid values:
+        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Available values:
 
           * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.

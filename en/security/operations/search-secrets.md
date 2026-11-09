@@ -163,7 +163,7 @@ To join the program, use our [feedback form](https://forms.yandex.ru/surveys/138
 
 By default, GitHub scans public repositories for {{ yandex-cloud }} secrets and sends any suspicious fragment to {{ yandex-cloud }}.
 
-Scanning in public repositories is done automatically. A repository administrator or organization owner can [enable secret scanning](https://docs.github.com/en/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories) for a private repository.
+Scanning in public repositories is done automatically. A repository administrator or organization owner can [enable secret scanning](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/detect-secret-leaks/enable-secret-scanning) for a private repository.
 
 ## GitLab {#gitlab-secret-detection}
 

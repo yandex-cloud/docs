@@ -1192,6 +1192,40 @@
 
 Включает разрешения, предоставляемые ролью `ai.workProfiles.editor`.
 
+#### search-api.executor {#search-api-executor}
+
+Роль `search-api.executor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
+
+Роль `search-api.executor` устарела и не должна использоваться.
+
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+Роль `search-api.webSearch.user` позволяет выполнять [поисковые запросы](https://aistudio.yandex.ru/docs/ru/search-api/quickstart/) с помощью Yandex Search API, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/search-api/concepts/limits#search-api-quotas) Yandex Search API.
+
+#### search-api.auditor {#search-api-auditor}
+
+Роль `search-api.auditor` использовалась для работы с устаревшим Yandex Search API v1.
+
+Роль `search-api.auditor` устарела и не должна использоваться.
+
+#### search-api.viewer {#search-api-viewer}
+
+Роль `search-api.viewer` использовалась для работы с устаревшим Yandex Search API v1.
+
+Роль `search-api.viewer` устарела и не должна использоваться.
+
+#### search-api.editor {#search-api-editor}
+
+Роль `search-api.editor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
+
+Роль `search-api.editor` устарела и не должна использоваться.
+
+#### search-api.admin {#search-api-admin}
+
+Роль `search-api.admin` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
+
+Роль `search-api.admin` устарела и не должна использоваться.
+
 Подробнее в [Управление доступом в Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index).
 
 
@@ -2852,7 +2886,6 @@
 Включает разрешения, предоставляемые ролью `cloud-registry.viewer`.
 
 Подробнее в [Управление доступом в Yandex Cloud Registry](../cloud-registry/security/index.md).
-
 
 
 ## Yandex Cloud Router {#cloudrouter-roles}
@@ -5459,6 +5492,7 @@
 
 Включает разрешения, предоставляемые ролями `mdb.maintenanceTask.viewer`, `managed-clickhouse.maintenanceTask.editor`, `managed-greenplum.maintenanceTask.editor`, `managed-kafka.maintenanceTask.editor`, `managed-mongodb.maintenanceTask.editor`, `managed-mysql.maintenanceTask.editor`, `managed-opensearch.maintenanceTask.editor`, `managed-postgresql.maintenanceTask.editor`, `managed-redis.maintenanceTask.editor` и `managed-spqr.maintenanceTask.editor`.
 
+
 ## Yandex Managed Service for Apache Airflow™ {#managed-airflow-roles}
 
 #### managed-airflow.auditor {#managed-airflow-auditor}
@@ -7530,45 +7564,6 @@
 Включает разрешения, предоставляемые ролью `schema-registry.editor`.
 
 Подробнее в [Сервисные роли для управления схемами данных с помощью Schema Registry](../metadata-hub/security/schema-registry-roles.md).
-
-
-## Yandex Search API {#search-api-roles}
-
-#### search-api.executor {#search-api-executor}
-
-Роль `search-api.executor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
-
-Роль `search-api.executor` устарела и не должна использоваться.
-
-#### search-api.webSearch.user {#search-api-webSearch-user}
-
-Роль `search-api.webSearch.user` позволяет выполнять [поисковые запросы](https://aistudio.yandex.ru/docs/ru/search-api/quickstart/) с помощью Yandex Search API, а также просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и [квотах](https://aistudio.yandex.ru/docs/ru/search-api/concepts/limits#search-api-quotas) Yandex Search API.
-
-#### search-api.auditor {#search-api-auditor}
-
-Роль `search-api.auditor` использовалась для работы с устаревшим Yandex Search API v1.
-
-Роль `search-api.auditor` устарела и не должна использоваться.
-
-#### search-api.viewer {#search-api-viewer}
-
-Роль `search-api.viewer` использовалась для работы с устаревшим Yandex Search API v1.
-
-Роль `search-api.viewer` устарела и не должна использоваться.
-
-#### search-api.editor {#search-api-editor}
-
-Роль `search-api.editor` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
-
-Роль `search-api.editor` устарела и не должна использоваться.
-
-#### search-api.admin {#search-api-admin}
-
-Роль `search-api.admin` использовалась для работы с устаревшим Yandex Search API v1 и позволяет выполнять поисковые запросы с помощью актуальной версии Yandex Search API.
-
-Роль `search-api.admin` устарела и не должна использоваться.
-
-Подробнее в [Управление доступом в Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/security/index).
 
 
 ## Yandex Security Deck {#security-deck-roles}

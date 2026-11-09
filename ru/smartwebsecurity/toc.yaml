@@ -7,7 +7,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Профили безопасности
+      - name: Профиль безопасности
         items:
           - name: Создать профиль
             href: operations/profile-create.md
@@ -27,7 +27,7 @@ items:
             href: operations/host-connect.md
           - name: Отключить профиль от ресурса
             href: operations/host-delete.md
-      - name: Профили Cloud WAF
+      - name: Профиль Cloud WAF
         items:
           - name: Создать профиль
             href: operations/waf-profile-create.md
@@ -49,7 +49,7 @@ items:
             href: operations/exclusion-rule-delete.md
           - name: Мониторинг и корректировка защиты ML WAF
             href: operations/waf-ml-tuning-recommendations.md
-      - name: Профили SolidWall WAF
+      - name: Профиль SolidWall WAF
         items:
           - name: Создать профиль
             href: operations/solidwall-waf-profile-create.md
@@ -63,7 +63,7 @@ items:
             href: operations/solidwall-waf-application-delete.md
           - name: Удалить профиль
             href: operations/solidwall-waf-profile-delete.md
-      - name: Профили ARL
+      - name: Профиль ARL
         items:
           - name: Создать профиль
             href: operations/arl-profile-create.md
@@ -79,7 +79,7 @@ items:
             href: operations/arl-rule-update.md
           - name: Удалить правило
             href: operations/arl-rule-delete.md
-      - name: Домены
+      - name: Прокси-сервер и домен
         items:
           - name: Создать прокси-сервер
             href: operations/proxy-create.md
@@ -218,7 +218,7 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Профили безопасности
+      - name: Профиль безопасности
         href: concepts/profiles.md
       - name: Профили WAF
         href: concepts/waf-profiles.md

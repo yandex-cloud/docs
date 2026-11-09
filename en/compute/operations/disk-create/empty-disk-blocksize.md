@@ -5,6 +5,8 @@ description: Follow this guide to create an empty disk with a large block.
 
 # Creating an empty disk with a large block
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
@@ -40,7 +42,7 @@ description: Follow this guide to create an empty disk with a large block.
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, the parameter is required.
+       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk. If the availability zone is not set in the [CLI profile](../../../cli/concepts/core-properties.md) by default, this is a required parameter.
        * `--block-size`: Disk block size.
        * `--size`: Disk size.
        * `--description`: Disk description.

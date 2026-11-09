@@ -72,8 +72,6 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Получить детализацию через API](operations/get-charges-via-api.md)
 
- - [Поиск в детализации с помощью Yandex Query](operations/query-integration.md)
-
 ## Концепции
 
  - [Все понятия](concepts/index.md)

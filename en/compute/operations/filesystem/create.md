@@ -5,6 +5,8 @@ description: Follow this guide to create a file storage.
 
 # Creating a file storage
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 
 To create a [file storage](../../concepts/filesystem.md):
 

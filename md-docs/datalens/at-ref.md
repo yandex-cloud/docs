@@ -46,6 +46,7 @@ yandex.cloud.audit.datalens.<имя_события>
 `platform.DeleteSparkCluster` | Удаление кластера Apache Spark™
 `platform.DeleteTrinoCluster` | Удаление кластера Trino
 `platform.UpdateCloudEnvironment` | Изменение облачного окружения
+`platform.UpdateSparkCluster` | Изменение кластера Apache Spark™
 `platform.UpdateTrinoCluster` | Изменение кластера Trino
 `DisableBillingInstanceService` | Получение сигнала от Yandex Cloud Billing о неактивности привязанного к DataLens платежного аккаунта
 `DisableFolders` | [Отключение](settings/navigation.md#disable-folder-navigation) навигации по папкам

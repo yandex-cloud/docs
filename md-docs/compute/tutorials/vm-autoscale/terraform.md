@@ -41,6 +41,7 @@ Terraform распространяется под лицензией [Business S
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
 Чтобы создать инфраструктуру для автоматического масштабирования группы ВМ с помощью Terraform:
+
 1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -55,6 +56,7 @@ Terraform распространяется под лицензией [Business S
         ```
 
      1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        
         * `vm-autoscale.tf` — конфигурация создаваемой инфраструктуры.
         * `declaration.yaml` — описание Docker-контейнера с веб-сервером, который будет запущен на ВМ для имитации нагрузки на сервис.
         * `config.tpl` — описание параметров пользователя ВМ.
@@ -64,6 +66,7 @@ Terraform распространяется под лицензией [Business S
 
      1. Создайте папку для конфигурационных файлов.
      1. Создайте в папке:
+        
         1. Конфигурационный файл `vm-autoscale.tf`:
 
            {% cut "vm-autoscale.tf" %}
@@ -90,7 +93,7 @@ Terraform распространяется под лицензией [Business S
              required_providers {
                yandex = {
                  source = "yandex-cloud/yandex"
-                 version = ">= 0.47.0"
+                 version = ">= 0.96.0"
                }
              }
            }
@@ -107,7 +110,13 @@ Terraform распространяется под лицензией [Business S
            
            resource "yandex_resourcemanager_folder_iam_member" "vm-autoscale-sa-role-compute" {
              folder_id = var.folder_id
-             role      = "editor"
+             role      = "compute.editor"
+             member    = "serviceAccount:${yandex_iam_service_account.for-autoscale.id}"
+           }
+           
+           resource "yandex_resourcemanager_folder_iam_member" "vm-autoscale-sa-role-lb" {
+             folder_id = var.folder_id
+             role      = "load-balancer.editor"
              member    = "serviceAccount:${yandex_iam_service_account.for-autoscale.id}"
            }
            
@@ -281,7 +290,7 @@ Terraform распространяется под лицензией [Business S
              - name: "${VM_USER}"
                groups: sudo
                shell: /bin/bash
-               sudo: 'ALL=(ALL) NOPASSWD:ALL'
+               sudo: ['ALL=(ALL) NOPASSWD:ALL']
                ssh_authorized_keys:
                  - "${SSH_KEY}"
            ```
@@ -312,9 +321,11 @@ Terraform распространяется под лицензией [Business S
    * [Сетевой балансировщик](../../../network-load-balancer/concepts/index.md) — [yandex_lb_network_load_balancer](../../../terraform/resources/lb_network_load_balancer.md).
 
 1. В файле `vm-autoscale.auto.tfvars` задайте пользовательские параметры:
+   
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
    * `vm_user` — имя пользователя ВМ.
    * `ssh_key` — содержимое файла с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее в разделе [Создание пары ключей SSH](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+
 1. Создайте ресурсы:
 
    1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -396,6 +407,7 @@ Terraform распространяется под лицензией [Business S
 ### Проверьте работу автоматического масштабирования {#check-highload}
 
 Чтобы проверить работу автоматического масштабирования группы ВМ, нужно создать повышенную нагрузку на CPU каждой ВМ. В файле `specification.yaml` в параметре `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` указано значение `40` — целевой уровень нагрузки 40% CPU. Если превысить целевую нагрузку, количество ВМ в группе увеличится.
+
 1. Создайте повышенную нагрузку на группу ВМ.
 
    Для этого сохраните скрипт с именем `load.sh` в домашнюю директорию. Скрипт в течение 10 минут в 12 потоков отправляет запросы к группе ВМ. При этом у каждой ВМ используется по 20% CPU на каждое ядро, обрабатывающее запрос. Группа ВМ в каждый момент времени будет загружена на 240% CPU. Скрипт специально выполняет несколько параллельных запросов по 20% CPU, а не один в 240% CPU, чтобы запросы равномерно распределялись между ВМ в группе.
@@ -440,8 +452,11 @@ Terraform распространяется под лицензией [Business S
      1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ `auto-group`.
      1. Перейдите на вкладку **Мониторинг**.
+        
         На графике **Number of instance in zone** отображены изменения количества ВМ в каждой зоне доступности. На графике **Average CPU utilization in zone** — средняя CPU-нагрузка в каждой зоне доступности.
+     
      1. Перейдите на вкладку **Логи**.
+        
         На странице отображены сообщения о действиях в рамках автоматического масштабирования группы ВМ.
 
      Суммарная нагрузка в 240% CPU равномерно распределилась между двумя ВМ в двух зонах доступности и превысила целевой уровень нагрузки в 40% CPU. [Yandex Compute Cloud](../../index.md) создал по дополнительной ВМ в каждой зоне доступности и в группе стало четыре ВМ. Когда скрипт перестал создавать CPU-нагрузку, Compute Cloud автоматически уменьшил количество ВМ в группе до двух.

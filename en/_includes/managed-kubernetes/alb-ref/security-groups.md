@@ -35,13 +35,7 @@ Create the following security groups and rules:
 
 * [Load balancer security group](../../../application-load-balancer/concepts/application-load-balancer.md#security-groups):
 
-  {% list tabs group=traffic %}
-
-  - Outgoing traffic {#outgoing}
-
-    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
-    --- | --- | --- | --- | ---
-    `{{ port-any }}` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -50,11 +44,17 @@ Create the following security groups and rules:
     `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTP traffic
     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For receiving incoming HTTPS traffic
 
+  - Outgoing traffic {#outgoing}
+
+    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
+    --- | --- | --- | --- | ---
+    `{{ port-any }}` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.140.0.0/24`[^\[Nod\]^](#example) | For outgoing traffic to nodes, including status checks
+
   {% endlist %}
 
 * Node group’s security group for backend health checks:
 
-  {% list tabs group=traffic %}
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -66,13 +66,7 @@ Create the following security groups and rules:
 
 * Cluster and node group’s security group for control plane traffic:
 
-  {% list tabs group=traffic %}
-
-  - Outgoing traffic {#outgoing}
-
-    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
-    --- | --- | --- | --- | ---
-    `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` | For traffic between the [control plane](../../../managed-kubernetes/concepts/index.md#master) components and worker nodes
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -82,17 +76,17 @@ Create the following security groups and rules:
     `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`| `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` | For traffic between the control plane components and worker nodes
     `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_ipv6-icmp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For node health checks within {{ yandex-cloud }} subnets
 
-  {% endlist %}
-
-* Node group’s security group for control plane traffic:
-
-  {% list tabs group=traffic %}
-
   - Outgoing traffic {#outgoing}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
-    `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For external resource access
+    `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` | For traffic between the [control plane](../../../managed-kubernetes/concepts/index.md#master) components and worker nodes
+
+  {% endlist %}
+
+* Node group’s security group for control plane traffic:
+
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -100,17 +94,17 @@ Create the following security groups and rules:
     --- | --- | --- | --- | ---
     `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For [pod](../../../managed-kubernetes/concepts/index.md#pod) to [service](../../../managed-kubernetes/concepts/index.md#service) communication
 
-  {% endlist %}
-
-* Cluster security group for control plane traffic:
-
-  {% list tabs group=traffic %}
-
   - Outgoing traffic {#outgoing}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
-    `4443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.96.0.0/16`[^\[C\]^](#example) | For traffic between the control plane components and `metric-server` [pods](../../../managed-kubernetes/concepts/index.md#pod)
+    `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | For external resource access
+
+  {% endlist %}
+
+* Cluster security group for control plane traffic:
+
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -119,11 +113,17 @@ Create the following security groups and rules:
     `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Con\]^](#example) | For {{ k8s }} API access
     `6443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Con\]^](#example) | For {{ k8s }} API access
 
+  - Outgoing traffic {#outgoing}
+
+    {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
+    --- | --- | --- | --- | ---
+    `4443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.96.0.0/16`[^\[C\]^](#example) | For traffic between the control plane components and `metric-server` [pods](../../../managed-kubernetes/concepts/index.md#pod)
+
   {% endlist %}
 
 * Node group’s security group for internet service access:
 
-  {% list tabs group=traffic %}
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 
@@ -135,7 +135,7 @@ Create the following security groups and rules:
 
 * Security group for SSH access to node group instances:
 
-  {% list tabs group=traffic %}
+  {% list tabs %}
 
   - Incoming traffic {#incoming}
 

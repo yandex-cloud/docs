@@ -96,7 +96,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Windows {#windows}
 
   1. Download the [rclone archive](https://rclone.org/downloads/) from the vendor website and unpack it to a local folder.
-  1. Add the folder to the `PATH` variable to make the utility CLI-accessible from anywhere. Proceed as follows:
+  1. Add the folder to the `PATH` variable to make the utility CLI-accessible from anywhere. Follow these steps:
 
       1. Click **Start** and type **Change system environment variables** in the Windows search bar.
       1. Click **Environment variables...** at the bottom right.

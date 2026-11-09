@@ -98,7 +98,7 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-  1. Download the [yc-valkey-as-1c-cache-storage.tf](https://github.com/yandex-cloud-examples/yc-valkey-1c-locks/blob/main/yc-valkey-as-1c-cache-storage.tf) configuration file to the same working directory.
+  1. Download the [yc-valkey-as-1c-cache-storage.tf](https://github.com/yandex-cloud-examples/yc-valkey-as-1c-cache-storage/blob/main/yc-valkey-as-1c-cache-storage.tf) configuration file to the same working directory.
 
       This file describes:
 

@@ -16,7 +16,7 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 The main entity in {{ data-catalog-name }} is a _metadata catalog_.
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-concept.md) %}
 
 ## Uploading metadata {#metadata-upload}
 
@@ -39,21 +39,21 @@ You can run an ingestion manually or configure it to run on a schedule. A schedu
 
 ## Data storage {#data-store}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-storage-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-storage-concept.md) %}
 
 ## Metadata markup {#metadata-markup}
 
 ### Domains and subdomains {#domains-and-subdomains}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-domain-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-domain-concept.md) %}
 
 ### Classifications and tags {#classifications-and-tags}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-classification-tag-concept.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-classification-tag-concept.md) %}
 
 ### Glossaries and terms {#glossaries-and-terms}
 
-{% include [data-catalog-concept](../../_includes/metadata-hub/data-catalog-glossary-term.md) %}
+{% include [data-catalog-concept](../../_includes/dlp/metadata/data-catalog-glossary-term.md) %}
 
 ## Use cases {#examples}
 

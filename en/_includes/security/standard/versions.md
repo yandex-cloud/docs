@@ -158,7 +158,7 @@ Publication date: 27/12/24.
 * **Added the following items:**
     * 1.11 Service account API keys have specified scopes.
     * 1.25 Last service account authentication date and last use of access keys date are tracked in {{ iam-full-name }}.
-    * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }}.
+    * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ access-analyzer-name }}.
 
 * **Updated the following items:**
     * Added [{{ container-registry-full-name }}](../../../container-registry/index.yaml), [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml), and [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) to **Scope**.

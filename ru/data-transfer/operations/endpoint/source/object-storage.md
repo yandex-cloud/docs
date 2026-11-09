@@ -149,6 +149,7 @@ description: Следуя данной инструкции, вы сможете
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}** — повторить попытку определить тип.
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.scan_interval.title }}** — укажите интервал между сканированиями для новых файлов при репликации.
 
+
 ## Настройка приемника данных {#supported-targets}
 
 Настройте один из поддерживаемых приемников данных:

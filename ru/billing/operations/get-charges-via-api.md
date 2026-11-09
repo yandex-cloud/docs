@@ -464,4 +464,3 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](check-charges.md)
 * [{#T}](get-folder-report.md)
-* [{#T}](query-integration.md)

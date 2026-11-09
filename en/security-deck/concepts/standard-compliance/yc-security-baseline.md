@@ -24,7 +24,7 @@ These rules help mitigate risks from basic security threats in cloud environment
 || CRYPT9 | [{{ kms-short-name }} keys are stored in a hardware security module (HSM)](../../../security/standard/all.md#keys-hsm) | [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm) ||
 || CRYPT13 | [The organization uses {{ lockbox-full-name }} for secure secret storage](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || CRYPT14 | [For {{ serverless-containers-full-name }} and {{ sf-full-name }}, {{ lockbox-name }}](../../../security/standard/all.md#secrets-serverless-functions) secrets are used | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
-|| CRYPT16 | [Cloud administrator is instructed what to do if cloud secrets get compromised](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
+|| CRYPT16 | [There is a guide for cloud administrators on handling compromised secrets](../../../security/standard/all.md#secrets-scanning) | [cspm.crypto.leaked-secrets-detection](../../rules-reference/cspm.md#leaked-secrets-detection) ||
 || **Collecting, monitoring, and analyzing audit logs** (AUDIT) {align="center"} | > | > ||
 || AUDIT1 | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || AUDIT8 | [Data events are monitored](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||

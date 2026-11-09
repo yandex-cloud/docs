@@ -12,4 +12,4 @@ description: В этом руководстве вы развернете гру
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](console.md)
+[{#T}](console.md)

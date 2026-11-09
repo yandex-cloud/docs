@@ -40,3 +40,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](change-organization.md)
 * [{#T}](../../partner/operations/pin-cloud.md)
 * [{#T}](delete-account.md)
+
+[*promo-code]:{% include notitle [promo-code](../../_popups/billing/paying-account.md#promo-code) %}

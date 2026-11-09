@@ -26,8 +26,8 @@ editable: false
   "eventStatus": "string",
   "details": {
     "folderId": "string",
-    "solidWafWebAppId": "string",
-    "solidWafWebAppName": "string",
+    "webAppId": "string",
+    "webAppName": "string",
     "solidWafProfileId": "string",
     "solidwallDashboardWebappId": "string",
     "solidwallDashboardRequestId": "string",
@@ -130,8 +130,8 @@ Includes only one of the fields `resourceName`. ||
 #|
 ||Field | Description ||
 || folderId | **string** ||
-|| solidWafWebAppId | **string** ||
-|| solidWafWebAppName | **string** ||
+|| webAppId | **string** ||
+|| webAppName | **string** ||
 || solidWafProfileId | **string** ||
 || solidwallDashboardWebappId | **string** ||
 || solidwallDashboardRequestId | **string** ||

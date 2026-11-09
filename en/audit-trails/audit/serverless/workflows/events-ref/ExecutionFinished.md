@@ -12,6 +12,17 @@ editable: false
   "eventSource": "string",
   "eventType": "string",
   "eventTime": "string",
+  "resourceMetadata": {
+    "path": [
+      {
+        "resourceType": "string",
+        "resourceId": "string",
+        // Includes only one of the fields `resourceName`
+        "resourceName": "string"
+        // end of the list of possible fields
+      }
+    ]
+  },
   "eventStatus": "string",
   "error": {
     "code": "integer",
@@ -52,6 +63,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| resourceMetadata | **[ResourceMetadata](#yandex.cloud.audit.ResourceMetadata)** ||
 || eventStatus | **enum** (EventStatus)
 
 - `STARTED`
@@ -63,6 +75,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 The error result of the operation in case of failure or cancellation. ||
 || details | **[EventDetails](#yandex.cloud.audit.serverless.workflows.ExecutionFinished.EventDetails)** ||
+|#
+
+## ResourceMetadata {#yandex.cloud.audit.ResourceMetadata}
+
+#|
+||Field | Description ||
+|| path[] | **[Resource](#yandex.cloud.audit.Resource)** ||
+|#
+
+## Resource {#yandex.cloud.audit.Resource}
+
+#|
+||Field | Description ||
+|| resourceType | **string** ||
+|| resourceId | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
 |#
 
 ## Status {#google.rpc.Status}

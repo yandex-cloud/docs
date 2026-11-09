@@ -15,9 +15,16 @@ To configure a server for 1C-Bitrix:
 
    {% endnote %}
 
+   1C-Bitrix: Site Management requires PHP version 8.2 or higher. When accessing PHP official repositories, Ubuntu 22.04 installs PHP 8.1; so add the `ppa:ondrej/php` repository and install PHP 8.2:
+
    ```bash
    sudo apt-get update
-   sudo apt-get install -y apache2 libapache2-mod-php php-gd php-mbstring php-mysql
+   sudo apt-get install -y apache2 software-properties-common
+   sudo add-apt-repository -y ppa:ondrej/php
+   sudo apt-get update
+   sudo apt-get install -y php8.2 php8.2-gd php8.2-mbstring php8.2-mysql libapache2-mod-php8.2
+   sudo a2enmod rewrite
+   sudo a2enmod php8.2
    ```
 
 1. Go to the project's working folder and download the 1C-Bitrix: Site Management distribution:
@@ -55,14 +62,13 @@ To configure a server for 1C-Bitrix:
    -rwxrwxr-x 1 www-data www-data  1353 Jun  8  2023 index.php
    -rwxrwxr-x 1 www-data www-data   268 Apr 17  2023 install.config
    -rwxrwxr-x 1 www-data www-data 12821 Mar 18  2022 readme.html
-   -rwxrwxr-x 1 www-data www-data   112 Mar 27  2013 readme.php
    drwxrwxr-x 2 www-data www-data  4096 Jun  8  2023 upload
    ```
 
 1. For 1C to work correctly, configure the PHP settings. To do this, use the built-in `nano` editor and modify the following variables in the `php.ini` configuration file:
 
    ```bash
-   sudo nano /etc/php/8.1/apache2/php.ini
+   sudo nano /etc/php/8.2/apache2/php.ini
    ```
 
    Before | After
@@ -70,10 +76,10 @@ To configure a server for 1C-Bitrix:
    `short_open_tag = Off` | `short_open_tag = On`
    `memory_limit = 128M` | `memory_limit = 256M`
    `;date.timezone =` | `date.timezone = Europe/Moscow`
-   `;opcache.revalidate_freq =2` | `opcache.revalidate_freq =0`
+   `;opcache.revalidate_freq=2` | `opcache.revalidate_freq=0`
    `;session.save_path = "/var/lib/php/sessions"` | `session.save_path = "/var/lib/php/sessions"`
 
-   The `php.ini` file path depends on the PHP version installed. The example shows the path for version `8.1`. For `8.0`, enter `/etc/php/8.0/apache2/php.ini`; for `8.2`, `/etc/php/8.2/apache2/php.ini`, etc.
+   The `php.ini` file path depends on the PHP version installed. The example shows the path for version `8.2`.
 
    {% note tip %}
 

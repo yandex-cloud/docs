@@ -83,8 +83,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
-`GenerateDesktopRDPFile` | Генерация RDP-файла для подключения к рабочему столу
-`ResetDesktopPassword` | Сброс пароля рабочего стола
 
 ## Yandex Cloud Registry {#cloud-registry}
 
@@ -244,6 +242,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `ListUsers` | Получение списка пользователей
 `RevokeUserPermission` | Отзыв прав у пользователя базы данных
 `SetClusterExtensions` | Установка расширений для кластера
+`UpdateDatabase` | Изменение базы данных
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateUser` | Изменение пользователя базы данных

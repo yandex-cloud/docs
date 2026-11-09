@@ -490,7 +490,7 @@
 #### Как перестать пользоваться платформой и удалить платежный аккаунт? {#delete-account}
 
 
-Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, погасите существующую задолженность и выберите **Удалить** на странице платежного аккаунта в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Подробнее в разделе [Удалить платежный аккаунт и расторгнуть договор с Yandex Cloud](../operations/delete-account.md).
+Удалите все [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) и ресурсы в них, [погасите существующую задолженность](../concepts/billing-threshold.md#arrears) и выберите **Удалить** на странице платежного аккаунта в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts). Подробнее в разделе [Удалить платежный аккаунт и расторгнуть договор с Yandex Cloud](../operations/delete-account.md).
 
 
 ## Вопросы о пробном периоде и платной версии {#trial-commercial}

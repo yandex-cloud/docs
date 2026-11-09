@@ -1,34 +1,46 @@
 # {{ interconnect-name }} monitoring
  
-Monitoring allows you to check the status and usage of {{ interconnect-full-name }} resources.
+{{ monium-full-name }} allows you to check the status and consumption of {{ interconnect-full-name }} resources.
 
-## Monitoring the trunk status {#trunk-mon}
+## Monitoring a trunk status {#trunk-mon}
 
-Using monitoring, you can check the trunk status on your own.
+To check the status of a [trunk’s](trunk.md) physical port using {{ monium-name }}:
 
-For example, to check the status of a physical trunk port:
+{% list tabs group=instructions %}
 
-* Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-* Go to monitoring from the resource folder by selecting `Folder → Monitoring`.
-* Navigate to `Interconnect - Direct Trunk Connection Overview`.
-* In the drop-down list of the `Resource ID` selector, choose the ID of the trunk in question.
-* Make sure the `Connection State` metric value is **1**, which means the trunk port is up and running.
+- Management console {#console}
+
+  1. [Navigate to]({{ link-monium }}) the {{ monium-name }} home page.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Navigate to the **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** tab.
+  1. In the dashboard list, select `Interconnect — Direct Trunk Connection Overview`.
+  1. In the top-left corner, in the **Resource ID** field, select the trunk ID.
+
+{% endlist %}
+
+Make sure the `Connection State` metric value is `1`, which means the trunk port is up and running.
 
 ## Monitoring the private or public connection status {#private-mon}
 
-Using monitoring, you can check the private or service connection status on your own.
+To check BGP connectivity status for a [private](priv-con.md) or [public](pub-con.md) connection using {{ monium-name }}:
 
-For example, to check the BGP state for a private or service connection:
+{% list tabs group=instructions %}
 
-* Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-* Go to monitoring from the resource folder by selecting `Folder → Monitoring`.
-* Navigate to `Interconnect → Private/Public Connection Overview`.
-* In the `Resource ID` drop-down list, choose the ID of the private or service connection.
-* Make sure the `BGP State` metric value is **1**, which means the BGP session for this private connection is up and running.
+- Management console {#console}
+
+  1. [Navigate to]({{ link-monium }}) the {{ monium-name }} home page.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+  1. Navigate to the **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** tab.
+  1. In the dashboard list, select `Interconnect — Private/Public Connection Overview`.
+  1. In the top-left corner, in the **Resource ID** field, select the ID of the private or public connection.
+
+{% endlist %}
+
+Make sure the `BGP State` metric value is `1`, which means the BGP session for this private connection is up and running.
 
 ## Metric types {#metric-types}
 
-Monitoring in {{ interconnect-name }} offers the following metric types:
+Monitoring in {{ monium-name }} offers the following metric types for {{ interconnect-name }}:
 
 * [Trunk metrics](#trunk-metrics)
 * [Private or public connection metrics](#private-metrics)

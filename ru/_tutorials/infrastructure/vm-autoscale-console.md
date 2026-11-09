@@ -82,7 +82,7 @@
      1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** задайте имя сети `yc-auto-network`.
-     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI {#cli}
@@ -158,10 +158,10 @@
 1. Создайте [группу безопасности](../../vpc/concepts/security-groups.md) `sg-autoscale` с [правилами](../../vpc/concepts/security-groups.md#security-groups-rules) из таблицы ниже:
 
    #|
-   || **Направление трафика** | **Описание** | **Диапазон портов** | **Протокол** | **Тип источника / назначения** | **Источник / назначение** ||
-   || Исходящий | `any` | Весь | Любой | CIDR | `0.0.0.0/0` ||
-   || Входящий | `ext-http` | `80` | `TCP` | CIDR | `0.0.0.0/0` ||
-   || Входящий | `healthchecks` | `80` | `TCP` | Проверки состояния балансировщика | — ||
+   || **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-direction }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
+   || {{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }} | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ext-http` ||
+   || {{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }} | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — | `healthchecks` ||
+   || {{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-egress }} | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` ||
    |#
 
    {% list tabs group=instructions %}
@@ -174,17 +174,17 @@
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя группы безопасности `sg-autoscale`.
      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `yc-auto-network`.
-     1. Создайте правила из таблицы. Для этого в блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** и в открывшемся окне:
+     1. Создайте правила из таблицы. Для этого в блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.content-section.button_add-rule }}** и в открывшемся окне:
 
-        1. Выберите опцию **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** в соответствии с направлением трафика.
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт `80` или не заполняйте для всего дипазона портов.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-direction }}** выберите опцию ![arrow-ingres](../../_assets/console-icons/arrow-down-right.svg) **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }}** или ![arrow-ingres](../../_assets/console-icons/arrow-up-right.svg) **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-egress }}** в соответствии с направлением трафика.
+        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт `80` или нажмите `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}` для всего диапазона портов.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите `TCP` или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
         1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону [IP-адресов](../../vpc/concepts/address.md). В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите `0.0.0.0/0`.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, разрешающее [проверки состояния ресурсов](../../network-load-balancer/concepts/health-check.md) балансировщиком {{ network-load-balancer-name }}.
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Повторите для всех правила из таблицы.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
 
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -209,8 +209,10 @@
 
        * `description` — описание правила.
        * `direction` — направление трафика:
+         
          * `ingress` — входящий.
          * `egress` — исходящий.
+       
        * `port` — порт для получения или передачи трафика.
        * `protocol` — протокол передачи данных.
        * `v4-cidrs` — список IPv4-подсетей в формате CIDR, для которых действует правило.
@@ -298,8 +300,10 @@
 
        * `description` — описание правила.
        * `direction` — направление трафика:
+         
          * `INGRESS` — входящий.
          * `EGRESS` — исходящий.
+       
        * `protocolName` — имя протокола передачи трафика.
        * `ports` — диапазон портов, для которых действует правило:
 
@@ -449,19 +453,23 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
      1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-     1. Укажите имя — `group-balancer`.
-     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** укажите `{{ ui-key.yacloud.common.label_auto }}`.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `group-balancer`.
+     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите `{{ ui-key.yacloud.common.label_auto }}`.
      1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. В открывшемся окне укажите:
+        
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** — `http`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (на нем балансировщик будет принимать входящий трафик) — `80`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (на него балансировщик будет направлять трафик) — `80`.
         * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+     
      1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
      1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите группу ВМ `auto-group-tg` и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне укажите:
+        
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}** — `tcp`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — `80`.
         * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+     
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -537,5 +545,6 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
+
 1. [Удалите](../../network-load-balancer/operations/load-balancer-delete.md) сетевой балансировщик.
 1. [Удалите](../../compute/operations/instance-groups/delete.md) группу ВМ.

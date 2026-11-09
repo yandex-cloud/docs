@@ -1,8 +1,6 @@
 title: Yandex Container Registry
 description:
-  - >-
-    Yandex Container Registry is a service that allows you to store and
-    distribute Docker images.
+  - We are sunsetting Yandex Container Registry.
   - >-
     Container Registry offers a reliable storage solution independent of
     external locks. Docker images in {{ container-registry-name }} are stored in
@@ -24,8 +22,8 @@ description:
 meta:
   title: Yandex Container Registry
   description: >-
-    Yandex Container Registry is a service that allows you to store and
-    distribute Docker images.
+    Yandex Container Registry is a service for storing and distributing Docker
+    images.
   keywords:
     - keyword: '{{ container-registry-name }}'
     - keyword: '{{ container-registry-full-name }}'
@@ -56,7 +54,7 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions for the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
     description: Prices and cost calculation rules

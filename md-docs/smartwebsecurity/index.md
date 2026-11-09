@@ -12,7 +12,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Все инструкции](operations/index.md)
 
-### Профили безопасности
+### Профиль безопасности
 
  - [Создать профиль](operations/profile-create.md)
 
@@ -32,7 +32,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Отключить профиль от ресурса](operations/host-delete.md)
 
-### Профили Cloud WAF
+### Профиль Cloud WAF
 
  - [Создать профиль](operations/waf-profile-create.md)
 
@@ -54,7 +54,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Мониторинг и корректировка защиты ML WAF](operations/waf-ml-tuning-recommendations.md)
 
-### Профили SolidWall WAF
+### Профиль SolidWall WAF
 
  - [Создать профиль](operations/solidwall-waf-profile-create.md)
 
@@ -68,7 +68,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Удалить профиль](operations/solidwall-waf-profile-delete.md)
 
-### Профили ARL
+### Профиль ARL
 
  - [Создать профиль](operations/arl-profile-create.md)
 
@@ -84,7 +84,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Удалить правило](operations/arl-rule-delete.md)
 
-### Домены
+### Прокси-сервер и домен
 
  - [Создать прокси-сервер](operations/proxy-create.md)
 
@@ -200,7 +200,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Обзор](concepts/index.md)
 
- - [Профили безопасности](concepts/profiles.md)
+ - [Профиль безопасности](concepts/profiles.md)
 
 ### [Профили WAF](concepts/waf-profiles.md)
 

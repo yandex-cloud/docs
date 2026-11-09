@@ -32,6 +32,7 @@
 `platform.DeleteSparkCluster` | Удаление кластера {{ SPRK }}
 `platform.DeleteTrinoCluster` | Удаление кластера {{ TR }}
 `platform.UpdateCloudEnvironment` | Изменение облачного окружения
+`platform.UpdateSparkCluster` | Изменение кластера {{ SPRK }}
 `platform.UpdateTrinoCluster` | Изменение кластера {{ TR }}
 `DisableBillingInstanceService` | Получение сигнала от {{ billing-name }} о неактивности привязанного к {{ datalens-name }} платежного аккаунта
 `DisableFolders` | [Отключение](../../../datalens/settings/navigation.md#disable-folder-navigation) навигации по папкам

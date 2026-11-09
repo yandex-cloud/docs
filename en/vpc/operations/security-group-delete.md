@@ -74,7 +74,7 @@ To delete a [security group](../concepts/security-groups.md):
      ```hcl
      ...
      resource "yandex_vpc_security_group" "test-sg" {
-       name        = "Test security group"
+       name        = "test-security-group"
        description = "Description for security group"
        network_id  = yandex_vpc_network.lab-net.id
 

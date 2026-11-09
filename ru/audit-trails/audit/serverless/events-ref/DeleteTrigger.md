@@ -783,7 +783,7 @@ editable: false
     // end of the list of possible fields
     "triggerActions": [
       {
-        // Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`
+        // Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`
         "invokeContainer": {
           "containerId": "string",
           "path": "string",
@@ -802,6 +802,13 @@ editable: false
         "startWorkflow": {
           "workflowId": "string",
           "serviceAccountId": "string"
+        },
+        "agentRuntimeCall": {
+          "channelId": "string",
+          "agentVersionId": "string",
+          "cloudId": "string",
+          "folderId": "string",
+          "attributes": "object"
         },
         // end of the list of possible fields
         "filter": {
@@ -1741,16 +1748,19 @@ Includes only one of the fields `organizationId`, `cloudOrganizationId`. ||
 ||Field | Description ||
 || invokeContainer | **[InvokeContainer](#yandex.cloud.serverless.triggers.v2.InvokeContainer)**
 
-Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`. ||
 || invokeFunction | **[InvokeFunction](#yandex.cloud.serverless.triggers.v2.InvokeFunction)**
 
-Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v2.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`. ||
 || startWorkflow | **[StartWorkflow](#yandex.cloud.serverless.triggers.v2.StartWorkflow)**
 
-Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`. ||
+|| agentRuntimeCall | **[AgentRuntimeCall](#yandex.cloud.serverless.triggers.v2.AgentRuntimeCall)**
+
+Includes only one of the fields `invokeContainer`, `invokeFunction`, `gatewayWebsocketBroadcast`, `startWorkflow`, `agentRuntimeCall`. ||
 || filter | **[Filter](#yandex.cloud.serverless.triggers.v2.Filter)** ||
 || transformer | **[Transformer](#yandex.cloud.serverless.triggers.v2.Transformer)** ||
 || retryPolicy | **[RetryPolicy](#yandex.cloud.serverless.triggers.v2.RetryPolicy)** ||
@@ -1800,6 +1810,25 @@ The maximum string length in characters is 50. ||
 
 The maximum string length in characters is 50. ||
 || serviceAccountId | **string** ||
+|#
+
+## AgentRuntimeCall {#yandex.cloud.serverless.triggers.v2.AgentRuntimeCall}
+
+#|
+||Field | Description ||
+|| channelId | **string**
+
+The maximum string length in characters is 50. ||
+|| agentVersionId | **string**
+
+The maximum string length in characters is 50. ||
+|| cloudId | **string**
+
+The maximum string length in characters is 50. ||
+|| folderId | **string**
+
+The maximum string length in characters is 50. ||
+|| attributes | **object** (map<**string**, **string**>) ||
 |#
 
 ## Filter {#yandex.cloud.serverless.triggers.v2.Filter}

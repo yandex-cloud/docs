@@ -4,7 +4,7 @@ The example below uses a TrustStore to connect to the {{ mkf-name }} cluster. Wi
 
 To use a TrustStore:
 
-1. Create an SSL certificate:
+1. Upload an SSL certificate:
 
    ```bash
    sudo mkdir -p {{ crt-local-dir }} && \
@@ -21,13 +21,69 @@ To use a TrustStore:
 
    It will store the `truststore.jks` file. You need a separate directory to ensure the file path is correctly recognized in commands and configuration files.
 
-1. Import the `YandexCA.crt` certificate into the `truststore.jks` file:
+1. Import the certificates from `YandexCA.crt` into `truststore.jks`:
+   
+   {% list tabs group=operating_system %}
 
-   ```bash
-   sudo keytool -import \
-                -file {{ crt-local-dir }}YandexCA.crt \
-                -alias "kafka-ui-cert" \
-                -keystore /truststore/truststore.jks
-   ```
+   - Linux (Bash) {#linux}
 
-   You will be prompted to create a password. Note it down, as you will need it to deploy the {{ KF }} web UI.
+     ```bash
+     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+       < {{ crt-local-dir }}YandexCA.crt
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore /truststore/truststore.jks \
+               -storepass <secure_store_password> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 /truststore/truststore.jks
+     ```
+
+   - macOS (Zsh) {#macos}
+     
+     ```bash     
+     split -p "-----BEGIN CERTIFICATE-----" \
+            {{ crt-local-dir }}YandexCA.crt \
+            YandexCA-
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore /truststore/truststore.jks \
+               -storepass <secure_store_password> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 /truststore/truststore.jks
+     ```
+
+   {% endlist %}
+
+   Where `-storepass` is the certificate store password. It must contain at least six characters. Save the password, as you will need it to deploy the {{ KF }} web UI.

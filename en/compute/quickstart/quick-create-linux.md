@@ -12,6 +12,8 @@ keywords:
 
 # Creating a Linux VM
 
+{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
+
 Create a Linux [VM](../concepts/vm.md) in the {{ yandex-cloud }} management console using {{ compute-name }} and connect to it.
 
 ## Getting started {#before-you-begin}

@@ -6,6 +6,119 @@ description: В разделе представлена история изме�
 # История изменений в {{ at-full-name }}
 
 
+## Октябрь 2026 {#oct-2026}
+
+* Добавлена возможность [настраивать период агрегации событий](./concepts/trail.md#target) при выгрузке в бакет {{ objstorage-name }}: от одной минуты до одного часа. По умолчанию период составляет пять минут.
+
+* Добавлены новые события для сервисов:
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `realtime.CloseSession` | Закрытие [сессии]({{ link-docs-ai }}ai-studio/concepts/agents/realtime#sessions) {{ realtime-api }}
+  `realtime.CreatePrompt` | Создание промпта голосового агента
+  `realtime.CreateSession` | Создание сессии {{ realtime-api }}
+  `realtime.DeletePrompt` | Удаление промпта голосового агента
+  `realtime.UpdatePrompt` | Изменение промпта голосового агента
+  `realtime.UpdateSession` | Изменение сессии {{ realtime-api }}
+
+  {% endcut %}
+
+  {% cut "{{ sws-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `SolidWallMatchedRequest` | Срабатывание правила из [профиля SolidWall WAF](../smartwebsecurity/concepts/solidwall-waf.md#resources)
+
+  {% endcut %}
+
+  {% cut "{{ alb-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `DisableZones` | [Отключение зон доступности](../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md#disable-zones) балансировщика
+  `EnableZones` | Включение зон доступности балансировщика
+
+  {% endcut %}
+
+  {% cut "{{ datalens-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `platform.UpdateTrinoCluster` | Изменение кластера {{ TR }}
+
+  {% endcut %}
+
+* Удалены события для сервисов:
+
+  Из справочников удалены события, которые не были реализованы в сервисах-источниках.
+
+  {% cut "{{ speechkit-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `stt.GetRecognition` | Запрос на получение результатов асинхронного распознавания речи
+  `stt.RecognizeSpeechAsync` | Запрос на асинхронное распознавание речи
+  `stt.RecognizeSpeechStream` | Запрос на потоковое распознавание речи
+  `tts.UtteranceSynthesis` | Запрос на синтез речи
+
+  {% endcut %}
+
+  {% cut "{{ translate-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `TranslateText` | Запрос на перевод текста
+
+  {% endcut %}
+
+  {% cut "{{ vision-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `RecognizeText` | Запрос на распознавание текста
+  `GetRecognition` | Запрос на получение распознанного результата
+
+  {% endcut %}
+
+## Сентябрь 2026 {#sep-2026}
+
+Добавлены новые события для сервисов:
+
+  {% cut "{{ managed-k8s-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `marketplace.v1.UpdateClusterSettings` | Изменение настроек [сбора статистики](../managed-kubernetes/operations/applications/marketplace.md#statics) использования приложений в кластере
+
+  {% endcut %}
+
+  {% cut "{{ lockbox-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CancelDeleteSecret` | Отмена удаления секрета
+
+  {% endcut %}
 
 ## Август 2026 {#aug-2026}
 

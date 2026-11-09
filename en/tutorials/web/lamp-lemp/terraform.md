@@ -11,4 +11,4 @@ To create an infrastructure for a [website on the LAMP or LEMP stack](index.md) 
 
 #### Useful links {#see-also}
 
-* [{#T}](console.md).
+[{#T}](console.md)

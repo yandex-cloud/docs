@@ -37,7 +37,7 @@ This tutorial includes supplemental [{{ TF }}](../terraform/index.yaml) configur
 * Setting up {{ postbox-name }} to send transactional emails.
 * Integrating a [function](../functions/concepts/function.md) from {{ sf-name }} to send emails and an example of such a function for [Node.js](https://nodejs.org/en/docs/).
 
-You can find the supplemental materials in the [![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) GitHub repository.
+You can find the supplemental materials in the ![![image](../_assets/overview/solution-library-icon.svg) **yc-object-storage-cdn-static-site**](https://github.com/yandex-cloud-examples/yc-object-storage-cdn-static-site) GitHub repository.
 
 ## Solution overview {#solutions}
 

@@ -99,7 +99,10 @@ editable: false
         "enteredAt": "string"
       }
     ],
-    "sessionId": "string"
+    "sessionId": "string",
+    "obligations": [
+      "string"
+    ]
   }
 }
 ```
@@ -280,6 +283,11 @@ A list of messages that carry the error details. ||
 || applicationId | **string** ||
 || enteredAuthentications[] | **[EnteredAuthentication](#yandex.cloud.audit.iam.credential.ApplicationLoginEvent.EnteredAuthentication)** ||
 || sessionId | **string** ||
+|| obligations[] | **enum** (Obligation)
+
+- `STEP_UP_REQUIRED`
+- `SKIP_MFA`
+- `REAUTHENTICATION_REQUIRED` ||
 |#
 
 ## EnteredAuthentication {#yandex.cloud.audit.iam.credential.ApplicationLoginEvent.EnteredAuthentication}

@@ -1,5 +1,5 @@
 ---
-title: Authentication with the {{ container-registry-full-name }} API
+title: '{{ container-registry-full-name }} API authentication'
 description: 'To work with the {{ container-registry-full-name }} API, obtain an IAM token for your account. To access {{ yandex-cloud }} resources via the API, provide this IAM token in the following format: Authorization: Bearer <IAM_token>.'
 ---
 

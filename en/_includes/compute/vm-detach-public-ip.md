@@ -4,8 +4,9 @@
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Select the VM.
-  1. In the window that opens, under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
+  1. Select your VM.
+  1. On the **{{ ui-key.yacloud.common.overview }}** tab, scroll down to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section.
+  1. In the network interface section, click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner and then click ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.instance.overview.button_remove-public-ip }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.overview.popup-confirm_button_remove-one-to-one-nat }}**.
 
 - CLI {#cli}

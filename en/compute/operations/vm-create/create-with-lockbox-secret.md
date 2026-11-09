@@ -5,6 +5,8 @@ description: Follow this guide to get the value of a {{ lockbox-full-name }} sec
 
 # Creating a VM with access to a {{ lockbox-full-name }} secret
 
+{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+
 You can use the [metadata](../../concepts/vm-metadata.md) service to provide the ID of a [{{ lockbox-full-name }} secret](../../../lockbox/concepts/secret.md) to a [VM](../../concepts/vm.md) and then get the value of that secret from inside the VM using the [IAM token](../../../iam/concepts/authorization/iam-token.md) of the [service account](../../../iam/concepts/users/service-accounts.md) linked to the VM.
 
 Just like other user data, {{ lockbox-name }} secrets are provided in the `user-data` key. You can provide metadata to the `user-data` [folder](../../concepts/metadata/directories.md#dir-user) both when [creating](../index.md#vm-create) and [updating](../vm-control/vm-update.md) a VM.

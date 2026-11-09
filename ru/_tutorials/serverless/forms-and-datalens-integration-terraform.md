@@ -69,7 +69,7 @@
 
 ## Создайте и настройте функцию {{ sf-name }} {#create-function}
 
-1. Скачайте в директорию с файлом `forms-and-datalens-integration.tf` [архив с кодом функции](https://github.com/yandex-cloud-examples/yc-serverless-forms-datalens-integration/blob/main/function-zip).    
+1. Скачайте в директорию с файлом `forms-and-datalens-integration.tf` [архив с кодом функции](https://github.com/yandex-cloud-examples/yc-serverless-forms-datalens-integration/blob/main/function.zip).    
 
 1. В блоке локальных переменных файла `forms-and-datalens-integration.tf` укажите значения:
 
