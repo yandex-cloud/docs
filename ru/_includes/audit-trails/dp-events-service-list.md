@@ -1,7 +1,6 @@
 * [{{ alb-full-name }}](../../audit-trails/concepts/events-data-plane.md#alb)
 * [{{ baremetal-full-name }}](../../audit-trails/concepts/events-data-plane.md#baremetal)
 * [{{ certificate-manager-full-name }}](../../audit-trails/concepts/events-data-plane.md#certificate-manager)
-* [{{ cloud-desktop-full-name }}](../../audit-trails/concepts/events-data-plane.md#clouddesktop)
 * [{{ cloud-registry-full-name }}](../../audit-trails/concepts/events-data-plane.md#cloud-registry)
 * [{{ dns-full-name }}](../../audit-trails/concepts/events-data-plane.md#dns)
 * [{{ compute-full-name }}](../../audit-trails/concepts/events-data-plane.md#compute)

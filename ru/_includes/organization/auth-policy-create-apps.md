@@ -8,8 +8,4 @@
         В появившемся поле выберите нужные приложения. При необходимости воспользуйтесь строкой поиска по имени или идентификатору приложения.
 1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.security-settings.ScopeCardBlock.exclude_label_4Mn7B }}** выберите приложения, к аутентификации в которых не будет применяться политика.
 
-    {% note info %}
-
-    Одинаковые приложения не могут быть заданы одновременно в списках включения и исключения.
-
-    {% endnote %}
+    {% include [auth-policy-incl-excl-same-app-ids-notice](./auth-policy-incl-excl-same-app-ids-notice.md) %}

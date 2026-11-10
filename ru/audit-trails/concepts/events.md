@@ -93,12 +93,6 @@ description: В данном разделе приведены описания 
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
-## {{ cloud-desktop-full-name }} {#clouddesktop}
-
-Имя сервиса — `clouddesktop`.
-
-{% include [clouddesktop-events](../../_includes/audit-trails/events/clouddesktop-events.md) %}
-
 ## {{ dns-full-name }} {#dns}
 
 Имя сервиса — `dns`.

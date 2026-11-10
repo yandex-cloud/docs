@@ -58,45 +58,46 @@
   1. Посмотрите описание команды для создания [приватной подсети](../concepts/private-network.md#private-subnet):
 
      ```bash
-     yc baremetal private-subnet create --help
+     yc baremetal v2 private-subnet create --help
      ```
   
   1. Создайте подсеть:
      
      ```bash
-     yc baremetal private-subnet create \
-       --hardware-pool-id <пул> \
-       --name <имя_приватной_подсети> \
-       --description "<описание_приватной_подсети>" \
-       --labels <ключ>=<значение> \
-       --vrf-options-spec '{
-         vrf-id=<идентификатор_VRF>,
-         cidr=<CIDR>,
-         gateway-ip=<IP-адрес_шлюза>,
-         dhcp-options={
-           start-ip=<начало_диапазона_IP-адресов>,
-           end-ip=<конец_диапазона_IP-адресов>,
-           dns-options={
-             servers=[
-               {server={dns-inbound-endpoint-id=<идентификатор_DNS-подключения>}}
-             ],
-             domain-name=example.internal
+     yc baremetal v2 private-subnet create \
+       --private-subnet '{
+         hardware-pool-id="<пул>",
+         name="<имя_приватной_подсети>",
+         description="<описание_приватной_подсети>",
+         annotations={<ключ>="<значение>"},
+         vrf-options={
+           vrf-id="<идентификатор_VRF>",
+           cidr="<CIDR>",
+           gateway-ip="<IP-адрес_шлюза>",
+           dhcp-options={
+             start-ip="<начало_диапазона_IP-адресов>",
+             end-ip="<конец_диапазона_IP-адресов>",
+             dns-options={
+               servers=[{server=dns-inbound-endpoint-id="<идентификатор_DNS-подключения>"}],
+               domain-name="example.internal"
+             }
            }
          }
        }'
      ```
 
-     Где:
-     * `--hardware-pool-id` — [пул](../concepts/servers.md#server-pools), из которого будет арендован сервер. Обязательный параметр.
-     * `--name` — имя подсети. Требования к имени:
+     В объекте `--private-subnet` укажите:
+
+     * `hardware-pool-id` — [пул](../concepts/servers.md#server-pools), из которого будет арендован сервер. Обязательный параметр.
+     * `name` — имя подсети. Требования к имени:
        
        * длина — от 3 до 63 символов;
        * может содержать строчные буквы латинского алфавита, цифры и дефисы;
        * первый символ — буква, последний — не дефис.
        
-     * `--description` — описание подсети. Необязательный параметр.
-     * `--labels` — метки подсети. Необязательный параметр.
-     * `--vrf-options-spec` — настройки маршрутизации для взаимодействия с серверами из других пулов. Необязательный параметр. Возможные настройки:
+     * `description` — описание подсети. Необязательный параметр.
+     * `annotations` — метки подсети. Необязательный параметр.
+     * `vrf-options` — настройки маршрутизации для взаимодействия с серверами из других пулов. Необязательный параметр. Возможные настройки:
        * `vrf-id` — идентификатор [виртуального сегмента сети (VRF)](../concepts/private-network.md#vrf-segment).
        * `cidr` — [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
        * `gateway-ip` — IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF. Необязательный параметр.
@@ -109,7 +110,7 @@
 
          В блоке `dns-options` можно задать [DNS-настройки](../concepts/dns.md):
 
-         * `servers` — список DNS-серверов. Для каждого элемента `server` укажите либо `dns-inbound-endpoint-id` — идентификатор входящего DNS-подключения, либо `ip-address` — IPv4-адрес собственного DNS-сервера. Например, `{server={ip-address=192.168.10.2}}`. Всего можно указать до трех элементов, разделяя их запятыми. Для входящего DNS-подключения предварительно [настройте сетевую связность](configure-dns.md#before-you-begin). Идентификатор подключения можно получить командой `yc dns inbound-endpoint list`.
+         * `servers` — список DNS-серверов. Для каждого элемента `server` укажите либо `dns-inbound-endpoint-id` — идентификатор входящего DNS-подключения, либо `ip-address` — IPv4-адрес собственного DNS-сервера. Например, `{server=ip-address="192.168.10.2"}`. Всего можно указать до трех элементов, разделяя их запятыми. Для входящего DNS-подключения предварительно [настройте сетевую связность](configure-dns.md#before-you-begin). Идентификатор подключения можно получить командой `yc dns inbound-endpoint list`.
          * `domain-name` — поисковый домен. Необязательный параметр. Вместо `example.internal` укажите свой домен или удалите параметр, если поисковый домен не нужен.
 
          Если DNS-настройки не нужны, удалите блок `dns-options`.
@@ -129,28 +130,31 @@
 - CLI {#cli}
 
   ```bash
-  yc baremetal private-subnet create \
-    --hardware-pool-id ru-central1-m3 \
-    --name demo-private-subnet \
-    --description "My first private subnet" \
-    --labels env=test \
-    --vrf-options-spec '{
-      vrf-id=ly5j5qluq32z********,
-      cidr=10.0.0.0/8,
-      gateway-ip=10.0.0.1,
-      dhcp-options={start-ip=10.0.1.2,end-ip=10.0.1.10}
-    }'
+  yc baremetal v2 private-subnet create \
+    --private-subnet '{
+      hardware-pool-id="ru-central1-m3",
+      name="demo-private-subnet",
+      description="My first private subnet",
+      annotations={env="test"},
+      vrf-options={
+        vrf-id="ly5j5qluq32z********",
+        cidr="10.0.0.0/8",
+        gateway-ip="10.0.0.1",
+        dhcp-options={start-ip="10.0.1.2",end-ip="10.0.1.10"}
+      }
+    }' \
+    --format yaml
   ```
 
-  Результат:  
+  Пример результата:
   
-  ```text
-  id: ly5p3zynykcg********
+  ```yaml
+  private_subnet_id: ly5p3zynykcg********
   cloud_id: b1gia87mbaom********
   folder_id: b1gcqo0asnc1********
   name: demo-private-subnet
   description: My first private subnet
-  status: READY
+  state: READY
   zone_id: ru-central1-m
   hardware_pool_id: ru-central1-m3
   vrf_options:
@@ -160,8 +164,8 @@
       start_ip: 10.0.1.2
       end_ip: 10.0.1.10
     gateway_ip: 10.0.0.1
-  created_at: "2025-06-26T13:28:29.348159Z"
-  labels:
+  create_time: "2025-06-26T13:28:29.348159Z"
+  annotations:
     env: test
   ```
 

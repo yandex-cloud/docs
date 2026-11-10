@@ -30,25 +30,28 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды для создания [виртуального сегмента сети (VRF)](../concepts/private-network.md#vrf-segment):
 
      ```bash
-     yc baremetal vrf create --help
+     yc baremetal v2 vrf create --help
      ```
   
   1. Создайте VRF:
      
      ```bash
-     yc baremetal vrf create \
-       --name <имя_VRF> \
-       --description "<описание_VRF>" \
-       --labels <ключ>=<значение>
+     yc baremetal v2 vrf create \
+       --vrf '{
+         name="<имя_VRF>",
+         description="<описание_VRF>",
+         annotations={<ключ>="<значение>"}
+       }'
      ```
 
-     Где:
-     * `--name` — имя VRF. Требования к имени:
+     В объекте `--vrf` укажите:
+
+     * `name` — имя VRF. Требования к имени:
        
        {% include [name-format](../../_includes/name-format.md) %}
 
-     * `--description` — описание VRF. Необязательный параметр.
-     * `--labels` — метки VRF. Необязательный параметр.
+     * `description` — описание VRF. Необязательный параметр.
+     * `annotations` — метки VRF. Необязательный параметр.
 
 - API {#api}
 
@@ -65,22 +68,25 @@ description: Следуя данной инструкции, вы сможете
 - CLI {#cli}
 
   ```bash
-  yc baremetal vrf create \
-    --name demo-vrf \
-    --description "My first VRF" \
-    --labels env=test
+  yc baremetal v2 vrf create \
+    --vrf '{
+      name="demo-vrf",
+      description="My first VRF",
+      annotations={env="test"}
+    }' \
+    --format yaml
   ```
 
-  Результат:
+  Пример результата:
   
-  ```text
-  id: ly52l2lzaq5uw********
+  ```yaml
+  vrf_id: ly52l2lzaq5uw********
   cloud_id: b1gia87mbaom********
   folder_id: b1g0ijbfaqsn********
   name: demo-vrf
   description: My first VRF
-  created_at: "2025-07-01T21:37:08.740581Z"
-  labels:
+  create_time: "2025-07-01T21:37:08.740581Z"
+  annotations:
     env: test
   ```
 

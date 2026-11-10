@@ -35,7 +35,7 @@ Make sure you have a domain name and can access the DNS settings on your DNS hos
 
 The cost of supporting the CDN infrastructure includes:
 * Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
-* Fee for storing data in {{ objstorage-name }}, operations with it, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage in {{ objstorage-name }}, data operations, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
@@ -110,9 +110,18 @@ Create two buckets: one will store files and the other, request logs for the fir
      * `secret_key`: Secret access key value.
      * `bucket`: Name of the bucket you are creating.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source  = "yandex-cloud/yandex"
+           version = ">= 0.47.0"
+         }
+       }
+     }
+
      provider "yandex" {
        cloud_id  = "<cloud_ID>"
        folder_id = "<folder_ID>"
@@ -326,7 +335,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
       [Learn more about caching](../../cdn/concepts/caching.md)
 
   1. Click **{{ ui-key.yacloud.common.continue }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** and **Advanced**, leave the default settings and click **Continue**.
+  1. Keep the default settings for **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** and **{{ ui-key.yacloud.cdn.label_section-additional }}** and click **{{ ui-key.yacloud.common.continue }}**.
 
 - CLI {#cli}
 
@@ -361,6 +370,15 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
      {% include [bucket-website-hosting-tip](../../_includes/cdn/bucket-website-hosting-tip.md) %}
 
+  1. Enable caching on CDN servers:
+
+     ```bash
+     yc cdn resource update <resource_ID> \
+       --cache-expiration-time 345600
+     ```
+
+     Where `--cache-expiration-time` is the cache TTL in seconds.
+
   1. Enable client redirects for the resource:
 
      ```bash
@@ -387,6 +405,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
        origin_protocol     = "https"
        origin_group_id     = yandex_cdn_origin_group.my_group.id
        options {
+         edge_cache_settings    = "345600"
          custom_host_header     = "<name_of_bucket_with_files>.{{ s3-storage-host }}"
        }
        ssl_certificate {
@@ -424,7 +443,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      ```hcl
      ...
      options {
-       redirect_https_to_http = true
+       redirect_http_to_https = true
      ...
      ```
 
@@ -518,7 +537,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         id: aetuvdw77q61********
         folder_id: aoewzf73jwdl********
         created_at: "2021-09-28T10:33:31.917Z"
-        name: cdn-zone-a
+        name: cdn-dns-a
         zone: ycprojectblue.example.
         public_visibility: {}
         ```
@@ -609,7 +628,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 1. Wait until the DNS records are updated (this may take a few hours) and the file is prefetched to the CDN servers.
 1. Download the file at the new URL:
 
-   ```http request
+   ```text
    https://cdn.ycprojectblue.example/ycgame-update-v1.1.exe
    ```
 
@@ -671,8 +690,10 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
 To shut down your CDN resource and stop paying for the resources you created:
 1. [Disable](../../cdn/operations/resources/disable-resource.md) the resource you created.
+1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN resource.
 1. [Delete](../../storage/operations/objects/delete.md) the `ycgame-update-v1.1.exe` object from the bucket with files.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket with files.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket with logs.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket with logs.
 1. [Delete](../../dns/operations/zone-delete.md) the DNS zone if you used it during [DNS setup](#dns-setup).
+1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the certificate from {{ certificate-manager-name }} if you added it when [drafting the guide](#add-certificate).

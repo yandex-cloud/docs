@@ -7,6 +7,30 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.40.0 (05/10/26) {#v-1-40-0}
+
+#### {{ at-name }} {#v-1-40-0-at-name}
+
+* Added the `--destination-bucket-aggregation-period` parameter to the following trail management commands for setting up the time period for exporting events to {{ objstorage-name }}:
+  * `yc audit-trails trail create`
+  * `yc audit-trails trail update`
+
+#### {{ iam-name }} {#v-1-40-0-iam-name}
+
+* Fixed the `yc iam revoke-token` command crashing after successfully revoking an IAM token.
+
+#### {{ mos-name }} {#v-1-40-0-mos-name}
+
+* Added the following commands for protecting a cluster against unsafe changes:
+  * `yc managed-opensearch cluster disable-protection`
+  * `yc managed-opensearch cluster enable-protection`
+
+#### Changes to the CLI system commands {#v-1-40-0-yc}
+
+* Added the warning of the authentication with the Yandex ID OAuth token becoming deprecated.
+
+## Previous releases {#previous-release}
+
 ### Version 1.39.0 (01/10/26) {#v-1-39-0}
 
 #### Managed database services {#v-1-39-0-mdb}
@@ -34,8 +58,6 @@ description: This page presents CLI releases and their updates.
 * Added the `--login` parameter to the following user management commands:
   * `yc managed-greenplum users create`
   * `yc managed-greenplum users update`
-
-## Previous releases {#previous-release}
 
 ### Version 1.38.0 (28/09/26) {#v-1-38-0}
 

@@ -31,7 +31,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Cloud Backup](events.md#backup)
 * [Yandex Cloud Billing](events.md#billing)
 * [Yandex Cloud CDN](events.md#cdn)
-* [Yandex Cloud Desktop](events.md#clouddesktop)
 * [Yandex Cloud DNS](events.md#dns)
 * [Yandex Cloud Functions](events.md#functions)
 * [Yandex Cloud Logging](events.md#cloud-logging)
@@ -358,13 +357,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `gcore.ResourceRuleDelete` | Удаление правила Rewrite
 `gcore.ResourceRuleUpdate` | Изменение правила Rewrite
 `gcore.ResourceUpdate` | Изменение ресурса
-
-## Yandex Cloud Desktop {#clouddesktop}
-
-Имя сервиса — `clouddesktop`.
-
-Имя события | Описание
---- | ---
 
 ## Yandex Cloud DNS {#dns}
 

@@ -1,6 +1,5 @@
-Получите список периодов аренды, доступных для выбранной конфигурации:
+Получите список периодов аренды:
 
 ```bash
-yc baremetal rental-period list \
-  --configuration-id <идентификатор_конфигурации>
+yc baremetal v2 rental-period list
 ```

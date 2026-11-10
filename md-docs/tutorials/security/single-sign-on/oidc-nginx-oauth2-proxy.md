@@ -171,6 +171,8 @@
       updated_at: "2026-01-22T08:53:27.439690Z"
       ```
 
+      Сохраните значение поля `id` — это идентификатор OIDC-приложения, он понадобится при добавлении пользователей в приложение.
+
 {% endlist %}
 
 ### Настройте Redirect URI {#setup-redirect}
@@ -261,9 +263,9 @@
         --id <идентификатор_приложения> \
         --subject-id <идентификатор_пользователя_или_группы>
       ```
-  
+
       Где:
-  
+
       * `--id` — идентификатор OIDC-приложения.
       * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
   
@@ -289,7 +291,7 @@
 
 ## Подготовьте виртуальную машину с тестовым приложением {#setup-server}
 
-В данном руководстве вы развернете тестовое приложение, а также настроите утилиты `nginx` и `OAuth2 Proxy` на виртуальной машине под управлением ОС [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+В данном руководстве вы развернете тестовое приложение, а также настроите утилиты `nginx` и `OAuth2 Proxy` на виртуальной машине под управлением ОС [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/bm-ubuntu-24-04-lts).
 
 {% note warning %}
 
@@ -310,11 +312,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления {#cloud-center}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Общая информация** задайте имя ВМ: `my-nginx-vm`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), соответствующую зоне доступности вашей подсети.
   1. В блоке **Вычислительные ресурсы** выберите конфигурацию `2 vCPU 4 ГБ RAM`.
@@ -343,7 +346,7 @@
         1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
-  1. В блоке **Общая информация** задайте имя ВМ: `my-nginx-vm`.
+
   1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
@@ -595,7 +598,7 @@
 
         ```text
         provider = "oidc"  # Тип провайдера
-        provider_display_name = "Yandex Identity Hub" # Имя провайдера на кнопке
+        provider_display_name = "Yandex Cloud Organization" # Имя провайдера на кнопке
         reverse_proxy = true # Включение режима работы за nginx
         client_id = "<идентификатор_ClientID>" # ClientID OIDC приложения 
         client_secret = "<секрет_OIDC_приложения>" # Секрет OIDC приложения
@@ -632,7 +635,8 @@
 
     ```bash
     sudo /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy \
-      --config /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy.cfg
+      --config /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy.cfg \
+      --set-xauthrequest
     ```
 
     {% note tip %}

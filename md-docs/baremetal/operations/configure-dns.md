@@ -51,22 +51,22 @@
   1. Посмотрите описание команды CLI для изменения приватной подсети:
 
      ```bash
-     yc baremetal private-subnet update --help
+     yc baremetal v2 private-subnet update --help
      ```
 
   1. Получите идентификатор приватной подсети:
 
      ```bash
-     yc baremetal private-subnet list
+     yc baremetal v2 private-subnet list
      ```
 
   1. Посмотрите текущие настройки подсети:
 
      ```bash
-     yc baremetal private-subnet get <идентификатор_подсети>
+     yc baremetal v2 private-subnet get <идентификатор_подсети>
      ```
 
-     Сохраните значения `vrf_id`, `cidr`, `gateway_ip`, `dhcp_options.start_ip` и `dhcp_options.end_ip` из блока `vrf_options`. Их нужно передать без изменений при настройке DNS.
+     Убедитесь, что в блоке `vrf_options` настроен DHCP (`dhcp_options`), как описано в разделе [Перед началом работы](#before-you-begin).
 
   1. Если вы используете входящее DNS-подключение Cloud DNS, получите его идентификатор:
 
@@ -77,20 +77,16 @@
   1. Задайте DNS-настройки подсети:
 
      ```bash
-     yc baremetal private-subnet update <идентификатор_подсети> \
-       --update-mask vrf_options_spec \
-       --vrf-options-spec '{
-         vrf-id=<идентификатор_VRF>,
-         cidr=<CIDR>,
-         gateway-ip=<IP-адрес_шлюза>,
-         dhcp-options={
-           start-ip=<начало_диапазона_IP-адресов>,
-           end-ip=<конец_диапазона_IP-адресов>,
-           dns-options={
-             servers=[
-               {server={dns-inbound-endpoint-id=<идентификатор_DNS-подключения>}}
-             ],
-             domain-name=example.internal
+     yc baremetal v2 private-subnet update \
+       --id <идентификатор_подсети> \
+       --update-mask vrf-options.dhcp-options.dns-options \
+       --private-subnet '{
+         vrf-options={
+           dhcp-options={
+             dns-options={
+               servers=[{server=dns-inbound-endpoint-id="<идентификатор_DNS-подключения>"}],
+               domain-name="example.internal"
+             }
            }
          }
        }'
@@ -99,11 +95,11 @@
      Где:
 
      * `<идентификатор_подсети>` — идентификатор изменяемой приватной подсети. Обязательный параметр.
-     * `--update-mask vrf_options_spec` — обновляет только настройки маршрутизации и DHCP. Имя, описание и метки подсети не изменяются.
-     * `--vrf-options-spec` — настройки маршрутизации и DHCP. В `vrf-id`, `cidr`, `gateway-ip`, `start-ip` и `end-ip` укажите сохраненные значения текущих настроек подсети.
+     * `--update-mask vrf-options.dhcp-options.dns-options` — список изменяемых полей. Обновляется только блок DNS-настроек.
+     * `--private-subnet` — параметры подсети. Передайте DNS-настройки в блоке `vrf-options.dhcp-options.dns-options`.
      * `dns-options.servers` — список DNS-серверов. Для каждого элемента `server` укажите один из параметров:
        * `dns-inbound-endpoint-id` — идентификатор входящего DNS-подключения.
-       * `ip-address` — IPv4-адрес собственного DNS-сервера. Например, `{server={ip-address=192.168.10.2}}`.
+       * `ip-address` — IPv4-адрес собственного DNS-сервера. Например, `{server=ip-address="192.168.10.2"}`.
 
        Всего можно указать до трех элементов, разделяя их запятыми. При изменении списка передайте все DNS-серверы, которые должны остаться в настройках.
 
@@ -187,7 +183,16 @@ dig @<IP-адрес_DNS-сервера> <FQDN_ресурса>
 
 - CLI {#cli}
 
-  Повторите [команду изменения подсети](#configure-dns), удалив из значения `--vrf-options-spec` блок `dns-options`. Сохраните остальные параметры, в том числе `dhcp-options` с текущими значениями `start-ip` и `end-ip`, чтобы DHCP продолжал выдавать IP-адреса.
+  Сбросьте DNS-настройки, указав соответствующий путь в маске обновления и передав пустой объект подсети:
+
+  ```bash
+  yc baremetal v2 private-subnet update \
+    --id <идентификатор_подсети> \
+    --update-mask vrf-options.dhcp-options.dns-options \
+    --private-subnet '{}'
+  ```
+
+  Команда удалит блок `dns-options`. Остальные настройки DHCP и маршрутизации сохранятся.
 
 {% endlist %}
 

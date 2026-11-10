@@ -39,7 +39,7 @@ We recommend that you migrate all buses by yourself. With automatic migration, t
 
 ## Further questions {#support}
 
-If you have any questions regarding {{ yq-full-name }} shutdown:
+If you have any questions regarding {{ si-full-name }} shutdown:
 
 * Contact [support]({{ link-console-support }}).
 * Contact your account manager.

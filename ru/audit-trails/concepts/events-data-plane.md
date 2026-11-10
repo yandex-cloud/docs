@@ -39,12 +39,6 @@ description: В данном разделе приведены описания 
 
 {% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
 
-## {{ cloud-desktop-full-name }} {#clouddesktop}
-
-Имя сервиса — `clouddesktop`.
-
-{% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
-
 ## {{ cloud-registry-full-name }} {#cloud-registry}
 
 Имя сервиса — `cloudregistry`.

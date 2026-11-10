@@ -303,6 +303,10 @@ To create an HTTP router for `site-a.com`:
   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the website domain name: `site-a.com`.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Specify the route **{{ ui-key.yacloud.common.name }}**: `vhosting-route-a`.
+  1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify `/` so that the route handles requests for all paths on the website.
+
+     To process only requests with a specific path prefix, specify that prefix instead of `/`, e.g., `/blog/`.
+
   1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `vhosting-bg-a` group.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -327,6 +331,7 @@ To create an HTTP router for `default.com`:
   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, specify the website domain name: `default.com`.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Specify the route **{{ ui-key.yacloud.common.name }}**: `vhosting-route-a`.
+  1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify `/` so that the route handles requests for all paths on the website.
   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, select `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`.
   1. In the **{{ ui-key.yacloud.alb.label_http-status-code }}** field, select `404 Not Found`.
   1. In the **{{ ui-key.yacloud.alb.label_body }}** field, click **{{ ui-key.yacloud.alb.button_select }}**. Select the `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` method and enter the following in the **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** field:

@@ -16,7 +16,7 @@ To install Ghost CMS High Availability:
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Get your cloud ready {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -69,12 +69,16 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
   Run this command:
 
   ```bash
   yc lockbox secret create \
     --name db-password-secret \
-    --payload "[{'key': 'db_password', 'text_value': '<password>'}]"
+    --payload '[{"key": "db_password", "text_value": "<password>"}]'
   ```
 
   Where `text_value` is the {{ mmy-name }} database password. Follow these password requirements:
@@ -223,9 +227,7 @@ To shut down the resources you created and stop paying for them:
     1. [Navigate]({{ link-console-main }}/link/cloud-apps) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. Locate the installed Ghost CMS High Availability app in the list.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
-    1. Confirm the app deletion.
-
-        Wait for the deletion to complete.
+    1. Confirm the application deletion and wait for it to complete.
 
 1. [Delete](../../dns/operations/zone-delete.md) the public DNS zone.
 1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.

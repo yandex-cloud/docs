@@ -23,7 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and [get the authentication data](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Set up your infrastructure description file:
 
     {% list tabs group=infrastructure_description %}
@@ -76,7 +77,7 @@ To create an infrastructure using {{ TF }}:
 1. In the `bind-domain-to-vm.auto.tfvars` file, set the following user-defined properties:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM, e.g., `~/.ssh/id_ed25519.pub`. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM, e.g., `~/.ssh/id_ed25519.pub`. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `domain_name`: Your domain name, e.g., `example.com`.
 
 1. Create the resources:
@@ -91,11 +92,11 @@ After creating the infrastructure, [test the website](#test).
 
 {% include [vm-test](../_tutorials_includes/bind-domain-vm/test.md) %}
 
-## Delete the resources you created {#clear-out}
+## How to delete the resources you created {#clear-out}
 
-To shut down the hosting and stop paying for the resources you created:
+To stop paying for the resources you created:
 
-1. Open the `bind-domain-to-vm.tf` configuration file and delete your infrastructure description.
+1. Open the `bind-domain-to-vm.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

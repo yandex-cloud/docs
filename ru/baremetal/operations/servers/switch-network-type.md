@@ -21,282 +21,179 @@ description: Следуя данной инструкции, вы сможете
 
   1. Посмотрите описание команды для изменения сервера:
 
-      ```bash
-      yc baremetal server update --help
-      ```
-  1. Получите список серверов {{ baremetal-name }} в каталоге по умолчанию:
+     ```bash
+     yc baremetal v2 server update --help
+     ```
 
-      ```bash
-      yc baremetal server list
-      ```
+  1. Получите список серверов {{ baremetal-name }} в каталоге по умолчанию и сохраните идентификатор нужного сервера (`server_id`):
 
-      Результат:
+     ```bash
+     yc baremetal v2 server list
+     ```
 
-      ```text
-      +----------------------+---------------+---------+-------+---------------------+
-      |          ID          |      NAME     | STATUS  | DISKS |     CREATED AT      |
-      +----------------------+---------------+---------+-------+---------------------+
-      | ly5zeaqeklpg******** | sample-server | RUNNING |       | 2026-05-15 11:46:38 |
-      +----------------------+---------------+---------+-------+---------------------+
-      ```
-  1. Определите интерфейс сервера, который поддерживает подключение как к приватной, так и к публичной сети. Алгоритм действий будет зависеть от типа конфигурации сервера ([готовая](../../concepts/server-configurations.md) или [своя](../../concepts/server-custom-configurations.md)):
+  1. Получите подробную информацию о сервере, указав его идентификатор:
 
-      {% list tabs group=bms_server_type %}
+     ```bash
+     yc baremetal v2 server get ly5zeaqeklpg******** --format yaml
+     ```
 
-      - Готовая конфигурация {#standard}
+     Пример результата:
 
-        1. Получите подробную информацию о сервере, указав его имя или идентификатор:
+     ```yaml
+     server_id: ly5zeaqeklpg********
+     network_interfaces:
+       - network_interface_id: ly5zjjc2vfpi********
+         private_interface:
+           native_subnet_id: ly5lpb2vydo7********
+           mac_limit: "5"
+         configuration_network_interface_id: ly5oc5p4u6vg********
+       - network_interface_id: ly5mzklkjpa5********
+         private_interface:
+           native_subnet_id: ly5lpb2vydo7********
+           mac_limit: "5"
+         configuration_network_interface_id: ly5dmh2u3qwe********
+     stock_configuration_id: ly5tdlrmwezt********
+     ```
 
-            ```bash
-            yc baremetal server get sample-server
-            ```
+     В этом примере оба интерфейса подключены к приватной подсети `ly5lpb2vydo7********`. Сохраните значения `network_interface_id` и соответствующие им `configuration_network_interface_id`.
 
-            Результат:
+  1. Определите, какой интерфейс поддерживает подключение как к приватной, так и к публичной сети. Действия зависят от [конфигурации сервера](../../concepts/server-configurations.md):
 
-            ```yaml
-            id: ly5zeaqeklpg********
-            ...
-            network_interfaces:
-              - private_subnet:
-                  private_subnet_id: ly5lpb2vydo7********
-                private_interface:
-                  native_subnet_id: ly5lpb2vydo7********
-                  mac_limit: "5"
-                id: ly5zjjc2vfpi********
-                mac_address: b4:2e:99:58:2b:a6
-                configuration_network_interface_id: ly5oc5p4u6vg********
-              - private_subnet:
-                  private_subnet_id: ly5lpb2vydo7********
-                private_interface:
-                  native_subnet_id: ly5lpb2vydo7********
-                  mac_limit: "5"
-                id: ly5mzklkjpa5********
-                mac_address: b4:2e:99:58:2b:a8
-                configuration_network_interface_id: ly5dmh2u3qwe********
-            configuration_id: ly5tdlrmwezt********
-            created_at: "2026-05-15T11:46:38.842525Z"
-            ```
+     {% list tabs group=bms_server_type %}
 
-            Как видно из результата, на сервере установлены два сетевых интерфейса, оба из которых подключены к приватной сети (приватная подсеть `ly5lpb2vydo7********`):
+     - Готовая конфигурация {#standard}
 
-            * интерфейс с идентификатором `ly5zjjc2vfpi********`, которому соответствует [конфигурация](../../concepts/server-configurations.md#components) сетевого интерфейса с идентификатором `ly5oc5p4u6vg********`;
-            * интерфейс с идентификатором `ly5mzklkjpa5********`, которому соответствует конфигурация сетевого интерфейса с идентификатором `ly5dmh2u3qwe********`;
+       Получите информацию о конфигурации, указав значение `stock_configuration_id` из предыдущего шага:
 
-            Идентификатор конфигурации сервера (`configuration_id`) — `ly5tdlrmwezt********`. Сохраните это значение, оно понадобится при выполнении следующей команды.
-        1. Получите подробную информацию о [конфигурации](../../concepts/server-configurations.md#components) сервера, чтобы выяснить, какой из двух сетевых интерфейсов поддерживает подключение к разным типам сетей (`PRIVATE`,`PUBLIC`). Для этого выполните команду, указав сохраненный ранее идентификатор конфигурации сервера:
+       ```bash
+       yc baremetal configuration get ly5tdlrmwezt********
+       ```
 
-            ```bash
-            yc baremetal configuration get ly5tdlrmwezt********
-            ```
+       {% include [conf-get-cli-output](../../../_includes/baremetal/instruction-steps/conf-get-cli-output.md) %}
 
-            {% include [conf-get-cli-output](../../../_includes/baremetal/instruction-steps/conf-get-cli-output.md) %}
+       В списке `network_interfaces` найдите конфигурацию интерфейса, для которой `available_modes` содержит `PRIVATE` и `PUBLIC`. В примере это `ly5dmh2u3qwe********`.
 
-            Как видно из результата, для указанной конфигурации сервера подключение к приватной и публичной сети (`PRIVATE`,`PUBLIC`) поддерживает интерфейс с идентификатором конфигурации сетевого интерфейса `ly5dmh2u3qwe********`.
+     - Своя конфигурация {#custom}
 
-            Как видно из результата команды `yc baremetal server get`, полученного ранее, идентификатору конфигурации сетевого интерфейса `ly5dmh2u3qwe********` соответствует сетевой интерфейс сервера с идентификатором `ly5mzklkjpa5********`. Следовательно, изменить тип привязанной сети можно только для этого интерфейса.
+       В результате команды `yc baremetal v2 server get` найдите список `custom_configuration.network_interfaces`:
 
-      - Своя конфигурация {#custom}
+       ```yaml
+       custom_configuration:
+         configuration_id: ly5x6w3htlgx********
+         network_interfaces:
+           - id: ly5oc5p4u6vg********
+             name: iface0
+             available_modes:
+               - PRIVATE
+           - id: ly5dmh2u3qwe********
+             name: iface1
+             available_modes:
+               - PRIVATE
+               - PUBLIC
+       ```
 
-        1. Получите подробную информацию о сервере, указав его имя или идентификатор:
+       Найдите конфигурацию интерфейса, для которой `available_modes` содержит `PRIVATE` и `PUBLIC`. В примере это `ly5dmh2u3qwe********`.
 
-            ```bash
-            yc baremetal server get sample-server
-            ```
+     {% endlist %}
 
-            Результат:
+     Сопоставьте найденный идентификатор с полем `configuration_network_interface_id` в списке интерфейсов сервера. В примере ему соответствует интерфейс `ly5mzklkjpa5********`, для которого можно изменить тип сети.
 
-            ```yaml
-            id: ly5zeaqeklpg********
-            ...
-            network_interfaces:
-              - private_subnet:
-                  private_subnet_id: ly5lpb2vydo7********
-                private_interface:
-                  native_subnet_id: ly5lpb2vydo7********
-                  mac_limit: "5"
-                id: ly5zjjc2vfpi********
-                mac_address: b4:2e:99:58:2b:a6
-                configuration_network_interface_id: ly5oc5p4u6vg********
-              - private_subnet:
-                  private_subnet_id: ly5lpb2vydo7********
-                private_interface:
-                  native_subnet_id: ly5lpb2vydo7********
-                  mac_limit: "5"
-                id: ly5mzklkjpa5********
-                mac_address: b4:2e:99:58:2b:a8
-                configuration_network_interface_id: ly5dmh2u3qwe********
-            configuration:
-              custom_configuration:
-                cpu:
-                  cores: "8"
-                  frequency_mhz: "2600"
-                  name: Xeon E5-2650V2
-                  physical_cores: "8"
-                  vendor: Intel
-                cpu_num: "2"
-                disk_drives:
-                  - disk_count: "2"
-                    disk_size_gib: "3725"
-                    type: HDD
-                id: ly5x6w3htlgx********
-                memory_gib: "128"
-                mounting_availability: UNAVAILABLE
-                name: custom-ly5x6w3htlgx********
-                network_capacity_gbps: "1"
-                network_interfaces:
-                  - id: ly5oc5p4u6vg********
-                    name: iface0
-                    configuration_id: ly5x6w3htlgx********
-                    link_speed_gbps: '1'
-                    available_modes:
-                      - PRIVATE
-                  - id: ly5dmh2u3qwe********
-                    name: iface1
-                    configuration_id: ly5x6w3htlgx********
-                    link_speed_gbps: '1'
-                    available_modes:
-                      - PRIVATE
-                      - PUBLIC
-            created_at: "2026-05-18T07:42:32.835148Z"
-            ```
+  1. Получите список подсетей, к которым можно подключить интерфейс сервера:
 
-            Как видно из результата:
-            * На сервере установлены (раздел `network_interfaces`) два сетевых интерфейса, оба из которых подключены к приватной сети (приватная подсеть `ly5lpb2vydo7********`):
+     {% include [server-priv-netwrk-same-pool-notice](../../../_includes/baremetal/server-priv-netwrk-same-pool-notice.md) %}
 
-                * интерфейс с идентификатором `ly5zjjc2vfpi********`, которому соответствует [конфигурация](../../concepts/server-configurations.md#components) сетевого интерфейса с идентификатором `ly5oc5p4u6vg********`;
-                * интерфейс с идентификатором `ly5mzklkjpa5********`, которому соответствует конфигурация сетевого интерфейса с идентификатором `ly5dmh2u3qwe********`;
-            * [Конфигурация](../../concepts/server-configurations.md#components) сетевого интерфейса (раздел `configuration.custom_configuration.network_interfaces`), позволяющая подключаться к разным типам сетей (`PRIVATE`,`PUBLIC`), имеет идентификатор (значение поля `id`) `ly5dmh2u3qwe********`.
-            * В разделе `network_interfaces` идентификатору конфигурации сетевого интерфейса `ly5dmh2u3qwe********` по значению поля `configuration_network_interface_id` соответствует сетевой интерфейс сервера с идентификатором `ly5mzklkjpa5********`. Следовательно, изменить тип привязанной сети можно только для этого интерфейса.
+     {% list tabs group=bms_network_type %}
 
-      {% endlist %}
+     - Подключить публичную сеть {#public}
 
-  1. Получите список подсетей, к которым можно привязать сетевой интерфейс сервера в каталоге по умолчанию:
+       ```bash
+       yc baremetal v2 public-subnet list
+       ```
 
-      {% include [server-priv-netwrk-same-pool-notice](../../../_includes/baremetal/server-priv-netwrk-same-pool-notice.md) %}
+       Сохраните идентификатор нужной подсети (`public_subnet_id`).
 
-      {% list tabs group=bms_network_type %}
+     - Подключить приватную сеть {#private}
 
-      - Подключить публичную сеть {#public}
+       ```bash
+       yc baremetal v2 private-subnet list
+       ```
 
-        Если сетевой интерфейс нужно подключить к публичной сети, получите список публичных подсетей, выполнив команду:
+       Сохраните идентификатор нужной подсети (`private_subnet_id`).
 
-        ```bash
-        yc baremetal public-subnet list
-        ```
+     {% endlist %}
 
-        Результат:
+  1. Измените тип сети, указав идентификатор сервера и полный список его сетевых интерфейсов:
 
-        ```text
-        +----------------------+------+---------------+-------------------+
-        |          ID          | NAME |    ZONE-ID    | HARDWARE-POOL-IDS |
-        +----------------------+------+---------------+-------------------+
-        | ly57sgipg23b******** |      | {{ region-id }}-m | {{ region-id }}-m4    |
-        +----------------------+------+---------------+-------------------+
-        ```
+     {% include [switch-network-role-notice](../../../_includes/baremetal/switch-network-role-notice.md) %}
 
-      - Подключить приватную сеть {#private}
+     В примерах первый интерфейс сохраняет подключение к приватной сети, а для второго меняется тип сети. Если у интерфейсов настроены дополнительные приватные подсети (`vlan-subinterfaces`) или пакет трафика (`internet-traffic-plan`), передайте и эти настройки, чтобы сохранить их.
 
-        Если сетевой интерфейс нужно подключить к приватной сети, получите список приватных подсетей, выполнив команду:
+     {% list tabs group=bms_network_type %}
 
-        ```bash
-        yc baremetal private-subnet list
-        ```
+     - Подключить публичную сеть {#public}
 
-        Результат:
+       ```bash
+       yc baremetal v2 server update \
+         --id ly5zeaqeklpg******** \
+         --update-mask network-interfaces \
+         --server '{
+           network-interfaces=[
+             {
+               network-interface-id="ly5zjjc2vfpi********",
+               interface=private-interface={native-subnet-id="ly5lpb2vydo7********"}
+             },
+             {
+               network-interface-id="ly5mzklkjpa5********",
+               interface=public-interface={native-subnet-config=native-subnet={subnet-id="ly57sgipg23b********"}}
+             }
+           ]
+         }' \
+         --async
+       ```
 
-        ```text
-        +----------------------+----------------------+--------+--------------------------------+
-        |          ID          |         NAME         | STATUS |          VRF-OPTIONS           |
-        +----------------------+----------------------+--------+--------------------------------+
-        | ly5lpb2vydo7******** | m4-subnet            | READY  | vrf_id: ly5xox6z2fyn********,  |
-        |                      |                      |        | cidr: 192.168.20.0/24,         |
-        |                      |                      |        | gateway_ip: 192.168.20.1       |
-        | ly5v3mfr4bm5******** | m3-subnet            | READY  | vrf_id: ly5xox6z2fyn********,  |
-        |                      |                      |        | cidr: 192.168.21.0/24,         |
-        |                      |                      |        | gateway_ip: 192.168.21.1,      |
-        |                      |                      |        | start_ip: 192.168.21.1,        |
-        |                      |                      |        | end_ip: 192.168.21.254         |
-        +----------------------+----------------------+--------+--------------------------------+
-        ```
+     - Подключить приватную сеть {#private}
 
-      {% endlist %}
+       ```bash
+       yc baremetal v2 server update \
+         --id ly5zeaqeklpg******** \
+         --update-mask network-interfaces \
+         --server '{
+           network-interfaces=[
+             {
+               network-interface-id="ly5zjjc2vfpi********",
+               interface=private-interface={native-subnet-id="ly5lpb2vydo7********"}
+             },
+             {
+               network-interface-id="ly5mzklkjpa5********",
+               interface=private-interface={native-subnet-id="ly5lpb2vydo7********"}
+             }
+           ]
+         }' \
+         --async
+       ```
 
-  1. Измените тип сети, подключенной к сетевому интерфейсу сервера, указав идентификатор сервера, идентификаторы обоих сетевых интерфейсов и подсетей, которые должны быть к ним привязаны:
+     {% endlist %}
 
-      {% include [switch-network-role-notice](../../../_includes/baremetal/switch-network-role-notice.md) %}
+     Маска `--update-mask network-interfaces` ограничивает изменение сетевыми интерфейсами.
 
-      {% list tabs group=bms_network_type %}
+  1. Дождитесь завершения операции и повторно получите информацию о сервере:
 
-      - Подключить публичную сеть {#public}
+     ```bash
+     yc baremetal v2 server get ly5zeaqeklpg******** --format yaml
+     ```
 
-        В приведенном примере сетевой интерфейс, поддерживающий подключение к разным типам сетей, подключается к публичной сети, а настройки другого интерфейса остаются без изменений:
+     Проверьте `private_interface` или `public_interface` у измененного интерфейса. Например, после подключения публичной сети результат содержит:
 
-        ```bash
-        yc baremetal server update \
-          --id=ly5zeaqeklpg******** \
-          --network-interfaces='id=ly5zjjc2vfpi********,private-subnet-id=ly5lpb2vydo7********' \
-          --network-interfaces='id=ly5mzklkjpa5********,public-subnet-id=ly57sgipg23b********' \
-          --async
-        ```
-
-      - Подключить приватную сеть {#private}
-
-        В приведенном примере сетевой интерфейс, поддерживающий подключение к разным типам сетей, подключается к приватной сети, а настройки другого интерфейса остаются без изменений:
-
-        ```bash
-        yc baremetal server update \
-          --id=ly5zeaqeklpg******** \
-          --network-interfaces='id=ly5zjjc2vfpi********,private-subnet-id=ly5lpb2vydo7********' \
-          --network-interfaces='id=ly5mzklkjpa5********,private-subnet-id=ly5lpb2vydo7********' \
-          --async
-        ```
-
-      {% endlist %}
-
-      Результат:
-
-      ```bash
-      id: ly5mroq72gok********
-      description: Server update
-      created_at: "2026-05-18T05:44:28.751844Z"
-      created_by: ajeol2afu1js********
-      modified_at: "2026-05-18T05:44:28.751844Z"
-      metadata:
-        '@type': type.googleapis.com/yandex.cloud.baremetal.v1alpha.UpdateServerMetadata
-        server_id: ly5zeaqeklpg********
-      ```
-  1. Дождитесь завершения операции (обычно занимает около пяти минут) и повторно получите информацию о сервере, чтобы убедиться, что сеть, к которой подключен интерфейс, была изменена:
-
-      ```bash
-      yc baremetal server get sample-server
-      ```
-
-      Результат:
-
-      ```yaml
-      id: ly5zeaqeklpg********
-      ...
-      network_interfaces:
-        - private_subnet:
-            private_subnet_id: ly5lpb2vydo7********
-          private_interface:
-            native_subnet_id: ly5lpb2vydo7********
-            mac_limit: "5"
-          id: ly5zjjc2vfpi********
-          mac_address: b4:2e:99:58:2b:a6
-          configuration_network_interface_id: ly5oc5p4u6vg********
-        - public_subnet:
-            public_subnet_id: ly57sgipg23b********
-          public_interface:
-            ip_address: 185.184.***.***
-            native_subnet_id: ly57sgipg23b********
-            mac_limit: "5"
-          id: ly5mzklkjpa5********
-          mac_address: b4:2e:99:58:2b:a8
-          ip_address: 185.184.***.***
-          configuration_network_interface_id: ly5dmh2u3qwe********
-      ...
-      ```
+     ```yaml
+     network_interfaces:
+       - network_interface_id: ly5zjjc2vfpi********
+         private_interface:
+           native_subnet_id: ly5lpb2vydo7********
+       - network_interface_id: ly5mzklkjpa5********
+         public_interface:
+           native_subnet_id: ly57sgipg23b********
+           ip_address: 185.184.***.***
+     ```
 
 - API {#api}
 
@@ -646,7 +543,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-[*server_id]: Получить идентификатор сервера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/server/list.md) `yc baremetal server list`.
+[*server_id]: Получить идентификатор сервера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/v2/server/list.md) `yc baremetal v2 server list`.
 
-[*subnets]: * Получить идентификаторы приватных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/private-subnet/list.md) `yc baremetal private-subnet list`.
-* Получить идентификаторы публичных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/public-subnet/list.md) `yc baremetal public-subnet list`.
+[*subnets]: * Получить идентификаторы приватных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/v2/private-subnet/list.md) `yc baremetal v2 private-subnet list`.
+* Получить идентификаторы публичных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/v2/public-subnet/list.md) `yc baremetal v2 public-subnet list`.

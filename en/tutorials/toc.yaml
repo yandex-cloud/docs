@@ -905,8 +905,6 @@ items:
         items:
           - name: Publishing game updates using {{ cdn-name }}
             href: web/prefetch.md
-          - name: Creating an SAP program in {{ yandex-cloud }}
-            href: infrastructure-management/sap.md
           - name: Deploying a Minecraft server in {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
           - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}

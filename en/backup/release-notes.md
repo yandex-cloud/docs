@@ -5,6 +5,10 @@ description: This section contains the {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q3 2026 {#q3-2026}
+
+Starting August 17, 2026, a [fee will be charged](./pricing.md) for backing up [external resources](./concepts/vm-connection/external-resources.md) in the Kazakhstan [region](../overview/concepts/region.md).
+
 ## Q2 2026 {#q2-2026}
 
 * Introduced capabilities to connect VMs and servers located outside {{ yandex-cloud }} to {{ backup-name }}. For more information, see these docs:

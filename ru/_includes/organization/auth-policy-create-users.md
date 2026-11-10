@@ -8,8 +8,4 @@
         Нажмите кнопку **{{ ui-key.yacloud.common.add }}**, чтобы выбрать определенных пользователей или группы пользователей, к которым будет применяться политика. При необходимости воспользуйтесь строкой поиска.
 1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.security-settings.ScopeCardBlock.exclude_label_4Mn7B }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**, чтобы указать определенных пользователей или группы пользователей, к которым не будет применяться политика.
 
-    {% note info %}
-
-    Одинаковые пользователи или группы не могут быть заданы одновременно в списках включения и исключения.
-
-    {% endnote %}
+    {% include [auth-policy-incl-excl-same-usr-ids-notice](./auth-policy-incl-excl-same-usr-ids-notice.md) %}

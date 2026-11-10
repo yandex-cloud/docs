@@ -31,22 +31,22 @@
   1. Посмотрите описание команды для удаления [выделенной публичной подсети](../concepts/public-network.md#public-subnet):
 
      ```bash
-     yc baremetal public-subnet delete --help
+     yc baremetal v2 public-subnet delete --help
      ```
 
   1. Получите список выделенных публичных подсетей в каталоге по умолчанию:
 
      ```bash
-     yc baremetal public-subnet list
+     yc baremetal v2 public-subnet list
      ```
 
   1. Удалите подсеть:
 
      ```bash
-     yc baremetal public-subnet delete <идентификатор_или_имя_подсети>
+     yc baremetal v2 public-subnet delete <идентификатор_подсети>
      ```
 
-     Где `<идентификатор_или_имя_подсети>` — идентификатор или имя удаляемой выделенной публичной подсети.
+     Где `<идентификатор_подсети>` — идентификатор удаляемой выделенной публичной подсети.
 
 - API {#api}
 

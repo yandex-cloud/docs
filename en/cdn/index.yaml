@@ -9,8 +9,8 @@ description:
 meta:
   title: Yandex Cloud CDN
   description: >-
-    {{ cdn-full-name }} enables you to set up content delivery to your end users
-    over a content delivery network (CDN).
+    {{ cdn-full-name }} allows you to set up content delivery to your end users
+    via a content delivery network (CDN).
   keywords:
     - keyword: cdn
     - keyword: yandex cdn
@@ -27,9 +27,9 @@ blocks:
   - type: card-layout-block
     title: Yandex Cloud CDN
     description: >-
-      Yandex Cloud CDN enables you to deliver content to end users over a
-      content delivery network (CDN). Caching on CDN servers reduces the load on
-      data origins and speeds up content delivery.
+      Yandex Cloud CDN enables you to set up content delivery to your end users
+      over a content delivery network (CDN). Caching on CDN servers reduces the
+      load on data sources and speeds up content delivery.
     colSizes:
       all: 12
       sm: 6
@@ -38,7 +38,7 @@ blocks:
     children:
       - type: basic-card
         title: Getting started
-        text: Start delivering content over a CDN
+        text: Get started with content delivery over a CDN
         icon: ../_assets/console-icons/rocket.svg
         urlTitle: Getting started
         url: quickstart/
@@ -47,7 +47,7 @@ blocks:
         size: s
       - type: basic-card
         title: Step-by-step guides
-        text: Follow guides to perform routine operations
+        text: Follow our guides for routine operations
         icon: ../_assets/console-icons/list-ol.svg
         urlTitle: Step-by-step guides
         url: operations/
@@ -56,7 +56,7 @@ blocks:
         size: s
       - type: basic-card
         title: Concepts
-        text: Learn how a CDN works and explore core service concepts
+        text: Learn how a CDN works and explore core Cloud CDN concepts
         icon: ../_assets/console-icons/bookmark.svg
         urlTitle: Concepts
         url: concepts/
@@ -65,7 +65,7 @@ blocks:
         size: s
       - type: basic-card
         title: Tutorials
-        text: Use the service to address common tasks
+        text: Solve standard tasks using the service
         icon: ../_assets/console-icons/book.svg
         urlTitle: Tutorials
         url: tutorials/
@@ -74,7 +74,7 @@ blocks:
         size: s
       - type: basic-card
         title: Quotas and limits
-        text: Technical and organizational limitations of the service
+        text: Technical and organizational limitations
         icon: ../_assets/console-icons/sliders.svg
         urlTitle: Quotas and limits
         url: concepts/limits
@@ -83,7 +83,7 @@ blocks:
         size: s
       - type: basic-card
         title: Access management
-        text: Configure access permissions for the service
+        text: Configure access permissions to use this service
         icon: ../_assets/console-icons/persons-lock.svg
         urlTitle: Access management
         url: security/
@@ -100,17 +100,17 @@ blocks:
         animated: false
         size: s
       - type: basic-card
-        title: Changelog
-        text: Updates to the service
+        title: Release notes
+        text: Releases and updates
         icon: ../_assets/console-icons/timeline.svg
-        urlTitle: Changelog
+        urlTitle: Release notes
         url: release-notes
         centered: true
         animated: false
         size: s
       - type: basic-card
         title: FAQ
-        text: Answers to common questions and troubleshooting tips
+        text: Answers to frequently asked questions and solutions to issues
         icon: ../_assets/console-icons/circle-question.svg
         urlTitle: FAQ
         url: troubleshooting
@@ -119,7 +119,7 @@ blocks:
         size: s
       - type: basic-card
         title: CLI reference
-        text: Manage service resources from the command line
+        text: Manage the service resources from the command line
         icon: ../_assets/console-icons/terminal.svg
         urlTitle: CLI reference
         url: cli-ref/
@@ -161,24 +161,24 @@ blocks:
         text: >
           The Yandex Cloud infrastructure is
           [protected](https://yandex.cloud/en/docs/security/conform#law)
-          pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+          pursuant to the Russian Federal Law 152-FZ on Personal Data.
 
 
-          * [Terms of use for Yandex Cloud
-          CDN](https://yandex.ru/legal/cloud_terms_cdn)
+          * [Yandex Cloud CDN Terms of
+          Use](https://yandex.ru/legal/cloud_terms_cdn)
 
 
-          * [Terms of use for Yandex
-          Cloud](https://yandex.ru/legal/cloud_specialterms)
+          * [Yandex Cloud Terms of
+          Use](https://yandex.ru/legal/cloud_specialterms)
       - type: basic-card
         title: Service level
         border: shadow
         size: s
         icon: ../_assets/console-icons/file-check.svg
         text: >
-          * [Service level for Yandex Cloud
-          CDN](https://yandex.ru/legal/cloud_sla_cdn)
+          * [Yandex Cloud CDN Service
+          Level](https://yandex.ru/legal/cloud_sla_cdn)
 
 
-          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
+          * [Yandex Cloud Service Level](https://yandex.ru/legal/cloud_sla)
 links: []

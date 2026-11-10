@@ -66,31 +66,44 @@ description: Следуя данной инструкции, вы сможете
    1. Посмотрите описание команды для изменения сервера:
 
       ```bash
-      yc baremetal server update --help
+      yc baremetal v2 server update --help
       ```
 
    1. Измените сервер:
 
       ```bash
-      yc baremetal server update \
-        --name <имя_сервера> \
-        --new-name <новое_имя_сервера> \
-        --description <новое_описание_сервера> \
-        --network-interfaces private-subnet-id=<идентификатор_новой_приватной_подсети> \
-        --network-interfaces public-subnet-id=<идентификатор_новой_публичной_подсети> \
-        --labels <ключ_метки>=<значение_метки>
+      yc baremetal v2 server update \
+        --id <идентификатор_сервера> \
+        --update-mask name,description,network-interfaces,annotations \
+        --server '{
+          name="<новое_имя_сервера>",
+          description="<новое_описание_сервера>",
+          network-interfaces=[
+            {
+              network-interface-id="<идентификатор_приватного_интерфейса>",
+              interface=private-interface={native-subnet-id="<идентификатор_новой_приватной_подсети>"}
+            },
+            {
+              network-interface-id="<идентификатор_публичного_интерфейса>",
+              interface=public-interface={native-subnet-config=native-subnet={subnet-id="<идентификатор_новой_публичной_подсети>"}}
+            }
+          ],
+          annotations={<ключ_метки>="<значение_метки>"}
+        }'
       ```
 
       Где:
-      * `--name` — имя сервера.
-      * `--new-name` — новое имя сервера. Необязательный параметр.
-      * `--description` — новое описание сервера. Необязательный параметр.
-      * `--network-interfaces` — новые сетевые настройки. Необязательный параметр. Возможные значения:
-        
-        * `private-subnet-id` — идентификатор новой [приватной подсети](../../concepts/private-network.md#private-subnet).
-        * `public-subnet-id` — идентификатор новой [выделенной публичной подсети](../../concepts/public-network.md#public-subnet).
 
-      * `--labels` — новые метки сервера. Необязательный параметр.
+      * `--id` — идентификатор сервера. Чтобы узнать его и значения `network_interface_id`, [получите информацию о сервере](./get-info.md).
+      * `--update-mask` — список изменяемых полей. Если вы исключили необязательное поле из объекта, удалите его и из маски.
+      * `--server` — параметры сервера в объектном синтаксисе:
+
+        * `name` — новое имя сервера. Необязательное поле.
+        * `description` — новое описание сервера. Необязательное поле.
+        * `network-interfaces` — полный список сетевых интерфейсов и их настроек. Необязательное поле. Для каждого интерфейса укажите `network-interface-id` и нужный вариант `interface`: `private-interface` с полем `native-subnet-id` или `public-interface` с полем `native-subnet-config`.
+        * `annotations` — полный набор меток сервера. Необязательное поле.
+
+      При изменении `network-interfaces` передайте также настройки интерфейсов, которые нужно сохранить, включая дополнительные приватные подсети (`vlan-subinterfaces`) и пакет трафика (`internet-traffic-plan`), если они заданы.
 
 - API {#api}
 
@@ -107,67 +120,51 @@ description: Следуя данной инструкции, вы сможете
 - CLI {#cli}
 
    ```bash
-     yc baremetal server update \
-       --name demo-baremetal-server  \
-       --new-name new-demo-baremetal-server  \
-       --description "Updated BareMetal server" \
-       --network-interfaces private-subnet-id=ly5rljahs3re******** \
-       --network-interfaces public-subnet-id=ly5vr6tugxk7********
+   yc baremetal v2 server update \
+     --id ly52dtzdi55r******** \
+     --update-mask name,description,network-interfaces \
+     --server '{
+       name="new-demo-baremetal-server",
+       description="Updated BareMetal server",
+       network-interfaces=[
+         {
+           network-interface-id="ly5wbsiklrtd********",
+           interface=private-interface={native-subnet-id="ly5rljahs3re********"}
+         },
+         {
+           network-interface-id="ly5ygl4loyy6********",
+           interface=public-interface={native-subnet-config=native-subnet={subnet-id="ly5vr6tugxk7********"}}
+         }
+       ]
+     }' \
+     --format yaml
    ```
 
-   Результат:
+   Пример результата:
 
-   ```bash
-   id: ly52dtzdi55r********
+   ```yaml
+   server_id: ly52dtzdi55r********
    cloud_id: b1gia87mbaom********
    folder_id: b1g0ijbfaqsn********
    name: new-demo-baremetal-server
    description: Updated BareMetal server
-   zone_id: ru-central1-m
    hardware_pool_id: ru-central1-m4
-   status: PROVISIONING
+   state: RUNNING
    os_settings:
      image_id: ly5vhn4lapev********
      ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
-     storages:
-       - partitions:
-           - type: EXT3
-             size_gib: "999"
-             mount_point: /
-           - type: EXT4
-             size_gib: "499"
-             mount_point: /root
-         raid:
-           type: RAID0
-           disks:
-             - id: ly5ual3jbnhr********
-               type: HDD
-               size_gib: "1862"
-             - id: ly54qfjw55d4********
-               type: HDD
-               size_gib: "1862"
-       - partitions:
-           - type: EXT3
-             size_gib: "999"
-             mount_point: /boot
-           - type: SWAP
-             size_gib: "9"
-         disk:
-           id: ly5ojffpngul********
-           type: HDD
-           size_gib: "1862"
    network_interfaces:
-     - id: ly5wbsiklrtd********
+     - network_interface_id: ly5wbsiklrtd********
        mac_address: 00:25:90:92:fa:48
-       private_subnet:
-         private_subnet_id: ly5ztavbezrf********
-     - id: ly5ygl4loyy6********
+       private_interface:
+         native_subnet_id: ly5rljahs3re********
+     - network_interface_id: ly5ygl4loyy6********
        mac_address: 00:25:90:92:fa:49
-       public_subnet:
-         public_subnet_id: ly5o6l7pxmk2********
-   configuration_id: ly5lymxdltk3********
-   created_at: "2025-07-06T21:53:46.186130Z"
-   labels:
+       public_interface:
+         native_subnet_id: ly5vr6tugxk7********
+   stock_configuration_id: ly5lymxdltk3********
+   create_time: "2025-07-06T21:53:46.186130Z"
+   annotations:
      env: test
    ```
 

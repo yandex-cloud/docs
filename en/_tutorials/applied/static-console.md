@@ -38,7 +38,7 @@ To create a bucket for static website files:
 
      {% note info %}
 
-     If you plan to use your own domain for the website, the bucket name must be an exact match of your domain name. Use a second-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
+     If you plan to use your own domain for the website, the bucket name must be an exact match of your domain name. Use a second-level domain or higher. For details, see [{#T}](../../storage/operations/hosting/own-domain.md).
 
      {% endnote %}
 
@@ -61,9 +61,9 @@ To create a bucket for static website files:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the bucket is located.
-      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the previously created bucket in the window that opens.
-      1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab and click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** in the top panel. In the window that opens, select the files you created and confirm the upload.
-      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_website }}**. In the window that opens:
+      1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and, on the page that opens, select the bucket you created earlier.
+      1. At the top, click ![arrow-up-from-line](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}**. In the window that opens, select the files you created and confirm the upload.
+      1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab. On the page that opens:
 
           1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
@@ -76,6 +76,7 @@ To create a bucket for static website files:
 1. Make sure the error page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}/error-check`.
 
 By default, the website is only accessible over HTTP, e.g., at `http://example.com.{{ s3-web-host }}`. To provide HTTPS support for your website:
+
 1. Add your [own security certificate](../../certificate-manager/operations/import/cert-create.md) or a [Let's Encrypt certificate](../../certificate-manager/operations/managed/cert-create.md) in {{ certificate-manager-full-name }}.
 1. [Configure](../../storage/operations/hosting/certificate.md) HTTPS support for your bucket. Your website will then be accessible over HTTPS at `https://example.com.website.yandexcloud.net`.
 
@@ -91,7 +92,7 @@ You can use {{ dns-name }} to manage the domain.
 
 {% note info %}
 
-The bucket name must be an exact match of your domain name. Use a second-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
+The bucket name must be an exact match of your domain name. Use a second-level domain or higher. For details, see [{#T}](../../storage/operations/hosting/own-domain.md).
 
 {% endnote %}
 
@@ -107,7 +108,7 @@ To create a public DNS zone:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a public zone.
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**. In the window that opens, specify the DNS zone settings:
+  1. Click **{{ ui-key.yacloud.dns.button_zone-create }}** and, on the page that opens, configure the DNS zone settings:
 
       * **{{ ui-key.yacloud.dns.label_zone }}**: Specify your registered domain name, e.g., `example.com.`. The field value must end with a trailing dot.
       * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.dns.label_public }}`.
@@ -171,6 +172,7 @@ After you configure and test availability, upload the remaining files required f
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources:
+
 1. [Delete the files you uploaded](../../storage/operations/objects/delete.md).
 1. [Delete the bucket](../../storage/operations/buckets/delete.md).
 1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

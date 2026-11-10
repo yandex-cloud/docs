@@ -27,13 +27,13 @@ description: 'Следуя данной инструкции, вы сможет�
    1. Посмотрите описание команды для остановки сервера:
 
       ```bash
-      yc baremetal server power-off --help
+      yc baremetal v2 server power-off --help
       ```
 
    1. Выполните команду:
 
       ```bash
-      yc baremetal server power-off <имя_или_идентификатор_сервера>
+      yc baremetal v2 server power-off <идентификатор_сервера>
       ```
 
 - API {#api}
@@ -59,13 +59,13 @@ description: 'Следуя данной инструкции, вы сможет�
    1. Посмотрите описание команды для запуска сервера:
 
       ```bash
-      yc baremetal server power-on --help
+      yc baremetal v2 server power-on --help
       ```
 
    1. Выполните команду:
 
       ```bash
-      yc baremetal server power-on <имя_или_идентификатор_сервера>
+      yc baremetal v2 server power-on <идентификатор_сервера>
       ```
 
 - API {#api}
@@ -92,13 +92,13 @@ description: 'Следуя данной инструкции, вы сможет�
    1. Посмотрите описание команды для перезапуска сервера:
 
       ```bash
-      yc baremetal server reboot --help
+      yc baremetal v2 server reboot --help
       ```
 
    1. Выполните команду:
 
       ```bash
-      yc baremetal server reboot <имя_или_идентификатор_сервера>
+      yc baremetal v2 server reboot <идентификатор_сервера>
       ```
 
 - API {#api}

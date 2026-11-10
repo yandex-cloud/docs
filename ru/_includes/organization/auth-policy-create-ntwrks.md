@@ -8,8 +8,4 @@
         В появившемся поле введите один или несколько диапазонов IPv4- или IPv6-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация).
 1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.security-settings.ScopeCardBlock.exclude_label_4Mn7B }}** задайте диапазоны IP-адресов, к событиям аутентификации с которых не будет применяться политика.
 
-    {% note info %}
-
-    Одинаковые диапазоны IP-адресов не могут быть заданы одновременно в списках включения и исключения.
-
-    {% endnote %}
+    {% include [auth-policy-incl-excl-same-ips-notice](./auth-policy-incl-excl-same-ips-notice.md) %}

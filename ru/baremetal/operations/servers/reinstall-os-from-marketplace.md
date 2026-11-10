@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды для переустановки ОС:
 
      ```bash
-     yc baremetal server reinstall --help
+     yc baremetal v2 server reinstall --help
      ```
 
   1. {% include [server-lease-cli-image-list](../../../_includes/baremetal/instruction-steps/server-lease-cli-image-list.md) %}
@@ -53,13 +53,28 @@ description: Следуя данной инструкции, вы сможете
   1. Переустановите ОС:
 
      ```bash
-     yc baremetal server reinstall \
-       --name <имя_сервера> \
-       --os-settings-spec "image-id=<идентификатор_образа>,storages=[{partitions=[{type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>}],storage-type={raid={type=<уровень_RAID-массива>,disks=[{id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}]}}}],ssh-key={ssh-public-key=<содержимое_открытого_SSH-ключа>},password={password-plain-text=<пароль_пользователя>}"
+     yc baremetal v2 server reinstall \
+       --id <идентификатор_сервера> \
+       --os-settings '{
+         image-id="<идентификатор_образа>",
+         ssh-key=ssh-public-key-text="<содержимое_открытого_SSH-ключа>",
+         password=password-plain-text="<пароль_пользователя>",
+         storages=[{
+           partitions=[{
+             type=<файловая_система>,
+             size-bytes=<размер_раздела_в_байтах>,
+             mount-point="<точка_монтирования>"
+           }],
+           storage-type=raid={
+             type=<уровень_RAID-массива>,
+             disks=[{id="<номер_диска>",size-bytes=<размер_диска_в_байтах>,type=<тип_диска>}]
+           }
+         }]
+       }'
      ```
 
      Где:
-     * `--name` — имя сервера.
+     * `--id` — идентификатор сервера. Чтобы узнать его, [получите информацию о сервере](./get-info.md).
      * {% include [server-lease-cli-os](../../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
      * {% include [server-lease-cli-storage](../../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
 
@@ -78,53 +93,41 @@ description: Следуя данной инструкции, вы сможете
 - CLI {#cli}
 
   ```bash
-  yc baremetal server reinstall \
-    --name demo-baremetal-server \
-    --os-settings-spec "image-id=ly5vtno2mjr3k4iuecur,ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********},password={password-plain-text=FDrxicR********}"
+  yc baremetal v2 server reinstall \
+    --id ly52dtzdi55r******** \
+    --os-settings '{
+      image-id="ly5vtno2mjr3********",
+      ssh-key=ssh-public-key-text="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQ********",
+      password=password-lockbox-secret={secret-id="e6qmvglkitn6********",version-id="e6qquvv4kh8e********",key="password"}
+    }' \
+    --format yaml
   ```
 
-  Результат:
+  Пример результата:
 
-  ```text
-  done (22m47s)
-  id: ly5u2442ulmz********
+  ```yaml
+  server_id: ly52dtzdi55r********
   cloud_id: b1gia87mbaom********
   folder_id: b1g0ijbfaqsn********
   name: demo-baremetal-server
   description: My first BareMetal server
-  zone_id: ru-central1-m
   hardware_pool_id: ru-central1-m4
-  status: RUNNING
+  state: RUNNING
   os_settings:
-    image_id: ly5vtno2mjr3k4iuecur
+    image_id: ly5vtno2mjr3********
     ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
-    storages:
-      - partitions:
-          - type: EXT3
-            size_gib: "9"
-            mount_point: /boot
-          - type: SWAP
-            size_gib: "4"
-          - type: EXT4
-            mount_point: /
-        raid:
-          type: RAID10
-          disks:
-            - id: ly54aes2ecmb********
-              type: HDD
-              size_gib: "1862"
-            - id: ly5nrgud6zrt********
-              type: HDD
-              size_gib: "1862"
-            - id: ly5yf2ylmchh********
-              type: HDD
-              size_gib: "1862"
-            - id: ly5loug77ciu********
-              type: HDD
-              size_gib: "1862"
-  configuration_id: ly5lymxdltk3xitpkrmi
-  created_at: "2025-07-09T07:23:39.323794Z"
-  labels:
+  network_interfaces:
+    - network_interface_id: ly5wbsiklrtd********
+      mac_address: 00:25:90:92:fa:48
+      private_interface:
+        native_subnet_id: ly5ztavbezrf********
+    - network_interface_id: ly5ygl4loyy6********
+      mac_address: 00:25:90:92:fa:49
+      public_interface:
+        native_subnet_id: ly5o6l7pxmk2********
+  stock_configuration_id: ly5lymxdltk3********
+  create_time: "2025-07-06T21:53:46.186130Z"
+  annotations:
     env: test
   ```
 

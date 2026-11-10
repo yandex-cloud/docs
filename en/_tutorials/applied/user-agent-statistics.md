@@ -1,11 +1,11 @@
-# Getting website traffic statistics using S3 Select
+# Getting website traffic statistics with S3 Select
 
 
-Get the query statistics for objects within a bucket configured to [host a static website](../../storage/concepts/hosting.md). The data will be retrieved using the [S3 Select](../../storage/concepts/s3-select-language.md) query language.
+Get statistics on queries to objects within a bucket configured to [host a static website](../../storage/concepts/hosting.md). Use the [S3 Select](../../storage/concepts/s3-select-language.md) query language to get data.
 
 {% note info %}
 
-To get information about requests, [enable logging](../../storage/operations/buckets/enable-logging.md#enable) for the bucket with the website content.
+To get information about queries, [enable logging](../../storage/operations/buckets/enable-logging.md#enable) for the bucket with the website content.
 
 {% endnote %}
 
@@ -54,10 +54,10 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
           "output.csv"
         ```
 
-  1. To display the number of hits for each page, run an aggregation query using the `sort` and `uniq` commands:
+  1. To display the number of requests to the website grouped by browsers and other request clients (by the `user_agent` field), run an aggregation query using the `sort` and `uniq` commands:
 
      ```bash
-     sort -nr output.csv | uniq -c
+     sort output.csv | uniq -c | sort -nr
      ```
 
      Result:
@@ -68,5 +68,41 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
      101 aws-sdk-java/1.11.424 Linux/4.14.74-28+yc7 OpenJDK_64-Bit_Server_VM/11.0.5-shenandoah+10-adhoc.heretic.src java/11.0.5-shenandoah
      17 aws-cli/1.18.27 Python/2.7.6 Linux/4.19.62-13 botocore/1.17.50
      ```
+
+  1. To display the number of hits for each page:
+
+     1. Update the expression in the `$query` variable:
+
+        ```bash
+        query="select object_key from s3object"
+        ```
+
+     1. Run this command:
+
+        ```bash
+        aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
+          --bucket $bucket \
+          --key $key \
+          --expression "$query" \
+          --expression-type 'SQL' \
+          --input-serialization 'JSON={Type=LINES}' \
+          --output-serialization 'CSV={}' \
+          "output.csv"
+        ```
+
+     1. Run the aggregation query:
+
+        ```bash
+        sort output.csv | uniq -c | sort -nr
+        ```
+
+        Result:
+
+        ```bash
+        418 index.html
+        255 about.html
+        101 images/logo.png
+        17 css/style.css
+        ```
 
 {% endlist %}

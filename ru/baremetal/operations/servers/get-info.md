@@ -33,13 +33,13 @@ description: 'Следуя данной инструкции, вы сможет�
    1. Посмотрите описание команды для получения информации о сервере:
 
       ```bash
-      yc baremetal server get --help
+      yc baremetal v2 server get --help
       ```
 
    1. Получите информацию о сервере:
 
       ```bash
-      yc baremetal server get <имя_или_идентификатор_сервера>
+      yc baremetal v2 server get <идентификатор_сервера>
       ```
 
 - API {#api}
@@ -57,7 +57,7 @@ description: 'Следуя данной инструкции, вы сможет�
 - CLI {#cli}
 
   ```bash
-  yc baremetal server get demo-baremetal-server
+  yc baremetal v2 server get ly52dtzdi55r******** --format yaml
   ```
 
   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}

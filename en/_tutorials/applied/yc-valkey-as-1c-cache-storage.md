@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ mrd-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mrd-name }} pricing](../../managed-valkey/pricing.md)).
+* {{ mrd-name }} cluster: computing resources, storage and backup size (see [{{ mrd-name }} pricing](../../managed-valkey/pricing.md)).
 
 This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. You can check the cost of the product software versions on the [1C-Bitrix](https://www.1c-bitrix.ru) official website.
 
@@ -35,6 +35,8 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-a`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.0.0/24`.
+
+    1. Similarly, create another subnet, such as `subnet-b`, in `network-1c` in the `{{ region-id }}-b` availability zone with the `192.168.1.0/24` CIDR block. This subnet will be used for the {{ mrd-name }} cluster hosts, as the two cluster hosts cannot reside in the same availability zone.
 
     1. In `network-1c`, [create security groups](../../vpc/operations/security-group-create.md):
 
@@ -64,18 +66,14 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `bitrix-sg`.
             * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-    1. [Connect to the VM](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) over SSH and install the dependencies:
+    1. [Connect to the VM](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) over SSH and install the PHP extensions to work with {{ RD }}:
 
         ```bash
-        sudo yum install php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo && \
-        sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
-        sudo yum install yum-utils && \
-        sudo yum-config-manager --enable remi-php74 && \
-        sudo yum update && \
-        php -v
+        sudo yum install -y php-pecl-redis6 php-pecl-igbinary && \
+        php -v && php -m | grep -E 'redis|igbinary'
         ```
 
-        The last command will show the PHP version installed on the VM. For 1C-Bitrix to run correctly, update the PHP version to 7.4 or higher.
+        The 1C-Bitrix image already includes PHP (version 8.1 or later) with all the required extensions and repositories configured, so you do not need to install PHP separately. The `php-pecl-redis6` extension is required to connect to the {{ mrd-name }} cluster, while `php-pecl-igbinary` is used to serialize cache data.
 
     1. Install 1C-Bitrix: Site Management on the VM. Do it by going to `http://<VM_public_IP_address>/` in your browser and following the installer instructions.
 
@@ -83,13 +81,14 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
 
     1. [Create](../../managed-valkey/operations/cluster-create.md) a {{ mrd-name }} cluster with the following configuration:
 
-        * **Valkey version**: `9.1`.
-        * **Persistence**: `On replicas`.
-        * **Network settings**: `network-1c` as the network and `valkey-sg` as the security group.
-        * **DBMS settings**:
-            * **Password**: `default`.
-            * **Configure** → **Maxmemory policy**: `ALLKEYS LRU`. This setting will allow {{ VLK }} to delete the oldest keys when running out of memory.
-        * **Access from WebSQL**: Enabled.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `9.1`.
+        * **{{ ui-key.yacloud.mdb.forms.section_host }}**: At least two hosts to enable [replication](../../managed-valkey/concepts/replication.md) in the cluster.
+        * **{{ ui-key.yacloud.redis.field_persistence-mode }}**: `{{ ui-key.yacloud.redis.persistence-mode-on-replicas }}`.
+        * **{{ ui-key.yacloud.mdb.forms.section_network }}**: `network-1c` and the `valkey-sg` security group.
+        * **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+            * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `default` user password. The password must contain at least eight characters.
+            * **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** → **Maxmemory policy**: `ALLKEYS LRU`. This setting will allow {{ VLK }} to delete the oldest keys when running out of memory.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: Enabled.
 
 
 - {{ TF }} {#tf}
@@ -106,7 +105,7 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
       * Subnets.
       * Security groups.
       * {{ mrd-name }} cluster.
-      * Virtual machine with public internet access and preinstalled 1C-Bitrix: Site Management.
+      * Virtual machine with public internet access and preinstalled 1C-Bitrix: Site Management distribution.
       * Settings for 1C-Bitrix: Site Management.
 
           {% note info %}
@@ -122,6 +121,7 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
       ```bash
       terraform validate
       ```
+
       {{ TF }} will display any configuration errors detected in your files.
 
   1. Create the required infrastructure:
@@ -146,9 +146,9 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
 
   1. [Connect to the VM](../../compute/operations/images-with-pre-installed-software/operate.md#vm-connect) running 1C-Bitrix over SSH.
 
-  1. Navigate to the website folder and open the additional settings file named `bitrix/.settings_extra.php`.
+  1. Navigate to the website folder and create an additional configuration file named `bitrix/.settings_extra.php` (missing from the VM by default).
 
-  1. Specify {{ RD }} as the caching option and the {{ mrd-name }} cluster address:
+  1. Specify {{ RD }} as the caching option, {{ mrd-name }} cluster address, and the user password:
 
       ```php
       <?php
@@ -165,7 +165,8 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
                               'port' => 6379,
                           ],
                       ],
-                      'serializer' => \Redis::SERIALIZER_IGATBINARY ?? null,
+                      'auth' => '<default_user_password>',
+                      'serializer' => \Redis::SERIALIZER_IGBINARY ?? null,
                   ],
               ],
               'readonly' => true,
@@ -189,7 +190,6 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
 
 {% endlist %}
 
-
 ## Check the result {#test}
 
 1. Authenticate to your website and navigate to the control panel.
@@ -199,14 +199,14 @@ This tutorial uses the trial version of 1C-Bitrix with a 30-day trial period. Yo
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. [Navigate]({{ link-console-main }}/link/managed-valkey) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab. The page that opens will display performance charts for the cluster.
+    1. Click the cluster name and select the ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab. The page that opens will display performance charts for the cluster.
     1. Make sure that clients have appeared, stored data and traffic are growing, and there is disk write activity on replicas due to enabled persistence.
 
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs group=instructions %}
+{% list tabs group="instructions" %}
 
 - Manually {#manual}
 

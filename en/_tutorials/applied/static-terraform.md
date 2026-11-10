@@ -17,6 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure for a static website in {{ objstorage-name }} using {{ TF }}:
+
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 
 
@@ -32,7 +33,8 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
         git clone https://github.com/yandex-cloud-examples/yc-s3-static-website.git
         ```
 
-     1. Navigate to the repository directory. It should now contain the following files:
+     1. Navigate to the repository directory. The following files should appear in it:
+
         * `static.tf`: New infrastructure configuration.
         * `index.html` and `error.html`: Website's main page and error page.
 
@@ -40,6 +42,7 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
 
      1. Create a folder for configuration files.
      1. In the folder, create:
+
         1. `static.tf` configuration file:
 
            {% cut "static.tf" %}
@@ -48,7 +51,7 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
 
            {% endcut %}
 
-        1. `index.html` file containing the text `Hello world!`:
+        1. `index.html` containing the text `Hello world!`:
 
            {% cut "index.html" %}
 
@@ -66,7 +69,8 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
+
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Configuring](../../iam/concepts/access-control/roles.md) access permissions for a folder: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
@@ -79,6 +83,7 @@ To create an infrastructure for a static website in {{ objstorage-name }} using 
     * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. Under `locals` in the `static.tf` file, set the following user-defined properties:
+
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
    * `domain`: Domain name in `example.com` format, without a trailing dot.
 

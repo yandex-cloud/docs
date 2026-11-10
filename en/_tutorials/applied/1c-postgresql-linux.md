@@ -63,7 +63,6 @@ To create a [cloud network](../../vpc/concepts/network.md) with [subnets](../../
 ### Configure network traffic permissions {#network-settings}
 
 [Security groups](../../vpc/concepts/security-groups.md) act as a virtual firewall for incoming and outgoing traffic. Learn more about the default security group [here](../../vpc/concepts/security-groups.md#default-security-group).
-  
 To ensure proper operation of OpenVPN Access Server and the {{ mpg-short-name }} cluster, [add](../../vpc/operations/security-group-add-rule.md) additional rules to the default security group of the `my-1c-network` cloud network:
 
 Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
@@ -276,7 +275,7 @@ Creating a DB cluster may take a few minutes.
             printing = cups
             printcap name = cups
             load printers = yes
-            cups iptions = raw
+            cups options = raw
             security = user
 
     [files]
@@ -408,7 +407,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
 
         1. Click **OK**.
 
-        You will see the local cluster in the tree on the left. 
+        You will see the local cluster in the tree on the left.
 
 1. Add the 1C licensing server to the server cluster:
     1. Expand the **Clusters** tab and select **Local cluster**.
@@ -459,7 +458,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
           * In the [management console]({{ link-console-main }}), select the folder where you created the `1c-pg` cluster.
           * [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * In the window that opens, select the `1c-pg` cluster you created earlier.
-          * Navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+          * Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
           * In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1b-cfazv1db********`) and copy the database FQDN by clicking ![copy](../../_assets/copy.svg). The FQDN will be added to the host name, so the **Database server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }} port=6432` format.
 
         {% endlist %}
@@ -473,7 +472,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
     * **Create a database if none exists**: Disabled.
     * **Lock execution of scheduled jobs**: Disabled.
 
-   Click **OK**.
+    Click **OK**.
 
 ## Connect to the infobase {#connect-to-infobase}
 

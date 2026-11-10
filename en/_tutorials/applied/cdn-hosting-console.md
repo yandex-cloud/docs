@@ -8,21 +8,17 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 {% include [paid-resources](../_tutorials_includes/cdn-hosting/paid-resources.md) %}
 
-
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
 
 {% include [add-certificate](../_tutorials_includes/cdn-hosting/add-certificate.md) %}
-
 
 ## Create a bucket in {{ objstorage-name }} and upload your website files to it {#create-bucket}
 
@@ -36,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `example.com`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
   1. {% include [create-index-page](../_tutorials_includes/cdn-hosting/create-index-page.md) %}
-  1. On the bucket page, click ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html`.
+  1. On the bucket page, click ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** at the top and select `index.html`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -53,6 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```
 
       Where:
+
       * `--name`: Bucket name, e.g., `example.com`. This is a required setting. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
       * `--public-read`: Enables public read access to bucket objects.
       * `--public-list`: Enables public view access to the list of bucket objects.
@@ -89,6 +86,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `--key`: [Key](../../storage/concepts/object.md#key) by which to store the object in the bucket, e.g., `index.html`.
 
       Result:
+
       ```text
       etag: '"b810d087812333c7dd9cfa80********"'
       request_id: 8e8714b8********
@@ -104,7 +102,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-
 ## Set up static website hosting {#hosting}
 
 {% list tabs group=instructions %}
@@ -113,7 +110,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the bucket you want to set up hosting for.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** tab, then to **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_settings }}** → **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -154,7 +151,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-
 ## Create a CDN resource {#create-cdn-resource}
 
 {% list tabs group=instructions %}
@@ -165,25 +161,32 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
+      
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        
         * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
         * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.label_bucket }}`.
         * In the **{{ ui-key.yacloud.cdn.label_bucket }}** field, select the bucket you need from the list.
         * Enable **{{ ui-key.yacloud.cdn.label_use-bucket-site }}**.
         * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
-        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, enter the domain name, e.g., `cdn.yandexcloud.example`.
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and, in **{{ ui-key.yacloud.cdn.label_custom-host-header }}**, specify the origin domain name in `<name_of_bucket_with_files>.{{ s3-web-host }}` format for the source bucket to respond to CDN server requests correctly.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, enter the domain name, e.g., `cdn.example.com`.
 
           {% note alert %}
 
-          The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN resource.
+          The `cdn.example.com` domain name will become the primary one, and you will not be able to edit it after you create a CDN resource.
 
           {% endnote %}
 
       * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.example.com` domain name.
+
+      * Under **{{ ui-key.yacloud.cdn.label_resource-security }}**:
+        
         * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
-        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and, in **{{ ui-key.yacloud.cdn.label_custom-host-header }}**, specify the origin domain name in `<name_of_bucket_with_files>.{{ s3-web-host }}` format for the source bucket to respond to CDN server requests correctly.
+  
   1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. Keep the default settings for **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **{{ ui-key.yacloud.cdn.label_section-additional }}** and click **{{ ui-key.yacloud.cdn.button_wizard-create }}**.
 
@@ -198,6 +201,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```
 
       Where:
+
       * `--name`: Origin group name.
       * `--origin source`: Origin domain name in `<name_of_bucket_with_files>.{{ s3-web-host }}` format, e.g., `example.com.{{ s3-web-host }}`.
 
@@ -228,6 +232,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       ```
 
       Where:
+
       * `--cname`: CDN resource domain name, e.g., `cdn.example.com`.
       * `--origin-group-id`: ID of the origin group for CDN created in the previous step.
       * `--origin-protocol`: Protocol the CDN resource will use to communicate with the origin, specify `http`.
@@ -302,10 +307,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [start-warn](../_tutorials_includes/cdn-hosting/start-warn.md) %}
 
-
 ## Configure DNS for the CDN resource {#configure-dns}
 
-The `cdn.yandexcloud.example` domain name must be mapped to the CDN using DNS records.
+The `cdn.example.com` domain name must be mapped to the CDN using DNS records.
 
 To set up DNS for a CDN resource:
 
@@ -317,13 +321,13 @@ To set up DNS for a CDN resource:
 
      1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/cdn) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-     1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
+     1. From the list of CDN resources, select the one with `cdn.example.com` as its primary domain name.
      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` format.
 
    {% endlist %}
 
 1. On the website of your DNS hosting provider, navigate to the DNS settings.
-1. Create or edit a CNAME record for `cdn.yandexcloud.example` so that it points to the domain name you copied:
+1. Create or edit a CNAME record for `cdn.example.com` so that it points to the domain name you copied:
 
    ```text
    cdn CNAME {{ cname-example-yc }}
@@ -344,35 +348,34 @@ To set up DNS for a CDN resource:
      1. If you do not have a public DNS zone, create one:
 
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
-        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website domain name with a trailing dot: `yandexcloud.example.`.
+        1. In the **{{ ui-key.yacloud.dns.label_zone }}** field, enter the website domain name with a trailing dot: `example.com.`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.dns.label_public }}`.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-dns-zone`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
       
-     1. Create a CNAME record for `cdn.yandexcloud.example` in the zone:
+     1. Create a CNAME record for `cdn.example.com` in the zone:
 
         1. Select `example-dns-zone`.
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
         1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `{{ cname-example-yc }}.` format with a trailing dot.
+        1. In the **{{ ui-key.yacloud.dns.label_ttl }}** field, specify the record lifetime.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}
 
    {% endcut %}
 
-
 ## Test the CDN {#check-cdn}
 
 {% include [check-cdn](../_tutorials_includes/cdn-hosting/check-cdn.md) %}
-
 
 ## How to delete the resources you created {#clear-out}
 
 To shut down the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../dns/operations/zone-delete.md) the DNS zone named `example-dns-zone` if you created it in {{ dns-name }}.
-1. Delete the CDN resource with `cdn.yandexcloud.example` as its primary domain name.
+1. Delete the CDN resource with `cdn.example.com` as its primary domain name.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

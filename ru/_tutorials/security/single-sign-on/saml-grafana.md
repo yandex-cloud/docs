@@ -20,8 +20,8 @@
 
 1. Перейдите на [страницу регистрации Grafana Cloud](https://grafana.com/auth/sign-up/).
 1. Заполните регистрационную форму:
-    - Укажите ваш email-адрес.
-    - Создайте надежный пароль.
+    * Укажите ваш email-адрес.
+    * Создайте надежный пароль.
 1. Нажмите **Create my account**.
 1. Подтвердите регистрацию, следуя инструкциям в письме, отправленном на указанный email.
 1. Выберите имя организации (это будет частью URL вашего экземпляра). Например, `your-org`.
@@ -44,7 +44,6 @@
     1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `grafana-cloud-app`.
-
         1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
@@ -61,14 +60,18 @@
 
 ### Настройте SAML-приложение на стороне Grafana Cloud {#setup-sp}
 
-1. Чтобы настроить аутентификацию по стандарту SAML на стороне Grafana Cloud, в левой панели выберите раздел **Administration** и в нем подраздел **Authentication**.
+Чтобы настроить аутентификацию по стандарту SAML на стороне Grafana Cloud:
+
+1. В браузере перейдите по адресу вашего экземпляра Grafana Cloud (например, `https://your-org.grafana.net`).
+1. В левой панели выберите раздел **Administration** и в нем подраздел **Authentication**.
 1. В основном окне выберите **SAML**.
 
 Далее следуйте шагам, описанным ниже:
 
 #### Общие настройки {#general-settings}
 
-Убедитесь, что активирована опция **Allow signup** — автоматическое создание пользователей на стороне Grafana Cloud при авторизации через SSO. Если опция неактивна, аутентифицироваться смогут только пользователи, уже созданные на стороне Grafana Cloud.
+1. Перейдите на вкладку **General settings**.
+1. Убедитесь, что активирована опция **Allow signup** — автоматическое создание пользователей на стороне Grafana Cloud при авторизации через SSO. Если опция неактивна, аутентифицироваться смогут только пользователи, уже созданные на стороне Grafana Cloud.
 
 #### Подпись запросов {#sign-requests}
 
@@ -84,6 +87,7 @@
 
 Настройте связь между Grafana Cloud и {{ org-full-name }}:
 
+1. Перейдите на вкладку **Connect Grafana with Identity Provider**.
 1. В блоке **Configure IdP using Grafana metadata** скопируйте и сохраните адреса эндпоинтов для получения метаданных (*Metadata URL*) и отправки запросов на аутентификацию пользователей (*Assertion Consumer Service URL*). В дальнейшем оба эти адреса понадобятся вам при настройке интеграции на стороне {{ org-full-name }}.
 1. Настройте адрес эндпоинта для получения метаданных из {{ org-full-name }}:
 
@@ -96,11 +100,12 @@
 
 Настройте соответствие между полями объектов пользователей в Grafana Cloud и {{ org-full-name }}:
 
+1. Перейдите на вкладку **User mapping**.
 1. В блоке **Assertion attributes mappings** укажите:
 
-    - в поле **Name attribute**: `fullname`;
-    - в поле **Login attribute**: `login`;
-    - в поле **Email attribute**: `emailaddress`.
+    * в поле **Name attribute**: `fullname`;
+    * в поле **Login attribute**: `login`;
+    * в поле **Email attribute**: `emailaddress`.
 
 1. Если необходимо, чтобы пользователи в Grafana Cloud при входе получали одну из базовых ролей (Viewer, Editor, Admin), добавьте атрибут групп пользователей. Для этого в поле **Role attribute** укажите `groups`.
 
@@ -112,9 +117,9 @@
 
     Далее, в блоке **Role mapping** укажите названия групп, пользователи которых получат соответствующие роли. Например:
 
-    - В поле **Viewer**: `grafana-viewer`;
-    - В поле **Editor**: `grafana-editor`;
-    - В поле **Admin**: `grafana-admin`.
+    * В поле **Viewer**: `grafana-viewer`;
+    * В поле **Editor**: `grafana-editor`;
+    * В поле **Admin**: `grafana-admin`.
 
     Группы необходимо будет создать при настройке приложения на стороне {{ org-full-name }}.
 
@@ -172,9 +177,10 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
-    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **Добавить групповой атрибут** и в открывшемся окне:
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `groups` — это имя должно совпадать со значением, которое вы указали в поле **Role attribute** при настройке сопоставления атрибутов в Grafana Cloud.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
+        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -238,5 +244,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{{ org-full-name }}: как настроить единый вход в Grafana Cloud через SAML](https://yandex.cloud/ru/blog/how-to-identity-hub)
+* [{{ org-full-name }}: как настроить единый вход в Grafana Cloud через SAML]({{ link-blog }}/how-to-identity-hub)
 

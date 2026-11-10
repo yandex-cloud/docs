@@ -161,29 +161,32 @@
    1. Посмотрите описание команды для загрузки образа:
 
       ```bash
-      yc baremetal boot-image create --help
+      yc baremetal v2 boot-image create --help
       ```
 
    1. Загрузите образ:
 
       ```bash
-      yc baremetal boot-image create \
-        --name demo-boot-image \
-        --description "Boot image for BareMetal" \
-        --uri "<ссылка_на_образ>" \
-        --labels <ключ_метки>=<значение_метки>
+      yc baremetal v2 boot-image create \
+        --boot-image '{
+          name="demo-boot-image",
+          description="Boot image for BareMetal",
+          uri="<ссылка_на_образ>",
+          annotations={<ключ_метки>="<значение_метки>"}
+        }'
       ```
 
-      Где:
-      * `--name` — имя образа. Требования к имени:
+      В объекте `--boot-image` укажите:
+
+      * `name` — имя образа. Требования к имени:
         
         * длина — от 3 до 63 символов;
         * может содержать строчные буквы латинского алфавита, цифры и дефисы;
         * первый символ — буква, последний — не дефис.
 
-      * `--description` — описание образа. Необязательный параметр.
-      * `--uri` — ссылка на образ, полученная в Object Storage.
-      * `--labels` — метки образа. Необязательный параметр.
+      * `description` — описание образа. Необязательный параметр.
+      * `uri` — ссылка на образ, полученная в Object Storage.
+      * `annotations` — метки образа. Необязательный параметр.
 
 - API {#api}
 

@@ -46,10 +46,10 @@
   
   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+  1. Посмотрите описание команды CLI для создания OAuth-клиента:
 
      ```bash
-     yc organization-manager idp application oauth application create --help
+     yc iam oauth-client create --help
      ```
 
   1. Создайте OAuth-клиент:
@@ -106,8 +106,14 @@
      ```
 
      Сохраните значение поля `secret_value`, оно понадобится для настройки Grafana OSS.
-  
-  1. Создайте OIDC-приложение:
+
+ 1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+    ```bash
+    yc organization-manager idp application oauth application create --help
+    ```
+
+ 1. Создайте OIDC-приложение:
 
      ```bash
      yc organization-manager idp application oauth application create \
@@ -285,7 +291,7 @@
 
   ```text
   id: ajeiu3otac08********
-  name: grafana-oss-oidc-app
+  name: grafana-oss-oauth-client
   redirect_uris:
     - https://your-domain/login/generic_oauth
   scopes:
@@ -306,16 +312,17 @@
 
 ### Настройте OIDC-приложение на стороне Grafana OSS {#setup-sp}
 
-Чтобы настроить аутентификацию по стандарту OpenID Connect на стороне Grafana OSS, в левой панели выберите раздел **Administration** и в нем подраздел **Authentication**. В основном окне выберите **Generic OAuth**.
+Чтобы настроить аутентификацию по стандарту OpenID Connect на стороне Grafana OSS:
 
-В настройках Generic OAuth:
-
+1. Откройте веб-интерфейс вашего экземпляра Grafana OSS (например, по адресу `https://your-domain`).
+1. В левой панели выберите раздел **Administration** и в нем подраздел **Authentication**.
+1. В основном окне выберите **Generic OAuth**.
 1. В поле **Display name** укажите: `OpenID Connect`.
 1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в поле **ClientID**.
 1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в блоке **Секреты приложения**.
 1. В поле **Scopes** введите последовательно: `openid`, `email`, `profile`, `groups`.
 1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в Yandex Identity Hub в поле **OpenID Configuration**.
-1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
+1. (Опционально) Включите опцию **Allow sign up** для автоматического создания пользователей при первом входе.
 
 #### Настройте сопоставление ролей {#role-mapping}
 

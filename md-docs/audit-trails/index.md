@@ -706,44 +706,6 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateCloudApplication](audit/cloudapps/events-ref/UpdateCloudApplication.md)
 
-### clouddesktop
-
- - [CopyDesktopImage](audit/clouddesktop/events-ref/CopyDesktopImage.md)
-
- - [CopyDesktopImageFromDesktop](audit/clouddesktop/events-ref/CopyDesktopImageFromDesktop.md)
-
- - [CreateDesktop](audit/clouddesktop/events-ref/CreateDesktop.md)
-
- - [CreateDesktopGroup](audit/clouddesktop/events-ref/CreateDesktopGroup.md)
-
- - [DeleteDesktop](audit/clouddesktop/events-ref/DeleteDesktop.md)
-
- - [DeleteDesktopGroup](audit/clouddesktop/events-ref/DeleteDesktopGroup.md)
-
- - [DeleteDesktopImage](audit/clouddesktop/events-ref/DeleteDesktopImage.md)
-
- - [GenerateDesktopRDPFile](audit/clouddesktop/events-ref/GenerateDesktopRDPFile.md)
-
- - [ResetDesktopPassword](audit/clouddesktop/events-ref/ResetDesktopPassword.md)
-
- - [RestartDesktop](audit/clouddesktop/events-ref/RestartDesktop.md)
-
- - [SetDesktopGroupAccessBindings](audit/clouddesktop/events-ref/SetDesktopGroupAccessBindings.md)
-
- - [StartDesktop](audit/clouddesktop/events-ref/StartDesktop.md)
-
- - [StopDesktop](audit/clouddesktop/events-ref/StopDesktop.md)
-
- - [UpdateDesktop](audit/clouddesktop/events-ref/UpdateDesktop.md)
-
- - [UpdateDesktopGroup](audit/clouddesktop/events-ref/UpdateDesktopGroup.md)
-
- - [UpdateDesktopGroupAccessBindings](audit/clouddesktop/events-ref/UpdateDesktopGroupAccessBindings.md)
-
- - [UpdateDesktopImage](audit/clouddesktop/events-ref/UpdateDesktopImage.md)
-
- - [UpdateDesktopProperties](audit/clouddesktop/events-ref/UpdateDesktopProperties.md)
-
 ### cloudregistry
 
  - [CreateArtifact](audit/cloudregistry/events-ref/CreateArtifact.md)

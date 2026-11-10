@@ -23,7 +23,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Application Load Balancer](events-data-plane.md#alb)
 * [Yandex BareMetal](events-data-plane.md#baremetal)
 * [Yandex Certificate Manager](events-data-plane.md#certificate-manager)
-* [Yandex Cloud Desktop](events-data-plane.md#clouddesktop)
 * [Yandex Cloud Registry](events-data-plane.md#cloud-registry)
 * [Yandex Cloud DNS](events-data-plane.md#dns)
 * [Yandex Compute Cloud](events-data-plane.md#compute)
@@ -76,13 +75,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `GetCertificateContent` | Получение содержимого SSL-сертификата
 `GetExCertificateContent` | Получение содержимого истекшего SSL-сертификата
-
-## Yandex Cloud Desktop {#clouddesktop}
-
-Имя сервиса — `clouddesktop`.
-
-Имя события | Описание
---- | ---
 
 ## Yandex Cloud Registry {#cloud-registry}
 

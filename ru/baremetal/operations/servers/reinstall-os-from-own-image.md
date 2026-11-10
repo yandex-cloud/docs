@@ -47,20 +47,30 @@ description: Следуя данной инструкции, вы сможете
 
     - CLI {#cli}
 
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      1. Посмотрите описание команды для загрузки образа:
+
+         ```bash
+         yc baremetal v2 boot-image create --help
+         ```
+
       1. Выполните команду:
 
          ```bash
-         yc baremetal boot-image create \
-           --name <имя_образа> \
-           --uri "<ссылка_на_образ>"
+         yc baremetal v2 boot-image create \
+           --boot-image '{name="<имя_образа>",uri="<ссылка_на_образ>"}'
          ```
 
-         Где:
-         * `--name` — имя образа. Требования к имени:
+         В объекте `--boot-image` укажите:
+
+         * `name` — имя образа. Требования к имени:
             
              {% include [name-format](../../../_includes/name-format.md) %}
 
-         * `--uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
+         * `uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
 
     - API {#api}
 

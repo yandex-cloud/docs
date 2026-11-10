@@ -424,6 +424,6 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 
 To stop paying for the resources you created:
 
+1. [Delete the DNS zone](../../dns/operations/zone-delete.md).
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
-1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one for your VM.
-1. [Delete](../../dns/operations/zone-delete.md) the domain zone you created.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.

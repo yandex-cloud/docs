@@ -9,7 +9,6 @@
 * [{{ backup-full-name }}](../../audit-trails/concepts/events.md#backup)
 * [{{ billing-name }}](../../audit-trails/concepts/events.md#billing)
 * [{{ cdn-full-name }}](../../audit-trails/concepts/events.md#cdn)
-* [{{ cloud-desktop-full-name }}](../../audit-trails/concepts/events.md#clouddesktop)
 * [{{ dns-full-name }}](../../audit-trails/concepts/events.md#dns)
 * [{{ sf-full-name }}](../../audit-trails/concepts/events.md#functions)
 * [{{ cloud-logging-full-name }}](../../audit-trails/concepts/events.md#cloud-logging)

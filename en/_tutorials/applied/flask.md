@@ -139,11 +139,11 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network` you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
-      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       | --- | --- | --- | --- | --- | --- |
-      | Ingress | `Flask`           | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Egress | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` |
+      | Ingress | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `Flask` |
+      | Ingress | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ssh` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -329,6 +329,12 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
         ```bash
         mkdir flask_blog && cd flask_blog
+        ```
+
+    1. Update the list of packages in the _apt_ repositories:
+
+        ```bash
+        sudo apt-get update
         ```
 
     1. Install the `venv` virtualization module:
@@ -1426,7 +1432,7 @@ Create a page where you can edit an existing post.
 
 1. Go to the application main page, `http://<public_IP_address_of_VM>:5000`, and make sure the post edit page now has the **Delete Post** button.
 
-Your application is now ready. If you did everything correctly, the final source code of your project should match the [code on this page](https://github.com/).
+Your application is now ready. If you did everything correctly, the final source code of your project should match the [code in the repository](https://github.com/yandex-cloud-examples/yc-web-app-python-flask).
 
 ## Summarize the results {#results}
 

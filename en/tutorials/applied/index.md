@@ -58,7 +58,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 ## Other {#other}
 
 * [Publishing game updates using {{ cdn-full-name }}](../web/prefetch.md)
-* [{#T}](../infrastructure-management/sap.md)
 * [{#T}](../infrastructure/minecraft-server.md)
+* [{#T}](../infrastructure/gta-v-server.md)
 * [{#T}](../serverless/video-converting-queue/index.md)
 * [{#T}](./desktop-linux-printer.md)

@@ -148,6 +148,8 @@
       updated_at: "2026-01-22T08:53:27.439690Z"
       ```
 
+      Сохраните значение поля `id` — это идентификатор OIDC-приложения, он понадобится при добавлении пользователей в приложение.
+
 {% endlist %}
 
 ### Настройте Redirect URI {#setup-redirect}
@@ -238,9 +240,9 @@
         --id <идентификатор_приложения> \
         --subject-id <идентификатор_пользователя_или_группы>
       ```
-  
+
       Где:
-  
+
       * `--id` — идентификатор OIDC-приложения.
       * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
   
@@ -260,7 +262,7 @@
 
 ## Подготовьте виртуальную машину с тестовым приложением {#setup-server}
 
-В данном руководстве вы развернете тестовое приложение, а также настроите утилиты `nginx` и `OAuth2 Proxy` на виртуальной машине под управлением ОС [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+В данном руководстве вы развернете тестовое приложение, а также настроите утилиты `nginx` и `OAuth2 Proxy` на виртуальной машине под управлением ОС [Ubuntu 24.04](/marketplace/products/yc/bm-ubuntu-24-04-lts).
 
 {% note warning %}
 
@@ -281,11 +283,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Консоль управления {#cloud-center}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-nginx-vm`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), соответствующую зоне доступности вашей подсети.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию `2 {{ ui-key.yacloud.component.compute.resources.field_cores }} 4 {{ ui-key.yacloud.common.units.label_gigabyte }} {{ ui-key.yacloud.component.compute.resources.field_memory }}`.
@@ -298,7 +301,7 @@
 
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
       * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-nginx-vm`.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -548,7 +551,7 @@
 
         ```text
         provider = "oidc"  # Тип провайдера
-        provider_display_name = "Yandex Identity Hub" # Имя провайдера на кнопке
+        provider_display_name = "Yandex Cloud Organization" # Имя провайдера на кнопке
         reverse_proxy = true # Включение режима работы за nginx
         client_id = "<идентификатор_ClientID>" # ClientID OIDC приложения 
         client_secret = "<секрет_OIDC_приложения>" # Секрет OIDC приложения
@@ -585,7 +588,8 @@
 
     ```bash
     sudo /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy \
-      --config /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy.cfg
+      --config /usr/bin/oauth2-proxy-v7.14.2.linux-amd64/oauth2-proxy.cfg \
+      --set-xauthrequest
     ```
 
     {% note tip %}

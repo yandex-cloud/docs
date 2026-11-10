@@ -156,7 +156,7 @@
   1. Посмотрите описание команды для аренды сервера:
      
      ```bash
-     yc baremetal server create --help
+     yc baremetal v2 server create --help
      ```
   1. Получите список конфигураций:
      
@@ -227,49 +227,67 @@
         - PRIVATE
       ```
 
-  1. Получите список периодов аренды, доступных для выбранной конфигурации:
+  1. Получите список периодов аренды:
      
      ```bash
-     yc baremetal rental-period list \
-       --configuration-id <идентификатор_конфигурации>
+     yc baremetal v2 rental-period list
      ```
   1. Получите список публичных образов ОС, доступных в Marketplace:
      
      ```bash
-     yc baremetal standard-image list \
+     yc baremetal v2 image list \
        --folder-id baremetal-standard-images
      ```
   1. Получите список приватных подсетей в каталоге:
      
      ```bash
-     yc baremetal private-subnet list \
+     yc baremetal v2 private-subnet list \
        --folder-id <идентификатор_каталога>
      ```
   1. Арендуйте сервер:
      
      ```bash
-     yc baremetal server create \
+     yc baremetal v2 server create \
        --folder-id <идентификатор_каталога> \
-       --hardware-pool-id <пул> \
-       --configuration-id <идентификатор_конфигурации> \
-       --os-settings-spec "image-id=<идентификатор_образа>,storages=[{partitions=[{type=<файловая_система>,size-gib=<размер_раздела>,mount-point=<точка_монтирования>}],storage-type={raid={type=<уровень_RAID-массива>,disks=[{id=<номер_диска>,size-gib=<размер_диска>,type=<тип_диска>}]}}}],ssh-key={ssh-public-key=<содержимое_открытого_SSH-ключа>},password={password-plain-text=<пароль_пользователя>}" \
-       --rental-period-id <период_аренды> \
-       --network-interfaces '{interface={private-interface={native-subnet-id=<идентификатор_приватной_подсети>}}}' \
-       --network-interfaces '{interface={public-interface={native-subnet-config={native-subnet={subnet-id=<идентификатор_публичной_подсети>}}}}}' \
-       --name <имя_сервера> \
-       --description "<описание_сервера>" \
-       --labels <ключ_метки>=<значение_метки>
+       --server '{
+         name="<имя_сервера>",
+         description="<описание_сервера>",
+         hardware-pool-id="<пул>",
+         configuration=stock-configuration-id="<идентификатор_конфигурации>",
+         next-rental-period-id="<период_аренды>",
+         os-settings={
+           image-id="<идентификатор_образа>",
+           ssh-key=ssh-public-key-text="<содержимое_открытого_SSH-ключа>",
+           password=password-plain-text="<пароль_пользователя>",
+           storages=[{
+             partitions=[{
+               type=<файловая_система>,
+               size-bytes=<размер_раздела_в_байтах>,
+               mount-point="<точка_монтирования>"
+             }],
+             storage-type=raid={
+               type=<уровень_RAID-массива>,
+               disks=[{id="<номер_диска>",size-bytes=<размер_диска_в_байтах>,type=<тип_диска>}]
+             }
+           }]
+         },
+         network-interfaces=[
+           {interface=private-interface={native-subnet-id="<идентификатор_приватной_подсети>"}},
+           {interface=public-interface={native-subnet-config=native-subnet={subnet-id="<идентификатор_публичной_подсети>"}}}
+         ],
+         annotations={<ключ_метки>="<значение_метки>"}
+       }'
      ```
 
       Где:
-      * `--hardware-pool-id` — [пул](../../concepts/servers.md#server-pools), из которого будет арендован сервер.
-      * `--configuration-id` — идентификатор [конфигурации сервера](../../concepts/server-configurations.md).
-      * `--os-settings-spec` — настройки операционной системы. Чтобы арендовать сервер без операционной системы, пропустите этот параметр. Возможные настройки:
+      * `hardware-pool-id` — [пул](../../concepts/servers.md#server-pools), из которого будет арендован сервер. Укажите его в объекте `--server`.
+      * `configuration` — [конфигурация сервера](../../concepts/server-configurations.md) в объекте `--server`. Для готовой конфигурации укажите ее идентификатор в поле `stock-configuration-id`.
+      * `os-settings` — настройки операционной системы. При аренде сервера укажите их в объекте `--server`, при переустановке ОС — в параметре `--os-settings`. Чтобы арендовать сервер без операционной системы, не передавайте поле `os-settings`. Возможные настройки:
         
         * `image-id` — идентификатор одного из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
         * `ssh-key` — SSH-ключ для подключения к серверу:
         
-          * `ssh-public-key` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `ssh-public-key-text` — содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../../glossary/ssh-keygen.md) необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
           * `user-ssh-id` — идентификатор пользовательского SSH-ключа.
         * `password` — пароль root-пользователя:
         
@@ -289,12 +307,12 @@
 
           [Установить](reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../concepts/images.md#user-images) вы сможете позднее.
 
-      * `storages` — настройки разметки [дисков](../../concepts/disks/disk-types.md) в параметре `--os-settings-spec`. Необязательная настройка. Возможные значения:
+      * `storages` — настройки разметки [дисков](../../concepts/disks/disk-types.md) в объекте `os-settings`. Необязательная настройка: если ее не передать, будет использована разметка по умолчанию для выбранной конфигурации. Возможные значения:
         
         * `partitions` — разделы диска:
           
           * `type` — файловая система. Возможные значения: `EXT3`, `EXT4`, `SWAP`, `XFS`.
-          * `size-gib` — размер раздела в гигабайтах.
+          * `size-bytes` — размер раздела в байтах.
           * `mount-point` — точка монтирования.
         
         * `storage-type` — тип хранилища:
@@ -302,17 +320,17 @@
           * `disk` — отдельный диск:
         
             * `id` — номер диска.
-            * `size-gib` — размер диска в гигабайтах.
+            * `size-bytes` — размер диска в байтах.
             * `type` — тип диска.
           * `raid` — RAID-массив:
         
             * `type` — [уровень RAID-массива](../../concepts/disks/raid.md#levels).
             * `disks` — список дисков в RAID-массиве.
-      * `--rental-period-id` — идентификатор периода аренды сервера, полученный с помощью команды `yc baremetal rental-period list`.
+      * `next-rental-period-id` — идентификатор периода аренды сервера в объекте `--server`. Получить доступные значения можно командой `yc baremetal v2 rental-period list`.
 
           По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](server-lease-cancel.md) от дальнейшего продления аренды сервера.
 
-      * `--network-interfaces` — сетевые интерфейсы сервера:
+      * `network-interfaces` — список сетевых интерфейсов в объекте `--server`. В поле `interface` каждого элемента укажите один из вариантов:
         
         * `private-interface` — приватный интерфейс. В параметре `native-subnet-id` укажите идентификатор [приватной подсети](../../concepts/private-network.md#private-subnet).
         * `public-interface` — публичный интерфейс. В настройке `native-subnet` укажите идентификатор [выделенной публичной подсети](../../concepts/public-network.md#public-subnet) в параметре `subnet-id`. Необязательная настройка.
@@ -324,9 +342,11 @@
           {% endnote %}
 
       * `--folder-id` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан сервер.
-      * `--name` — имя сервера.
-      * `--description` — описание сервера. Необязательный параметр.
-      * `--labels` — метки сервера. Необязательный параметр.
+      * `--server` — параметры создаваемого сервера в объектном синтаксисе. Кроме перечисленных выше полей, в объекте можно указать:
+      
+        * `name` — имя сервера.
+        * `description` — описание сервера. Необязательное поле.
+        * `annotations` — метки сервера в формате `{ключ="значение"}`. Необязательное поле.
 
 - API {#api}
 
@@ -345,73 +365,75 @@
 - CLI {#cli}
 
   ```bash
-  yc baremetal server create \
-    --folder-id b1g07hj5r6i4******** \
-    --hardware-pool-id ru-central1-m4 \
-    --configuration-id ly5lymxdltk3******** \
-    --os-settings-spec "image-id=ly5vhn4lapev********,storages=[{partitions=[{type=EXT3,size-gib=1000,mount-point=/},{type=EXT4,size-gib=500,mount-point=/root}],storage-type={raid={type=RAID0,disks=[{id=1,size-gib=1862,type=HDD},{id=2,size-gib=1862,type=HDD}]}}},{partitions=[{type=EXT3,size-gib=1000,mount-point=/boot},{type=SWAP,size-gib=10}],storage-type={disk={id=3,size-gib=1862,type=HDD}}}],ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********},password={password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}}" \
-    --rental-period-id 1-day \
-    --network-interfaces '{interface={private-interface={native-subnet-id=ly5ztavbezrf********}}}' \
-    --network-interfaces '{interface={public-interface={native-subnet-config={native-subnet={subnet-id=ly5o6l7pxmk2*********}}}}}' \
-    --name demo-baremetal-server \
-    --description "My first BareMetal server" \
-    --labels env=test
+  yc baremetal v2 server create \
+    --folder-id b1g0ijbfaqsn******** \
+    --server '{
+      name="demo-baremetal-server",
+      description="My first BareMetal server",
+      hardware-pool-id="ru-central1-m4",
+      configuration=stock-configuration-id="ly5lymxdltk3********",
+      next-rental-period-id="1-day",
+      os-settings={
+        image-id="ly5vhn4lapev********",
+        ssh-key=ssh-public-key-text="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********",
+        password=password-lockbox-secret={secret-id="e6qmvglkitn6********",version-id="e6qquvv4kh8e********",key="password"},
+        storages=[
+          {
+            partitions=[
+              {type=EXT3,size-bytes=1073741824000,mount-point="/"},
+              {type=EXT4,size-bytes=536870912000,mount-point="/root"}
+            ],
+            storage-type=raid={
+              type=RAID0,
+              disks=[
+                {id="1",size-bytes=1999307276288,type=HDD},
+                {id="2",size-bytes=1999307276288,type=HDD}
+              ]
+            }
+          },
+          {
+            partitions=[
+              {type=EXT3,size-bytes=1073741824000,mount-point="/boot"},
+              {type=SWAP,size-bytes=10737418240}
+            ],
+            storage-type=disk={id="3",size-bytes=1999307276288,type=HDD}
+          }
+        ]
+      },
+      network-interfaces=[
+        {interface=private-interface={native-subnet-id="ly5ztavbezrf********"}},
+        {interface=public-interface={native-subnet-config=native-subnet={subnet-id="ly5o6l7pxmk2********"}}}
+      ],
+      annotations={env="test"}
+    }' \
+    --format yaml
   ```
 
-  Результат:
+  Пример результата:
   
-  ```text
-  done (22m45s)
-  id: ly52dtzdi55r********
+  ```yaml
+  server_id: ly52dtzdi55r********
   cloud_id: b1gia87mbaom********
   folder_id: b1g0ijbfaqsn********
   name: demo-baremetal-server
   description: My first BareMetal server
-  zone_id: ru-central1-m
   hardware_pool_id: ru-central1-m4
-  status: PROVISIONING
+  state: RUNNING
   os_settings:
     image_id: ly5vhn4lapev********
     ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
-    storages:
-      - partitions:
-          - type: EXT3
-            size_gib: "999"
-            mount_point: /
-          - type: EXT4
-            size_gib: "499"
-            mount_point: /root
-        raid:
-          type: RAID0
-          disks:
-            - id: ly5ual3jbnhr********
-              type: HDD
-              size_gib: "1862"
-            - id: ly54qfjw55d4********
-              type: HDD
-              size_gib: "1862"
-      - partitions:
-          - type: EXT3
-            size_gib: "999"
-            mount_point: /boot
-          - type: SWAP
-            size_gib: "9"
-        disk:
-          id: ly5ojffpngul********
-          type: HDD
-          size_gib: "1862"
   network_interfaces:
-    - id: ly5wbsiklrtd********
+    - network_interface_id: ly5wbsiklrtd********
       mac_address: 00:25:90:92:fa:48
-      private_subnet:
-        private_subnet_id: ly5ztavbezrf********
-    - id: ly5ygl4loyy6********
+      private_interface:
+        native_subnet_id: ly5ztavbezrf********
+    - network_interface_id: ly5ygl4loyy6********
       mac_address: 00:25:90:92:fa:49
-      public_subnet:
-        public_subnet_id: ly5o6l7pxmk2********
-  configuration_id: ly5lymxdltk3xitpkrmi
-  created_at: "2025-07-06T21:53:46.186130Z"
-  labels:
+      public_interface:
+        native_subnet_id: ly5o6l7pxmk2********
+  stock_configuration_id: ly5lymxdltk3********
+  create_time: "2025-07-06T21:53:46.186130Z"
+  annotations:
     env: test
   ```
 

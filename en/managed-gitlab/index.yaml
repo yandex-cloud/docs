@@ -37,7 +37,7 @@ blocks:
         size: s
       - type: basic-card
         title: Step-by-step guides
-        text: Follow guides to perform routine operations
+        text: Follow our guides for routine operations
         icon: ../_assets/console-icons/list-ol.svg
         urlTitle: Step-by-step guides
         url: operations/
@@ -46,7 +46,7 @@ blocks:
         size: s
       - type: basic-card
         title: Concepts
-        text: Learn about the basic concepts and how the service works
+        text: Study the key concepts and service architecture
         icon: ../_assets/console-icons/bookmark.svg
         urlTitle: Concepts
         url: concepts/
@@ -55,7 +55,7 @@ blocks:
         size: s
       - type: basic-card
         title: Tutorials
-        text: Use the service to address common tasks
+        text: Solve standard tasks using the service
         icon: ../_assets/console-icons/book.svg
         urlTitle: Tutorials
         url: tutorials/
@@ -64,7 +64,7 @@ blocks:
         size: s
       - type: basic-card
         title: Quotas and limits
-        text: Technical and organizational limitations of the service
+        text: Technical and organizational limitations
         icon: ../_assets/console-icons/sliders.svg
         urlTitle: Quotas and limits
         url: concepts/limits
@@ -73,7 +73,7 @@ blocks:
         size: s
       - type: basic-card
         title: Access management
-        text: Configure access permissions for the service
+        text: Configure access permissions to use this service
         icon: ../_assets/console-icons/persons-lock.svg
         urlTitle: Access management
         url: security/
@@ -90,17 +90,17 @@ blocks:
         animated: false
         size: s
       - type: basic-card
-        title: Changelog
-        text: Updates to the service
+        title: Release notes
+        text: Releases and updates
         icon: ../_assets/console-icons/timeline.svg
-        urlTitle: Changelog
+        urlTitle: Release notes
         url: release-notes
         centered: true
         animated: false
         size: s
       - type: basic-card
         title: FAQ
-        text: Answers to common questions and troubleshooting tips
+        text: Answers to frequently asked questions and solutions to issues
         icon: ../_assets/console-icons/circle-question.svg
         urlTitle: FAQ
         url: qa/
@@ -109,7 +109,7 @@ blocks:
         size: s
       - type: basic-card
         title: CLI reference
-        text: Manage service resources from the command line
+        text: Manage the service resources from the command line
         icon: ../_assets/console-icons/terminal.svg
         urlTitle: CLI reference
         url: cli-ref/
@@ -154,21 +154,21 @@ blocks:
           pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 
 
-          * [Terms of use for Yandex Managed Service for
-          GitLab](https://yandex.ru/legal/cloud_terms_glb)
+          * [Yandex Managed Service for GitLab Terms of
+          Use](https://yandex.ru/legal/cloud_terms_glb)
 
 
-          * [Terms of use for Yandex
-          Cloud](https://yandex.ru/legal/cloud_specialterms)
+          * [Yandex Cloud Terms of
+          Use](https://yandex.ru/legal/cloud_specialterms)
       - type: basic-card
         title: Service level
         border: shadow
         size: s
         icon: ../_assets/console-icons/file-check.svg
         text: >
-          * [Service level for Yandex Managed Service for
-          GitLab](https://yandex.ru/legal/cloud_sla_glb)
+          * [Yandex Managed Service for GitLab Service
+          Level](https://yandex.ru/legal/cloud_sla_glb)
 
 
-          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
+          * [Yandex Cloud Service Level](https://yandex.ru/legal/cloud_sla)
 links: []

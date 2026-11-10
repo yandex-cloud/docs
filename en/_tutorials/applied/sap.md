@@ -4,12 +4,13 @@ You will learn to configure an SAP server and write your first program exporting
 
 To create an SAP program in {{ yandex-cloud }}:
 1. [Get your cloud ready](#before-begin).
+1. [Create a security group](#create-sg).
 1. [Create an SAP VM](#vm-sap).
 1. [Set up your VM file system](#fs-settings).
 1. [Configure SAP installation](#install-config).
 1. [Install SAP](#sap-install).
-1. [Configure SAP](#sap-settings).
-1. [Make sure the program runs correctly](#sap-app).
+1. [Start and configure SAP](#sap-settings).
+1. [Create your first program](#sap-app).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -22,6 +23,55 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of an SAP installation includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Create a security group {#create-sg}
+
+Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing incoming traffic to port `3200`. SAP Logon uses this port to connect to the VM. Also, rules allowing SSH access to the VM to configure the server and VM access to the internet to download software will be added to the security group.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `sap-sg`.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
+
+      #|
+      || **Traffic**
+      **direction**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
+      **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** ||
+      || Egress
+      | `0-65535`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `VM internet access` ||
+      || Ingress
+      | `3200`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `Connecting to SAP via SAP Logon` ||
+      || Ingress
+      | `22`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0`
+      | `SSH access to the VM` ||
+      |#
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
 
 ## Create an SAP VM {#vm-sap}
 
@@ -40,7 +90,7 @@ Create a VM and give it a public IP address:
       * Create a secondary disk:
           * Click **{{ ui-key.yacloud.common.add }}**.
           * Select the [disk type](../../compute/concepts/disk.md#disks-types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
-          * Specify the disk size: `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
+          * Specify the disk size: `90 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
           * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
@@ -54,6 +104,7 @@ Create a VM and give it a public IP address:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `sap-sg`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -255,7 +306,7 @@ Copy the installation files to your VM and configure SAP installation.
    1. Set `/distr/*.*` as the import destination.
 
    To import files, you should be the `/distr` folder owner. Alternatively, you should connect with root privileges or [configure the use of sudo upon logging in](https://winscp.net/eng/docs/faq_su).
-1. Install and run the UUIDD: [UUID](https://datatracker.ietf.org/doc/html/rfc4122) (universally unique identifiers) daemon required for SAP to work:
+1. Install and run the UUIDD: a [UUID](https://datatracker.ietf.org/doc/html/rfc4122) (universally unique identifiers) generation daemon required for SAP to work:
 
    ```bash
    zypper install uuidd
@@ -303,7 +354,7 @@ Copy the installation files to your VM and configure SAP installation.
    1. Add the following line:
 
       ```text
-      <inet> vhcalnplci vhcalnplci.{{ region-id }}.internal.
+      <inet> vhcalnplci vhcalnplci.{{ region-id }}.internal
       ```
 
       Where `inet` is an IP address following the `inet` parameter in the `eth0` section of the previous command output.
@@ -416,11 +467,11 @@ To test whether your system works properly, create a simple program exporting a 
 
    DATA: it_usr01     TYPE TABLE OF USR01.
    DATA: it_fieldcat  TYPE slis_t_fieldcat_alv,
-     wa_fieldcat  TYPE slis_fieldcat_alv.`
+     wa_fieldcat  TYPE slis_fieldcat_alv.
 
    *&---------------------------------------------------------------------*
 
-   *& START-OF-SELECTION`
+   *& START-OF-SELECTION
 
    *&---------------------------------------------------------------------*
 
@@ -463,4 +514,5 @@ To test whether your system works properly, create a simple program exporting a 
 
 To stop paying for the resources you created:
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the `sap-sg` security group](../../vpc/operations/security-group-delete.md).
 * If you reserved a [static public IP address](../../vpc/operations/address-delete.md) for this project, delete it.

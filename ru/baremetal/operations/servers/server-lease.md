@@ -99,17 +99,48 @@ description: Следуя данной инструкции, вы сможете
 - CLI {#cli}
 
   ```bash
-  yc baremetal server create \
-    --folder-id b1g07hj5r6i4******** \
-    --hardware-pool-id ru-central1-m4 \
-    --configuration-id ly5lymxdltk3******** \
-    --os-settings-spec "image-id=ly5vhn4lapev********,storages=[{partitions=[{type=EXT3,size-gib=1000,mount-point=/},{type=EXT4,size-gib=500,mount-point=/root}],storage-type={raid={type=RAID0,disks=[{id=1,size-gib=1862,type=HDD},{id=2,size-gib=1862,type=HDD}]}}},{partitions=[{type=EXT3,size-gib=1000,mount-point=/boot},{type=SWAP,size-gib=10}],storage-type={disk={id=3,size-gib=1862,type=HDD}}}],ssh-key={ssh-public-key=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********},password={password-lockbox-secret={secret-id=e6qmvglkitn6********,version-id=e6qquvv4kh8e********,key=password}}" \
-    --rental-period-id 1-day \
-    --network-interfaces '{interface={private-interface={native-subnet-id=ly5ztavbezrf********}}}' \
-    --network-interfaces '{interface={public-interface={native-subnet-config={native-subnet={subnet-id=ly5o6l7pxmk2*********}}}}}' \
-    --name demo-baremetal-server \
-    --description "My first BareMetal server" \
-    --labels env=test
+  yc baremetal v2 server create \
+    --folder-id b1g0ijbfaqsn******** \
+    --server '{
+      name="demo-baremetal-server",
+      description="My first BareMetal server",
+      hardware-pool-id="ru-central1-m4",
+      configuration=stock-configuration-id="ly5lymxdltk3********",
+      next-rental-period-id="1-day",
+      os-settings={
+        image-id="ly5vhn4lapev********",
+        ssh-key=ssh-public-key-text="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********",
+        password=password-lockbox-secret={secret-id="e6qmvglkitn6********",version-id="e6qquvv4kh8e********",key="password"},
+        storages=[
+          {
+            partitions=[
+              {type=EXT3,size-bytes=1073741824000,mount-point="/"},
+              {type=EXT4,size-bytes=536870912000,mount-point="/root"}
+            ],
+            storage-type=raid={
+              type=RAID0,
+              disks=[
+                {id="1",size-bytes=1999307276288,type=HDD},
+                {id="2",size-bytes=1999307276288,type=HDD}
+              ]
+            }
+          },
+          {
+            partitions=[
+              {type=EXT3,size-bytes=1073741824000,mount-point="/boot"},
+              {type=SWAP,size-bytes=10737418240}
+            ],
+            storage-type=disk={id="3",size-bytes=1999307276288,type=HDD}
+          }
+        ]
+      },
+      network-interfaces=[
+        {interface=private-interface={native-subnet-id="ly5ztavbezrf********"}},
+        {interface=public-interface={native-subnet-config=native-subnet={subnet-id="ly5o6l7pxmk2********"}}}
+      ],
+      annotations={env="test"}
+    }' \
+    --format yaml
   ```
 
   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}

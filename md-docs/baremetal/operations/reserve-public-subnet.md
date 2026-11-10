@@ -51,37 +51,41 @@
   1. Посмотрите описание команды для аренды новой [выделенной публичной подсети](../concepts/public-network.md#public-subnet):
 
      ```bash
-     yc baremetal public-subnet create --help
+     yc baremetal v2 public-subnet create --help
      ```
   
   1. Арендуйте подсеть:
      
      ```bash
-     yc baremetal public-subnet create \
-       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,... \
-       --prefix-length 29 \
-       --name <имя_публичной_подсети> \
-       --description "<описание_публичной_подсети>" \
-       --labels <ключ>=<значение>
+     yc baremetal v2 public-subnet create \
+       --public-subnet '{
+         hardware-pool-ids=["<идентификатор_пула_1>","<идентификатор_пула_2>"],
+         cidr-allocation-method=auto-allocation={prefix-length=29},
+         name="<имя_публичной_подсети>",
+         description="<описание_публичной_подсети>",
+         annotations={<ключ>="<значение>"}
+       }'
      ```
 
      Где:
-     * `--hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+
+     * `--public-subnet` — объект с параметрами подсети.
+     * `hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
 
        Выделенную публичную подсеть можно привязать одновременно к нескольким пулам. После создания подсети список пулов можно изменить.
 
-     * `--prefix-length` — размер заказываемой подсети.
+     * `cidr-allocation-method=auto-allocation` — автоматическое выделение адресов. В поле `prefix-length` укажите размер заказываемой подсети.
 
        Можно заказать только подсети размером `/29` (шесть доступных IP-адресов) и `/28` (четырнадцать доступных IP-адресов).
      
-     * `--name` — имя подсети. Требования к имени:
+     * `name` — имя подсети. Требования к имени:
        
        * длина — от 3 до 63 символов;
        * может содержать строчные буквы латинского алфавита, цифры и дефисы;
        * первый символ — буква, последний — не дефис.
        
-     * `--description` — описание подсети. Необязательный параметр.
-     * `--labels` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
+     * `description` — описание подсети. Необязательный параметр.
+     * `annotations` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
 
 - API {#api}
 
@@ -120,31 +124,37 @@
   1. Посмотрите описание команды для преобразования эфемерной публичной подсети:
 
      ```bash
-     yc baremetal public-subnet update --help
+     yc baremetal v2 public-subnet update --help
      ```
   
   1. Преобразуйте подсеть:
      
      ```bash
-     yc baremetal public-subnet update \
-       --id <идентификатор_публичной_эфимерной_подсети> \
-       --type dedicated \
-       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,... \
-       --name <имя_публичной_подсети> \
-       --description "<описание_публичной_подсети>" \
-       --labels <ключ>=<значение>
+     yc baremetal v2 public-subnet update \
+       --id <идентификатор_публичной_эфемерной_подсети> \
+       --update-mask type,hardware-pool-ids,name,description,annotations \
+       --public-subnet '{
+         type=DEDICATED,
+         hardware-pool-ids=["<идентификатор_пула_1>","<идентификатор_пула_2>"],
+         name="<имя_публичной_подсети>",
+         description="<описание_публичной_подсети>",
+         annotations={<ключ>="<значение>"}
+       }'
      ```
 
      Где:
-     * `--id` — идентификатор эфимерной публичной подсети.
-     * `--type` — тип, в который преобразуется подсеть.
-     * `--hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
+
+     * `--public-subnet` — объект с параметрами подсети.
+     * `--update-mask` — список изменяемых полей. Если вы исключили необязательное поле из объекта, удалите его и из маски.
+     * `--id` — идентификатор эфемерной публичной подсети.
+     * `type` — тип, в который преобразуется подсеть.
+     * `hardware-pool-ids` — идентификаторы [пулов](../concepts/servers.md#server-pools), в которых будет доступна подсеть.
 
        Выделенную публичную подсеть можно привязать одновременно к нескольким пулам. После создания подсети список пулов можно изменить.
      
-     * `--name` — имя подсети.
-     * `--description` — описание подсети. Необязательный параметр.
-     * `--labels` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
+     * `name` — имя подсети.
+     * `description` — описание подсети. Необязательный параметр.
+     * `annotations` — [метки](../../resource-manager/concepts/labels.md) подсети. Необязательный параметр.
 
 - API {#api}
 
@@ -180,21 +190,24 @@
   1. Посмотрите описание команды для изменения публичной подсети:
 
      ```bash
-     yc baremetal public-subnet update --help
+     yc baremetal v2 public-subnet update --help
      ```
 
   1. Измените список пулов:
 
      ```bash
-     yc baremetal public-subnet update \
+     yc baremetal v2 public-subnet update \
        --id <идентификатор_публичной_подсети> \
-       --hardware-pool-ids <идентификатор_пула_1>,<идентификатор_пула_2>,...
+       --update-mask hardware-pool-ids \
+       --public-subnet '{hardware-pool-ids=["<идентификатор_пула_1>","<идентификатор_пула_2>"]}'
      ```
 
      Где:
 
+     * `--public-subnet` — объект с параметрами подсети.
+     * `--update-mask` — список изменяемых полей. Если вы исключили необязательное поле из объекта, удалите его и из маски.
      * `--id` — идентификатор публичной подсети.
-     * `--hardware-pool-ids` — полный новый список идентификаторов [пулов](../concepts/servers.md#server-pools), в которых должна быть доступна подсеть.
+     * `hardware-pool-ids` — полный новый список идентификаторов [пулов](../concepts/servers.md#server-pools), в которых должна быть доступна подсеть.
 
 - API {#api}
 
@@ -213,23 +226,25 @@
 - CLI {#cli}
 
   ```bash
-  yc baremetal public-subnet create \
-    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
-    --prefix-length 29 \
-    --name demo-public-subnet \
-    --description "My first public subnet" \
-    --labels env=test
+  yc baremetal v2 public-subnet create \
+    --public-subnet '{
+      hardware-pool-ids=["ru-central1-m3","ru-central1-m4"],
+      cidr-allocation-method=auto-allocation={prefix-length=29},
+      name="demo-public-subnet",
+      description="My first public subnet",
+      annotations={env="test"}
+    }' \
+    --format yaml
   ```
 
-  Результат
+  Пример результата:
 
-  ```text
-  id: ly5jmqxxrcsu********
+  ```yaml
+  public_subnet_id: ly5jmqxxrcsu********
   cloud_id: b1gia87mbaom********
   folder_id: b1g0ijbfaqsn********
   name: demo-public-subnet
   description: My first public subnet
-  zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
     - ru-central1-m4
@@ -237,8 +252,8 @@
   prefix_length: "29"
   cidr: 94.139.248.184/29
   gateway_ip: 94.139.248.185
-  created_at: "2025-06-26T14:11:49.458568Z"
-  labels:
+  create_time: "2025-06-26T14:11:49.458568Z"
+  annotations:
     env: test
   ```
 
@@ -332,22 +347,25 @@
 - CLI {#cli}
 
   ```bash
-  yc baremetal public-subnet update \
+  yc baremetal v2 public-subnet update \
     --id ly5vr6tugxk7******** \
-    --type dedicated \
-    --hardware-pool-ids ru-central1-m3,ru-central1-m4 \
-    --description "Transformed dedicated public subnet"
+    --update-mask type,hardware-pool-ids,description \
+    --public-subnet '{
+      type=DEDICATED,
+      hardware-pool-ids=["ru-central1-m3","ru-central1-m4"],
+      description="Transformed dedicated public subnet"
+    }' \
+    --format yaml
   ```
 
-  Результат
+  Пример результата:
 
-  ```text
-  id: ly5vr6tugxk7********
+  ```yaml
+  public_subnet_id: ly5vr6tugxk7********
   cloud_id: b1gia87mbaom********
   folder_id: b1g0ijbfaqsn********
   name: transformed-public-subnet
   description: Transformed dedicated public subnet
-  zone_id: ru-central1-m
   hardware_pool_ids:
     - ru-central1-m3
     - ru-central1-m4
@@ -355,7 +373,7 @@
   prefix_length: "29"
   cidr: 94.139.248.184/29
   gateway_ip: 94.139.248.185
-  created_at: "2025-06-26T14:11:49.458568Z"
+  create_time: "2025-06-26T14:11:49.458568Z"
   ```
 - API {#api}
 

@@ -1,5 +1,5 @@
 Посмотрите описание команды для аренды сервера:
 
 ```bash
-yc baremetal server create --help
+yc baremetal v2 server create --help
 ```
