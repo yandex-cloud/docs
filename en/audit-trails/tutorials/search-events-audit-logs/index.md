@@ -5,10 +5,4 @@ canonical: '{{ link-docs }}/tutorials/security/search-events-audit-logs'
 
 # Searching for events in audit logs
 
-This tutorial provides common [requests, filters, and commands](examples.md) you can use to get events from the audit logs of {{ yandex-cloud }} resources with the help of the following [tools](tools.md):
-
-* {{ yq-full-name }}
-* {{ cloud-logging-full-name }}
-* jq
-
-You can test event search in audit logs using [this example](query.md), where a {{ objstorage-full-name }} bucket with audit logs is connected to {{ yq-name }}.
+This tutorial provides common [filters and commands](examples.md) for finding events in audit logs of {{ yandex-cloud }} resources using {{ cloud-logging-full-name }} or jq. For details on these tools and their configuration, see [{#T}](tools.md).

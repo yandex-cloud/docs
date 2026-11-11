@@ -112,7 +112,7 @@ If an organization with an activated support service plan uses resources paid fr
 
 
 
-#### Example of calculating the cost for an organization whose resources are paid from a single billing account, with a committed volume of services included {#business-example-one-ba-cvos}
+#### Example of calculating the cost for an organization whose resources are paid from a single billing account given adjustments {#business-example-one-ba-cvos}
 
 
 

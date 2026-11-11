@@ -19,11 +19,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. Войдите в [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью администратора или владельца организации.
 
       При необходимости [переключитесь](./manage-organizations.md#switch-to-another-org) на нужную организацию.
 
-  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. В верхней части экрана выберите **Security**.
+  1. На панели слева выберите **{{ ui-key.yacloud_org.pages.securitySettings }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_other_kJgk8 }}**, в блоке **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.auth_settings_1RoAM }}** включите опцию **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.required_mfa_6P4xN }}**.
 
 {% endlist %}

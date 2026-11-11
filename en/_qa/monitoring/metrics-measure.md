@@ -1,5 +1,9 @@
 # Metrics and measurement units
 
+#### What does the error "Too many metrics are loaded by selectors" mean? {#too-many-metrics}
+
+It means that you have configured a too generic query that includes more than [40,000 metrics](../../monium/concepts/limits.md#limits-metrics-alerts). Refine your query.
+
 #### What does the dot mean? {#comma}
 
 It separates integer and fractional parts of a number. For example, `123,456` should be interpreted as 123 and 456 thousandths.

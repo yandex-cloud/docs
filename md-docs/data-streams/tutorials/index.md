@@ -2,8 +2,6 @@
 
 # Практические руководства Data Streams
 
-- [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)
-- [Обработка потока изменений Debezium](debezium.md)
 - [Ввод данных в системы хранения](data-ingestion.md)
 - [Умная обработка логов](log-ingestion.md)
 - [Передача данных в микросервисных архитектурах](message-broker.md)
@@ -21,8 +19,5 @@
 - [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](events-from-postbox-to-yds.md)
 - [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
 - [Загрузка аудитных логов в MaxPatrol SIEM](maxpatrol/index.md)
-- [Поиск событий Yandex Cloud в Yandex Query](search-events-query.md)
-- [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)
 - [Поиск событий в аудитных логах](search-events-audit-logs/index.md)
-- [Обработка потока изменений Debezium](debezium.md)
 - [Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков](postbox-webhook.md)

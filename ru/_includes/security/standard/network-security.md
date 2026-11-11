@@ -402,8 +402,10 @@
 
   **Проверка включения OS Login:**
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. Войдите в [{{ cloud-center }}]({{ cloud-center-link }}) и выберите нужную организацию.
+  1. В верхней части экрана выберите **Security**.
+  1. На панели слева выберите **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_ssh_p5mfs }}**.
   1. Убедитесь, что включена опция **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
   1. [Перейдите]({{ link-console-main }}/link/compute/instances) в настройки ВМ в сервисе {{ compute-short-name }} и убедитесь, что включена опция **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
 

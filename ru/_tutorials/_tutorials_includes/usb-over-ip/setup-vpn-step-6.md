@@ -17,10 +17,16 @@ sudo wg-quick up wg0
 
 {% note info %}
 
-Чтобы включить автоматический запуск WireGuard, выполните команду:
+Чтобы включить автоматический запуск WireGuard, сначала остановите интерфейс, запущенный вручную:
 
 ```bash
-sudo systemctl start wg-quick@wg0 && sudo systemctl enable wg-quick@wg0
+sudo wg-quick down wg0
+```
+
+Включите и запустите службу `systemd`:
+
+```bash
+sudo systemctl enable --now wg-quick@wg0
 ```
 
 {% endnote %}

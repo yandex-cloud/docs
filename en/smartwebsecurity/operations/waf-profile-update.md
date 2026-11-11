@@ -1,9 +1,9 @@
 ---
-title: Editing basic WAF profile settings
+title: Editing basic Cloud WAF profile settings
 description: Follow this guide to edit basic WAF profile settings.
 ---
 
-# Editing basic WAF profile settings
+# Editing basic Cloud WAF profile settings
 
 {% list tabs group=instructions %}
 

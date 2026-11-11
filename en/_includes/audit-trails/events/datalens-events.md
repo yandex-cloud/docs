@@ -19,19 +19,20 @@ Event name | Description
 `DeleteEntry` | Deleting an object
 `DeleteSharedEntry` | Deleting a common object
 `DeleteWorkbooks` | Deleting one or multiple workbooks
-`platform.CreateAirflowCluster` | Creating an Airflow cluster
+`platform.CreateAirflowCluster` | Creating a {{ AF }} cluster
 `platform.CreateCloudEnvironment` | Creating a cloud environment
 `platform.CreateRestCatalog` | Creating a REST catalog
 `platform.CreateRestCatalogNamespace` | Creating a REST catalog namespace
-`platform.CreateSparkCluster` | Creating a Spark cluster
-`platform.CreateTrinoCluster` | Creating a Trino cluster
-`platform.DeleteAirflowCluster` | Deleting an Airflow cluster
+`platform.CreateSparkCluster` | Creating a {{ SPRK }} cluster
+`platform.CreateTrinoCluster` | Creating a {{ TR }} cluster
+`platform.DeleteAirflowCluster` | Deleting a {{ AF }} cluster
 `platform.DeleteCloudEnvironment` | Deleting a cloud environment
 `platform.DeleteRestCatalog` | Deleting a REST catalog
 `platform.DeleteRestCatalogNamespace` | Deleting a REST catalog namespace
-`platform.DeleteSparkCluster` | Deleting a Spark cluster
-`platform.DeleteTrinoCluster` | Deleting a Trino cluster
+`platform.DeleteSparkCluster` | Deleting a {{ SPRK }} cluster
+`platform.DeleteTrinoCluster` | Deleting a {{ TR }} cluster
 `platform.UpdateCloudEnvironment` | Updating a cloud environment
+`platform.UpdateTrinoCluster` | Updating a {{ TR }} cluster
 `DisableBillingInstanceService` | Receiving a notification from {{ billing-name }} that the billing account linked to {{ datalens-name }} is inactive
 `DisableFolders` | [Disabling](../../../datalens/settings/navigation.md#disable-folder-navigation) folder navigation
 `DisableTenantBilling` | User scheduled Business plan deactivation for the beginning of the next month ^1^

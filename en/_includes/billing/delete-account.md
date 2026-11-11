@@ -16,7 +16,6 @@
        * {{ speechsense-full-name }} [spaces]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space)
        * [{{ datalens-full-name }}](../../datalens/) instances
        * [{{ video-full-name }}](../../video/) spaces 
-     * You still have resources purchased under the [CVoS](../../billing/concepts/cvos.md).
      * You have not disabled the paid [Technical support](../../support/overview.md) service plan.
      * Your billing account has a [partner](../../partner/terms.md#referral-partner) status or you are a [partner's customer](../../partner/terms.md#sub-account).
      * [Payment settlements for the provided services are still pending](../../billing/concepts/act.md).

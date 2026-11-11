@@ -17,7 +17,7 @@ description: This page features step-by-step guides for {{ sws-name }}.
 * [{#T}](host-connect.md)
 * [{#T}](host-delete.md)
 
-## Managing WAF profiles {#waf-profiles}
+## Managing Cloud WAF profiles {#waf-profiles}
 
 * [{#T}](waf-profile-create.md)
 * [{#T}](waf-profile-update.md)
@@ -29,6 +29,15 @@ description: This page features step-by-step guides for {{ sws-name }}.
 * [{#T}](exclusion-rule-update.md)
 * [{#T}](exclusion-rule-delete.md)
 * [{#T}](waf-ml-tuning-recommendations.md)
+
+## Managing SolidWall WAF profiles {#solidwall-waf-profiles}
+
+* [{#T}](solidwall-waf-profile-create.md)
+* [{#T}](solidwall-waf-application-create.md)
+* [{#T}](solidwall-waf-profile-update.md)
+* [{#T}](solidwall-waf-application-update.md)
+* [{#T}](solidwall-waf-application-delete.md)
+* [{#T}](solidwall-waf-profile-delete.md)
 
 ## Managing ARL profiles {#arl-profiles}
 

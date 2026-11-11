@@ -1,9 +1,9 @@
 ---
-title: Editing a WAF exclusion rule
+title: Editing a Cloud WAF exclusion rule
 description: Follow this guide to edit a WAF exclusion rule.
 ---
 
-# Editing a WAF exclusion rule
+# Editing a Cloud WAF exclusion rule
 
 {% list tabs group=instructions %}
 

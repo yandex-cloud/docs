@@ -5,8 +5,6 @@ description: A {{ monitoring-short-name }} escalation policy is a sequence of no
 
 # Escalations
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}

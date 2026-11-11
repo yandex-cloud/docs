@@ -4,8 +4,8 @@ meta:
     Yandex Security Deck is a comprehensive CNAPP solution comprising such
     modules as {{ dspm-full-name }} ({{ dspm-name }}), {{ cspm-full-name }} ({{
     cspm-name }}), {{ kspm-full-name }} ({{ kspm-name }}), {{
-    access-analyzer-name }}, {{ alerts-name }}, {{ atr-name }}, cloud security
-    AI assistant, and Compliance Portal.
+    access-analyzer-name }}, {{ alerts-name }}, {{ atr-name }}, and Compliance
+    Portal.
   keywords:
     - keyword: '{{ sd-name }}'
     - keyword: '{{ sd-full-name }}'
@@ -38,7 +38,6 @@ meta:
     - keyword: '{{ alerts-name }}'
     - keyword: '{{ yandex-cloud }} security alerts'
     - keyword: security alerts in {{ yandex-cloud }}
-    - keyword: security AI assistant
     - keyword: '{{ yagpt-name }} security'
     - keyword: '{{ yandex-cloud }} security recommendations'
     - keyword: '{{ sd-name }} workspaces'
@@ -62,7 +61,7 @@ blocks:
         url: >-
           https://yandex.cloud/en/docs/security-deck/concepts/standard-compliance/yc-security-baseline
       - src: _assets/image/cspm-standard-yc.svg
-        text: Infrastructure security standard
+        text: Cloud infrastructure security standard
         url: >-
           https://yandex.cloud/en/docs/security-deck/concepts/standard-compliance/yc-cloud-security-standard
       - src: _assets/image/cspm-standard-ransomware.svg

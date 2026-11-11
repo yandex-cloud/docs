@@ -190,8 +190,6 @@ items:
         href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
-      - name: AI assistant
-        href: concepts/ai-assistant.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Error diagnostics

@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Для получения доступа купите [стартовый пакетный тариф](../pricing.md#starter-rules) Security Deck и запросите доступ у менеджера.
 
 {% endnote %}
 

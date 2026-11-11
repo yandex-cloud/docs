@@ -9,7 +9,7 @@
 * [Create and check a security profile](#security-profile).
 * [Connect a security profile to the resource](#profile-connect).
 * [Test the security profile](#monitoring).
-* Optionally, [create and connect a WAF profile](#waf).
+* Optionally, [create and connect a Cloud WAF profile](#waf).
 * Optionally, [create and connect an ARL profile](#arl).
 
 {{ sws-name }} provides security tools to configure step by step. Apply every change you make in **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode and [analyze logs](operations/configure-logging.md). This will allow you to easily monitor and adjust your rules.
@@ -83,7 +83,7 @@ If having problems configuring {{ sws-name }}:
     1. Enter the address of the domain your web application is in, e.g., `example.com`.
     1. Click **{{ ui-key.yacloud.common.continue }}**.
     1. Select the connection type used by your application. We recommend the secure **{{ ui-key.yacloud.smart-web-security.DomainForm.ConnectionSection.https_qWPJb }}** protocol.
-    1. If you use [{{ certificate-manager-name }}](../certificate-manager/) and have added your domain certificate to it, select it from the list. 
+    1. If you use [{{ certificate-manager-name }}](../certificate-manager/) and have added your domain certificate to it, select it from the list.
     1. If not using {{ certificate-manager-name }}, click **{{ ui-key.yacloud.common.create }}** → **{{ ui-key.yacloud.certificate-manager.CertificateField.userCertificate_bChXn }}**.
 
        1. Enter a name for the certificate.
@@ -213,20 +213,21 @@ The connection method depends on the resource type.
 {% endlist %}
 
 
-## Create and connect a WAF profile {#waf}
+## Create and connect a Cloud WAF profile {#waf}
 
-WAF allows using rule sets to protect web applications against various cyber attacks. We recommend configuring your WAF profile only after setting up and testing the basic rules and Smart Protection rules in the security profile.
+WAF allows using rule sets to protect web applications against various cyber attacks. We recommend configuring your Cloud WAF profile only after setting up and testing the basic rules and Smart Protection rules in the security profile.
 
 
-### Create a WAF profile {#waf-create}
+### Create a Cloud WAF profile {#waf-create}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a WAF profile.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a Cloud WAF profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. In the left-hand panel, select ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and open the **{{ ui-key.yacloud.smart-web-security.cloudWafTab_oR48G }}** tab.
+  1. Click **{{ ui-key.yacloud.smart-web-security.WafCreateProfileAction.createWafOrSolidWallProfileButton_6J5WK }}** and select **{{ ui-key.yacloud.smart-web-security.cloudWafProfile_4E82H }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. Enable a rule set, e.g., the [OWASP Core Rule Set](https://coreruleset.org/), and make sure to use its latest version. To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -240,7 +241,7 @@ WAF allows using rule sets to protect web applications against various cyber att
 
 - Management console {#console}
 
-  1. On the WAF profile overview page that opens, click ![image](../_assets/console-icons/gear.svg) **Configure** next to the rule set.
+  1. On the Cloud WAF profile overview page that opens, click ![image](../_assets/console-icons/gear.svg) **Configure** next to the rule set.
   1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the total [anomaly](concepts/waf.md#anomaly) score of triggered rules that results in blocking the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
       We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#create-exclusion). You can use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile to test various anomaly thresholds.
@@ -251,7 +252,7 @@ WAF allows using rule sets to protect web applications against various cyber att
 
   1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly scores and paranoia levels.
 
-  You can configure any rule in the set to block requests. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../_assets/console-icons/ban.svg) on its right. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}(dry-run)** mode is enabled in the security profile, requests will not be blocked even when if they match the blocking rules.
+  You can make any rule in the set the blocking one. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../_assets/console-icons/ban.svg) on its right. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}(dry-run)** mode is enabled in the security profile, requests will not be blocked even when if they match the blocking rules.
 
 {% endlist %}
 
@@ -265,7 +266,7 @@ WAF allows using rule sets to protect web applications against various cyber att
   1. Navigate to the **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Enter a name for the [exclusion rule](concepts/waf.md#exclusion-rules), e.g., `exception-rule-1`.
   1. Under **{{ ui-key.yacloud.smart-web-security.WafProfileExclusionRuleForm.RulesSection.field_exclude-all_gKv9U }}**, specify rules from the basic set for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
-  1. Under **Exclusion condition**, select a scope for the exclusion rule. The rule can be applied to the entire request or its individual parts, i.e., `HTTP body`, `Cookie`, `HTTP header`, and `Query params`.
+  1. Under **Exclusion condition**, select a scope for the exclusion rule. The rule can be applied to the entire request or to its individual parts, i.e., `HTTP body`, `Cookie`, `HTTP header` and `Query params`.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select the triggering [conditions](concepts/conditions.md) for the exclusion rule.
 
       If you leave the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field empty, the exclusion rule will apply to all traffic.
@@ -275,18 +276,18 @@ WAF allows using rule sets to protect web applications against various cyber att
 {% endlist %}
 
 
-### Connect the WAF profile to the security profile {#waf-connect}
+### Connect the Cloud WAF profile to the security profile {#waf-connect}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
-  1. From the list, select the security profile to connect your WAF profile to, e.g., `test-sp1`.
+  1. From the list, select the security profile to connect your Cloud WAF profile to, e.g., `test-sp1`.
   1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `waf-rule-1`.
   1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set a value higher than that of the Smart Protection rules already existing in the security profile, e.g., `888800`.
-  1. Optionally, to test your WAF profile and simulate false positives triggered by legitimate requests, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile.
+  1. Optionally, to test your Cloud WAF profile and simulate false positives triggered by legitimate requests, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile.
   1. In the **Rule type** field, select `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_waf-profile }}** field, select the previously created profile named `test-waf-profile-1`.
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** field, select `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.

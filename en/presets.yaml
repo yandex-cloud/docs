@@ -2568,6 +2568,7 @@ default:
         title_comparison-eq: Equals to
         title_comparison-gt: Greater than
         title_comparison-gte: Greater than or equals
+        title_comparison-lt: Less than
         title_comparison-lte: Less than or equals
         title_comparison-ne: Not equals to
         title_conditions: Alert condition
@@ -2655,6 +2656,11 @@ default:
             custom: Custom
             query: Label
             text-field: Text
+        range-date-picker:
+          preset-last-hour: Last hour
+        share-form:
+          action:
+            copy-key-value: Copy
       context-links:
         label:
           type:
@@ -2698,6 +2704,9 @@ default:
       header:
         action:
           settings: Settings
+        description:
+          field:
+            id: ID
         title:
           mx-mode: Metrics
       homepage:
@@ -2725,19 +2734,58 @@ default:
         method:
           ya-chats: Yandex Messenger
       monitoring-alerts:
+        action:
+          calculate-alert: Check result
+        aggregate:
+          strategy-type:
+            count: By count
+            percentage: By percentage
         button:
           create-custom-title: Custom
+          create-slo-title: SLO
         channel-table:
+          notify-statuses: Notify about statuses
           repeat: Re-notification
+        downsampling:
+          aggregation:
+            avg: Average
+            count: Count
+            default: Default
+            last: Last
+            max: Maximum
+            min: Minimum
+            sum: Sum
+          fill:
+            empty: Empty
+            'null': 'Null'
+            previous: Previous value
+        flap-suppressor:
+          checkbox: Noise suppression
         label:
+          downsampling-fill: Fill
           edit-notify-methods: Edit
+          group-by-labels: Deсomposition by labels
           notification-method: Notification method
           query-to-check: Query to check
           sent-notify-statuses: Notification statuses
+          severity-level: Severity
+          slo-alert-type: Type
           type: Type
+        labels:
+          tokenized-input:
+            copy-button: Copy all labels
         list-table:
           evaluation-stats-single: Evaluation status
           name: Name
+        slo-type:
+          error-budget-key-value: Error Budget
+        slo:
+          alarm-threshold: Alarm
+          alert-type-key-value: Calculation method
+          alert-type:
+            absolute: Error Budget Remaining
+            diff: Error Budget Exhaustion Rate
+          warn-threshold: Warning
         status:
           alarm: Alarm
           warn: Warning
@@ -2757,6 +2805,7 @@ default:
           alert-conditions: Alert conditions
           alert-config: Alert configuration
           annotations: Annotations
+          calculation-history-alert: Alert evaluation history
           evaluation-window-key-value: Evaluation window
           main-info: Basic information
           no-data: No data policy
@@ -2838,6 +2887,13 @@ default:
           secondary-y: Right Y axis
         button:
           top-by: Chart split
+        chart:
+          area: Area
+          column: Column
+          line: Line
+          pie: Pie
+          points: Points
+          tiles: Tiles
         general:
           chartsInRow: Number of graphs per row
           name: Title
@@ -2871,6 +2927,7 @@ default:
           add: Add threshold
           show-on-graph: Show on graph
         vis:
+          aggregation-key-value: Aggregation
           chart-type: Chart type
           color-scheme: Color scheme
           downsampling:
@@ -3533,7 +3590,6 @@ default:
         users: Users
       security-center:
         alert:
-          action_alert_analysis: Alert analysis
           alert_severity-info: Remark
           overview_tags: Tags
         alerts:
@@ -5109,9 +5165,23 @@ default:
         not-selected: Not selected
         objects: Objects
         open: Open
-        operations-key-value: Operations
         operations:
+          column_description: Operation
+          column_error: Error message
+          column_id: ID
           column_status: Status
+          column_user: User
+          column_value_done: Completed
+          column_value_error: Error
+          column_value_pending: Pending
+          filter_status: Status
+          filter_text: Filter by ID
+          label_empty-msg-body: The list of operations is empty
+          label_empty-msg-title: List of operations is empty
+          select_value_done: Completed
+          select_value_error: Error
+          select_value_pending: Pending
+        operations-key-value: Operations
         overview: Overview
         password: Password
         remove: Delete
@@ -7590,6 +7660,9 @@ default:
         advanced_waf:
           sets_priority_section:
             section_title: Rule sets in order of priority
+        Application:
+          CreateApplicationPage:
+            actionCreate_pi4Bb: Create application
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
@@ -7620,6 +7693,17 @@ default:
             label_domain_1hgsY: Domain
             label_proxy-server_w9BGG: Proxy server
         baseRulesTitle_xcJEe: Base rules
+        cloudWafProfile_4E82H: Cloud WAF profile
+        cloudWafTab_oR48G: Cloud WAF
+        ConnectDomainSolidWallDialog:
+          button_connect_8BBRL: Connect
+          DomainsFieldArray:
+            button_add-domain_cVb2C: Add domain
+          FormFieldDomainSelect:
+            title_domain_aHoh1: Domain
+          FormFieldSecurityProfileSelect:
+            title_security-profile_v6r5o: Security profile
+        controlPanel_nsbwt: Control panel
         createCustomPage_t4SuU: Create template
         CreateDomain:
           createDomain_b2Ykj: Add domain
@@ -7736,6 +7820,30 @@ default:
             denyAndCaptchaTitle_tCthP: DENY and CAPTCHA
             loggingEnable_6eK2x: Write logs
             outputTitle_tw1oT: Send logs to
+        solid-wall:
+          5j7yt: Actual maximum number of requests
+          domain_session-bindings_by-ip_pRD7K: By IP address
+          domain_session-bindings_t5Jor: Session binding
+        SolidWall:
+          SolidWallProfileOverviewPage:
+            label_add-application_4pETp: Add application
+            section-title_applications_5DnfM: Applications
+        solidWallAdvancedTariff_6mLtW: Advanced
+        SolidWallApplicationActions:
+          label_connect-domain_cAaqD: Connect domain
+          popup_delete-application-title_eC8hf: Delete SolidWall WAF application
+        solidWallBasicTariff_hB5xS: Basic
+        SolidWallDomainsActions:
+          label_disable_7HM58: Disable domain
+        solidWallProfile_jVUUm: SolidWall WAF profile
+        SolidWallProfileForm:
+          ConfirmPurchaseDialog:
+            dialogTitle_fomvt: Review the payment procedure
+          titleApplications_rKJfh: Applications
+          titleRpsLimit_b67eQ: Peak load on applications
+          titleTariff_6j471: Service plan
+        target-state:
+          healthy_4tpQh: Healthy
         title_default-template: From a preset template
         title_no-template: From scratch
         title_profiles: Security profiles
@@ -7759,6 +7867,8 @@ default:
           value_exclude-all-yes: All rules
           verdict-all: Verdict DENY returned in each selected rule set
           verdict-at-least-one: Verdict DENY returned in at least one selected rule set
+        WafCreateProfileAction:
+          createWafOrSolidWallProfileButton_6J5WK: Create profile
         WafProfileExclusionRuleForm:
           RulesSection:
             field_exclude-all_gKv9U: WAF rules

@@ -41,7 +41,7 @@ items:
             href: concepts/stream-processing-windows.md
           - name: Data pattern processing
             href: concepts/match-recognize.md
-      - name: Unified analysis of streaming and analytical data
+      - name: Unified streaming and batch data analysis
         href: concepts/unified-processing.md
       - name: Backups
         href: concepts/backup.md
@@ -128,8 +128,8 @@ items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
         href: tutorials/search-events-query.md
       - name: >-
-          Ingesting {{ forms-full-name }} data into {{ datalens-full-name }} via
-          {{ sf-full-name }} and {{ yq-full-name }}
+          Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
         items:
           - name: Overview
             href: tutorials/forms-and-datalens-integration/index.md

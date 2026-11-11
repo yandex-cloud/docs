@@ -1,11 +1,9 @@
 # Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived
 
 
-[VRRP](https://ru.wikipedia.org/wiki/VRRP) (Virtual Router Redundancy Protocol) — это сетевой протокол, предназначенный для повышения отказоустойчивости маршрутизаторов, выполняющих роль шлюза по умолчанию. 
+[VRRP](https://ru.wikipedia.org/wiki/VRRP) (Virtual Router Redundancy Protocol) позволяет нескольким узлам в одной сети совместно использовать виртуальный IP-адрес. Узлы обмениваются объявлениями VRRP и выбирают активный узел. Если он становится недоступен, резервный узел назначает виртуальный IP-адрес своему интерфейсу.
 
-Отказоустойчивость достигается за счет объединения в группу двух и более маршрутизаторов в один виртуальный маршрутизатор, который выступает шлюзом по умолчанию для обслуживаемых сегментов сети. Протокол VRRP позволяет создать виртуальный IP-адрес и передавать его между участниками группы, за счет чего повышается доступность шлюза.
-
-В данном руководстве приводится пример организации на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-name }} высокодоступной конфигурации прокси-сервера, в которой функции проксирования симметрично настроены на двух и более узлах [HAProxy](https://ru.wikipedia.org/wiki/HAProxy), а за формирование и передачу виртуального IP-адреса между этими узлами отвечает сервис [Keepalived](https://keepalived.org/).
+В этом руководстве вы настроите на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-name }} отказоустойчивый виртуальный IP-адрес с помощью сервиса [Keepalived](https://keepalived.org/). Keepalived управляет только виртуальным IP-адресом: установка и настройка прокси-сервера или другого приложения в руководство не входят.
 
 ## Схема решения {#solution-overview}
 
@@ -13,15 +11,15 @@
 
 В зоне доступности `{{ region-id }}-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/private-network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3` и `{{ region-id }}-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/private-network.md#vrf-segment) (VRF) `vrrp-vrf`.
 
-В подсети `subnet-m3` вы создадите два сервера {{ baremetal-name }} — `master-server-m3` и `backup-server-m3`, которые соответственно будут выполнять роли `MASTER` и `BACKUP` в VRRP-группе. На двух этих серверах вы запустите сервис Keepalived и настроите с его помощью виртуальный IP-адрес для  группы серверов в пуле `{{ region-id }}-m3`.
+В подсети `subnet-m3` вы создадите два сервера {{ baremetal-name }} — `master-server-m3` и `backup-server-m3`, которые будут выполнять роли `MASTER` и `BACKUP` в VRRP-группе. На обоих серверах вы запустите Keepalived и настроите виртуальный IP-адрес для группы в пуле `{{ region-id }}-m3`.
 
 В подсети `subnet-m4` в пуле серверов `{{ region-id }}-m4` вы создадите сервер {{ baremetal-name }} `client-server-m4`, который будет выступать в качестве клиента при использовании виртуального IP-адреса, созданного в пуле `{{ region-id }}-m3`.
 
-Данное решение позволяет продемонстрировать комплексную работу клиентского изолированного VRF с маршрутизацией уровня L3 [сетевой модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI) между пулами серверов `{{ region-id }}-m3` и `{{ region-id }}-m4`, а также работу широковещательного протокола VRRP на уровне L2 в пуле серверов `{{ region-id }}-m3`.
+Серверы `master-server-m3` и `backup-server-m3` обмениваются объявлениями VRRP в общей приватной подсети. Клиент из подсети `subnet-m4` обращается к виртуальному IP-адресу через маршрутизацию L3 в VRF. VRRP использует multicast, а не широковещательную рассылку.
 
 {% note info %}
 
-Распространение широковещательного трафика (на уровне L2 сетевой модели OSI) происходит только в пределах одного пула серверов и только для группы серверов, находящихся в одной и той же сети.
+Участники группы VRRP должны находиться в одной приватной подсети одного пула серверов. VRF обеспечивает маршрутизацию L3 между подсетями разных пулов, но не переносит объявления VRRP между ними. В этом примере VRRP работает только между серверами в пуле `{{ region-id }}-m3`.
 
 {% endnote %}
 
@@ -78,8 +76,10 @@
   1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `vrrp-vrf`.
   1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `172.28.1.0/24`.
+  1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** оставьте шлюз по умолчанию `172.28.1.1`.
+  1. Включите опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** и задайте диапазон DHCP-адресов от `172.28.1.2` до `172.28.1.253`. Адрес `172.28.1.254` будет виртуальным IP-адресом, поэтому исключите его из диапазона DHCP.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
-  1. Аналогичным образом создайте приватную подсеть `subnet-m4` в пуле серверов `{{ region-id }}-m4` c CIDR `172.28.2.0/24`.
+  1. Аналогичным образом создайте приватную подсеть `subnet-m4` в пуле серверов `{{ region-id }}-m4` с CIDR `172.28.2.0/24`, шлюзом `172.28.2.1` и диапазоном DHCP-адресов от `172.28.2.2` до `172.28.2.254`.
 
 {% endlist %}
 
@@ -114,7 +114,7 @@
 
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `master-server-m3`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
-  1. Аналогичным способом арендуйте еще два сервера: с именем `backup-server-m3` в пуле серверов `{{ region-id }}-m3` и с именем `client-server-m4` и подсетью `subnet-m4` в пуле серверов `{{ region-id }}-m4`.
+  1. Аналогичным способом арендуйте еще два сервера: `backup-server-m3` в пуле `{{ region-id }}-m3` с подсетью `subnet-m3` и `client-server-m4` в пуле `{{ region-id }}-m4` с подсетью `subnet-m4`. Для каждого сервера выберите эфемерный публичный IP-адрес, чтобы подключаться к нему по SSH.
 
 {% endlist %}
 
@@ -132,7 +132,7 @@
 
 Используйте приведенную ниже инструкцию, чтобы настроить оба сервера — `master-server-m3` и `backup-server-m3`.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к серверу по SSH, использовав сохраненный на предыдущем шаге публичный IP-адрес этого сервера.
+1. [Подключитесь](../../baremetal/quickstart.md#server-connect) к серверу по SSH, используя его публичный IP-адрес.
 1. Установите сервис Keepalived, выполнив команду:
 
     ```bash
@@ -158,12 +158,14 @@
     ```
 
     В выводе команды найдите интерфейс с IP-адресом, относящимся к диапазону `172.28.1.0/24`, назначенному приватной подсети `subnet-m3`. В примере выше это интерфейс с идентификатором `etx2`. Идентификатор интерфейса понадобится далее, при настройке Keepalived.
+
+    Имя интерфейса может различаться на серверах. Укажите в конфигурации каждого сервера имя его собственного интерфейса.
 1. Создайте файл конфигурации Keepalived:
 
-    ```
+    ```bash
     sudo nano /etc/keepalived/keepalived.conf
     ```
-1. Добавьте в созданный файл следующую конфигурацию:
+1. Добавьте в созданный файл конфигурацию для роли сервера:
 
     {% list tabs %}
 
@@ -177,16 +179,9 @@
           priority 100
           advert_int 1
 
-          authentication {
-              auth_type PASS
-              auth_pass hGoVjTjSYQq3Epm
-          }
-
           virtual_ipaddress {
               172.28.1.254
           }
-
-          preempt
       }
       ```
 
@@ -200,16 +195,9 @@
           priority 90
           advert_int 1
 
-          authentication {
-              auth_type PASS
-              auth_pass hGoVjTjSYQq3Epm
-          }
-
           virtual_ipaddress {
               172.28.1.254
           }
-
-          preempt
       }
       ```
 
@@ -217,31 +205,33 @@
 
     Где:
 
-    * `vrrp_instance` — имя виртуального маршрутизатора:
+    * `vrrp_instance` — имя экземпляра VRRP. Оно может различаться на серверах:
     
         * для сервера с ролью `MASTER` — `M3_1`
         * для сервера с ролью `BACKUP` — `M3_2`
-    * `state` — состояние сервера: `MASTER` или `BACKUP`.
+    * `state` — начальное состояние экземпляра: `MASTER` или `BACKUP`. После запуска Keepalived узел с наибольшим приоритетом становится активным.
     * `interface` — идентификатор сетевого интерфейса, на котором будет работать виртуальный IP-адрес. В примере выше — `etx2`.
-    * `virtual_router_id` — уникальный идентификатор VRRP для группы виртуальных маршрутизаторов. Значение должно совпадать для всех серверов в группе.
-    * `priority` — приоритет, позволяющий определить основной и резервный узлы. Установка приоритета на уровне `100` делает сервер основным узлом, на `90` — резервным.
+    * `virtual_router_id` — идентификатор группы VRRP. Он должен совпадать на всех серверах группы и не использоваться другими группами в этой подсети.
+    * `priority` — приоритет узла. Активным становится узел с наибольшим значением; в примере используются значения `100` и `90`.
     * `advert_int` — интервал объявления состояния в секундах.
-    * `authentication` — секция с настройками аутентификации для обеспечения безопасности. Содержимое секции должно совпадать для всех серверов в группе.
     * `virtual_ipaddress` — виртуальный IP-адрес, который будет управляться этим узлом. Виртуальный IP-адрес:
 
-        * должен относиться к диапазону CIDR, заданному для виртуальной подсети, в которой создана группа серверов;
+        * должен входить в CIDR приватной подсети группы VRRP;
         * должен быть не занят;
-        * должен совпадать для всех серверов в группе.
-    * `preempt` — позволяет серверу перейти в состояние `MASTER`, если его приоритет оказывается выше чем у текущего мастера в группе.
-1. Перезапустите сервис Keepalived:
+        * должен быть исключен из диапазона DHCP и совпадать в конфигурациях всех серверов группы.
+
+    Keepalived по умолчанию допускает возврат активной роли к узлу с более высоким приоритетом после его восстановления.
+
+    В примере не задана аутентификация VRRP. Параметр `auth_pass` в режиме `PASS` ограничен восемью символами и не обеспечивает надежную защиту. Ограничьте доступ к приватной сети средствами сетевой безопасности.
+1. Включите автозапуск и запустите Keepalived:
 
     ```bash
-    systemctl restart keepalived.service
+    sudo systemctl enable --now keepalived.service
     ```
-1. Посмотрите журнал логов сервиса Keepalived, чтобы убедиться, что сервис запущен:
+1. Проверьте журнал Keepalived:
 
     ```bash
-    sudo journalctl -u keepalived.service
+    sudo journalctl -u keepalived.service -b --no-pager
     ```
 
     Результат:
@@ -251,7 +241,6 @@
     - Master
 
       ```text
-      systemd[1]: keepalived.service - Keepalive Daemon (LVS and VRRP) was skipped because of an unmet condition check (ConditionFileNotEmpty=/etc/keepalived/keepalived.conf).
       systemd[1]: Starting keepalived.service - Keepalive Daemon (LVS and VRRP)...
       Keepalived[4045]: Starting Keepalived v2.2.8 (04/04,2023), git commit v2.2.7-154-g292b299e+
       Keepalived[4045]: Running on Linux 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 (built for Linux 6.8.0)
@@ -259,7 +248,6 @@
       Keepalived[4045]: Configuration file /etc/keepalived/keepalived.conf
       Keepalived[4045]: NOTICE: setting config option max_auto_priority should result in better keepalived performance
       Keepalived[4045]: Starting VRRP child process, pid=4046
-      Keepalived_vrrp[4046]: (/etc/keepalived/keepalived.conf: Line 10) Truncating auth_pass to 8 characters
       Keepalived[4045]: Startup complete
       systemd[1]: Started keepalived.service - Keepalive Daemon (LVS and VRRP).
       Keepalived_vrrp[4046]: (M3_1) Entering BACKUP STATE (init)
@@ -269,7 +257,6 @@
     - Backup
 
       ```text
-      systemd[1]: keepalived.service - Keepalive Daemon (LVS and VRRP) was skipped because of an unmet condition check (ConditionFileNotEmpty=/etc/keepalived/keepalived.conf).
       systemd[1]: Starting keepalived.service - Keepalive Daemon (LVS and VRRP)...
       Keepalived[2751]: Starting Keepalived v2.2.8 (04/04,2023), git commit v2.2.7-154-g292b299e+
       Keepalived[2751]: Running on Linux 6.8.0-53-generic #55-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 17 15:37:52 UTC 2025 (built for Linux 6.8.0)
@@ -277,7 +264,6 @@
       Keepalived[2751]: Configuration file /etc/keepalived/keepalived.conf
       Keepalived[2751]: NOTICE: setting config option max_auto_priority should result in better keepalived performance
       Keepalived[2751]: Starting VRRP child process, pid=2752
-      Keepalived_vrrp[2752]: (/etc/keepalived/keepalived.conf: Line 10) Truncating auth_pass to 8 characters
       Keepalived[2751]: Startup complete
       Keepalived_vrrp[2752]: (M3_2) Entering BACKUP STATE (init)
       ```
@@ -287,7 +273,7 @@
 ## Убедитесь в работоспособности решения {#test-solution}
 
 1. Убедитесь, что виртуальный IP-адрес был добавлен к сетевому интерфейсу сервера с ролью `Master`:
-    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) по SSH к серверу `master-server-m3`.
+    1. [Подключитесь](../../baremetal/quickstart.md#server-connect) по SSH к серверу `master-server-m3`.
     1. Посмотрите конфигурацию сетевого интерфейса, назначенного приватной подсети `subnet-m3`.
 
         ```bash
@@ -309,11 +295,11 @@
             valid_lft forever preferred_lft forever
         ```
 
-        Сетевой интерфейс получил дополнительный виртуальный IP-адрес, который был задан в настройках Keepalived — `172.28.1.254/32`.
+        Сетевой интерфейс получил дополнительный виртуальный IP-адрес `172.28.1.254/32`, заданный в конфигурации Keepalived.
 
 1. С помощью [ICMP](https://ru.wikipedia.org/wiki/ICMP)-запросов из приватной подсети `subnet-m4` убедитесь в доступности виртуального IP-адреса, расположенного в приватной подсети `subnet-m3`:
 
-    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) по SSH к серверу `client-server-m4`.
+    1. [Подключитесь](../../baremetal/quickstart.md#server-connect) по SSH к серверу `client-server-m4`.
     1. Выполните команду:
 
         ```bash
@@ -335,12 +321,12 @@
         rtt min/avg/max/mdev = 0.211/0.260/0.312/0.033 ms
         ```
 
-        Использованная команда отправляет и получает пакеты увеличенного размера: все пакеты были доставлены без потерь.
+        Полученные ответы подтверждают, что клиент из подсети `subnet-m4` достигает виртуального IP-адреса через VRF.
 
-1. Убедитесь в корректной работе балансировщика Keepalived:
+1. Проверьте переключение виртуального IP-адреса при отказе активного узла:
 
-    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) по SSH к серверу `client-server-m4`.
-    1. В отдельном окне терминала [подключитесь](../../compute/operations/vm-connect/ssh.md) по SSH к серверу `master-server-m3`.
+    1. [Подключитесь](../../baremetal/quickstart.md#server-connect) по SSH к серверу `client-server-m4`.
+    1. В отдельном окне терминала [подключитесь](../../baremetal/quickstart.md#server-connect) по SSH к серверу `master-server-m3`.
 
         Расположите окна терминала так, чтобы одновременно видеть содержимое обоих окон.
     1. В окне терминала с сессией подключения к серверу `client-server-m4` повторно запустите утилиту `ping` без ограничения на количество повторений:
@@ -349,19 +335,13 @@
         ping 172.28.1.254 -s 1024
         ```
 
-        В процессе выполнения этого опроса в окне терминала с открытой сессией подключения к серверу `master-server-m3` остановите сервис Keepalived, выполнив команду:
+        Пока выполняется `ping`, в окне терминала сервера `master-server-m3` остановите Keepalived:
         
         ```bash
-        sudo systemctl stop keepalived
+        sudo systemctl stop keepalived.service
         ```
         
-        В момент остановки сервиса наблюдайте за окном терминала с сессией подключения к `client-server-m4`. Результатом корректной работы процесса по передаче виртуального IP-адреса должно быть практически бесшовное переключение ICMP-запросов на резервный хост, при этом выполнение команды `ping` не должно прерваться.
-        
-        {% note info %}
-
-        Допускается минимальная потеря пакетов (1-3), что обусловлено срабатыванием таймера выбора нового `MASTER` в группе и передаче ему виртуального адреса.
-
-        {% endnote %}
+        Убедитесь, что после остановки сервиса виртуальный IP-адрес переходит к резервному серверу. Команда `ping` продолжит выполняться, хотя при переключении возможна кратковременная потеря пакетов из-за ожидания объявлений VRRP и выбора нового активного узла.
 
         Результат:
 
@@ -377,18 +357,18 @@
         58 packets transmitted, 55 received, 5.17241% packet loss, time 58368ms
         rtt min/avg/max/mdev = 0.185/0.271/0.326/0.035 ms
         ```
-    1. В окне терминала с открытой сессией подключения к серверу `master-server-m3` запустите сервис Keepalived, выполнив команду:
+    1. В окне терминала сервера `master-server-m3` запустите Keepalived:
 
         ```bash
-        sudo systemctl start keepalived
+        sudo systemctl start keepalived.service
         ```
 1. Проверьте журнал логов сервиса Keepalived на сервере с ролью `BACKUP`:
 
-    1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) по SSH к серверу `backup-server-m3`.
+    1. [Подключитесь](../../baremetal/quickstart.md#server-connect) по SSH к серверу `backup-server-m3`.
     1. Посмотрите журнал логов сервиса Keepalived:
 
         ```bash
-        sudo journalctl -u keepalived.service
+        sudo journalctl -u keepalived.service -b --no-pager
         ```
 
         Результат:
@@ -404,7 +384,7 @@
         ...
         ```
 
-        Как видно из журнала работы сервиса и добавленных в него комментариев, после остановки сервиса Keepalived на сервере `master-server-m3`, роль основного узла перешла к серверу `backup-server-m3`. После восстановления работоспособности сервиса на сервере `master-server-m3` роль основного узла была ему возвращена, а сервер `backup-server-m3` вновь стал резервным.
+        После остановки Keepalived на `master-server-m3` резервный узел `backup-server-m3` стал активным. После повторного запуска Keepalived приоритет вернул активную роль серверу `master-server-m3`.
 
 ## Как отказаться от аренды серверов {#clear-out}
 

@@ -18,7 +18,7 @@ In this guide’s configuration, node_exporter runs on the application server na
 
 {% note info %}
 
-This guide does not describe the installation of the web service. We assume it is already deployed and available over the network. The node_exporter utility is installed on the application server, while blackbox_exporter and OTel Collector, on the monitoring server. For a simple configuration, all components can be installed together with the web service, eliminating the need for a separate monitoring server.
+This guide does not describe installation of the web service. We assume that the web service is already deployed and available over the network. The node_exporter utility is installed on the application server, while blackbox_exporter and OTel Collector, on the monitoring server. For a simple configuration, all components can be installed together with the web service, eliminating the need for a separate monitoring server.
 
 {% endnote %}
 
@@ -46,7 +46,7 @@ The infrastructure support cost includes:
 * Fee for using [{{ monium-name }}](../../monium/overview.md) (see [{{ monium-name }} pricing](../../monium/pricing.md)).
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) if the web service or monitoring server resides in {{ yandex-cloud }} (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-### Prepare your infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 1. Get your web service ready for SLO monitoring. It can be deployed on any infrastructure. Specify its IP address and domain name in the examples. In this guide, the web service runs on the `app-server` VM with Linux Ubuntu 20.04 and is available at internal IP address `10.128.0.10`.
 1. Create the monitoring server in [{{ compute-name }}](../../compute/operations/vm-create/create-linux-vm.md) or another infrastructure. This guide uses a {{ compute-name }} VM named `monitoring-server` with Linux Ubuntu 20.04. On it, you will install blackbox_exporter and OTel Collector to check the web service and deliver metrics to {{ monium-name }}.
@@ -506,12 +506,14 @@ The error budget is calculated automatically once the SLO is created.
 
 ## Configure error budget alerts {#slo-alert}
 
-Create alerts to track error budget spending:
+Create two **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}** SLO alerts to monitor the error budget:
 
-* By error budget balance: Shows that the service availability is gradually degrading.
-* By error budget spending rate: Shows sharp increase in the amount of errors.
+* Error budget remaining: Warns when the error budget is at risk of being exhausted.
+* Error budget consumption: Shows the actual error budget consumption over a specified time window.
 
-### Create an alert by error budget balance {#alert-budget-remaining}
+**{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.diff }}** checks the difference between the remaining budget at the beginning and end of the evaluation window. **Burn rate** alerts check the ratio of the bad events share to the allowed error share. For more on alert types and general settings, see [this guide on creating an SLO alert](../../monium/operations/alert/create-slo-alert.md).
+
+### Create an alert for error budget remaining {#alert-budget-remaining}
 
 {% list tabs group=instructions %}
 
@@ -519,20 +521,21 @@ Create alerts to track error budget spending:
 
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, expand the ![image](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** section on the left.
   1. Select ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-  1. Name the alert and specify its level, e.g., `Critical` for the error budget to indicate gradual degradation.
+  1. Click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-slo-title }}**.
+  1. Specify a name for the alert and select its severity level, e.g., `Critical`.
+  1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.slo-alert-type }}** field, select **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}**.
   1. Select the SLO you created in the previous step.
-  1. In the **Calculation Method** field, select `Error Budget Remaining`.
+  1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type-key-value }}** field, select **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.absolute }}**.
   1. Set the trigger conditions:
   
-      * **Warning**: `50%`.
-      * **Alarm**: `20%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.warn-threshold }}**: `50%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alarm-threshold }}**: `20%`.
   
   1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
-### Create an alert by error budget spending rate {#alert-burn-rate}
+### Create an alert for error budget consumption {#alert-burn-rate}
 
 {% list tabs group=instructions %}
 
@@ -540,15 +543,16 @@ Create alerts to track error budget spending:
 
   1. On the [{{ monium-name }}]({{ link-monium }}) home page, expand the ![image](../../_assets/console-icons/shield-exclamation.svg) **Alerts and SLOs** section on the left.
   1. Select ![image](../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **SLO**.
-  1. Name the alert and specify its level, e.g., `Disaster` for high error budget spending rates to indicate an unexpected incident.
+  1. Click **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-slo-title }}**.
+  1. Specify a name for the alert and select its severity level, e.g., `Disaster`.
+  1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.slo-alert-type }}** field, select **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo-type.error-budget-key-value }}**.
   1. Select the SLO you created in the previous step.
-  1. In the **Calculation Method** field, select `Error budget spending rate`.
+  1. In the **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type-key-value }}** field, select **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alert-type.diff }}**.
   1. Set the trigger conditions:
   
-      * **Warning**: `1%`.
-      * **Alarm**: `2%`.
-      * **Evaluation window**: `1h`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.warn-threshold }}**: `1%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.slo.alarm-threshold }}**: `2%`.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**: `1h`.
   
   1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 

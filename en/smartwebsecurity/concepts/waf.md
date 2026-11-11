@@ -1,9 +1,9 @@
 ---
-title: WAF profiles
+title: Cloud WAF in {{ sws-full-name }}
 description: How Web Application Firewall (WAF) profiles analyze HTTP requests and use rule sets and exceptions to protect web applications.
 ---
 
-# WAF profiles
+# Cloud WAF
 
 web application firewall (WAF) filters and blocks malicious traffic directed to your web apps and websites. It protects against common attacks such as SQL injections, XSS, web vulnerabilities, and prevents data breaches and service outages.
 
@@ -113,7 +113,7 @@ The _anomaly threshold_ is the total anomaly score of triggered rules that resul
 
 To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#exclusion-rules). Additionally, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode in your security profile to test different anomaly thresholds.
 
-You can configure any rule in the set to be a _blocking_ one. Requests matching such a rule get blocked regardless of the anomaly threshold you set. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode is enabled in the security profile, requests will not be blocked even when if they match the blocking rules.
+You can make any rule in the set the _blocking_ one. Requests matching such a rule get blocked regardless of the anomaly threshold you set. If the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode is enabled in the security profile, requests will not be blocked even when if they match the blocking rules.
 
 ### Paranoia level {#paranoia}
 

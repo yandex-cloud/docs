@@ -48,8 +48,6 @@ The widget displays the current status of the selected alert on the dashboard. I
 
 ## Escalation {#escalation}
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 The widget displays running escalation instances for a selected escalation policy on the dashboard. You can use the widget to stop one or multiple escalations.
 
 ## Text {#text}

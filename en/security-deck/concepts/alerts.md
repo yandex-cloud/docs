@@ -16,8 +16,6 @@ description: '{{ alerts-name }} provides a single interface for information on s
 * [{{ vuln-man-name }} ({{ vuln-man-short-name }})](./vulnerability-management.md)
 * [{{ ycdr-name }}](../../ycdr/)
 
-On the alert page, you can [run](../operations/alerts/work.md#ai-analysis) its AI analysis. The [AI assistant](./ai-assistant.md) will help you fix your configuration issue, factoring in the alert context and parameters. In addition to its recommendations, the AI assistant will prepare a summary and explain the substance of the alert.
-
 You can [create an exception](../operations/alerts/work.md#create-exception) on the [{{ cspm-name }}](./cspm.md) and [{{ kspm-name }}](./kspm.md) alerts page. If an alert affects multiple resources, you can create an exception for several resources at once.
 
 To streamline operations with a large number of alerts, the module [supports](../operations/alerts/view.md#search) visual grouping, search, and filtering. These features enable you to:
@@ -35,4 +33,3 @@ To streamline operations with a large number of alerts, the module [supports](..
 * [{#T}](../../ycdr/concepts/index.md)
 * [{#T}](./cspm.md)
 * [{#T}](./kspm.md)
-* [{#T}](./ai-assistant.md)

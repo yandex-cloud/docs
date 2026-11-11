@@ -300,8 +300,6 @@
 
 ### Сбор, мониторинг и анализ аудитных логов
 
- - [Поиск событий Yandex Cloud в Query](tutorials/audit-logs/query.md)
-
  - [Поиск событий Yandex Cloud в Object Storage](tutorials/audit-logs/search-bucket.md)
 
  - [Поиск событий Yandex Cloud в Cloud Logging](tutorials/audit-logs/search-cloud-logging.md)
@@ -309,8 +307,6 @@
  - [Настройка алертов и дашбордов в Monitoring](tutorials/audit-logs/alerts-monitoring.md)
 
  - [Настройка реагирования в Cloud Logging и Cloud Functions](tutorials/audit-logs/logging-functions.md)
-
- - [Обработка аудитных логов Audit Trails](tutorials/audit-logs/audit-trails.md)
 
  - [Загрузка аудитных логов в Managed Service for Elasticsearch](tutorials/audit-logs/trails-logs-opensearch.md)
 

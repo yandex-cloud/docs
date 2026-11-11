@@ -80,7 +80,7 @@ Yandex Audit Trails возможно включить на уровне ката
 Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../storage/tools/geesefs.md) или [s3fs](../../storage/tools/s3fs.md). Они позволяют смонтировать бакет Yandex Object Storage как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета. Либо утилиты совместимые с AWS Kinesis datastreams в случае, если вы направляете аудитные логи в Yandex Data Streams.
 
 
-Вы также можете анализировать аудитные логи вручную, если у вас отсутствует SIEM-система, с помощью [поиска](../../audit-trails/tutorials/search-events-audit-logs/index.md) событий Yandex Cloud в Yandex Query, Cloud Logging или Object Storage.
+Вы также можете анализировать аудитные логи вручную, если у вас отсутствует SIEM-система, с помощью [поиска](../../audit-trails/tutorials/search-events-audit-logs/index.md) событий Yandex Cloud в Cloud Logging или Object Storage.
 
 
 | ID требования | Критичность |

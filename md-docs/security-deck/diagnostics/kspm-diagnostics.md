@@ -27,8 +27,22 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
  Произошла непредвиденная ошибка во время проверки прав доступа в кластере. Возможно, кластер недоступен, либо доступ ограничен [сетевыми политиками](../../managed-kubernetes/concepts/network-policy.md). 
 
 ## Component is unhealthy {#unhealthy-component}
- 
-Ошибка в работе компонента. Обратитесь в [службу поддержки](https://center.yandex.cloud/support).
+
+Ошибка в работе компонента. Одна из возможных причин — на узле не хватает свободных ресурсов для компонента. Чтобы проверить это, посмотрите состояние подов KSPM:
+
+```bash
+kubectl get pods -n yc-security
+```
+
+Если под находится в статусе `Pending` или `Evicted`, посмотрите причину в разделе `Events`:
+
+```bash
+kubectl describe pod <имя_пода> -n yc-security
+```
+
+Сообщения `Insufficient cpu` и `Insufficient memory` означают, что поду не хватило свободных ресурсов на узле, сообщение `The node was low on resource` означает, что под остановлен из-за нехватки ресурсов на узле. Освободите ресурсы на узле или [измените конфигурацию группы узлов](../../managed-kubernetes/operations/node-group/node-group-update.md#update-settings), увеличив количество vCPU и объем памяти. Подробнее в разделе [Ресурсы кластера для работы KSPM](../operations/kspm/requirements.md#resource-planning).
+
+Если ресурсов достаточно, а ошибка сохраняется, обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 ## Component sync failed {#failed-sync}
  

@@ -1,7 +1,7 @@
 # Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную машину {{ compute-name }}
 
 
-В данном руководстве вы настроите доставку USB-устройств на [сервер](../../baremetal/concepts/servers.md) {{ baremetal-full-name }} через [VPN-подключение](../../glossary/vpn.md) поверх публичного сегмента сети интернет. Для этого вы используете технологию _USB over IP_ и свободно распространяемое программное обеспечение в составе дистрибутивов [Linux](https://ru.wikipedia.org/wiki/Linux).
+В данном руководстве вы настроите доставку USB-устройств на [сервер](../../baremetal/concepts/servers.md) {{ baremetal-full-name }} через [VPN-подключение](../../glossary/vpn.md) поверх публичного сегмента сети интернет. Для этого вы используете технологию _USB over IP_ и свободно распространяемое программное обеспечение из состава дистрибутивов [Linux](https://ru.wikipedia.org/wiki/Linux).
 
 {% note info %}
 
@@ -9,7 +9,7 @@
 
 {% endnote %}
 
-Технология USB over IP позволяет передавать данные USB-устройств по сети (локальной или интернет) так, как если бы они были подключены к компьютеру-клиенту напрямую. Это особенно важно в ситуациях, когда физическое подключение USB-устройств к компьютеру затруднено или невозможно.
+Технология USB over IP позволяет передавать данные USB-устройств по локальной сети или интернету так, как если бы устройства были подключены к компьютеру-клиенту напрямую. Это удобно, когда физически подключить USB-устройство к клиенту невозможно.
 
 С помощью технологии USB over IP:
 * USB-устройства можно доставлять в облачные сервисы, а клиентами в отношении удаленных USB-устройств могут выступать виртуальные машины {{ compute-name }} или серверы {{ baremetal-name }}.
@@ -20,7 +20,7 @@
 
 {% note warning %}
 
-Если на удаленное USB-устройство будут выполняться операции записи, то использование технологии USB over IP требует высокой степени надежности сети. Кроме того, эта технология не подходит для подключения USB-устройств, для которых необходима высокая скорость передачи данных.
+Для операций записи обеспечьте надежное сетевое соединение: при обрыве связи операция может завершиться с ошибкой или повредить данные. USB over IP также не подходит для устройств, которым необходима высокая скорость передачи данных.
 
 {% endnote %}
 
@@ -34,9 +34,9 @@
 * **Подключаемое USB-оборудование**:
     * USB-накопитель с данными.
     * USB-токен.
-* **Способ доставки по сети**. Доставка удаленных USB-устройств будет выполняться через VPN-подключение поверх публичного сегмента сети интернет с использованием решения [WireGuard](https://www.wireguard.com/). 
+* **Способ доставки по сети**. Устройства будут передаваться через VPN-подключение поверх публичного сегмента сети интернет с использованием решения [WireGuard](https://www.wireguard.com/).
 
-    Предлагаемая схема с использованием WireGuard носит демонстрационный характер, вы можете использовать любую другую технологию для связи удаленных серверов.
+    Предлагаемая схема с использованием WireGuard носит демонстрационный характер. Для связи удаленных серверов можно использовать другую VPN-технологию.
 
 Чтобы доставить USB-устройства на сервер {{ baremetal-name }} с помощью технологии USB over IP:
 
@@ -48,6 +48,7 @@
 1. [Настройте VPN](#setup-vpn).
 1. [Настройте USB over IP](#setup-usbip).
 1. [Убедитесь в работоспособности решения](#test-solution).
+1. [Отключите USB-устройства](#disconnect-usb).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -94,7 +95,7 @@
 
 {% endlist %}
 
-### Создайте группу безопасности {#crete-sg}
+### Создайте группу безопасности {#create-sg}
 
 Создайте [группу безопасности](../../vpc/concepts/security-groups.md) `vpn-sg` для виртуальной машины – сервера VPN.
 
@@ -109,11 +110,12 @@
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `sample-network`.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
+      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} |
       | --- | --- | --- | --- | --- | --- |
-      | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Входящий | `vpn`            | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `ssh` |
+      | Входящий | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `vpn` |
+      | Исходящий | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `any` |
+
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -226,28 +228,30 @@
 1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md) к созданной ранее виртуальной машине `wireguard-vpn-server`.
 1. {% include [setup-vpn-step-2](../_tutorials_includes/usb-over-ip/setup-vpn-step-2.md) %}
 1. {% include [setup-vpn-step-3](../_tutorials_includes/usb-over-ip/setup-vpn-step-3.md) %}
-1. Сгенерируйте ключи для шифрования VPN-трафика:
+1. Сгенерируйте пары ключей WireGuard для VPN-сервера и VPN-клиентов:
 
     ```bash
-    wg genkey | sudo tee server_private.key | wg pubkey | sudo tee server_public.key > /dev/null
-    wg genkey | sudo tee bms_private.key | wg pubkey | sudo tee bms_public.key > /dev/null
-    wg genkey | sudo tee remote_private.key | wg pubkey | sudo tee remote_public.key > /dev/null
+    umask 077
+    wg genkey | tee server_private.key | wg pubkey > server_public.key
+    wg genkey | tee bms_private.key | wg pubkey > bms_public.key
+    wg genkey | tee remote_private.key | wg pubkey > remote_public.key
     ```
 
     В текущей директории созданы шесть файлов:
 
-    * `server_private.key` – содержит закрытый ключ шифрования VPN-сервера.
-    * `server_public.key` – содержит открытый ключ шифрования VPN-сервера.
-    * `bms_private.key` – содержит закрытый ключ шифрования VPN-клиента – сервера {{ baremetal-name }}.
-    * `bms_public.key` – содержит открытый ключ шифрования VPN-клиента – сервера {{ baremetal-name }}.
-    * `remote_private.key` – содержит закрытый ключ шифрования VPN-клиента на удаленной площадке.
-    * `remote_public.key` – содержит открытый ключ шифрования VPN-клиента на удаленной площадке.
+    * `server_private.key` — закрытый ключ VPN-сервера.
+    * `server_public.key` — открытый ключ VPN-сервера.
+    * `bms_private.key` — закрытый ключ VPN-клиента на сервере {{ baremetal-name }}.
+    * `bms_public.key` — открытый ключ VPN-клиента на сервере {{ baremetal-name }}.
+    * `remote_private.key` — закрытый ключ VPN-клиента на удаленной площадке.
+    * `remote_public.key` — открытый ключ VPN-клиента на удаленной площадке.
 
     Сохраните значения всех ключей шифрования, они понадобятся при создании файлов конфигурации WireGuard на соответствующих машинах.
+
 1. Создайте файл конфигурации WireGuard VPN-сервера:
 
     1. {% include [setup-vpn-step-5](../_tutorials_includes/usb-over-ip/setup-vpn-step-5.md) %}
-    1. Добавьте в файл следующую конфигурацию, указав содержимое полученных на предыдущем шаге ключей шифрования:
+    1. Добавьте в файл следующую конфигурацию, подставив значения ключей, созданных на предыдущем шаге:
 
         ```text
         [Interface]
@@ -282,16 +286,17 @@
 
         [Peer]
         PublicKey = <содержимое_файла_server_public.key>
-        Endpoint = <публичный_IP-адрес_ВМ>:63665
+        Endpoint = <публичный_IP_адрес_ВМ>:63665
         AllowedIPs = 192.168.100.0/24
         PersistentKeepalive = 15
         ```
 
         Где:
 
-        * `PrivateKey` – содержимое созданного при настройке VPN-сервера файла `bms_private.key` с закрытым ключом шифрования этого VPN-клиента.
-        * `PublicKey` – содержимое созданного при настройке VPN-сервера файла `server_public.key` с открытым ключом шифрования VPN-сервера.
-        * `<публичный_IP-адрес_ВМ>` – публичный IP-адрес виртуальной машины с развернутым VPN-сервером. Публичный IP-адрес ВМ можно узнать в [консоли управления]({{ link-console-main }}), в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице с информацией о ВМ.
+        * `PrivateKey` — содержимое файла `bms_private.key` с закрытым ключом этого VPN-клиента. Файл создан на VPN-сервере.
+        * `PublicKey` — содержимое файла `server_public.key` с открытым ключом VPN-сервера.
+        * `<публичный_IP_адрес_ВМ>` — публичный IP-адрес виртуальной машины с VPN-сервером. Его можно узнать в [консоли управления]({{ link-console-main }}), в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице с информацией о ВМ.
+
 1. Запустите WireGuard:
 
     ```bash
@@ -307,6 +312,7 @@
     [#] ip link set mtu 1420 up dev wg0
     [#] ip -4 route add 192.168.100.0/24 dev wg0
     ```
+
 1. Аналогичным образом настройте VPN-клиент WireGuard на компьютере на удаленной площадке, при этом в файле конфигурации WireGuard `wg0.conf` в поле `PrivateKey` укажите содержимое созданного при настройке VPN-сервера файла `remote_private.key` с закрытым ключом шифрования VPN-клиента на удаленной площадке.
 
 ### Проверьте работу VPN-соединения {#check-vpn}
@@ -365,16 +371,16 @@
 
 ### Настройте usbip-сервер {#setup-usbip-server}
 
-В качестве usbip-сервера будет выступать компьютер на удаленной площадке, оснащенный несколькими USB-портами. В терминале этого компьютера:
+В качестве usbip-сервера будет выступать компьютер на удаленной площадке с несколькими USB-портами. На этом компьютере разрешите входящие подключения по `TCP 3240` от адреса USB-клиента в VPN (`192.168.100.2`). Не разрешайте подключения к этому порту из интернета. Выполните в терминале компьютера следующие действия:
 
 1. {% include [setup-usbip-step-1](../_tutorials_includes/usb-over-ip/setup-usbip-step-1.md) %}
 1. {% include [setup-usbip-step-2](../_tutorials_includes/usb-over-ip/setup-usbip-step-2.md) %}
 
     {% note info %}
 
-    Чтобы настроить автоматическую загрузку этих модулей при запуске системы, откройте файл `/etc/modules-load.d/modules.conf` в любом текстовом редакторе и добавьте в него строки:
+    Чтобы настроить автоматическую загрузку модулей usbip-сервера при запуске системы, откройте файл `/etc/modules-load.d/modules.conf` с правами администратора и добавьте в него строки:
 
-    ```
+    ```text
     usbip-core
     usbip-host
     vhci-hcd
@@ -468,11 +474,11 @@
               : /sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2
               : (Defined at Interface level) (00/00/00)
     ```
-1. Импортируйте устройства с usbip-клиента:
+1. Импортируйте устройства с usbip-сервера:
 
     ```bash
-    usbip attach -r 192.168.100.3 -b 1-1.2
-    usbip attach -r 192.168.100.3 -b 1-1.5
+    sudo usbip attach -r 192.168.100.3 -b 1-1.2
+    sudo usbip attach -r 192.168.100.3 -b 1-1.5
     ```
 
 На этом этапе выбранные USB-устройства импортированы по сети на сервер {{ baremetal-name }}.
@@ -484,7 +490,7 @@
 1. Выполните команду, чтобы посмотреть журнал `dmesg`:
 
     ```bash
-    dmesg
+    sudo dmesg
     ```
 
     Результат:
@@ -520,7 +526,7 @@
       ...
       ```
 
-      На стороне сервера было смонтировано и отдано в удаленный доступ USB-устройство производителя `Kingston`, которое является блочным флеш-накопителем. Устройство было распознано как `/dev/sdc`.
+      USB-накопитель Kingston был опубликован на USB-сервере и распознан на клиенте как блочное устройство `/dev/sdc`.
 
     - Устройство YubiKey {#yubikey}
 
@@ -543,7 +549,7 @@
       ...
       ```
 
-      На стороне сервера было смонтировано и отдано в удаленный доступ USB-устройство производителя `Yubico`.
+      USB-устройство Yubico было опубликовано на USB-сервере и обнаружено на клиенте.
 
     {% endlist %}
 
@@ -570,8 +576,8 @@
       1. Смонтируйте раздел флеш-накопителя `/dev/sdc1` в директорию `/mnt/sdc1`:
 
           ```bash
-          mkdir -p /mnt/sdc1
-          mount /dev/sdc1 /mnt/sdc1
+          sudo mkdir -p /mnt/sdc1
+          sudo mount /dev/sdc1 /mnt/sdc1
           ```
       1. Посмотрите список смонтированных устройств и доступное для записи дисковое пространство:
 
@@ -586,39 +592,40 @@
           ...
           /dev/sdc1       7.2G   16K  7.2G   1% /mnt/sdc1
           ```
-      1. Скопируйте файл конфигурации WireGuard на удаленный USB-накопитель:
+      1. Запишите тестовую строку на удаленный USB-накопитель:
 
           ```bash
-          cp -r /etc/wireguard /mnt/sdc1
+          printf 'USB over IP test\n' | sudo tee /mnt/sdc1/usbip-test.txt
           ```
-      1. Просмотрите список файлов на удаленном USB-накопителе:
+      1. Проверьте содержимое файла на удаленном USB-накопителе:
 
           ```bash
-          ls -la /mnt/sdc1/wireguard/
+          sudo cat /mnt/sdc1/usbip-test.txt
           ```
 
           Результат:
 
           ```text
-          total 48
-          drwxr-xr-x 2 root root 16384 Apr 20 19:46 .
-          drwxr-xr-x 4 root root 16384 Jan  1  1970 ..
-          -rwxr-xr-x 1 root root   247 Apr 20 19:46 wg0.conf
+          USB over IP test
           ```
 
-      Проверка завершена: файл успешно скопирован на удаленный USB-накопитель.
+      Проверка завершена: тестовый файл записан на удаленный USB-накопитель. Для безопасного отключения накопителя размонтируйте его:
+
+      ```bash
+      sudo umount /mnt/sdc1
+      ```
 
     - Устройство YubiKey {#yubikey}
 
       1. Установите набор утилит, необходимых для работы с аппаратным токеном YubiKey:
 
           ```bash
-          apt install yubico-piv-tool
+          sudo apt install yubico-piv-tool
           ```
       1. Выполните запрос статуса оборудования Yubico:
 
           ```bash
-          yubico-piv-tool -a status
+          sudo yubico-piv-tool -a status
           ```
 
           Результат:
@@ -637,10 +644,10 @@
                   Not After:      Feb 16 08:29:13 2035 GMT
           PIN tries left: 3
           ```
-      1. Получите открытый сертификат клиента из хранилища аппаратного токена Yubico, указав в параметре `-s` значение поля `Slot` из вывода предыдущей команды:
+      1. Если в слоте `9c` записан сертификат, получите его открытые данные. В параметре `-s` укажите значение поля `Slot` из вывода предыдущей команды:
 
           ```bash
-          yubico-piv-tool -a read-cert -s 9c
+          sudo yubico-piv-tool -a read-cert -s 9c
           ```
 
           Результат:
@@ -672,6 +679,27 @@
 
     {% endlist %}
 
+
+## Отключите USB-устройства {#disconnect-usb}
+
+После завершения работы отключите USB-устройства, чтобы освободить их на USB-сервере:
+
+1. На USB-клиенте получите список подключенных устройств и номера их виртуальных портов:
+
+    ```bash
+    sudo usbip port
+    ```
+1. Отключите каждое устройство, указав номер порта из вывода предыдущей команды:
+
+    ```bash
+    sudo usbip detach -p <номер_порта>
+    ```
+1. На USB-сервере отмените публикацию устройств. Подставьте значения `busid`, которые использовали при публикации устройств:
+
+    ```bash
+    sudo usbip unbind -b <busid_1>
+    sudo usbip unbind -b <busid_2>
+    ```
 
 ## Как удалить созданные ресурсы {#clear-out}
 

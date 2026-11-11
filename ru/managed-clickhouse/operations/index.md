@@ -63,5 +63,4 @@ description: На странице представлен список поша�
 * [Мониторинг состояния кластера и хостов](monitoring.md)
 * [Подключение к кластеру из {{ datalens-name }}](datalens-connect.md)
 
-
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

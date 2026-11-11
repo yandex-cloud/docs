@@ -1,9 +1,9 @@
 ---
-title: Adding a WAF exclusion rule
+title: Adding a Cloud WAF exclusion rule
 description: Follow this guide to create a WAF exclusion rule.
 ---
 
-# Adding a WAF exclusion rule
+# Adding a Cloud WAF exclusion rule
 
 {% list tabs group=instructions %}
 

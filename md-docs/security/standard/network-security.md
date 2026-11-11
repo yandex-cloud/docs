@@ -424,8 +424,10 @@
 
   **Проверка включения OS Login:**
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **Настройки безопасности**.
+  1. Войдите в [Cloud Center](https://center.yandex.cloud) и выберите нужную организацию.
+  1. В верхней части экрана выберите **Security**.
+  1. На панели слева выберите **Настройки безопасности**.
+  1. Перейдите на вкладку **Доступ по SSH**.
   1. Убедитесь, что включена опция **Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)**.
   1. [Перейдите](https://console.yandex.cloud/link/compute/instances) в настройки ВМ в сервисе Compute Cloud и убедитесь, что включена опция **Доступ по OS Login**.
 

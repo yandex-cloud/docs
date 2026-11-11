@@ -180,6 +180,62 @@ description: Следуя этой инструкции, вы сможете с�
 
       {% endcut %}
 
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  Активировать или деактивировать политику с помощью {{ TF }} нельзя.
+
+  {% endnote %}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле параметры политики аутентификации:
+
+     ```hcl
+     resource "yandex_organizationmanager_policy_authentication_policy_rule" "example" {
+       organization_id      = "<идентификатор_организации>"
+       name                 = "example-policy"
+       effect               = "ALLOW_WITH_OBLIGATIONS"
+       subjects_include     = ["<идентификатор_пользователя>"]
+       applications_include = ["<идентификатор_приложения>"]
+       networks_include     = ["192.0.2.0/24"]
+       networks_exclude     = ["192.0.2.10/32"]
+       obligations = [
+         {
+           step_up_required = {
+             acr_id = "phr"
+             ttl    = "900s"
+           }
+         }
+       ]
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — [идентификатор организации](../organization-get-id.md).
+     * `name` — [имя](*policy_name) политики.
+     * `effect` — действие политики. Значение `ALLOW_WITH_OBLIGATIONS` разрешает аутентификацию с учетом дополнительных требований.
+     * `subjects_include` — идентификаторы пользователей или групп пользователей, на которых распространяется политика.
+     * `applications_include` — идентификаторы приложений, на которые распространяется политика.
+     * `networks_include` — диапазоны IP-адресов в нотации CIDR, на которые распространяется политика.
+     * `networks_exclude` — диапазоны IP-адресов в нотации CIDR, исключенные из области применения политики.
+     * `obligations` — дополнительные требования к аутентификации. В примере задано требование `step_up_required` для повторной проверки дополнительного фактора аутентификации:
+
+         * `acr_id` — стандарт фактора MFA. Значение `phr` допускает использование только WebAuthn.
+         * `ttl` — время жизни дополнительного фактора аутентификации. В примере задано 900 секунд, или 15 минут.
+
+     В примере политика разрешает указанному пользователю аутентификацию в указанном приложении из сети `192.0.2.0/24`, кроме IP-адреса `192.0.2.10`, и требует повторной проверки фактора MFA по стандарту WebAuthn, если с предыдущей проверки прошло более 15 минут.
+
+     Если вместо идентификатора пользователя задать пустой список `subjects_include`, он будет соответствовать значению `["allUsers"]` и охватывать все субъекты. Аналогично пустые списки `applications_include` и `networks_include` охватывают все приложения и сети соответственно. При этом из области применения можно исключить отдельные субъекты, приложения и сети. Подробнее об [области применения политики](../../concepts/authentication-policy.md#conditions) и [параметрах ресурса]({{ tf-provider-resources-link }}/organizationmanager_policy_authentication_policy_rule).
+
+  1. Создайте политику:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../policy/api-ref/AuthenticationPolicyRule/create.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Create](../../policy/api-ref/grpc/AuthenticationPolicyRule/create.md).

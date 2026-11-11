@@ -5,6 +5,21 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## September 2026 {#september-2026}
+
+* Launched an [{{ access-analyzer-name }}](./concepts/access-analyzer.md) module that allows you to analyze the access permissions of users and service accounts. This module is at the [Preview](../overview/concepts/launch-stages.md) stage.
+* In [{{ cspm-name }}](./concepts/cspm.md):
+  * Introduced a new [AI system safety standard](./concepts/standard-compliance/aispm.md) in {{ yandex-cloud }} and rules for AI system safety control.
+  * You can now create custom security [rules](./concepts/custom-rules.md#cspm-rules) based on the default, standard rules.
+* In the [{{ kspm-name }}](./concepts/kspm.md) module, you can now create custom security [rules](./concepts/custom-rules.md#kspm-rules) based on your own security policies.
+* It is now possible to create [custom rule sets](./operations/custom-rules-sets/index.md) (your own security standards) within the {{ cspm-name }}, {{ kspm-name }}, and {{ td-full-name }} modules.
+* The [{{ vuln-man-name }}](./concepts/vulnerability-management.md) module implements vulnerability [scanning](./concepts/vulnerability-management.md#endpoint-vulnerability-scanning) for application and service endpoints.
+* The [{{ dspm-name }}](./concepts/dspm.md) module now includes the ability to [scan](./operations/dspm/create-data-source.md) shared files in {{ yandex-360 }}.
+* The following are implemented in the alerts:
+  * [Subscriptions](./operations/alerts/notification.md) to receive notifications about alerts and comments on them.
+  * [Adding tags](./operations/alerts/tags.md) to simplify searching through alerts.
+  * [Downloading](./operations/alerts/download.md) alerts as a JSON file.
+
 ## August 2026 {#august-2026}
 
 * In [{{ cspm-name }}](./concepts/cspm.md):
@@ -63,7 +78,7 @@ description: This section contains the {{ sd-name }} release notes.
 
 ## February 2026 {#february-2026}
 
-* [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and the [AI assistant](concepts/ai-assistant.md) are now in [Preview](../overview/concepts/launch-stages.md).
+* [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and the AI assistant are now in [Preview](../overview/concepts/launch-stages.md).
 * As of February 2, 2025, [{{ kspm-name }}](./concepts/kspm.md) is charged according to the [pricing policy](pricing.md#kspm-rules).
 * Supported new [security standards](./concepts/cspm.md#standards) in [{{ cspm-name }}](./concepts/cspm.md): PCI DSS (Payment Card Industry Data Security Standard) and requirements of the FSTEC of Russia (Order No. 21) aimed at protection of personal data. 
 * In [{{ cspm-name }}](./concepts/cspm.md), implemented new compliance rules for all supported security standards.
@@ -83,5 +98,5 @@ description: This section contains the {{ sd-name }} release notes.
 * Launched [{{ kspm-name }}](./concepts/kspm.md) and [{{ cspm-name }}](./concepts/cspm.md).
 * You can now use {{ kspm-name }} and {{ cspm-name }} as data sources for [alerts](./concepts/alerts.md).
 * You can now [create a {{ sd-name }} workspace](./operations/workspaces/index.md), which is a container for module settings and resources, list of controlled resources, control parameters, and other settings.
-* Added an [AI assistant](concepts/ai-assistant.md).
+* Added an AI assistant.
 * [{{ dspm-name }}](./concepts/dspm.md) now supports [partial scanning](./operations/dspm/create-scan.md) and [image scanning](./operations/dspm/create-scan.md).

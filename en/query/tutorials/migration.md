@@ -9,30 +9,30 @@ description: This tutorial describes how to migrate from {{ yq-full-name }} to {
 
 Starting October 13, 2026, {{ yq-full-name }} will be unavailable to new users.
 
-Current users will be able to create and modify entities until November 10, 2026. Afterwards, {{ yq-full-name }} will go read-only and cease to operate on December 14, 2026. For more information on how it will be handled, see [{#T}](../sunset.md).
+Current users will be able to create and modify entities until November 10, 2026. Afterwards, the service will go read-only and cease to operate on December 14, 2026. For more information on the timing and procedure, see [{#T}](../sunset.md).
 
 {% endnote %}
 
-Once {{ yq-full-name }} is discontinued, you will be able to work with your data in one of the following ways:
+After closing {{ yq-full-name }}, you can work with the data in one of the following ways:
 
-* **Direct reading from {{ objstorage-name }}**. Read data from the bucket using S3-compatible utilities, libraries, or your application.
-* **{{ ydb-full-name }}**. Run federated queries against files in {{ objstorage-name }} using external data sources and external tables. You can write the results to the output bucket.
+* **Direct reading from {{ objstorage-name }}.** Read data from the bucket using S3-compatible utilities, libraries, or your application.
+* **{{ ydb-full-name }}.** Run federated queries against files in {{ objstorage-name }} using external data sources and external tables. You can write the results to the output bucket.
 
 {% note warning %}
 
-Connections, data bindings, and {{ yq-full-name }} queries are not automatically migrated. You will need to recreate them by following the steps below. The {{ yq-full-name }} discontinuation does not affect the data in the {{ objstorage-name }} buckets.
+Connections, data bindings, and {{ yq-full-name }} queries are not automatically migrated. Recreate them by following the steps below. Closing {{ yq-full-name }} does not affect the data in the {{ objstorage-name }} buckets.
 
-This guide describes the migration of analytical queries. There is no direct equivalent in {{ yandex-cloud }} for {{ yq-full-name }} streaming queries.
+This guide describes the migration of analytical queries. There is no direct equivalent in {{ yandex-cloud }} for the streaming requests of {{ yq-full-name }}.
 
 {% endnote %}
 
-## How to choose your target environment {#choice}
+## How to choose your target solution {#choice}
 
-This section provides a brief comparison of methods for handling data once {{ yq-full-name }} is no longer available.
+This section provides a brief comparison of methods for handling data after closing {{ yq-full-name }}.
 
 #|
-|| **Scenario** | **How you use {{ yq-full-name }}** ||
-|| [Direct reading from {{ objstorage-name }}](#direct-read) | You read files, such as usage details in CSV format, and process them within your application. ||
+|| **Scenario** | **How do you use {{ yq-full-name }}** ||
+|| [Direct reading from {{ objstorage-name }}](#direct-read) | You read files, such as usage details in CSV format, and process them within the application. ||
 || [Federated queries in {{ ydb-full-name }}](#ydb-federated) | You regularly run analytical queries against files in a bucket, store query text in your code, or use data bindings. ||
 || [Column-oriented tables in {{ ydb-full-name }}](#ydb-column-tables) | You are building frequently updated dashboards or repeatedly reading the same data. ||
 |#
@@ -41,7 +41,7 @@ Choose direct reading from {{ objstorage-name }} if:
 
 * Data processing is already implemented in your application.
 * Queries are simple and do not require SQL.
-* You read files rarely or only once.
+* You read files irregularly or only once.
 
 Choose federated queries in {{ ydb-full-name }} if:
 
@@ -61,21 +61,21 @@ If you used {{ yq-full-name }} for SQL queries against files in {{ objstorage-na
 
 {% endnote %}
 
-The pricing structure is different for {{ yq-full-name }} and {{ ydb-full-name }}. In {{ yq-full-name }}, you pay for the amount of data read by queries. When reading directly from {{ objstorage-name }}, operations and outbound traffic are charged. In {{ ydb-full-name }}, dedicated computing resources and database storage are charged independently of the number of requests. For more details on resource costs, see the [{{ objstorage-name }} pricing policy](../../storage/pricing.md) and [{{ ydb-full-name }} pricing policy](../../ydb/pricing/index.md).
+Payment models vary. In {{ yq-full-name }}, you pay for the amount of data read by queries. When reading directly from {{ objstorage-name }}, operations and outbound traffic are charged. In {{ ydb-full-name }}, dedicated computing resources and database storage are charged independently of the number of requests. For more details on resource costs, see [{{ objstorage-name }} pricing policy](../../storage/pricing.md) and [{{ ydb-full-name }} pricing policy](../../ydb/pricing/index.md).
 
 ## Direct reading from {{ objstorage-name }} {#direct-read}
 
-This scenario is suitable if you perform all required data processing on your end.
+This scenario is suitable if you perform all the necessary data processing on your end.
 
 ### Getting started {#direct-read-before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) to perform read operations.
+1. [Create a service account](../../iam/operations/sa/create.md) to perform the read operation.
 
 1. Assign the [`storage.viewer`](../../storage/security/index.md#storage-viewer) role to the service account for the bucket or the folder containing it.
 
 1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
-   Save `key_id` and `secret`: you will not see the secret key again.
+   Save the `key_id` and `secret` values: the secret key will not be shown again.
 
 ### Read the data {#direct-read-query}
 
@@ -134,16 +134,16 @@ This scenario is suitable if you perform all required data processing on your en
 
 #|
 || **{{ yq-full-name }}** | **{{ ydb-full-name }}** ||
-|| Connections to {{ objstorage-name }} | `CREATE EXTERNAL DATA SOURCE` ([external data source](https://ydb.tech/docs/en/concepts/datamodel/external_data_source)) with `SOURCE_TYPE = "ObjectStorage"` ||
+|| Connections to {{ objstorage-name }} | `CREATE EXTERNAL DATA SOURCE` [external data source](https://ydb.tech/docs/en/concepts/datamodel/external_data_source) with `SOURCE_TYPE = "ObjectStorage"` ||
 || Data binding | `CREATE EXTERNAL TABLE` ([external table](../../managed-greenplum/concepts/external-tables.md)) ||
 || Accessing a binding: `bindings.<binding_name>` | Accessing an external table by name: `<table_name>` ||
 || Authentication via service account | Static access key of the service account stored in the database [secrets](https://ydb.tech/docs/en/concepts/datamodel/secrets) ||
-|| Reading files by mask, partitioning (`partition projection`) | Supported with the same syntax ||
+|| Reading files by mask, partitioning, `partition projection` | Supported with the same syntax ||
 || Formats: `csv_with_names`, `tsv_with_names`, `json_each_row`, `json_list`, `json_as_string`, `parquet`, `raw` | Supported ||
 || Writing the result to a bucket: `INSERT INTO <connection>.<path>` | Supported with the same syntax ||
 || Connections with {{ mpg-name }}, {{ mch-name }}, {{ mmy-name }}, and {{ mgp-name }} | [Federated queries](https://ydb.tech/docs/en/concepts/query_execution/federated_query/) to external databases ||
-|| Streaming queries to {{ yds-full-name }} | No similar option ||
-|| Connections to {{ monitoring-name }} | No similar option ||
+|| Streaming queries to {{ yds-full-name }} | No analog ||
+|| Connections to {{ monitoring-name }} | No analog ||
 || Saved queries | Store query texts in your repository ||
 |#
 
@@ -153,19 +153,19 @@ This scenario is suitable if you perform all required data processing on your en
 
    {% note info %}
 
-   External data sources are available only in databases with dedicated resources. In a serverless database, a query to an external source will fail with the `External data sources are disabled` error.
+   External data sources are available only in databases with dedicated resources. In the database in serverless mode, a query to an external source will fail with the `External data sources are disabled` error.
 
    {% endnote %}
 
 1. Assign the [`ydb.editor`](../../ydb/security/index.md#ydb-editor) role for the database to the user who will be migrating the queries.
 
-1. Create a service account and static access key, as described in [this section](#direct-read-before-you-begin). If your queries write results to a bucket, additionally assign the [`storage.uploader`](../../storage/security/index.md#storage-uploader) role to the service account.
+1. Create a service account and static access key, as described in the [Direct reading from {{ objstorage-name }}](#direct-read-before-you-begin) section. If requests write results to a bucket, additionally assign the [`storage.uploader`](../../storage/security/index.md#storage-uploader) role to the service account.
 
-1. Save the query texts, as well as connection and binding settings from {{ yq-full-name }}; this includes names, bucket paths, format, compression, schema, and partitioning settings.
+1. Save the query texts, connection parameters and binding settings from {{ yq-full-name }}: names, bucket paths, format, compression, schema, and partitioning settings.
 
 ### Federated queries: reading files from {{ objstorage-name }} {#ydb-federated}
 
-This scenario mirrors the operation of {{ yq-full-name }}: the data remains in the bucket, while the database reads it with every query.
+This scenario mirrors the operation of {{ yq-full-name }}: the data remains in the bucket, and the database reads it with every query.
 
 #### Create an external data source {#ydb-data-source}
 
@@ -176,7 +176,7 @@ This scenario mirrors the operation of {{ yq-full-name }}: the data remains in t
    CREATE SECRET s3_secret_key WITH (value = "<secret_key>");
    ```
 
-1. Create an external data source. To avoid changing the query text, give it the same name as the connection in {{ yq-full-name }}:
+1. Create an external data source. To avoid changing the query text, name it the same as the connection in {{ yq-full-name }}:
 
    ```yql
    CREATE EXTERNAL DATA SOURCE <connection_name> WITH (
@@ -191,7 +191,7 @@ This scenario mirrors the operation of {{ yq-full-name }}: the data remains in t
 
    Secrets are not required for a public bucket: specify `AUTH_METHOD = "NONE"` and do not specify the `AWS_*` parameters.
 
-1. Check whether the database can successfully read the bucket:
+1. Check that the database reads the bucket:
 
    ```yql
    SELECT *
@@ -203,7 +203,7 @@ This scenario mirrors the operation of {{ yq-full-name }}: the data remains in t
    LIMIT 10;
    ```
 
-#### Migrate data bindings {#ydb-bindings}
+#### Transfer data bindings {#ydb-bindings}
 
 For each binding, create an external table with the same columns, format, and compression:
 
@@ -220,11 +220,11 @@ CREATE EXTERNAL TABLE <binding_name> (
 );
 ```
 
-If partitioning or `partition projection` is configured in the binding, copy the `PARTITIONED_BY` and `projection.*` settings without changing them.
+If partitioning or `partition projection` is configured in the binding, transfer the `PARTITIONED_BY` and `projection.*` parameters unchanged.
 
-#### Migrate queries {#ydb-queries}
+#### Transfer requests {#ydb-queries}
 
-Queries to connections are migrated unchanged if the external source name matches the connection name. Remove the `bindings.` prefix from binding requests:
+Connection requests are migrated unchanged if the external source name matches the connection name. Remove the `bindings.` prefix from binding requests:
 
 {% list tabs %}
 
@@ -250,7 +250,7 @@ Queries to connections are migrated unchanged if the external source name matche
 
 {% endlist %}
 
-You can run requests in the management console, or using the [YDB CLI](https://ydb.tech/docs/en/reference/ydb-cli/) or [SDK](https://ydb.tech/docs/en/reference/ydb-sdk/). For example, to save the result to a CSV file, run:
+You can execute requests in the management console, or using the [YDB CLI](https://ydb.tech/docs/en/reference/ydb-cli/) or [SDK](https://ydb.tech/docs/en/reference/ydb-sdk/). For example, to save the result to a CSV file:
 
 ```bash
 ydb \
@@ -262,7 +262,7 @@ ydb \
 
 #### Consider performance {#ydb-performance}
 
-The speed of a federated query is limited by the network throughput of the database nodes during reads from {{ objstorage-name }}. {{ yq-full-name }} distributed reads across a shared pool of nodes; consequently, the same query may take longer to run in a database with a small number of nodes. If speed is important, increase the number of database nodes or move your data to [column-oriented tables](#ydb-column-tables).
+The speed of a federated query is limited by the network throughput of the database nodes during reads from {{ objstorage-name }}. {{ yq-full-name }} distributed reads across a shared pool of nodes; consequently, the same query may take longer to execute in a database with a small number of nodes. If speed is important, increase the number of database nodes or move the data to [column-oriented tables](#ydb-column-tables).
 
 ### Column-oriented tables: loading data into the database {#ydb-column-tables}
 
@@ -296,11 +296,11 @@ If the same files are read repeatedly, e.g., by an auto-refreshing dashboard, up
 
 ### Database connections {#ydb-databases}
 
-Connections with {{ yq-full-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mmy-name }}, and {{ mgp-name }} are migrated to external data sources of the appropriate type. The syntax of `SELECT * FROM<source>.<table>` queries does not change. For more information on connection settings, see [Federated queries](https://ydb.tech/docs/en/concepts/query_execution/federated_query/).
+Connections with {{ yq-full-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mmy-name }}, and {{ mgp-name }} are migrated to external data sources of the appropriate type. The syntax of `SELECT * FROM<source>.<table>` queries does not change. Connection parameters are described in the [Federated queries](https://ydb.tech/docs/en/concepts/query_execution/federated_query/) section.
 
 ## Check the result {#check}
 
-1. Run each migrated query against the same files both in {{ yq-full-name }} and in the environment you migrated to.
+1. Execute each migrated query on the same set of files in {{ yq-full-name }} and in the new solution.
 
 1. Compare the number of rows and the checksums by the key columns:
 
@@ -310,20 +310,20 @@ Connections with {{ yq-full-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mmy-name
    WHERE date BETWEEN Date("2026-09-01") AND Date("2026-09-30");
    ```
 
-1. Switch the dashboards, schedules, and applications that accessed {{ yq-full-name }} to your new environment.
+1. Switch the dashboards, schedules, and applications that accessed {{ yq-full-name }} to the new solution.
 
 ## If something went wrong {#troubleshooting}
 
 #|
 || **Error or symptom** | **What to check** ||
 || `External data sources are disabled` | The database was created in serverless mode. Create a database with dedicated resources. ||
-|| `Access Denied` when reading the bucket | The `storage.viewer` role assigned to a service account, the key values ​​in the secrets, and the `LOCATION` value (which must end with `/`). ||
+|| `Access Denied` when reading the bucket | The `storage.viewer` role for the service account, the key values ​​in the secrets, and the `LOCATION` value. It must end with `/`. ||
 || Data parsing error | Column types and requirements in the schema. If the file does not contain a column with `NOT NULL`, the request will fail. ||
 || The request is taking longer to complete than in {{ yq-full-name }} | Number of database nodes. Use [column-oriented tables](#ydb-column-tables) for recurring queries. ||
 |#
 
-If you were unable to resolve your issue, contact [support](../../support/overview.md) and provide the following:
+If you were unable to resolve the issue, contact [support](../../support/overview.md) and attach the following:
 
 * Database ID.
-* Query text and error text.
-* Error time and query ID, if there is one in the output.
+* Query text and the error text.
+* Error time and the query ID, if there is one in the output.

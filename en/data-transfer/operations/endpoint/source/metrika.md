@@ -39,7 +39,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.counter_ids.title }}**: Specify the [numbers of the tags](https://yandex.ru/support/metrica/general/tag-id.html) the data will be coming from.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bcacbbdc796a). The token’s validity period is one year. In this case, the following applies:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.metrika.console.form.metrika.MetrikaSource.token.title }}**: Specify the token required to access the tags. To obtain it, follow [this link](https://oauth.yandex.ru/authorize?response_type=token&client_id=36b7fc9aa96c4fa09158bc*****). The token’s validity period is one year. In this case, the following applies:
         
         * Activated transfers continue to operate after the token expires.
         * Modifying the list of counters you need to transfer will trigger a transfer error if the token has expired or if the token owner lacks access to the counters.

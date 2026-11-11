@@ -2,54 +2,9 @@
 
 # Инструменты для работы с аудитными логами
 
-# Инструменты для работы с аудитными логами
-
 Аудитные логи могут загружаться в бакет [Yandex Object Storage](../../../storage/index.md), лог-группу [Yandex Cloud Logging](../../../logging/index.md), поток данных [Yandex Data Streams](../../index.md).
 
-В зависимости от того, где находятся логи, для их просмотра и поиска событий применяются различные инструменты:
-
-* [сервис Yandex Query](#tool-query),
-* [сервис Cloud Logging](#tool-logging),
-* [утилита jq](#tool-jq).
-
-## Yandex Query {#tool-query}
-
-Сервис [Query](../../../query/index.md) применяется для работы с логами, которые загружаются в бакет или поток данных:
-
-* Если логи находятся в бакете, то можно анализировать события ресурсов Yandex Cloud, выполняя [аналитические](../../../query/concepts/batch-processing.md) запросы на языке YQL.
-* Если логи находятся в потоке данных, то можно анализировать события ресурсов Yandex Cloud, выполняя [потоковые](../../../query/concepts/stream-processing.md) запросы на языке YQL.
-
-Чтобы использовать Yandex Query, настройте привязку к данным в зависимости от объекта назначения:
-
-{% list tabs group=instructions %}
-
-- Бакет Object Storage {#obj-storage}
-
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
-    1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `storage.viewer` на каталог, в котором находится бакет с логами.
-    1. Создайте соединение:
-
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится трейл, поставляющий логи в бакет.
-        1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
-        1. Выберите трейл, поставляющий логи в бакет.
-        1. Справа сверху нажмите ![cube](../../../_assets/console-icons/cube.svg) **Обработать в YQ**.
-        1. Выберите **Сервисный аккаунт** `bucket-yq-sa`.
-        1. Для остальных параметров оставьте значения по умолчанию.
-        1. Нажмите **Создать**.
-
-    1. В окне с параметрами привязки к данным нажмите **Создать**.
-
-    1. Выполните нужный [запрос](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
-
-- Поток данных Data Streams {#data-streams}
-
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с именем `bucket-yq-sa`.
-    1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту `bucket-yq-sa` роль `yds.editor`.
-    1. [Создайте соединение](../../../query/operations/connection.md#create). При создании укажите настройки для типа соединения **Data Streams**.
-    1. [Создайте привязку](../../../query/operations/binding.md).
-    1. Выполните нужный [запрос](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
-
-{% endlist %}
+Для просмотра логов в лог-группе используйте [Cloud Logging](#tool-logging), а для поиска событий в логах из бакета — [утилиту jq](#tool-jq).
 
 ## Cloud Logging {#tool-logging}
 

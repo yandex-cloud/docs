@@ -330,12 +330,6 @@ Service name: `storage`.
 
 {% include [storage-events](../../_includes/audit-trails/events/storage-events.md) %}
 
-## {{ yq-full-name }} {#yq}
-
-Service name: `yq`.
-
-{% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
-
 ## {{ myt-full-name }} {#ytsaurus}
 
 Service name: `ytsaurus`.

@@ -21,7 +21,6 @@ For more information, see [{#T}](../operations/kspm/enable-kspm.md).
 
 * [{#T}](workspace.md)
 * [{#T}](cspm.md)
-* [{#T}](ai-assistant.md)
 * [{#T}](../quickstart-overview.md)
 * [{#T}](../operations/kspm/enable-kspm.md)
 * [{#T}](../security/kspm-roles.md)

@@ -20,7 +20,7 @@ Where:
 
 Where:
 
-* 4: Number of units of written data per second.
+* 4: Number of data units written per second.
 * 60 × 60 × 24 × 31: Number of seconds in the month.
 * 10,713,600: Number of units of written data per month.
 

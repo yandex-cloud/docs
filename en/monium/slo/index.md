@@ -8,7 +8,9 @@ _SLO (Service Level Objective)_ is the target service quality level expressed in
 
 * _SLO (Service Level Objective)_. Target value the calculated SLI is referenced against. If the SLI drops below the SLO and remains so for an extended period of time, it is best to put the development of the new functionality on hold and focus of improving overall reliability of the service. Expressed as a percentage.
 
-* _Error Budget_ is the balance of the error budget. Error budget is the number of _Bad Events_ that can happen within a given period of time before the SLI drops bellow the SLO. The figure is calculated using this formula: *Error Budget = (100% - SLI) \* Total Events*. Error budget is expressed as a percentage.
+* _Error Budget_ is the allowed amount of _Bad Events_ per SLO window. It is calculated using this formula: `Error Budget = (1 - SLO) × Total Events`, where the SLO is specified as a fraction between zero and one. To get the residual budget, subtract actual number of bad events from the allowed value. The result is expressed as a percentage of the budget. If an SLO has already been breached, the residual budget may be negative.
+
+* _Burn Rate_ is the error budget usage rate coefficient, i.e., a ratio of the bad events share to the allowed error share. `1` means the error share is within the allowed limit, while `2` means it is twice as high. For more on calculations and thresholds, see [SLO alerts](../concepts/alerting/alert.md#slo-burn-rate).
 
 {% note info %}
 
@@ -22,9 +24,15 @@ An SLO is not a replacement for alters that are used to keep an eye on the healt
 
 Alerts can monitor individual metrics for urgent response, making them a tool of choice for duty or development staff.
 
-An SLO, however, is an analytical tool that helps you with managerial decisions and the service's development roadmap based on reliability metrics.
+An SLO helps you with administrative decisions and the service's development roadmap based on its reliability metrics. You can also use these metrics for urgent notifications using SLO alerts.
 
 {% endnote %}
+
+## SLO alerts {#slo-alerts}
+
+SLO alerts monitor the residual error budget, its actual consumption over the alert window, or burn rate. They help promptly detect the risk of SLO breach and assess the incident's impact on the user journey.
+
+After setting up the SLO, [create an SLO alert](../operations/alert/create-slo-alert.md) and enable notifications. For a _burn rate_ alert, [enable coefficient calculation](management.md#burn-rate) in the SLO.
 
 ## Calculation methods {#calc-methods}
 

@@ -160,7 +160,6 @@ In the management console, the following trail settings are available:
 * [{#T}](../tutorials/search-events-audit-logs/index.md)
 * [{#T}](../tutorials/alerts-monitoring.md)
 * [{#T}](../tutorials/logging-functions.md)
-* [{#T}](../tutorials/audit-trails.md)
 * [{#T}](../tutorials/maxpatrol/index.md)
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 * [{#T}](../tutorials/export-logs-to-arcsight.md)

@@ -5,8 +5,6 @@ description: Различные сценарии использования {{ y
 
 # Практические руководства {{ yds-name }}
 
-- [{#T}](audit-trails.md)
-- [{#T}](debezium.md)
 - [{#T}](data-ingestion.md)
 - [{#T}](log-ingestion.md)
 - [{#T}](message-broker.md)
@@ -24,8 +22,5 @@ description: Различные сценарии использования {{ y
 - [{#T}](events-from-postbox-to-yds.md)
 - [{#T}](websocket-app.md)
 - [{#T}](maxpatrol/index.md)
-- [{#T}](search-events-query.md)
-- [{#T}](audit-trails.md)
 - [{#T}](search-events-audit-logs/index.md)
-- [{#T}](debezium.md)
 - [{#T}](postbox-webhook.md)

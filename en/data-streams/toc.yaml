@@ -113,8 +113,6 @@ items:
         href: tutorials/events-from-postbox-to-yds.md
       - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
-      - name: Processing {{ at-name }} events
-        href: tutorials/audit-trails.md
       - name: Searching for events in audit logs
         items:
           - name: Overview
@@ -123,10 +121,6 @@ items:
             href: tutorials/search-events-audit-logs/tools.md
           - name: Sample queries for event search
             href: tutorials/search-events-audit-logs/examples.md
-          - name: Configuring {{ yq-full-name }}
-            href: tutorials/search-events-audit-logs/query.md
-      - name: Debezium Change Data Capture (CDC) stream processing
-        href: tutorials/debezium.md
       - name: Exporting audit logs to MaxPatrol SIEM
         items:
           - name: Overview
@@ -135,8 +129,6 @@ items:
             href: tutorials/maxpatrol/console.md
           - name: '{{ TF }}'
             href: tutorials/maxpatrol/terraform.md
-      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
-        href: tutorials/search-events-query.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
       - name: Troubleshooting slow writes in {{ yds-full-name }}

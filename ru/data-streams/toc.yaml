@@ -113,8 +113,6 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
-      - name: Обработка аудитных логов {{ at-name }}
-        href: tutorials/audit-trails.md
       - name: Поиск событий в аудитных логах
         items:
           - name: Обзор
@@ -123,10 +121,6 @@ items:
             href: tutorials/search-events-audit-logs/tools.md
           - name: Примеры запросов для поиска событий
             href: tutorials/search-events-audit-logs/examples.md
-          - name: Настройка работы с {{ yq-full-name }}
-            href: tutorials/search-events-audit-logs/query.md
-      - name: Обработка потока изменений Debezium
-        href: tutorials/debezium.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
         items:
           - name: Обзор
@@ -135,8 +129,6 @@ items:
             href: tutorials/maxpatrol/console.md
           - name: '{{ TF }}'
             href: tutorials/maxpatrol/terraform.md
-      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
-        href: tutorials/search-events-query.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
         href: tutorials/postbox-webhook.md
       - name: Диагностика медленной записи в {{ yds-full-name }}

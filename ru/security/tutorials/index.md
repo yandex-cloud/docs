@@ -103,12 +103,10 @@ description: Различные практические руководства 
 
 ## Сбор, мониторинг и анализ аудитных логов {#audit-logs}
 
-* [{#T}](audit-logs/query.md)
 * [{#T}](audit-logs/search-bucket.md)
 * [{#T}](audit-logs/search-cloud-logging.md)
 * [{#T}](audit-logs/alerts-monitoring.md)
 * [{#T}](audit-logs/logging-functions.md)
-* [{#T}](audit-logs/audit-trails.md)
 * Экспорт аудитных логов в SIEM
     * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)

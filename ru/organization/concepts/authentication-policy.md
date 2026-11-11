@@ -7,7 +7,9 @@ description: Политики аутентификации позволяют г
 
 _Политики аутентификации_ — это инструмент {{ org-full-name }}, позволяющий гибко настраивать доступ [пользователей](*user_accounts) и [групп пользователей](*user_groups) к [приложениям](*applications) {{ org-full-name }}, [запрещая или разрешая](#action) аутентификацию в зависимости от условий, заданных в [области применения](#conditions) политики.
 
-В настоящий момент управлять политиками аутентификации можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}). [Создавать](../operations/authentication-policies/create.md), [изменять](../operations/authentication-policies/update.md), [активировать](../operations/authentication-policies/activate-deactivate.md#activate), [деактивировать](../operations/authentication-policies/activate-deactivate.md#deactivate) и [удалять](../operations/authentication-policies/delete.md) политики аутентификации может пользователь, которому назначена [роль](*org_manager_admin) `organization-manager.admin` или выше.
+
+
+[Создавать](../operations/authentication-policies/create.md), [изменять](../operations/authentication-policies/update.md), [активировать](../operations/authentication-policies/activate-deactivate.md#activate), [деактивировать](../operations/authentication-policies/activate-deactivate.md#deactivate) и [удалять](../operations/authentication-policies/delete.md) политики аутентификации может пользователь, которому назначена [роль](*org_manager_admin) `organization-manager.admin` или выше.
 
 ## Область применения политики {#conditions}
 

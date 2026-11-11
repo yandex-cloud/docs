@@ -4,13 +4,13 @@ description: В {{ mch-name }} действуют лимиты и квоты н�
 editable: false
 ---
 
+
 # Квоты и лимиты в {{ mch-name }}
 
 
 В сервисе {{ mch-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 

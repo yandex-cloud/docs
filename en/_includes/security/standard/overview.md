@@ -75,8 +75,6 @@ You can automate the audit of compliance with all recommendations using [{{ sd-f
 * [{{ access-analyzer-name }}](../../../security-deck/concepts/access-analyzer.md).
 * [Alerts](../../../security-deck/concepts/alerts.md).
 
-{{ sd-full-name }} also offers a {{ yagpt-name }}-powered [AI assistant](../../../security-deck/concepts/ai-assistant.md) to provide you with security recommendations.
-
 
 ### Limitation of responsibility {#liability-limit}
 

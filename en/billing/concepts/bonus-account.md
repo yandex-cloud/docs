@@ -36,12 +36,12 @@ You can view your grants in {{ billing-name }} or in the management console widg
 
 - Management console {#console}
 
-  1. Open the [management console]({{ link-console-main }}).
-  1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
+    1. Open the [management console]({{ link-console-main }}).
+    1. In the top-right corner, click ![credit-card](../../_assets/console-icons/credit-card.svg).
 
-  The widget that opens will display information about active grants. To view info on all your grants, click **{{ ui-key.yacloud_billing_account.billing-widget.grant }}** ![image](../../_assets/console-icons/arrow-up-right-from-square.svg).
+    The widget that opens will display information about active grants. To view info on all your grants, click **{{ ui-key.yacloud_billing_account.billing-widget.grant }}** ![image](../../_assets/console-icons/arrow-up-right-from-square.svg).
 
-  {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+    {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
 
 {% endlist %}
 
@@ -56,7 +56,7 @@ Additional grants can be provided on {{ yandex-cloud }} manager's decision or un
 
 Grants are prioritized based on their validity period: the earlier the expiration date, the sooner the grant is used.
 
-{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+ 
 
 For more on grants, see the [billing cycle description](../payment/billing-cycle-individual.md).
 

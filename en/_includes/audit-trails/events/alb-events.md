@@ -15,6 +15,8 @@ Event name | Description
 `DeleteLoadBalancer` | Deleting a load balancer
 `DeleteTargetGroup` | Deleting a target group
 `DeleteVirtualHost` | Deleting a virtual host
+`DisableZones` | [Disabling load balancer’s availability zones](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md#disable-zones)
+`EnableZones` | Enabling load balancer’s availability zones
 `RemoveBackendGroupBackend` | Removing a backend from a backend group
 `RemoveLoadBalancerListener` | Removing a listener from a load balancer
 `RemoveLoadBalancerSniMatch` | Removing an SNI listener from a load balancer

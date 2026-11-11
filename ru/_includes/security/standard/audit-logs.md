@@ -78,7 +78,7 @@
 Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../../storage/tools/geesefs.md) или [s3fs](../../../storage/tools/s3fs.md). Они позволяют смонтировать бакет {{ objstorage-full-name }} как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета. Либо утилиты совместимые с AWS Kinesis datastreams в случае, если вы направляете аудитные логи в {{ yds-full-name }}.
 
 
-Вы также можете анализировать аудитные логи вручную, если у вас отсутствует SIEM-система, с помощью [поиска](../../../audit-trails/tutorials/search-events-audit-logs/index.md) событий {{ yandex-cloud }} в {{ yq-full-name }}, {{ cloud-logging-name }} или {{ objstorage-name }}.
+Вы также можете анализировать аудитные логи вручную, если у вас отсутствует SIEM-система, с помощью [поиска](../../../audit-trails/tutorials/search-events-audit-logs/index.md) событий {{ yandex-cloud }} в {{ cloud-logging-name }} или {{ objstorage-name }}.
 
 
 | ID требования | Критичность |

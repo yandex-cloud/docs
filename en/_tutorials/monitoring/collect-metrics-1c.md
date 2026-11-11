@@ -1,6 +1,6 @@
 # Collecting 1C:Enterprise Linux cluster metrics
 
-Follow this guide to configure collection of 1C:Enterprise Linux cluster metrics in {{ prometheus-name }} format and their visualization in [{{ monitoring-full-name }}](../../monitoring/concepts/visualization/metric-explorer.md). In addition to visualization, {{ monitoring-name }} allows you to set up alerts, create hybrid dashboards with metrics from various {{ yandex-cloud }} services and offers extensive scaling capabilities.
+Follow this guide to configure collection of 1C:Enterprise Linux cluster metrics in {{ prometheus-name }} format and their visualization in [{{ monitoring-full-name }}](../../monitoring/operations/metric/metric-explorer.md). In addition to visualization, {{ monitoring-name }} allows you to set up alerts, create hybrid dashboards with metrics from various {{ yandex-cloud }} services and offers extensive scaling capabilities.
 
 Cluster metrics will be collected using the freely distributed [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter) utility, transferred to [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md), and then to {{ monitoring-name }}.
 
@@ -41,7 +41,7 @@ Fee for sending metrics to {{ monitoring-name }} (see [{{ monitoring-name }} pri
    sudo chmod +x /usr/local/bin/exporter_1C
    ```
 1. Create a configuration file for the exporter:
-   
+
    ```bash
    sudo mkdir /etc/exporter_1C/
    sudo vi /etc/exporter_1C/settings.yaml
@@ -163,6 +163,7 @@ Fee for sending metrics to {{ monitoring-name }} (see [{{ monitoring-name }} pri
 
 After you start the exporter, metrics will be available at `curl http://localhost:9095/metrics`. To work with metrics in {{ monitoring-full-name }}, you need to install {{ unified-agent-short-name }} and configure it to receive metrics from this address and send them to {{ monitoring-name }}.
 
+
 ## Create a service account and link it to your VM {#sa-create}
 
 You need a service account to send metrics from the VM to {{ monitoring-name }}.
@@ -176,18 +177,24 @@ You need a service account to send metrics from the VM to {{ monitoring-name }}.
 1. Download the latest deb package version:
 
    ```bash
-   ubuntu_name="<OS_version>" ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+   ubuntu_name="<full_OS_version_name>" \
+   ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version)
+
+   curl --silent --remote-name \
+     "https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb"
    ```
 
-1. Check the deb package version using the `ls` command.
-   
+   Where `ubuntu_name` is the operating system version in `ubuntu-<version_number>-<code_name>` format, e.g., `ubuntu-22.04-jammy`.
+
+1. Check the downloaded `deb` package version using the `ls` command.
+
 1. Install {{ unified-agent-short-name }} from the deb package by specifying its version:
 
    ```bash
-   sudo dpkg -i yandex-unified-agent_<agent_version>_amd64.deb
+   sudo dpkg -i yandex-unified-agent_<version>_amd64.deb
    ```
-   
-   You can find other installation methods in [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md). 
+
+   You can find other installation methods in [{#T}](../../monitoring/concepts/data-collection/unified-agent/installation.md).
 
 1. Check that {{ unified-agent-short-name }} is running:
 
@@ -278,7 +285,7 @@ You need a service account to send metrics from the VM to {{ monitoring-name }}.
    import:
    - /etc/yandex/unified_agent/conf.d/*.yml
    ```
-  
+
    This configuration sets the `app1c_` prefix for metrics from the `/metrics` endpoint. You can use any prefix.
 
    {{ monitoring-full-name }} has restrictions on labels and their values:
@@ -326,7 +333,7 @@ You need a service account to send metrics from the VM to {{ monitoring-name }}.
        * `name` label value prefixed with `app1c_`, e.g., `app1c_available_performance`.
        * `host` label value: Name of the 1C:Enterprise cluster VM.
 
-    1. Click **Execute query**.
+    1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
 {% endlist %}
 
@@ -348,15 +355,15 @@ Below is an example of a dashboard for monitoring metrics provided in the export
          ```
     1. Click ![image](../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
     1. Add the following charts to the dashboard in the same way:
-    
+
        * Use of client licenses:
          ```
-         "app1c.client_lic"{folderId = "<your-folder-id>", service = "custom", quantile = "0.99", host = "<1C_VM_name>"}
+         "app1c.client_lic"{folderId = "<folder_ID>", service = "custom", quantile = "0.99", host = "<1C_VM_name>"}
          ```
 
        * Connections:
          ```
-         "app1c.connect"{folderId = "<your-folder-id>", service = "custom", quantile = "0.99"}
+         "app1c.connect"{folderId = "<folder_ID>", service = "custom", quantile = "0.99"}
          ```
 
 {% endlist %}
@@ -369,4 +376,4 @@ Stop reading and writing metrics by doing one of the following:
 
 * [Stop {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/run-and-stop.md#stop).
 * In the {{ unified-agent-short-name }} [configuration file](../../monitoring/concepts/data-collection/unified-agent/configuration.md), remove the settings for collecting and sending metrics.
-* [Delete {{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/delete.md).
+* Delete {{ unified-agent-short-name }} using the `sudo dpkg -r yandex-unified-agent` command.

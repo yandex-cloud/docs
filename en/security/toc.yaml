@@ -348,8 +348,6 @@ items:
               tutorials/data-encryption-and-key-management/ephemeral-key-storage.md
       - name: Collecting, monitoring, and analyzing audit logs
         items:
-          - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
-            href: tutorials/audit-logs/query.md
           - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
             href: tutorials/audit-logs/search-bucket.md
           - name: >-
@@ -362,8 +360,6 @@ items:
               Configuring responses in {{ cloud-logging-name }} and {{ sf-name
               }}
             href: tutorials/audit-logs/logging-functions.md
-          - name: Processing {{ at-name }} events
-            href: tutorials/audit-logs/audit-trails.md
           - name: Uploading audit logs to {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true

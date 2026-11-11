@@ -78,7 +78,7 @@ For more information about MaxPatrol, see this [section](../../../audit-trails/t
 You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 
 
-If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cloud }} [event search](../../../audit-trails/tutorials/search-events-audit-logs/index.md) in {{ yq-full-name }}, {{ cloud-logging-name }}, or {{ objstorage-name }}.
+If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cloud }} [event search](../../../audit-trails/tutorials/search-events-audit-logs/index.md) in {{ cloud-logging-name }} or {{ objstorage-name }}.
 
 
 | Requirement ID | Severity |

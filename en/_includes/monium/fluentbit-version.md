@@ -1,1 +1,1 @@
-We recommend using Fluent Bit [version 4.0](https://docs.fluentbit.io/manual/4.0) or higher with `opentelemetry` output.
+Here, examples expect [Fluent Bit](https://github.com/fluent/fluent-bit/security) version 4.0 or higher with the `opentelemetry` output plugin.

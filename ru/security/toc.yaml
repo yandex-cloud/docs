@@ -371,8 +371,6 @@ items:
               tutorials/data-encryption-and-key-management/ephemeral-key-storage.md
       - name: Сбор, мониторинг и анализ аудитных логов
         items:
-          - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
-            href: tutorials/audit-logs/query.md
           - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
             href: tutorials/audit-logs/search-bucket.md
           - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
@@ -381,8 +379,6 @@ items:
             href: tutorials/audit-logs/alerts-monitoring.md
           - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-name }}
             href: tutorials/audit-logs/logging-functions.md
-          - name: Обработка аудитных логов {{ at-name }}
-            href: tutorials/audit-logs/audit-trails.md
           - name: Загрузка аудитных логов в {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true

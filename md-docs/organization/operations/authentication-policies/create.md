@@ -263,6 +263,95 @@
 
       {% endcut %}
 
+- Terraform {#tf}
+
+  {% note info %}
+
+  Активировать или деактивировать политику с помощью Terraform нельзя.
+
+  {% endnote %}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. Опишите в конфигурационном файле параметры политики аутентификации:
+
+     ```hcl
+     resource "yandex_organizationmanager_policy_authentication_policy_rule" "example" {
+       organization_id      = "<идентификатор_организации>"
+       name                 = "example-policy"
+       effect               = "ALLOW_WITH_OBLIGATIONS"
+       subjects_include     = ["<идентификатор_пользователя>"]
+       applications_include = ["<идентификатор_приложения>"]
+       networks_include     = ["192.0.2.0/24"]
+       networks_exclude     = ["192.0.2.10/32"]
+       obligations = [
+         {
+           step_up_required = {
+             acr_id = "phr"
+             ttl    = "900s"
+           }
+         }
+       ]
+     }
+     ```
+
+     Где:
+
+     * `organization_id` — [идентификатор организации](../organization-get-id.md).
+     * `name` — [имя](*policy_name) политики.
+     * `effect` — действие политики. Значение `ALLOW_WITH_OBLIGATIONS` разрешает аутентификацию с учетом дополнительных требований.
+     * `subjects_include` — идентификаторы пользователей или групп пользователей, на которых распространяется политика.
+     * `applications_include` — идентификаторы приложений, на которые распространяется политика.
+     * `networks_include` — диапазоны IP-адресов в нотации CIDR, на которые распространяется политика.
+     * `networks_exclude` — диапазоны IP-адресов в нотации CIDR, исключенные из области применения политики.
+     * `obligations` — дополнительные требования к аутентификации. В примере задано требование `step_up_required` для повторной проверки дополнительного фактора аутентификации:
+
+         * `acr_id` — стандарт фактора MFA. Значение `phr` допускает использование только WebAuthn.
+         * `ttl` — время жизни дополнительного фактора аутентификации. В примере задано 900 секунд, или 15 минут.
+
+     В примере политика разрешает указанному пользователю аутентификацию в указанном приложении из сети `192.0.2.0/24`, кроме IP-адреса `192.0.2.10`, и требует повторной проверки фактора MFA по стандарту WebAuthn, если с предыдущей проверки прошло более 15 минут.
+
+     Если вместо идентификатора пользователя задать пустой список `subjects_include`, он будет соответствовать значению `["allUsers"]` и охватывать все субъекты. Аналогично пустые списки `applications_include` и `networks_include` охватывают все приложения и сети соответственно. При этом из области применения можно исключить отдельные субъекты, приложения и сети. Подробнее об [области применения политики](../../concepts/authentication-policy.md#conditions) и [параметрах ресурса](../../../terraform/resources/organizationmanager_policy_authentication_policy_rule.md).
+
+  1. Создайте политику:
+
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
+        ```bash
+        terraform apply
+        ```
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../policy/api-ref/AuthenticationPolicyRule/create.md) для ресурса [AuthenticationPolicyRule](../../policy/api-ref/AuthenticationPolicyRule/index.md) или вызовом gRPC API [AuthenticationPolicyRuleService/Create](../../policy/api-ref/grpc/AuthenticationPolicyRule/create.md).

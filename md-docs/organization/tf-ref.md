@@ -35,6 +35,7 @@ Terraform распространяется под лицензией [Business S
 | [yandex_organizationmanager_organization_iam_binding](../terraform/resources/organizationmanager_organization_iam_binding.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации. Имеет ограничение в 1000 привязок на ресурс. <br>Вместо `yandex_organizationmanager_organization_iam_binding` рекомендуется использовать `yandex_organizationmanager_organization_iam_member` |
 | [yandex_organizationmanager_organization_iam_member](../terraform/resources/organizationmanager_organization_iam_member.md) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к организации |
 | [yandex_organizationmanager_os_login_settings](../terraform/resources/organizationmanager_os_login_settings.md) | Настройки доступа по [OS Login](concepts/os-login.md) |
+| [yandex_organizationmanager_policy_authentication_policy_rule](../terraform/resources/organizationmanager_policy_authentication_policy_rule.md) | [Политика аутентификации](concepts/authentication-policy.md) |
 | [yandex_organizationmanager_saml_federation](../terraform/resources/organizationmanager_saml_federation.md) | [SAML-совместимая федерация удостоверений](concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account](../terraform/resources/organizationmanager_saml_federation_user_account.md) | [Федеративный пользователь](concepts/add-federation.md#saml-authentication) |
 | [yandex_organizationmanager_user_ssh_key](../terraform/resources/organizationmanager_user_ssh_key.md) | [SSH-ключ](concepts/os-login.md#ssh-keys) для доступа по OS Login |
@@ -54,6 +55,7 @@ Terraform распространяется под лицензией [Business S
 | [yandex_organizationmanager_idp_userpool](../terraform/data-sources/organizationmanager_idp_userpool.md) | Информация о [пуле пользователей](concepts/user-pools.md) |
 | [yandex_organizationmanager_mfa_enforcement](../terraform/data-sources/organizationmanager_mfa_enforcement.md) | Информация о [политике MFA](concepts/mfa.md#mfa-policies) |
 | [yandex_organizationmanager_os_login_settings](../terraform/data-sources/organizationmanager_os_login_settings.md) | Информация о настройках доступа по [OS Login](concepts/os-login.md) |
+| [yandex_organizationmanager_policy_authentication_policy_rule](../terraform/data-sources/organizationmanager_policy_authentication_policy_rule.md) | Информация о [политике аутентификации](concepts/authentication-policy.md) |
 | [yandex_organizationmanager_saml_federation](../terraform/data-sources/organizationmanager_saml_federation.md) | Информация о [SAML-совместимой федерации удостоверений](concepts/add-federation.md) |
 | [yandex_organizationmanager_saml_federation_user_account](../terraform/data-sources/organizationmanager_saml_federation_user_account.md) | Информация о [федеративном пользователе](concepts/add-federation.md#saml-authentication) |
 | [yandex_organizationmanager_user_ssh_key](../terraform/data-sources/organizationmanager_user_ssh_key.md) | Информация о [SSH-ключе](concepts/os-login.md#ssh-keys) пользователя |

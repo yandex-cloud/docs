@@ -1,9 +1,9 @@
 ---
-title: Deleting a WAF profile
+title: Deleting a Cloud WAF profile
 description: Follow this guide to delete a WAF profile.
 ---
 
-# Deleting a WAF profile
+# Deleting a Cloud WAF profile
 
 Before you delete a WAF profile, delete all WAF rules from the associated security profiles.
 

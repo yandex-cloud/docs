@@ -151,6 +151,7 @@ description: Следуя данной инструкции, вы сможете
 
         * **{{ ui-key.yacloud.mdb-core.entities.Zone.label_title_qQ3Vg }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
+
         
         * **{{ ui-key.yacloud.mdb-core.entities.Subnetwork.label_title_c4P8n }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
         * Включите опцию **{{ ui-key.yacloud.postgresql.new.entities.AssignPublicIp.label_title_8mK2p }}**, чтобы разрешить доступ к хосту из интернета.

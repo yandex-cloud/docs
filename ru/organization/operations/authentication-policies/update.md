@@ -191,6 +191,25 @@ description: Следуя этой инструкции, вы сможете и�
                   * `true` — чтобы запрашивать второй фактор MFA только при первом входе.
 
               {% include [auth-policy-obligations-cli-notice](../../../_includes/organization/auth-policy-obligations-cli-notice.md) %}
+- {{ TF }} {#tf}
+
+  {% note info %}
+
+  Активировать или деактивировать политику с помощью {{ TF }} нельзя.
+
+  {% endnote %}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте конфигурационный файл {{ TF }} и измените параметры ресурса `yandex_organizationmanager_policy_authentication_policy_rule` нужной политики. Политика должна управляться с помощью {{ TF }}.
+
+     Подробнее о параметрах ресурса читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_policy_authentication_policy_rule).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
 - API {#api}
 

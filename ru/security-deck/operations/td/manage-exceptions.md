@@ -5,7 +5,7 @@ description: В данном разделе вы узнаете, как в мо�
 
 # Управлять исключениями из правил безопасности модуля {{ td-full-name }} ({{ td-name }})
 
-{% include [note-preview](../../../_includes/note-preview.md) %}
+{% include [note-preview](../../../_includes/security-deck/td-preview.md) %}
 
 {% include [td-use-in-workspaces](../../../_includes/security-deck/td-use-in-workspaces.md) %}
 

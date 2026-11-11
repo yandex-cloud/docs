@@ -60,5 +60,4 @@
 * [Мониторинг состояния кластера и хостов](monitoring.md)
 * [Подключение к кластеру из DataLens](datalens-connect.md)
 
-
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

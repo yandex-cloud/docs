@@ -5,6 +5,62 @@ description: This section contains the {{ alb-name }} release notes.
 
 # {{ alb-full-name }} release notes
 
+## Q3 2026 {#q3-2026}
+
+* Extended support for [mutual TLS (mTLS) authentication](concepts/application-load-balancer.md#mtls). For inbound client TLS certificates, added the `accept_untrusted` setting for accepting without trust chain verification and the `allow_expired` setting for accepting expired certificates. For outbound connections to backends and health checks, {{ alb-name }} can use a client certificate from {{ certificate-manager-name }}.
+
+   These settings are available via the API, CLI and {{ TF }}.
+
+* For [target resources](concepts/target-group.md), added the ability to explicitly specify an availability zone in the `locality` field. The availability zone is used for [traffic localization](concepts/backend-group.md#locality). This setting is available via the API.
+
+* Added host description (the `description` field) to {{ at-name }} events about creating, updating, and deleting [virtual hosts](concepts/http-router.md#virtual-host).
+
+
+* Added automatic processing of incomplete operations that could previously require a manual restart after failure or a timeout.
+
+* Added the check of the internal IPv4 listener subnet: it must belong to the load balancer network. An incorrect configuration is rejected before the operation starts.
+
+* Fixed bugs related to:
+
+  * Managing links to certificates used for mTLS.
+  * Applying approved exceptions from the listener number limit when creating a load balancer.
+  * Action menu position in resource cards in the management console.
+
+## Q2 2026 {#q2-2026}
+
+* Added the ability to preserve the case of HTTP header names for HTTP/1.1 using the `preserve_http1_header_casing` setting. This setting is specified for a specific [listener](concepts/application-load-balancer.md#listener) and helps you with applications that are case-sensitive to header names.
+
+   This setting is available via the API, CLI, and {{ TF }}.
+
+* Added `labels` and `description` for [virtual hosts](concepts/http-router.md#virtual-host). This setting is available via the API.
+
+* Added sending of [{{ at-name }} events](at-ref.md#control-plane-events) about virtual host updates due to HTTP router updates. Changes in hosts are now recorded when they are updated within a router too.
+
+* Made the [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format validation of trusted CA certificates stricter: invalid certificates are rejected before applying the load balancer configuration.
+
+* In the management console, added the ability to add load balancers, HTTP routers, backend groups, and target groups to favorites.
+
+* Accelerated the completion of operations when configuring a load balancer.
+
+* Fixed the following errors in the management console:
+
+  * When cyrillic characters are saved in the body of a direct HTTP response when configuring an HTTP router.
+  * When [Global RateLimit](concepts/rate-limiter.md) limitations are linked to routes when sorting, updating, or disabling limitations.
+  * When redirect HTTP codes are displayed in the HTTP router configuration form.
+
+## Q1 2026 {#q1-2026}
+
+* Added the support for [mutual TLS (mTLS) authentication](concepts/application-load-balancer.md#mtls) between the client and load balancer HTTPS listener. To verify client certificates, specify a root CA certificate in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format. You can provide the client certificate as well as information about its issuer and subject to the backend in HTTP headers for client identification and audit.
+
+  This setting is available via the API and CLI. See the configuration procedure in [Terminating TLS connections](tutorials/tls-termination/console.md#client-certificate).
+
+* Extended sending of [{{ at-name }} events](at-ref.md#control-plane-events) for virtual hosts. Events are sent on host operations via the HTTP router as well as on creating or deleting hosts together with the router.
+
+* Fixed bugs related to:
+
+  * When a link to a connected [{{ sws-name }} security profile](../smartwebsecurity/operations/host-connect.md#host) was deleted when updating other virtual host fields via the API with `update_mask`.
+  * When displaying target group VMs in the management console with matching IP addresses in different subnets.
+
 ## Q4 2025 {#q4-2025}
 
 * In the [management console]({{ link-console-main }}), now you can [start a zonal shift](operations/manage-zone/start-and-cancel-shift.md) for one or more availability zones, as well as schedule a time to automatically cancel the shift.

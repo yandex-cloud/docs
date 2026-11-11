@@ -102,12 +102,10 @@ description: Various {{ yandex-cloud }} security tutorials
 
 ## Collecting, monitoring, and analyzing audit logs {#audit-logs}
 
-* [{#T}](audit-logs/query.md)
 * [{#T}](audit-logs/search-bucket.md)
 * [{#T}](audit-logs/search-cloud-logging.md)
 * [{#T}](audit-logs/alerts-monitoring.md)
 * [{#T}](audit-logs/logging-functions.md)
-* [{#T}](audit-logs/audit-trails.md)
 * Exporting audit logs to SIEM systems
     * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)

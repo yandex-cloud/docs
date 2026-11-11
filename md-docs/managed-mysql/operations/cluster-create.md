@@ -142,6 +142,8 @@
 
   1. В блоке **Хосты** нажмите на значок ![image](../../_assets/console-icons/pencil.svg) и выберите параметры хостов БД, создаваемых вместе с кластером Managed Service for MySQL®:
      * [Зону доступности](../../overview/concepts/geo-scope.md).
+
+     
      * [Подсеть](../../vpc/concepts/network.md#subnet) хоста — по умолчанию каждый хост создается в отдельной подсети.
 
      

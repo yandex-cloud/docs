@@ -1,9 +1,9 @@
 ---
-title: Deleting a WAF exclusion rule
+title: Deleting a Cloud WAF exclusion rule
 description: Follow this guide to delete a WAF exclusion rule.
 ---
 
-# Deleting a WAF exclusion rule
+# Deleting a Cloud WAF exclusion rule
 
 {% list tabs group=instructions %}
 

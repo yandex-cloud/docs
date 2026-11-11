@@ -26,7 +26,6 @@ You do not pay for:
 
 * [{{ access-analyzer-name }} module](concepts/access-analyzer.md)
 * [Threat detection ({{ td-name }})](concepts/threat-detector.md)
-* [AI assistant](concepts/ai-assistant.md)
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 

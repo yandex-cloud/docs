@@ -5,8 +5,6 @@ description: In this article, you will learn how to create and configure an esca
 
 # Creating an escalation policy
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}

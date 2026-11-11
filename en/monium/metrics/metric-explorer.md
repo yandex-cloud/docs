@@ -33,9 +33,11 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
 
       {% endnote %}
   
-  1. To view all available labels for a query you have already entered, click ![view](../../_assets/console-icons/folder-open.svg) in the query bar controls on the right. If you do not see the label in the list, it means that its values were not transferred to the system or have already been deleted due to [TTL](../concepts/common-ttl.md) expiration. You can enter a label manually, but the chart will not be displayed.
+  1. To view available labels for the entered query, click ![view](../../_assets/console-icons/folder-open.svg) in the query line on the right.
 
-     You can select [metrics and labels](../concepts/data-model.md) with your cursor from the drop-down lists in the query string or by typing the first letters of the label name.
+     If the required label is not found, check the [search time interval](../concepts/querying.md#time-range-filtering). Data with this label might not have been received, or it may have been deleted due to [TTL](../concepts/common-ttl.md). You can enter a label manually, but the chart will only appear if there is data for the selected interval.
+
+     Select [metrics and labels](../concepts/data-model.md) from the drop-down lists in the query bar, or type the first few letters of the label's name.
    
      To view query string hotkey tooltips, click ![view](../../_assets/console-icons/keyboard.svg) **Cmd/Ctrl + Enter**.
 
@@ -56,6 +58,8 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
 
 ## Selecting a time interval {#set-time}
 
+The selected interval affects the [search for metrics](../concepts/querying.md#time-range-filtering) and the suggestions in the query bar. To find a metric that has stopped recording data, select a time period that includes its data. When loading historical data, follow the correct [order for recording the data points](../concepts/querying.md#backfill).
+
 You can set the time interval for displaying metrics in one of the following ways:
 
 {% list tabs group=instructions %}
@@ -63,7 +67,7 @@ You can set the time interval for displaying metrics in one of the following way
 - {{ monium-name }} UI {#console}
 
   * At the top of the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}** section, click:
-    * **Last hour** to set the date and time in the drop-down list.
+    * **{{ ui-key.yacloud_monitoring.component.range-date-picker.preset-last-hour }}**: To set the date and time in the drop-down list.
     * **<** or **>** to move one hour forward or backward on the timescale.
     * **1h**, **1d**, **1w**, or **1M** to show metrics for the last hour, day, week, or month, respectively, on the chart. In the field next to it, you can specify your own time interval, e.g., `15m`.
   * At the top right of the chart panel, click **+** or **–**.
@@ -73,14 +77,20 @@ You can set the time interval for displaying metrics in one of the following way
 
 ## Customizing chart visualization {#set-graph}
 
+Select the chart type and set its parameters. Available settings depend on the chart type.
+
 {% list tabs group=instructions %}
 
 - {{ monium-name }} UI {#console}
 
-  1. At the top right of the chart panel, click ![image](../../_assets/console-icons/gear.svg).
+  1. Above the chart on the right, click **Chart type** and select a chart from one of the groups:
+
+     * **Timeseries**: **{{ ui-key.yacloud_monitoring.wizard.chart.line }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.area }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.column }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.points }}**.
+     * **Aggregations**: **{{ ui-key.yacloud_monitoring.wizard.chart.pie }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.tiles }}**, **Bars**.
+
+  1. To open the chart settings, click ![image](../../_assets/console-icons/gear.svg).
   1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.general }}**, set the chart title and description.
   1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.visualization }}**, configure the following:
-     1. **{{ ui-key.yacloud_monitoring.wizard.vis.chart-type }}**: Select one of the metric display options: line chart, shaded areas, bar chart, scatter chart, pie chart, or tile chart.
      1. **{{ ui-key.yacloud_monitoring.wizard.vis.color-scheme }}**: Chart [line colors](../concepts/visualization/widget.md#color-schemes).
 
         To maintain consistent colors for lines with the same names across various charts, select **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-hash }}**.
@@ -95,6 +105,39 @@ You can set the time interval for displaying metrics in one of the following way
   1. When you are done configuring the chart, close the settings panel. The chart displays all changes as soon as you make them.
 
 {% endlist %}
+
+## Setting up the _Bars_ chart {#bar-chart}
+
+The **Bars** type allows you to compare aggregated metric values ​​by category. You can group errors by response code, then split each group by host.
+
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. Select the metrics and [build a chart](#add-graph).
+  1. Above the chart on the right, click **Chart type** and, in the **Aggregations** group, select ![image](../../_assets/console-icons/chart-bar.svg) **Bars**.
+  1. Click ![image](../../_assets/console-icons/gear.svg) and open the **{{ ui-key.yacloud_monitoring.wizard.tab.visualization }}** section.
+  1. In the **Group by** field, select a label for the categories. For example, `code` will create categories for response codes such as `500`, `503`, and `504`.
+  1. In the **Split group by** field, select a label for the subgroups. For example, `host` will divide each category into columns for `host-1`, `host-2`.
+
+     In both fields, you can leave the automatic selection of labels based on the data.
+
+  1. In the **{{ ui-key.yacloud_monitoring.wizard.vis.aggregation-key-value }}** field, select the average, minimum, maximum, last value, sum, or number of points.
+
+     For each column, the metric values ​​at each time point are first summed. Then, the chosen aggregation is applied to the resulting time series over the entire period.
+
+  1. In the **Sort** field, choose to sort by column values ​​or categories, in either ascending or descending order. By default, categories are sorted in ascending order: numerical categories are sorted as numbers, while others are sorted lexicographically.
+  1. In the **Orientation** field, select a vertical or horizontal layout for the columns.
+  1. In the **Stacking** field, select the layout within the category: side-by-side or stacked.
+  1. Close the settings panel. All changes take effect immediately.
+
+{% endlist %}
+
+The legend displays groups of columns, while modifications are applied to individual columns. To view a column’s statistics and labels, or to change its visibility or color, open **{{ ui-key.yacloud_monitoring.wizard.tab.pivot-table }}**.
+
+To color columns based on aggregated values, select the **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-thresholds }}** color scheme and set thresholds.
+
+When [breaking down a chart by labels](#repeated-graphs), the selected aggregation is also used to filter for the largest or smallest values.
 
 ## Reviewing the chart data {#graph-exploring}
 
@@ -153,7 +196,7 @@ You can set the time interval for displaying metrics in one of the following way
   1. Under the chart, click **{{ ui-key.yacloud_monitoring.wizard.button.top-by }}**.
   1. Select the parameters you want plotted:
      * **{{ ui-key.yacloud_monitoring.wizard.group-by.label-field-title }}**: Parameter for additional charts. These can be charts for different services, hosts, or processors, i.e., tokens selected in the query.
-     * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit-field-title }}**: Number of highest and lowest values on the chart.
+     * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit-field-title }}**: Number of maximum or minimum values ​​on a chart.
      * **{{ ui-key.yacloud_monitoring.wizard.group-by.sort-by }}**: Sorting by minimum, maximum, or average value of the selected parameter.
      * **{{ ui-key.yacloud_monitoring.wizard.select.charts-count.label }}**: Number of charts per row.
   1. Click **{{ ui-key.yacloud_monitoring.wizard.group-by.execute }}**.
@@ -186,7 +229,7 @@ Select different parameter values and you will see the charts updated to reflect
   1. Select the metrics and [build a chart](#add-graph).
   1. At the top right, click ![image](../../_assets/monitoring/concepts/visualization/share.svg).
   1. Specify a time interval for your chart.
-  1. Click **Copy** to copy the chart link to the clipboard.
+  1. Click **{{ ui-key.yacloud_monitoring.component.share-form.action.copy-key-value }}** to copy the chart link to the clipboard.
 
 {% endlist %}
 

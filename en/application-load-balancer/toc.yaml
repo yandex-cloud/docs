@@ -247,7 +247,9 @@ items:
             href: tools/gwin/quickstart.md
           - name: Gwin policies
             href: tools/gwin/policies.md
-          - name: Migrating apps from an ALB Ingress controller to Gwin
+          - name: Routing traffic directly to cluster pods
+            href: tools/gwin/routes-pod.md
+          - name: Migrating apps from an ALB ingress controller to Gwin
             href: tools/gwin/ingress-gwin-migration.md
           - name: Attachment mechanism for Gwin integration with {{ alb-name }}
             href: tools/gwin/gwin-alb-attachment.md
@@ -1019,6 +1021,8 @@ items:
         href: events-ref/UpdateVirtualHostRoute.md
   - name: L7 load balancer logs
     href: logs-ref.md
+  - name: FAQ about {{ alb-name }}
+    href: qa.md
   - name: Release notes
     href: release-notes.md
 path: en/application-load-balancer/toc.yaml

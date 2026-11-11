@@ -30,7 +30,6 @@ description: In this article, you will learn how to work with {{ billing-name }}
 ## Cost optimization {#cost-optimization}
 
 * [{#T}](budgets.md)
-* [{#T}](purchase-cvos.md)
 
 
 ## Paying for services {#payment}

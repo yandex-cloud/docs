@@ -410,6 +410,19 @@ Calculates the absolute value.
 Smooths timeseries based on the [ASAP algorithm](http://futuredata.stanford.edu/asap/).
 Timeseries points are averaged using a moving average with a dynamic window. The window width is automatically selected so as to remove as much noise as possible while retaining important information.
 
+{% note warning %}
+
+The width of the smoothing window depends on the data within the current time range. Changing the range, including when the chart scale is increased, may also change the window width. As a result, the values of the smoothed series may differ locally.
+
+To maintain the width of the smoothing window when changing the chart scale, specify the desired width explicitly using the [moving_avg](#moving_avg) function. For example, a `moving_avg({name="requests"}, 5m)` query specifies a window with a duration of five minutes.
+
+{% endnote %}
+
+The **asap** function has two overloading options depending on the type of the input *source* parameter (a metric or a vector of metrics):
+
+- **asap**(*source: timeseries*): *timeseries*
+- **asap**(*source: timeseries_vector*): *timeseries_vector*
+
 ### ceil
 
 **ceil**(*source: timeseries_vector*): *timeseries_vector*

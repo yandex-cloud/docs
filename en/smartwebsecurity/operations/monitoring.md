@@ -11,18 +11,14 @@ Monitoring allows you to track the rate of requests to a protected resource: all
 
 You can view the dashboards using one of the following options:
 
-* On the {{ sws-name }} page, select ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
-* Under **{{ ui-key.yacloud.common.monitoring }}**, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** at the top right.
+* On the {{ sws-name }} page, select ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** and a tab:
+  * **Anti-DDoS**: Charts for security profiles and ARL profiles.
+  * **SolidWall WAF**: Charts for your [SolidWall WAF](../concepts/solidwall-waf.md) profile.
+* To view the dashboard in {{ monium-name }}, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** at the top right of the **{{ ui-key.yacloud.common.monitoring }}** section.
 * On the {{ alb-name }} page:
   1. Select the load balancer with an associated security profile.
   1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
   1. Go to the **Smart Web Security** tab.
-
-{% note info %}
-
-All the dashboards currently available for {{ sws-name }} are listed on the {{ monitoring-name }} page. You can find their descriptions below.
-
-{% endnote %}
 
 ## Description of {{ sws-name }} monitoring dashboards {#monitoring-dashboards}
 
@@ -42,7 +38,7 @@ The values ​​of the selected time series are summed by the `series_sum()` fu
 
    Metric: `load_balancer.smart_web_security.requests_per_second` filtered by `antirobot_verdict`=`deny`.
 
-* **Redirected to SmartCaptcha RPS**: Number of incoming requests per second redirected to {{ captcha-name }} for additional verification.
+* **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
 
     Metric: `load_balancer.smart_web_security.requests_per_second` filtered by `antirobot_verdict`=`captcha`.
 
@@ -50,7 +46,7 @@ The values ​​of the selected time series are summed by the `series_sum()` fu
 
     Metric: `load_balancer.smart_web_security.requests_per_second` filtered by `antirobot_verdict`=`js_challenge`.
 
-* **Redirected to cookie challenge RPS**: Number of incoming requests per second redirected to a client-side [cookie challenge](../concepts/rules.md#client-checks).
+* **Redirected to Cookie challenge RPS**: Number of incoming requests per second redirected to a client-side [cookie challenge](../concepts/rules.md#client-checks).
 
     Metric: `load_balancer.smart_web_security.requests_per_second` filtered by `antirobot_verdict`=`cookie_challenge`.
 
@@ -68,7 +64,7 @@ The values ​​of the selected time series are summed by the `series_sum()` fu
 
   Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by `arl_verdict`=`deny`.
 
-* **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second redirected by the ARL profile to {{ captcha-name }} for additional verification.
+* **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second the ARL profile routes to {{ captcha-name }} for additional verification.
 
     Metric: `load_balancer.smart_web_security.arl_requests_per_second` filtered by `arl_verdict`=`captcha`.
 

@@ -108,8 +108,6 @@ Yandex Data Streams — масштабируемый сервис для упр�
 
  - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
 
- - [Обработка аудитных логов Audit Trails](tutorials/audit-trails.md)
-
 ### Поиск событий в аудитных логах
 
  - [Обзор](tutorials/search-events-audit-logs/index.md)
@@ -118,10 +116,6 @@ Yandex Data Streams — масштабируемый сервис для упр�
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
-
- - [Обработка потока изменений Debezium](tutorials/debezium.md)
-
 ### Загрузка аудитных логов в MaxPatrol SIEM
 
  - [Обзор](tutorials/maxpatrol/index.md)
@@ -129,8 +123,6 @@ Yandex Data Streams — масштабируемый сервис для упр�
  - [Консоль управления](tutorials/maxpatrol/console.md)
 
  - [Terraform](tutorials/maxpatrol/terraform.md)
-
- - [Поиск событий Yandex Cloud в Yandex Query](tutorials/search-events-query.md)
 
  - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 

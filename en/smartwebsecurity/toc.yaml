@@ -27,7 +27,7 @@ items:
             href: operations/host-connect.md
           - name: Disconnecting a profile from a resource
             href: operations/host-delete.md
-      - name: WAF profiles
+      - name: Cloud WAF profiles
         items:
           - name: Creating a profile
             href: operations/waf-profile-create.md
@@ -49,6 +49,20 @@ items:
             href: operations/exclusion-rule-delete.md
           - name: Monitoring and adjusting ML WAF protection
             href: operations/waf-ml-tuning-recommendations.md
+      - name: SolidWall WAF profiles
+        items:
+          - name: Creating a profile
+            href: operations/solidwall-waf-profile-create.md
+          - name: Creating an application and connecting a domain to it
+            href: operations/solidwall-waf-application-create.md
+          - name: Updating a profile
+            href: operations/solidwall-waf-profile-update.md
+          - name: Updating an app
+            href: operations/solidwall-waf-application-update.md
+          - name: Deleting an application
+            href: operations/solidwall-waf-application-delete.md
+          - name: Deleting a profile
+            href: operations/solidwall-waf-profile-delete.md
       - name: ARL profiles
         items:
           - name: Creating a profile
@@ -109,6 +123,8 @@ items:
         href: tutorials/index.md
       - name: Basic SWS setup
         href: tutorials/sws-basic-protection.md
+      - name: Connecting SolidWall WAF to a web application
+        href: tutorials/solidwall-waf.md
       - name: Creating an L7 load balancer with a security profile
         items:
           - name: Overview
@@ -200,8 +216,13 @@ items:
         href: concepts/index.md
       - name: Security profiles
         href: concepts/profiles.md
-      - name: WAF
-        href: concepts/waf.md
+      - name: WAF profiles
+        href: concepts/waf-profiles.md
+        items:
+          - name: Cloud WAF
+            href: concepts/waf.md
+          - name: SolidWall WAF
+            href: concepts/solidwall-waf.md
       - name: ARL (request limit)
         href: concepts/arl.md
       - name: Rules

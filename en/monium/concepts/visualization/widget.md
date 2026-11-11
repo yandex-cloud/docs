@@ -19,17 +19,29 @@ The visual representation of one or more metrics over a specific period of time.
 
 ### Chart types {#chart-types}
 
-* ![image](../../../_assets/console-icons/chart-line.svg) **Line chart**: Line plotted from metric values and their timestamps.
-* ![image](../../../_assets/console-icons/chart-area-stacked.svg) **Area chart**: Metrics depicted as color-filled areas.
-* ![image](../../../_assets/console-icons/chart-column.svg) **Column chart**: Metric values plotted as columns of equal width. Column height represents the sum of all metric values at a given point and is split in proportion to the original values.
-* **Scatter chart**: Metric values visualized as individual points.
-* **Pie chart**: Metrics depicted as parts of a circle (sectors), where each sector represents the aggregated value of metrics over the entire selected time interval.
-* **Tile chart**: Metric values displayed as individual tiles, where each tile shows the aggregated value of metrics over the entire selected time interval.
+There are two groups of charts: **Timeseries** show how metrics change over time, while **aggregations** represent summary values ​​for a selected period.
+
+#### Timeseries {#time-series}
+
+The X axis displays time, and the Y axis shows the metric value.
+
+* ![image](../../../_assets/console-icons/chart-line.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.line }}**: Metric values ​​are connected by lines.
+* ![image](../../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.area }}**: Metric values ​​are shown as color-filled areas.
+* ![image](../../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.column }}**: Metric values ​​are shown as columns of equal width. The height of a column is equal to the sum of the metric values ​​at a given point in time, while the height of each segment matches the value of the appropriate metric.
+* ![image](../../../_assets/console-icons/grip-horizontal.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.points }}**: Metric values ​​are shown as individual points.
+
+#### Aggregations {#aggregations}
+
+For each element of the chart, a single value is calculated for the selected period. In the **{{ ui-key.yacloud_monitoring.wizard.vis.aggregation-key-value }}** setting, you can select the average, minimum, maximum, last value, sum, or number of points.
+
+* ![image](../../../_assets/console-icons/chart-pie.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.pie }}**: Aggregated values ​​are shown as sectors of a circle.
+* ![image](../../../_assets/console-icons/rectangles-4.svg) **{{ ui-key.yacloud_monitoring.wizard.chart.tiles }}**: Aggregated values ​​are shown on separate tiles.
+* ![image](../../../_assets/console-icons/chart-bar.svg) **Bars**: Metrics are grouped into categories and subgroups based on label values. The aggregated value determines the height of a vertical column or the length of a horizontal column. For this chart, options are available for sorting, selecting orientation, and arranging the columns within each category. For more details, see [Configuring the _Bars_ chart](../../metrics/metric-explorer.md#bar-chart).
 
 ### Color schemes {#color-schemes}
 
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-auto }}**: Applies one of the following color schemes:
-  * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-gradient }}**: In **Area** charts if all its lines have at least one numeric value.
+  * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-gradient }}**: For a chart of the **{{ ui-key.yacloud_monitoring.wizard.chart.area }}** type, provided that all lines have at least one numerical value.
   * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-standard }}**: In all the other cases.
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-standard }}**: Color is defined by an algorithm installed in the system.
 * **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-gradient }}**: Red-to-green gradient blend, where red represents high metric values, and green, low values.

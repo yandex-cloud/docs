@@ -97,17 +97,6 @@ You pay for the following:
 
 The price covers one month of use. The minimum billing unit is 1 GB per hour; e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours.
 
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../../_includes/mdb/cvos.md) %}
-
-{{ ydb-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-Currently, you cannot order storage or web traffic this way.
-
-{% endnote %}
 
 
 

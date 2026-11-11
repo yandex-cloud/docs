@@ -1,9 +1,9 @@
 ---
-title: Getting information about a WAF rule set
+title: Getting information about a Cloud WAF rule set
 description: Follow this guide to get information about a rule set for a WAF profile.
 ---
 
-# Getting information about a WAF rule set
+# Getting information about a Cloud WAF rule set
 
 {% list tabs group=instructions %}
 
@@ -64,7 +64,7 @@ description: Follow this guide to get information about a rule set for a WAF pro
 
           * `value`: Value returned by the data source.
 
-      You can replace `rules` with any other attribute to get the information you need. For more information about the properties of the `yandex_sws_waf_rule_set_descriptor` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
+      You can replace `rules` with any other attribute to get the information you need. For more on the properties of the `yandex_sws_waf_rule_set_descriptor` data source, see [this provider guide]({{ tf-provider-datasources-link }}/sws_waf_rule_set_descriptor).
 
   1. Create the resources:
 

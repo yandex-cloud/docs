@@ -123,6 +123,14 @@ For each metric chart, you can select a visualization type:
 
 You can close the preview area at any moment and reopen it by clicking *Preview* at the top-right corner of the page.
 
+### Calculating the burn rate {#burn-rate}
+
+For [burn rate](../concepts/alerting/alert.md#slo-burn-rate) alerts, enable coefficient calculation in the SLO: the `burn_rate_settings.enable_default_evaluation` parameter must be set to `true`.
+
+With calculation enabled, the SLO publishes coefficients for standard windows: `5m`, `30m`, `1h`, `2h`, `6h`, `24h`, and `72h`. Otherwise, the `burn_rate` metrics are not published, and the _burn rate_ alert switches to `No data`.
+
+To get notifications on the residual error budget and its usage rate, create an [SLO alert](../operations/alert/create-slo-alert.md).
+
 ## Viewing the SLO {#view}
 
 The SLO view page displays its main properties, status, and current calculated values.

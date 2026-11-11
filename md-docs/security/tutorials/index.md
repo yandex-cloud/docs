@@ -100,12 +100,10 @@
 
 ## Сбор, мониторинг и анализ аудитных логов {#audit-logs}
 
-* [Поиск событий Yandex Cloud в Yandex Query](audit-logs/query.md)
 * [Поиск событий Yandex Cloud в Yandex Object Storage](audit-logs/search-bucket.md)
 * [Поиск событий Yandex Cloud в Yandex Cloud Logging](audit-logs/search-cloud-logging.md)
 * [Настройка дашбордов и алертов в Yandex Monitoring](audit-logs/alerts-monitoring.md)
 * [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](audit-logs/logging-functions.md)
-* [Обработка аудитных логов Yandex Audit Trails](audit-logs/audit-trails.md)
 * Экспорт аудитных логов в SIEM
     * [Загрузка аудитных логов в MaxPatrol SIEM](audit-logs/maxpatrol/index.md)
     * [Загрузка аудитных логов в SIEM Splunk](audit-logs/export-logs-to-splunk.md)

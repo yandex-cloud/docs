@@ -7,6 +7,14 @@ description: В данной инструкции рассматриваются
 
 С помощью {{ cloud-shell-name }} вы можете пользоваться [CLI {{ yandex-cloud }}](../../cli/) и другими терминальными инструментами без предварительной настройки прямо в браузере. Среда окружения {{ cloud-shell-name }} содержит основные инструменты для работы с облаком и популярные SDK для языков программирования.
 
+Чтобы отключить {{ cloud-shell-name }} для организации:
+
+1. В [{{ cloud-center }}]({{ cloud-center-link }}) выберите организацию.
+1. В верхней части экрана выберите **Security**.
+1. На панели слева выберите **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_ssh_p5mfs }}**.
+1. В блоке **{{ ui-key.yacloud_org.organization.osLogin.OsLoginSettingsForm.title_cloud-shell-management_rvdiy }}** включите опцию **{{ ui-key.yacloud_org.organization.osLogin.OsLoginSettingsForm.title_user-cloud-shell-settings_6Qvi5 }}**.
+
 ## Запустить {{ cloud-shell-name }} {#init}
 
 Чтобы запустить терминал {{ cloud-shell-name }}:

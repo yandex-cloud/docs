@@ -18,7 +18,7 @@ description: This section contains the {{ monium-name }} release notes.
 
 * Updates in [SLOs](slo/index.md):
   * Added the _Burn rate_ metric, i.e., the rate of error budget consumption over standard time windows (5m, 30m, 1h, 2h, 6h, 24h, 72h).
-  * Added an alert for the burn rate metric that notifies about high error budget consumption rates.
+  * Added an [alert for the burn rate metric](operations/alert/create-slo-alert.md) that notifies about high error budget consumption rates.
   * Added the ability to create individual SLOs for specific resources from a common selector.
 
 * Updates in alerts:

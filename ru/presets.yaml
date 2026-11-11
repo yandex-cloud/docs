@@ -2685,9 +2685,7 @@ default:
             label_amount: Сумма
             label_budgets: Бюджеты
             label_expire: Дата окончания
-            label_limits: Пороги
             label_notify: Уведомить
-            label_reset-period: Период расчета
             label_type: Тип бюджета
             label_type-balance: Остаток средств
             label_type-cost: Стоимость потребления
@@ -2788,7 +2786,6 @@ default:
             field_actions: Действия
             value_completed: Готово
           switch_acts: Отчётные документы
-          switch_budgets: Бюджеты
           switch_detail: Детализация
           switch_expences: История расходов
           switch_exports: Экспорт детализации
@@ -3768,8 +3765,6 @@ default:
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Топ кластеров с алертами
-      layout:
-        organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Добавить пользователей
       mfa-policy-exclusions:
@@ -3933,6 +3928,10 @@ default:
         idp:
           PasswordDialog:
             action_save-password_gaB2s: Сохранить пароль
+        osLogin:
+          OsLoginSettingsForm:
+            title_cloud-shell-management_rvdiy: Cloud Shell
+            title_user-cloud-shell-settings_6Qvi5: Отключить CloudShell в организации
         security-settings:
           acr_any-except-sms_6NWqb: Любые, кроме SMS
           acr_any-mfa_j6PdY: Любые методы
@@ -3968,6 +3967,7 @@ default:
             required_mfa_6P4xN: >-
               Требовать включения второго фактора аутентификации для
               пользователей с аккаунтом на Яндексе
+            title_enable-ai-assistant_3mN2P: Включить AI-ассистента в организации
             title_hide-users-list_9eW2W: >-
               Запретить пользователям просматривать список членов организации и
               информацию о них
@@ -3992,6 +3992,7 @@ default:
             tab_auth_policies: Политики аутентификации
             tab_mfa_policies_m8oE3: Политики MFA
             tab_other_kJgk8: Другие параметры
+            tab_ssh_p5mfs: Доступ по SSH
           UsersAndGroupsCard:
             scope_all: Всех пользователей
             title: Пользователи и группы
@@ -4083,8 +4084,6 @@ default:
         groups: Группы
         organization-billing: Управление тарифом
         organization-branding: Брендирование
-        oslogin:
-          title: Настройки безопасности
         securitySettings: Настройки безопасности
         userpools: Пулы пользователей
         users: Пользователи

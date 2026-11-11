@@ -106,6 +106,8 @@ Alerts are automated notifications for critical events, for which you can set up
 
 Alerts help you respond to issues before they affect users or at least minimize that impact.
 
+Use [SLO alerts](concepts/alerting/alert.md#slo-alerts) to monitor service reliability: they track the remaining error budget and its burn rate.
+
 [Learn more about alerts](operations/alert/create-alert.md).
 
 ### Visualization {#dashboards}

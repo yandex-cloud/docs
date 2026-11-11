@@ -2,10 +2,12 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. Войдите в [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью администратора или владельца организации.
 
       При необходимости [переключитесь](../../organization/operations/manage-organizations.md#switch-to-another-org) на нужную организацию.
-  1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
+  1. В верхней части экрана выберите **Security**.
+  1. На панели слева выберите **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_other_kJgk8 }}**.
   1. В блоке **Настройки аутентификации** включите опцию **Разрешить использовать refresh-токены**.
   1. (Опционально) Если вы хотите использовать усиленную [защиту](../../iam/concepts/authorization/refresh-token.md#dpop-verification) refresh-токенов с помощью DPoP-ключей с обязательным их сохранением на [устройстве YubiKey](https://developers.yubico.com/Passkeys/), включите опцию **Разрешить хранение DPoP-ключей только на устройствах YubiKey**.
 

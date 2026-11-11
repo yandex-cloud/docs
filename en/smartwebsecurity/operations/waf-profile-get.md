@@ -1,9 +1,9 @@
 ---
-title: How to get information about a WAF profile in {{ sws-full-name }}
+title: How to get information about a Cloud WAF profile in {{ sws-full-name }}
 description: Follow this guide to get information about a WAF profile in {{ sws-full-name }}.
 ---
 
-# Getting information about a WAF profile
+# Getting information about a Cloud WAF profile
 
 {% list tabs group=instructions %}
 

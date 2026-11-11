@@ -191,9 +191,11 @@
 
 1. Задайте имя `bms-vpc-router`.
 1. В поле **{{ ui-key.yacloud.cloud-router.router.networks_fbzKL }}** выберите сеть `sample-network`.
-1. Для зоны доступности `{{ region-id }}-b` добавьте IP-префикс `192.168.11.0/24`.
+1. Для зоны доступности `{{ region-id }}-a`, в которой создана подсеть `subnet-{{ region-id }}-a`, добавьте IP-префикс `192.168.11.0/24`.
 
-Если вы используете существующий виртуальный маршрутизатор, [добавьте](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) в него сеть `sample-network` и IP-префикс `192.168.11.0/24` для зоны доступности `{{ region-id }}-b`.
+Если вы используете существующий виртуальный маршрутизатор, [добавьте](../../cloud-router/operations/ri-prefixes-upsert.md#add-network) в него сеть `sample-network` и IP-префикс `192.168.11.0/24` для зоны доступности `{{ region-id }}-a`.
+
+{{ cr-name }} анонсирует IP-префикс только при наличии в подсети хотя бы одной ВМ с адресом из этого префикса. В этой схеме такое условие выполняет созданная ВМ `sample-vm`.
 
 ## Создайте приватное соединение {#create-prc}
 
@@ -224,7 +226,7 @@
   
       Откроется окно с терминалом KVM-консоли, в котором вы увидите строку аутентификации:
       
-      ```
+      ```text
       server-m3 login:
       ```
 
@@ -250,19 +252,15 @@
       ping <внутренний_IP-адрес_ВМ> -c 5
       ```
 
-      Узнать внутренний IP-адрес ВМ вы можете в [консоли управления]({{ link-console-main }}) в блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** на странице с информацией о ВМ.
+      Внутренний IP-адрес ВМ можно узнать в [консоли управления]({{ link-console-main }}) в блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** на странице ВМ. В подсети первый адрес выделяется шлюзу, второй — DNS-серверу; эти адреса недоступны извне {{ yandex-cloud }} ([подробнее](../../vpc/concepts/network.md#subnet), [ограничения анонсов](../../cloud-router/concepts/announces.md#prc-announce)). Поэтому проверяйте адрес ВМ. В примере это `192.168.11.3`.
 
       Результат:
 
       ```text
-      PING 192.168.11.2 (192.168.11.2) 56(84) bytes of data.
-      64 bytes from 192.168.11.2: icmp_seq=1 ttl=64 time=3.90 ms
-      64 bytes from 192.168.11.2: icmp_seq=2 ttl=64 time=0.235 ms
-      64 bytes from 192.168.11.2: icmp_seq=3 ttl=64 time=0.222 ms
-      64 bytes from 192.168.11.2: icmp_seq=4 ttl=64 time=0.231 ms
-      64 bytes from 192.168.11.2: icmp_seq=5 ttl=64 time=0.235 ms
+      PING 192.168.11.3 (192.168.11.3) 56(84) bytes of data.
+      ...
 
-      --- 192.168.11.2 ping statistics ---
+      --- 192.168.11.3 ping statistics ---
       5 packets transmitted, 5 received, 0% packet loss, time 4086ms
       rtt min/avg/max/mdev = 0.222/0.964/3.899/1.467 ms
       ```
@@ -285,14 +283,10 @@
       Результат:
 
       ```text
-      PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-      64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.271 ms
-      64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.215 ms
-      64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=0.262 ms
-      64 bytes from 192.168.1.3: icmp_seq=4 ttl=64 time=0.223 ms
-      64 bytes from 192.168.1.3: icmp_seq=5 ttl=64 time=0.208 ms
+      PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
+      ...
 
-      --- 192.168.1.3 ping statistics ---
+      --- 192.168.1.2 ping statistics ---
       5 packets transmitted, 5 received, 0% packet loss, time 4106ms
       rtt min/avg/max/mdev = 0.208/0.235/0.271/0.025 ms
       ```
@@ -327,5 +321,5 @@
 
 1. Если вы добавляли сеть `sample-network` в существующий виртуальный маршрутизатор, [удалите ее](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
 1. Если вы создавали виртуальный маршрутизатор специально для этого руководства, [удалите его](../../cloud-router/operations/ri-delete.md).
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `subnet-{{ region-id }}-b`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `subnet-{{ region-id }}-a`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `sample-network`.

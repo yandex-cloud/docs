@@ -6,25 +6,25 @@
 
   1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
   1. Выберите [платежный аккаунт](../../billing/concepts/billing-account.md).
-  1. В секции **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}**, в поле **{{ ui-key.yacloud.common.id }}**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании [триггера](../../functions/concepts/trigger/index.md) для бюджетов.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.switch_budgets }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.budgets.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
-     * **{{ ui-key.yacloud.common.name }}** — `vm-budget`.
-     * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_amount }}** — сумму расходов на потребление, например `10 ₽`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_reset-period }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.reset-period_value_monthly }}`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_expire }}** — дату окончания действия бюджета.
+  1. В верхней части экрана в поле **ID** скопируйте идентификатор платежного аккаунта. Он понадобится при создании [триггера](../../functions/concepts/trigger/index.md) для бюджетов.
+  1. На панели слева выберите ![megaphone](../../_assets/console-icons/megaphone.svg) **Уведомления о потреблении** и нажмите кнопку **Создать уведомление**. В открывшемся окне:
 
-       Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}** — выберите себя.
-  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу, и сервис **{{ compute-name }}**.
-  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.label_limits }}** укажите пороговые значения в процентах, при достижении которых:
-     * Указанным пользователям будут приходить уведомления.
-     * Будет срабатывать триггер для бюджетов.
+      1. Задайте основные параметры бюджета:
 
-     Например, можно указать два порога — `50%` и `100%`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В открывшемся окне появился новый бюджет `vm-budget`. В поле **{{ ui-key.yacloud.common.id }}** скопируйте идентификатор созданного бюджета. Он пригодится позднее при создании триггера.
+          * В поле **{{ ui-key.yacloud.common.name }}** укажите `vm-budget`.
+          * В поле **Условие отправки** выберите `Потребление со скидками превышает`.
+          * В поле **{{ ui-key.yacloud_billing.billing.account.budgets.label_amount }}** задайте сумму расходов на потребление, например `10 ₽`.
+          * В поле **Период контроля** выберите `Месяц`.
+          * В поле **{{ ui-key.yacloud_billing.billing.account.budgets.label_expire }}** задайте дату окончания действия бюджета.
+
+            Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
+          * В поле **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}** выберите себя.
+      1. Разверните блок **Дополнительно** и задайте дополнительные параметры бюджета:
+
+          * В поле **В каких сервисах** выберите сервис **{{ compute-name }}**.
+          * В поле **В каких облаках и каталогах** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В открывшемся окне появится новый бюджет `vm-budget`. В поле **{{ ui-key.yacloud.common.id }}** скопируйте идентификатор созданного бюджета. Он понадобится позднее при создании триггера.
 
 - API {#api}
 

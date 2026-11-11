@@ -1,11 +1,12 @@
 ---
 title: '{{ sws-name }} use cases'
-description: Different use cases for {{ sws-name }} in {{ yandex-cloud }}.
+description: Use cases for {{ sws-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ sws-name }} tutorials
 
 * [{#T}](sws-basic-protection.md)
+* [{#T}](solidwall-waf.md)
 * [{#T}](balancer-with-sws-profile/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](alb-with-ddos-protection/index.md)

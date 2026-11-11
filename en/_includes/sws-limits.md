@@ -8,6 +8,8 @@
 `smart-web-security.advancedRateLimiterProfiles.count` | 5 ||
 || Number of [WAF profiles](../smartwebsecurity/concepts/waf.md) per cloud
 `smart-web-security.wafProfiles.count` | 10 ||
+|| Number of [SolidWall WAF profiles](../smartwebsecurity/concepts/solidwall-waf.md#resources) per cloud
+`smart-web-security.solidWafProfiles.count` | 1 ||
 || Total number of [security profile rules](../smartwebsecurity/concepts/rules.md) per cloud
 `smart-web-security.securityProfileRules.count` | 250 ||
 || Total number of [WAF exclusion rules](../smartwebsecurity/concepts/waf.md#exclusion-rules) per cloud
@@ -76,3 +78,15 @@ Number of items per string list | 2,000
 Number of items per regular expression list | 100
 
 ^1^ If you expect more requests per second, contact your {{ yandex-cloud }} account manager.
+
+#### SolidWall WAF limits {#solidwall-waf-limits}
+
+#|
+|| **Limit** | **Value** ||
+|| Requests per IP address per SolidWall WAF profile | 1,000 requests per second ||
+|| Virtual host or route requests per SolidWall WAF profile | 20,000 requests per second ||
+|| Size of the request or response body to analyze | 64 KB ||
+|| File size to upload | 1 GB ||
+|#
+
+Contact support to increase the limits.

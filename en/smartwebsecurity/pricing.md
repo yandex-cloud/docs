@@ -144,6 +144,9 @@ The default minimum number of resource units is 6; you can increase this number 
 
 The proxy server fee is per hour. You are charged for the minimum number of resource units that were running for an hour.
 
+Traffic protection from DDoS attacks at levels L3–L4 is charged based on the amount of [legitimate](concepts/rules.md#rule-action) traffic in GB.
+
+
 
 
 <MDX>

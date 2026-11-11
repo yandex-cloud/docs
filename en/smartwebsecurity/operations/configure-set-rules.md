@@ -1,9 +1,9 @@
 ---
-title: Configuring WAF rule sets
+title: Configuring Cloud WAF rule sets
 description: Follow this guide to configure rule sets for a WAF profile.
 ---
 
-# Configuring WAF rule sets
+# Configuring Cloud WAF rule sets
 
 {% list tabs group=instructions %}
 

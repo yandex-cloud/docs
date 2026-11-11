@@ -136,6 +136,54 @@ C: `(A + B) / 2`
 
 These links can only refer by name in text mode, and only to higher-level queries in the same alert or chart. You can apply any supported arithmetic operations and query language [functions](querying-functions.md) to variables.
 
+## Filtering metrics by time range {#time-range-filtering}
+
+When searching for metrics, {{ monium-name }} considers the selector and the query’s time range. Time range filtering applies to metadata, without reading the metric values.
+
+For each metric, the metadata stores:
+
+* `first_point_seconds`: Timestamp of the first point recorded when the metric was created.
+* `last_point_seconds`: Timestamp of the last recorded point.
+
+These are the timestamps of the points themselves, not the time they were received by the service or the metric was created.
+
+A metric matching the selector passes the filter for the `[from, to]` range if both conditions are met:
+
+* `first_point_seconds ≤ to`: First recorded point, not later than the end of the range.
+* `last_point_seconds ≥ from − lag`: Last point, not earlier than the start of the range, respecting the [metadata update delay](#reconciliation-lag) `lag`.
+
+Passing the filter does not guarantee the selected range includes any points.
+
+Charts, dashboards, the metric catalog, and query bar suggestions use the range selected in the UI. To find a metric whose recording has stopped, select a period containing its data. Its [retention period](common-ttl.md#ttl-metrics) must not have expired.
+
+### Metadata update delay {#reconciliation-lag}
+
+The `last_point_seconds` value is updated with a delay after a point is recorded. Thus, during filtering, the lower bound of the range is decreased by the _reconciliation lag_, referred to in the condition as `lag`. This ensures that metrics whose recording is still ongoing are not excluded from the sample due to the metadata update delay.
+
+The reconciliation lag can be up to six hours. After recording stops, the metric remains in the sample for the current range for some time. New metrics and those with resumed recording are immediately available for search. Excluding a metric from the sample does not mean the data is deleted by TTL.
+
+### Backfilling historical data {#backfill}
+
+_Backfill_ is the recording of points for a past period.
+
+Load historical data into a new metric in ascending order of timestamps, starting with the earliest point. Its timestamp will be saved in `first_point_seconds` and will be used for filtering.
+
+When adding earlier points, `first_point_seconds` does not change. Even if a point is recorded, the metric will not pass the filter if the end of the query range precedes `first_point_seconds`.
+
+Let’s imagine a point for 10:00 was recorded first, followed by a point for 09:00 on the same day. Here, `first_point_seconds` will remain 10:00, thus preventing a query for 09:00–09:30 from selecting the metric, even if the 09:00 point is saved.
+
+## Aggregating metrics {#metric-aggregation}
+
+_Aggregation_ combines multiple time series into one or more series, e.g., calculating the total number of requests across all hosts.
+
+### Aggregation on read {#aggregation-on-read}
+
+For aggregation by labels with a small number of distinct values, use [combining](querying-functions.md#combine-functions) or [ranking](querying-functions.md#rank-functions) functions. In this case, the total number of metrics loaded by the query must not exceed the limit.
+
+Using the query language, you can process no more than 40,000 metrics on a single chart and no more than {{ alerting-metrics-limit }} metrics in a single regular alert or sub-alert. For a larger number of metrics, aggregate them in your application before sending them to {{ metrics-name }}.
+
+A `Too many metrics are loaded by selectors` error when building a chart means your query selects more than [40,000 metrics](limits.md#limits-metrics-alerts). Narrow the selector to reduce the sample.
+
 ## Selector optimization {#selector-performance-tuning}
 
 On sparse data, the system uses optimizations to narrow the search scope to specific parts of your storage. The more precisely a selector narrows the search scope, the faster the query runs.
