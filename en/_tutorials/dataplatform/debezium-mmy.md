@@ -80,16 +80,72 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
         sudo mkdir -p /etc/debezium/plugins/
         ```
 
-    1. To enable the Debezium connector to connect to {{ mkf-name }} broker hosts, add the SSL certificate to Java Key Store. For extra storage security, specify a password of at least six characters in the `-storepass` setting:
+    1. To enable the Debezium connector to connect to {{ mkf-name }} broker hosts, add the SSL certificate to Java Key Store:
 
-        ```bash
-        sudo keytool \
-            -importcert \
-            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
-            -keystore /etc/debezium/keystore.jks \
-            -storepass <JKS_password> \
-            --noprompt
-        ```
+        {% list tabs group=operating_system %}
+
+        - Linux (Bash) {#linux}
+
+          ```bash
+          awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+            < /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }}
+
+          for cert in YandexCA-*.crt; do
+            alias=$(
+              openssl x509 -noout -text -in "${cert}" |
+              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+            )
+
+            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+            echo "Importing ${alias}-${year}"
+
+            keytool -importcert \
+                    -alias "${alias}-${year}" \
+                    -file "${cert}" \
+                    -keystore /etc/debezium/keystore.jks \
+                    -storepass <secure_store_password> \
+                    -noprompt
+
+            rm "${cert}"
+          done
+
+          chmod 0655 /etc/debezium/keystore.jks
+          ```
+
+        - macOS (Zsh) {#macos}
+     
+          ```bash     
+          split -p "-----BEGIN CERTIFICATE-----" \
+            /usr/local/share/ca-certificates/Yandex/{{ crt-local-file }} \
+            YandexCA-
+
+          for cert in YandexCA-*.crt; do
+            alias=$(
+              openssl x509 -noout -text -in "${cert}" |
+              perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+            )
+
+            year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+            echo "Importing ${alias}-${year}"
+
+            keytool -importcert \
+                    -alias "${alias}-${year}" \
+                    -file "${cert}" \
+                    -keystore /etc/debezium/keystore.jks \
+                    -storepass <secure_store_password> \
+                    -noprompt
+
+            rm "${cert}"
+          done
+
+          chmod 0655 /etc/debezium/keystore.jks
+          ```
+
+        {% endlist %}
+
+        Where `-storepass` is the certificate store password. The password must contain at least six characters.
 
 ## Set up the source cluster {#prepare-source}
 

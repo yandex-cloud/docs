@@ -6,15 +6,15 @@ description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} use
 # OIDC apps
 
 
-In {{ org-full-name }}, you can [create](../../operations/applications/oidc-create.md) OpenID Connect (OIDC) applications that allow configuring OIDC-based single sign-on on the {{ org-full-name }} side and provide the values you need to set up integration on the service provider's side.
+In {{ org-full-name }}, you can [create](../../operations/applications/oidc-create.md) OIDC apps. They allow configuring OIDC-based single sign-on on the {{ org-full-name }} side and provide the values you need to set up integration on the service provider's side.
 
-The external applications can only be accessed by {{ yandex-cloud }} organization users either explicitly [added](../../operations/applications/oidc-create.md#users-and-groups) to the relevant OIDC application or belonging to [user groups](../groups.md) explicitly added to it.
+The external applications can only be accessed by {{ yandex-cloud }} organization users explicitly [added](../../operations/applications/oidc-create.md#users-and-groups) to the relevant OIDC application or by members of [user groups](../groups.md) added to the app.
 
 {% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
-Every OIDC application requires an OAuth client, which is created in a user-specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and is inherently linked to the OIDC app. An OAuth client is created and deleted automatically when creating and deleting an OIDC app, respectively.
+Every OIDC application requires an OAuth client, which is created in a user-specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and is inherently linked to the OIDC app. An OAuth client is created and deleted automatically together with an OIDC app.
 
 ## OIDC collaboration diagram {#oidc-scheme}
 
@@ -27,14 +27,14 @@ The basic concept of user authentication via OIDC-based single sign-on is as des
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
 1. The service provider sends an authentication request to {{ org-full-name }} (identity provider) and redirects the user to the {{ org-full-name }}'s login URL specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` field.
 1. The user authenticates in {{ org-full-name }} with their credentials.
-1. If {{ org-full-name }} has an OIDC app mapped to this external application, the authenticated user is added to this OIDC app, and the received authentication request is correct, {{ org-full-name }} sends an authorization code to the service provider and redirects the user back to the external app.
+1. If {{ org-full-name }} has a relevant OIDC app, the user is added to this app, and the authentication request is correct, then {{ org-full-name }} sends an authorization code to the service provider and redirects the user back to the external app.
 1. At the address specified in the `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` field, the service provider requests an [ID token](../../../iam/concepts/authorization/id-token.md) and access token from {{ org-full-name }}. The request contains the [app secret](#oidc-secret), which {{ org-full-name }} uses to verify the request.
 1. If the service provider sent a valid secret, {{ org-full-name }} sends an ID token and access token to the service provider.
-1. The service provider checks the received ID token using a public key that it [got](https://{{ auth-main-host }}/oauth/jwks/keys) from {{ yandex-cloud }} using the ID from the `kid` field of the ID token header. If the check is successful, the service provider grants the user access to the external application.
+1. The service provider [gets](https://{{ auth-main-host }}/oauth/jwks/keys) a public key in {{ yandex-cloud }} using the ID from the `kid` field of the ID token header and checks the ID token with that key. If the check is successful, the service provider grants the user access to the external application.
 
 {% note info %}
 
-The diagram shows the interaction between the parties when using an OIDC app of the [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](#oidc-web) type. When using the [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](#oidc-single-page) and [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](#oidc-native) app types, the steps of app secret query and verification are excluded from the process.
+The diagram shows the interaction between the parties when using an OIDC app of the [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](#oidc-web) type. For applications of the [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](#oidc-single-page) and [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](#oidc-native) types, the service provider does not request or check the app secret.
 
 {% endnote %}
 
@@ -117,7 +117,13 @@ By default, OIDC apps of all [types](#oidc-web) require the service provider to 
 
 ## Identity provider ({{ org-full-name }}) side setup {#oidc-idp-setup}
 
-For the integration to work correctly on the {{ org-full-name }} side, you need to [specify](../../operations/applications/oidc-create.md#setup-idp) the [redirect URI](#oidc-redirect-uri) address (addresses) in the OIDC app, select user [attributes](#oidc-user-attributes) to send to the service provider, and generate an [app secret](#oidc-secret). Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
+For the integration to work correctly on the {{ org-full-name }} side, [configure](../../operations/applications/oidc-create.md#setup-idp) the following in the OIDC app:
+
+* [Redirect URI(s)](#oidc-redirect-uri).
+* User [attributes](#oidc-user-attributes) that will be given to the service provider.
+* [App secret](#oidc-secret).
+
+Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
 
 ### Redirect URI {#oidc-redirect-uri}
 
@@ -127,7 +133,13 @@ For [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](#oidc-web) and 
 
 In [{{ ui-key.yacloud_org.organization.apps.native-title_1VrmN }}](#oidc-native) apps, [Redirect URIs](#oidc-redirect-uri) support any valid URI schema.
 
-You can specify several Redirect URI addresses in your OIDC apps at the same time.
+In OIDC apps, you can specify multiple redirect URI addresses at the same time.
+
+### Post Logout Redirect URI {#oidc-post-logout-redirect-uri}
+
+A _post logout redirect URI_ is an address a user is redirected to after logging out of the external app. In contrast to a redirect URI, this address is used when a session is finished, not at the start during authentication. This is an optional setting.
+
+You can [specify](../../operations/applications/oidc-create.md#setup-idp) one or multiple post logout redirect URIs in the service provider configuration. The same URI schema requirements apply to them as to [redirect URIs](#oidc-redirect-uri).
 
 ### User attributes {#oidc-attributes}
 
@@ -135,13 +147,19 @@ In the OIDC app settings, you can specify the user attributes defined by the val
 
 {% include [oidc-app-attribute-scopes](../../../_includes/organization/oidc-app-attribute-scopes.md) %}
 
+To select what group value to send to the service provider via the `groups` attribute, use the [CLI](../../operations/applications/oidc-create.md#create-app) or {{ TF }} and specify one of the following values:
+
+* `NAME`: Group name. It is used by default.
+* `ID`: Group ID.
+* `EXTERNAL_ID`: Group's external ID.
+
 In a new OIDC app, all attributes except `groups` are selected by default.
 
 ## Service provider (external application) side setup {#oidc-sp-setup}
 
 For the integration to work correctly on the service provider's side, you need to set up a number of integration parameters. Depending on the options supported by your service provider, you can [configure these settings](../../operations/applications/oidc-create.md#setup-sp) manually or automatically by specifying a configuration URL.
 
-A configuration URL gives the service provider the values of all settings required for configuring the integration. You can find it in the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field under **{{ ui-key.yacloud_org.application.overview.oauth_service_section_title }}** on the OIDC app information page in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}/apps). The same page offers the integration setting values for manual configuration:
+A configuration URL gives a service provider values of all settings required to set up the integration. You can find it in the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field under **{{ ui-key.yacloud_org.application.overview.oauth_service_section_title }}** on the OIDC app information page in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}/apps). The same page offers the integration setting values for manual configuration:
 
 {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
 

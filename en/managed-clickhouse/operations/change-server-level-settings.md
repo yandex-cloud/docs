@@ -15,7 +15,7 @@ Changing some [server settings](../concepts/settings-list.md#server-level-settin
 
 {% note info %}
 
-You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change this setting, you need to [change the {{ CH }} host class](#change-resource-preset) first. For more information, see [Memory management](../concepts/memory-management.md).
+You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change this setting, you need to [change the {{ CH }} host class](#change-resource-preset) first. To learn more, see [Memory management](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -128,11 +128,11 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+   1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_v2).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

@@ -381,7 +381,7 @@
 
         Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for ClickHouse® приведен в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for ClickHouse® приведен в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     1. Добавьте в описание кластера Managed Service for ClickHouse® блок `cloud_storage`:
 
@@ -692,7 +692,7 @@
 
         Инструкция по созданию такого файла приведена в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for ClickHouse® приведен в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for ClickHouse® приведен в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster_v2.md).
 
     1. Измените в описании кластера Managed Service for ClickHouse® атрибуты блока `cloud_storage`:
 

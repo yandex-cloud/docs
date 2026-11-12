@@ -23,10 +23,10 @@ openssl req -x509 -newkey rsa:2048 \
   -keyout private.key \
   -out certificate.crt \
   -days 365 -nodes \
-  -subj "/CN=<имя_инстанса>.time‑messenger.ru"
+  -subj "/CN=<имя_инстанса>.time-messenger.ru"
 ```
 
-Где `<имя_инстанса>` — имя инстанса Time (поддомена на `time‑messenger.ru`).
+Где `<имя_инстанса>` — имя инстанса Time (поддомена на `time-messenger.ru`).
 
 В результате будут созданы два файла: `private.key` — закрытый ключ и `certificate.crt` — сертификат. Сохраните их — они понадобятся при настройке SAML в Time.
 
@@ -40,10 +40,10 @@ openssl req -x509 -newkey rsa:2048 \
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
     1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
         1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `time‑saml‑app`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `time-saml-app`.
         1. (Опционально) Добавьте описание и [метки](../../../resource-manager/concepts/labels.md) приложения.
         1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
-    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат созданного приложения `time‑saml‑app.cer` — он понадобится при настройке SAML в Time.
+    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат созданного приложения `time-saml-app.cer` — он понадобится при настройке SAML в Time.
 
 {% endlist %}
 
@@ -53,14 +53,14 @@ openssl req -x509 -newkey rsa:2048 \
 
 ### Настройте эндпоинты и загрузите сертификат поставщика услуг {#sp-endpoints}
 
-Укажите данные вашего инстанса Time. Чтобы узнать значения эндпоинтов, перейдите в системную консоль Time по адресу `https://<имя_инстанса>.time‑messenger.ru/admin_console/authentication/saml` и скопируйте значения полей `Entity ID` и `ACS URL` из настроек SAML.
+Укажите данные вашего инстанса Time. Чтобы узнать значения эндпоинтов, перейдите в системную консоль Time по адресу `https://<имя_инстанса>.time-messenger.ru/admin_console/authentication/saml` и скопируйте значения полей `Entity ID` и `ACS URL` из настроек SAML.
 
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева нажмите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time‑saml‑app`.
+    1. На панели слева нажмите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time-saml-app`.
     1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
         1. В блоке **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.section-service-provider_83p1J }}**:
             1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите `Entity ID` — уникальный идентификатор поставщика услуг.
@@ -72,10 +72,11 @@ openssl req -x509 -newkey rsa:2048 \
                 * `Assertions` — подписываются только утверждения о пользователе (идентификатор, атрибуты, время аутентификации).
                 * `Response` — подписывается весь SAML-ответ целиком.
                 * `Assertions and Response` — подписываются и утверждения, и весь ответ.
-        1. (Опционально) Чтобы принимать только запросы, подписанные одним из добавленных сертификатов, включите **{{ ui-key.yacloud_org.application.overview.saml_field_request_signing_enabled }}** и добавьте сертификат с помощью кнопки **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.add-cert-action }}**.
+        1. (Опционально) Чтобы принимать только запросы, подписанные одним из добавленных сертификатов, включите опцию **{{ ui-key.yacloud_org.application.overview.saml_field_request_signing_enabled }}** и добавьте сертификат с помощью кнопки **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.add-cert-action }}**.
         1. Чтобы SAML-ответ был зашифрован с помощью выбранного сертификата, включите опцию **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}** и добавьте ранее созданный сертификат с помощью кнопки **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.add-cert-action }}**.
-        1. В списке **{{ ui-key.yacloud_org.application.overview.saml_field_encrypt_response_data_algo }}** выберите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.encrypt-key-algo-sha256 }}**.
-        1. В списке **{{ ui-key.yacloud_org.application.overview.saml_field_encrypt_response_key_algo }}** выберите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.encrypt-key-algo-sha1 }}**.
+            1. В списке **{{ ui-key.yacloud_org.application.overview.saml_field_encrypt_response_data_algo }}** выберите `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.encrypt-key-algo-sha256 }}`.
+            1. В списке **{{ ui-key.yacloud_org.application.overview.saml_field_encrypt_response_key_algo }}** выберите `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.encrypt-key-algo-sha1 }}`.
+
         1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -87,22 +88,27 @@ openssl req -x509 -newkey rsa:2048 \
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева нажмите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time‑saml‑app`.
+    1. На панели слева нажмите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time-saml-app`.
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
-    1. Добавьте атрибут для передачи имени пользователя. Справа сверху нажмите **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
+    1. Добавьте атрибут `username` для передачи имени пользователя. Справа сверху нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
         * В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `username`.
         * В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите значение `SubjectClaims.preferred_username`.
 
-        {% include [attribute-transformation](../../../_includes/tutorials/attribute-transformation.md) %}
+            {% include [attribute-transformation](../../../_includes/tutorials/attribute-transformation.md) %}
 
         * Нажмите **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.action_add_transformation_bc8Cd }}** и выберите тип трансформации `ExtractBefore`, в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}** укажите `@`. Она извлечет часть адреса электронной почты до символа `@`. Это значение будет использоваться как имя пользователя в Time.
         * Нажмите **{{ ui-key.yacloud.common.add }}**.
+
+    1. Добавьте атрибуты, которые использует Time. Для каждого из них нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и укажите:
+        * Имя — `emailaddress`, значение — `SubjectClaims.email`.
+        * (Опционально) Имя — `givenname`, значение — `SubjectClaims.given_name`.
+        * (Опционально) Имя — `surname`, значение — `SubjectClaims.family_name`.
 
 {% endlist %}
 
 ### Настройте SAML-аутентификацию на стороне Time {#setup-sp}
 
-1. Войдите в системную консоль Time по адресу `https://<имя_инстанса>.time‑messenger.ru/admin_console/authentication/saml`.
+1. Войдите в системную консоль Time по адресу `https://<имя_инстанса>.time-messenger.ru/admin_console/authentication/saml`.
 1. В разделе **Аутентификация**:
    1. Включите опцию **Включить вход через SAML 2.0**.
    1. В поле **URL метаданных провайдера идентификации** укажите адрес, по которому Time отправляет запрос на получение метаданных.
@@ -110,7 +116,7 @@ openssl req -x509 -newkey rsa:2048 \
       {% cut "Как узнать адрес файла с метаданными приложения" %}
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time‑saml‑app`.
+      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time-saml-app`.
       1. В блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}**.
 
       {% endcut %}
@@ -120,7 +126,7 @@ openssl req -x509 -newkey rsa:2048 \
       {% cut "Как узнать адрес для запросов аутентификации" %}
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time‑saml‑app`.
+      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time-saml-app`.
       1. В блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
 
       {% endcut %}
@@ -130,19 +136,22 @@ openssl req -x509 -newkey rsa:2048 \
       {% cut "Как узнать адрес издателя поставщика учетных записей" %}
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time‑saml‑app`.
+      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите SAML-приложение `time-saml-app`.
       1. В блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**.
 
       {% endcut %}
 
-   1. В блоке **Публичный сертификат удостоверяющего центра** загрузите файл сертификата приложения `time‑saml‑app.cer`.
-   1. Включите опцию **Проверка подписи**.
-   1. В поле **Адрес входа через поставщика услуг** укажите адрес вида: `https://<имя_инстанса>.time‑messenger.ru/login/sso/saml`. Продублируйте этот адрес в поле **Идентификатор поставщика услуг**.
-   1. Включите опцию **Включить шифрование**.
+   1. В блоке **Публичный сертификат удостоверяющего центра** загрузите файл сертификата приложения `time-saml-app.cer`.
+   1. Убедитесь, что включена опция **Проверка подписи** — Time будет проверять подпись SAML-ответов с помощью загруженного сертификата.
+   1. Укажите адрес вида `https://<имя_инстанса>.time-messenger.ru/login/sso/saml` в полях:
+      * **Адрес входа через поставщика услуг**
+      * **Идентификатор поставщика услуг**
+
+   1. Убедитесь, что включена опция **Включить шифрование** — Time будет расшифровывать зашифрованные SAML-утверждения с помощью закрытого ключа поставщика услуг.
    1. В блоке **Закрытый ключ поставщика услуг** загрузите файл закрытого ключа `private.key`.
    1. В блоке **Публичный сертификат поставщика услуг** загрузите файл сертификата `certificate.crt`.
    1. В списке **Алгоритм подписи** выберите алгоритм `RSAwithSHA512` для подписания запроса.
-   1. В списке **Алгоритм канонизации** выберите `Exclusive XML Canonicalization 1.0 (пропустить комментарии)`.
+   1. В списке **Алгоритм канонизации** выберите `Canonical1.0` (эксклюзивная канонизация XML 1.0).
    1. В поле **Атрибут электронной почты** укажите `emailaddress`.
    1. В поле **Атрибут имени пользователя** укажите `username`.
    1. (Опционально) В поле **Атрибут имени** укажите `givenname` — атрибут для заполнения имени пользователя в Time.
@@ -177,7 +186,7 @@ openssl req -x509 -newkey rsa:2048 \
 
 Чтобы убедиться в корректной работе SAML-приложения и интеграции с Time, выполните вход в Time под учетной записью одного из добавленных пользователей. Для этого:
 
-1. В браузере откройте страницу входа вашего инстанса Time: `https://<имя_инстанса>.time‑messenger.ru`.
+1. В браузере откройте страницу входа вашего инстанса Time: `https://<имя_инстанса>.time-messenger.ru`.
 1. Выберите вход **Используя SAML**.
 1. Аутентифицируйтесь в {{ yandex-cloud }} с учетной записью пользователя из вашей организации.
 1. Убедитесь, что после успешной аутентификации вы вошли в Time.

@@ -8,6 +8,12 @@ description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} use
 
 Your [organization's](../organization.md) users can authenticate in external applications via single sign-on (SSO). With this in mind, {{ org-full-name }} allows creating _applications_, i.e., {{ yandex-cloud }} [resources](../../../overview/roles-and-resources.md#resources) containing integration settings for {{ org-full-name }} as an _identity provider_ (IdP) on the one hand and a third-party _service provider_ (SP) on the other.
 
+{% note warning %}
+
+To authenticate in external applications, [link your billing account](../../operations/manage-billing.md) to {{ org-full-name }}. Linking a billing account is also required for activating a [non-billable user limit](../../pricing.md#monthly-limit).
+
+{% endnote %}
+
 {{ org-full-name }} supports the [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) and [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on standards.
 
 The role of service providers can be played by various SSO-enabled services, either based on the [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) or [on-premise](https://en.wikipedia.org/wiki/On-premises_software) model, e.g., [{{ yandex-360 }}](https://360.yandex.ru/), [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Jenkins](https://www.jenkins.io/), [Jira](https://www.atlassian.com/software/jira), and many more.

@@ -6,16 +6,46 @@
 
 ## Формат подписки на события {#event-format}
 
-Для получения событий от плеера используется обработчик `message`:
+Чтобы получать события от плеера, используйте обработчик `message`. Плеер передает данные события в поле `event.data` в виде строки JSON. Перед обращением к свойствам события преобразуйте эту строку в объект с помощью `JSON.parse`.
+
+В примере используется iframe с `id="video-player"` из [начала работы](index.md#add-player). Разместите скрипт после этого элемента. Если создаете iframe динамически, выполняйте код после добавления элемента в DOM. События, отправленные до регистрации обработчика, повторно не доставляются.
+
+Обработчик проверяет окно и источник сообщения (`origin`), разбирает JSON и передает данные в функцию `handlePlayerEvent`:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event) {
-        // Обработка события
-        console.log('Событие плеера:', event.data.event, event.data);
+const iframe = document.getElementById('video-player');
+const player = iframe.contentWindow;
+const playerOrigin = new URL(iframe.src).origin;
+
+function handlePlayerEvent(data) {
+    console.log('Событие плеера:', data.event, data);
+}
+
+function onPlayerMessage(event) {
+    if (event.source !== player || event.origin !== playerOrigin || typeof event.data !== 'string') {
+        return;
     }
-});
+
+    let data;
+    try {
+        data = JSON.parse(event.data);
+    } catch {
+        return;
+    }
+
+    if (!data || typeof data !== 'object' || typeof data.event !== 'string') {
+        return;
+    }
+
+    handlePlayerEvent(data);
+}
+
+window.addEventListener('message', onPlayerMessage);
 ```
+
+Примеры ниже — варианты функции `handlePlayerEvent` для этого обработчика. Замените ее в общем примере или объедините в ней обработку нескольких событий. Повторно подписываться на `message` не нужно.
+
+Если удаляете плеер со страницы, удалите и обработчик: `window.removeEventListener('message', onPlayerMessage)`.
 
 ## События инициализации {#initialization-events}
 
@@ -29,11 +59,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'inited') {
-        console.log('Плеер инициализирован, vsid:', event.data.vsid);
+function handlePlayerEvent(data) {
+    if (data.event === 'inited') {
+        console.log('Плеер инициализирован, vsid:', data.vsid);
     }
-});
+}
 ```
 
 #### resourcesIdle {#resourcesidle}
@@ -43,11 +73,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'resourcesIdle') {
+function handlePlayerEvent(data) {
+    if (data.event === 'resourcesIdle') {
         console.log('Ресурсы плеера загружены');
     }
-});
+}
 ```
 
 #### contentImpression {#contentimpression}
@@ -57,11 +87,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'contentImpression') {
+function handlePlayerEvent(data) {
+    if (data.event === 'contentImpression') {
         console.log('Контент отображен');
     }
-});
+}
 ```
 
 ## События воспроизведения {#playback-events}
@@ -80,14 +110,14 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'started') {
+function handlePlayerEvent(data) {
+    if (data.event === 'started') {
         console.log('Воспроизведение началось');
-        console.log('Время:', event.data.time);
-        console.log('Длительность:', event.data.duration);
-        console.log('Название:', event.data.title);
+        console.log('Время:', data.time);
+        console.log('Длительность:', data.duration);
+        console.log('Название:', data.title);
     }
-});
+}
 ```
 
 #### resumed {#resumed}
@@ -101,11 +131,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'resumed') {
-        console.log('Воспроизведение возобновлено на', event.data.time, 'секунде');
+function handlePlayerEvent(data) {
+    if (data.event === 'resumed') {
+        console.log('Воспроизведение возобновлено на', data.time, 'секунде');
     }
-});
+}
 ```
 
 #### paused {#paused}
@@ -118,11 +148,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'paused') {
-        console.log('Воспроизведение приостановлено на', event.data.time, 'секунде');
+function handlePlayerEvent(data) {
+    if (data.event === 'paused') {
+        console.log('Воспроизведение приостановлено на', data.time, 'секунде');
     }
-});
+}
 ```
 
 #### ended {#ended}
@@ -135,11 +165,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'ended') {
+function handlePlayerEvent(data) {
+    if (data.event === 'ended') {
         console.log('Воспроизведение завершено');
     }
-});
+}
 ```
 
 ## События времени и позиции {#time-events}
@@ -156,13 +186,13 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'timeupdate') {
-        console.log('Текущее время:', event.data.time);
-        console.log('Длительность:', event.data.duration);
-        console.log('Просмотрено:', event.data.watchedTime);
+function handlePlayerEvent(data) {
+    if (data.event === 'timeupdate') {
+        console.log('Текущее время:', data.time);
+        console.log('Длительность:', data.duration);
+        console.log('Просмотрено:', data.watchedTime);
     }
-});
+}
 ```
 
 #### durationchange {#durationchange}
@@ -179,11 +209,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'durationchange') {
-        console.log('Длительность изменилась:', event.data.duration);
+function handlePlayerEvent(data) {
+    if (data.event === 'durationchange') {
+        console.log('Длительность изменилась:', data.duration);
     }
-});
+}
 ```
 
 #### rewound {#rewound}
@@ -197,11 +227,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'rewound') {
-        console.log('Перемотка с', event.data.previousTime, 'на', event.data.time);
+function handlePlayerEvent(data) {
+    if (data.event === 'rewound') {
+        console.log('Перемотка с', data.previousTime, 'на', data.time);
     }
-});
+}
 ```
 
 ## События звука {#audio-events}
@@ -217,12 +247,12 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'volumechange') {
-        console.log('Громкость:', event.data.volume);
-        console.log('Звук выключен:', event.data.muted);
+function handlePlayerEvent(data) {
+    if (data.event === 'volumechange') {
+        console.log('Громкость:', data.volume);
+        console.log('Звук выключен:', data.muted);
     }
-});
+}
 ```
 
 ## События ошибок {#error-events}
@@ -245,13 +275,13 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'error') {
+function handlePlayerEvent(data) {
+    if (data.event === 'error') {
         console.error('Ошибка воспроизведения');
-        console.error('Код ошибки:', event.data.code);
-        console.error('Время:', event.data.time);
+        console.error('Код ошибки:', data.code);
+        console.error('Время:', data.time);
     }
-});
+}
 ```
 
 ## События рекламы {#ad-events}
@@ -266,11 +296,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'adShown') {
+function handlePlayerEvent(data) {
+    if (data.event === 'adShown') {
         console.log('Начался показ рекламы');
     }
-});
+}
 ```
 
 #### adEnd {#adend}
@@ -280,11 +310,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'adEnd') {
+function handlePlayerEvent(data) {
+    if (data.event === 'adEnd') {
         console.log('Показ рекламы завершен');
     }
-});
+}
 ```
 
 #### adPodStart {#adpodstart}
@@ -294,11 +324,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'adPodStart') {
+function handlePlayerEvent(data) {
+    if (data.event === 'adPodStart') {
         console.log('Начался показ рекламного блока');
     }
-});
+}
 ```
 
 ## События отображения {#display-events}
@@ -315,12 +345,12 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'sizeChange') {
-        console.log('Размер видео:', event.data.videoWidth, 'x', event.data.videoHeight);
-        console.log('Это реклама:', event.data.isAd);
+function handlePlayerEvent(data) {
+    if (data.event === 'sizeChange') {
+        console.log('Размер видео:', data.videoWidth, 'x', data.videoHeight);
+        console.log('Это реклама:', data.isAd);
     }
-});
+}
 ```
 
 #### fullscreenchange {#fullscreenchange}
@@ -333,11 +363,11 @@ window.addEventListener('message', function(event) {
 Пример обработки:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'fullscreenchange') {
-        console.log('Полноэкранный режим:', event.data.isFullscreen ? 'включен' : 'выключен');
+function handlePlayerEvent(data) {
+    if (data.event === 'fullscreenchange') {
+        console.log('Полноэкранный режим:', data.isFullscreen ? 'включен' : 'выключен');
     }
-});
+}
 ```
 
 #### Полезные ссылки {#see-also}

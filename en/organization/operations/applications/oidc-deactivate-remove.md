@@ -192,7 +192,10 @@ To delete an OIDC application:
        * `client_id`: OAuth client ID.
        * `authorized_scopes`: User attributes available to the service provider.
      * `group_claims_settings`: Settings for sending user groups to the service provider:
-       * `group_distribution_type`: Group distribution type.
+       * `group_distribution_type`: Groups to send. Its possible values are:
+         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
+         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
+         * `NONE`: Service provider will not get any of the groups the user belongs to.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md).
 
      For more on `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).

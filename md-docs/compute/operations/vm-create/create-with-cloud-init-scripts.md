@@ -2,12 +2,6 @@
 
 # Создать виртуальную машину с пользовательским скриптом конфигурации
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 Вы можете создать виртуальную машину с предустановленной конфигурацией программного обеспечения с помощью ключа `user-data` в [метаданных](../../concepts/vm-metadata.md) ВМ.
 
 Заданная в ключе `user-data` конфигурация обрабатывается агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/), запущенным на ВМ. Cloud-init поддерживает разные форматы передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).

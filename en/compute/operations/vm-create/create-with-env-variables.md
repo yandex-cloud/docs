@@ -5,8 +5,6 @@ description: Follow this guide to use environment variables when creating a VM w
 
 # Creating a VM with metadata from environment variables
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can create a [VM](../../concepts/vm.md) whose [metadata](../../concepts/vm-metadata.md) will contain values set in [environment variables](https://en.wikipedia.org/wiki/Environment_variable). The [cloud-init](https://cloudinit.readthedocs.io/en/latest/) agent running on the VM will process the metadata configuration you set in the `user-data` key.
 
 This use case demonstrates creating a VM on [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) with a preinstalled [Nginx](https://nginx.org/) web server. When executing the CLI command, the local user name and SSH key values will be provided to the VM metadata through substitution from the `USER_NAME` and `SSH_KEY` variables of the environment the command is executed in.

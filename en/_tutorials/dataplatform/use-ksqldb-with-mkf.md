@@ -56,14 +56,78 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Set up {{ KF }} integration for the ksqlDB database {#configure-ksqldb-for-kf}
 
 1. Connect to the ksqlDB server.
-1. Add the server's SSL certificate to the Java trusted certificate store (Java Key Store) so that ksqlDB can use it for secure connections to cluster hosts. Set a password in the `-storepass` parameter for additional storage protection:
-
+1. Go to the `/etc/ksqldb` directory:
+    
    ```bash
-   cd /etc/ksqldb && \
-   sudo keytool -importcert -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
-   -keystore ssl -storepass <certificate_store_password> \
-   --noprompt
+   cd /etc/ksqldb
    ```
+
+1. Add the server's SSL certificate to the Java trusted certificate store (Java Key Store) so that ksqlDB can use it for secure connections to cluster hosts:
+
+   {% list tabs group=operating_system %}
+
+   - Linux (Bash) {#linux}
+
+     ```bash
+     awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+       < {{ crt-local-dir }}{{ crt-local-file }}
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+       )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore ssl \
+               -storepass <secure_store_password> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 ssl
+     ```
+
+   - macOS (Zsh) {#macos}
+     
+     ```bash     
+     split -p "-----BEGIN CERTIFICATE-----" \
+       {{ crt-local-dir }}{{ crt-local-file }} \
+       YandexCA-
+
+     for cert in YandexCA-*.crt; do
+       alias=$(
+         openssl x509 -noout -text -in "${cert}" |
+         perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+       year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+       echo "Importing ${alias}-${year}"
+
+       keytool -importcert \
+               -alias "${alias}-${year}" \
+               -file "${cert}" \
+               -keystore ssl \
+               -storepass <secure_store_password> \
+               -noprompt
+
+       rm "${cert}"
+     done
+
+     chmod 0655 ssl
+     ```
+
+   {% endlist %}
+
+   Where `-storepass` is the certificate store password. The password must contain at least six characters.
 
 1. In the `/etc/ksqldb/ksql-server.properties` ksqlDB configuration file, specify the credentials for authentication in the {{ mkf-name }} cluster:
 
@@ -267,7 +331,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP address for your virtual machine, [delete it](../../vpc/operations/address-delete.md).

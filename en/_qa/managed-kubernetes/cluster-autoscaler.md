@@ -6,7 +6,7 @@
   * Those not managed by a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) controller.
   * Those without a `PodDisruptionBudget` or those with a `PodDisruptionBudget` restricting their eviction.
 * Pods not managed by a replication controller, such as [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
-* Pods with `local-storage`.
+* Pods with local volumes, such as `hostPath` or `emptyDir` without `medium: Memory`. The exception is pods with the `cluster-autoscaler.kubernetes.io/safe-to-evict-local-volumes` annotation whose value lists all local volumes used by the pod, e.g., `volume-1,volume-2`.
 * Pods that cannot be scheduled anywhere due to restrictions, e.g., due to insufficient resources or lack of nodes matching the [affinity or anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) selectors.
 * Pods annotated with `"cluster-autoscaler.kubernetes.io/safe-to-evict": "false"`.
 
@@ -52,6 +52,12 @@ Other possible causes include:
   kubectl annotate node <node_name> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
   
+Before reaching out to support, [enable master logging](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) in the {{ cloud-logging-name }} log group, including cluster autoscaler logs. These logs can help identify why the node is not being removed.
+
+If the cause remains unclear, [contact support]({{ link-console-support }}). Provide the cluster ID, the approximate date and time when the issue occurred, and the YAML specifications of the controllers managing the affected pods.
+
+Learn more about scaling diagnostics in [this cluster autoscaler guide](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents). The descheduler features are described in [this guide](https://github.com/kubernetes-sigs/descheduler).
+
 #### In an autoscaling group, the number of nodes never scales down to one, even when there is no load {#autoscaler-one-node}
 
 In a {{ managed-k8s-name }} cluster, the `kube-dns-autoscaler` app decides on the number of CoreDNS replicas. If the `preventSinglePointFailure` parameter in the `kube-dns-autoscaler` configuration is set to `true` and there is more than one node in the group, the minimum number of CoreDNS replicas is two. In this case, the Cluster Autoscaler cannot scale down the number of nodes in the cluster below that of CoreDNS pods.
@@ -75,7 +81,11 @@ If a node is underutilized, it will be deleted after 10 minutes.
 
 #### Why does autoscaling fail to trigger even though the number of nodes is below the minimum or above the maximum? {#beyond-limits}
 
-Autoscaling will not violate the preset limits, but {{ managed-k8s-name }} does not explicitly enforce the limits. Upscaling will only happen if there are `unschedulable` pods.
+Autoscaling will not violate the preset limits, but {{ managed-k8s-name }} does not explicitly enforce the limits. Scale-up occurs only when pods cannot be scheduled on existing nodes due to insufficient resources to meet their requests (`unschedulable`).
+
+The **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** parameter defines the number of nodes created along with the group. Once the group has been created, the group size is managed by the cluster autoscaler. The **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}** parameter sets the lower limit for scaling down the group. Changing these parameters does not trigger immediate node creation. High utilization of already running pods alone does not trigger scale-up either.
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, error time, diagnostic results, expected group size, and descriptions of the unschedulable pods.
 
 #### Why do _Terminated_ pods remain in my cluster? {#terminated-pod}
 

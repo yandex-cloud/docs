@@ -12,7 +12,7 @@
 
 The {{ dspm-name }} scanning service account is assigned the `dspm.worker` role according to [this scan guide](../../../../security-deck/operations/dspm/create-scan.md). For a bucket with a custom {{ kms-short-name }} key, `kms.keys.decrypter` is also required. If bucket access is governed by a bucket policy, the allowlisting of the published {{ sd-name }} IP addresses and successful completion of the scan are verified separately.
 
-To view permissions in {{ access-analyzer-name }}, you need the `organization-manager.viewer` role for the organization or a broader documented role; access revocation is verified separately based on the [documented roles and restrictions](../../../../security-deck/security/access-analyzer-roles.md)
+To view permissions in {{ access-analyzer-name }}, you need the `organization-manager.viewer` role for the organization or a broader documented role; access revocation is verified separately based on the [documented roles and restrictions](../../../../security-deck/security/access-analyzer-roles.md).
 
 {{ ycdr-name }} evidence includes access approval, a separate collector configuration for each cloud, successful transmission of a test event over TLS, and `ycdr.admin` binding. For details, see the [{{ ycdr-name }} review](../../../../ycdr/concepts/index.md) and [access model](../../../../ycdr/security/index.md) description.
 

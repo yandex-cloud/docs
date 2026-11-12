@@ -5,8 +5,6 @@ description: Follow this guide to update a disk.
 
 # Updating a disk
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 After creating a [disk](../../concepts/disk.md), you can:
 * [Change the disk name and description](#change-disk-name).

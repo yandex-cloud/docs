@@ -79,7 +79,7 @@ To configure automatic monitoring of key cluster health metrics:
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mspqr-name }} — Cluster Overview** to configure cluster alerts.
         * **{{ mspqr-name }} — Host Overview** to set up host alerts.
-    1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the chart of interest and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. Click ![options](../../_assets/console-icons/ellipsis.svg) on the relevant chart and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud.common.continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -108,6 +108,16 @@ To view cluster health and status:
 ### Cluster health states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+#### Restoring a DEAD cluster {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Restore your cluster from a backup](cluster-backups.md#restore).
+
+   A {{ mspqr-name }} backup contains the shard configuration, while the shard data itself is stored in the backups of the corresponding {{ mpg-name }} clusters. If a cluster containing shard data is unavailable, [restore it separately](../../managed-postgresql/operations/cluster-backups.md#restore). For more details on the contents of backups, see [Backups](../concepts/backup.md).
+1. Update the connection settings in your applications and verify access to the data in your new cluster.
+1. Check the workload on your routers, coordinators, and shard hosts. Consider following [our recommendations for selecting resources](../qa/performance.md). For {{ mpg-name }} clusters employed as shards, [run a performance diagnostics](../../managed-postgresql/operations/performance-diagnostics.md).
 
 ### Cluster statuses {#cluster-status}
 

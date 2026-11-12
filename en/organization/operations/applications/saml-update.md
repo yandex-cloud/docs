@@ -130,13 +130,13 @@ To update the [SAML app's basic settings](../../concepts/applications/saml.md):
      * `description`: New SAML app description.
      * `labels`: New [labels](../../../resource-manager/concepts/labels.md).
 
-     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+     You can check the changes you have made to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -183,7 +183,7 @@ To update the service provider configuration in a SAML app:
      * `--id`: SAML application ID. This is a required setting.
      * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
      * `--acs-urls`: URL or comma-separated URLs to which {{ org-full-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
-     * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
+     * `--signature-mode`: SAML response elements that will be digitally signed. Its possible values are:
        * `assertion_only`: Only the provided user attributes.
        * `response_only`: Full SAML response.
        * `response_and_assertion`: Full SAML response and, separately, the provided attributes.
@@ -233,7 +233,7 @@ To update the service provider configuration in a SAML app:
 
      * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
      * `acs_urls`: New URLs {{ org-full-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
-     * `signature_mode`: New SAML response elements that will be digitally signed. The possible values are:
+     * `signature_mode`: New SAML response elements that will be digitally signed. Its possible values are:
        * `ASSERTION_ONLY`: Only the provided user attributes.
        * `RESPONSE_ONLY`: Full SAML response.
        * `RESPONSE_AND_ASSERTION`: Full SAML response and, separately, the provided attributes.
@@ -244,7 +244,7 @@ To update the service provider configuration in a SAML app:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+     You can check the changes you have made to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -256,7 +256,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. Proceed as follows:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -360,7 +360,7 @@ You can issue any number of new digital signature verification key certificates 
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+     You can check the changes you have made to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

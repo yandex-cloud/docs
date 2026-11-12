@@ -1,7 +1,7 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
+{{ data-transfer-name }} enables you to transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Follow these steps:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
         1. Download the [file with provider settings](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf). Place it in a separate working directory and specify the parameter values.
-        1. Download the [data-transfer-os-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-opensearch-from-onprem-to-cloud/blob/main/data-transfer-os-mos.tf) configuration file to the same working directory.
+        1. Download the [data-transfer-os-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-opensearch-from-onprem-to-cloud/blob/main/data-transfer-os-mos.tf) configuration file to your current working directory.
 
             This file describes:
 
@@ -46,17 +46,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ mos-name }} target cluster.
             * Transfer.
 
-        1. In the `data-transfer-os-mos.tf` file, specify the following variables:
+        1. In `data-transfer-os-mos.tf`, specify the following variables:
 
             * `mos_version`: {{ OS }} version.
             * `mos_admin_password`: {{ mos-name }} admin password.
-            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: Set to `0` to prevent a transfer from being created before [endpoints are created manually](#prepare-transfer).
             * `profile_name`: Name of your CLI profile.
 
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
-        1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration file, making its resources and data sources available for use.
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -72,7 +72,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
     * [curl](https://curl.se/) to make requests to clusters.
 
@@ -80,7 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt install --yes curl
         ```
 
-    * [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt install --yes jq
@@ -90,7 +90,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Create a user to run the transfer.
 
-You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job.
+While you can deliver data from an {{ OS }} cluster as `admin` with the `superuser` role, it is safer to create a separate user with limited privileges for each task.
 
 1. Optionally, in the source cluster, [create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
@@ -150,11 +150,11 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
 ## Configure the target cluster {#configure-target}
 
-1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
 1. Optionally, create a user to run the transfer.
 
-    You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job.
+    While you can deliver data to a {{ mos-name }} cluster as `admin` with the `superuser` role, it is safer to create a separate user with limited privileges for each task.
 
     1. [Create a role]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) with the `create_index` and `write` privileges for all indexes (`*`).
 
@@ -177,11 +177,11 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-os-mos.tf` file, specify the following variables:
+        1. In `data-transfer-os-mos.tf`, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -195,7 +195,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically as soon as it is created.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
@@ -219,7 +219,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     - {{ OS }} Dashboards {#opensearch}
 
-      1. [Connect](../../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+      1. [Connect](../../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster via {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
       1. Under **OpenSearch Dashboards**, select **Discover**.
@@ -229,11 +229,11 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

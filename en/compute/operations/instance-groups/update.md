@@ -5,8 +5,6 @@ description: Follow this guide to update an instance group.
 
 # Updating an instance group
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 After creating an instance group, you can:
 
 * [Change the name and description](#change-name).

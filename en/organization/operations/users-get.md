@@ -112,3 +112,7 @@ To get information about a [local](../../iam/concepts/users/accounts.md#local) u
   To get information about organization users, use the [get](../idp/api-ref/User/get.md) REST API method for the [User](../idp/api-ref/User/index.md) resource or the [UserService/Get](../idp/api-ref/grpc/User/get.md) gRPC API call.
 
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](../../iam/concepts/subject-details.md)

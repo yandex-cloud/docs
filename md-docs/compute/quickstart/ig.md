@@ -2,12 +2,6 @@
 
 # Создание группы виртуальных машин
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../concepts/limits.md).
-
-{% endnote %}
-
 Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления Yandex Cloud.
 
 ## Перед началом работы {#before-you-begin}

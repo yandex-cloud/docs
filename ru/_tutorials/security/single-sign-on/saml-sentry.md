@@ -71,6 +71,33 @@
 
 {% endlist %}
 
+#### Настройте атрибуты пользователей {#user-attributes}
+
+Настройте атрибуты пользователей для интеграции с Sentry:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+    1. Убедитесь, что атрибуты настроены следующим образом:
+
+        Атрибут | Значение
+        --- | ---
+        `login` | `SubjectClaims.preferred_username`
+        `emailaddress` | `SubjectClaims.email`
+        `givenname` (опционально) | `SubjectClaims.given_name`
+        `surname` (опционально) | `SubjectClaims.family_name`
+
+    1. Если какого-то атрибута нет, добавьте его. Для этого в правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** укажите имя атрибута, например `login`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите значение атрибута из таблицы выше, например `SubjectClaims.preferred_username`.
+        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+
+{% endlist %}
+
 ### Настройте аутентификацию на стороне Sentry {#setup-sp}
 
 1. Войдите в Sentry под пользователем с правами владельца организации.
@@ -81,7 +108,7 @@
 1. В поле **Metadata URL** введите адрес файла с метаданными, скопированный ранее.
 1. Нажмите **Get metadata**.
 1. В разделе **Map Identity Provider Attributes** заполните поля:
-   * В поле **IdP User ID** введите `fullname`.
+   * В поле **IdP User ID** введите `login`.
    * В поле **User Email** введите `emailaddress`.
    * (Опционально) В поле **First Name** введите `givenname`.
    * (Опционально) В поле **Last Name** введите `surname`.
@@ -93,20 +120,20 @@
 
 {% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
-1. Добавьте пользователей в приложение:
+Добавьте пользователей в приложение:
 
-   {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
-   - Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-      1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-      1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
-      1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-      1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+  1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+  1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
-   {% endlist %}
+{% endlist %}
 
 {% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 

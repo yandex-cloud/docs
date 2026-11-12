@@ -105,7 +105,7 @@ items:
         items:
           - name: Granting access to an application running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
-          - name: Configuring management mode for load balancer target groups
+          - name: Configuring the management mode for load balancer target groups
             href: operations/configure-load-balancer-target-groups.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -840,6 +840,8 @@ items:
             href: alb-ref/gwin-policies.md
           - name: Installing Gwin
             href: alb-ref/gwin-quickstart.md
+          - name: Routing traffic directly to cluster pods
+            href: alb-ref/routes-pod.md
           - name: Migrating apps from an ALB ingress controller to Gwin
             href: alb-ref/ingress-gwin-migration.md
           - name: Migrating applications from NGINX Ingress to Gwin

@@ -76,13 +76,13 @@
     1. Отредактируйте атрибуты пользователей:
 
         1. Атрибут `emailaddress` замените на `User.EmailAddress`. Для этого:
-            1. Кликните на строку с атрибутом `emailaddress`.
+            1. Нажмите на строку с атрибутом `emailaddress`.
             1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `User.EmailAddress`.
             1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** оставьте текущее значение `SubjectClaims.email`.
-            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+            1. Нажмите **{{ ui-key.yacloud.common.update }}**.
 
-        1. Атрибут `givenname` замените на `User.Firstname`:
-        1. Атрибут `surname` замените на `User.Surname`:
+        1. Атрибут `givenname` замените на `User.Firstname`.
+        1. Атрибут `surname` замените на `User.Surname`.
         1. Атрибут `fullname` не понадобится — его можно удалить.
 
 {% endlist %}
@@ -101,10 +101,10 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
     1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте следующие данные:
 
-        * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** — издатель поставщика удостоверений (IdP Entity ID).
-        * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** — URL-адрес точки входа (Login URL).
+        * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** — издатель поставщика удостоверени.
+        * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** — URL-адрес точки входа.
 
-    1. В блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
+    1. В блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
 
 {% endlist %}
 
@@ -121,12 +121,13 @@
 Чтобы настроить SAML-аутентификацию на стороне {{ yandex-360 }}:
 
 1. Войдите в [консоль Яндекс 360 для бизнеса](https://admin.yandex.ru/).
-1. Перейдите в раздел настроек единого входа (SSO).
+1. Перейдите в раздел **Общие настройки → Единый вход (SSO)** и нажмите **Настроить**.
 1. Укажите данные, полученные на предыдущем шаге:
-    * **IdP Entity ID** — издатель поставщика удостоверений.
-    * **Login URL** — URL-адрес точки входа.
-    * Загрузите **сертификат подписи токенов** формата X.509.
-1. Сохраните настройки.
+    * **URL страницы входа** — URL-адрес точки входа.
+    * **Издатель поставщика удостоверений** — издатель поставщика удостоверений.
+    * **Проверочный сертификат** — сертификат подписи токенов формата X.509.
+1. Сохраните изменения.
+1. Нажмите **Включить**.
 
 {% note warning %}
 
@@ -171,7 +172,7 @@
 
 Если в процессе настройки поставщика удостоверений заданы неверные значения, то при попытке входа через SSO вы увидите сообщение «Авторизация не удалась» и код ошибки:
 
-#### email.not_in_response {#email-not-in-response}
+#### email.no_in_response {#email-no-in-response}
 
 Указывайте имена атрибутов в формате `User.Firstname`, `User.Surname`, `User.EmailAddress`. Если задать другой формат, например `Firstname`, аутентифицироваться не получится.
 

@@ -5,8 +5,6 @@ description: Follow this guide to make a VM preemptible.
 
 # Making a VM preemptible
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of a VM that already exists.
 

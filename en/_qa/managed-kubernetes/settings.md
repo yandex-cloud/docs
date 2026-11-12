@@ -16,7 +16,7 @@ If `max_expansion` is greater than zero, {{ managed-k8s-name }} creates new node
 
 #### Can I upgrade my {{ managed-k8s-name }} cluster in one step? {#upgrade-in-one-step}
 
-It depends on the source and target versions of the {{ managed-k8s-name }} cluster upgrade. In one step, you can only upgrade your {{ managed-k8s-name }} cluster to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21. For more information, see [{#T}](../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade).
+It depends on the source and target versions of the {{ managed-k8s-name }} cluster upgrade. In one step, you can only upgrade your {{ managed-k8s-name }} cluster to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21. For details, see [{#T}](../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade).
 
 If you want to skip intermediate versions, [create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) of the version you need and migrate the workloads from the old cluster to the new one.
 
@@ -45,4 +45,20 @@ AttachVolume.Attach failed for volume "pvc":
 Attach timeout for volume yadp-k8s-volumes/pvc
 ```
 
-Update the [s3-CSI driver](https://github.com/ctrox/csi-s3) to the latest version.
+Check the installed version and [CSI for {{ objstorage-name }} settings](../../managed-kubernetes/operations/volumes/s3-csi-integration.md). Use a [supported driver](https://github.com/yandex-cloud/k8s-csi-s3) and follow its installation guide. Upgrading an individual `csi-attacher` component is not a universal solution for the error.
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.
+
+#### How to use {{ certificate-manager-name }} certificates in applications in {{ managed-k8s-name }}? {#application-certificate}
+
+The connection method depends on the application and the controller that terminates your TLS connection. For an [{{ alb-name }} Ingress controller](../../managed-kubernetes/alb-ref/ingress.md), you can specify a {{ certificate-manager-name }} certificate in the Ingress configuration.
+
+If an application requires a certificate as a file, [export the certificate](../../certificate-manager/operations/managed/cert-get-content.md) from {{ certificate-manager-name }} and configure the application to use it. Note that a one-time export does not provide for updating the file within the application when the certificate is reissued; you must set up a separate procedure for such updates.
+
+#### How do I set a time zone for an application or CronJob? {#timezone}
+
+For an application, configure bringing the time to the desired time zone within the application itself.
+
+For a CronJob, specify the time zone in the `.spec.timeZone` field, e.g., `Europe/Moscow`. If this field is not set, the schedule is interpreted according to the _kube-controller-manager_ time zone. Learn more about [CronJob time zones](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones).
+
+If your particular case still requires changing the time zone of the node itself, you can [create a support ticket]({{ link-console-support }}). Specify the cluster ID and describe your use case.

@@ -66,7 +66,7 @@ Code example:
     }
     ```
 
-    Unlike other connection methods, in this example, you need to use the full path to the `CA.pem` certificate for {{ OS }} in the `CA` variable.
+    Unlike other connection methods, in this example, you need to use the full path to the `RootCA.pem` certificate for {{ OS }} in the `CA` variable.
 
     {% include [see-fqdn](fqdn-host.md) %}
 

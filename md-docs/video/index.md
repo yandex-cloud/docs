@@ -428,6 +428,8 @@ Yandex Cloud Video — комплексная платформа управле�
 
  - [Update](api-ref/grpc/Video/update.md)
 
+ - [RenewSource](api-ref/grpc/Video/renewSource.md)
+
  - [Transcode](api-ref/grpc/Video/transcode.md)
 
  - [Delete](api-ref/grpc/Video/delete.md)
@@ -629,6 +631,8 @@ Yandex Cloud Video — комплексная платформа управле�
  - [Create](api-ref/Video/create.md)
 
  - [Update](api-ref/Video/update.md)
+
+ - [RenewSource](api-ref/Video/renewSource.md)
 
  - [Transcode](api-ref/Video/transcode.md)
 

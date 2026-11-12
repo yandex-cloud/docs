@@ -393,8 +393,7 @@ default:
   mdb-lb: DB Proxy
   mdb-versions:
     mysql-version:
-      actual: '8.4'
-      supported: 5.7, 8.0
+      supported: 5.7, 8.0, 8.4
     postgresql-version:
       deprecated: 14, 14-1c
       new: 18, 18-1c
@@ -648,7 +647,6 @@ default:
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
-  org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
     docs: https://opensearch.org/docs/latest
@@ -3288,6 +3286,7 @@ default:
         ProfilePage:
           contacts_subheader: Contacts
           edit_action: Edit
+          job_info_subheader: Organizational information
         refresh-tokens:
           action_remove_all: Delete all tokens
         security:
@@ -3342,6 +3341,7 @@ default:
             type_if_empty_e5unh: IfEmpty
             type_replace_kQ2vN: Replace
             type_to_lowercase_vRG6c: ToLowercase
+            type_to_uppercase_uF6Br: ToUppercase
             type_trim_3SF6q: Trim
           field_group_all_uY9US: All groups
           field_group_assigned_amGdu: Assigned groups only
@@ -6850,6 +6850,12 @@ default:
           label_status-pending: Awaiting acceptance
         productDetailView:
           tab_personal-terms: Personal terms
+      mdb-core:
+        entities:
+          Subnetwork:
+            label_title_c4P8n: Subnet
+          Zone:
+            label_title_qQ3Vg: Availability zone
       mdb:
         AuthMethodColumn:
           value_iam_boWet: IAM
@@ -7214,6 +7220,7 @@ default:
           field_external-shard-replica-priority: Priority
           field_external-shard-replica-secure: Secure connection
           field_external-shard-replica-user: User
+          field_external-shard-replicas: Replicas
           field_shard-names: Shards
           section_external-shards: External shards
       metadata-hub:
@@ -7384,6 +7391,15 @@ default:
         hosts:
           dialog:
             button_choose: Save
+        new:
+          entities:
+            AssignPublicIp:
+              label_title_8mK2p: Public access
+            Hosts:
+              label_add-host_p3wH5: Add host
+              label_title_7pQ1w: Hosts
+            MasterPriority:
+              label_title_9nL4q: Master priority
         switch_backups_xgJVM: Backups
         switch_list_9AfbP: Clusters
         switch_operations_9JzwJ: Operations

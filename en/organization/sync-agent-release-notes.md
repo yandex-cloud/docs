@@ -1,15 +1,15 @@
 ---
-title: List of {{ org-sync-agent-name }} releases
+title: List of {{ ad-sync-agent }} releases
 description: This page presents sync agent releases and their updates.
 ---
 
-# {{ org-sync-agent-name }} releases
+# {{ ad-sync-agent }} releases
 
 ## Current version {#latest-release}
 
 ### Version 0.48.0 (13/08/26) {#version0.48.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.48.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.48.0}
 
 * Added support for authentication in AD via Windows identity (gMSA/sMSA): `use_windows_identity` for LDAP/DRSR.
 * Added an optional check of access permissions for configuration files and static credentials. The Linux and Windows installers now restrict access to the configuration.
@@ -32,7 +32,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.47.0 (10/07/26) {#version0.47.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.47.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.47.0}
 
 * Added support for getting a replication token in `dry-run` mode with `use_session_api: true` enabled.
 * Added user account validity period synchronization.
@@ -53,7 +53,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.46.0 (18/05/26) {#version0.46.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.46.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.46.0}
 
 * Added support for sending logs to {{ cloud-logging-full-name }}: `logger.cloud_logger` section with `log_group_id` specified. To enable filtering, each message additionally gets `agent_id`.
 * Added logging to Windows Event Log in the `logger.event_log` section. This feature is Windows-exclusive. On other platforms, this configuration is ignored with a warning issued.
@@ -76,7 +76,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.45.0 (27/04/26) {#version0.45.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.45.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.45.0}
 
 * Fixed issues with premature termination of `dry-run` when using `use_session_api: true`.
 * Fixed agent freezes when stopping the `password writeback` process.
@@ -98,7 +98,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.44.0 (20/04/26) {#version0.44.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.44.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.44.0}
 
 * Fixed an error that caused freezing when synchronization completed.
 
@@ -118,7 +118,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.43.0 (16/04/26) {#version0.43.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.43.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.43.0}
 
 * Added `dry-run` mode to view changes without applying them.
 * Users without a password now get a generated one when created.
@@ -139,7 +139,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.42.0 (09/04/26) {#version0.42.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.42.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.42.0}
 
 * Added the `objectSid` property for matching in the `EmployeeId` field.
 
@@ -158,9 +158,9 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.41.0 (13/03/26) {#version0.41.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.41.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.41.0}
 
-* During full synchronization, the list of group members that fall under the filter is obtained via LDAP.
+* During full synchronization, the list of group members covered by the filter is obtained via LDAP.
 
 {% cut "Checksums" %}
 
@@ -177,7 +177,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.40.0 (10/03/26) {#version0.40.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.40.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.40.0}
 
 * Now you can get an IAM token from the metadata service to access the {{ org-full-name }} API.
 
@@ -196,7 +196,7 @@ description: This page presents sync agent releases and their updates.
 
 ### Version 0.39.0 (27/02/26) {#version0.39.0}
 
-#### Changes to {{ org-sync-agent-name }} {#changes-version0.39.0}
+#### Changes to {{ ad-sync-agent }} {#changes-version0.39.0}
 
 * Added the `use_session_api` setting to run multiple agents simultaneously.  
 

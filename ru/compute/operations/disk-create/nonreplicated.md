@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать нереплицируемый диск
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 Вы можете создать отдельный [нереплицируемый диск](../../concepts/disk.md#nr-disks), либо добавить его в [группу размещения дисков](../../concepts/disk-placement-group.md).
 

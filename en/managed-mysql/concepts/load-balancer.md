@@ -21,4 +21,6 @@ The network traffic regulation schema for the cluster using a load balancer is s
 
 ## Balancing policies {#balancing-policies}
 
-{% include [policies info](../../_includes/mdb/balancing-policies.md) %}
+Using balancing policies, you can configure a balancer's behavior when distributing queries across cluster replicas. A policy is specified for all types of target connections to replicas when creating a cluster.
+
+{{ mmy-name }} supports the `Round Robin` policy, i.e., selecting a replica according to the [Round-Robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) policy.

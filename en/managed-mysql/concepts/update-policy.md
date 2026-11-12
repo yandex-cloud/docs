@@ -13,10 +13,9 @@ In {{ mmy-name }}, each major {{ MY }} version has a lifecycle of 8–10 years c
 
 | Version stage | Description and key [actions](#actions-available) | Approximate lifetime^1^   | Current value                           |
 |:------|:-------------|:----------------------------|:-------------------------------------------|
-| Current (`Actual`) | The latest [LTS](https://en.wikipedia.org/wiki/Long-term_support) version with active support. **Recommended for all new projects**. | Years 1 through 5 | {{ mdb-versions.mysql-version.actual }}    |
-| `Supported`  | Previous LTS version with Percona `Extended Support`. Fully supported; allows creating new clusters. | Years 6 through 8 | {{ mdb-versions.mysql-version.supported }} |
+| `Supported`  | Version with active support. The latest [LTS](https://en.wikipedia.org/wiki/Long-term_support) version is **recommended for all new projects**; previous LTS versions are supported through `Extended Support` from Percona. | Years 1 through 8 | {{ mdb-versions.mysql-version.supported }} |
 | `Deprecated` | Version approaching the end of Percona `Extended Support`. Creating new clusters is blocked. The existing clusters operate normally. | Year 9 | N/A    |
-| `Legacy Extra Paid`^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. | Year 10 | N/A   |
+| `Legacy Extra Paid`^2^ | Version that has no official support. Clusters operate normally, but are billed at an increased rate. Technical support is limited. The service creates a forced cluster upgrade task. The customer can cancel it by [contacting]({{ link-console-support }}) support. | Year 10 | N/A   |
 | End of Life (`EOL`)^2^ | Discontinued version. No technical support is provided. Clusters operate normally, but are billed at an increased rate. | Year 11 onward | N/A   |
 
 ^1^ The periods are relative to the major version release date. The exact status change dates are officially announced by the service.
@@ -26,12 +25,12 @@ In {{ mmy-name }}, each major {{ MY }} version has a lifecycle of 8–10 years c
 
 Depending on {{ MY }} version status, the following operations are available for clusters:
 
-| Action | Current (`Actual`) | `Supported` | `Deprecated` | Legacy (`Legacy`) | `EOL` |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
-| Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
-| Use of existing clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Possibility of upgrading to a new major version | not applicable | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| Action | `Supported` | `Deprecated` | `Legacy Extra Paid` | End of Life (`EOL`) |
+| :--- | :---: | :---: | :---: | :---: |
+| Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
+| Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
+| Use of existing clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Possibility of upgrading to a new major version | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 
 {% note warning %}
 
@@ -43,7 +42,7 @@ Long-term backups (`LTR`) of a {{ MY }} version close to `EOL` may not be availa
 
 The {{ MY }} versioning policy is based on the following key principles:
 
-* **Support duration**. Each LTS version remains `Actual` or `Supported` for eight years thanks to [Percona Extended Support](https://www.percona.com/release-lifecycle-overview/#lifecycle).
+* **Support duration**. Each LTS version remains `Supported` for eight years thanks to [Percona Extended Support](https://www.percona.com/release-lifecycle-overview/#lifecycle).
 * **Incremental deprecation**. In its ninth year, the version gets the `Deprecated` status, making it impossible to create new clusters.
 * **Increased cost**^2^. In its tenth year, the version gets the `Legacy Extra Paid` status. Clusters are subject to extra pay; support is limited.
 * **End of life**^2^. After the `EOL` date (eleventh year and onwards), no support is provided any longer. Backup recovery is not possible. Clusters are operational but subject to extra pay.
@@ -53,7 +52,7 @@ The {{ MY }} versioning policy is based on the following key principles:
 ## Update policy {#update-policy}
 
 * **Minor updates** (within the major version, e.g., 8.0.34 → 8.0.35) are installed **automatically** as part of maintenance performed during the cluster's stated [maintenance window](./maintenance.md#maintenance-window) or at the customer's request. These updates contain security and bug fixes. A minor update requires a short, successive reboot of the cluster hosts.
-* **Major updates** (changes of the major version, e.g., 8.0.x → 8.1.x) take place when the version goes from `Deprecated` to `Legacy`. The scheduled update appears in the {{ yandex-cloud }} interface ahead of time and can be canceled by [contacting]({{ link-console-support }}) support. The `EOL` versions cannot be updated to a new major version. **We highly recommend you to update before the EOL date**.
+* **Major updates** (changes of the major version, e.g., 8.0.x → 8.1.x) take place when the version goes from `Deprecated` to `Legacy Extra Paid`. The scheduled update appears in the {{ yandex-cloud }} interface ahead of time and can be canceled by [contacting]({{ link-console-support }}) support. The `EOL` versions cannot be updated to a new major version. **We highly recommend you to update before the EOL date**.
 
 {% note info "Aspects of Percona Server for {{ MY }}" %}
 
@@ -66,7 +65,7 @@ Thanks to `Extended Support` by Percona, {{ MY }} versions get security updates 
 {{ mmy-name }} provides these early upcoming update notifications:
 
 * When your {{ MY }} version turns `Deprecated` (limitations start to apply), the service will notify you 90 days in advance that you will no longer be able to create new clusters with your current {{ MY }} version, and suggest that your schedule an upgrade of your existing clusters.
-* When your {{ MY }} version turns `Legacy` (increased rate starts to apply), the service will notify you 90 days in advance of the upcoming billing rate increase and issue the _end of support_ warning.
+* When your {{ MY }} version turns `Legacy Extra Paid` (increased rate starts to apply), the service will notify you 90 days in advance of the upcoming billing rate increase and issue the _end of support_ warning.
 
 Users will be receiving such notifications according to their [notification settings](../../console/operations/update.md#notifications).
 

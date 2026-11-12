@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить группу виртуальных машин
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 После создания группы виртуальных машин вы можете:
 
 * [Изменить имя и описание](#change-name).

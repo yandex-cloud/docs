@@ -343,7 +343,7 @@ If you enabled public access to the cluster but cannot access it from the inter
         {{ yc-mdb-gp }} cluster update --help
         ```
 
-    1. Run the command after providing the list of settings you want to update:
+    1. Run the following command with the list of settings you want to update:
 
         
         ```bash
@@ -355,6 +355,7 @@ If you enabled public access to the cluster but cannot access it from the inter
                                 `day=<day_of_week>,`
                                 `hour=<sequence_number_of_hour_interval> \
             --websql-access=<allow_access_from_{{ websql-name }}> \
+            --cloud-storage-enable=<use_hybrid_storage> \
             --deletion-protection
         ```
 
@@ -377,6 +378,12 @@ If you enabled public access to the cluster but cannot access it from the inter
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+    * `--cloud-storage-enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
+
+        Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+        {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -567,9 +574,11 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable hybrid storage after you save your cluster settings.
+            Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
     1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -696,11 +705,13 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable hybrid storage after you save your cluster settings.
+            Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

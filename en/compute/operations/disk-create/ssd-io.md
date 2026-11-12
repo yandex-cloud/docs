@@ -5,8 +5,6 @@ description: Follow this guide to create an ultra high-speed network storage wit
 
 # Creating an ultra high-speed network storage with three replicas (SSD)
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 You can create an [ultra high-speed network storage](../../concepts/disk.md#nr-disks) with three replicas (SSD), which is a high-performance SSD offering the same speed as a non-replicated SSD, plus redundancy.
 

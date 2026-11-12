@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить группу виртуальных машин по спецификации в формате YAML
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 Чтобы изменить [группу виртуальных машин](../../concepts/instance-groups/index.md) по [спецификации](../../concepts/instance-groups/specification.md) в формате YAML:
 
 {% list tabs group=instructions %}

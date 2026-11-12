@@ -1,7 +1,7 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+With {{ data-transfer-full-name }}, you can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }}. Follow these steps:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Set up your transfer](#prepare-transfer).
@@ -34,9 +34,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
-    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster in any suitable configuration with publicly accessible hosts.
+    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster using any suitable configuration with publicly accessible hosts.
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) for connecting to the {{ mos-name }} target cluster.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
     1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
@@ -59,7 +59,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Source endpoint.
         * Transfer.
 
-    1. In the `postgresql-to-opensearch.tf` file, specify the values of the following variables:
+    1. In `postgresql-to-opensearch.tf`, specify the values of the following variables:
 
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `pg_password`: {{ PG }} user password.
@@ -69,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -110,7 +110,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
-1. Create a source endpoint and transfer:
+1. Create a source endpoint and set up a transfer:
 
     {% list tabs group=instructions %}
 
@@ -147,7 +147,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          The transfer will be activated automatically upon creation.
+          Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
@@ -170,10 +170,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

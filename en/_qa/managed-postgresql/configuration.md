@@ -26,4 +26,6 @@ Once a database is created, you cannot change its locale settings. However, you 
 
 #### Can I change the database owner? {#db-owner}
 
-Once a database is created, you cannot change its owner. Changing the `owner` setting after [creating a database with {{ TF }}](../../managed-postgresql/operations/databases.md#add-db) will trigger database recreation, resulting in data loss.
+Yes, you can [change](../../managed-postgresql/operations/databases.md#change-db-owner) the owner of an existing database without having to recreate it or lose any data. The database name, cluster FQDN, port, and other connection parameters remain unchanged.
+
+It is possible to change the owner only of the database itself. The owners of objects existing within the database (tables, sequences, views, functions, charts, including `public` ones) are not automatically reassigned. As a rule, the users on whose behalf an object was created remain its owners. To provide ownership of existing objects to a new user, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/sql-reassign-owned.html).

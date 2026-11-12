@@ -166,26 +166,23 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
   1. In the **{{ ui-key.yacloud.mdb.shard-groups.field_shard-names }}** field, select the shards to include in the group.
-  1. Optionally, add external shards to the group:
+  1. Optionally, add [external shards](../concepts/sharding.md#external-shards) to the group:
 
       1. Click **{{ ui-key.yacloud.mdb.shard-groups.button_add-external-shard }}**.
       1. Enter a name for the external shard.
 
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-      1. Specify the shard weight.
+      1. Specify the [shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
+      1. Under **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replicas }}**, configure the external shard replica settings:
 
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
-      1. Under **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}**, configure the external shard replica settings:
-
-          * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-host }}** field, specify the host's FQDN or IP address.
+          * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-host }}** field, specify the host FQDN or IP address.
 
             Learn how to get a host FQDN in [this guide](connect/fqdn.md#get-fqdn).
 
           * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-port }}** field, specify the {{ CH }} connection port.
           * Enable **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-secure }}** to use SSL/TLS encryption when connecting to the host.
-          * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-user }}** and **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-password }}** fields, specify the username and password for access to the {{ CH }} database.
+          * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-user }}** and **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-password }}** fields, specify the username and password for accessing the {{ CH }} database.
           * In the **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-priority }}** field, specify the host priority.
 
             The host priority is used to balance connections to the shard. The default value is `0`. A lower value assigns a higher priority when selecting a host for shard connections.
@@ -237,10 +234,8 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-    * `--weight`: Shard weight within a group.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+    * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
+    
   * `--external-shard-replica`: External shard replica settings. This parameter is specified separately for each replica and has the following structure:
 
     * `shard`: Name of the external shard the replica belongs to.
@@ -304,10 +299,7 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
          {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-       * `--weight`: Shard weight within a group.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+       * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
        * `replica`: External shard replica settings. This section is specified separately for each replica and includes the following parameters:
 
          * `host`: Host FQDN or IP address.
@@ -393,16 +385,13 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      * `description`: Shard group description.
      * `shardNames`: List of shards to include in the new group.
-     * `externalShards`: List of external shards to include in the new group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+     * `externalShards`: List of [external shards](../concepts/sharding.md#external-shards) to include in the new group, one per shard. Each element has the following structure:
 
         * `name`: Shard name.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `--weight`: Shard weight within a group.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
         * `replicas`: Shard host settings:
 
           * `host`: Host FQDN or IP address.
@@ -484,16 +473,13 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      * `description`: Shard group description.
      * `shard_names`: List of shards to include in the new group.
-     * `external_shards`: List of external shards to include in the new group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+     * `external_shards`: List of [external shards](../concepts/sharding.md#external-shards) to include in the new group, one per shard. Each element has the following structure:
 
         * `name`: Shard name.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `--weight`: Shard weight within a group.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
         * `replicas`: Shard host settings:
 
           * `host`: Host FQDN or IP address.
@@ -524,26 +510,23 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
   1. In the **{{ ui-key.yacloud.mdb.shard-groups.field_shard-names }}** field, select the shards to include in the group.
   1. Under **{{ ui-key.yacloud.mdb.shard-groups.section_external-shards }}**:
 
-      * Edit the shard that needs to be edited:
+      * Update the settings of the shard in question:
 
           * External shard name.
 
             {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-          * Shard weight.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+          * [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
           * Shard replica settings:
 
             * Host (FQDN or IP address).
               
               Learn how to get a host FQDN in [this guide](connect/fqdn.md#get-fqdn).
 
-            * Port for connection to {{ CH }}.
-            * Secure connection. 
+            * Port for connecting to {{ CH }}.
+            * Secure connection.
 
-              If **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-secure }}** is enabled, SSL/TLS encryption is used for connection to the host.
+              If **{{ ui-key.yacloud.mdb.shard-groups.field_external-shard-replica-secure }}** is enabled, SSL/TLS encryption is used when connecting to the host.
 
             * Username and password for access to the {{ CH }} database.
             * Host priority.
@@ -582,21 +565,19 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
   Where:
 
   * `--cluster-name`: Cluster name you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).  
-  * `--name`: Name of the edited shard group, which you can get with the [list of shard groups in the cluster](#list-shard-groups).
+  * `--name`: Name of the shard group being updated. You can get it with the [list of shard groups in the cluster](#list-shard-groups).
   * `--description`: New description for the shard group.
   * `--shards`: New list of cluster shard names. The new list will override the current one, so make sure it includes all the required shards.
 
     You can get the shard names with the [list of shards in the cluster](shards.md#list-shards).
 
-  * `--external-shard`: External shard settings. This parameter is specified separately for each external shard and has the following structure:
+  * `--external-shard`: [External shard](../concepts/sharding.md#external-shards) settings. This parameter is specified separately for each external shard and has the following structure:
 
     * `name`: Shard name.
 
       {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-    * `--weight`: Shard weight within a group.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
+    * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
 
     {% note warning %}
 
@@ -661,16 +642,13 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
 
      * `description`: Shard group description.
      * `shard_names`: List of cluster shard names.
-     * `external_shard`: External shard settings. This section is specified separately for each external shard and includes the following parameters:
+     * `external_shard`: [External shard](../concepts/sharding.md#external-shards) settings. This section is specified separately for each external shard and includes the following parameters:
 
        * `name`: Shard name.
 
          {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-       * `--weight`: Shard weight within a group.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+       * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
        * `replica`: External shard replica settings. This section is specified separately for each replica and includes the following parameters:
 
          * `host`: Host FQDN or IP address.
@@ -755,16 +733,13 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `updateMask`: Comma-separated string of settings to update.
      * `description`: New description for the shard group.
      * `shardNames`: New list of cluster shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
-     * `externalShards`: List of external shards with updated settings to include in the group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+     * `externalShards`: List of [external shards](../concepts/sharding.md#external-shards) with updated settings to include in the group, one per shard. Each element has the following structure:
 
         * `name`: Shard name.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `--weight`: Shard weight within a group.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
         * `replicas`: Shard host settings:
 
           * `host`: Host FQDN or IP address.
@@ -850,16 +825,13 @@ You can arrange several [shards](../concepts/sharding.md) of a {{ CH }} cluster 
      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
      * `description`: New description for the shard group.
      * `shard_names`: New list of cluster shards to include in the group. To learn shard names, get the [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
-     * `external_shards`: List of external shards with updated settings to include in the group. An external shard is a shard from another {{ mch-name }} cluster or a custom {{ CH }} installation. one per shard. Each element has the following structure:
+     * `external_shards`: List of [external shards](../concepts/sharding.md#external-shards) with updated settings to include in the group, one per shard. Each element has the following structure:
 
         * `name`: Shard name.
           
           {% include [shard-groups-name-limits](../../_includes/mdb/mch/shard-groups-name-limits.md) %}
 
-        * `--weight`: Shard weight within a group.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/ext-shard-priority-weight.md) %}
-
+        * `weight`: [Shard weight](../concepts/sharding.md#shard-weight) within a group. The default value is `100`.
         * `replicas`: Shard host settings:
 
           * `host`: Host FQDN or IP address.

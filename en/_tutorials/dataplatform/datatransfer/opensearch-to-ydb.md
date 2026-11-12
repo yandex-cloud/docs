@@ -1,7 +1,7 @@
 # Migrating data from {{ mos-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} cluster to a {{ ydb-name }} database.
+{{ data-transfer-name }} enables you to transfer data from a {{ mos-name }} cluster to a {{ ydb-name }} database.
 
 To transfer data:
 
@@ -23,8 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+    * In serverless mode, you pay for data operations, stored data volume, and backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 
 ## Set up your infrastructure {#prepare-infrastructure}
@@ -33,15 +33,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * Manually {#manual}
 
-    1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
+    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) cluster using any suitable configuration with publicly accessible hosts.
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
-    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) named `ydb1` of your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../../ydb/operations/manage-databases.md) named `ydb1` using any configuration you prefer.
 
     
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `ydb-account` with the `ydb.editor` role. The transfer will use it to access the database.
@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [opensearch-to-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-ydb/blob/main/opensearch-to-ydb.tf) configuration file to the same working directory.
+    1. Download the [opensearch-to-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-ydb/blob/main/opensearch-to-ydb.tf) configuration file to your current working directory.
 
         This file describes:
 
@@ -66,13 +66,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Target endpoint.
         * Transfer.
 
-    1. In the `opensearch-to-ydb.tf` file, specify the following settings:
+    1. In `opensearch-to-ydb.tf`, specify the following settings:
 
         * `mos_version`: {{ OS }} version.
         * `mos_password`: {{ OS }} database owner password.
         * `profile_name`: Name of your CLI profile. 
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -156,7 +156,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and set up the transfer:
 
     {% list tabs group=instructions %}
 
@@ -176,12 +176,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Using {{ TF }} {#tf}
 
-        1. In the `opensearch-to-ydb.tf` file, specify the following settings:
+        1. In `opensearch-to-ydb.tf`, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a target endpoint and transfer.
+            * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -226,9 +226,9 @@ Before deleting any resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To reduce resource usage, delete the resources you no longer need:
 
-1. Delete the resources depending on how you created them:
+1. Delete the resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

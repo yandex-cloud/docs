@@ -19,7 +19,7 @@ To implement distributed storage of table data in {{ mch-name }}, you need to cr
 
 Each local table stores some of the rows from the distributed dataset. The distributed table routes queries to the local tables but stores no data.
 
-The system distributes data across shards using a _sharding key_. During an `INSERT` query, the distributed table calculates the sharding key value and routes the query to the relevant local table. The sharding key is defined when creating the distributed table. Examples of sharding keys include table fields, calculated expressions, and random distribution functions.
+The distribution of table data across shards is determined by the _sharding key_ and the [shard weight](#shard-weight). During an `INSERT` query, the distributed table calculates the sharding key value and, considering the weight of each shard, routes the query to the relevant local table. The sharding key is defined when creating the distributed table. Examples of sharding keys include table fields, calculated expressions, and random distribution functions.
 
 Choosing the right sharding key is important because it controls:
 * How evenly your data is distributed across shards.
@@ -37,16 +37,22 @@ For examples of different sharding methods, see [{#T}](../tutorials/sharding.md)
 
 ## External shards {#external-shards}
 
-You can add new shards of external {{ CH }} clusters (so called _external shards_) to the shard groups of your {{ mch-name }} cluster. You can use such shards to solve the following tasks:
+You can add new shards of external {{ CH }} clusters (so called _external shards_) to shard groups of your {{ mch-name }} cluster. You can use such shards to solve the following tasks:
 
-* Running distributed queries to an external cluster. To do this, create a shard group consisting only of external shards.
-* Running distributed queries to a local cluster and to an external one simultaneously. To do this, create a shard group consisting of local and external shards.
+* Running distributed queries to an external cluster. To do this, create a shard group and consisting only of external shards.
+* Running distributed queries to the local and external clusters simultaneously. To do this, create a shard group and consisting of local and external shards.
 
 When running `INSERT` and `SELECT` queries to a distributed table, external shards take part in query processing under the same rules as local cluster shards.
 
 For a shard group with external shards, DDL queries are not supported.
 
 You can add external shards when [creating](../operations/shard-groups.md#create-shard-group) or [updating](../operations/shard-groups.md#update-shard-group) a shard group.
+
+## Shard weight {#shard-weight}
+
+If shards with different weights are involved in the distribution, data is distributed among them in proportion to their weights. To determine what portion of the added rows will end up on a given shard, the shard's weight is divided by the total weight of all shards. For example, if one shard has a weight of `100` and another has a weight of `300`, then 1/4 of all added rows will be sent to the first shard, and 3/4 to the second. Thus, the greater the weight of a shard, the more data it will contain.
+
+You can set the weight of a local shard when [creating](../operations/shards.md#add-shard) or [modifying](../operations/shards.md#shard-update1) the shard, and the weight of an external shard when [creating](../operations/shard-groups.md#create-shard-group) or [modifying](../operations/shard-groups.md#update-shard-group) a shard group.
 
 ## Sharding management in {{ mch-name }} {#shard-management}
 

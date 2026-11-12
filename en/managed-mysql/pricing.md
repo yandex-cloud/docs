@@ -88,7 +88,7 @@ The minimum billing unit is one minute (for example, 1.5 minutes of host operati
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
@@ -131,18 +131,6 @@ Calculation for the storage cost and total cost:
 {% include [usd-mysql-storage](../_pricing_examples/managed-mysql/usd-storage.md) %}
 
 
-
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../_includes/mdb/cvos.md) %}
-
-{{ mmy-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Storage size and internet traffic cannot currently be reserved via CVoS.
-
-{% endnote %}
 
 
 ## Prices for the Russia region {#prices}

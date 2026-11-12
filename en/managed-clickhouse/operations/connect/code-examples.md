@@ -6,10 +6,10 @@ description: These examples show you how to connect to a {{ CH }} cluster databa
 # Code examples for connecting to a {{ CH }} cluster
 
 
-You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
+You can only connect to public {{ CH }} cluster hosts using an [SSL certificate](index.md#get-ssl-cert). In the examples below, it is assumed that the `{{ crt-local-file-root }}` certificate:
 
-* Located in the `{{ crt-local-dir }}` directory (for Ubuntu).
-* Imported to the trusted root certificate store (for Windows).
+* Is located in the `{{ crt-local-dir }}` folder (for Ubuntu).
+* Is imported to the Trusted Root Certificate store (for Windows).
 
 Connecting without SSL certificates is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
@@ -546,6 +546,8 @@ For how to get a host FQDN, see [this guide](fqdn.md).
 isql -v ClickHouse
 ```
 
+If you encounter issues when connecting via SSL, [install the intermediate SSL certificates](index.md#get-ssl-intermediate-cert).
+
 Once connected to the DBMS, run the `SELECT version();` command.
 
 ### Windows {#odbc-windows}
@@ -581,6 +583,8 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 1. Click **OK**.
 1. Connect to the {{ CH }} cluster via ODBC, e.g., using Microsoft Excel.
+
+If you encounter issues when connecting via SSL, [install the intermediate SSL certificates](index.md#get-ssl-intermediate-cert).
 
 ## PHP {#php}
 

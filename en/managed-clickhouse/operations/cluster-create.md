@@ -95,7 +95,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+              The default shard weight is `100`.
+                
+              For more details on how shard weight affects data distribution, see [this section](../concepts/sharding.md#shard-weight).
 
           * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
 
@@ -246,9 +248,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       Where:
 
       * `--environment`: Cluster environment, `prestable` or `production`.
-      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
-
-        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and [weight](../concepts/sharding.md#shard-weight). The default shard weight is `100`.
 
         To create a cluster with multiple shards from the outset, specify the `--shard` flag as many times as needed. If you do not specify this flag, the new cluster will have a single shard named `shard1`.
 
@@ -566,9 +566,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the [shard weight](../concepts/sharding.md#shard-weight). The default shard weight is `100`.
 
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
@@ -873,9 +871,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `shardSpecs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
 
                 * `name`: Shard name.
-                * `weight`: Shard weight.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
                 * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
@@ -1094,7 +1090,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure:
 
                 * `name`: Database name.
-                * `engine`: Database engine. The possible values are:
+                * `engine`: Database engine. Its possible values are:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -1124,9 +1120,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `shard_specs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
 
                 * `name`: Shard name.
-                * `weight`: Shard weight.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
                 * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
@@ -1213,7 +1207,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** and its **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
 
-               {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                The default shard weight is `100`.
+                
+                For more details on how shard weight affects data distribution, see [this section](../concepts/sharding.md#shard-weight).
 
             * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** of shard hosts:
 
@@ -1361,9 +1357,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
       Where:
 
       * `--environment`: Cluster environment, `prestable` or `production`.
-      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and weight.
-
-        {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+      * `--shard`: [Shard](../concepts/sharding.md) properties, such as name and [weight](../concepts/sharding.md#shard-weight). The default shard weight is `100`.
 
         To create a cluster with multiple shards from the outset, specify the `--shard` flag as many times as needed. If you do not specify this flag, the new cluster will have a single shard named `shard1`.
 
@@ -1670,10 +1664,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
-
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the [shard weight](../concepts/sharding.md#shard-weight). The default shard weight is `100`.
+       
        * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
 
           * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
@@ -1991,9 +1983,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `shardSpecs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
 
                 * `name`: Shard name.
-                * `weight`: Shard weight.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
                 * `configSpec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 
@@ -2227,7 +2217,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `database_specs`: Database settings as an array of elements, one per database. Each element has the following structure:
 
                 * `name`: Database name.
-                * `engine`: Database engine. The possible values are:
+                * `engine`: Database engine. Its possible values are:
 
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -2255,9 +2245,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `shard_specs`: Shard settings as an array of elements, one per shard. If you skip this section in the request, the new cluster will have a single shard named `shard1`. You can specify the following settings:
 
                 * `name`: Shard name.
-                * `weight`: Shard weight.
-
-                   {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+                * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
                 * `config_spec.clickhouse`: Shard host configuration, i.e., including host class, storage settings, and DBMS settings. If you skip the shard host configuration, it will be inherited from the cluster configuration.
 

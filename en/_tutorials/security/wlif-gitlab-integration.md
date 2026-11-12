@@ -175,7 +175,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 * [{{ lockbox-name }}](../../lockbox/operations/secret-delete.md) secret
 * [Service account](../../iam/operations/sa/delete.md)

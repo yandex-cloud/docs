@@ -135,7 +135,11 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 {% endlist %}
 
-To start your {{ managed-k8s-name }} cluster, [increase the quotas](../../managed-kubernetes/concepts/limits.md).
+If out of quotas, [request an increase]({{ link-console-quotas }}). Check both the {{ managed-k8s-name }} and [{{ compute-name }}](../../compute/concepts/limits.md) quotas.
+
+These checks are also useful where your cluster remains `STARTING` for a long time after being created or started. Also check the roles granted to the [service account for cluster resources](../../managed-kubernetes/security/index.md#sa-annotation). It must have the `{{ roles.k8s.clusters.agent }}` role; for using public IP addresses, `{{ roles-vpc-public-admin }}`.
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.
 
 #### After changing the node subnet mask in the cluster settings, the number of pods per node is not as expected {#count-pods}
 
@@ -197,11 +201,17 @@ Get the list of CoreDNS pods and their statuses:
 kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 ```
 
-Make sure all pods have the `Running` status.
+Make sure all pods have the `Running` status. If the status is different or DNS requests continue to fail, check the logs:
+
+```bash
+kubectl logs -l k8s-app=kube-dns -n kube-system --all-containers=true
+```
+
+For further diagnostics, follow the [{{ k8s }} guide on checking DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/).
 
 ##### Make sure your cluster has enough CPU resources available {#check-cpu}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Locate the {{ managed-k8s-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** tab and click the name of any {{ managed-k8s-name }} node.
@@ -215,6 +225,8 @@ Set up [DNS autoscaling based on the {{ managed-k8s-name }} cluster size](../../
 ##### Set up local DNS caching {#node-local-dns}
 
 [Set up NodeLocal DNS Cache](../../managed-kubernetes/tutorials/node-local-dns.md). For optimal settings, [install NodeLocal DNS Cache from {{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results. Attach the CoreDNS logs and examples of failed DNS requests.
 
 #### Creating a node group with the CLI results in a parameter conflict. How do I fix it? {#conflicting-flags}
 
@@ -339,15 +351,15 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 {{ managed-k8s-name }} cluster time may not match the time of other resources, such as VMs, if they use different time synchronization sources. For example, a {{ managed-k8s-name }} cluster synchronizes with a time server (by default), whereas a VM synchronizes with a private or public NTP server.
 
-**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. Proceed as follows:
+**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. Follow these steps:
 
-1. Specify the NTP server addresses in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of the master subnets.
+1. Specify the NTP server addresses in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of the subnets housing the master and worker nodes. If the worker nodes reside in other subnets, repeat the configuration procedure for those subnets.
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select a folder.
+     1. In the [management console]({{ link-console-main }}), select the folder.
      1. [Navigate]({{ link-console-main }}/link/managed-kubernetes) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the name of the {{ k8s }} cluster.
      1. Under **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}**, click the subnet name.
@@ -444,6 +456,59 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
    {% endnote %}
 
+For worker nodes running `systemd-timesyncd`, time sources can also be configured via a DaemonSet. This option requires a privileged container and modifies the host configuration. Before proceeding, check the time synchronization service being used.
+
+{% cut "Example DaemonSet for configuring systemd-timesyncd" %}
+
+In `NTP_SERVERS`, specify NTP servers accessible from the nodes. The example creates a separate configuration file, so subsequent runs do not depend on whether the main file contains a commented-out `NTP=` line.
+
+```yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ntp-configurator
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: ntp-configurator
+  template:
+    metadata:
+      labels:
+        app: ntp-configurator
+    spec:
+      hostPID: true
+      hostNetwork: true
+      initContainers:
+        - name: configure-ntp
+          image: ubuntu:22.04
+          env:
+            - name: NTP_SERVERS
+              value: "<NTP_server_1> <NTP_server_2>"
+          command:
+            - /bin/bash
+            - -ec
+            - |
+              nsenter --mount=/proc/1/ns/mnt -- /bin/sh -ec '
+                mkdir -p /etc/systemd/timesyncd.conf.d
+                printf "[Time]\nNTP=%s\n" "$1" > /etc/systemd/timesyncd.conf.d/90-custom-ntp.conf
+                systemctl restart systemd-timesyncd
+                systemctl is-active systemd-timesyncd
+              ' sh "$NTP_SERVERS"
+          securityContext:
+            privileged: true
+      containers:
+        - name: sleep
+          image: ubuntu:22.04
+          command: ["/bin/sleep", "infinity"]
+```
+
+A DaemonSet applies settings only to nodes where it can be scheduled. Deleting a DaemonSet does not remove the created file from the nodes. To revert the configuration, delete the `/etc/systemd/timesyncd.conf.d/90-custom-ntp.conf` file and restart `systemd-timesyncd` on the affected nodes.
+
+{% endcut %}
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results. Specify the NTP servers used and the exact time discrepancy.
+
 #### What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service? {#deleted-loadbalancer-service}
 
 You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
@@ -460,3 +525,145 @@ Please login as the user "NONE" rather than the user "root".
 To fix the issue, [recreate](../../compute/operations/index.md#vm-create) the VM instance, specifying `disable_root: false` in the metadata for the `user-data` key.
 
 {% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}
+
+#### What should I do if I get the `node(s) had untolerated taint` error? {#untolerated-taint}
+
+The error means that a `taint` is set on the node, for which the pod does not have a corresponding `toleration`. The taint effect determines the behavior: `NoSchedule` prevents new pods from being scheduled, `NoExecute` also evicts already running pods, and `PreferNoSchedule` applies a soft restriction.
+
+Check the node taints and pod tolerations:
+
+```bash
+kubectl describe node <node_name>
+kubectl describe pod <pod_name> --namespace <namespace>
+```
+
+If the pod must run on this node, add the corresponding toleration to the pod’s `spec.tolerations`. If the taint is no longer required, remove it or change its effect to `PreferNoSchedule`. For more details on `taint` and `toleration`, see [this Kubernetes guide](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
+#### Why does the pod remain in the Pending status? {#pod-pending}
+
+View the pod description:
+
+```bash
+kubectl describe pod <pod_name> --namespace <namespace>
+```
+
+Messages under `Events` help determine the cause, e.g., insufficient resources, placement restrictions, or a volume mounting issue. The next steps depend on the error message.
+
+If the information is insufficient, [create a support ticket]({{ link-console-support }}). Specify the cluster ID and attach the pod description. If the pod is already scheduled on a node, attach the `kubelet`, kernel, and system logs from that node. You can use a [diagnostic script](https://github.com/yandex-cloud/yc-architect-solution-library/tree/main/yc-k8s-capture-nodes-logs) to collect the logs.
+
+#### What to do if I get a `DEADLINE_EXCEEDED` error when exporting metrics? {#metrics-deadline-exceeded}
+
+When exporting {{ managed-k8s-name }} metrics via the {{ monitoring-name }} API, the request may fail with a `504` code and a `DEADLINE_EXCEEDED` message. One possible reason is a large volume of metrics, causing your request to time out.
+
+Reduce the data volume using the `selectors` parameter. For example, in the {{ prometheus-name }} configuration, specify the namespace:
+
+```yaml
+scrape_configs:
+  - job_name: yc-monitoring-export
+    metrics_path: /monitoring/v2/prometheusMetrics
+    params:
+      folderId:
+        - '<folder_ID>'
+      service:
+        - managed-kubernetes
+      selectors:
+        - 'namespace=<namespace>'
+    bearer_token: '<IAM_token>'
+```
+
+This is a snippet of the metrics collection configuration: keep the server address settings from your configuration. For pod metrics, you can also use a name mask, e.g., `pod=app*`. You can learn more about the {{ monitoring-name }} query language [here](../../monitoring/concepts/querying.md).
+
+#### What to do if HPA does not receive metrics? {#hpa-metrics}
+
+If HPA reports `FailedGetResourceMetric` or requests to `metrics.k8s.io` time out, check the [cluster security groups](../../managed-kubernetes/operations/connect/security-groups.md#apply) and the resources of the node running your Metrics Server.
+
+If this node does not have enough resources, migrate the Metrics Server pod to another node:
+
+1. Locate the pod name and node:
+
+   ```bash
+   kubectl get pods -n kube-system -o wide | grep metrics-server
+   ```
+
+1. Make sure that another node has enough resources and meets the pod placement rules. Prevent new pods from being scheduled on the original node and delete the Metrics Server pod:
+
+   ```bash
+   kubectl cordon <original_node>
+   kubectl delete pod <metrics-server_pod_name> -n kube-system
+   ```
+
+   The controller will create a new pod. Until it starts, metrics may be unavailable.
+
+1. Check the new pod’s readiness and the node it is placed on:
+
+   ```bash
+   kubectl get pods -n kube-system -o wide | grep metrics-server
+   ```
+
+1. After the pod starts, allow pod scheduling on the original node again:
+
+   ```bash
+   kubectl uncordon <original_node>
+   ```
+
+   If the migration fails, also uncordon the node before further diagnostics.
+
+If the error persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the name of the affected pod, and attach the output of `kubectl describe hpa --namespace <namespace>`.
+
+#### What to do if mounting a volume to a pod times out? {#volume-mount-timeout}
+
+When mounting a volume, you may get the following error:
+
+```text
+Unable to attach or mount volumes: timed out waiting for the condition
+```
+
+Check the pod and PVC events to determine the cause:
+
+```bash
+kubectl describe pod <pod_name> --namespace <namespace>
+kubectl describe pvc <PVC_name> --namespace <namespace>
+```
+
+If the kubelet logs contain a message about a slow file permission change, use [this guide for volumes with a large number of files](#volume-many-files).
+
+If the issue is related to attaching the disk to the node’s VM, stopping and restarting the VM may help. [Stop the VM](../../compute/operations/vm-control/vm-stop-and-start.md#stop), wait for the `STOPPED` state, then [start it](../../compute/operations/vm-control/vm-stop-and-start.md#start) again. This will interrupt the operation of pods on the node, so perform this operation during a period of minimal load.
+
+#### Why does mounting a volume with a large number of files take a long time? {#volume-many-files}
+
+If mounting times out, check the kubelet log on the node:
+
+```bash
+sudo journalctl -u kubelet --no-pager --since today
+```
+
+`If the volume has a lot of files then setting volume ownership could be slow...` indicates that changing the owner and access permissions to the volume’s files is taking a long time.
+
+If `fsGroup` is set for the pod, {{ k8s }} may recursively change permissions during mounting. For supported volumes, the `fsGroupChangePolicy: OnRootMismatch` parameter in `spec.securityContext` allows this operation to be skipped if the root directory’s permissions already match the expected ones. For more details on when this applies, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods).
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.
+
+#### What to do if nodes remain in the `RECONCILING` status for a long time? {#node-reconciling}
+
+If the `RECONCILING` status persists for more than 20 minutes, check [quota usage]({{ link-console-quotas }}) and the node status:
+
+```bash
+yc managed-kubernetes node-group list-nodes <node_group_ID> --format yaml
+```
+
+`Kubelet stopped posting node status` indicates that your kubelet has stopped reporting the node’s status. [Connect to the node over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) and check the services:
+
+```bash
+sudo systemctl status containerd kubelet
+```
+
+If the services are not working correctly, review their logs and restart the affected services:
+
+```bash
+sudo systemctl restart containerd
+sudo systemctl restart kubelet
+```
+
+Restarting may affect the node’s applications. After restarting, recheck the status of the services and the node.
+
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.

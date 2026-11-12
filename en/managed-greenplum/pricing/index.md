@@ -128,17 +128,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 
 
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../../_includes/mdb/cvos.md) %}
-
-{{ mgp-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage, web traffic, and computing resources for dedicated hosts this way.
-
-{% endnote %}
 
 
 ## Prices for the Russia region {#prices}

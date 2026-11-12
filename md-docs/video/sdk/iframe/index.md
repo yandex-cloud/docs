@@ -23,28 +23,24 @@
 
 ## Инициализация SDK {#initialize-sdk}
 
-Для управления плеером через JavaScript необходимо получить ссылку на iframe и использовать метод `postMessage` для отправки команд:
+Для управления плеером через JavaScript получите ссылку на iframe и используйте метод `postMessage` для отправки команд. Разместите скрипт после iframe из предыдущего примера. Если создаете iframe динамически, выполняйте код после добавления элемента в DOM:
 
 ```javascript
 // Получаем ссылку на iframe
-var iframe = document.getElementById('video-player');
-var player = iframe.contentWindow;
+const iframe = document.getElementById('video-player');
+const player = iframe.contentWindow;
+const playerOrigin = new URL(iframe.src).origin;
 
 // Функция для отправки команд плееру
-function sendCommand(method, params) {
+function sendCommand(method, params = {}) {
     player.postMessage({
         method: method,
         ...params
-    }, '*');
+    }, playerOrigin);
 }
-
-// Функция для подписки на события плеера
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event) {
-        console.log('Событие плеера:', event.data.event, event.data);
-    }
-});
 ```
+
+Значение `playerOrigin` ограничивает отправку команд источником из URL плеера: протоколом, именем хоста и портом. Команды можно передавать объектами, а события от плеера приходят в виде строк JSON.
 
 ## Настройка параметров плеера {#player-parameters}
 
@@ -63,7 +59,7 @@ window.addEventListener('message', function(event) {
 
 Информация о методах управления плеером представлена в разделе [Методы плеера](player-methods.md).
 
-Пример использования методов:
+Примеры отдельных команд приведены ниже. Вызывайте их после события [`inited`](player-events.md#inited), например из обработчиков кнопок:
 
 ```javascript
 // Запустить воспроизведение
@@ -83,15 +79,28 @@ sendCommand('setVolume', { volume: 0.5 });
 
 Информация о событиях плеера представлена в разделе [События плеера](player-events.md).
 
-Пример подписки на события:
+Добавьте обработчик в тот же скрипт после объявления `player` и `playerOrigin`. Он проверяет отправителя сообщения и разбирает JSON. События, отправленные до регистрации обработчика, повторно не доставляются:
 
 ```javascript
-window.addEventListener('message', function(event) {
-    if (!event.data || !event.data.event) return;
-    
-    switch(event.data.event) {
+function onPlayerMessage(event) {
+    if (event.source !== player || event.origin !== playerOrigin || typeof event.data !== 'string') {
+        return;
+    }
+
+    let data;
+    try {
+        data = JSON.parse(event.data);
+    } catch {
+        return;
+    }
+
+    if (!data || typeof data !== 'object' || typeof data.event !== 'string') {
+        return;
+    }
+
+    switch (data.event) {
         case 'inited':
-            console.log('Плеер инициализирован, vsid:', event.data.vsid);
+            console.log('Плеер инициализирован, vsid:', data.vsid);
             break;
         case 'started':
             console.log('Воспроизведение началось');
@@ -100,11 +109,15 @@ window.addEventListener('message', function(event) {
             console.log('Воспроизведение приостановлено');
             break;
         case 'timeupdate':
-            console.log('Текущее время:', event.data.time);
+            console.log('Текущее время:', data.time);
             break;
     }
-});
+}
+
+window.addEventListener('message', onPlayerMessage);
 ```
+
+Если удаляете плеер со страницы, удалите и обработчик: `window.removeEventListener('message', onPlayerMessage)`.
 
 #### Полезные ссылки {#see-also}
 

@@ -118,17 +118,78 @@ go run connect.go
     sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so the {{ SD }} driver could use it for secure connections to cluster hosts. Set a password in the `-storepass` parameter to protect the store:
-
+1. Navigate to the SSL certificate directory:
+    
     ```bash
-    cd ~/.mongodb && \
-    sudo keytool -importcert \
-                 -alias {{ crt-alias }} -file root.crt \
-                 -keystore ssl -storepass <password> \
-                 --noprompt
+    cd ~/.mongodb
     ```
 
-    Where `storepass` is your certificate store password, including a minimum of six characters.
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so the {{ SD }} driver could use it for secure connections to cluster hosts:
+
+    {% list tabs group=operating_system %}
+
+    - Linux (Bash) {#linux}
+
+      ```bash
+      awk '/-----BEGIN CERTIFICATE-----/ {n++} n {print > "YandexCA-" n ".crt"}' \
+        < root.crt
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore YATrustStore \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 YATrustStore
+      ```
+
+    - macOS (Zsh) {#macos}
+     
+      ```bash     
+      split -p "-----BEGIN CERTIFICATE-----" \
+        root.crt \
+        YandexCA-
+
+      for cert in YandexCA-*.crt; do
+        alias=$(
+          openssl x509 -noout -text -in "${cert}" |
+          perl -ne 'next unless /Subject:/; s/.*(CN=|CN = )//; print'
+        )
+
+        year=$(openssl x509 -noout -enddate -in "${cert}" | awk '{print $(NF-1)}')
+
+        echo "Importing ${alias}-${year}"
+
+        keytool -importcert \
+                -alias "${alias}-${year}" \
+                -file "${cert}" \
+                -keystore YATrustStore \
+                -storepass <secure_store_password> \
+                -noprompt
+
+        rm "${cert}"
+      done
+
+      chmod 0655 YATrustStore
+      ```
+
+    {% endlist %}
+
+    Where `-storepass` is the certificate store password. The password must contain at least six characters.
 
 1. Create a directory for the Maven project:
 

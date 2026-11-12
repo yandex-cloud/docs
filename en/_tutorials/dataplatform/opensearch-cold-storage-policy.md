@@ -49,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnets](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
+            * [Security group](../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mos-name }} cluster.
             * {{ mos-name }} cluster.
 
         1. In the `opensearch-cold-storage-policy.tf` file, specify the following variables:
@@ -363,7 +363,7 @@ You can specify smaller values but not less than five minutes: this is the defau
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 {% list tabs group=instructions %}
 

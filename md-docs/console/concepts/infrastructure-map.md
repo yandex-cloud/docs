@@ -18,6 +18,12 @@
 * [узлы и группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group);
 * [кластеры Yandex Managed Service for PostgreSQL](../../managed-postgresql/concepts/index.md);
 * [кластеры Yandex Managed Service for ClickHouse®](../../managed-clickhouse/concepts/index.md);
+* [кластеры Yandex Managed Service for MySQL®](../../managed-mysql/concepts/index.md);
+* [кластеры Yandex Managed Service for Apache Kafka®](../../managed-kafka/concepts/index.md);
+* [кластеры Yandex Managed Service for OpenSearch](../../managed-opensearch/concepts/index.md);
+* [кластеры Yandex Managed Service for Valkey™](../../managed-valkey/concepts/index.md);
+* [кластеры Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/concepts/index.md);
+* [кластеры Yandex StoreDoc](../../storedoc/concepts/index.md);
 * [облачные сети](../../vpc/concepts/network.md#network);
 * [подсети](../../vpc/concepts/network.md#subnet);
 * [таблицы маршрутизации](../../vpc/concepts/routing.md#rt-vpc).

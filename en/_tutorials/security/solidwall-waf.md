@@ -15,7 +15,7 @@ You will connect a running application to SolidWall WAF and test traffic analysi
 
 To connect an application:
 
-1. [Prepare resources and check access](#before-you-begin).
+1. [Prepare resources and check access](#before-you-begin)
 1. [Create a SolidWall WAF profile](#create-profile).
 1. [Add the application](#create-application).
 1. [Connect domains](#connect-domains).
@@ -117,7 +117,6 @@ Within a single profile, a domain can be connected to only one application.
   1. Open the `shop` application and click **{{ ui-key.yacloud.smart-web-security.SolidWallApplicationActions.label_connect-domain_cAaqD }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.ConnectDomainSolidWallDialog.FormFieldDomainSelect.title_domain_aHoh1 }}** field, select `shop.example.com`.
   1. In the **{{ ui-key.yacloud.smart-web-security.ConnectDomainSolidWallDialog.FormFieldSecurityProfileSelect.title_security-profile_v6r5o }}** field, select a security profile with a Smart Protection rule you previously connected to the domain.
-
   1. Click **{{ ui-key.yacloud.smart-web-security.ConnectDomainSolidWallDialog.DomainsFieldArray.button_add-domain_cVb2C }}**. Select `auth.shop.example.com` and its security profile.
   1. Click **{{ ui-key.yacloud.smart-web-security.ConnectDomainSolidWallDialog.button_connect_8BBRL }}**.
 

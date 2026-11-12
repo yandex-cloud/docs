@@ -5,6 +5,51 @@ description: This section contains the {{ iam-name }} release notes.
 
 # {{ iam-full-name }} release notes
 
+## September 2026 {#september-2026}
+
+### {{ iam-name }} updates {#iam-september-2026}
+
+* Added [access policy templates](concepts/access-control/access-policies.md#supported-policies) for {{ compute-full-name }} and {{ postbox-full-name }} that restrict network interfaces, public IP addresses, serial console, virtual machine images, and email sender IP addresses.
+* Added support for [searching for subjects of different types within an organization and retrieving their attributes](concepts/subject-details.md), with filtering using Common Expression Language (CEL).
+
+### New roles {#roles-september-2026}
+
+{% cut "{{ ai-studio-full-name }}" %}
+
+#### ai.agentChannels.admin {#ai-agentchannels-admin}
+
+{% include [ai.agentChannels.admin](../_roles/ai/agentChannels/admin.md) %}
+
+#### ai.agentChannels.auditor {#ai-agentchannels-auditor}
+
+{% include [ai.agentChannels.auditor](../_roles/ai/agentChannels/auditor.md) %}
+
+#### ai.agentChannels.editor {#ai-agentchannels-editor}
+
+{% include [ai.agentChannels.editor](../_roles/ai/agentChannels/editor.md) %}
+
+#### ai.agentChannels.viewer {#ai-agentchannels-viewer}
+
+{% include [ai.agentChannels.viewer](../_roles/ai/agentChannels/viewer.md) %}
+
+#### ai.canvasAgents.admin {#ai-canvasagents-admin}
+
+{% include [ai.canvasAgents.admin](../_roles/ai/canvasAgents/admin.md) %}
+
+#### ai.canvasAgents.auditor {#ai-canvasagents-auditor}
+
+{% include [ai.canvasAgents.auditor](../_roles/ai/canvasAgents/auditor.md) %}
+
+#### ai.canvasAgents.editor {#ai-canvasagents-editor}
+
+{% include [ai.canvasAgents.editor](../_roles/ai/canvasAgents/editor.md) %}
+
+#### ai.canvasAgents.viewer {#ai-canvasagents-viewer}
+
+{% include [ai.canvasAgents.viewer](../_roles/ai/canvasAgents/viewer.md) %}
+
+{% endcut %}
+
 ## August 2026 {#august-2026}
 
 ### {{ iam-name }} updates {#iam-august-2026}
@@ -956,18 +1001,18 @@ description: This section contains the {{ iam-name }} release notes.
 
 * [Added](./concepts/authorization/api-key.md#scoped-api-keys) new scopes for API keys and the ability to assign more than one scope per service. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * [Workload identity federations](./concepts/workload-identity.md) are now [available](../overview/concepts/launch-stages.md) to all users. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
-* [Added](../iam/concepts/authorization/id-token.md) creating an ID token for service account, a special short-lived token for authentication in third-party systems. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* [Added](../iam/concepts/authorization/id-token.md) support for creating an ID token for service account, a special short-lived token for authentication in third-party systems. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 
 ## Q4 2024 {#q4-2024}
 
-* [Added](../iam/at-ref.md#data-plane-events) sending the `CreateIamToken` data event when creating an IAM token.
-* Expanded the scope of [limited lifetime API keys](./concepts/authorization/api-key.md#supported-services) to work with [{{ ydb-full-name }}](../ydb/) in compatibility mode with {{ PG }}, [{{ postbox-full-name }}](../postbox/), and [{{ serverless-containers-full-name }}](../serverless-containers/). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* [Added](../iam/at-ref.md#data-plane-events) support for sending the `CreateIamToken` data event when creating an IAM token.
+* Expanded the scope of [limited lifetime API keys](./concepts/authorization/api-key.md#supported-services) to work with [{{ ydb-full-name }}](../ydb/) in {{ PG }}, [{{ postbox-full-name }}](../postbox/), and [{{ serverless-containers-full-name }}](../serverless-containers/) compatibility mode. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * You can now see the service account's last authentication date and time. You can get the information in the `last_authenticated_at` field using the `yc iam user-account get` [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/user-account/get) command. {{ tag-cli }}
 
 ## Q3 2024 {#q3-2024}
 
 * Added [Workload Identity Federations](./concepts/workload-identity.md) that allow you to grant access to external applications without using long-lived access keys. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
-* You can now create [API keys with limited scope and validity period](./concepts/authorization/api-key.md#scoped-api-keys). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* Added the ability to create [API keys with limited scope and validity period](./concepts/authorization/api-key.md#scoped-api-keys). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * Added the [ResolveAgent](./api-ref/ServiceControl/resolveAgent.md) REST API method. {{ tag-api }}
 * Added the ability to revoke an [IAM token](./concepts/authorization/iam-token.md) using the [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/revoke-token.md). {{ tag-cli }}
 * Added `All users in organization X` and `All users in federation N` [system groups](./concepts/access-control/system-group.md).
@@ -979,7 +1024,7 @@ description: This section contains the {{ iam-name }} release notes.
 
 ## Q1 2024 {#q1-2024}
 
-* Added the [{{ sts-name }}](./concepts/authorization/sts.md) component to get temporary access keys compatible with [AWS S3 API](../storage/s3/index.md). This feature is at the [Preview stage](../overview/concepts/launch-stages.md). {{ tag-cli }} {{ tag-api }}
-* Added OAuth client authentication support by authenticating a service account token.
+* Added [{{ sts-name }}](./concepts/authorization/sts.md) to get temporary access keys compatible with the [AWS S3 API](../storage/s3/index.md). This feature is at the [Preview stage](../overview/concepts/launch-stages.md). {{ tag-cli }} {{ tag-api }}
+* Added support for authenticating OAuth clients using service account token authentication.
 * Added the option of using masked token ID for {{ at-name }} logs.
-* Improved the key rotation mechanism in [OpenID Connect](https://openid.net/).
+* Improved key rotation in [OpenID Connect](https://openid.net/).

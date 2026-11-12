@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать пустой диск с блоком большого размера
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 

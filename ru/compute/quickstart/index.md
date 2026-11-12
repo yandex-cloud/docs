@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Начало работы с {{ compute-name }}
 
-{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
-
 {% include [compute-description](../../_includes/compute/compute-description.md) %}
 
 Чтобы начать работать с сервисом, выберите подходящую инструкцию:

@@ -16,6 +16,8 @@
 * [Управление хостами ClickHouse®](hosts.md)
 * [Управление хостами ZooKeeper](zk-hosts.md)
 * [Управление хостами ClickHouse® Keeper](ck-hosts.md)
+* [Изменение сервиса координации со встроенного ClickHouse® Keeper на ClickHouse® Keeper на отдельных хостах](ck-hosts-upgrade.md)
+* [Изменение сервиса координации с ZooKeeper на ClickHouse® Keeper на отдельных хостах](zk-to-ck-migration.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)

@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration. When creating your cluster:
         * Enable public access for the hosts.
         * Enable **Data Transfer access**.
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
     1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) and [{{ GP }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups) cluster security groups allow connecting from the internet.
 
 - {{ TF }} {#tf}
@@ -46,18 +46,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [opensearch-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-greenplum/blob/main/opensearch-to-greenplum.tf) configuration file to the same working directory.
+    1. Download the [opensearch-to-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-greenplum/blob/main/opensearch-to-greenplum.tf) configuration file to your current working directory.
 
         This file describes:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ OS }} and {{ GP }} clusters.
+        * [Security group](../../../vpc/concepts/security-groups.md) and the rules allowing connections to the {{ OS }} and {{ GP }} clusters.
         * {{ mos-name }} source cluster and its `admin` account.
         * {{ GP }} target cluster in {{ mgp-name }}.
         * Transfer.
 
-    1. In the `opensearch-to-greenplum.tf` file, specify the following settings:
+    1. In `opensearch-to-greenplum.tf`, specify the following settings:
 
         * `mos_cluster_name`: {{ mos-name }} cluster name.
         * `mos_version`: {{ OS }} version.
@@ -70,7 +70,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -172,13 +172,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `opensearch-to-greenplum.tf` file, specify the following settings:
+        1. In `opensearch-to-greenplum.tf`, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -190,7 +190,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
@@ -199,7 +199,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the source {{ mos-name }} cluster has been transferred to the {{ mgp-name }} cluster:
 
-   1. [Get an SSL certificate](../../../managed-greenplum/operations/connect/index.md#get-ssl-cert) to connect to the {{ GP }} cluster.
+   1. [Obtain an SSL certificate](../../../managed-greenplum/operations/connect/index.md#get-ssl-cert) required to connect to the {{ GP }} cluster.
    1. Install the dependencies:
 
       ```bash
@@ -215,7 +215,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

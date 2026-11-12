@@ -12,8 +12,8 @@ You can get the file storage size, availability zone, and other file storage inf
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [file storage](../../concepts/filesystem.md).
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
-  1. Select the file storage.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
+  1. Select a file storage.
   1. The **{{ ui-key.yacloud.common.overview }}** tab will display detailed information about the file storage.
 
 - CLI {#cli}

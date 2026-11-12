@@ -6,7 +6,7 @@
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 To sign artifacts within a pipeline, you can use [Cosign](https://github.com/sigstore/cosign), a third-party command line utility for signing [artifacts](https://docs.sigstore.dev/cosign/signing/overview/), images, and [in-to-to attestations](https://github.com/in-toto/attestation/tree/main/spec/predicates). Then you can upload these artifacts to {{ container-registry-full-name }}.
 

@@ -5,8 +5,6 @@ description: Follow this guide to recover a disk from a snapshot.
 
 # Recovering a disk from a snapshot
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 {% note info %}
 
 {% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}

@@ -18,6 +18,7 @@ and generating playback URLs.
 || [BatchGet](batchGet.md) | Retrieves multiple videos by their IDs in a specific channel in a single request. ||
 || [Create](create.md) | Creates a new video in the specified channel. ||
 || [Update](update.md) | Updates an existing video's metadata and settings. ||
+|| [RenewSource](renewSource.md) | Renews video source data for further upload. ||
 || [Transcode](transcode.md) | Initiates or updates video transcoding with specified parameters. ||
 || [Delete](delete.md) | Deletes a specific video by its ID. ||
 || [BatchDelete](batchDelete.md) | Deletes multiple videos in a specific channel in a single request. ||

@@ -108,7 +108,7 @@ The chart below shows the L7 load balancer resources you will create and configu
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. Select `{{ ui-key.yacloud.smart-web-security.title_default-template }}`.
   1. Enter `sws-ddos` as the profile name.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) → ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** next to `sp-rule-1`.
@@ -147,7 +147,7 @@ The system will deploy your application backends on the [target group](../../app
   1. Provide the internal IP address of your target, which is either your service's internal NLB listener address or the VM address.
   1. Select the subnet hosting your service resources.
 
-     To select a subnet, you need the `vpc.user` role for the folder containing the subnet.
+     To select a subnet, you need the `{{ roles-vpc-user }}` role for the folder containing the subnet.
 
   1. Configure the other targets. To do this, click **{{ ui-key.yacloud.alb.button_add-target }}** and specify addresses and subnets.
   1. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.

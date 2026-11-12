@@ -51,7 +51,7 @@
 
 {% endnote %}
 
-1. Чтобы настроить аутентификацию по стандарту SAML на стороне SonarQube, в верхней панели выберите раздел **Administration**, после чего через появившееся меню перейдите в **Configuration** -> **General Settings**. В меню **General Settings** выберите раздел **Authentication** -> **SAML**.
+1. Чтобы настроить аутентификацию по стандарту SAML на стороне SonarQube, в верхней панели выберите раздел **Administration**, после чего через появившееся меню перейдите в **Configuration** → **General Settings**. В меню **General Settings** выберите раздел **Authentication** → **SAML**.
 1. Нажмите кнопку **Create configuration**.
 
 Далее следуйте шагам, описанным ниже:
@@ -66,6 +66,7 @@
 1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните файл на своем устройстве.
 1. Вернитесь в SonarQube, после чего в меню **Edit SAML configuration**:
     1. В поле **Application ID** оставьте значение по умолчанию — `sonarqube`.
+    1. В поле **Provider Name** укажите название поставщика удостоверений, которое будет отображаться на странице входа SonarQube, например `{{ org-full-name }}`.
     1. Вставьте скопированные значения в поля **Provider ID** и **SAML login url**.
     1. Откройте сохраненный файл сертификата в любом текстовом редакторе, скопируйте его содержимое и вставьте в поле **Identity provider certificate**.
 
@@ -78,6 +79,7 @@
 1. (Опционально) В поле **SAML user email attribute** укажите `emailaddress`.
 1. Если необходимо, чтобы пользователи в SonarQube при входе добавлялись в одну из групп, добавьте атрибут групп пользователей. Для этого в поле **SAML group attribute** укажите `groups`.
 1. Сохраните настройки, нажав кнопку **Save configuration**.
+1. (Опционально) Нажмите кнопку **Test configuration** и в открывшейся вкладке проверьте, что интеграция с поставщиком удостоверений работает корректно, атрибуты пользователя передаются и нет ошибок.
 1. Нажмите кнопку **Enable configuration**.
 
 #### Установите публичный URL {#set-domain}
@@ -94,7 +96,7 @@
 
 Вы можете настроить, в какую группу будут добавлены пользователи при входе, для этого необходимо создать группы на стороне SonarQube:
 
-1. Вверху страницы из раздела **Configuration** перейдите в **Security** -> **Groups**.
+1. Вверху страницы из раздела **Configuration** перейдите в **Security** → **Groups**.
 1. Нажмите кнопку **Create Group**.
 1. В поле **Name** введите имя группы, например, `test-group`. Группу необходимо будет создать при настройке приложения на стороне {{ org-full-name }}.
 1. Нажмите кнопку **Create**.
@@ -121,13 +123,7 @@
 
 #### Настройте атрибуты пользователей {#user-attributes}
 
-{% note warning %}
-
-Для интеграции с SonarQube необходимо, чтобы у пользователей был атрибут `login`.
-
-{% endnote %}
-
-Если у пользователей нет атрибута `login`, добавьте его:
+Настройте атрибуты пользователей для интеграции с SonarQube:
 
 {% list tabs group=instructions %}
 
@@ -136,9 +132,17 @@
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
-    1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `login`.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите `SubjectClaims.preferred_username`.
+    1. Убедитесь, что атрибуты настроены следующим образом:
+
+        Атрибут | Значение
+        --- | ---
+        `login` | `SubjectClaims.preferred_username`
+        `fullname` | `SubjectClaims.name`
+        `emailaddress` (опционально) | `SubjectClaims.email`
+
+    1. Если какого-то атрибута нет, добавьте его. Для этого в правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** укажите имя атрибута, например `login`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите значение атрибута из таблицы выше, например `SubjectClaims.preferred_username`.
         1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -152,6 +156,7 @@
     1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** укажите `groups`.
        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
+       1. В поле **Значение** укажите `GroupClaims.name`.
        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

@@ -229,21 +229,6 @@ In {{ compute-name }}, a [software-accelerated network](./concepts/software-acce
 
 
 
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../_includes/mdb/cvos.md) %}
-
-{{ compute-name }} provides two types of CVoS: for vCPUs and RAM. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-For resources provided under CVoS, the [Prices for the Russia region](#prices) section presents their CVoS prices separately with expiration date.
-
-Storage size and internet traffic cannot currently be reserved via CVoS.
-
-{% endnote %}
-
-_{{ price-per-hour-count-per-second }}_
 
 
 ## Prices for the Russia region {#prices}

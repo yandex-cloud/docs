@@ -5,8 +5,6 @@ description: Follow this guide to move a VM to a different availability zone.
 
 # Moving a VM to a different availability zone
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 When creating a VM, you can select a {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) to place it in.
 
 You can move a VM to a different availability zone by creating its copy in the target availability zone using disk snapshots.

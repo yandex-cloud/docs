@@ -1,6 +1,6 @@
 ---
-title: Syncing users and groups with {{ microsoft-idp.ad-short }}
-description: The {{ ad-sync-agent }} enables you to configure {{ org-full-name }} user and group synchronization with {{ microsoft-idp.ad-full }}.
+title: Syncing users and groups with {{ microsoft-idp.ad-full }} in {{ org-full-name }}
+description: Syncing users, groups, passwords, and their attributes from {{ microsoft-idp.ad-short }} with {{ org-full-name }}
 ---
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}
@@ -93,6 +93,8 @@ Password writeback proceeds in the following order:
 1. If the attempt to change the password in {{ microsoft-idp.ad-short }} fails, the user's password in {{ org-full-name }} also remains unchanged.
 
 For password writeback to work, the {{ microsoft-idp.ad-short }} account on whose behalf the agent performs synchronization must also have the `Change Password`, `Reset Password`, and `Write pwdLastSet` permissions. Grant these permissions for the entire domain or for those organization units (OUs) that match the `sync_settings.filter` filters selected in the agent configuration.
+
+To enable password writeback, [define the synchronization settings](../../operations/sync-ad.md#enable-password-writeback) and set `enable_password_writeback: true` in the agent configuration.
 
 ## Setting up synchronization {#sync-setup}
 

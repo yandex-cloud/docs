@@ -60,17 +60,17 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mos-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mos-name }} cluster.
         * {{ mos-name }} target cluster.
         * Transfer.
 
-    1. In the `trails-to-opensearch.tf` file, specify these variables:
+    1. In `trails-to-opensearch.tf`, specify the following variables:
 
         * `os_version`: {{ OS }} version in the target cluster.
         * `os_admin_password`: `admin` user password.
-        * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#configure-data-transfer).
+        * `transfer_enabled`: Set to `0` to prevent a transfer from being created before [endpoints are created manually](#configure-data-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -116,7 +116,7 @@ When creating a trail, select the [log collection scope](../../audit-trails/conc
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../../managed-opensearch/operations/cluster-users.md) user.
 
-1. Create and activate your transfer:
+1. Create and activate the transfer:
 
    {% list tabs group=instructions %}
 
@@ -245,7 +245,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. [Delete the {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db) database.
 1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 1. Delete the [{{ at-name }}](../../audit-trails/concepts/trail.md) trail.
-1. Delete the rest of the resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

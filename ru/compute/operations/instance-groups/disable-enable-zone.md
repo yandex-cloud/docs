@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Отключить и включить зоны доступности для группы ВМ {{ compute-full-name }}
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 {% include [disable-enable-zone-intro](../../../_includes/instance-groups/disable-enable-zone-intro.md) %}
 

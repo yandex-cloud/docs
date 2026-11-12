@@ -7,7 +7,133 @@ description: How to view information about cluster maintenance, postpone schedul
 
 You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }} cluster.
 
+
 ## Getting a list of maintenance jobs {#list-maintenance}
+
+For {{ mgp-name }}, you can get a list of maintenance jobs in:
+
+* [Cloud](#list-maintenance-cloud)
+* [Folder](#list-maintenance-folder)
+* [Cluster](#list-maintenance-cluster)
+
+
+### Getting a list of maintenance jobs in a cloud {#list-maintenance-cloud}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?cloudId=<cloud_ID>'
+      ```
+    
+      
+      Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cloud_id": "<cloud_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+      
+      
+      Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+      
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+
+### Getting a list of maintenance jobs in a folder {#list-maintenance-folder}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?folderId=<folder_ID>'
+      ```
+    
+      
+      You can get the folder ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+      
+  
+  1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "folder_id": "<folder_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+            
+      You can get the folder ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+      
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+
+### Getting a list of maintenance jobs in a cluster {#list-maintenance-cluster}
 
 {% list tabs group=instructions %}
 
@@ -18,7 +144,109 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Optionally, select a maintenance status above the list of maintenance jobs.
 
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances?resourceId=<cluster_ID>'
+      ```
+    
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  
+  1. View the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "resource_id": "<cluster_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.List
+      ```
+
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
 {% endlist %}
+
+
+## Getting maintenance job details {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.Get](../api-ref/Maintenance/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<maintenance_job_ID>'
+      ```
+    
+      You can get the maintenance job ID with the [list of maintenance jobs](#list-maintenance).
+  
+  1. Check the [server response](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Call the [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<maintenance_job_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Get
+      ```
+
+      You can get the maintenance job ID with the [list of maintenance jobs](#list-maintenance).
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+{% endlist %}
+
 
 ## Getting cluster maintenance logs {#maintenance-logs}
 
@@ -33,6 +261,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
 
 {% endlist %}
+
 
 ## Postponing scheduled maintenance {#postpone-planned-maintenance}
 
@@ -95,6 +324,13 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
 - REST API {#api}
   
+  You can reschedule a scheduled maintenance job using one of these methods:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+  
+  To postpone a scheduled maintenance job using the `Cluster.RescheduleMaintenance` method:
+
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
       
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -117,9 +353,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       * `NEXT_AVAILABLE_WINDOW`: Next available maintenance window.
       * `SPECIFIC_TIME`: Specific date and time, UTC.
         
-        For this value, also use the `delayedUntil` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. Here is an example:
-
-        > `2006-01-02T15:04:05Z`
+        For this value, also use the `delayedUntil` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
     
         {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
@@ -127,8 +361,49 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
   
   1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
+  To postpone a scheduled maintenance job using the `Maintenance.Reschedule` method:
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+      
+  1. Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<maintenance_job_ID>:reschedule' \
+        --data '{
+                  "rescheduleType": "<reschedule_type>"
+                }'
+      ```
+    
+      Where:
+      
+      * `<maintenance_job_ID>`: Maintenance job ID you can get with the [list of maintenance jobs](#list-maintenance).
+
+      * `rescheduleType`: Reschedule type:
+        
+        * `NEXT_AVAILABLE_WINDOW`: Next available maintenance window.
+        * `SPECIFIC_TIME`: Specific date and time, UTC.
+        
+          For this value, also use the `scheduledAt` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
+    
+          {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
+
+    1. Check the [server response](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 - gRPC API {#grpc-api}
   
+  You can reschedule a scheduled maintenance job using one of these calls:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+
+  To postpone a scheduled maintenance job using the `ClusterService.RescheduleMaintenance` call:
+
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -157,15 +432,53 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
       * `NEXT_AVAILABLE_WINDOW`: Next available maintenance window.
       * `SPECIFIC_TIME`: Specific date and time, UTC.
         
-        For this value, also use the `delayed_until` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. Here is an example:
-
-        > `2006-01-02T15:04:05Z`
+        For this value, also use the `delayed_until` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
 
         {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
   
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+  To postpone a scheduled maintenance job using the `MaintenanceService.Reschedule` call:
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<maintenance_job_ID>",
+              "reschedule_type": "<reschedule_type>",
+              "scheduled_at": "<timestamp>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      Where:
+
+      * `maintenance_id`: Maintenance job ID you can get with the [list of maintenance jobs](#list-maintenance).
+      * `reschedule_type`: Reschedule type:
+      
+        * `NEXT_AVAILABLE_WINDOW`: Next available maintenance window.
+        * `SPECIFIC_TIME`: Specific date and time, UTC.
+        
+          For this value, also use the `scheduled_at` parameter to provide a timestamp in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
+
+          {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
+
+  1. Check the [server response](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -205,6 +518,13 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
 - REST API {#api}
   
+  You can run a scheduled maintenance job immediately using one of these methods:
+  
+  * [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md)
+  * [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md)
+
+  To run a scheduled maintenance job immediately using the `Cluster.RescheduleMaintenance` method:
+  
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
       
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -226,8 +546,38 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
   
   1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
+  To run a scheduled maintenance job immediately using the `Maintenance.Reschedule` method:
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+      
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+      
+  1. Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/maintenances/<maintenance_job_ID>:reschedule' \
+        --data '{
+                  "rescheduleType": "IMMEDIATE"
+                }'
+      ```
+    
+      You can get the maintenance job ID with the [list of maintenance jobs](#list-maintenance).
+
+  1. Check the [server response](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 - gRPC API {#grpc-api}
   
+  You can run a scheduled maintenance job immediately using one of these calls:
+  
+  * [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md)
+  * [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md)
+  
+  To run a scheduled maintenance job immediately using the `ClusterService.RescheduleMaintenance` call:
+
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
@@ -255,6 +605,35 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
   
   1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
+  To run a scheduled maintenance job immediately using the `MaintenanceService.Reschedule` call:
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  
+  1. Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+      
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "maintenance_id": "<maintenance_job_ID>",
+              "reschedule_type": "IMMEDIATE"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.greenplum.v1.MaintenanceService.Reschedule
+      ```
+      
+      You can get the maintenance job ID with the [list of maintenance jobs](#list-maintenance).
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
 {% endlist %}
 
 ## Configuring a maintenance window {#set-maintenance-window}
@@ -274,7 +653,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         For this type of maintenance, define the start of the maintenance window: select the day of the week and UTC time interval.
 
-  1. Click **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

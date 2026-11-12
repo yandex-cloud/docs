@@ -10,6 +10,7 @@ description: This page features step-by-step guides for {{ mmg-name }}.
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
+* [Maintenance](cluster-maintenance.md)
 * [{{ SD }} version upgrade](cluster-version-update.md)
 * [Stopping and restarting a cluster](cluster-stop.md)
 * [Managing cluster hosts](hosts.md)

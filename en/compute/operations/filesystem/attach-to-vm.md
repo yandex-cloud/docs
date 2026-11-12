@@ -22,10 +22,8 @@ To check the kernel version, run `sudo uname -r`.
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file storage.
      1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
-     1. Select the storage.
-     1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
-     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
+     1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
+     1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
      1. In the window that opens:
         1. Select the VM.
         1. Specify the device name to represent the file storage in the VM. Save this name as you will need it when mounting the storage.

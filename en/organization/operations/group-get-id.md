@@ -36,3 +36,7 @@ To find out the group ID:
   Use the [list](../../organization/api-ref/Group/list.md) REST API method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/List](../../organization/api-ref/grpc/Group/list.md) gRPC API call.
 
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](../../iam/concepts/subject-details.md)

@@ -77,6 +77,3 @@ A new {{ OS }} version is out: [2.12.0](https://github.com/opensearch-project/op
 
 Now you can manage {{ OS }} clusters using the [CLI commands](../cli/cli-ref/managed-opensearch/cli-ref/index.md) and [{{ TF }}](./tf-ref.md).
 
-## Q3 2023 {#q3-2023}
-
-Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All platform users can get a discount up to 22% starting August 1, 2023. The cost of services will not change while the discount is in effect.

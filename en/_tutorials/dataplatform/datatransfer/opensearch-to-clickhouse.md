@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
        To connect to the cluster via {{ websql-full-name }}, enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}** in the cluster settings.
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
     1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) and [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster security groups allow connecting from the internet.
 
@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [opensearch-to-clickhouse.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-clickhouse/blob/main/opensearch-to-clickhouse.tf) configuration file to the same working directory.
+    1. Download the [opensearch-to-clickhouse.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-clickhouse/blob/main/opensearch-to-clickhouse.tf) configuration file to your current working directory.
 
         This file describes:
 
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Target endpoint.
         * Transfer.
 
-    1. In the `opensearch-to-clickhouse.tf` file, specify the following settings:
+    1. In `opensearch-to-clickhouse.tf`, specify the following settings:
 
         * `source_admin_password`: {{ mos-name }} cluster `admin` password.
         * `mos_version`: {{ OS }} version.
@@ -72,7 +72,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -156,7 +156,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` password.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and set up the transfer:
 
     {% list tabs group=instructions %}
 
@@ -177,12 +177,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `opensearch-to-clickhouse.tf` file, specify the following settings:
+        1. In `opensearch-to-clickhouse.tf`, specify the following settings:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -194,21 +194,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Make sure the data from the {{ mos-name }} source cluster has been transferred to the {{ mch-name }} database:
+1. Make sure the {{ mch-name }} database now contains the data from the {{ mos-name }} source cluster:
 
     {% list tabs group=instructions %}
 
     - {{ websql-full-name }} {#websql}
 
       1. [Create a connection](../../../websql/operations/create-connection.md#connect-cluster) to the database in the {{ mch-name }} cluster.
-      1. Make sure the database contains the `people` table populated with test data by [running the following query](../../../websql/operations/query-executor.md#execute-query) via the connection you created:
+      1. Check that the database contains the `people` table populated with test data by [running this query](../../../websql/operations/query-executor.md#execute-query):
 
          ```sql
          SELECT * FROM people;
@@ -216,7 +216,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - CLI {#cli}
 
-      1. [Get an SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) to connect to the {{ mch-name }} cluster.
+      1. [Obtain an SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) required to connect to the {{ mch-name }} cluster.
       1. If you do not have `clickhouse-client`, [install it](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
       1. [Connect to the database](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) in the {{ mch-name }} cluster.
       1. Check that the database contains the `people` table populated with test data:
@@ -229,10 +229,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

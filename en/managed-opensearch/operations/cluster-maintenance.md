@@ -25,7 +25,7 @@ For {{ mos-name }}, you can get a list of maintenance jobs in a [cloud](#list-cl
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -85,7 +85,7 @@ For {{ mos-name }}, you can get a list of maintenance jobs in a [cloud](#list-cl
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -154,7 +154,7 @@ For {{ mos-name }}, you can get a list of maintenance jobs in a [cloud](#list-cl
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances' \
@@ -210,7 +210,7 @@ For {{ mos-name }}, you can get a list of maintenance jobs in a [cloud](#list-cl
 
         ```bash
         curl \
-        --request POST \
+        --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/maintenances/<maintenance_job_ID>'
@@ -430,7 +430,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
             * `NEXT_AVAILABLE_WINDOW`: Move the maintenance to the nearest window.
             * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
 
-            The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
+            The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. With the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `scheduled_at`.
 
             You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
 
@@ -574,12 +574,6 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
 By default, maintenance can be scheduled for any time. You can choose a specific day of week and hour interval for the start of the maintenance. For example, you can specify the least busy time interval for the cluster.
 
-{% note warning %}
-
-When you select a new maintenance window, any scheduled maintenance that does not fall within it will be automatically canceled.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -609,7 +603,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
         {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
-                               `hour=<hour>
+                               `hour=<sequence_number_of_hour_interval>
         ```
 
         Where `type` is the maintenance type:
@@ -626,7 +620,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
         For the complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
-    1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mos/terraform/maintenance-window.md) %}
 
     1. Make sure the settings are correct.
 
@@ -636,7 +630,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -674,7 +668,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
         * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
-            * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and a sequence number of an hour interval:
+            * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: UTC hour interval in `HH` format, from `1` to `24`.
@@ -726,10 +720,10 @@ When you select a new maintenance window, any scheduled maintenance that does no
         * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
             * `anytime`: Maintenance can be scheduled for any time.
-            * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
+            * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour interval:
 
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+                * `hour`: UTC hour interval in `HH` format, from `1` to `24`.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

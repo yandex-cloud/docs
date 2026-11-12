@@ -9,7 +9,7 @@ Connecting {{ org-full-name }} users to external applications is [billable](../p
 
 ## Linking a billing account to {{ org-full-name }} {#add-billing-account}
 
-By default, an {{ org-full-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To use {{ org-full-name }}'s billable features and [change](#modify-limit) this connection limit, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-full-name }}:
+By default, an {{ org-full-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To activate or [change](#modify-limit) a limit, and to use the service’s chargeable features, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 

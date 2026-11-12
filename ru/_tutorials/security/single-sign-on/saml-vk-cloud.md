@@ -1,7 +1,7 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с VK Cloud
 
 
-[VK Cloud](https://cloud.vk.com/) — российская облачная платформа, предоставляющая IaaS- и PaaS-сервисы, инструменты для работы с данными и AI/ML, а также решения для построения облачной инфраструктуры. VK Cloud поддерживает аутентификацию пользователей через федерацию удостоверений по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML).
+[VK Cloud](https://cloud.vk.ru/) — российская облачная платформа, предоставляющая IaaS- и PaaS-сервисы, инструменты для работы с данными и AI/ML, а также решения для построения облачной инфраструктуры. VK Cloud поддерживает аутентификацию пользователей через федерацию удостоверений по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML).
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в VK Cloud с помощью технологии единого входа по стандарту SAML, создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ yandex-cloud }} и на стороне VK Cloud.
 
@@ -54,17 +54,17 @@
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
     1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
 
-      Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
+        Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
 
 1. Создайте федерацию удостоверений в VK Cloud, используя метаданные {{ org-full-name }}:
 
-    1. Перейдите в [аккаунт VK Cloud](https://cloud.vk.com/account).
+    1. Перейдите в [аккаунт VK Cloud](https://cloud.vk.ru/account).
     1. Откройте раздел **Федерация удостоверений** и выберите вкладку **Федерации**.
     1. Нажмите **Создать**.
     1. Нажмите **Загрузить метаданные IdP** и загрузите XML-файл метаданных, который вы скачали в {{ org-full-name }}.
     1. Нажмите **Загрузить**.
 
-1. В данных созданной федерации скопируйте и сохраните ID федерации. Он понадобится для настройки SAML-приложения в {{ org-full-name }} и для входа федеративных пользователей.
+1. В данных созданной федерации скопируйте и сохраните идентификатор федерации. Он понадобится для настройки SAML-приложения в {{ org-full-name }} и для входа федеративных пользователей.
 
 ### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 
@@ -77,8 +77,8 @@
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
     1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/metadata`, где `<ID_федерации>` — ID федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://msk.cloud.vk.com/federation-service/v1/federation/saml/<ID_федерации>/acs`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите адрес `https://msk.cloud.vk.ru/federation-service/v1/federation/saml/<идентификатор_федерации>/metadata`, где `<идентификатор_федерации>` — идентификатор федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://msk.cloud.vk.ru/federation-service/v1/federation/saml/<идентификатор_федерации>/acs`.
         1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -106,15 +106,16 @@
         Атрибут | Значение
         --- | ---
         `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` | `SubjectClaims.email`
-        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` | `SubjectClaims.firstName`
-        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` | `SubjectClaims.lastName`
+        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` | `SubjectClaims.given_name`
+        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` | `SubjectClaims.family_name`
 
     1. Если вы планируете использовать маппинг групп, добавьте атрибут для передачи групп:
 
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}**.
+        1. Нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}**.
         1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `http://schemas.xmlsoap.org/claims/Group`.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** укажите `SubjectClaims.groups`.
-        1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите **{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}**.
+        1. В поле **Значение** укажите `GroupClaims.name`.
+        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -145,7 +146,7 @@
 
 Чтобы определить права доступа федеративных пользователей в VK Cloud, настройте связь между группами IdP и ролями VK Cloud.
 
-1. Перейдите в [аккаунт VK Cloud](https://cloud.vk.com/account).
+1. Перейдите в [аккаунт VK Cloud](https://cloud.vk.ru/account).
 1. Откройте раздел **Федерация удостоверений** и выберите вкладку **Группы**.
 1. Выберите проект, для которого настраивается федерация.
 1. Нажмите **Добавить** (или **Добавить группу**, если группы уже есть).
@@ -158,6 +159,6 @@
 
 Для этого:
 
-1. В браузере откройте URL для входа федеративных пользователей: `https://cloud.vk.com/v1/federation/saml/<ID_федерации>/signin`, где `<ID_федерации>` — ID федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
+1. В браузере откройте URL для входа федеративных пользователей: `https://cloud.vk.ru/v1/federation/saml/<идентификатор_федерации>/signin`, где `<идентификатор_федерации>` — идентификатор федерации, который вы скопировали при [создании федерации в VK Cloud](#setup-sp).
 1. Аутентифицируйтесь в {{ yandex-cloud }} под учетной записью пользователя из вашей организации.
 1. Убедитесь, что после успешной аутентификации вы вошли в VK Cloud.

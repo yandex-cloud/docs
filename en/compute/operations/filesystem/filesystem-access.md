@@ -16,7 +16,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
   1. Select the file storage from the list.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -127,7 +127,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
   1. Select the file storage from the list.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -254,7 +254,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
   1. Select the file storage from the list.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.

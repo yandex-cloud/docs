@@ -13,6 +13,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Getting information about subjects
+        href: operations/subject-details.md
       - name: Processing secrets that have become publicly available
         href: operations/compromised-credentials.md
       - name: Users
@@ -208,6 +210,8 @@ items:
         href: concepts/federations.md
       - name: Workload identity federations
         href: concepts/workload-identity.md
+      - name: Getting information about subjects
+        href: concepts/subject-details.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Secure use of {{ yandex-cloud }}

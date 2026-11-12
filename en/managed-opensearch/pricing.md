@@ -54,7 +54,7 @@ This section describes the {{ mos-name }} pricing [policy](#rules) and [current 
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -120,17 +120,6 @@ Calculation for the storage cost and total cost:
 {% include [usd-opensearch-storage](../_pricing_examples/managed-opensearch/usd-storage.md) %}
 
 
-## Discount for committed volume of services (CVoS) {#cvos}
-
-{% include [cvos](../_includes/mdb/cvos.md) %}
-
-{{ mos-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
-
-{% note info %}
-
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Storage size and internet traffic cannot currently be reserved via CVoS.
-
-{% endnote %}
 
 
 ## Prices for the Russia region {#prices}

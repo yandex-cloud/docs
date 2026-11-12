@@ -42,10 +42,10 @@ description: Follow this guide to detach a file storage from a VM.
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
      1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
-     1. Select the storage.
-     1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
-     1. In the line with the VM in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
+     1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
+     1. Select a storage.
+     1. Navigate to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
+     1. In the VM line, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
      1. In the window that opens, confirm the detachment.
 
    - CLI {#cli}

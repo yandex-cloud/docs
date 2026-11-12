@@ -1,12 +1,15 @@
-# Updating a file storage
+---
+title: How to change a file storage in {{ compute-full-name }}
+description: Changing the name, description, and size of a file storage in {{ compute-name }}.
+---
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
+# Updating a file storage
 
 After creating a [file storage](../../concepts/filesystem.md), you can change its name, description, and size.
 
 {% note info %}
 
-To resize a file storage, you can only use the [CLI](../../../cli/) or API. You can only increase the storage size. Reducing it is not supported.
+You can only increase your storage size. You cannot reduce the size, but you can [create a storage](create.md) of a smaller size.
 
 {% endnote %}
 
@@ -16,16 +19,9 @@ To resize a file storage, you can only use the [CLI](../../../cli/) or API. You 
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
   1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}**.
-  1. In the line with the file storage, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Update the file storage parameters, e.g., rename the storage by editing the **{{ ui-key.yacloud.common.name }}** field.
-
-     {% note info %}
-
-     To resize a file storage, you can only use the CLI or API.
-
-     {% endnote %}
-
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** and go to the **{{ ui-key.yacloud.compute.file-storages_pNPw1 }}** tab.
+  1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Change the name, description, or size of the file storage. You can only increase your storage size.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

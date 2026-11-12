@@ -34,3 +34,4 @@ By default, all {{ org-full-name }} users can view information about all other u
 
 * [{#T}](../../tutorials/security/user-group-access-control.md)
 * [{#T}](../../tutorials/security/integration-keycloak.md)
+* [{#T}](../../iam/concepts/subject-details.md)

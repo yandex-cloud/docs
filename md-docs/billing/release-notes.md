@@ -10,6 +10,12 @@
 
 ## Детализация {#usage-details}
 
+### IV квартал 2026 {#q3-2026}
+
+* Добавлена возможность просмотра детализации потребления по [ресурсам](operations/check-charges.md#resources).
+
+    ![alt text](../_assets/billing/rn-26-q4-resource.png)
+
 ### II квартал 2026 {#q2-2026}
 
 * Добавлена возможность просмотра детализации потребления по [скидкам](operations/check-charges.md#discount).

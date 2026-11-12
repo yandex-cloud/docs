@@ -33,6 +33,8 @@ items:
             href: operations/cluster-access.md
           - name: Managing data tiering
             href: operations/tiered-storage.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection

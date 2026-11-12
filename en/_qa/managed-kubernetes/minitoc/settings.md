@@ -13,3 +13,7 @@
 * [Can you install Web UI Dashboard, Rook, and other tools?](#install-tools)
 
 * [What should I do if volumes fail to attach after a {{ k8s }} upgrade?](#pvc)
+
+* [How do I use certificates from {{ certificate-manager-name }} in applications in {{ managed-k8s-name }}?](#application-certificate)
+
+* [How do I set a time zone for an application or CronJob?](#timezone)

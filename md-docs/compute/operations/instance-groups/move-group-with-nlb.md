@@ -2,12 +2,6 @@
 
 # Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) c [сетевым балансировщиком нагрузки](../../../network-load-balancer/concepts/index.md) [Yandex Network Load Balancer](../../../network-load-balancer/index.md):
 1. [Создайте](../../../vpc/operations/subnet-create.md) [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ.

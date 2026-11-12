@@ -5,8 +5,6 @@ description: Follow this guide to create an empty disk with a large block.
 
 # Creating an empty disk with a large block
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 

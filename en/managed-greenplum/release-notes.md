@@ -78,7 +78,6 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 ## Q3 2023 {#q3-2023}
 
 * Added support for [incremental backups](concepts/backup.md).
-* Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All platform users can get a discount up to 22% starting August 1, 2023. The cost of services will not change while the discount is in effect.
 * Added [PXF metrics](metrics.md#managed-greenplum-pxf-metrics) to {{ monitoring-full-name }}.
 * Added logs for PXF and the Odyssey connection pooler.
 * Added [audit logs](at-ref.md) in {{ at-full-name }}.

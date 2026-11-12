@@ -23,7 +23,7 @@ The basic concept of user authentication via SAML-based single sign-on is as des
 1. The {{ yandex-cloud }} user selects SSO authentication on the external application's (service provider's) authentication page.
 1. The service provider sends a SAML request to {{ org-full-name }} (identity provider) and redirects the user to the {{ org-full-name }}'s login URL. If you enable signature verification for SAML requests from the service provider, authentication will not start for as long as the request has no signature or the signature is invalid.
 1. The user authenticates in {{ org-full-name }} with their credentials.
-1. If {{ org-full-name }} has a SAML app corresponding to this external application, the authenticated user is [added](../../operations/applications/saml-create.md#users-and-groups) to this SAML app, and the incoming SAML request is correct, {{ org-full-name }} will send to the service provider a signed (and encrypted if the relevant option is on) SAML response containing the user's attributes.
+1. If {{ org-full-name }} has a relevant SAML app, the user is [added](../../operations/applications/saml-create.md#users-and-groups) to that app, and the SAML request is correct, {{ org-full-name }} will send to the service provider a signed (and encrypted if the relevant option is on) SAML response containing the user's attributes.
 1. The service provider checks the SAML response and its signature for correctness and, if successful, grants the user access to the external application.
 1. As soon as the user logs out of the external application, the service provider sends a SAML request to {{ org-full-name }} and redirects the user to the {{ org-full-name }}'s logout URL.
 
@@ -52,23 +52,24 @@ For the integration to work correctly on the {{ org-full-name }} side, you need 
 
 * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.field-request-signing }}`: Allows you to verifying the signature of the service provider's SAML requests and suspend authentication if the request has no signature or the signature is invalid.
 
-  To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for signature verification.
+  To enable this feature, upload the public key certificate you got from the service provider. It is used for signature verification.
 
 * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}`: Allows you to enable encryption of SAML responses to add an extra data protection layer. By default, SAML responses are only signed.
 
-  To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for encryption.
+  To enable this feature, upload the public key certificate you got from the service provider. It is used for encryption.
 
 ### User and group attributes {#saml-attributes}
 
 By default, a new SAML app is created with a specific set of user-related _attributes_ {{ org-full-name }} will provide to the service provider. This set includes:
 
-Attribute name | Attribute value | Provided value
---- | --- | ---
-`NameID` | `SubjectClaims.preferred_username` | User ID
-`givenname` | `SubjectClaims.given_name` | User's full name
-`fullname` | `SubjectClaims.name` | User's first name
-`surname` | `SubjectClaims.family_name` | User's last name
-`emailaddress` | `SubjectClaims.email` | User's email address
+#|
+|| **Attribute name** | **Attribute value** | **Provided value** ||
+|| `NameID` | `SubjectClaims.preferred_username` | User ID ||
+|| `givenname` | `SubjectClaims.given_name` | User's full name ||
+|| `fullname` | `SubjectClaims.name` | User's first name ||
+|| `surname` | `SubjectClaims.family_name` | User's last name ||
+|| `emailaddress` | `SubjectClaims.email` | User's email address ||
+|#
 
 After you create a SAML application, you can [add, modify, and delete](../../operations/applications/saml-create.md#setup-attributes) the following user attributes:
 
@@ -93,6 +94,12 @@ In addition to the user attributes mentioned above, the SAML response may contai
 
 {% include [saml-app-group-assertion](../../../_includes/organization/saml-app-group-assertion.md) %}
 
+To select what group value to send to the service provider via the group attribute, use the [CLI](../../operations/applications/saml-create.md#setup-attributes) or {{ TF }} and specify one of the following values:
+
+* `NAME`: Group name. It is used by default.
+* `ID`: Group ID.
+* `EXTERNAL_ID`: Group's external ID.
+
 {% note info %}
 
 If no value is set for a user attribute on the {{ org-full-name }} side, this attribute will not be present in the SAML response.
@@ -111,7 +118,7 @@ Additionally, the user attributes set up on the {{ org-full-name }} side must be
 
 ### Digital signature verification key certificate {#saml-certificate}
 
-In addition to setting up the above parameters, make sure the service provider configuration includes a certificate the service provider will use to verify the digital signature {{ org-full-name }} will sign its SAML responses with.
+Include the certificate in the service provider’s configuration along with the specified settings. The service provider uses it to verify the digital signature that {{ org-full-name }} uses to sign SAML responses.
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 

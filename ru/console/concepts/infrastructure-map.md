@@ -21,6 +21,12 @@ description: Карта инфраструктуры отображает в к�
 * [узлы и группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group);
 * [кластеры {{ mpg-full-name }}](../../managed-postgresql/concepts/index.md);
 * [кластеры {{ mch-full-name }}](../../managed-clickhouse/concepts/index.md);
+* [кластеры {{ mmy-full-name }}](../../managed-mysql/concepts/index.md);
+* [кластеры {{ mkf-full-name }}](../../managed-kafka/concepts/index.md);
+* [кластеры {{ mos-full-name }}](../../managed-opensearch/concepts/index.md);
+* [кластеры {{ mrd-full-name }}](../../managed-valkey/concepts/index.md);
+* [кластеры {{ mgp-full-name }}](../../managed-greenplum/concepts/index.md);
+* [кластеры {{ mmg-full-name }}](../../storedoc/concepts/index.md);
 * [облачные сети](../../vpc/concepts/network.md#network);
 * [подсети](../../vpc/concepts/network.md#subnet);
 * [таблицы маршрутизации](../../vpc/concepts/routing.md#rt-vpc).

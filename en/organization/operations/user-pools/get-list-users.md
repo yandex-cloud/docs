@@ -39,3 +39,7 @@ description: Follow this guide to get a list of users in an {{ org-full-name }} 
   Use the [User.List](../../idp/api-ref/User/list.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/List](../../idp/api-ref/grpc/User/list.md) gRPC API call.
 
 {% endlist %}
+
+#### Useful links {#see-also}
+
+* [{#T}](../../../iam/concepts/subject-details.md)

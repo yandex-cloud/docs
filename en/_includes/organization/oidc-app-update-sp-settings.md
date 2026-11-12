@@ -3,6 +3,9 @@ On the top right, click ![pencil](../../_assets/console-icons/pencil.svg) **{{ u
 1. Under **{{ ui-key.yacloud_org.application.overview.oauth_service_section_title }}**, specify the address you got from the service provider in the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field.
 
     Click **{{ ui-key.yacloud_org.organization.apps.OauthAppRedirectUrlsField.add-redirect-url_rS5jw }}** to specify multiple redirect URIs at once.
+1. Optionally, specify the [post logout redirect URI](../../organization/concepts/applications/oidc.md#oidc-post-logout-redirect-uri) you got from the service provider in the **Post Logout Redirect URI** field.
+
+    You can specify multiple addresses. The same requirements apply to them as to [redirect URIs](../../organization/concepts/applications/oidc.md#oidc-redirect-uri).
 1. {% include [oidc-app-update-security-settings](./oidc-app-update-security-settings.md) %}
 1. In the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** field, select user attributes that will be available to the service provider.
 

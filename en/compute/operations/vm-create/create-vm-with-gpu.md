@@ -5,8 +5,6 @@ description: Follow this guide to create a VM with a GPU.
 
 # Creating a VM with a GPU
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 

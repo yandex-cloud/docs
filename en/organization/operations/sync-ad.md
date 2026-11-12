@@ -1,6 +1,6 @@
 ---
-title: How to sync users and groups with {{ microsoft-idp.ad-short }}
-description: Follow this guide to sync {{ org-full-name }} users and groups with {{ microsoft-idp.ad-full }} using {{ ad-sync-agent }}.
+title: Configuring synchronization with {{ microsoft-idp.ad-full }} in {{ org-full-name }}
+description: 'Configure synchronization of users and groups between {{ microsoft-idp.ad-short }} and {{ org-full-name }}: get your organization and domain controller ready, then configure and run the synchronization agent.'
 ---
 
 # Syncing users and groups with {{ microsoft-idp.ad-full }}
@@ -14,7 +14,7 @@ If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/e
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to it.
 1. [Create](./user-pools/create-userpool.md) a user pool in {{ org-full-name }} and [associate](./user-pools/add-domain.md#userpool) with it a [domain](../concepts/domains.md) identical to the one used in the {{ microsoft-idp.ad-short }} [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)).
 
-    Associating a custom domain with a [user pool](../concepts/user-pools.md) is optional. You can choose to associate another domain or the default one instead. In this case, you will have to set up domain replacement in the `replacement_domain` setting when configuring the [synchronization agent](../concepts/ad-sync/sync-agent.md). For more information, see [{#T}](../concepts/ad-sync/sync-agent.md#agent-config).
+    Associating a custom domain with a [user pool](../concepts/user-pools.md) is optional. You can choose to associate another domain or the default one instead. In this case, you will have to set up domain replacement in the `replacement_domain` setting when configuring the [synchronization agent](../concepts/ad-sync/sync-agent.md). For more information, see [Agent configuration parameters](#config-sync-settings).
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) to it the following roles for the [organization](../concepts/organization.md) the user pool is in:
 
     {% include [ad-sync-sa-roles](../../_includes/organization/ad-sync-sa-roles.md) %}
@@ -25,6 +25,39 @@ If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/e
 ## Prepare your {{ microsoft-idp.ad-short }} domain controller {#dc-setup}
 
 {% include [ad-sync-presetup-ad](../../_includes/organization/ad-sync-presetup-ad.md) %}
+
+## Enable password writeback (optionally) {#enable-password-writeback}
+
+If you want to use [password writeback](../concepts/ad-sync/index.md#password-writeback) from {{ org-full-name }} to {{ microsoft-idp.ad-short }}, enable it for the user pool in {{ org-full-name }}.
+
+{% include [pw-writeback-preview-notice](../../_includes/organization/pw-writeback-preview-notice.md) %}
+
+{% include [cli-install](../../_includes/cli-install.md) %}
+
+{% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+1. See the description of the CLI command for creating synchronization settings:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create --help
+    ```
+
+1. Create synchronization settings with enabled password writeback:
+
+    ```bash
+    yc organization-manager idp synchronization-settings create \
+      --subject-container-id <user_pool_ID> \
+      --filter "domain=<domain_in_Active_Directory>" \
+      --enable-password-writeback
+    ```
+
+    Where:
+
+    * `--subject-container-id`: ID of the [user pool](../concepts/user-pools.md) to create the synchronization settings for.
+    * `--filter`: {{ microsoft-idp.ad-short }} domain you need to synchronize. Specify the same domain as in the `sync_settings.filter.domain` setting in the agent configuration.
+    * `--enable-password-writeback`: Enables password writeback for the user pool.
+
+When [configuring the agent](#setup-agent), specify the `enable_password_writeback: true` settings in its configuration as well.
 
 ## Configure and start the synchronization agent {#setup-agent}
 
@@ -80,25 +113,17 @@ To start syncing users and groups:
 
       {% list tabs group=authentication_linux %}
 
-      - Using a username and password {#password_linux}
+      - With username and password {#password_linux}
 
         {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
 
-        {% cut "Configuration breakdown" %}
+        For a description of the fields, see [Agent configuration parameters](#agent-config).
 
-        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
-
-        {% endcut %}
-
-      - Using Kerberos {#kerberos_linux}
+      - Via Kerberos {#kerberos_linux}
 
         {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
 
-        {% cut "Configuration breakdown" %}
-
-        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
-
-        {% endcut %}
+        For a description of the fields, see [Agent configuration parameters](#agent-config).
 
       {% endlist %}
 
@@ -153,35 +178,23 @@ To start syncing users and groups:
 
       {% list tabs group=authentication_windows %}
 
-      - On behalf of a gMSA account {#gmsa-windows}
+      - As a gMSA account {#gmsa-windows}
 
         {% include [ad-sync-yaml-config-gmsa](../../_includes/organization/ad-sync-yaml-config-gmsa.md) %}
 
-        {% cut "Configuration breakdown" %}
+        For a description of the fields, see [Agent configuration parameters](#agent-config).
 
-        {% include [ad-sync-yaml-config-complete-gmsa-legend](../../_includes/organization/ad-sync-yaml-config-complete-gmsa-legend.md) %}
-
-        {% endcut %}
-
-      - Using a username and password {#password_windows}
+      - With username and password {#password_windows}
 
         {% include [ad-sync-yaml-config](../../_includes/organization/ad-sync-yaml-config.md) %}
 
-        {% cut "Configuration breakdown" %}
+        For a description of the fields, see [Agent configuration parameters](#agent-config).
 
-        {% include [ad-sync-yaml-config-complete-password-legend](../../_includes/organization/ad-sync-yaml-config-complete-password-legend.md) %}
-
-        {% endcut %}
-
-      - Using Kerberos {#kerberos_windows}
+      - Via Kerberos {#kerberos_windows}
 
         {% include [ad-sync-yaml-config-kerberos](../../_includes/organization/ad-sync-yaml-config-kerberos.md) %}
 
-        {% cut "Configuration breakdown" %}
-
-        {% include [ad-sync-yaml-config-complete-kerberos-legend](../../_includes/organization/ad-sync-yaml-config-complete-kerberos-legend.md) %}
-
-        {% endcut %}
+        For a description of the fields, see [Agent configuration parameters](#agent-config).
 
       {% endlist %}
 
@@ -294,6 +307,47 @@ To dry-run an agent:
 {% include [ad-sync-account-expires-solution](../../_includes/organization/ad-sync-account-expires-solution.md) %}
 
 {% endnote %}
+
+## Agent configuration parameters {#agent-config}
+
+In the `config.yaml` file, specify the connection and synchronization settings.
+
+For a {{ microsoft-idp.ad-short }} connection, select the `drsr` and `ldap` settings matching your authentication method:
+
+* With username and password: Specify domain user credentials.
+* Via Kerberos: Fill out the `kerberos` section as well.
+* As a gMSA account: Use the `use_windows_identity: true` setting for `drsr` or `ldap`. This feature is only available in Windows.
+
+The settings are grouped by purpose:
+
+* Connecting to {{ yandex-cloud }}:
+
+    * [userpool_id](#config-userpool-id)
+    * [cloud_credentials_file_path](#config-cloud-credentials-file-path)
+    * [use_metadata_service](#config-use-metadata-service)
+
+* Agent files:
+
+    * [working_directory](#config-working-directory)
+    * [check_config_permissions](#config-check-config-permissions)
+
+* {{ microsoft-idp.ad-short }} connection:
+
+    * [drsr](#config-drsr)
+    * [ldap](#config-ldap)
+    * [kerberos](#config-kerberos)
+
+* Synchronization:
+
+    * [sync_settings](#config-sync-settings)
+    * [enable_password_writeback](#config-enable-password-writeback)
+    * [dry_run](#config-dry-run)
+
+* Logs:
+
+    * [logger](#config-logger)
+
+{% include [ad-sync-config-reference](../../_includes/organization/ad-sync-config-reference.md) %}
 
 #### Useful links {#see-also}
 

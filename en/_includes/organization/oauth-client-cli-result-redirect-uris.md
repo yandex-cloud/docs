@@ -4,6 +4,9 @@ name: test-oauth-client
 redirect_uris:
   - https://example.com
   - https://example.ru
+post_logout_redirect_uris:
+  - https://example.com/logout
+  - https://example.ru/logout
 scopes:
   - email
   - groups

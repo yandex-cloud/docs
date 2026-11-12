@@ -335,7 +335,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 
     {% note tip %}
 
-    In {{ mos-name }} clusters, you can run re-indexing as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+    In {{ mos-name }} clusters, you can run re-indexing as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For details, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
     {% endnote %}
 

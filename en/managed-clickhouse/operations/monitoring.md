@@ -355,6 +355,14 @@ To check the cluster state and status:
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
+#### Restoring a DEAD cluster {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Restore your cluster from a backup](cluster-backups.md#restore).
+1. Update the connection settings in your applications and verify access to the data in your new cluster.
+1. [Run performance diagnostics](performance-diagnostics.md) to identify resource-intensive queries and optimize the workload.
+
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

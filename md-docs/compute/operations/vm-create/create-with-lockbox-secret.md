@@ -2,12 +2,6 @@
 
 # Создать ВМ с доступом к секрету Yandex Lockbox
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 Через сервис [метаданных](../../concepts/vm-metadata.md) можно передать в [виртуальную машину](../../concepts/vm.md) идентификатор [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md), чтобы затем изнутри ВМ получить значение этого секрета с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) привязанного к ВМ [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
 Секреты Yandex Lockbox, как и другие пользовательские данные, передаются в ключе `user-data`. Метаданные в [каталог](../../concepts/metadata/directories.md#dir-user) `user-data` можно передавать как при [создании](../index.md#vm-create) ВМ, так и при ее [изменении](../vm-control/vm-update.md).

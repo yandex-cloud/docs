@@ -1,9 +1,9 @@
 ---
-title: How to update an OIDC application in {{ org-full-name }}
-description: Follow this guide to update an OIDC application in {{ org-full-name }}.
+title: How to update an OIDC app in {{ org-full-name }}
+description: Follow this guide to update an OIDC app in {{ org-full-name }}.
 ---
 
-# Updating an OIDC application in {{ org-full-name }}
+# Updating an OIDC app in {{ org-full-name }}
 
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
@@ -19,7 +19,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC application.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. On the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
 
       1. Change the app's name in the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-name_kxMrU }}** field. The name must be unique within the organization and follow the naming requirements:
@@ -36,7 +36,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating an OIDC application:
+  1. See the description of the CLI command for updating an OIDC app:
 
      ```bash
      yc organization-manager idp application oauth application update --help
@@ -45,13 +45,14 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
   1. Run this command:
 
      ```bash
-     yc iam organization-manager idp application oauth application update \
+     yc organization-manager idp application oauth application update \
        --id <app_ID> \
        --new-name <application_name> \
        --description <application_description> \
        --client-id <OAuth_client_ID> \
        --authorized-scopes <attribute>[,<attribute>] \
        --group-distribution-type all-groups \
+       --group-claim-value id \
        --labels <key>=<value>[,<key>=<value>]
      ```
 
@@ -78,12 +79,16 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
          
          {% endnote %}
 
-     * `--group-distribution-type`: If you specified the `groups` attribute when creating or updating the OAuth client, update the user groups you want to send to your service provider. The possible values are:
+     * `--group-distribution-type`: If you specified the `groups` attribute when creating or updating the OAuth client, update the user groups you want to send to your service provider. Its possible values are:
        * `all-groups`: Service provider will get all groups the user belongs to.
 
           The maximum number of groups to change hands is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
        * `assigned-groups`: Of all the user's groups, the service provider will only get the ones [explicitly specified](#users-and-groups).
        * `none`: Service provider will not get any of the groups the user belongs to.
+     * `--group-claim-value`: Change the type of the group value you want to send to the service provider. Its possible values are:
+       * `name`: Group name. It is used by default.
+       * `id`: Group ID.
+       * `external-id`: Group's external ID.
      * `--labels`: New list of [labels](../../../resource-manager/concepts/labels.md). You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
      Result:
@@ -109,11 +114,11 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, edit the [OIDC application](../../concepts/applications/oidc.md) settings:
+  1. In the {{ TF }} configuration file, edit the [OIDC app](../../concepts/applications/oidc.md) settings:
 
     ```hcl
     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
-      application_id   = "<app_ID>"
+      application_id = "<app_ID>"
       organization_id = "<organization_ID>"
       name            = "<new_application_name>"
       description     = "<new_application_description>"
@@ -125,6 +130,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
       
       group_claims_settings = {
         group_distribution_type = "ALL_GROUPS"
+        group_claim_value       = "ID"
       }
       
       labels = {
@@ -137,7 +143,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
     Where:
 
     * `application_id`: OIDC app ID. This is a required setting.
-    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC application resides in. This is a required setting.
+    * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app resides in. This is a required setting.
     * `--name`: New name for the OIDC app. The name must be unique within the organization and follow the naming requirements:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
@@ -152,11 +158,15 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
         * `address`: User home address.
         * `phone`: User phone number.
         * `groups`: User groups in the organization.
-    * `group_claims_settings`: Settings for sending user group claims to the service provider:
-      * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+    * `group_claims_settings`: Settings for sending user groups to the service provider:
+      * `group_distribution_type`: Groups to provide. Its possible values are:
         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
         * `NONE`: Service provider will not get any of the groups the user belongs to.
+      * `group_claim_value`: Type of the group value the service provider will get. Its possible values are:
+        * `NAME`: Group name. It is used by default.
+        * `ID`: Group ID.
+        * `EXTERNAL_ID`: Group's external ID.
     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
     For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
@@ -173,7 +183,7 @@ To update the [OIDC app's](../../concepts/applications/oidc.md) basic settings:
 
 - API {#api}
 
-  Use the [Application.Update](../../idp/application/oauth/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md) gRPC API call.
+    Use the [update](../../idp/application/oauth/api-ref/Application/update.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Update](../../idp/application/oauth/api-ref/grpc/Application/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -208,6 +218,7 @@ To update the service provider configuration in an OIDC app:
         --id <OAuth_client_ID> \
         --new-name <new_name_for_OAuth_client> \
         --redirect-uris <address>[,<address>] \
+        --post-logout-redirect-uris <address>[,<address>] \
         --scopes <attribute>[,<attribute>]
       ```
 
@@ -229,7 +240,8 @@ To update the service provider configuration in an OIDC app:
               
               {% endnote %}
 
-      * `--redirect-uris`: Specify the new address or addresses you got from the service provider in `<address1>,<address2>` format.
+      * `--redirect-uris`: Specify the new Redirect URI address or addresses you got from the service provider in `<address1>,<address2>` format.
+      * `--post-logout-redirect-uris`: Specify the new Post Logout Redirect URI address or addresses you got from the service provider in `<address1>,<address2>` format. This is an optional setting.
 
       Result:
 
@@ -245,10 +257,11 @@ To update the service provider configuration in an OIDC app:
 
     ```hcl
     resource "yandex_iam_oauth_client" "example_oauth_client" {
-      oauth_client_id = "<OAuth_client_ID>"
-      name           = "<new_name_for_OAuth_client>"
-      redirect_uris  = ["<address1>", "<address2>"]
-      scopes         = ["<attribute1>", "<attribute2>"]
+      oauth_client_id           = "<OAuth_client_ID>"
+      name                      = "<new_name_for_OAuth_client>"
+      redirect_uris             = ["<address1>", "<address2>"]
+      post_logout_redirect_uris = ["<address1>", "<address2>"]
+      scopes                    = ["<attribute1>", "<attribute2>"]
     }
     ```
 
@@ -257,6 +270,7 @@ To update the service provider configuration in an OIDC app:
     * `oauth_client_id`: OAuth client ID. This is a required setting.
     * `name`: New name for the OAuth client. This is an optional setting.
     * `redirect_uris`: New list of redirect URIs. Specify one or more URIs in square brackets. This is an optional setting.
+    * `post_logout_redirect_uris`: New list of Post Logout Redirect URIs. Specify one or more URIs in square brackets. This is an optional setting.
     * `scopes`: New user attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
       * `openid`: User ID. Required attribute.
       * `profile`: Additional user details, such as first name, last name, and avatar.
@@ -279,7 +293,14 @@ To update the service provider configuration in an OIDC app:
 
 - API {#api}
 
-  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
+    Use the [update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
+
+    Specify the OAuth client ID in the `oauthClientId` path parameter for the REST API or in the `oauth_client_id` field for the gRPC API. To change the redirect addresses, provide the following in the request body:
+
+    * `redirectUris`: New list of [redirect URIs](../../concepts/applications/oidc.md#oidc-redirect-uri). In the gRPC API: `redirect_uris`. This is an optional setting.
+    * `postLogoutRedirectUris`: New list of [Post Logout Redirect URIs](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri). In the gRPC API: `post_logout_redirect_uris`. This is an optional setting.
+
+    In the `updateMask` field, list the fields you want to change in order to preserve the remaining OAuth client settings. In the gRPC API, use the `update_mask` field.
 
 {% endlist %}
 
@@ -344,7 +365,7 @@ To update an OIDC app's security settings:
 
 - API {#api}
 
-  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
+    Use the [update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -431,7 +452,7 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
 - API {#api}
 
-  Use the [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
+    Use the [create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
 
 {% endlist %}
 

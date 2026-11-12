@@ -1,1 +1,0 @@
-* `userpool_id`: ID of the [user pool](../../../organization/concepts/user-pools.md) in {{ org-full-name }}.

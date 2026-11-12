@@ -193,6 +193,7 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
            --subnet-id=<subnet_ID> \
            --assign-public-ip=<enable_public_access_to_cluster_hosts> \
            --security-group-ids=<list_of_security_group_IDs> \
+           --cloud-storage-enable=<use_hybrid_storage> \
            --deletion-protection
         ```
 
@@ -226,6 +227,12 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You need to specify the ID if the selected availability zone has two or more subnets.
         * `--assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-a-host) to the hosts is required, `true` or `false`.
         * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
+        * `--cloud-storage-enable`: Use of [hybrid storage](../concepts/hybrid-storage.md). 
+
+          Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+          {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
+
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
 
@@ -386,6 +393,10 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
           yandex_query = <allow_access_from_Yandex_Query>
         }
 
+        cloud_storage {
+          enable = <use_hybrid_storage>
+        }
+
         user_name     = "<username>"
         user_password = "<password>"
 
@@ -419,6 +430,12 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
       * `access.yandex_query`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
 
 
+
+      * `cloud_storage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
+
+        Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+        {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
 
@@ -639,12 +656,14 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable hybrid storage after you save your cluster settings.
+            Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
         
-        * `masterHostGroupIds` and `segmentHostGroupIds`: Optionally, IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.
+        * `masterHostGroupIds` and `segmentHostGroupIds`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional setting.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -831,12 +850,14 @@ When creating a cluster, you can encrypt its disks using a custom KMS key. To do
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to hybrid storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable hybrid storage after you save your cluster settings.
+            Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
         
-        * `master_host_group_ids` and `segment_host_group_ids`: Optionally, IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.
+        * `master_host_group_ids` and `segment_host_group_ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional setting.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 

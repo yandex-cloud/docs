@@ -12,8 +12,8 @@ To delete a {{ yandex-360 }} organization, follow [this {{ yandex-360 }} guide](
 To delete an organization, a user needs the `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#add-role).
 
 Before deleting an organization:
-1. [Delete](../../resource-manager/operations/cloud/delete.md) all clouds from the organization.
-1. [Delete](../../billing/operations/delete-account.md) the billing account linked to the organizaiton.
+1. [Delete](../../resource-manager/operations/cloud/delete.md) all clouds from the organization or [move](../../resource-manager/operations/cloud/change-organization.md) them to another organization.
+1. [Delete](../../billing/operations/delete-account.md) all billing accounts linked to the organization.
 
 {% endnote %}
 
@@ -42,4 +42,20 @@ To delete an organization:
 
 After deleting an organization, you will no longer be able to use the {{ yandex-cloud }} resources created in that organization.
 
-If you have any issues, please contact [support]({{ link-console-support }}).
+## Resolving an error when deleting an organization {#troubleshooting}
+
+If the following error appears when deleting an organization, it means there are still clouds within the organization that prevent you from deleting it:
+
+```text
+Service 'resource-manager.cloud' has banned deletion operation with reason: Organization `<organization_ID>` has cloud(s)
+```
+
+To fix this error:
+
+1. [Delete](../../resource-manager/operations/cloud/delete.md) all clouds from the organization or [move](../../resource-manager/operations/cloud/change-organization.md) them to another organization.
+1. If you have selected cloud deletion, wait for it to complete. By default, the cloud deletion period is 7 days. After this period ends, permanent deletion may take up to 72 hours.
+1. Retry the organization deletion.
+
+If any billing accounts are linked to the organization, you must also [delete](../../billing/operations/delete-account.md) them.
+
+If any other issues arise, submit a request to [support]({{ link-console-support }}).

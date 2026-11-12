@@ -2,12 +2,6 @@
 
 # Создать файловое хранилище
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 Чтобы создать [файловое хранилище](../../concepts/filesystem.md):
 
 {% list tabs group=instructions %}

@@ -31,10 +31,16 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?cloudId=<cloud_ID>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?cloudId=<cloud_ID>&filter=<filtering_expression>&orderBy=<sorting_field> <sorting_direction>'
      ```
 
-  1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+     Where:
+
+     * `cloudId`: {{ yandex-cloud }} cloud ID.
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -53,11 +59,19 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "cloud_id": "<cloud_ID>"
+                  "cloud_id": "<cloud_ID>",
+                  "filter": "<filtering_expression>",
+                  "order_by": "<sorting_field> <sorting_direction>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
+
+        Where:
+
+        * `cloud_id`: {{ yandex-cloud }} cloud ID.
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
@@ -79,12 +93,14 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?folderId=<folder_ID>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?folderId=<folder_ID>&filter=<filtering_expression>&orderBy=<sorting_field> <sorting_direction>'
      ```
 
-     
-     You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     Where:
 
+     * `folderId`: Folder ID you can get with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
 
   1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
@@ -105,15 +121,19 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "folder_id": "<folder_ID>"
+                  "folder_id": "<folder_ID>",
+                  "filter": "<filtering_expression>",
+                  "order_by": "<sorting_field> <sorting_direction>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
 
-        
-        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where:
 
+        * `folder_id`: Folder ID you can get with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
@@ -144,10 +164,14 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances/?resourceId=<cluster_ID>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/maintenances?resourceId=<cluster_ID>&filter=<filtering_expression>&orderBy=<sorting_field> <sorting_direction>'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     Where:
+
+     * `resourceId`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     {% include [list-maintenance-rest](../../_includes/mdb/api/list-maintenance-rest.md) %}
 
   1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
@@ -168,13 +192,19 @@ For {{ mpg-name }}, you can get a list of maintenance jobs in:
             -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/maintenance_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
-                  "resource_id": "<cluster_ID>"
+                  "resource_id": "<cluster_ID>",
+                  "filter": "<filtering_expression>",
+                  "order_by": "<sorting_field> <sorting_direction>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.MaintenanceService.List
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        Where:
+
+        * `resource_id`: Cluster ID you can request with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        {% include [list-maintenance-grpc](../../_includes/mdb/api/list-maintenance-grpc.md) %}
 
     1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
 
@@ -301,7 +331,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.rest.tool }}:
+  1. Run the request, e.g., using {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -332,7 +362,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.rest.tool }}:
+  1. Run the request, e.g., using {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -372,7 +402,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.grpc.tool }}.
+  1. Run the request, e.g., using {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -409,7 +439,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.grpc.tool }}.
+  1. Run the request, e.g., using {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -491,7 +521,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.rest.tool }}:
+  1. Run the request, e.g., using {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -514,7 +544,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.rest.tool }}:
+  1. Run the request, e.g., using {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -546,7 +576,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.grpc.tool }}:
+  1. Run the request, e.g., using {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -575,7 +605,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Send a request, e.g., using {{ api-examples.grpc.tool }}.
+  1. Run the request, e.g., using {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -631,7 +661,7 @@ By default, maintenance can be scheduled for any time. You can choose a specific
       {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour>
+                             `hour=<sequence_number_of_hour_interval>
       ```
 
       Where `type` is the maintenance type:

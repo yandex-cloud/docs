@@ -85,13 +85,75 @@ Make sure to configure the security groups correctly for all subnets where the c
 For more information about security groups, see [Network and database clusters](../../concepts/network.md#security-groups).
 
 
-## Getting SSL certificates {#get-ssl-cert}
+## Obtaining an SSL certificate {#get-ssl-cert}
 
 To use an encrypted connection, get an SSL certificate:
 
 {% include [install-certificate](../../../_includes/mdb/mch/install-certificate.md) %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## Getting intermediate SSL certificates for connections over ODBC {#get-ssl-intermediate-cert}
+
+[Cluster connections over ODBC](code-examples.md#odbc) might require installing intermediate SSL certificates. To install them, run this command:
+
+
+{% list tabs group=operating_system %}
+
+- Linux (Bash) {#linux}
+
+  ```bash
+  sudo mkdir --parents {{ crt-local-dir }} && \
+  sudo wget "{{ crt-web-path-root }}" \
+       --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+  sudo wget "{{ crt-web-path-int }}" \
+       --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
+  sudo wget "https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem" \
+       --output-document {{ crt-local-dir }}IntermediateCA-2033.crt && \
+  sudo chmod 655 \
+       {{ crt-local-dir }}{{ crt-local-file-root }} \
+       {{ crt-local-dir }}{{ crt-local-file-int }} \
+       {{ crt-local-dir }}IntermediateCA-2033.crt && \
+  sudo update-ca-certificates
+  ```
+
+  The certificates will be saved to the following files:
+
+  * `{{ crt-local-dir }}{{ crt-local-file-root }}`
+  * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+  * `{{ crt-local-dir }}IntermediateCA-2033.crt`
+
+- Windows (PowerShell) {#windows}
+
+  ```powershell
+  mkdir -Force $HOME\.yandex; `
+  curl.exe {{ crt-web-path-root }} `
+    --output $HOME\.yandex\{{ crt-local-file-root }}; `
+  curl.exe {{ crt-web-path-int }} `
+    --output $HOME\.yandex\{{ crt-local-file-int }}; `
+  curl.exe https://storage.yandexcloud.net/cloud-certs/IntermediateCA-2033.pem `
+    --output $HOME\.yandex\IntermediateCA-2033.crt; `
+  Import-Certificate `
+    -FilePath $HOME\.yandex\{{ crt-local-file-root }} `
+    -CertStoreLocation cert:\CurrentUser\CA; `
+  Import-Certificate `
+    -FilePath $HOME\.yandex\{{ crt-local-file-int }} `
+    -CertStoreLocation cert:\CurrentUser\CA; `
+  Import-Certificate `
+    -FilePath $HOME\.yandex\IntermediateCA-2033.crt `
+    -CertStoreLocation cert:\CurrentUser\CA
+  ```
+
+  Your corporate security policies and antivirus software may block certificate download. For more information, see [FAQ](../../../managed-clickhouse/qa/connection.md#get-ssl-error).
+
+  The certificates will be saved to the following files:
+
+  * `$HOME\.yandex\{{ crt-local-file-root }}`
+  * `$HOME\.yandex\{{ crt-local-file-int }}`
+  * `$HOME\.yandex\IntermediateCA-2033.crt`
+
+{% endlist %}
+
 
 ## What's next {#whats-next}
 

@@ -5,3 +5,7 @@
 * [Who handles {{ k8s }} cluster scaling?](#scaling)
 
 * [Do the {{ k8s }} cluster nodes need internet access?](#internet-access)
+
+* [How are old images automatically cleaned up on nodes?](#image-garbage-collection)
+
+* [How can I check the node ephemeral storage size?](#ephemeral-storage)

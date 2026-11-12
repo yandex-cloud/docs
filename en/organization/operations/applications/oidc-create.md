@@ -66,6 +66,8 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
       ```bash
       yc iam oauth-client create \
         --name <OAuth_client_name> \
+        --redirect-uris <address>[,<address>] \
+        --post-logout-redirect-uris <address>[,<address>] \
         --scopes <attribute>[,<attribute>] \
         --profile-id <OAuth_client_type>
       ```
@@ -73,13 +75,15 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
       Where:
 
       * `--name`: OAuth client name.
+      * `--redirect-uris`: Specify the [redirect URI address](../../concepts/applications/oidc.md#oidc-redirect-uri) or multiple comma-separated addresses you got from the service provider. This is an optional setting.
+      * `--post-logout-redirect-uris`: Specify the [post logout redirect URI address](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri) or multiple comma-separated addresses you got from the service provider. This is an optional setting.
       * `--scopes`: User attributes that will be available to the service provider. Specify one or more attributes, comma-separated, in `<attribute1>,<attribute2>` format. Possible attributes:
 
           * `openid`: User ID. Required attribute.
           * `profile`: Additional user details, such as first name, last name, and avatar.
           * `email`: User email address.
           * `groups`: [User groups](../../concepts/groups.md) in the organization.
-      * `--profile-id`: OAuth client type. The possible values are:
+      * `--profile-id`: OAuth client type. Its possible values are:
 
           * `web`: [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](../../concepts/applications/oidc.md#oidc-web) type, optimized for user authentication to external web applications with a server end (backend).
           * `user-agent`: [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](../../concepts/applications/oidc.md#oidc-single-page) type, optimized for user authentication to external [SPA](https://en.wikipedia.org/wiki/Single-page_application) applications.
@@ -119,6 +123,8 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
       ```bash
       yc organization-manager idp application oauth application create --help
+      ```
+
   1. Create an OIDC app:
 
       ```bash
@@ -129,6 +135,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
         --client-id <OAuth_client_ID> \
         --authorized-scopes <attribute>[,<attribute>] \
         --group-distribution-type all-groups \
+        --group-claim-value name \
         --labels <key>=<value>[,<key>=<value>]
       ```
 
@@ -142,12 +149,16 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
       * `--description`: OIDC app description. This is an optional setting.
       * `--client-id`: OAuth client ID you got in Step 2. This is a required setting.
       * `--authorized-scopes`: Specify the same attributes as when creating the OAuth client.
-      * `--group-distribution-type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+      * `--group-distribution-type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. Its possible values are:
           * `all-groups`: Service provider will get all groups the user belongs to.
 
               The maximum number of groups to change hands is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
           * `assigned-groups`: Of all the user's groups, the service provider will only get the ones explicitly [specified](#users-and-groups).
           * `none`: Service provider will not get any of the groups the user belongs to.
+      * `--group-claim-value`: Type of the group value the service provider will get. Its possible values are:
+          * `name`: Group name. It is used by default.
+          * `id`: Group ID.
+          * `external-id`: Group's external ID.
       * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
       Result:
@@ -180,9 +191,11 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
-       name      = "<OAuth_client_name>"
-       folder_id = "<folder_ID>"
-       scopes    = ["<attribute1>", "<attribute2>"]
+       name                      = "<OAuth_client_name>"
+       folder_id                 = "<folder_ID>"
+       redirect_uris             = ["<address1>", "<address2>"]
+       post_logout_redirect_uris = ["<address1>", "<address2>"]
+       scopes                    = ["<attribute1>", "<attribute2>"]
      }
      ```
 
@@ -190,6 +203,8 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
      * `name`: OAuth client name.
      * `folder_id`: ID of the folder where you want to create your OAuth server.
+     * `redirect_uris`: List of [redirect URI addresses](../../concepts/applications/oidc.md#oidc-redirect-uri) you got from the service provider. This is an optional setting.
+     * `post_logout_redirect_uris`: List of [post logout redirect URI addresses](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri) you got from the service provider. This is an optional setting.
      * `scopes`: User attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
        * `openid`: User ID. Required attribute.
        * `profile`: Additional user details, such as first name, last name, and avatar.
@@ -227,6 +242,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
        
        group_claims_settings = {
          group_distribution_type = "ALL_GROUPS"
+         group_claim_value       = "NAME"
        }
        
        labels = {
@@ -247,11 +263,15 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
      * `client_grant`: OAuth client connection settings:
        * `client_id`: OAuth client ID. This is a required setting.
        * `authorized_scopes`: Specify the same attributes as when creating the OAuth client.
-     * `group_claims_settings`: Settings for sending user group claims to the service provider:
-       * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+     * `group_claims_settings`: Settings for sending user groups to the service provider:
+       * `group_distribution_type`: Groups to provide. Its possible values are:
          * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
          * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
          * `NONE`: Service provider will not get any of the groups the user belongs to.
+       * `group_claim_value`: Type of the group value the service provider will get. Its possible values are:
+         * `NAME`: Group name. It is used by default.
+         * `ID`: Group ID.
+         * `EXTERNAL_ID`: Group's external ID.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
      For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
@@ -268,9 +288,15 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
 
 - API {#api}
 
-  1. To create an OAuth client, use the [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md) gRPC API call.
-  1. To create an OAuth client secret, use the [OAuthClientSecret.Create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
-  1. To create an OIDC application, use the [Application.Create](../../idp/application/oauth/api-ref/Application/create.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md) gRPC API call.  
+    1. To create an OAuth client, use the [create](../../../iam/api-ref/OAuthClient/create.md) REST API method for the [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) resource or the [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md) gRPC API call.
+
+        To specify redirect addresses when creating an OAuth client, provide the following in the request body:
+
+        * `redirectUris`: List of [redirect URI addresses](../../concepts/applications/oidc.md#oidc-redirect-uri) you got from the service provider. In the gRPC API: `redirect_uris`. This is an optional setting.
+        * `postLogoutRedirectUris`: List of [post logout redirect URI addresses](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri) you got from the service provider. In the gRPC API: `post_logout_redirect_uris`. This is an optional setting.
+
+    1. To create an OAuth client secret, use the [create](../../../iam/api-ref/OAuthClientSecret/create.md) REST API method for the [OAuthClientSecret](../../../iam/api-ref/OAuthClientSecret/index.md) resource or the [OAuthClientSecretService/Create](../../../iam/api-ref/grpc/OAuthClientSecret/create.md) gRPC API call.
+    1. To create an OIDC application, use the [create](../../idp/application/oauth/api-ref/Application/create.md) REST API method for the [Application](../../idp/application/oauth/api-ref/Application/index.md) resource or the [ApplicationService/Create](../../idp/application/oauth/api-ref/grpc/Application/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -313,7 +339,7 @@ Depending on the options supported by your service provider, you can configure t
 
 {% include [oidc-app-types-ui-notice](../../../_includes/organization/oidc-app-types-ui-notice.md) %}
 
-Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider. Then, navigate to the OIDC application settings in {{ org-full-name }}:
+Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI and, if required, post logout redirect URI address (addresses) from your service provider. Then, navigate to the OIDC application settings in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -341,6 +367,7 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
       yc iam oauth-client update \
         --id <OAuth_client_ID> \
         --redirect-uris <address>[,<address>] \
+        --post-logout-redirect-uris <address>[,<address>] \
         --auth-methods <secret_provisioning_method> \
         --pkce-required
       ```
@@ -348,8 +375,9 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
       Where:
 
       * `--id`: OAuth client ID.
-      * `--redirect-uris`: Specify the address or addresses you got from the service provider in `<address1>,<address2>` format.
-      * `--auth-methods`: [Application secret provisioning methods](../../concepts/applications/oidc.md#secret-delivery). This parameter is only available for `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` OAuth clients. The possible values are:
+      * `--redirect-uris`: Specify the redirect URI address or addresses you got from the service provider in `<address1>,<address2>` format.
+      * `--post-logout-redirect-uris`: Specify the post logout redirect URI address or addresses you got from the service provider in `<address1>,<address2>` format. This is an optional setting.
+      * `--auth-methods`: [Application secret provisioning methods](../../concepts/applications/oidc.md#secret-delivery). This parameter is only available for `{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}` OAuth clients. Its possible values are:
 
           * `client_secret_basic`: Application secret is provided in the `Authorization: Basic` HTTP header.
           * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_method_client_secret_basic }}`: Application secret is provided in the body of the POST request.
@@ -378,7 +406,7 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, specify the `redirect_uris` parameter for the `yandex_iam_oauth_client` resource:
+  1. In the {{ TF }} configuration file, specify the redirection parameters for the `yandex_iam_oauth_client` resource:
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -387,7 +415,8 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
 
        ...
 
-       redirect_uris = ["<address1>", "<address2>"]
+       redirect_uris             = ["<address1>", "<address2>"]
+       post_logout_redirect_uris = ["<address1>", "<address2>"]
      }
      ```
 
@@ -395,7 +424,8 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
 
      * `name`: OAuth client name.
      * `folder_id`: ID of the folder where you want to create your OAuth server.
-     * `redirect_uris`: Specify the address or addresses you got from the service provider in square brackets.
+     * `redirect_uris`: Specify the redirect URI address or addresses you got from the service provider in square brackets.
+     * `post_logout_redirect_uris`: Specify the post logout redirect URI address or addresses you got from the service provider in square brackets. This is an optional setting.
 
      For more on the properties of the `yandex_iam_oauth_client` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
 
@@ -411,7 +441,14 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
 
 - API {#api}
 
-  Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
+    Use the [update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
+
+    Specify the OAuth client ID in the `oauthClientId` path parameter for the REST API or in the `oauth_client_id` field for the gRPC API. In the body of your request, provide the following:
+
+    * `redirectUris`: List of [redirect URI addresses](../../concepts/applications/oidc.md#oidc-redirect-uri) you got from the service provider. In the gRPC API: `redirect_uris`.
+    * `postLogoutRedirectUris`: List of [post logout redirect URI addresses](../../concepts/applications/oidc.md#oidc-post-logout-redirect-uri) you got from the service provider. In the gRPC API: `post_logout_redirect_uris`. This is an optional setting.
+
+    In the `updateMask` field, list the fields you want to change in order to preserve the remaining OAuth client settings. In the gRPC API, use the `update_mask` field.
 
 {% endlist %}
 

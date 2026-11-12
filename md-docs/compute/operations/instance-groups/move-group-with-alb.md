@@ -2,12 +2,6 @@
 
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) с [L7-балансировщиком](../../../application-load-balancer/concepts/application-load-balancer.md) [Yandex Application Load Balancer](../../../application-load-balancer/index.md):
 

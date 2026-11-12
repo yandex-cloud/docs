@@ -54,3 +54,7 @@ Service accounts allow you to set up flexible access to your resources and minim
 ### Use cases {#examples-sa}
 
 * [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+
+#### Useful links {#see-also}
+
+* [{#T}](../subject-details.md)

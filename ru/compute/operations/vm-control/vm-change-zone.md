@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Перенести виртуальную машину в другую зону доступности
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 При создании виртуальной машины можно выбрать, в какой из [зон доступности](../../../overview/concepts/geo-scope.md) {{ yandex-cloud }} она будет размещена.
 

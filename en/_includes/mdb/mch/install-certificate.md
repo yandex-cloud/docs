@@ -6,18 +6,12 @@
    sudo mkdir --parents {{ crt-local-dir }} && \
    sudo wget "{{ crt-web-path-root }}" \
         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-   sudo wget "{{ crt-web-path-int }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
    sudo chmod 655 \
-        {{ crt-local-dir }}{{ crt-local-file-root }} \
-        {{ crt-local-dir }}{{ crt-local-file-int }} && \
+        {{ crt-local-dir }}{{ crt-local-file-root }} && \
    sudo update-ca-certificates
    ```
 
-   The certificates will be saved to the following files:
-
-   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
-   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+   The certificate will be saved to the `{{ crt-local-dir }}{{ crt-local-file-root }}` file.
 
 - macOS (Zsh) {#macos}
 
@@ -25,45 +19,30 @@
    sudo mkdir -p {{ crt-local-dir }} && \
    sudo wget "{{ crt-web-path-root }}" \
         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-   sudo wget "{{ crt-web-path-int }}" \
-        --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
    sudo chmod 655 \
-        {{ crt-local-dir }}{{ crt-local-file-root }} \
-        {{ crt-local-dir }}{{ crt-local-file-int }} && \
-   security import {{ crt-local-dir }}{{ crt-local-file-root }} -k ~/Library/Keychains/login.keychain; \
-   security import {{ crt-local-dir }}{{ crt-local-file-int }} -k ~/Library/Keychains/login.keychain
+        {{ crt-local-dir }}{{ crt-local-file-root }} && \
+   security import {{ crt-local-dir }}{{ crt-local-file-root }} -k ~/Library/Keychains/login.keychain
    ```
 
-   The certificates will be saved to the following files:
-
-   * `{{ crt-local-dir }}{{ crt-local-file-root }}`
-   * `{{ crt-local-dir }}{{ crt-local-file-int }}`
+   The certificate will be saved to the `{{ crt-local-dir }}{{ crt-local-file-root }}` file.
 
 - Windows (PowerShell) {#windows}
 
-   1. Download and import the certificates:
+   1. Download and import the certificate:
 
       ```powershell
       mkdir -Force $HOME\.yandex; `
       curl.exe {{ crt-web-path-root }} `
         --output $HOME\.yandex\{{ crt-local-file-root }}; `
-      curl.exe {{ crt-web-path-int }} `
-        --output $HOME\.yandex\{{ crt-local-file-int }}; `
       Import-Certificate `
         -FilePath $HOME\.yandex\{{ crt-local-file-root }} `
-        -CertStoreLocation cert:\CurrentUser\Root; `
-      Import-Certificate `
-        -FilePath $HOME\.yandex\{{ crt-local-file-int }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
       Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-clickhouse/qa/connection.md#get-ssl-error).
 
-   1. Agree to install the certificates in the <q>Trusted Root Certification Authorities</q> storage.
+   1. Confirm that that you agree to install the certificate in the _Trusted Root Certification Authorities_ store.
 
-   The certificates will be saved to the following files:
-
-   * `$HOME\.yandex\{{ crt-local-file-root }}`
-   * `$HOME\.yandex\{{ crt-local-file-int }}`
+   The certificate will be saved to the `$HOME\.yandex\{{ crt-local-file-root }}` file.
 
 {% endlist %}

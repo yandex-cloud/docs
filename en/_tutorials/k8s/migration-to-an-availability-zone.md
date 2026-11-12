@@ -1,7 +1,7 @@
 # Migrating {{ k8s }} resources to a different availability zone
 
 
-In a {{ managed-k8s-name }} cluster, you can [migrate a node group and pod workload](#transfer-a-node-group) from one availability zone to another.
+In a {{ managed-k8s-name }} cluster, you can [migrate a highly available master](#transfer-a-master), as well as a [node group and pod workload](#transfer-a-node-group) from one availability zone to another.
 
 ## Getting started {#before-you-begin}
 
@@ -23,6 +23,220 @@ yc components update
 * Public IP addresses for the {{ managed-k8s-name }} cluster's master and nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
+## Migrate the master to a different availability zone {#transfer-a-master}
+
+This section describes migrating a [highly available master](../../managed-kubernetes/concepts/index.md#master) from zone `ru-central1-b` to zone `ru-central1-e`. Hosting in `ru-central1-a` and `ru-central1-d` remains in effect.
+
+{% note warning %}
+
+In clusters using Cilium, webhooks may become unavailable after you migrate the master. For troubleshooting, see [Restore Cilium webhook availability](#cilium-webhooks).
+
+{% endnote %}
+
+
+### Migrating a highly-available master {#regional}
+
+A highly available master is deployed across three subnets in different availability zones. For the migration, specify all the three subnets with their zones: two existing ones and your new one. The new subnet must reside in the same cloud network as the cluster.
+
+To migrate a highly-available master to a different combination of availability zones:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the description of the following cluster modification command:
+
+      ```bash
+      {{ yc-k8s }} cluster update --help
+      ```
+
+   1. Create a subnet in the `ru-central1-e` availability zone:
+
+      ```bash
+      yc vpc subnet create \
+         --folder-id <folder_ID> \
+         --name <subnet_name> \
+         --zone ru-central1-e \
+         --network-id <network_ID> \
+         --range <subnet_CIDR>
+      ```
+
+      In the command, specify the following subnet settings:
+
+      * `--folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+      * `--name`: Subnet name.
+      * `--zone`: Availability zone.
+      * `--network-id`: ID of the network that contains the new subnet.
+      * `--range`: List of IPv4 addresses for incoming or outgoing traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, while the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Migrate the master to a different combination of availability zones:
+
+      ```bash
+      {{ yc-k8s }} cluster update \
+         --folder-id <folder_ID> \
+         --id <cluster_ID> \
+         --master-location subnet-id=<subnet_a_ID>,zone=ru-central1-a \
+         --master-location subnet-id=<subnet_d_ID>,zone=ru-central1-d \
+         --master-location subnet-id=<new_subnet_ID>,zone=ru-central1-e
+      ```
+
+      Where:
+
+      * `--folder-id`: Folder ID. Treat this parameter as optional if the folder is specified in the CLI profile.
+      * `--id`: [Cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md). This is a required setting.
+      * `--master-location`: Master hosting parameters. Specify this three times, one for each zone:
+        * `subnet-id`: Subnet ID.
+        * `zone`: Availability zone.
+
+        For `ru-central1-a` and `ru-central1-d`, specify the current subnets; and for `ru-central1-e`, your new one.
+
+- {{ TF }} {#tf}
+
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+   {% include [master-tf-mifration-warning](../../_includes/managed-kubernetes/master-tf-mifration-warning.md) %}
+
+   1. If the cluster configuration includes a `regional` block, replace it with three `master_location` blocks, while retaining the current zone and subnet values. If the `master_location` blocks are already in use, proceed to creating a new subnet.
+
+      Configuration snippets are shown below. Keep the resource name in the configuration, and leave the rest `yandex_kubernetes_cluster` resource parameters unchanged.
+
+      **Old format**:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            regional {
+               region = "ru-central1"
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-a.id
+                  zone      = yandex_vpc_subnet.my-subnet-a.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-d.id
+                  zone      = yandex_vpc_subnet.my-subnet-d.zone
+               }
+               location {
+                  subnet_id = yandex_vpc_subnet.my-subnet-b.id
+                  zone      = yandex_vpc_subnet.my-subnet-b.zone
+               }
+            }
+         }
+         ...
+      }
+      ```       
+
+      **New format**: 
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-b.id
+               zone      = yandex_vpc_subnet.my-subnet-b.zone
+            }
+         }
+         ...
+      }
+      ```
+
+   1. Make sure no changes have been found in the {{ TF }} resource settings:
+
+      ```bash
+      terraform plan
+      ```
+
+      If {{ TF }} detects changes, validate all cluster parameter values: they should match the current state.
+
+   1. Add the new subnet's manifest to the cluster configuration file and update the cluster location:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "my-subnet-e" {
+         name           = "<subnet_name>"
+         zone           = "ru-central1-e"
+         network_id     = yandex_vpc_network.k8s-network.id
+         v4_cidr_blocks = ["<subnet_CIDR>"]
+      }
+
+      ...
+
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+         ...
+         master {
+            ...
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-a.id
+               zone      = yandex_vpc_subnet.my-subnet-a.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-d.id
+               zone      = yandex_vpc_subnet.my-subnet-d.zone
+            }
+            master_location {
+               subnet_id = yandex_vpc_subnet.my-subnet-e.id
+               zone      = yandex_vpc_subnet.my-subnet-e.zone
+            }
+            ...
+         }
+      ...
+      }
+      ```
+
+      This will replace cluster's `my-subnet-b` with `my-subnet-e` with these settings:
+
+      * `name`: Subnet name.
+      * `zone`: Availability zone.
+      * `network_id`: ID of the network that contains the new subnet.
+      * `v4_cidr_blocks`: List of IPv4 addresses for incoming or outgoing traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, while the maximum subnet size is `/16`. Only IPv4 is supported.
+
+   1. Make sure the configuration file is correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm resource changes. Before applying, make sure the plan does not provide for deleting or re-creating your cluster and its node groups.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For details on the properties of the `yandex_kubernetes_cluster` resource, see [this provider guide]({{ tf-provider-resources-link }}/kubernetes_cluster).
+
+{% endlist %}
+
+### Restore Cilium webhook availability {#cilium-webhooks}
+
+Once the master migrates, in clusters using Cilium, mutating and validating webhooks associated with the migrated master may become unavailable.
+
+If you encounter this issue:
+
+1. [Connect to the cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) using the {{ k8s }} CLI (kubectl).
+1. Get a list of `CiliumNode` objects:
+
+   ```bash
+   kubectl get ciliumnodes
+   ```
+
+1. Locate the old master object from the original availability zone. For example, when migrating from `ru-central1-b`, its name is formatted like `mk8s-master-<ID>-b`.
+1. Delete only the `CiliumNode` object that refers to the old master:
+
+   ```bash
+   kubectl delete ciliumnode <old_master_object_name>
+   ```
+
+1. Check whether your webhooks are available again. If the issue persists, contact [support]({{ link-console-support }}).
 
 ## Migrate the node group and pod workload to a different availability zone {#transfer-a-node-group}
 

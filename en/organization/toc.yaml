@@ -213,7 +213,7 @@ items:
             items:
               - name: Enabling access via {{ oslogin }}
                 href: operations/os-login-access.md
-              - name: Creating an {{ oslogin }} profile
+              - name: Creating a profile {{ oslogin }}
                 href: operations/os-login-profile-create.md
       - name: Access management
         items:
@@ -231,7 +231,7 @@ items:
             href: operations/view-subject-access-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
-      - name: Syncing users and groups with external directory services
+      - name: Syncing with external directory services
         items:
           - name: '{{ microsoft-idp.ad-short }}'
             href: operations/sync-ad.md
@@ -2362,6 +2362,6 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-  - name: '{{ org-sync-agent-name }} release notes'
+  - name: '{{ ad-sync-agent }} release notes'
     href: sync-agent-release-notes.md
 path: en/organization/toc.yaml

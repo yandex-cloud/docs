@@ -76,6 +76,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             
             
             1. Click ![image](../../_assets/console-icons/pencil.svg) and specify the following for each host:
+                
                 * [Availability zone](../../overview/concepts/geo-scope.md).
                 * [Subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
                 * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
@@ -83,7 +84,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             After creating a {{ SPQR }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards. [Learn more about connecting to databases](connect.md).
 
         * Database name. Acceptable length is from 1 to 63 characters. May contain lowercase and uppercase Latin letters, numbers, underscores, and hyphens.
 
@@ -98,6 +99,423 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     1. To configure [cluster-level DBMS settings](../concepts/settings-list.md), under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To create a {{ mspqr-name }} cluster:
+
+  1. View the description of the CLI command for creating a cluster:
+
+      ```bash
+      yc managed-sharded-postgresql cluster create --help
+      ```
+
+  1. Specify the cluster settings in the `cluster create` command. Note that our example does not contain all available settings:
+
+      {% cut "For a cluster with standard sharding" %}
+
+            
+      ```bash
+      yc managed-sharded-postgresql cluster create \
+         --name <cluster_name> \
+         --environment <environment> \
+         --network-name <network_name> \
+         --security-group-ids <security_group_IDs> \
+         --host type=infra,`
+               `zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `assign-public-ip=<allow_public_access_to_host> \
+         --infra-resource-preset <INFRA_host_class> \
+         --infra-disk-size <storage_size_in_GB> \
+         --infra-disk-type <disk_type> \
+         --database name=<DB_name> \
+         --user name=<username>,`
+               `password=<password>,`
+               `permission=<DB_name>,`
+               `connection-limit=<maximum_number_of_user_connections>,`
+               `connection-retries=<maximum_connection_retry_attempts> \
+         --deletion-protection=<protect_cluster_from_deletion>
+      ```
+
+
+      {% endcut %}
+
+      {% cut "For a cluster with advanced sharding" %}
+
+      
+      ```bash
+      yc managed-sharded-postgresql cluster create \
+         --name <cluster_name> \
+         --environment <environment> \
+         --network-name <network_name> \
+         --security-group-ids <security_group_IDs> \
+         --host type=router,`
+               `zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `assign-public-ip=<allow_public_access_to_host> \
+         --router-resource-preset <router_host_class> \
+         --router-disk-size <storage_size_in_GB> \
+         --router-disk-type <disk_type> \
+         --host type=coordinator,`
+               `zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `assign-public-ip=<allow_public_access_to_host> \
+         --coordinator-resource-preset <coordinator_host_class> \
+         --coordinator-disk-size <storage_size_in_GB> \
+         --coordinator-disk-type <disk_type> \
+         --database name=<DB_name> \
+         --user name=<username>,`
+               `password=<password>,`
+               `permission=<DB_name>,`
+               `connection-limit=<maximum_number_of_user_connections>,`
+               `connection-retries=<maximum_connection_retry_attempts> \
+         --deletion-protection=<protect_cluster_from_deletion>
+      ```
+
+
+      {% endcut %}
+
+      Where:
+
+      * `--name`: Cluster name.
+      * `--environment`: Cluster environment, `production` or `prestable`.
+      * `--network-name`: Name of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
+      
+      * `--security-group-ids`: [Security group](../../vpc/concepts/security-groups.md) IDs, comma-separated.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+
+
+      * `--host`: Cluster host settings. This parameter is specified separately for each host and has the following structure:
+
+        * `type`: Host type. Its possible values are:
+          
+          * `router`: [Router](../concepts/index.md#router) in a cluster with advanced sharding.
+          * `coordinator`: [Coordinator](../concepts/index.md#coordinator) in a cluster with advanced sharding.
+          * `infra`: `INFRA` host in a cluster with standard sharding.
+        
+        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+        
+        
+        * `subnet-id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+        * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+      
+      * `--router-resource-preset`: [Class](../concepts/instance-types.md) of router hosts.
+      * `--router-disk-size`: Router disk size, in GB.
+      * `--router-disk-type`: Router [disk type](../concepts/storage.md).
+      * `--coordinator-resource-preset`: Class of coordinator hosts.
+      * `--coordinator-disk-size`: Coordinator disk size, in GB.
+      * `--coordinator-disk-type`: Coordinator disk type.
+      * `--infra-resource-preset`: `INFRA` host class.
+      * `--infra-disk-size`: `INFRA` disk size, in GB.
+      * `--infra-disk-type`: `INFRA` disk type.
+      * `--database`: Database settings:
+        
+        * `name`: Database name.
+
+        Specify a separate `--database` property for each database.
+
+      * `--user`: User settings. This parameter is specified separately for each user and has the following structure:
+        
+        * `name`: Username.
+          
+          {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+
+        * `password`: User password. The password must be from 8 to 128 characters long.
+        * `permission`: Name of the database the user can access.
+
+          Provide a separate `permission` property for each database you want the user to access.
+
+        * `connection-limit`: Maximum number of concurrent user connections.
+        * `connection-retries`: Maximum number of connection retry attempts.
+
+      * `--deletion-protection`: Cluster deletion protection, `true` or `false`.
+
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      
+      1. To set up the [backup window](../concepts/backup.md), provide the following parameters:
+
+          ```bash
+          yc managed-sharded-postgresql cluster create \
+             ...
+             --backup-window-start <backup_start_time> \
+             --backup-retain-period-days <automatic_backup_retention_period_in_days> \
+             ...
+          ```
+
+          Where:
+
+          * `--backup-window-start`: Cluster backup start time (UTC) in `HH:MM:SS` format.
+          * `--backup-retain-period-days`: Automatic backup retention period. Possible values: between `7` and `60` days. The default is `7` days.
+      
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To create a {{ mspqr-name }} cluster:
+
+  1. In the configuration file, describe the properties of the following resources:
+
+      * {{ mspqr-name }} cluster
+      * Cluster database
+      * Cluster user
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+      Configuration file structure example:
+
+      {% cut "For a cluster with standard sharding" %}
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_cluster" "<local_cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = yandex_vpc_network.<local_network_name>.id
+        security_group_ids  = ["<security_group_IDs>"]
+        deletion_protection = <protect_cluster_from_deletion>
+  
+        config = {
+          sharded_postgresql_config = {
+            infra = {
+              resources = {
+                resource_preset_id = "<INFRA_host_class>"
+                disk_size          = <storage_size_in_GB>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+          }
+        }
+
+        hosts = {
+          <host_name> = {
+            type             = "INFRA"
+            zone             = "<availability_zone>"
+            subnet_id        = yandex_vpc_subnet.<local_subnet_name>.id
+            assign_public_ip = <allow_public_access_to_host>
+          }
+        } 
+      }
+
+      resource "yandex_mdb_sharded_postgresql_database" "<local_DB_name>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<local_cluster_name>.id
+        name       = "<DB_name>"
+      }
+      
+      resource "yandex_mdb_sharded_postgresql_user" "<local_username>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<local_cluster_name>.id
+        name       = "<username>"
+        password   = "<password>"
+
+        permissions {
+          database = yandex_mdb_sharded_postgresql_database.<local_DB_name>.name
+        }
+
+        settings = {
+          connection_limit   = <maximum_number_of_user_connections>
+          connection_retries = <maximum_number_of_connection_retry_attempts>
+        }
+      }
+
+      resource "yandex_vpc_network" "<local_network_name>" {
+        name = "<network_name>"
+      }
+
+      resource "yandex_vpc_subnet" "<local_subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = yandex_vpc_network.<local_network_name>.id
+        v4_cidr_blocks = ["<IP_address_range>"]
+      }
+      ```
+      
+      {% endcut %}
+
+      {% cut "For a cluster with advanced sharding" %}
+
+      ```hcl
+      resource "yandex_mdb_sharded_postgresql_cluster" "<local_cluster_name>" {
+        name                = "<cluster_name>"
+        environment         = "<environment>"
+        network_id          = yandex_vpc_network.<local_network_name>.id
+        security_group_ids  = ["<security_group_IDs>"]
+        deletion_protection = <protect_cluster_from_deletion>
+  
+        config = {
+          sharded_postgresql_config = {
+            router = {
+              resources = {
+                resource_preset_id = "<router_host_class>"
+                disk_size          = <storage_size_in_GB>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+            
+            coordinator = {
+              resources = {
+                resource_preset_id = "<coordinator_host_class>"
+                disk_size          = <storage_size_in_GB>
+                disk_type_id       = "<disk_type>"
+              }
+            }
+          }
+        }
+
+        hosts = {
+          <host_1_name> = {
+            type             = "ROUTER"
+            zone             = "<availability_zone>"
+            subnet_id        = yandex_vpc_subnet.<local_subnet_name>.id
+            assign_public_ip = <allow_public_access_to_host>
+          }
+
+          <host_2_name> = {
+            type             = "COORDINATOR"
+            zone             = "<availability_zone>"
+            subnet_id        = yandex_vpc_subnet.<local_subnet_name>.id
+            assign_public_ip = <allow_public_access_to_host>
+          }
+        } 
+      }
+
+      resource "yandex_mdb_sharded_postgresql_database" "<local_DB_name>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<local_cluster_name>.id
+        name       = "<DB_name>"
+      }
+      
+      resource "yandex_mdb_sharded_postgresql_user" "<local_username>" {
+        cluster_id = yandex_mdb_sharded_postgresql_cluster.<local_cluster_name>.id
+        name       = "<username>"
+        password   = "<password>"
+
+        permissions {
+          database = yandex_mdb_sharded_postgresql_database.<local_DB_name>.name
+        }
+
+        settings = {
+          connection_limit   = <number_of_user_connections>
+          connection_retries = <number_of_retries_when_connecting>
+        }
+      }
+
+      resource "yandex_vpc_network" "<local_network_name>" {
+        name = "<network_name>"
+      }
+
+      resource "yandex_vpc_subnet" "<local_subnet_name>" {
+        name           = "<subnet_name>"
+        zone           = "<availability_zone>"
+        network_id     = yandex_vpc_network.<local_network_name>.id
+        v4_cidr_blocks = ["<IP_address_range>"]
+      }
+      ```
+
+      {% endcut %}
+
+      Where:
+
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be deployed in.
+
+        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+
+      * `security_group_ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
+
+        {% include [note-sg](../../_includes/managed-spqr/note-sg.md) %}
+      
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
+
+        * `type`: Host type. Its possible values are:
+          
+          * `ROUTER`: [Router](../concepts/index.md#router) in a cluster with advanced sharding.
+          * `COORDINATOR`: [Coordinator](../concepts/index.md#coordinator) in a cluster with advanced sharding.
+          * `INFRA`: `INFRA` host in a cluster with standard sharding.
+        
+        * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+        * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+      
+      * `config.sharded_postgresql_config.router.resources`: Router resource parameters in a cluster with advanced sharding:
+        
+        * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+        * `disk_size`: Disk size, in GB.
+        * `disk_type_id`: [Disk type](../concepts/storage.md).
+      
+      * `config.sharded_postgresql_config.coordinator.resources`: Coordinator resource parameters in a cluster with advanced sharding:
+        
+        * `resource_preset_id`: Host class.
+        * `disk_size`: Disk size, in GB.
+        * `disk_type_id`: Disk type.
+      
+      * `config.sharded_postgresql_config.infra.resources`: `INFRA` host resource parameters in a cluster with standard sharding:
+        
+        * `resource_preset_id`: Host class.
+        * `disk_size`: Disk size, in GB.
+        * `disk_type_id`: Disk type.
+      
+      1. To set up the [backup window](../concepts/backup.md), provide the `config` section to the following parameters:
+
+          ```hcl
+          resource "yandex_mdb_sharded_postgresql_cluster" "<local_cluster_name>" {
+            ...
+            config = {
+              backup_window_start = {
+                hours   = <hours>
+                minutes = <minutes>
+              }
+
+              backup_retain_period_days = <automatic_backup_retention_period_in_days>
+              ...
+            }
+            ...
+          }
+          ```
+
+          Where:
+
+          * `backup_window_start`: Cluster backup start time (UTC):
+        
+            * `hours`: From `0` to `23` hours.
+            * `minutes`: From `0` to `59` minutes.
+        
+          * `backup_retain_period_days`: Automatic backup retention period. Possible values: between `7` and `60` days. The default is `7` days.
+    
+      1. {% include [Maintenance window](../../_includes/mdb/mspqr/terraform/maintenance-window.md) %}
+  
+      For more information about the `yandex_mdb_sharded_postgresql_cluster` resource, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster).
+
+  1. Validate your {{ TF }} configuration:
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Create a cluster:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+      
+      {% include [Terraform timeouts](../../_includes/mdb/mspqr/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -255,6 +673,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `configSpec`: Cluster settings:
@@ -271,11 +691,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
              * `preferSameAvailabilityZone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
            * `resources`: `ROUTER` host resource parameters:
+             
              * `resourcePresetId`: [Host class](../concepts/instance-types.md).
              * `diskSize`: Disk size, in bytes.
              * `diskTypeId`: [Disk type](../concepts/storage.md).
 
          * `coordinator`: For advanced sharding, set the following coordinator resource parameters:
+             
              * `resourcePresetId`: Host class.
              * `diskSize`: Disk size, in bytes.
              * `diskTypeId`: Disk type.
@@ -283,6 +705,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `infra`: For standard sharding, set the following `INFRA` host settings:
 
            * `resources`: Resource parameters:
+              
               * `resourcePresetId`: Host class.
               * `diskSize`: Disk size, in bytes.
               * `diskTypeId`: Disk type.
@@ -334,7 +757,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
-       * `type`: Host type. The possible values are:
+       * `type`: Host type. Its possible values are:
+         
          * `ROUTER`: Router in a cluster with advanced sharding.
          * `COORDINATOR`: Coordinator in a cluster with advanced sharding.
          * `INFRA`: `INFRA` host in a cluster with standard sharding.
@@ -535,6 +959,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
+        {% include [deletion-protection-cluster](../../_includes/mdb/mspqr/deletion-protection-cluster.md) %}
+
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `config_spec`: Cluster settings:
@@ -542,6 +968,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `spqr_spec`: {{ SPQR }} settings:
 
          * `router`: For [advanced sharding](../concepts/index.md#router), configure the following router settings:
+           
            * `config`: Router configuration:
 
              * `show_notice_messages`: Show information notifications, `true` or `false`.
@@ -550,11 +977,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
              * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
            * `resources`: `ROUTER` host resource parameters:
+             
              * `resource_preset_id`: [Host class](../concepts/instance-types.md).
              * `disk_size`: Disk size, in bytes.
              * `disk_type_id`: [Disk type](../concepts/storage.md).
 
          * `coordinator`: For advanced sharding, set the following coordinator resource parameters:
+             
              * `resource_preset_id`: Host class.
              * `disk_size`: Disk size, in bytes.
              * `disk_type_id`: Disk type.
@@ -562,11 +991,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          * `infra`: For standard sharding, set the following `INFRA` host settings:
 
            * `resources`: Resource parameters:
+              
               * `resource_preset_id`: Host class.
               * `disk_size`: Disk size, in bytes.
               * `disk_type_id`: Disk type.
 
            * `router`: Router configuration:
+               
                * `default_route_behavior`: Default router behavior. Possible values: `BLOCK` or `ALLOW` the request.
                * `prefer_same_availability_zone`: Enable priority routing to the router's availability zone, `true` or `false`.
 
@@ -610,7 +1041,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
-       * `type`: Host type. The possible values are:
+       * `type`: Host type. Its possible values are:
+         
          * `ROUTER`: Router in a cluster with advanced sharding.
          * `COORDINATOR`: Coordinator in a cluster with advanced sharding.
          * `INFRA`: `INFRA` host in a cluster with standard sharding.
@@ -646,5 +1078,387 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      ```
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+
+## Examples {#examples}
+
+
+### Creating a cluster with standard sharding {#creating-standard-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mspqr-name }} cluster with the following test specifications:
+
+  * Name: `spqr-std`.
+  * Environment: `production`.
+  * Network: `{{ network-name }}`.
+
+    
+  * Security group: `enpjfvd3f34c********`.
+  * Single `infra` host in the `{{ region-id }}-a` availability zone in the `e9bhbia2scnk********` subnet.
+
+  
+  * Host class: `{{ host-class }}`.
+  
+  
+  * Network SSD storage (`{{ disk-type-example }}`): `10` GB.
+  
+
+  * Database: `db1`.
+  * User: `user1`; password: `Password123`; `db1` access granted.
+  * Cluster protection from accidental deletion: Enabled.
+
+  Run this command:
+
+  
+  ```bash
+  yc managed-sharded-postgresql cluster create \
+     --name spqr-std \
+     --environment production \
+     --network-name {{ network-name }} \
+     --security-group-ids enpjfvd3f34c******** \
+     --host type=infra,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --infra-resource-preset {{ host-class }} \
+     --infra-disk-size 10 \
+     --infra-disk-type {{ disk-type-example }} \
+     --database name=db1 \
+     --user name=user1,password=Password123,permission=db1 \
+     --deletion-protection=true
+  ```
+
+
+
+- {{ TF }} {#tf}
+  
+  Create a {{ mspqr-name }} cluster, along with a network, subnet, and security group for it using the following test specifications:
+  
+  * Name: `spqr-std`.
+  * Environment: `PRODUCTION`.
+  * Network: `spqr-network`.
+  * Security group: `spqr-sg` with rules allowing inbound and outbound TCP connections on port `{{ port-mpg }}`.
+    
+    These rules allow the router to connect to the shard hosts and enable internet access to the cluster. To connect to your cluster over the internet, enable public access to the host as well. [Learn more about connecting to clusters](connect.md).
+
+  * Single `INFRA` host in the `{{ region-id }}-a` availability zone in the `spqr-network-{{ region-id }}-a` subnet with the `10.128.0.0/24` IP address range.
+  * Host class: `{{ host-class }}`.
+  * Network SSD storage (`{{ disk-type-example }}`): `10` GB.
+  * Database: `db1`.
+  * User: `user1`; password: `Password123`; `db1` access granted.
+  * Cluster protection from accidental deletion: Enabled.
+  
+  The configuration file for creating these resources looks like this:
+
+  ```hcl
+  resource "yandex_vpc_network" "spqr_network" {
+    description = "Network for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-network"
+  }
+
+  resource "yandex_vpc_subnet" "subnet_a" {
+    description    = "Subnet in the {{ region-id }}-a availability zone"
+    name           = "spqr-network-{{ region-id }}-a"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "spqr_sg" {
+    description = "Security group for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-sg"
+    network_id  = yandex_vpc_network.spqr_network.id
+
+    ingress {
+      description    = "Allow connections from the Internet and between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      description    = "Allow connections between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "yandex_mdb_sharded_postgresql_cluster" "spqr_cluster" {
+    description         = "Managed Service for Sharded PostgreSQL cluster with standard sharding"
+    name                = "spqr-std"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.spqr_network.id
+    security_group_ids  = [yandex_vpc_security_group.spqr_sg.id]
+    deletion_protection = true
+  
+    config = {
+      sharded_postgresql_config = {
+        infra = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+      }
+    }
+
+    hosts = {
+      infra1 = {
+        type      = "INFRA"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+    } 
+  }
+
+  resource "yandex_mdb_sharded_postgresql_database" "spqr_cluster_db" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_sharded_postgresql_user" "spqr_cluster_user" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "user1"
+    password   = "Password123"
+    
+    permissions {
+      database = yandex_mdb_sharded_postgresql_database.spqr_cluster_db.name
+    }
+  }
+  ```
+
+
+{% endlist %}
+
+
+### Creating a cluster with advanced sharding {#creating-advanced-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Create a {{ mspqr-name }} cluster with the following test specifications:
+
+  * Name: `spqr-adv`.
+  * Environment: `production`.
+  * Network: `{{ network-name }}`.
+  
+  
+  * Security group: `enpjfvd3f34c********`.
+  * Three `router` hosts of `{{ host-class }}` class, one in each availability zone:
+    
+    * In the `{{ region-id }}-a` availability zone in the `e9bhbia2scnk********` subnet.
+    * In the `{{ region-id }}-b` availability zone in the `e2lfqbm5nt9r********` subnet.
+    * In the `{{ region-id }}-d` availability zone in the `fl8beqmjckv8********` subnet.
+  
+  * Three `coordinator` hosts of `{{ host-class }}` class, one in each availability zone:
+    
+    * In the `{{ region-id }}-a` availability zone in the `e9bhbia2scnk********` subnet.
+    * In the `{{ region-id }}-b` availability zone in the `e2lfqbm5nt9r********` subnet.
+    * In the `{{ region-id }}-d` availability zone in the `fl8beqmjckv8********` subnet.
+
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the `router` hosts: `10` GB.
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the `coordinator` hosts: `10` GB.
+  
+
+  * Database: `db1`.
+  * User: `user1`; password: `Password123`; `db1` access granted.
+  * Cluster protection from accidental deletion: Enabled.
+
+  Run this command:
+
+  
+  ```bash
+  yc managed-sharded-postgresql cluster create \
+     --name spqr-adv \
+     --environment production \
+     --network-name {{ network-name }} \
+     --security-group-ids enpjfvd3f34c******** \
+     --host type=router,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --host type=router,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r******** \
+     --host type=router,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8******** \
+     --host type=coordinator,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk******** \
+     --host type=coordinator,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r******** \
+     --host type=coordinator,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8******** \
+     --router-resource-preset {{ host-class }} \
+     --router-disk-size 10 \
+     --router-disk-type {{ disk-type-example }} \
+     --coordinator-resource-preset {{ host-class }} \
+     --coordinator-disk-size 10 \
+     --coordinator-disk-type {{ disk-type-example }} \
+     --database name=db1 \
+     --user name=user1,password=Password123,permission=db1 \
+     --deletion-protection=true
+  ```
+
+
+
+- {{ TF }} {#tf}
+  
+  Create a {{ mspqr-name }} cluster, along with a network, subnet, and security group for it using the following test specifications:
+  
+  * Name: `spqr-adv`.
+  * Environment: `PRODUCTION`.
+  * Network: `spqr-network`.
+  * Security group: `spqr-sg` with rules allowing inbound and outbound TCP connections on port `{{ port-mpg }}`.
+    
+    These rules allow the router to connect to the shard hosts and enable internet access to the cluster. To connect to your cluster over the internet, enable public access to the hosts as well. [Learn more about connecting to clusters](connect.md).
+  
+  * Three `ROUTER` hosts of `{{ host-class }}` class, one in each availability zone:
+    
+    * In the `{{ region-id }}-a` availability zone in the `spqr-network-{{ region-id }}-a` subnet with the `10.128.0.0/24` IP address range.
+    * In the `{{ region-id }}-b` availability zone in the `spqr-network-{{ region-id }}-b` subnet with the `10.128.1.0/24` IP address range.
+    * In the `{{ region-id }}-d` availability zone in the `spqr-network-{{ region-id }}-d` subnet with the `10.128.2.0/24` IP address range.
+  
+  * Three `COORDINATOR` hosts of `{{ host-class }}` class, one in each availability zone:
+    
+    * In the `{{ region-id }}-a` availability zone in the `spqr-network-{{ region-id }}-a` subnet with the `10.128.0.0/24` IP address range.
+    * In the `{{ region-id }}-b` availability zone in the `spqr-network-{{ region-id }}-b` subnet with the `10.128.1.0/24` IP address range.
+    * In the `{{ region-id }}-d` availability zone in the `spqr-network-{{ region-id }}-d` subnet with the `10.128.2.0/24` IP address range.
+  
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the `ROUTER` hosts: `10` GB.
+  * Network SSD storage (`{{ disk-type-example }}`) for each of the `COORDINATOR` hosts: `10` GB.
+  * Database: `db1`.
+  * User: `user1`; password: `Password123`; `db1` access granted.
+  * Cluster protection from accidental deletion: Enabled.
+  
+  The configuration file for creating these resources looks like this:
+
+  ```hcl
+  resource "yandex_vpc_network" "spqr_network" {
+    description = "Network for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-network"
+  }
+
+  resource "yandex_vpc_subnet" "subnet_a" {
+    description    = "Subnet in the {{ region-id }}-a availability zone"
+    name           = "spqr-network-{{ region-id }}-a"
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.0.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "subnet_b" {
+    description    = "Subnet in the {{ region-id }}-b availability zone"
+    name           = "spqr-network-{{ region-id }}-b"
+    zone           = "{{ region-id }}-b"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.1.0/24"]
+  }
+
+  resource "yandex_vpc_subnet" "subnet_d" {
+    description    = "Subnet in the {{ region-id }}-d availability zone"
+    name           = "spqr-network-{{ region-id }}-d"
+    zone           = "{{ region-id }}-d"
+    network_id     = yandex_vpc_network.spqr_network.id
+    v4_cidr_blocks = ["10.128.2.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "spqr_sg" {
+    description = "Security group for the Managed Service for Sharded PostgreSQL"
+    name        = "spqr-sg"
+    network_id  = yandex_vpc_network.spqr_network.id
+
+    ingress {
+      description    = "Allow connections from the Internet and between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      description    = "Allow connections between cluster components"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "yandex_mdb_sharded_postgresql_cluster" "spqr_cluster" {
+    description         = "Managed Service for Sharded PostgreSQL cluster with advanced sharding"
+    name                = "spqr-adv"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.spqr_network.id
+    security_group_ids  = [yandex_vpc_security_group.spqr_sg.id]
+    deletion_protection = true
+  
+    config = {
+      sharded_postgresql_config = {
+        router = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+        coordinator = {
+          resources = {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+      }
+    }
+
+    hosts = {
+      router1 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+
+      router2 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-b"
+        subnet_id = yandex_vpc_subnet.subnet_b.id
+      }
+    
+      router3 = {
+        type      = "ROUTER"
+        zone      = "{{ region-id }}-d"
+        subnet_id = yandex_vpc_subnet.subnet_d.id
+      }
+
+      coordinator1 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-a"
+        subnet_id = yandex_vpc_subnet.subnet_a.id
+      }
+
+      coordinator2 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-b"
+        subnet_id = yandex_vpc_subnet.subnet_b.id
+      }
+    
+      coordinator3 = {
+        type      = "COORDINATOR"
+        zone      = "{{ region-id }}-d"
+        subnet_id = yandex_vpc_subnet.subnet_d.id
+      }
+    } 
+  }
+
+  resource "yandex_mdb_sharded_postgresql_database" "spqr_cluster_db" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "db1"
+  }
+
+  resource "yandex_mdb_sharded_postgresql_user" "spqr_cluster_user" {
+    cluster_id = yandex_mdb_sharded_postgresql_cluster.spqr_cluster.id
+    name       = "user1"
+    password   = "Password123"
+  
+    permissions {
+      database = yandex_mdb_sharded_postgresql_database.spqr_cluster_db.name
+    }
+  }
+  ```
+
 
 {% endlist %}

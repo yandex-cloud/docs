@@ -14,7 +14,7 @@
 
 * [Creating a node group with the CLI results in a parameter conflict. How do I fix it?](#conflicting-flags)
 
-* [Error connecting to a cluster using kubectl](#connect-to-cluster)
+* [Error connecting to a cluster using `kubectl`](#connect-to-cluster)
 
 * [Errors connecting to a node over SSH](#node-connect)
 
@@ -31,3 +31,19 @@
 * [What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service?](#deleted-loadbalancer-service)
 
 * [Error connecting a {{ compute-full-name }} VM instance as an external {{ managed-k8s-name }} node](#vm-as-external-node)
+
+* [After changing the node subnet mask in the cluster settings, the number of pods per node is not as expected](#count-pods)
+
+* [What should I do if I get the node(s) had untolerated taint error?](#untolerated-taint)
+
+* [Why does the pod remain in the Pending status?](#pod-pending)
+
+* [What should I do if I get the DEADLINE_EXCEEDED error when exporting metrics?](#metrics-deadline-exceeded)
+
+* [What should I do if HPA does not receive metrics?](#hpa-metrics)
+
+* [What should I do if mounting a volume to a pod times out?](#volume-mount-timeout)
+
+* [Why does mounting a volume with a large number of files take a long time?](#volume-many-files)
+
+* [What should I do if nodes remain in the RECONCILING status for a long time?](#node-reconciling)

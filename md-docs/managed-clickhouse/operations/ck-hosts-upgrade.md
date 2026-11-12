@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами > Изменение сервиса координации
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами > Изменение сервиса координации со встроенного ClickHouse® Keeper на ClickHouse® Keeper на отдельных хостах
 
 # Изменение сервиса координации со встроенного ClickHouse® Keeper на ClickHouse® Keeper на отдельных хостах
 

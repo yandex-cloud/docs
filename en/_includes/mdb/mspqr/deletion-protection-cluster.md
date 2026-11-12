@@ -1,0 +1,1 @@
+Once cluster deletion protection is enabled, it also applies to all new and existing databases and users for whom deletion protection is not set explicitly. If a database or user has its own deletion protection setting, it will override the cluster setting.

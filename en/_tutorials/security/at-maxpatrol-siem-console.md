@@ -83,7 +83,7 @@ Assign the missing roles to the service accounts:
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
 
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
-  1. Click **{{ ui-key.yacloud_org.cloud-components.AclDashboard.action_assign-roles_41Nj1 }}** in the top-right corner of the page. In the window that opens, select the `maxpatrol-sa` service account. If required, use the search bar.
+  1. Click **{{ ui-key.yacloud_org.cloud-components.AclDashboard.action_assign-roles_41Nj1 }}** in the top-right corner of the page. In the window that opens, select the `maxpatrol-sa` service account. Use the search bar if needed.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`audit-trails.viewer`](../../audit-trails/security/index.md#at-viewer).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

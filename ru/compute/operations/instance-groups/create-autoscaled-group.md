@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать автоматически масштабируемую группу виртуальных машин
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 Вы можете создать [автоматически масштабируемую](../../concepts/instance-groups/scale.md#auto-scale) [группу однотипных ВМ](../../concepts/instance-groups/index.md). Управление размером такой группы [ВМ](../../concepts/vm.md) будет осуществляться автоматически.
 

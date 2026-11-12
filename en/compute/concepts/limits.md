@@ -7,14 +7,6 @@ editable: false
 # {{ compute-name }} quotas and limits
 
 
-{% note warning %}
-
-Nine quotas for {{ compute-name }} resources apply separately to each availability zone rather than to the entire region.
-
-{% endnote %}
-
-
-
 {% include [reserved-pools-preview-notice](../../_includes/compute/reserved-pools-preview-notice.md) %}
 
 {{ compute-name }} has the following limitations:

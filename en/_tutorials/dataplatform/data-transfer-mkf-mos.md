@@ -80,7 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `os_user_password`: `admin` user password.
             * `transfer_enabled`: `0` not to create a transfer until [an {{ OS }} endpoint is created manually](#prepare-transfer).
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -97,7 +97,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
     - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
@@ -163,7 +163,7 @@ On your local machine, create a `sample.json` file with the following test data:
 
 {% note tip %}
 
-You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuser` role; however, a more secure strategy is to create dedicated users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
+While you can deliver data to a {{ mos-name }} cluster as `admin` with the `superuser` role, it is safer to create a separate user with limited privileges for each task. For details, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
@@ -267,10 +267,10 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
     
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mos.tf` file, specify the following variables:
+        1. In `data-transfer-mkf-mos.tf`, specify the following variables:
 
             * `target_endpoint_id`: {{ OS }} target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -309,7 +309,7 @@ Check that data from the {{ mkf-name }} source cluster’s topic is transferred 
 
     To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Check that the {{ mos-name }} cluster's `sensors` index contains the data you sent:
+1. Check that the `sensors` index on the {{ mos-name }} cluster contains the data you sent:
 
     {% list tabs group=programming_language %}
 
@@ -327,7 +327,7 @@ Check that data from the {{ mkf-name }} source cluster’s topic is transferred 
 
     - {{ OS }} Dashboards {#opensearch}
 
-        1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster using {{ OS }} Dashboards.
+        1. [Connect](../../managed-opensearch/operations/connect/clients.md#dashboards) to the target cluster via {{ OS }} Dashboards.
         1. Select the `Global` tenant.
         1. Open the management panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. Under **OpenSearch Dashboards**, select **Discover**.
@@ -354,7 +354,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
    - Manually {#manual}
 
-       1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source endpoint.
+       1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
        1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
        1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
@@ -364,5 +364,5 @@ To minimize resource consumption, delete the resources you no longer need:
 
    {% endlist %}
 
-1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the target endpoint.
+1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 

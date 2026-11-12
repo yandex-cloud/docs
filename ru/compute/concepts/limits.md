@@ -6,14 +6,6 @@ editable: false
 
 # Квоты и лимиты в {{ compute-name }}
 
-
-{% note warning %}
-
-Девять квот на ресурсы {{ compute-name }} действуют не в рамках региона, а отдельно по каждой зоне доступности.
-
-{% endnote %}
-
-
 {% include [reserved-pools-preview-notice](../../_includes/compute/reserved-pools-preview-notice.md) %}
 
 В сервисе {{ compute-name }} действуют следующие ограничения:

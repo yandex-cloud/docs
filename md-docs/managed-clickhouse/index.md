@@ -56,7 +56,9 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [Управление хостами ClickHouse® Keeper](operations/ck-hosts.md)
 
- - [Изменение сервиса координации](operations/ck-hosts-upgrade.md)
+ - [Изменение сервиса координации со встроенного ClickHouse® Keeper на ClickHouse® Keeper на отдельных хостах](operations/ck-hosts-upgrade.md)
+
+ - [Изменение сервиса координации c ZooKeeper на ClickHouse® Keeper](operations/zk-to-ck-migration.md)
 
  - [Миграция хостов в другую зону доступности](operations/host-migration.md)
 

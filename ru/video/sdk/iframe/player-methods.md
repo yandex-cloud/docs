@@ -9,17 +9,20 @@ description: На странице описаны методы, которые �
 
 ## Формат вызова методов {#method-format}
 
-Для вызова методов плеера используется следующий формат:
+Для вызова методов плеера используйте `postMessage`. Разместите скрипт после iframe с `id="video-player"` из [начала работы](./index.md#add-player). Если создаете iframe динамически, выполняйте код после добавления элемента в DOM:
 
 ```javascript
-var iframe = document.getElementById('video-player');
-var player = iframe.contentWindow;
+const iframe = document.getElementById('video-player');
+const player = iframe.contentWindow;
+const playerOrigin = new URL(iframe.src).origin;
 
 player.postMessage({
     method: 'methodName',
     // параметры метода
-}, '*');
+}, playerOrigin);
 ```
+
+В примерах ниже используются переменные `player` и `playerOrigin` из этого кода. Значение `playerOrigin` ограничивает отправку команд источником из URL плеера: протоколом, именем хоста и портом. Вызывайте методы после события [`inited`](./player-events.md#inited).
 
 ## Методы управления воспроизведением {#playback-methods}
 
@@ -32,7 +35,7 @@ player.postMessage({
 ```javascript
 player.postMessage({
     method: 'play'
-}, '*');
+}, playerOrigin);
 ```
 
 #### pause {#pause}
@@ -44,7 +47,7 @@ player.postMessage({
 ```javascript
 player.postMessage({
     method: 'pause'
-}, '*');
+}, playerOrigin);
 ```
 
 #### seek {#seek}
@@ -60,7 +63,7 @@ player.postMessage({
 player.postMessage({
     method: 'seek',
     time: 30
-}, '*');
+}, playerOrigin);
 ```
 
 #### updateSource {#updatesource}
@@ -82,7 +85,7 @@ player.postMessage({
     params: {
         autoplay: true
     }
-}, '*');
+}, playerOrigin);
 ```
 
 После успешного переключения контента плеер отправит событие [`inited`](./player-events.md#inited) с новым `vsid`.
@@ -102,7 +105,7 @@ player.postMessage({
 player.postMessage({
     method: 'setVolume',
     volume: 0.7
-}, '*');
+}, playerOrigin);
 ```
 
 #### mute {#mute}
@@ -114,7 +117,7 @@ player.postMessage({
 ```javascript
 player.postMessage({
     method: 'mute'
-}, '*');
+}, playerOrigin);
 ```
 
 #### unmute {#unmute}
@@ -126,7 +129,7 @@ player.postMessage({
 ```javascript
 player.postMessage({
     method: 'unmute'
-}, '*');
+}, playerOrigin);
 ```
 
 ## Методы управления качеством и дорожками {#quality-methods}
@@ -150,7 +153,7 @@ player.postMessage({
 player.postMessage({
     method: 'setQuality',
     quality: 'hd720'
-}, '*');
+}, playerOrigin);
 ```
 
 Или:
@@ -159,7 +162,7 @@ player.postMessage({
 player.postMessage({
     method: 'setQuality',
     quality: '720p'
-}, '*');
+}, playerOrigin);
 ```
 
 #### setAudioTrack {#setaudiotrack}
@@ -175,7 +178,7 @@ player.postMessage({
 player.postMessage({
     method: 'setAudioTrack',
     value: 'audio-track-id'
-}, '*');
+}, playerOrigin);
 ```
 
 ## Методы управления отображением {#display-methods}
@@ -193,7 +196,7 @@ player.postMessage({
 player.postMessage({
     method: 'setFullscreen',
     fullscreen: true
-}, '*');
+}, playerOrigin);
 ```
 
 Пример выхода из полноэкранного режима:
@@ -202,7 +205,7 @@ player.postMessage({
 player.postMessage({
     method: 'setFullscreen',
     fullscreen: false
-}, '*');
+}, playerOrigin);
 ```
 
 #### configureSkin {#configureskin}
@@ -245,7 +248,7 @@ player.postMessage({
     skinConfig: {
         hiddenControls: ['play', 'timeline', 'sound']
     }
-}, '*');
+}, playerOrigin);
 ```
 
 Пример скрытия элементов с помощью строки:
@@ -256,7 +259,7 @@ player.postMessage({
     skinConfig: {
         hiddenControls: 'play,timeline,sound'
     }
-}, '*');
+}, playerOrigin);
 ```
 
 Пример отображения ранее скрытого элемента (используя `!` перед названием):
@@ -267,35 +270,50 @@ player.postMessage({
     skinConfig: {
         hiddenControls: ['*', '!play'] // play будет показан, остальное скрыто
     }
-}, '*');
+}, playerOrigin);
 ```
 
 ## Обработка результатов выполнения методов {#method-results}
 
-Некоторые методы могут возвращать результат выполнения через события. Для отслеживания результата выполнения метода можно использовать уникальный идентификатор запроса:
+Ответ на команду приходит в событии `<methodName>:return`, где `<methodName>` — имя метода. Ответ может содержать результат в поле `result` или ошибку в поле `error`.
+
+Чтобы сопоставить ответ с вызовом, передайте идентификатор запроса в поле `id` и проверьте его в ответе. Зарегистрируйте обработчик перед отправкой команды и удалите его после получения ответа:
 
 ```javascript
-var requestId = 'unique-request-id-' + Date.now();
+const requestId = 'unique-request-id-' + Date.now();
 
-// Отправляем команду с идентификатором
+function onPlayResult(event) {
+    if (event.source !== player || event.origin !== playerOrigin || typeof event.data !== 'string') {
+        return;
+    }
+
+    let data;
+    try {
+        data = JSON.parse(event.data);
+    } catch {
+        return;
+    }
+
+    if (!data || data.event !== 'play:return' || data.id !== requestId) {
+        return;
+    }
+
+    window.removeEventListener('message', onPlayResult);
+
+    if (data.error) {
+        console.error('Ошибка выполнения метода:', data.error);
+    } else {
+        console.log('Метод выполнен успешно:', data.result);
+    }
+}
+
+window.addEventListener('message', onPlayResult);
+
 player.postMessage({
     method: 'play',
     id: requestId
-}, '*');
-
-// Слушаем ответ
-window.addEventListener('message', function(event) {
-    if (event.data && event.data.event === 'play:return' && event.data.id === requestId) {
-        if (event.data.error) {
-            console.error('Ошибка выполнения метода:', event.data.error);
-        } else {
-            console.log('Метод выполнен успешно:', event.data.result);
-        }
-    }
-});
+}, playerOrigin);
 ```
-
-Для каждого метода существует соответствующее событие возврата в формате `<methodName>:return`.
 
 #### Полезные ссылки {#see-also}
 

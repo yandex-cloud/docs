@@ -96,7 +96,7 @@ FATAL: terminating connection due to administrator command
 
 This message means that the server has forcibly terminated the connection. One of the possible reasons is that the duration of the active session or transaction has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) value.
 
-Check the value of this setting against the session or transaction duration. If the connection times out , increase the **Session duration timeout**. Keep in mind that longer sessions can impact database size and cluster performance.
+Check the value of this setting against the session or transaction duration. If the connection gets terminated by the timeout, increase the **Session duration timeout** value with account for possible effect of long sessions on the database size and cluster performance.
 
 #### Why cannot I connect to cluster hosts? {#host-error}
 
@@ -147,7 +147,7 @@ max_connections conn_limit is too high
 
 The errors occur when the sum of [Conn limit](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit) values for all users exceeds the [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) value minus 15 service connections.
 
-Before updating the settings or downgrading the host class, reduce user limits so that their sum does not exceed `<Max_connections_value> - 15`. If your users require more connections, increase the **Max connections** value or select a host class with more vCPUs.
+Before updating settings or downgrading the host class, reduce user limits so that their sum does not exceed `<Max_connections_value> - 15`. If users require more connections, increase the **Max connections** value or select a host class with more vCPUs.
 
 #### Why do I get an error when transferring data by creating and restoring a logical dump? {#backup-error}
 
@@ -201,15 +201,15 @@ To fix this error:
 
 #### Why do I get a `Must be superuser to create this extension` error when trying to create an extension? {#superuser-extension}
 
-This error may occur when attempting to create an extension using an SQL command or when restoring a dump containing operations with extensions. In {{ mpg-name }}, superuser permissions are not granted, and you can [manage extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) only using the {{ yandex-cloud }} interfaces.
+The error may occur when attempting to create an extension using an SQL command or when restoring a dump containing operations with extensions. In {{ mpg-name }}, superuser permissions are not granted, and you can [manage extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) only using the {{ yandex-cloud }} interfaces.
 
 If the error occurred when restoring a dump:
 
 1. Before restoring, [install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required and supported extensions in the target database.
 1. Exclude create, update, and comment operations on extensions from the dump:
 
-   * For a dump in archive format, get a list of objects using [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) with the `--list` parameter, then comment out the rows related to the extensions and their comments. When restoring, provide the updated list in the `--use-list` parameter.
-   * For a text dump, comment out the `CREATE EXTENSION`, `ALTER EXTENSION`, and `COMMENT ON EXTENSION` statements.
+   * For a dump in archive format, get a list of objects using [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) with the `--list` parameter, then comment out the rows related to the extensions and their comments from that list. When restoring, provide the updated list in the `--use-list` parameter.
+   * For a text dump, comment the `CREATE EXTENSION`, `ALTER EXTENSION`, and `COMMENT ON EXTENSION` statements.
 
 If you run the `pg_restore` command without the `--exit-on-error` parameter, it will continue restoring the remaining objects after the error. Check the restored result and make sure the required extensions are installed in the target database. For more information, see [{#T}](../../managed-postgresql/tutorials/data-migration.md#restore).
 
@@ -291,9 +291,9 @@ Installing extensions in the CLI may fail with one of these errors:
 
 #### Why do I get the `could not open extension control file "<extension_path>/vector.control": No such file or directory` error when accessing the `vector` extension? {#vector-error}
 
-The error occurs because the `vector` extension name in {{ mpg-name }} is `pgvector`.
+The error occurs when the `vector` permission is not enabled for the database. Previously, this extensions was available in {{ mpg-name }} only under the old name `pgvector`.
 
-Solution: When accessing the extension, use `pgvector` instead of `vector`.
+Solution: [enable the `vector` extension](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) for the database. If the `pgvector` extension is already enabled in the database, replace it with `vector` within a single [update operation](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions): the extension will be renamed while preserving the data and indexes.
 
 #### Why do I get a `collation version mismatch` error when trying to upgrade my {{ PG }} cluster to version `18`? {#collation-version-mismatch}
 

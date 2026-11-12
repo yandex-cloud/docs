@@ -1,0 +1,1 @@
+To get specific attributes of the subjects, provide them in the `field_mask` field. To filter the results as needed, provide a filtering expression in [Common Expression Language (CEL)](https://cel.dev/) to the `filter` field. For more information, see [{#T}](../../iam/concepts/subject-details.md).

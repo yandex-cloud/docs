@@ -37,8 +37,12 @@ items:
                 href: operations/zk-hosts.md
               - name: Управление хостами {{ CK }}
                 href: operations/ck-hosts.md
-              - name: Изменение сервиса координации
+              - name: >-
+                  Изменение сервиса координации со встроенного {{ CK }} на {{ CK
+                  }} на отдельных хостах
                 href: operations/ck-hosts-upgrade.md
+              - name: Изменение сервиса координации c {{ ZK }} на {{ CK }}
+                href: operations/zk-to-ck-migration.md
               - name: Миграция хостов в другую зону доступности
                 href: operations/host-migration.md
           - name: Управление резервными копиями

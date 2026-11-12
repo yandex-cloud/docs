@@ -2,12 +2,6 @@
 
 # Создание виртуальной машины Linux
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../concepts/limits.md).
-
-{% endnote %}
-
 Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса Compute Cloud в консоли управления Yandex Cloud и подключитесь к ней.
 
 ## Перед началом работы {#before-you-begin}

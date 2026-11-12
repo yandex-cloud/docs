@@ -5,8 +5,6 @@ description: In this article, you will learn how to move a {{ compute-name }} in
 
 # Moving an instance group to a different availability zone
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 If your instance group is connected to a load balancer, follow these guides as appropriate:
 * [{#T}](move-group-with-nlb.md)

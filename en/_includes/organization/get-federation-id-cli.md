@@ -16,4 +16,4 @@ Result:
 +----------------------+-----------------------------+-------------------------+--------+
 ```
 
-Copy the ID of the organization you need from the `ID` column.
+Copy the organization ID from the `ID` field.

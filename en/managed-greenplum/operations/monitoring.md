@@ -367,6 +367,14 @@ To view the health state and status of a cluster:
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
+#### Restoring a DEAD cluster {#restore-dead-cluster}
+
+{% include [restore-dead-cluster](../../_includes/mdb/restore-dead-cluster.md) %}
+
+1. [Restore your cluster from a backup](cluster-backups.md#restore).
+1. Update the connection settings in your applications and verify access to the data in your new cluster.
+1. Analyze the [host metrics](#monitoring-hosts) and [resource consumption by groups](#monitoring-resgroup). Optimize resource-heavy queries and limit the number of concurrent queries.
+
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

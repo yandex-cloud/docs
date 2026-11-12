@@ -16,11 +16,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the secret and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ mgl-name }} instance: Computing resources and the amount of stored data and backups (see [{{ mgl-full-name }} pricing](../../managed-gitlab/pricing.md)).
+* VM instance with {{ GLR }}: Computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ lockbox-name }} secret: Number of stored secret versions and requests to them (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* VM public IP address and outbound traffic from {{ yandex-cloud }} to the internet (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Set up your infrastructure {#infra}
 

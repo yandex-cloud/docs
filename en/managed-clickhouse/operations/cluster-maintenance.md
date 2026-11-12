@@ -7,14 +7,251 @@ description: Follow this guide to view the {{ CH }} cluster’s scheduled and co
 
 You can manage [maintenance](../concepts/maintenance.md) of a {{ mch-full-name }} cluster.
 
+
 ## Getting a list of maintenance jobs {#list-maintenance}
 
-1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+For {{ mch-name }}, you can get a list of maintenance jobs in:
 
-To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
+* [cloud](#list-maintenance-cloud)
+* [folder](#list-maintenance-folder)
+* [cluster](#list-maintenance-cluster)
 
-Click an ID to see how the maintenance job affects cluster availability. Look up **{{ ui-key.yacloud.mdb.maintenance.title_task-details }}** to see how the maintenance job affects users.
+
+### Getting a list of maintenance jobs in a cloud {#list-maintenance-cloud}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances?cloudId=<cloud_ID>'
+      ```
+
+      
+      Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+  
+  1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cloud_id": "<cloud_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.clickhouse.v1.MaintenanceService.List
+      ```
+
+      
+      Learn how to get a cloud ID in [this guide](../../resource-manager/operations/cloud/get-id.md).
+
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+
+### Getting a list of maintenance jobs in a folder {#list-maintenance-folder}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+  
+  1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+  
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances?folderId=<folder_ID>'
+      ```
+
+      
+      You can get the folder ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+
+  
+  1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+  
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+  
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "folder_id": "<folder_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.clickhouse.v1.MaintenanceService.List
+      ```
+
+      
+      You can get the folder ID with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
+
+  
+  1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+
+### Getting a list of maintenance jobs in a cluster {#list-maintenance-cluster}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. [Navigate]({{ link-console-main }}/link/managed-clickhouse) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
+
+    To view maintenance jobs with a specific status, click **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** above the maintenance list and select the status you want from the drop-down menu. You can also find a maintenance job by its ID or job name using the search field above the list.
+
+    Click an ID to see how the maintenance job affects cluster availability. Look up **{{ ui-key.yacloud.mdb.maintenance.title_task-details }}** to see how the maintenance job affects users.
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.List](../api-ref/Maintenance/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances' \
+        --data '{
+                    "resourceId": "<cluster_ID>"
+                }'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.List](../api-ref/grpc/Maintenance/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "resource_id": "<cluster_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.clickhouse.v1.MaintenanceService.List
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/list.md#yandex.cloud.maintenance.v2.ListMaintenancesResponse) to make sure your request was successful.
+
+{% endlist %}
+
+
+## Getting maintenance job details {#get-maintenance}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Maintenance.Get](../api-ref/Maintenance/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances/<maintenance_job_ID>'
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [MaintenanceService.Get](../api-ref/grpc/Maintenance/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "maintenance_id": "<maintenance_job_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.clickhouse.v1.MaintenanceService.Get
+        ```
+
+        You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Check the [server response](../api-ref/grpc/Maintenance/get.md#yandex.cloud.maintenance.v2.Maintenance) to make sure your request was successful.
+
+{% endlist %}
+
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
@@ -80,30 +317,61 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Transfer your maintenance job using one of these two methods:
 
-        ```bash
-        curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
-        --data '{
-                    "rescheduleType": <reschedule_type>,
-                    "delayedUntil": <timestamp>
-                }'
-        ```
+        * Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-        Where `rescheduleType` is the reschedule type that can be one of the  following values:
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
+            --data '{
+                        "rescheduleType": <reschedule_type>,
+                        "delayedUntil": <timestamp>
+                    }'
+            ```
 
-        * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
-        * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
+            Where:
 
-        The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
+            * `<cluster_ID>`: Cluster ID which you can get with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `rescheduleType`: Rescheduling type. Its possible values are:
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+              * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
+              * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
 
-    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+            * `delayedUntil`: Timestamp for the `SPECIFIC_TIME` type in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+
+              > Example: `2006-01-02T15:04:05Z`.
+
+        * Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances/<maintenance_job_ID>:reschedule' \
+            --data '{
+                        "rescheduleType": <reschedule_type>,
+                        "scheduledAt": <timestamp>
+                    }'
+            ```
+
+            Where:
+
+            * `<maintenance_job_ID>`: Maintenance job ID you can get with the [list of maintenance jobs](#list-maintenance) in your cloud, folder, or cluster.
+            * `rescheduleType`: Rescheduling type. Its possible values are:
+
+              * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
+              * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+
+            * `scheduledAt`: Timestamp for the `SPECIFIC_TIME` type in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+
+              > Example: `2006-01-02T15:04:05Z`.
+
+    1. Make sure the request was successful by examining the server response for the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 - gRPC API {#grpc-api}
 
@@ -112,34 +380,70 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        ```bash
-        grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-                "cluster_id": "<cluster_ID>",
-                "reschedule_type": <reschedule_type>,
-                "delayed_until": <timestamp>
-              }' \
-          {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.clickhouse.v1.ClusterService.RescheduleMaintenance
-        ```
+    1. Transfer your maintenance job using one of these two methods:
 
-        Where `reschedule_type` is the reschedule type that can be one of the following values:
+        * Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        * `NEXT_AVAILABLE_WINDOW`: Move the maintenance to the nearest window.
-        * `SPECIFIC_TIME`: Move the maintenance to a specific date and time.
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "reschedule_type": <reschedule_type>,
+                    "delayed_until": <timestamp>
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.RescheduleMaintenance
+            ```
 
-        The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayed_until`.
+            Where:
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `cluster_id`: Cluster ID which you can get with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `reschedule_type`: Rescheduling type. Its possible values are:
 
-    1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
+              * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
+              * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+
+            * `delayed_until`: Timestamp for the `SPECIFIC_TIME` type in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+
+              > Example: `2006-01-02T15:04:05Z`.
+
+        * Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "maintenance_id": "<maintenance_job_ID>",
+                    "reschedule_type": <reschedule_type>,
+                    "scheduled_at": <timestamp>
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.MaintenanceService.Reschedule
+            ```
+
+            Where:
+
+            * `maintenance_id`: Maintenance job ID you can get with the [list of maintenance jobs](#list-maintenance) in your cloud, folder, or cluster.
+            * `reschedule_type`: Rescheduling type. Its possible values are:
+
+              * `NEXT_AVAILABLE_WINDOW`: Postpone maintenance until the next available window.
+              * `SPECIFIC_TIME`: Reschedule maintenance to a specific date and time.
+
+            * `scheduled_at`: Timestamp for the `SPECIFIC_TIME` type in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+
+              > Example: `2006-01-02T15:04:05Z`.
+
+    1. Make sure the request was successful by examining the server response for the [ClusterService.Reschedule](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 {% endlist %}
 
@@ -187,52 +491,91 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    1. Perform your maintenance job using one of these two methods:
 
-        ```bash
-        curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
-        --data '{
-                    "rescheduleType": "IMMEDIATE"
-                }'
-        ```
+        * Call the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:rescheduleMaintenance' \
+            --data '{
+                        "rescheduleType": "IMMEDIATE"
+                    }'
+            ```
 
-    1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/maintenances/<maintenance_job_ID>:reschedule' \
+            --data '{
+                        "rescheduleType": "IMMEDIATE"
+                    }'
+            ```
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [Cluster.RescheduleMaintenance](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [Maintenance.Reschedule](../api-ref/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 - gRPC API {#grpc-api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-        ```bash
-        grpcurl \
-          -format json \
-          -import-path ~/cloudapi/ \
-          -import-path ~/cloudapi/third_party/googleapis/ \
-          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-          -d '{
-                "cluster_id": "<cluster_ID>",
-                "reschedule_type": "IMMEDIATE"
-              }' \
-          {{ api-host-mdb }}:{{ port-https }} \
-          yandex.cloud.mdb.clickhouse.v1.ClusterService.RescheduleMaintenance
-        ```
+    1. Perform your maintenance job using one of these two methods:
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * Call the [ClusterService.RescheduleMaintenance](../api-ref/grpc/Cluster/rescheduleMaintenance.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
-    1. Check the [server response](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure your request was successful.
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "reschedule_type": "IMMEDIATE"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.RescheduleMaintenance
+            ```
+
+            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        * Call the [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/maintenance_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "maintenance_id": "<maintenance_job_ID>",
+                    "reschedule_type": "IMMEDIATE"
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.MaintenanceService.Reschedule
+            ```
+
+            You can request the maintenance job ID along with the [list of maintenance jobs](#list-maintenance) in a cloud, folder, or cluster.
+
+    1. Make sure the request was successful by examining the server response for the [ClusterService.Reschedule](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) or [MaintenanceService.Reschedule](../api-ref/grpc/Maintenance/reschedule.md#yandex.cloud.operation.Operation) method.
 
 {% endlist %}
 

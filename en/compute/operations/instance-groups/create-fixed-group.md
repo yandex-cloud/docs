@@ -5,8 +5,6 @@ description: Follow this guide to create a fixed-size instance group.
 
 # Creating a fixed-size instance group
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 You can create a group with a fixed number of [VM instances](../../concepts/vm.md). The size of such an [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 

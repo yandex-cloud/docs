@@ -5,8 +5,6 @@ description: Follow this guide to create a VM running on virtualized Gen 2 hardw
 
 # Creating a VM with Gen 2 hardware
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 The [VM](../../concepts/vm.md) runs on virtualized hardware of the [generation](../../concepts/hardware-generations.md) [assigned](../../concepts/hardware-generations.md#locking-generations) to the medium (i.e., [image](../../concepts/image.md), [snapshot](../../concepts/snapshot.md), or [disk](../../concepts/disk.md)) the VM was created based on.
 
 Therefore, to create a VM running on `Gen 2` hardware, you must first create a medium with `Gen 2` assigned, and then create your [VM](#create-vm) from this medium.

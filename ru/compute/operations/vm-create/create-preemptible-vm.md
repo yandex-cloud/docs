@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Сделать виртуальную машину прерываемой
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 Вы можете [создать прерываемую](#create-preemptible) [ВМ](../../concepts/vm.md) или [изменить тип](#preemptible-to-regular) существующей ВМ.
 

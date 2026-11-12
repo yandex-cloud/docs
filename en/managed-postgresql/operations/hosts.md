@@ -117,6 +117,9 @@ With load balancer enabled in the cluster, a new host will be automatically adde
      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
      * Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
      * To make the host accessible from outside {{ yandex-cloud }}, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     * Priority The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
 
 - CLI {#cli}
@@ -161,22 +164,31 @@ With load balancer enabled in the cluster, a new host will be automatically adde
      
      ```bash
      {{ yc-mdb-pg }} host add \
-       --cluster-name <cluster_name> \
-       --host zone-id=<availability_zone>,subnet-id=<subnet_ID>
+        --cluster-name <cluster_name> \
+        --host zone-id=<availability_zone>,`
+              `subnet-id=<subnet_ID>,`
+              `assign-public-ip=<allow_public_access_to_host>,`
+              `replication-source=<source_host_name>,`
+              `priority=<host_priority>
      ```
 
 
-     
-     You should specify the subnet ID if the availability zone contains more than one subnet; otherwise, {{ mpg-short-name }} will automatically select the only subnet. You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+     Where:
 
-     You can specify extra options in the `--host` argument to manage public access to the host and cluster replication:
-     * Use the host’s `replication-source` option for [manual replication stream management](../concepts/replication.md#replication-manual).
-     * Use the `assign-public-ip` option to make the host accessible from outside {{ yandex-cloud }}:
-       * `true`: Public access enabled.
-       * `false`: Public access disabled.
+     * `--cluster-name`: Cluster name. You can get it from the [list of clusters](cluster-list.md#list-clusters) in your folder.
+     * `--host`: Host settings:
+       
+       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
+              
+       * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+       * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
+       
+        
+       * `replication-source`: Replication source host name. Learn more about manual management of replication streams [here](../concepts/replication.md#replication-manual).
+       * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
 
-  {{ mpg-short-name }} will start the host addition process.
+         Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
 
 - {{ TF }} {#tf}
@@ -198,6 +210,7 @@ With load balancer enabled in the cluster, a new host will be automatically adde
          subnet_id               = "<subnet_ID>"
          replication_source_name = "<replication_source>"
          assign_public_ip        = <public_access_to_host>
+         priority                = <host_priority>
        }
      }
      ```
@@ -209,6 +222,9 @@ With load balancer enabled in the cluster, a new host will be automatically adde
      * `subnet_id`: Subnet ID.
      * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
      * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`. The `priority` parameter is only available where the host has a `name` specified.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
   1. Make sure the settings are correct.
 
@@ -268,7 +284,10 @@ With load balancer enabled in the cluster, a new host will be automatically adde
 
 
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
-     * `priority`: Host priority relative to all other hosts.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
        See the [method description](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
@@ -329,7 +348,10 @@ With load balancer enabled in the cluster, a new host will be automatically adde
 
 
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
-     * `priority`: Host priority relative to all other hosts.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
        See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
@@ -364,8 +386,10 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
      1. Select the host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual).
 
      
-     1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want the host to be accessible from outside of {{ yandex-cloud }}.
+     1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside of {{ yandex-cloud }}.
 
+
+     1. In the **{{ ui-key.yacloud.postgresql.new.entities.MasterPriority.label_title_9nL4q }}** field, specify the host priority. The possible values range from `0` to `100`. The default value is `0`. Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
   1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
@@ -382,22 +406,25 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
   {{ yc-mdb-pg }} host update <host_name> \
     --cluster-name <cluster_name> \
     --replication-source <source_host_name> \
-    --assign-public-ip=<public_access_to_host>
+    --assign-public-ip=<public_access_to_host> \
+    --priority <host_priority>
   ```
 
 
   Where:
 
   * `cluster-name`: Cluster name.
-  * `replication-source`: Source host name.
+  * `replication-source`: Replication source host name. Learn more about manual management of replication streams [here](../concepts/replication.md#replication-manual).
 
   
   * `assign-public-ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
 
-  You can get the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  * `--priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
 
-  For [manual replication stream management](../concepts/replication.md#replication-manual) within your cluster, change the value of the host's `--replication-source` argument.
+    Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
+  You can get the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}
@@ -416,14 +443,18 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
        host {
          replication_source_name = "<replication_source>"
          assign_public_ip        = <public_access_to_host>
+         priority                = <host_priority>
        }
      }
      ```
 
-  Where:
+     Where:
 
-  * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
-  * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+     * `replication_source_name`: Replication source, i.e., the `name` attribute of the corresponding `host` section.
+     * `assign_public_ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`. The `priority` parameter is only available where the host has a `name` specified.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
   1. Make sure the settings are correct.
 
@@ -485,7 +516,10 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 
 
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
-     * `priority`: Host priority relative to all other hosts.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
        See the [method description](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
@@ -552,7 +586,10 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 
 
      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the FQDN of the host that will be used as the replication source.
-     * `priority`: Host priority relative to all other hosts.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
        See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.

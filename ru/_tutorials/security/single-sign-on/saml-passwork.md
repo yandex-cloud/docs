@@ -44,6 +44,7 @@
     * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**;
     * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**;
     * **{{ ui-key.yacloud_org.application.overview.saml_field_logout }}**.
+
 1. В блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}**, чтобы скачать сертификат вашего SAML-приложения.
 
 Сохраненные значения понадобятся позднее при настройке интеграции на стороне Пассворк.
@@ -69,19 +70,19 @@
         * **Автоматически подтверждать новых пользователей из SSO**.
     * В блоке **Атрибуты пользователя** укажите имена [атрибутов](../../../organization/concepts/applications/saml.md#saml-attributes) пользователей:
 
-        * в поле **Атрибут для электронной почты** — `emailaddress`;
-        * в поле **Атрибут для полного имени** — `fullname`.
+        * в поле **Атрибут электронной почты** — `emailaddress`;
+        * в поле **Атрибут полного имени** — `fullname`.
     * В блоке **Поставщик удостоверений → Пассворк** укажите скопированные ранее (в приложении `passwork-app`) и сохраненные значения настроек:
 
         * в поле **Идентификатор (Entity ID)** укажите значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** приложения `passwork-app`;
-        * в поле **URL ответа (URL службы обработчика утверждений)** — значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**;
-        * в поле **URL выхода** — значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_logout }}**;
+        * в поле **URL-адрес входа** — значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**;
+        * в поле **URL-адрес выхода** — значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_logout }}**;
         * в поле **Сертификат** вставьте содержимое скачанного в приложении `passwork-app` сертификата.
 1. В блоке **Пассворк → Поставщик удостоверений** скопируйте и сохраните значения настроек, необходимые для установления отношений доверия между поставщиком удостоверений и поставщиком услуг на стороне {{ org-full-name }}:
 
     * **Идентификатор (Entity ID)**;
-    * **URL ответа (URL службы обработчика утверждений)**;
-    * **URL выхода**.
+    * **URL-адрес входа**;
+    * **URL-адрес выхода**.
 1. Нажмите кнопку **Сохранить настройки**, чтобы сохранить заданные параметры единого входа.
 
 ### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
@@ -94,8 +95,8 @@
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите созданное ранее SAML-приложение `passwork-app`.
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите значение, скопированное ранее из поля **Идентификатор (Entity ID)** на стороне Пассворк.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** — значение, скопированное из поля **URL ответа (URL службы обработчика утверждений)**.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** — значение, скопированное из поля **URL выхода**.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** — значение, скопированное из поля **URL-адрес входа**.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** — значение, скопированное из поля **URL-адрес выхода**.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

@@ -14,4 +14,4 @@ To [set up static website hosting](index.md) in a bucket with CDN access using t
 
 #### Useful links {#see-also}
 
-* [{#T}](terraform.md)
+[{#T}](terraform.md)

@@ -19,6 +19,8 @@ description: На странице представлен список поша�
 * [Управление хостами {{ CH }}](hosts.md)
 * [Управление хостами {{ ZK }}](zk-hosts.md)
 * [Управление хостами {{ CK }}](ck-hosts.md)
+* [{#T}](ck-hosts-upgrade.md)
+* [{#T}](zk-to-ck-migration.md)
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)

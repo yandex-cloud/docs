@@ -499,7 +499,7 @@ Your cluster will appear in the server list located in the navigation menu.
 
 Connections from [{{ google-looker }}](https://datastudio.google.com/overview) are only permitted to publicly accessible hosts.
 
-1. Save the `CA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
+1. Save the `RootCA.pem` [server certificate]({{ crt-web-path }}) to a local directory.
 1. In the same directory, generate a client certificate with a private key:
 
     ```bash
@@ -523,7 +523,7 @@ Connections from [{{ google-looker }}](https://datastudio.google.com/overview) a
 1. Check **Enable SSL** and **Enable client authentication**.
 1. Specify the certificate files and the client private key in the appropriate fields:
 
-    * **Server certificate**: Select the `CA.pem` file.
+    * **Server certificate**: Select the `RootCA.pem` file.
     * **Client certificate**: Select the `cert.pem` file.
     * **Client private key**: Select the `private.pem` file.
 

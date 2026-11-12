@@ -5,8 +5,6 @@ description: Follow this guide to recover a disk from an image.
 
 # Recovering a disk from an image
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 {% note info %}
 
 {% include [boot-disk-recover](../../../_includes/compute/boot-disk-recover.md) %}

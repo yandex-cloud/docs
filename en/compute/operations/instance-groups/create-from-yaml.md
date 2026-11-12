@@ -5,8 +5,6 @@ description: Follow this guide to create an instance group based on a YAML speci
 
 # Creating an instance group based on a YAML specification
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
 To be able to create, update, and delete VM instances in the instance group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.

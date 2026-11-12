@@ -11,4 +11,6 @@
 
 * {% include [Deletion protection](../../console/deletion-protection.md) %}
 
-    {% include [deletion-protection-limits-db](../../deletion-protection-limits-db.md) %}
+    {% include [deletion-protection-cluster](../deletion-protection-cluster.md) %}
+    
+    {% include [deletion-protection-limits-data](../../deletion-protection-limits-data.md) %}

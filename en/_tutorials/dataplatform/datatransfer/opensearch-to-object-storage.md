@@ -35,9 +35,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
@@ -52,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [opensearch-to-object-storage.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-object-storage/blob/main/opensearch-to-object-storage.tf) configuration file to the same working directory.
+    1. Download the [opensearch-to-object-storage.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-opensearch-to-object-storage/blob/main/opensearch-to-object-storage.tf) configuration file to your current working directory.
 
         This file describes:
 
@@ -65,17 +65,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Endpoints.
         * Transfer.
 
-    1. In the `opensearch-to-object-storage.tf` file, specify the following settings:
+    1. In `opensearch-to-object-storage.tf`, specify the following settings:
 
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `mos_version`: {{ OS }} version.
-        * `mos_password`: User password of the {{ OS }} cluster owner.
+        * `mos_password`: {{ OS }} cluster owner’s password.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
         * `profile_name`: Name of your CLI profile.
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -187,7 +187,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           * `target_endpoint_id`: Target endpoint ID.
           * `source_endpoint_id`: Source endpoint ID.
-          * `transfer_enabled`: Set to `1` to create a transfer.
+          * `transfer_enabled`: Set to `1` to create the transfer.
 
       1. Validate your {{ TF }} configuration files using this command:
 
@@ -201,7 +201,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          The transfer will be activated automatically upon creation.
+          Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
@@ -218,12 +218,12 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete](../../../storage/operations/objects/delete.md) the `from_MOS` folder from the bucket you created.
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

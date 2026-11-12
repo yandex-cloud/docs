@@ -4,7 +4,7 @@ You can enable sharding for a cluster, as well as add and configure individual s
 
 ## Enabling sharding {#enable}
 
-If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To shard data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
+If you do not enable sharding when creating a {{ mch-name }} cluster, a single shard containing all cluster hosts will be created. To be able to shard your data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
 
 ## Creating a shard {#add-shard}
 
@@ -14,7 +14,7 @@ You can create multiple shards in a cluster in one go.
 
 {% note warning %}
 
-In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or configured {{ CK }}, you cannot create a shard of two or more hosts. First, [enable the {{ CK }} or {{ ZK }} coordination service](update.md#coordination) on individual hosts.
+In a cluster with a disabled [coordination service](../concepts/coordination-system.md) or built-in {{ CK }}, you cannot create a shard of two or more hosts. First, [enable the {{ CK }} or {{ ZK }} coordination service](update.md#coordination) on individual hosts.
 
 {% endnote %}
 
@@ -28,10 +28,8 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
   1. Click **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the new shard to update its parameters:
 
-      * Name and weight.
+      * Name and [weight](../concepts/sharding.md#shard-weight). The default shard weight is `100`.
       * Configuration of shard hosts.
-
-      {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
 
   1. Optionally, click **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}** to add more shards and specify their parameters.
   1. Optionally, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}** to add more hosts and specify their parameters.
@@ -84,9 +82,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
               It may contain Latin letters, numbers, hyphens, and underscores. It may be up to 63 characters long.
 
-          * `weight`: Shard weight.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+          * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
       * `--host`: Parameters of the host to add to the shard:
 
@@ -132,7 +128,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
      }
      ```
 
-     {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+     `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
   1. Optionally, to copy the schema from a random replica of one of the shards to the hosts of the new shards, add `copy_schema_on_new_hosts` set to `true` to the cluster description.
 
@@ -202,9 +198,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
             * `diskSize`: Disk size, in bytes.
             * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-        * `configSpec.clickhouse.weight`: Shard weight.
-
-          {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+        * `configSpec.clickhouse.weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
         * `hostSpecs`: Settings of hosts to add to the shard. The settings appear as an array of elements, one per host. Each element has the following structure:
 
@@ -287,9 +281,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
             * `disk_size`: Disk size, in bytes.
             * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-          * `config_spec.clickhouse.weight`: Shard weight.
-
-            {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+          * `config_spec.clickhouse.weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
         * `host_specs`: Settings of hosts to add to the shard as an array of elements, one per host. Each element has the following structure:
 
@@ -416,7 +408,7 @@ In a cluster with a disabled [coordination service](../concepts/coordination-sys
 
 ## Updating a shard {#shard-update}
 
-You can edit the shard weight as well as the [host class](../concepts/instance-types.md), [disk type](../concepts/storage.md), and storage size.
+You can edit the [shard weight](../concepts/sharding.md#shard-weight) as well as the [host class](../concepts/instance-types.md), [disk type](../concepts/storage.md), and storage size.
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
@@ -461,11 +453,8 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
 
      Where:
 
-     * `--cluster-name`: Cluster name. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
-     * `--weight`: Shard weight. The minimum value is `0`.
-
-       {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
-
+     * `--cluster-name`: Cluster name. You can get it from the [list of clusters in the folder](cluster-list.md#list-clusters).
+     * `--weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
      * `--clickhouse-resource-preset`: [Host class](../concepts/instance-types.md).
      * `--clickhouse-disk-size`: Storage size, in GB.
      * `--clickhouse-disk-type`: [Disk type](../concepts/storage.md).
@@ -521,9 +510,7 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
          * `diskSize`: Disk size, in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-       * `weight`: Shard weight.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
      * `allowHostRecreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 
@@ -592,9 +579,7 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
          * `disk_size`: Disk size, in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-       * `weight`: Shard weight.
-
-         {% include [shard priority weight](../../_includes/mdb/mch/shard-priority-weight.md) %}
+       * `weight`: [Shard weight](../concepts/sharding.md#shard-weight). The default value is `100`.
 
      * `allow_host_recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
 

@@ -175,11 +175,10 @@ For general recommendations on backing up and restoring VMs, see [{#T}](backups.
 
 To protect critical data in {{ compute-name }}, we recommend encrypting disks with [{{ kms-full-name }}](../../kms/) keys.
 
-For more information, see [{#T}](encryption.md).
+For details, see [{#T}](encryption.md).
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/sap.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
 * [{#T}](../tutorials/packer-quickstart.md)
 * [{#T}](../tutorials/hpc-on-preemptible.md)

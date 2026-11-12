@@ -1,7 +1,5 @@
 # Creating an instance group
 
-{% include [quota-zones-warning](../../_includes/compute/quota-zones-warning.md) %}
-
 Create an instance group using [Instance Groups](../concepts/instance-groups/index.md) in the {{ yandex-cloud }} management console.
 
 ## Getting started {#before-you-begin}

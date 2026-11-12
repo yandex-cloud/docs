@@ -30,7 +30,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/conc
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md).
 
-## Prepare your infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 [_Organization_](../../overview/roles-and-resources.md) is a workspace that consolidates various types of {{ yandex-cloud }} resources and users. Any Yandex user can create an organization in {{ org-full-name }}. After you create an organization, you become its [owner](../../organization/security/index.md#organization-manager-organizations-owner) and can manage its settings.
 
@@ -138,11 +138,11 @@ To grant access permissions to all organization users in one go, assign the `All
     1. Select a user from the list or use the user search option.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `compute.editor` role to manage virtual machines.
 
-      {% note tip %}
+        {% note tip %}
 
-      You can also assign other roles depending on the actions you want to allow on folder resources. For the full list of roles, see the [{{ iam-full-name }}](../../iam/roles-reference.md) documentation.
+        You can also assign other roles depending on the actions you want to allow on folder resources. For the full list of roles, see the [{{ iam-full-name }}](../../iam/roles-reference.md) documentation.
 
-      {% endnote %}
+        {% endnote %}
 
     1. Click **{{ ui-key.yacloud_components.acl.AclEditDialogNew.action_apply }}**.
 

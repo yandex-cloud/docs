@@ -1,7 +1,5 @@
 # Creating a VM from a public DSVM image
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 In the {{ yandex-cloud }} management console, create a VM from a DSVM image using {{ compute-name }} and connect to it via SSH.
 
 {% include [role-note](../../../_includes/compute/role-note.md) %}

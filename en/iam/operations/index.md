@@ -5,9 +5,13 @@ description: Step-by-step guides on how to manage access permissions for{{ yande
 
 # Step-by-step guides for {{ iam-name }}
 
+## Subjects in the {{ yandex-cloud }} access management system {#subject-details}
+
+- [{#T}](subject-details.md)
+
 ## Publicly available secrets {#credentials}
 
-- [Processing secrets that have become publicly available](compromised-credentials.md)
+- [{#T}](compromised-credentials.md)
 
 ## Users {#users}
 

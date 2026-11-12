@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину из пользовательского образа
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
 ## Перед началом работы {#before-you-begin}

@@ -45,10 +45,10 @@ In this guide, you will set up web resource protection using SWS tools connected
 
 1. Optionally, [set up the web application firewall](#firewall)
 
-   1. [Create a WAF profile](#waf-create)
+   1. [Create a Cloud WAF profile](#waf-create)
    1. [Configure Yandex Ruleset](#waf-configure-rules)
    1. [Create an exclusion rule](#create-exclusion)
-   1. [Add your WAF profile to the security profile](#waf-add-to-profile)
+   1. [Add your Cloud WAF profile to the security profile](#waf-add-to-profile)
    1. [Test the WAF rules](#test-waf-rules)
 
 ## Required paid resources {#paid-resources}
@@ -195,7 +195,7 @@ WAF rules include L7 DDoS protection. If you add a WAF rule to a security profil
 
       Rules in a security profile apply based on the first triggered rule in the priority order. Rules in the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode do not actually apply. Logs only collect the information on possible rule triggering. That is why the first triggered rule will be the basic default rule with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` action type. This will block all traffic to your resource. To prevent this, switch the basic default rule to the `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}` mode.
 
-      You will be charged for the traffic handled by the rules in the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode. For more information, see [{#T}](../../smartwebsecurity/pricing.md).
+      You will be charged for the traffic handled by the rules in the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode. For details, see [{#T}](../../smartwebsecurity/pricing.md).
 
       {% endnote %}
 
@@ -325,33 +325,7 @@ Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules
 
 ### Connect the security profile to the resources {#profile-connect}
 
-{% list tabs group=instructions %}
-
-- L7 load balancer {#balancer}
-
-  If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
-
-  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
-
-  To connect a virtual host:
-
-  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
-
-  {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
-
-- API gateway {#api-gateway}
-
-  To connect an API gateway:
-
-  {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
-
-- Domain {#domain}
-
-  To connect a domain:
-
-  {% include [domain-connect](../../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
-
-{% endlist %}
+{% include [sws-profile-connect](../_tutorials_includes/sws-profile-connect.md) %}
 
 ### Test your security profile in logging mode {#test-sp-rules}
 
@@ -409,9 +383,9 @@ Use logs and monitoring charts to check the performance of your rules:
   1. Select the ![display-pulse](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** section.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
-     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second redirected to {{ captcha-name }} for additional verification.
-     * **Redirected to JS challenge RPS**: Number of incoming requests per second redirected to a client-side [JavaScript challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
-     * **Redirected to cookie challenge RPS**: Number of incoming requests per second redirected to a client-side [cookie challenge](../../smartwebsecurity/concepts/rules.md#client-checks).
+     * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
+     * **Redirected to JS challenge RPS**: Number of incoming requests per second routed to client-side [JavaScript execution verification](../../smartwebsecurity/concepts/rules.md#client-checks).
+     * **Redirected to cookie challenge RPS**: Number of incoming requests per second routed to client-side [cookie support verification](../../smartwebsecurity/concepts/rules.md#client-checks).
 
 {% endlist %}
 
@@ -518,7 +492,7 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
   1. Examine the data displayed on the charts:
      * **Allowed by ARL Profile RPS**: Number of incoming requests per second not exceeding the ARL profile limit.
      * **Denied by ARL Profile RPS**: Number of incoming requests per second exceeding the ARL profile limit and blocked.
-     * **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second redirected by the ARL profile to {{ captcha-name }} for additional verification.
+     * **Redirected to SmartCaptcha by ARL Profile RPS**: Number of incoming requests per second the ARL profile routes to {{ captcha-name }} for additional verification.
 
 {% endlist %}
 
@@ -528,7 +502,7 @@ For a description of charts, metrics, and labels, see [{#T}](../../smartwebsecur
 
 A web application firewall (WAF) protects your web apps from various vulnerability exploits and requires fine tuning depending on the specific features of your service.
 
-When creating a WAF profile, you can enable multiple rule sets. For a quick start, we recommend [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) and [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset): they return the least number of false positives.
+When creating a Cloud WAF profile, you can enable multiple rule sets. For a quick start, we recommend [ML WAF](../../smartwebsecurity/concepts/waf.md#yandex-ml-ruleset) (Yandex Malicious Score) and [Yandex Ruleset](../../smartwebsecurity/concepts/waf.md#yandex-ruleset): they return the least number of false positives.
 
 For added protection, use additional rule sets and tailor them to your service.
 
@@ -536,7 +510,7 @@ A rule you consider critical can be used as a blocking rule. This rule will bloc
 
 You may need to disable certain rules to prevent false positives and create exclusion rules. Since every service is unique, configuring WAF might take a while.
 
-### Create a WAF profile {#waf-create}
+### Create a Cloud WAF profile {#waf-create}
 
 {% list tabs group=instructions %}
 
@@ -544,7 +518,8 @@ You may need to disable certain rules to prevent false positives and create excl
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the security profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and open the **{{ ui-key.yacloud.smart-web-security.cloudWafTab_oR48G }}** tab.
+  1. Click **{{ ui-key.yacloud.smart-web-security.WafCreateProfileAction.createWafOrSolidWallProfileButton_6J5WK }}** and select **{{ ui-key.yacloud.smart-web-security.cloudWafProfile_4E82H }}**.
   1. Enter a name for the profile, e.g., `waf-site-protection`.
   1. Enable rule sets, e.g., ML WAF and Yandex Ruleset. To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -557,7 +532,7 @@ You may need to disable certain rules to prevent false positives and create excl
 
 - Management console {#console}
 
-  1. On the WAF profile page, click ![image](../../_assets/console-icons/gear.svg) **Configure** next to the rule set.
+  1. On the Cloud WAF profile page, click ![image](../../_assets/console-icons/gear.svg) **Configure** next to the rule set.
   1. For each group of rules:
 
       1. Click ![image](../../_assets/console-icons/chevron-down.svg) next to a rule group name to expand it.
@@ -585,7 +560,7 @@ You may need to disable certain rules to prevent false positives and create excl
 
 {% endlist %}
 
-### Add your WAF profile to the security profile {#waf-add-to-profile}
+### Add your Cloud WAF profile to the security profile {#waf-add-to-profile}
 
 {% list tabs group=instructions %}
 

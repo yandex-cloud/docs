@@ -5,8 +5,6 @@ description: Follow this guide to create a VM from a public image.
 
 # Creating a VM from a public image
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 

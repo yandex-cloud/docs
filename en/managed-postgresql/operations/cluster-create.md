@@ -140,7 +140,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the settings for the cluster’s database hosts. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg) next to it.
+  1. Under **{{ ui-key.yacloud.postgresql.new.entities.Hosts.label_title_7pQ1w }}**, configure the hosts:
+
+      * To change the host settings, click ![pencil](../../_assets/console-icons/pencil.svg) next to the host.
+
+        * **{{ ui-key.yacloud.mdb-core.entities.Zone.label_title_qQ3Vg }}**: Select the [availability zone](../../overview/concepts/geo-scope.md).
+
+        
+        * **{{ ui-key.yacloud.mdb-core.entities.Subnetwork.label_title_c4P8n }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+        * Enable the **{{ ui-key.yacloud.postgresql.new.entities.AssignPublicIp.label_title_8mK2p }}** option to allow access to the host from the internet.
+
+
+        * **{{ ui-key.yacloud.postgresql.new.entities.MasterPriority.label_title_9nL4q }}**: Specify the host priority. The possible values range from `0` to `100`. The default value is `0`. Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
+      * To add a host to your cluster, click **{{ ui-key.yacloud.postgresql.new.entities.Hosts.label_add-host_p3wH5 }}**.
 
      The minimum number of hosts per cluster depends on the selected [disk type](../concepts/storage.md). The default cluster configuration offered in the management console includes:
 
@@ -154,10 +167,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      {% endnote %}
 
      After creating a {{ mpg-name }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
-
-     
-     To enable internet access to the hosts, check **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-
 
   
   1. Optionally, under **DB Proxy**, enable the [{{ mdb-lb }} load balancer](../concepts/load-balancer.md) using the **DB Proxy load balancing** option for {{ mpg-name }} to automatically distribute load across your database hosts depending on their roles and availability. When the load balancer is enabled, all cluster hosts automatically get subject to load balancing.
@@ -219,7 +228,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        --network-name <network_name> \
        --host zone-id=<availability_zone>,`
              `subnet-id=<subnet_ID>,`
-             `assign-public-ip=<allow_public_access_to_host> \
+             `assign-public-ip=<allow_public_access_to_host>,`
+             `priority=<host_priority> \
        --resource-preset <host_class> \
        --user name=<username>,password=<user_password> \
        --database name=<DB_name>,owner=<DB_owner_name> \
@@ -244,6 +254,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.
 
+     
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
      * `deletion-protection`: Deletion protection for the cluster, its databases, and users.
 
@@ -350,6 +364,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          name             = "<host_name>"
          subnet_id        = "<subnet_ID>"
          assign_public_ip = <allow_public_access_to_host>
+         priority         = <host_priority>
        }
      }
 
@@ -387,7 +402,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
      * `assign_public_ip`: Allow access to the host from the internet, `true` or `false`.
 
 
-     * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false`.
+     * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`. The `priority` parameter is only available where the host has a `name` specified.
+
+       Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
+
+     * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually by following the guides in [User management](cluster-users.md) and [Database management](databases.md).
 
@@ -530,7 +549,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          {
            "zoneId": "<availability_zone>",
            "subnetId": "<subnet_ID>",
-           "assignPublicIp": <allow_public_access_to_host>
+           "assignPublicIp": <allow_public_access_to_host>,
+           "priority": "<host_priority>"
          },
          { <similar_settings_for_host_2> },
          { ... },
@@ -623,6 +643,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
+
+       * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+         Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
@@ -723,7 +747,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          {
            "zone_id": "<availability_zone>",
            "subnet_id": "<subnet_ID>",
-           "assign_public_ip": <allow_public_access_to_host>
+           "assign_public_ip": <allow_public_access_to_host>,
+           "priority": "<host_priority>"
          },
          { <similar_settings_for_host_2> },
          { ... },
@@ -816,6 +841,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assign_public_ip`: Permission for internet [access](connect/index.md) to the host.
 
+
+       * `priority`: Host priority. The possible values range from `0` to `100`. The default value is `0`.
+
+         Host priority matters when [selecting the new master during failover](../concepts/replication.md#master-failover).
 
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 

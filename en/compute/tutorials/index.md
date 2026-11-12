@@ -1,6 +1,6 @@
 ---
 title: '{{ compute-full-name }} use cases'
-description: Various use cases for {{ compute-full-name }} in {{ yandex-cloud }}.
+description: Use cases for {{ compute-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ compute-name }} tutorials
@@ -24,7 +24,6 @@ description: Various use cases for {{ compute-full-name }} in {{ yandex-cloud }}
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](opencart/index.md)
 * [{#T}](flask.md)
-* [{#T}](sap.md)
 * [{#T}](minecraft-server.md)
 * [{#T}](jenkins.md)
 * [{#T}](test-vms-creation-via-gitlab-ci.md)

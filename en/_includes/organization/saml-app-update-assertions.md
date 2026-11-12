@@ -25,7 +25,7 @@
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_after_q4x8n }}`: Returns the part of the value which follows the specified substring. Specify the substring in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}** field. For example, `user@site.com` + `@` → `site.com`.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_before_ju2PE }}`: Returns the part of the value which precedes the specified substring. Specify the substring in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}** field. For example, `user@example.com` + `@` → `user`.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to lowercase.
-         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}`: Converts all attribute value characters to uppercase.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_uppercase_uF6Br }}`: Converts all attribute value characters to uppercase.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}`: Deletes spaces in the beginning and end of the attribute value.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}`: Replaces the current attribute value if it is empty. You can select a replacement value from the list of attribute values or provide your own one. For example, you can use `email` if `username` is empty.
          * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}`: Replaces the current value with a specified constant. Provide the constant in the **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_if_empty_value_1K7py }}** field. For example, `<attribute_value>` → `User`.
@@ -72,7 +72,7 @@
 
      * `--application-id`: SAML application ID.
      * `--name`: Attribute name unique to your application.
-     * `--value`: Attribute value. The possible values are:
+     * `--value`: Attribute value. Its possible values are:
 
        {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 
@@ -88,9 +88,35 @@
      Where:
 
      * `--name`: User group attribute name. The attribute name must be unique within your application.
-     * `--value`: Group attribute value. The possible values are:
+     * `--value`: Group attribute value. Its possible values are:
 
        {% include [saml-app-group-assertion](./saml-app-group-assertion.md) %}
+
+  1. To specify the group value (group name, ID, or external ID) the service provider will get, run the following command:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <app_ID> \
+       --group-distribution-type <group_distribution_type> \
+       --group-attribute-name <group_attribute_name> \
+       --group-attribute-value <group_value_type>
+     ```
+
+     Where:
+
+     * `--id`: SAML application ID. This is a required setting.
+     * `--group-distribution-type`: Groups to provide. Its possible values are:
+       * `all-groups`: Service provider will get all groups the user belongs to.
+
+           The maximum number of groups is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
+
+       * `assigned-groups`: Of all the user's groups, the service provider will only get the ones explicitly specified in the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab of the SAML application.
+       * `none`: Service provider will not get any of the groups the user belongs to.
+     * `--group-attribute-name`: User group attribute name. The attribute name must be unique within your application.
+     * `--group-attribute-value`: Group value type. Its possible values are:
+       * `name`: Group name. It is used by default.
+       * `id`: Group ID.
+       * `external-id`: Group's external ID.
 
   1. To update the attribute, run this command:
 
@@ -137,6 +163,7 @@
 
        group_claims_settings = {
          group_attribute_name    = "<group_attribute_name>"
+         group_attribute_value   = "NAME"
          group_distribution_type = "ALL_GROUPS"
        }
      }
@@ -148,17 +175,23 @@
      * `name`: SAML application name. This is a required setting.
      * `attributes`: List of attributes {{ org-full-name }} will be delivering to the service provider. Each attribute contains:
        * `name`: Attribute name unique to your application.
-       * `value`: Attribute value. The possible values are:
+       * `value`: Attribute value. Its possible values are:
 
          {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 
      * `group_claims_settings`: User group attribute parameters:
        * `group_attribute_name`: User group attribute name. The attribute name must be unique within your application.
-       * `group_distribution_type`: Group attribute value. The possible values are: 
-         * `ASSIGNED_GROUPS`: In a SAML response, this field will include only those groups that are explicitly specified on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab of your SAML app.
-         * `ALL_GROUPS`: In a SAML response, this field will include all [groups](../../organization/concepts/groups.md) the user belongs to.
+       * `group_attribute_value`: Type of the group value the service provider will get. Its possible values are:
+         * `NAME`: Group name. It is used by default.
+         * `ID`: Group ID.
+         * `EXTERNAL_ID`: Group's external ID.
+       * `group_distribution_type`: Groups to provide. Its possible values are:
+         * `ALL_GROUPS`: Service provider will get all [groups](../../organization/concepts/groups.md) the user belongs to.
 
-             The maximum number of groups this field can include is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider. 
+             The maximum number of groups this field can include is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider.
+
+         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified in the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab of the SAML application.
+         * `NONE`: Service provider will not get any of the groups the user belongs to.
 
      For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
@@ -176,4 +209,4 @@
 
 Make sure the attributes you added are also added to the SAML app's integration settings and can be processed correctly on the service provider's side.
 
-[*transform]: Transformations change the attribute value before sending it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a portion of the string. Transformations apply one by one, from top to bottom.
+[*transform]: Transformations change the attribute value before sending it in a SAML response, e.g., convert text to lowercase, delete spaces, or extract a part of the string. Transformations apply one by one, from top to bottom.

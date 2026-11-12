@@ -66,7 +66,7 @@
         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
         1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
         1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значения полей: **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**, **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** и **{{ ui-key.yacloud_org.application.overview.saml_field_logout }}**.
-        1. Вернитесь в Zabbix и вставьте скопированные адреса в поля: **IdP entity ID**, **SSO service URL** и **SLO service URL**. 
+        1. Вернитесь в Zabbix и вставьте скопированные адреса в поля: **IdP entity ID**, **SSO service URL** и **SLO service URL**.
 
             {% note info %}
 
@@ -98,7 +98,7 @@
 
         {% endnote %}
 
-    1. Активируйте опцию **Case-sensitive login**, если требуется учет регистра символов в логине.
+    1. Опция **Case-sensitive login** включена по умолчанию — имена пользователей при входе будут чувствительны к регистру. Отключите опцию, если этого не требуется.
 
     1. Если опция **Enable JIT provisioning** была включена, настройте параметры автоматического создания пользователей в Zabbix. Для этого активируйте опцию **Configure JIT provisioning** и выполните следующие шаги:
 
@@ -175,6 +175,7 @@
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите `zabbix`.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://<your-domain>/zabbix/index_sso.php?acs`.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** укажите адрес `https://<your-domain>/zabbix/index_sso.php?sls`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

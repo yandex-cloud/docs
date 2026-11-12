@@ -91,13 +91,12 @@ To get started:
 
 1. Under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
 
-1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
+1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards. [Learn more about connecting to databases](operations/connect.md).
 
     * Database name. It must be unique within the folder.
     * Database owner username.
     * Password.
 
-1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, specify the password for the {{ SPQR }} console, where you can configure sharding rules. Learn more about the {{ SPQR }} console [here](https://docs.pg-sharding.tech/sharding/console/how_to_connect).
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Wait until the cluster is ready to work: its status will change to **Running**, and its state to **Alive**. To check its state, hover over the cluster status in the **{{ ui-key.yacloud.common.availability }}** column.
 

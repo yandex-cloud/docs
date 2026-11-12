@@ -315,11 +315,8 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
        mkdir --parents {{ crt-local-dir }} && \
        wget "{{ crt-web-path-root }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
-       wget "{{ crt-web-path-int }}" \
-            --output-document {{ crt-local-dir }}{{ crt-local-file-int }} && \
        chmod 655 \
-            {{ crt-local-dir }}{{ crt-local-file-root }} \
-            {{ crt-local-dir }}{{ crt-local-file-int }} && \
+            {{ crt-local-dir }}{{ crt-local-file-root }} && \
        update-ca-certificates
    ```
 

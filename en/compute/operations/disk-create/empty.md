@@ -5,8 +5,6 @@ description: Follow this guide to create an empty disk of the specified size.
 
 # Creating an empty disk
 
-{% include [quota-zones-warning](../../../_includes/compute/quota-zones-warning.md) %}
-
 You can create an empty disk of the specified size.
 
 {% list tabs group=instructions %}

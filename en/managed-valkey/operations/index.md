@@ -18,6 +18,7 @@ description: This page features step-by-step guides for {{ mrd-name }}.
 * [Managing backups](cluster-backups.md)
 * [Managing backup policies](backup-retention-policies.md)
 * [Managing cluster access](cluster-access.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connection {#connect}

@@ -52,7 +52,11 @@ You can [manage](#pricing-management) {{ org-full-name }} billing through the [{
 
 With [SAML](./concepts/applications/saml.md) and [OIDC](./concepts/applications/oidc.md) apps, {{ org-full-name }} users can authenticate in [external applications](./tutorials/single-sign-on/index.md), such as [Grafana Cloud](https://grafana.com/products/cloud/), [Zabbix](https://www.zabbix.com), etc. Connecting {{ org-full-name }} users to external applications is [billable](#rules). You can [manage](./operations/manage-billing.md) {{ org-full-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
-To manage {{ org-full-name }} billing and use its billable features, link a [billing account](../billing/concepts/billing-account.md) to {{ org-full-name }}.
+{% note warning %}
+
+To manage {{ org-full-name }} billing and use its billable features, link a [billing account](../billing/concepts/billing-account.md) to {{ org-full-name }}. Linking a billing account is also required for activating a non-billable user limit.
+
+{% endnote %}
 
 {% include [idp-org-to-ba-linking-role](../_includes/organization/idp-org-to-ba-linking-role.md) %}
 
@@ -60,7 +64,7 @@ To manage {{ org-full-name }} billing and use its billable features, link a [bil
 
 On their first login to an external application, an {{ org-full-name }} user starts consuming their [organization’s](./concepts/organization.md) monthly _connection limit_. Then, until the month ends, this user can log in to any external applications without limitations.
 
-By default, an organization has a non-billable limit of 15 users per month who can authenticate to external applications. After that limit is reached, no new users will be able to log in to external apps.
+By default, organizations with a linked billing account are granted a non-billable limit of 15 users per month who can authenticate in external applications. Authentication for each additional user beyond the limit will be subject to a charge.
 
 You can [view](./operations/manage-billing.md#view-stats) information about users consuming this month’s connection limit at any moment. When a new month begins, the data on connection limit consumption is reset.
 

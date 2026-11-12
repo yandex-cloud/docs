@@ -2,12 +2,6 @@
 
 # Перенести диск в другую зону доступности
 
-{% note warning %}
-
-Девять квот на ресурсы Compute Cloud действуют не в рамках региона, а отдельно по каждой зоне доступности. Подробнее в разделе [Квоты и лимиты в Compute Cloud](../../concepts/limits.md).
-
-{% endnote %}
-
 
 Диск создается в одной [зоне доступности](../../../overview/concepts/geo-scope.md). Вы можете перенести его в другую зону с помощью [снимка](../../concepts/snapshot.md), а также с помощью специальной команды в [консоли управления](https://console.yandex.cloud) или [CLI](../../../cli/cli-ref/compute/cli-ref/disk/relocate.md)
 

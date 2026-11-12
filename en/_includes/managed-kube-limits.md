@@ -21,7 +21,7 @@
 || Maximum number of node groups per {{ k8s }} cluster
 `managed-kubernetes.clusterNodeGroups.count` | 32 ||
 || Maximum number of nodes per node group
-`managed-kubernetes.groupNodes.count` | 200 ||
+`managed-kubernetes.groupNodes.count` | 100 ||
 || Maximum number of nodes per {{ k8s }} cluster
 `managed-kubernetes.clusterNodes.count` | 200 ||
 |#

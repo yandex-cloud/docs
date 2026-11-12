@@ -68,7 +68,7 @@
         1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
         1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
         1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значения полей: **Issuer / IdP EntityID**, **Login URL** и **Logout URL**.
-        1. Вернитесь в Zabbix и вставьте скопированные адреса в поля: **IdP entity ID**, **SSO service URL** и **SLO service URL**. 
+        1. Вернитесь в Zabbix и вставьте скопированные адреса в поля: **IdP entity ID**, **SSO service URL** и **SLO service URL**.
 
             {% note info %}
 
@@ -100,7 +100,7 @@
 
         {% endnote %}
 
-    1. Активируйте опцию **Case-sensitive login**, если требуется учет регистра символов в логине.
+    1. Опция **Case-sensitive login** включена по умолчанию — имена пользователей при входе будут чувствительны к регистру. Отключите опцию, если этого не требуется.
 
     1. Если опция **Enable JIT provisioning** была включена, настройте параметры автоматического создания пользователей в Zabbix. Для этого активируйте опцию **Configure JIT provisioning** и выполните следующие шаги:
 
@@ -177,6 +177,7 @@
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
       1. В поле **SP EntityID** укажите `zabbix`.
       1. В поле **ACS URL** укажите адрес `https://<your-domain>/zabbix/index_sso.php?acs`.
+      1. В поле **SP Logout URL** укажите адрес `https://<your-domain>/zabbix/index_sso.php?sls`.
       1. Нажмите **Сохранить**.
 
 {% endlist %}

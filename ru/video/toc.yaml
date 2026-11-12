@@ -426,6 +426,8 @@ items:
                 href: api-ref/grpc/Video/create.md
               - name: Update
                 href: api-ref/grpc/Video/update.md
+              - name: RenewSource
+                href: api-ref/grpc/Video/renewSource.md
               - name: Transcode
                 href: api-ref/grpc/Video/transcode.md
               - name: Delete
@@ -628,6 +630,8 @@ items:
                 href: api-ref/Video/create.md
               - name: Update
                 href: api-ref/Video/update.md
+              - name: RenewSource
+                href: api-ref/Video/renewSource.md
               - name: Transcode
                 href: api-ref/Video/transcode.md
               - name: Delete

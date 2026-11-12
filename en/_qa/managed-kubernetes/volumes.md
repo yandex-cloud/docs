@@ -19,3 +19,11 @@ For more information, see [Working with persistent volumes](../../managed-kubern
 #### What types of volumes does {{ managed-k8s-name }} support? {#supported-volumes}
 
 {{ managed-k8s-name }} supports temporary (`Volume`) and persistent (`PersistentVolume`) volumes. For more information, see [{#T}](../../managed-kubernetes/concepts/volume.md).
+
+#### Why do I get an `Multi-Attach error for volume` error? {#multi-attach}
+
+A network disk backing a persistent volume can only be attached to a single node at a time. The `Multi-Attach error for volume` occurs when {{ k8s }} tries to attach a volume to a node while it is still attached to another node. For example, this may happen when pods share a PVC but run on different nodes. Multiple pods on the same node can use the same volume in `ReadWriteOnce` mode.
+
+Review the scheduling of pods that use the PVC and examine volume attachment events. If your application requires access from multiple nodes in `ReadWriteMany` mode, choose a storage solution that supports this mode, such as [{{ objstorage-name }} via CSI](../../managed-kubernetes/operations/volumes/s3-csi-integration.md). You can also [install CSI for S3 from {{ marketplace-name }} or using Helm](../../managed-kubernetes/operations/applications/csi-s3.md).
+
+Learn more about [volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).

@@ -309,7 +309,7 @@ You can conveniently control access to resources via [user groups](../../../orga
 
 You can edit group membership using the following roles:
 
-* `organization-manager.groups.memberAdmin`, `organization-manager.groups.admin`, or `{{ roles-admin }}` assigned for a specific group or organization.
+* `organization-manager.groups.memberAdmin`, `organization-manager.groups.admin`, or `{{ roles-admin }}` assigned for a specific group or an organization.
 * `organization-manager.admin` or `organization-manager.organizations.owner` assigned for an organization.
 
 
@@ -1462,7 +1462,7 @@ The most appropriate approach would be to not use this account on a regular basi
 
 We recommend disabling 2FA only for this account and if it is not assigned to a specific employee.<q></q> Thus you can avoid linking this critical account to a personal device.
 
-To manage a billing account, assign the [billing.accounts.editor](../../../billing/security/index.md#billing-accounts-editor) role for the billing account to a dedicated employee with a federated account. For an employee to manage access to a billing account, assign the [billing.accounts.admin](../../../billing/security/index.md#billing-accounts-admin) role.
+To manage a billing account, assign the [billing.accounts.editor](../../../billing/security/index.md#billing-accounts-editor) role for the billing account to a dedicated employee with a federated account. If an employee needs to manage access to a billing account, assign them the [billing.accounts.admin](../../../billing/security/index.md#billing-accounts-admin) role.
 
 To view billing data, assign the [billing.accounts.viewer](../../../billing/security/index.md#billing-accounts-viewer) role for the billing account to a dedicated employee with a federated account.
 
@@ -1478,7 +1478,7 @@ Make sure to fully protect your federated account that is granted one of the pri
 * Disable authentication from devices beyond the company's control.
 * Configure login attempt monitoring and set alert thresholds.
 
-For administrative tasks, assign service roles with the minimum required permissions to federated accounts. For example, use `billing.accounts.admin` to manage access to a billing account. Select the role assignment scope based on the task: an individual resource, folder, or cloud. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
+For administrative tasks, assign service roles with the minimum required permissions to federated accounts, e.g., use `billing.accounts.admin` for managing billing account access. Select the role assignment scope based on the task: a specific resource, a folder, or a cloud. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -1492,7 +1492,7 @@ For administrative tasks, assign service roles with the minimum required permiss
 
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Go to [{{ billing-name }}]({{ link-console-billing }}).
-  1. Check who has the `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`, and `{{ roles-admin }}` roles.
+  1. Check which users have the `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`, and `{{ roles-admin }}` roles.
 
   Checking roles for an organization:
 
@@ -2179,7 +2179,7 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 
 To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
 
-[{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/), is a tool providing a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
+[{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/) is a tool providing a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke excessive access permissions from subjects.
 
 For more information, see [{#T}](../../../security-deck/concepts/access-analyzer.md).
 

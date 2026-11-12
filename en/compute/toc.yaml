@@ -519,8 +519,6 @@ items:
             href: tutorials/opencart/terraform.md
       - name: Creating a Python web application with Flask
         href: tutorials/flask.md
-      - name: Creating an SAP program in {{ yandex-cloud }}
-        href: tutorials/sap.md
       - name: Deploying a Minecraft server in {{ yandex-cloud }}
         href: tutorials/minecraft-server.md
       - name: Automating image builds using Jenkins and Packer
