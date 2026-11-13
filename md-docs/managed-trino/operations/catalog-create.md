@@ -895,12 +895,6 @@ Connection Manager позволяет создавать подключения 
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
-    
     * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
@@ -936,12 +930,6 @@ Connection Manager позволяет создавать подключения 
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     
@@ -999,12 +987,6 @@ Connection Manager позволяет создавать подключения 
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
@@ -1058,12 +1040,6 @@ Connection Manager позволяет создавать подключения 
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
@@ -1123,12 +1099,6 @@ Connection Manager позволяет создавать подключения 
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
 
@@ -1682,12 +1652,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
     
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
-    
     * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
         Для взаимодействия с Object Storage назначьте [роль](../../storage/security/index.md#storage-editor) `storage.editor` сервисным аккаунтам кластеров Managed Service for Trino и Apache Hive™ Metastore.
@@ -1723,12 +1687,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     
@@ -1786,12 +1744,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
@@ -1845,12 +1797,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
@@ -1910,12 +1856,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
@@ -1935,12 +1875,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
@@ -1977,12 +1911,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     
@@ -2040,12 +1968,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hive.html).
 
@@ -2099,12 +2021,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
@@ -2164,12 +2080,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/hudi.html).
 
@@ -2198,12 +2108,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
         1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
         1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. В блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [Yandex Object Storage](../../storage/quickstart/overview.md) и внешнее хранилище.
     
@@ -2236,12 +2140,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `--metastore-hive-uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-      {% note warning %}
-      
-      Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-      
-      {% endnote %}
     
     * `--filesystem-native-s3` — хранилище [Yandex Object Storage](../../storage/quickstart/overview.md).
     
@@ -2299,12 +2197,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
@@ -2358,12 +2250,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 
@@ -2423,12 +2309,6 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * `metastore.hive.uri` — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
         Чтобы узнать IP-адрес кластера Apache Hive™ Metastore, в [консоли управления](https://console.yandex.cloud) выберите сервис **Yandex MetaData Hub** и в блоке **Управляйте метаданными** выберите **Metastore-сервер**.
-    
-        {% note warning %}
-        
-        Для интеграции с сервисом Managed Service for Trino требуется кластер Apache Hive™ Metastore с версией 3.1.
-        
-        {% endnote %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
 

@@ -1,8 +1,8 @@
 meta:
   title: CLI Yandex Cloud
   description: >-
-    The {{ yandex-cloud }} CLI is downloadable software you can use to manage
-    your cloud resources via the command line.
+    The {{ yandex-cloud }} CLI is software you can download to manage your cloud
+    resources using the command line.
   keywords:
     - keyword: cli
     - keyword: yandex cli
@@ -10,7 +10,7 @@ meta:
     - keyword: command line interface
     - keyword: command line interface
     - keyword: shell
-    - keyword: command line interface {{ yandex-cloud }}
+    - keyword: '{{ yandex-cloud }} command line interface'
     - keyword: '{{ yandex-cloud }} command line interface'
     - keyword: '{{ yandex-cloud }} shell'
     - keyword: yandex command line
@@ -19,8 +19,8 @@ blocks:
   - type: card-layout-block
     title: Command line interface
     description: >-
-      The Yandex Cloud CLI is software you can download to manage your cloud
-      resources using the command line.
+      The Yandex Cloud CLI is downloadable software you can use to manage your
+      cloud resources through the command line.
     colSizes:
       all: 12
       sm: 6
@@ -30,7 +30,9 @@ blocks:
       - type: basic-card
         title: Getting started
         text: Install the CLI and run your first command
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started
         url: quickstart
         centered: true
@@ -38,8 +40,10 @@ blocks:
         size: s
       - type: basic-card
         title: Step-by-step guides
-        text: Follow our guides for routine operations
-        icon: ../_assets/console-icons/list-ol.svg
+        text: Follow guides to perform routine operations
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Step-by-step guides
         url: operations/
         centered: true
@@ -48,7 +52,9 @@ blocks:
       - type: basic-card
         title: How to work with the CLI
         text: Running commands, working with profiles, and configuring the CLI
-        icon: ../_assets/console-icons/terminal.svg
+        gravityIcon:
+          name: Terminal
+          color: text-color
         urlTitle: How to work with the CLI
         url: concepts/
         centered: true
@@ -57,7 +63,9 @@ blocks:
       - type: basic-card
         title: CLI releases
         text: New features, changes, and fixes in the CLI
-        icon: ../_assets/console-icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: CLI releases
         url: release-notes
         centered: true
@@ -66,7 +74,9 @@ blocks:
       - type: basic-card
         title: Troubleshooting
         text: Find out how to collect diagnostic information
-        icon: ../_assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         urlTitle: Troubleshooting
         url: error
         centered: true
@@ -74,8 +84,10 @@ blocks:
         size: s
       - type: basic-card
         title: CLI reference
-        text: Find the required commands and their parameters
-        icon: ../_assets/console-icons/code.svg
+        text: Find the commands and parameters you need
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: CLI reference
         url: cli-ref/
         centered: true

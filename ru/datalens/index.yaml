@@ -43,7 +43,9 @@ blocks:
       - type: basic-card
         title: BI-система для бизнеса
         text: Вы в этом разделе документации
-        icon: ../_assets/console-icons/layout-header-side-content.svg
+        gravityIcon:
+          name: LayoutHeaderSideContent
+          color: text-color
         url: concepts
         size: s
         controlPosition: content
@@ -51,7 +53,9 @@ blocks:
         backgroundColor: '#FFC4AE'
       - type: basic-card
         title: Хранение и обработка данных
-        icon: ../_assets/console-icons/database-arrow-right.svg
+        gravityIcon:
+          name: DatabaseArrowRight
+          color: text-color
         url: ./datalens-platform/index
         size: s
         controlPosition: content
@@ -71,7 +75,9 @@ blocks:
     children:
       - type: basic-card
         title: BI-система для бизнеса
-        icon: ../_assets/console-icons/layout-header-side-content.svg
+        gravityIcon:
+          name: LayoutHeaderSideContent
+          color: text-color
         url: https://datalens.ru/on-premises/docs/ru/concepts/
         size: s
         controlPosition: content
@@ -79,7 +85,9 @@ blocks:
         backgroundColor: '#A5CAF3'
       - type: basic-card
         title: Хранение и обработка данных
-        icon: ../_assets/console-icons/database-arrow-right.svg
+        gravityIcon:
+          name: DatabaseArrowRight
+          color: text-color
         text: Скоро!
         url: ''
         size: s
@@ -96,7 +104,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Как начать работать с DataLens
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Начало работы
         url: quickstart
         size: s
@@ -105,7 +115,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг сервиса
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Правила тарификации
         url: pricing
         size: s
@@ -114,7 +126,9 @@ blocks:
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения сервиса
-        icon: ../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Квоты и лимиты
         url: ./concepts/limits
         size: s
@@ -123,7 +137,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Какие права доступа нужны для работы с сервисом
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом
         url: security/index
         size: s
@@ -145,7 +161,9 @@ blocks:
       - type: basic-card
         title: Нейроаналитик
         text: Поможет интерпретировать ваши данные и написать код
-        icon: ../_assets/console-icons/sparkles-fill.svg
+        gravityIcon:
+          name: SparklesFill
+          color: text-color
         urlTitle: Нейроаналитик
         url: ./concepts/neuroanalyst
         size: s
@@ -155,7 +173,9 @@ blocks:
       - type: basic-card
         title: Подключения
         text: Подключайте различные источники данных
-        icon: ../_assets/console-icons/thunderbolt.svg
+        gravityIcon:
+          name: Thunderbolt
+          color: text-color
         urlTitle: Подключения
         url: concepts/connection/index
         size: s
@@ -165,7 +185,9 @@ blocks:
       - type: basic-card
         title: Датасеты
         text: Описывайте структуру данных, полученных из источника
-        icon: ../_assets/console-icons/circles-intersection.svg
+        gravityIcon:
+          name: CirclesIntersection
+          color: text-color
         urlTitle: Датасеты
         url: dataset/index
         size: s
@@ -175,7 +197,9 @@ blocks:
       - type: basic-card
         title: HTML-страницы
         text: Готовые HTML-страниц в DataLens
-        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        gravityIcon:
+          name: Layers3Diagonal
+          color: text-color
         urlTitle: Галерея в DataLens
         url: ./concepts/gallery
         size: s
@@ -185,7 +209,9 @@ blocks:
       - type: basic-card
         title: Галерея в DataLens
         text: Готовые дашборды для вдохновения и решения бизнес-задач
-        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        gravityIcon:
+          name: Layers3Diagonal
+          color: text-color
         urlTitle: Галерея в DataLens
         url: ./concepts/gallery
         size: s
@@ -195,7 +221,9 @@ blocks:
       - type: basic-card
         title: Обучающие курсы
         text: Информация о доступных программах обучения
-        icon: ../_assets/console-icons/graduation-cap.svg
+        gravityIcon:
+          name: GraduationCap
+          color: text-color
         urlTitle: Обучающие курсы
         url: training
         size: s
@@ -207,7 +235,9 @@ blocks:
         text: >-
           Стройте чарты с помощью Self-service-конструктора визуализаций или
           используйте JavaScript-кастомизацию
-        icon: ../_assets/console-icons/chart-column.svg
+        gravityIcon:
+          name: ChartColumn
+          color: text-color
         urlTitle: Чарты
         url: concepts/chart/index
         size: s
@@ -217,7 +247,9 @@ blocks:
       - type: basic-card
         title: Дашборды
         text: Собирайте свои чарты на одной странице
-        icon: ../_assets/console-icons/layout-cells-large.svg
+        gravityIcon:
+          name: LayoutCellsLarge
+          color: text-color
         urlTitle: Дашборды
         url: ./concepts/dashboard
         size: s
@@ -227,7 +259,9 @@ blocks:
       - type: basic-card
         title: Отчеты
         text: Готовьте многостраничные документы для печати
-        icon: ../_assets/console-icons/display-pulse.svg
+        gravityIcon:
+          name: DisplayPulse
+          color: text-color
         urlTitle: Отчеты
         url: reports/index
         size: s

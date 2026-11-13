@@ -12,6 +12,7 @@
 * [Организация](organization.md)
 * [Отчетный период](reporting-period.md)
 * [Pay as you go (оплата по мере использования)](payg.md)
+* [Резервируемое потребление](cvos.md)
 * [Уровень нетарифицируемого использования (free tier)](serverless-free-tier.md)
 * [Бюджет](budget.md)
 * [Договор](contract.md)

@@ -142,7 +142,7 @@
 
  - [ViPNet Coordinator в Yandex Cloud](security/vipnet-to-yc.md)
 
- - [Настройка алертов и дашбордов в Monitoring](security/alerts-monitoring.md)
+ - [Настройка алертов и дашбордов в Monium](security/alerts-monitoring.md)
 
 ### Загрузка аудитных логов в MaxPatrol SIEM
 
@@ -309,6 +309,8 @@
  - [Загрузка объектов в бакет Object Storage с помощью эфемерного ключа доступа](security/ephemeral-key-storage.md)
 
  - [Интеграция LiteLLM Proxy с Yandex AI Studio и Monium Traces](security/traces-for-litellm-proxy.md)
+
+ - [Использование внешних политик Kyverno с KSPM](security/kspm-external-kyverno-policies.md)
 
 ## Хранение и восстановление данных
 

@@ -5,8 +5,6 @@
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
-  {% include [metastore version](metastore-version-catalog-create.md) %}
-
 * **Файловое хранилище** — тип файлового хранилища. Доступные варианты: [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) и внешнее хранилище.
 
     {% include [objstorage-sa-roles](objstorage-sa-roles.md) %}

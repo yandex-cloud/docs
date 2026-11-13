@@ -136,6 +136,12 @@ Calculation for the storage cost and total cost:
 
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-postgresql']} collapsible
+  />
+</MDX>
+
 
 
 

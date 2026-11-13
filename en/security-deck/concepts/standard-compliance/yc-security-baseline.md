@@ -29,7 +29,7 @@ These rules help mitigate risks from basic security threats in cloud environment
 || AUDIT1 | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || AUDIT8 | [Data events are monitored](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Application security** (APPSEC) {align="center"} | > | > ||
-|| APPSEC1 | [{{ captcha-full-name }}](../../../security/standard/all.md#use-smartcaptcha) is used | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
+|| APPSEC1 | [{{ captcha-full-name }} is used](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || APPSEC2 | [Docker images are scanned when uploaded to {{ container-registry-full-name }}](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || APPSEC3 | [Docker images stored in {{ container-registry-name }} are regularly scanned](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
 || APPSEC9 | [A {{ sws-full-name }} profile is used](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||

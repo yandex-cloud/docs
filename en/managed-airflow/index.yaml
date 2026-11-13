@@ -31,7 +31,9 @@ blocks:
       - type: basic-card
         title: Getting started
         text: Create your first cluster
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started with Yandex Managed Service for Apache Airflow™
         url: quickstart
         centered: true
@@ -39,7 +41,9 @@ blocks:
       - type: basic-card
         title: Step-by-step guides
         text: Follow our guides for routine operations
-        icon: _assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: All step-by-step guides for Yandex Managed Service for Apache Airflow™
         url: operations/index
         centered: true
@@ -47,7 +51,9 @@ blocks:
       - type: basic-card
         title: Concepts
         text: Introduction to the basic terms and concepts
-        icon: _assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Yandex Managed Service for Apache Airflow™ key concepts
         url: concepts/index
         centered: true
@@ -55,7 +61,9 @@ blocks:
       - type: basic-card
         title: Tutorials
         text: Address common tasks with the help of the service
-        icon: _assets/icons/book.svg
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Yandex Managed Service for Apache Airflow™ tutorials
         url: tutorials/index
         centered: true
@@ -63,7 +71,9 @@ blocks:
       - type: basic-card
         title: Pricing policy
         text: Pricing and cost calculations
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Yandex Managed Service for Apache Airflow™ pricing policy
         url: pricing
         centered: true
@@ -71,7 +81,9 @@ blocks:
       - type: basic-card
         title: Manage access
         text: Configure access permissions for the service
-        icon: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Access management in Yandex Managed Service for Apache Airflow™
         url: security/index
         centered: true
@@ -79,7 +91,9 @@ blocks:
       - type: basic-card
         title: API reference
         text: Use HTTP API methods for cluster management.
-        icon: _assets/icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: "HTTP\_API method descriptions"
         url: api-ref/authentication
         centered: true
@@ -87,7 +101,9 @@ blocks:
       - type: basic-card
         title: Release notes
         text: Releases and updates
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: Yandex Managed Service for Apache Airflow™ release notes
         url: release-notes
         centered: true
@@ -120,7 +136,9 @@ blocks:
           * [PCI DSS](https://yandex.cloud/en/docs/security/conform#pci-dss)
 
           * [ISO standards](https://yandex.cloud/en/docs/security/conform#iso)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
       - type: basic-card
@@ -130,7 +148,9 @@ blocks:
 
           * [Yandex Managed Service for Apache Airflow™ Service
           Level](https://yandex.com/legal/cloud_sla_airflow/en/)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
   - type: content-layout-block

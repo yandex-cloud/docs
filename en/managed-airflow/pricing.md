@@ -83,6 +83,12 @@ Let's calculate the cost of using a cluster with the following properties for 30
 ## Prices for the Russia region {#prices}
 
 
+<MDX>
+  <Calculator
+    services={['managed-airflow']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

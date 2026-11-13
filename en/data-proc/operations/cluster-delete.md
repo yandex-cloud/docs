@@ -19,7 +19,7 @@ To delete a {{ dataproc-name }} cluster, you must have the `dataproc.editor` rol
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/data-proc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Next to the cluster in question, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Optionally, specify the [decommissioning](../concepts/decommission.md) timeout.
@@ -37,7 +37,7 @@ To delete a {{ dataproc-name }} cluster, you must have the `dataproc.editor` rol
   {{ yc-dp }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list).
 
 - {{ TF }} {#tf}
 

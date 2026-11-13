@@ -91,6 +91,12 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}
+
 #### Useful links {#see-also}
 
 * [{#T}](./bucket.md)

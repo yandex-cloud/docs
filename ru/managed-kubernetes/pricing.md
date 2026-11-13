@@ -38,6 +38,12 @@ editable: false
 
 ### Мастер {#master}
 
+<MDX>
+  <Calculator
+    services={['managed-kubernetes']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

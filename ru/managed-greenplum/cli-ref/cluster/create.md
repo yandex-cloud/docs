@@ -102,6 +102,19 @@ Retention time in days of automated backups ||
 || `--maintenance-window` | `KEY=VALUE[,KEY=VALUE...]`
 
 Maintenance window settings ||
+|| `--connection-pooling-mode` | `string`
+
+Connection pooler pooling mode ||
+|| `--connection-pooling-size` | `int`
+
+Connection pooler size ||
+|| `--connection-pooling-client-idle-timeout` | `int`
+
+Connection pooler client idle timeout ||
+|| `--connection-pooling-idle-in-transaction-timeout` | `int`
+
+Connection pooler idle in transaction timeout ||
+|| `--connection-pooling-discard` | Clean up server connections when they are returned to the connection pool. ||
 || `--analyze-and-vacuum` | `KEY=VALUE[,KEY=VALUE...]`
 
 Configuration for ANALYZE and VACUUM background operations. ||

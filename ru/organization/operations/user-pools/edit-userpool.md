@@ -43,7 +43,6 @@ description: Следуя данной инструкции, вы сможете
      yc organization-manager idp userpool update <идентификатор_пула> \
        --userpool-name <название_пула> \
        --description <описание_пула> \
-       --default-subdomain <домен_по_умолчанию> \
        --labels <ключ>=<значение>[,<ключ>=<значение>]
      ```
 

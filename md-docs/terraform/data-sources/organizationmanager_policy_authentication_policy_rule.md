@@ -7,9 +7,9 @@
 
 ## Arguments & Attributes Reference
 
-- `applications_exclude` (*Read-Only*) (List Of String). List of IDs of applications not affected by the authentication policy rule.
+- `applications_exclude` (*Read-Only*) (Set Of String). List of IDs of applications not affected by the authentication policy rule.
  Empty list matches no applications.
-- `applications_include` (*Read-Only*) (List Of String). List of IDs of applications affected by the authentication policy rule.
+- `applications_include` (*Read-Only*) (Set Of String). List of IDs of applications affected by the authentication policy rule.
  Empty list matches all applications.
 - `created_at` (*Read-Only*) (String). Creation timestamp.
 - `description` (*Read-Only*) (String). Description of an authentication policy rule. 0-256 characters long.
@@ -18,15 +18,15 @@
 - `labels` (*Read-Only*) (Map Of String). Labels of the authentication policy rule.
 - `name` (*Read-Only*) (String). Name of the authentication policy rule.
  The name is unique within the organization and contains 1-63 characters.
-- `networks_exclude` (*Read-Only*) (List Of String). Source IP ranges in CIDR notation excluded from the authentication policy rule.
+- `networks_exclude` (*Read-Only*) (Set Of String). Source IP ranges in CIDR notation excluded from the authentication policy rule.
  Empty list matches no sources.
-- `networks_include` (*Read-Only*) (List Of String). Source IP ranges in CIDR notation that the authentication policy rule applies to.
+- `networks_include` (*Read-Only*) (Set Of String). Source IP ranges in CIDR notation that the authentication policy rule applies to.
  Empty list matches any source and is functionally equal to ["0.0.0.0/0", "::0/0"].
 - `obligations` [Block]. Obligations to satisfy when the effect is ALLOW_WITH_OBLIGATIONS.
   - `reauthentication_required` [Block]. Require full authentication again.
     - `ttl` (*Read-Only*) (String). Maximum age of an authentication that can satisfy this obligation.
   - `skip_mfa` [Block]. Allow skipping the organization's current MFA requirements.
-    - `require_once` (*Read-Only*) (Bool). If true, the organization's current MFA requirements must have been satisfied at least once
+    - `require_once` (Bool). If true, the organization's current MFA requirements must have been satisfied at least once
  during the current session.
   - `step_up_required` [Block]. Require step-up authentication.
     - `acr_id` (*Read-Only*) (String). ACR ID required to satisfy this obligation.
@@ -34,9 +34,9 @@
 - `organization_id` (*Read-Only*) (String). ID of the organization that the authentication policy rule belongs to.
 - `rule_id` (String). ID of the authentication policy rule to retrieve.
 - `status` (*Read-Only*) (String). Status of the authentication policy rule.
-- `subjects_exclude` (*Read-Only*) (List Of String). List of IDs of subjects not affected by the authentication policy rule.
+- `subjects_exclude` (*Read-Only*) (Set Of String). List of IDs of subjects not affected by the authentication policy rule.
  Empty list matches no subjects.
-- `subjects_include` (*Read-Only*) (List Of String). List of IDs of subjects affected by the authentication policy rule.
+- `subjects_include` (*Read-Only*) (Set Of String). List of IDs of subjects affected by the authentication policy rule.
  Empty list matches all subjects and is functionally equal to ["allUsers"].
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

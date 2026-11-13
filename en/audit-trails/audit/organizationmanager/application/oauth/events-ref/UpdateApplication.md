@@ -105,7 +105,10 @@ editable: false
       ]
     },
     "labels": "object",
-    "visibleInMyApps": "boolean"
+    "visibleInMyApps": "boolean",
+    // Includes only one of the fields `targetLinkUri`
+    "targetLinkUri": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -289,6 +292,9 @@ A list of messages that carry the error details. ||
 || clientGrant | **[ClientGrantDetails](#yandex.cloud.audit.organizationmanager.application.oauth.ClientGrantDetails)** ||
 || labels | **object** (map<**string**, **string**>) ||
 || visibleInMyApps | **boolean** ||
+|| targetLinkUri | **string**
+
+Includes only one of the fields `targetLinkUri`. ||
 |#
 
 ## GroupClaimsSettingsDetails {#yandex.cloud.audit.organizationmanager.application.oauth.GroupClaimsSettingsDetails}

@@ -29,7 +29,7 @@ In Interface v1.0, you can create a [regular scan](#cloud-sd-v1) for buckets and
 
 - Interface v1.0 {#cloud-sd-v1}
 
-  To create a regular scan, you need a [data source](../../concepts/dspm.md#data-source). [Create](create-data-source.md#create-data-source) it beforehand or when creating the scan.
+  To create a regular scan, you need a [data source](../../concepts/dspm.md#data-source). [Create](create-data-source.md) it beforehand or when creating the scan.
 
   {% note tip %}
 

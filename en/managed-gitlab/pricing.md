@@ -122,6 +122,12 @@ Total instance cost calculation:
 
 The price of computing resources depends on the selected [approval rule](concepts/approval-rules.md) configuration.
 
+<MDX>
+  <Calculator
+    services={['managed-gitlab']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

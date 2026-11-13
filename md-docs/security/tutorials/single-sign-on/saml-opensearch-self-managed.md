@@ -45,14 +45,14 @@
 
     1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите созданное ранее SAML-приложение.
-    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение параметра `Issuer / IdP EntityID`, которое необходимо задать на стороне кластера OpenSearch.
+    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение параметра **Issuer / IdP EntityID**, которое необходимо задать на стороне кластера OpenSearch.
     1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** нажмите кнопку **Скачать файл с метаданными**.
 
       Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
 
 1. Настройте SAML-аутентификацию для кластера OpenSearch.
 
-    Настройка производится путём изменения конфигурационных файлов `config.yml` и `roles_mapping.yml` плагина **OpenSearch Security Plugin**, по умолчанию находящихся в каталоге `/etc/opensearch/opensearch-security/`, а также файла **OpenSearch Dashboards** `opensearch_dashboards.yml`, по умолчанию расположенного в каталоге `/etc/opensearch-dashboards/`.
+    Настройка производится путем изменения конфигурационных файлов `config.yml` и `roles_mapping.yml` плагина **OpenSearch Security Plugin**, по умолчанию находящихся в каталоге `/etc/opensearch/opensearch-security/`, а также файла **OpenSearch Dashboards** `opensearch_dashboards.yml`, по умолчанию расположенного в каталоге `/etc/opensearch-dashboards/`.
 
     1. Поместите ранее загруженный файл метаданных `idp-metadata.xml` в каталог плагина **OpenSearch Security Plugin** (например, `/etc/opensearch/opensearch-security/saml/`). 
    
@@ -64,11 +64,15 @@
         sudo chmod 644 /etc/opensearch/opensearch-security/saml/idp-metadata.xml
         ```
 
-    1. Сгенерируйте ключ `exchange_key` для подписи токенов **JSON Web Tokens (JWT)**. 
+    1. Сгенерируйте ключ `exchange_key` для подписи токенов **JSON Web Tokens (JWT)**, например, с помощью команды:
+
+        ```bash
+        openssl rand -hex 32
+        ```
 
         {% note tip %}
 
-        Ключ **JSON Web Tokens (JWT)** должен представлять собой строку, сгенерированную с использованием алгоритма HMAC256. Вы можете использовать онлайн‑генераторы или утилиты командной строки, создающие криптографически надёжные строки с поддержкой данного алгоритма.
+        Ключ подписи токенов должен представлять собой строку из 64 символов, сгенерированную с использованием алгоритма HMACSHA512. Вы можете использовать утилиты командной строки, создающие криптографически надежные строки.
 
         {% endnote %}
 
@@ -89,8 +93,9 @@
              config:
                # --- Настройки IdP (Yandex Identity Hub) ---
                idp:
-                 # Путь к загруженному XML-файлу метаданных 
-                 metadata_file: "/etc/opensearch/opensearch-security/saml/idp-metadata.xml"
+                 # Путь к загруженному XML-файлу метаданных
+                 # (относительно каталога конфигурации /etc/opensearch/)
+                 metadata_file: "opensearch-security/saml/idp-metadata.xml"
 
                # --- Настройки SP (OpenSearch) ---
                sp:
@@ -98,10 +103,10 @@
                  entity_id: "opensearch-saml-sso" 
         
                # URL-адрес вашего Dashboards
-               kibana_url: "https://<your-dashboards-url>/"
+               kibana_url: "https://<URL_дашборда>/"
           
-               # Ключ для подписи токенов JWT
-               exchange_key: "5efe29a39306bed6bd4f67af06d54d813ff8b05692ef480204c917602ffdd9a9"
+               # Ключ для подписи токенов JWT (результат команды openssl rand -hex 32)
+               exchange_key: "<значение_сгенерированного_ключа>"
 
                # --- Настройка групп доступа ---
                # Имя атрибута в SAML-ответе, содержащего группы
@@ -119,7 +124,7 @@
         # --- Настройки IdP (Yandex Identity Hub) ---
         idp:
           # URL XML-файла метаданных 
-          metadata_url: "https://auth.yandex.cloud/saml/metadata/ek0vbjom..." 
+          metadata_url: "<URL_файла_метаданных>"
 
         # ... 
         ```
@@ -151,11 +156,11 @@
         
         {% cut "Сопоставление ролей через веб‑интерфейс OpenSearch Dashboards" %}
         
-        1. Войдите в OpenSearch Dashboards под учётной записью `admin`.
+        1. Войдите в OpenSearch Dashboards под учетной записью `admin`.
         1. В левом боковом меню перейдите в раздел: **Management** → **Security**.
         1. В левой панели выберите пункт **Roles**.
         1. Настройте сопоставления ролей:
-            1. Кликните на название необходимой роли (например, `all_access`).
+            1. Нажмите на название необходимой роли (например, `all_access`).
             1. Перейдите на вкладку **Mapped users**.
             1. Нажмите кнопку **Manage mapping**.
             1. В поле **Backend roles** укажите [группу пользователей](../../../organization/concepts/groups.md) Yandex Identity Hub, которую требуется сопоставить с ролью OpenSearch, например `opensearch-users`.
@@ -164,10 +169,14 @@
         {% endcut %}
 
     1. После изменений в файлах `config.yml` и `roles_mapping.yml` необходимо загрузить новую конфигурацию в кластер вашего OpenSearch. Для этого используйте скрипт `securityadmin.sh`.
-   
+
         ```bash
         # Убедитесь, что вы используете правильные пути к сертификатам и ключам
         # и что securityadmin.sh запущен с правами администратора.
+
+        # Задайте путь к JDK, поставляемому вместе с OpenSearch
+        # (иначе скрипт завершится с ошибкой, если в системе нет переменной JAVA_HOME)
+        export OPENSEARCH_JAVA_HOME=/usr/share/opensearch/jdk
 
         sudo "/usr/share/opensearch/plugins/opensearch-security/tools/securityadmin.sh" \
             -cd "/etc/opensearch/opensearch-security" \
@@ -184,13 +193,17 @@
         # ...
 
         # Включите множественную аутентификацию
+        # (аутентификация basic останется доступной для служебного пользователя автоматически)
         opensearch_security.auth.multiple_auth_enabled: true
 
-        # Укажите доступные типы аутентификации
-        # (оставьте basic для служебного пользователя)
-        opensearch_security.auth.type: [basicauth, saml]
+        # Укажите основной тип аутентификации
+        opensearch_security.auth.type: "saml"
 
-        # ... 
+        # Добавьте эндпоинт проверки SAML-ассертов в список разрешенных
+        # для защиты от XSRF
+        server.xsrf.allowlist: ["/_opendistro/_security/saml/acs", "/_opendistro/_security/saml/logout"]
+
+        # ...
         ```
 
     1. Перезапустите сервисы OpenSearch.
@@ -212,7 +225,7 @@
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите необходимое SAML-приложение.
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
       1. В поле **SP EntityID** укажите `opensearch-saml-sso`.
-      1. В поле **ACS URL** укажите адрес `https://<your-dashboards-url>/_opendistro/_security/saml/acs`.
+      1. В поле **ACS URL** укажите адрес `https://<URL_дашборда>/_opendistro/_security/saml/acs`.
       1. Нажмите **Сохранить**.
 
 {% endlist %}
@@ -288,7 +301,7 @@
 
 ## Убедитесь в корректной работе приложения {#validate}
 
-Чтобы проверить корректность работы SAML‑приложения и его интеграцию с OpenSearch, выполните аутентификацию в OpenSearch Dashboards под учётной записью одного из пользователей, добавленных в приложение. Для этого:
+Чтобы проверить корректность работы SAML‑приложения и его интеграцию с OpenSearch, выполните аутентификацию в OpenSearch Dashboards под учетной записью одного из пользователей, добавленных в приложение. Для этого:
 
 1. В браузере перейдите по адресу вашего экземпляра OpenSearch Dashboards.
 1. Если вы были авторизованы в OpenSearch Dashboards, выйдите из профиля.
@@ -296,6 +309,6 @@
 1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен состоять в группе, добавленной в приложение.
 1. Убедитесь, что вы аутентифицировались в OpenSearch Dashboards.
 1. Если вы настроили сопоставление ролей, то:
-     1. Нажмите на иконку пользователя в OpenSearch Dashboards.
+     1. Нажмите на значок пользователя в OpenSearch Dashboards.
      1. Перейдите в **View roles and identities**.
      1. Убедитесь, что в блоке **Roles** отображается роль `all_access`, а в блоке **Backend roles** — `opensearch-users`.

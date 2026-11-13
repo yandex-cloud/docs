@@ -168,6 +168,12 @@ blocks:
 На стадии Preview [Network Protection](concepts/network-protection.md), защищающая прокси-сервер от DDoS-атак на уровнях L3–L4, не тарифицируется.
 
 
+<MDX>
+  <Calculator
+    services={['smartwebsecurity']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

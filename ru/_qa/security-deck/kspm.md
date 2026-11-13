@@ -20,7 +20,7 @@
 
        {% endnote %}
 
-     * Разверните собственные политики через {{ k8s }} API. Поддерживаются любые типы политик. Подробнее — в [документации Kyverno](https://kyverno.io/docs/guides/applying-policies/#via-apis).
+     * Разверните собственные политики через {{ k8s }} API. Поддерживаются любые типы политик. Подробнее в руководстве [Использование внешних политик Kyverno с {{ kspm-name }}](../../security-deck/tutorials/kspm-external-kyverno-policies.md).
 
 ### 2. Какие типы политик доступны в пользовательских правилах {{ kspm-name }}? {#custom-policy-types}
 

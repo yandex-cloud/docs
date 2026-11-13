@@ -7,7 +7,7 @@ description: In this guide, you will learn how to update a workspace in {{ sd-fu
 
 {% note info %}
 
- To make changes, [activate](./deactivate-activate.md#acticate) the workspace.
+ To make changes, [activate](./deactivate-activate.md#activate) the workspace.
 
 {% endnote %}
 

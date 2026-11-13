@@ -173,20 +173,20 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc organization-manager idp application saml application update \
        --id <идентификатор_приложения> \
-       --sp-entity-id <идентификатор_поставщика_услуг> \
-       --acs-urls <URL>[,<URL>] \
+       --entity-id <идентификатор_поставщика_услуг> \
+       --acs-url <url> \
        --signature-mode <режим_подписи>
      ```
 
      Где:
 
      * `--id` — идентификатор SAML-приложения. Обязательный параметр.
-     * `--sp-entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
-     * `--acs-urls` — URL-адрес или несколько адресов через запятую, на которые {{ org-full-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `--entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
+     * `--acs-url` — URL-адрес, на который {{ org-full-name }} будет отправлять SAML-ответ. Чтобы указать несколько адресов, повторите параметр: `--acs-url <url_1> --acs-url <url_2>`. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
      * `--signature-mode` — элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
-       * `assertion_only` — только передаваемые атрибуты пользователя;
-       * `response_only` — весь SAML-ответ целиком;
-       * `response_and_assertion` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+       * `assertions` — только передаваемые атрибуты пользователя;
+       * `response` — весь SAML-ответ целиком;
+       * `response-and-assertions` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
 
      Результат:
 
@@ -218,14 +218,16 @@ description: Следуя данной инструкции, вы сможете
 
        service_provider = {
          entity_id = "<идентификатор_поставщика_услуг>"
-         acs_urls  = [
+         acs_urls = [
            {
              url = "URL"
            }
          ]
-         security_settings = {
-           signature_mode = "RESPONSE_AND_ASSERTIONS"
-         }
+       }
+
+       security_settings = {
+         signature_mode = "RESPONSE_AND_ASSERTIONS"
+       }
      }
      ```
 
@@ -234,9 +236,9 @@ description: Следуя данной инструкции, вы сможете
      * `entity_id` — новый уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
      * `acs_urls` — новые URL-адреса, на которые {{ org-full-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
      * `signature_mode` — новые элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
-       * `ASSERTION_ONLY` — только передаваемые атрибуты пользователя;
-       * `RESPONSE_ONLY` — весь SAML-ответ целиком;
-       * `RESPONSE_AND_ASSERTION` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+       * `ASSERTIONS` — только передаваемые атрибуты пользователя;
+       * `RESPONSE` — весь SAML-ответ целиком;
+       * `RESPONSE_AND_ASSERTIONS` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
 
      Подробнее о параметрах ресурса `yandex_organizationmanager_idp_application_saml_application` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
@@ -315,18 +317,27 @@ description: Следуя данной инструкции, вы сможете
        --application-id <идентификатор_приложения>
      ```
 
-  1. Активируйте новый сертификат:
+  1. Получите текущие настройки приложения и сохраните используемый режим подписи из поля `security_settings.signature_mode`:
 
      ```bash
-     yc organization-manager idp application saml signature-certificate update \
-       --id <идентификатор_сертификата> \
-       --active true
+     yc organization-manager idp application saml application get \
+       --id <идентификатор_приложения>
+     ```
+
+  1. Выберите новый сертификат в настройках приложения, сохранив текущий режим подписи:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <идентификатор_приложения> \
+       --signature-certificate-id <идентификатор_сертификата> \
+       --signature-mode <текущий_режим_подписи>
      ```
 
      Где:
 
-     * `--id` — идентификатор сертификата, полученный при создании.
-     * `--active` — установите `true` для активации сертификата.
+     * `--id` — идентификатор SAML-приложения.
+     * `--signature-certificate-id` — идентификатор нового сертификата, полученный при создании.
+     * `--signature-mode` — текущий режим подписи в формате CLI: `assertions`, `response` или `response-and-assertions` для значений `ASSERTIONS`, `RESPONSE` или `RESPONSE_AND_ASSERTIONS` соответственно.
 
      {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
 
@@ -354,7 +365,18 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Чтобы активировать новый сертификат, добавьте его в конфигурацию SAML-приложения, указав идентификатор сертификата в описании ресурса `yandex_organizationmanager_idp_application_saml_application` в блоке `signature_certificate_ids`.
+  1. После создания нового сертификата укажите его идентификатор в параметре `security_settings.signature_certificate_id` существующего ресурса `yandex_organizationmanager_idp_application_saml_application`:
+
+     ```hcl
+     security_settings = {
+       signature_certificate_id = yandex_organizationmanager_idp_application_saml_signature_certificate.cert.id
+       signature_mode           = "<текущий_режим_подписи>"
+     }
+     ```
+
+     Блок `security_settings` размещается на верхнем уровне ресурса приложения, а не внутри `service_provider`. Сохраните текущий `signature_mode` и остальные параметры ресурса.
+
+     {% include [saml-app-cert-update-warn](../../../_includes/organization/saml-app-cert-update-warn.md) %}
   
   1. Примените изменения:
 

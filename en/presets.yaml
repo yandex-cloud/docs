@@ -2993,11 +2993,9 @@ default:
           secret_section_title: App secrets
       billing:
         account:
-          button_enable-edm-action: Enable EDM
           dashboard-info:
             contract_label_general: General
             contract_label_offer: Offer
-            section_contract: Information about the agreement
             title_main: Account information
           detail:
             button_create-periodic-export: Periodic export

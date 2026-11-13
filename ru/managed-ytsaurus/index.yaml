@@ -30,9 +30,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/rocket.svg
-          dark: assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
@@ -41,9 +41,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/list-ol.svg
-          dark: assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения сервиса
@@ -52,9 +52,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/sliders.svg
-          dark: assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для работы с сервисом
@@ -63,9 +63,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/persons-lock.svg
-          dark: assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг сервиса
@@ -74,9 +74,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/calculator.svg
-          dark: assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
       - type: basic-card
         title: История изменений
         text: Перечень обновлений сервиса
@@ -85,9 +85,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/timeline.svg
-          dark: assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
   - type: content-layout-block
     textContent:
       title: ''

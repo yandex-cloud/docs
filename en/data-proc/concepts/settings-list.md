@@ -128,4 +128,4 @@ You can use [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sq
 
 To enable it, set `dataproc:hive.thrift.impl : spark` to make the server available on TCP port `10000`. The default value is `dataproc:hive.thrift.impl : hive`. It causes Apache HiveServer2 to launch on TCP port `10000` if the Hive service is used.
 
-This feature is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
+This feature is available starting with [image version 2.0.48](../release-notes/images.md#2-0-48).

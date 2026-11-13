@@ -1,6 +1,12 @@
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mmy-name }}: 
+Для поиска метрик {{ mmy-name }} в {{ monium-name }} укажите метки:
+
+* `project = folder__<идентификатор_каталога>` — проект каталога, в котором находится кластер {{ mmy-name }}.
+* `cluster = default` — кластер {{ monium-name }}. Идентификатор кластера {{ mmy-name }} задается отдельно, в метке `resource_id`.
+* `service = __managed-mysql__`.
+
+Общие метки для всех метрик сервиса {{ mmy-name }}:
 
 Метка | Значение
 ----|----
@@ -9,7 +15,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `replica`
 resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
-service | Идентификатор сервиса: `managed-mysql`
+service | Идентификатор сервиса: `__managed-mysql__` в {{ monium-name }}, `managed-mysql` в {{ monitoring-name }}
 shard | Идентификатор шарда
 subcluster_name | Имя субкластера
 

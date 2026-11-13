@@ -201,7 +201,7 @@ include_rules:  # Включение событий; для исключения
 ## Примеры использования {#examples}
 
 * [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md)
-* [Настройка дашбордов и алертов в Yandex Monitoring](../tutorials/alerts-monitoring.md)
+* [Настройка дашбордов и алертов в Yandex Monium](../tutorials/alerts-monitoring.md)
 * [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](../tutorials/logging-functions.md)
 * [Загрузка аудитных логов в MaxPatrol SIEM](../tutorials/maxpatrol/index.md)
 * [Загрузка аудитных логов в SIEM Splunk](../tutorials/export-logs-to-splunk.md)

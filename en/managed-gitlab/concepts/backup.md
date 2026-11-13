@@ -22,9 +22,9 @@ Data backups are stored in object storage and do not take up space in the instan
 
 Backups are retained for seven days by default. The retention period is set when [creating the instance](../operations/instance/instance-create.md#create) and can range from 7 to 60 days. You cannot change the backup retention period after the instance has been created. A stopped instance always contains at least one backup, even after the backup retention period expires.
 
-When you delete an instance, a backup is automatically created and stored for two weeks.
+When you delete an instance, the system automatically creates its backup which is stored for two weeks.
 
-You pay for the size of backups stored in {{ objstorage-full-name }} as per the relevant [pricing policy](../pricing.md#prices-storage).
+You pay for the size of backups stored in {{ objstorage-full-name }} as per the [Pricing policy](../pricing.md#rules-storage).
 
 #### Useful links {#see-also}
 

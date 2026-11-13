@@ -135,6 +135,12 @@ Let's calculate the cost of using a cluster with the following properties for 30
 {% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}
 
 
+<MDX>
+  <Calculator
+    services={['managed-clickhouse']} collapsible
+  />
+</MDX>
+
 
 
 

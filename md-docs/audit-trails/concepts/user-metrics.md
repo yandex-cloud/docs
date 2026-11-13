@@ -1,8 +1,10 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Метрики Monitoring
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Audit Trails
 
-В этом разделе описаны метрики сервиса Audit Trails, поставляемые в [Monitoring](../../monitoring/index.md).
+В этом разделе описаны метрики сервиса Audit Trails, поставляемые в [Monium Metrics](../../monium/metrics/quickstart.md).
+
+Для поиска метрик в Monium выберите проект каталога, в котором находится трейл: `project = folder__<идентификатор_каталога>`. Задайте метки `cluster = default` и `service = __audit-trails__`.
 
 Имя метрики пишется в метку `name`.
 
@@ -10,7 +12,7 @@
 
 | Метка | Значение |
 | --- | --- |
-service | Идентификатор сервиса: `audit-trails`
+service | Идентификатор сервиса: `__audit-trails__` в Monium, `audit-trails` в Monitoring |
 trail | Идентификатор [трейла](trail.md) |
 status | [Статус](diagnostics.md) трейла |
 event_type | Тип события |
@@ -27,6 +29,8 @@ destination_type | [Объект назначения](trail.md#target) |
 `quota.trails_count.limit`<br>`IGAUGE`, штуки | Текущая [квота](limits.md) трейлов на облако. |
 `quota.trails_count.usage`<br>`IGAUGE`, штуки | Текущее потребление квоты трейлов на облако; метрика может использоваться для создания [алерта](../../monitoring/concepts/alerting.md), предупреждающего о приближении к квоте. |
 
+В Monium метрики квоты трейлов на облако доступны в проекте каталога `folder__<идентификатор_каталога>`.
+
 ## Что дальше {#whats-next}
 
-* Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) Audit Trails в Monitoring.
+* Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) Audit Trails в Monium.

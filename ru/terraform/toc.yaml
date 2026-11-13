@@ -1741,6 +1741,14 @@ items:
                   - name: sws_security_profile
                     href: resources/sws_security_profile.md
                     title: ''
+                  - name: >-
+                      sws_security_profile_advanced_rate_limiter_profile_attachment
+                    href: >-
+                      resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md
+                    title: ''
+                  - name: sws_security_profile_waf_profile_attachment
+                    href: resources/sws_security_profile_waf_profile_attachment.md
+                    title: ''
                   - name: sws_waf_profile
                     href: resources/sws_waf_profile.md
                     title: ''
@@ -1759,14 +1767,6 @@ items:
                     title: ''
                   - name: resource_manager_folder_iam_policy_binding
                     href: resources/resource_manager_folder_iam_policy_binding.md
-                    title: ''
-                  - name: >-
-                      sws_security_profile_advanced_rate_limiter_profile_attachment
-                    href: >-
-                      resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md
-                    title: ''
-                  - name: sws_security_profile_waf_profile_attachment
-                    href: resources/sws_security_profile_waf_profile_attachment.md
                     title: ''
                 title: ''
             title: ''

@@ -9,7 +9,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select the folder.
     1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.trino.title_catalogs }}** tab.
@@ -101,11 +101,11 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
                     }'
         ```
 
-        Where `updateMask` is a comma-separated string of parameters to update.
+        Where `updateMask` is the list of parameters to update as a single string, separated by commas.
 
-        [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
+        [Learn more about the {{ TR }}](catalog-create.md#catalog-settings) catalog settings for various connector types.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the folder ID with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 
     1. Check the [server response](../api-ref/Catalog/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -155,7 +155,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
         Where `update_mask` is the list of parameters to update as an array of strings (`paths[]`).
 
-        [Learn more about the {{ TR }}](#catalog-settings) catalog settings for various connector types.
+        [Learn more about the {{ TR }}](catalog-create.md#catalog-settings) catalog settings for various connector types.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the folder ID, with the [list of {{ TR }} catalogs in the cluster](catalog-list.md).
 

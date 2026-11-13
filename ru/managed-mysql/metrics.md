@@ -1,14 +1,16 @@
 ---
-title: Справочник метрик сервиса {{ mmy-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ mmy-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ mmy-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ mmy-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ mmy-name }}
 
-В этом разделе описаны метрики сервиса {{ mmy-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+Метрики сервиса {{ mmy-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/quickstart.md), в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 {% include [managed-mysql](../_includes/monitoring/metrics-ref/managed-mysql.md) %}
 
 #### Полезные ссылки {#see-also}
 
 [{#T}](./operations/monitoring.md)
+
+[*monium-folder-project]: {% include [folder-project](../_includes/monium/folder-project.md) %}

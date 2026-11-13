@@ -15,7 +15,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 * [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
 * [Загрузка аудитных логов в SIEM](./export-siem.md).
-* [Настройка алертов в {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
+* [Настройка алертов в {{ monium-name }}](../tutorials/alerts-monitoring.md).
 
 Логируются следующие [события уровня конфигурации](./events.md):
 

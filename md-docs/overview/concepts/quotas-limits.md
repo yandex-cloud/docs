@@ -38,9 +38,13 @@
 || Количество [триггеров](../../serverless-containers/concepts/trigger/index.md) в одном облаке^1^ 
 `serverless.triggers.count` | 100 ||
 || Количество [пользовательских сетей](../../api-gateway/concepts/networking.md#user-network) в одном облаке | 10 ||
+|| Количество [доменов](../../api-gateway/concepts/index.md#domains) в одном облаке | 1 ||
+|| Количество API-шлюзов, для которых настроены [ограничение скорости обработки запросов](../../api-gateway/concepts/extensions/rate-limit.md) и/или [интеграция с Smart Web Security](../../api-gateway/concepts/extensions/sws.md)^2^ | 1 ||
 |#
 
 ^1^ Квота `Количество триггеров в одном облаке` — общая для сервисов API Gateway, Cloud Functions и Serverless Containers. В [консоли управления](https://console.yandex.cloud/cloud?section=quotas) она отображается в списке квот сервиса Cloud Functions.
+
+^2^ API-шлюз, для которого настроены и ограничение скорости обработки запросов, и интеграция с Smart Web Security, расходует одну единицу квоты.
 
 #### Лимиты {#api-gw-limits}
 
@@ -56,7 +60,6 @@
 Максимальное количество триггеров для одной [очереди сообщений](../../message-queue/concepts/queue.md) | 1
 Максимальное количество приемников у триггера ^2^ | 5
 Максимальный размер сообщения для триггера^3^ | 230 КБ
-Максимальное количество [доменов](../../api-gateway/concepts/index.md#domains), которое можно подключить к одному API-шлюзу | 20
 
 ^1^ Значение по умолчанию — 5 минут.
 ^2^ Лимит `Максимальное количество приемников у триггера` — общий для сервисов API Gateway, Cloud Functions и Serverless Containers.

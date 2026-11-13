@@ -22,7 +22,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
       
       На открывшейся странице будут отображены графики, отражающие состояние кластера.
   
@@ -90,7 +90,7 @@ description: Вы можете отслеживать состояние кла�
 - Консоль управления {#console}
 
   1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![chevron-down](../../_assets/console-icons/chevron-down.svg) **{{ ui-key.yacloud.shared.layout.PageTabs.button_other_hnYwF }}** → **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Хосты** и выберите хост.
 
       На открывшейся странице будут отображены графики, отражающие состояние хостов кластера.
@@ -102,10 +102,10 @@ description: Вы можете отслеживать состояние кла�
   * **CPU usage** — процент использования CPU по типам потребления.
   * **Memory usage** — использование оперативной памяти по типам потребления.
   * **Disk IOPS** — количество операций чтения и записи в секунду.
-  * **Network Packets** — количество отправленных и полученных по сети пакетов в секунду.
-  * **Network Bytes** — скорость отправки и получения данных по сети.
+  * **Network packets** — количество отправленных и полученных по сети пакетов в секунду.
+  * **Network bytes** — скорость отправки и получения данных по сети.
   
-    Для хостов с ролью **Replica** нормально преобладание **Received** над **Sent** на графиках **Network Bytes** и **Network Packets**.
+    Для хостов с ролью **Replica** нормально преобладание **Received** над **Sent** на графиках **Network bytes** и **Network packets**.
 
   В блоке **MySQL overview** отображаются расширенные сведения о состоянии СУБД на хосте:
 
@@ -182,49 +182,70 @@ description: Вы можете отслеживать состояние кла�
 {% endlist %}
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-name }} {#monitoring-integration}
+
+Для настройки алертов нужны роли на каталог с кластером:
+
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — для чтения метрик.
+* [monium.alerts.editor](../../monium/security/index.md#monium-alerts-editor) — для создания алертов.
+* [monium.channels.editor](../../monium/security/index.md#monium-channels-editor) — для создания каналов уведомлений.
+
+Чтобы получать уведомления, заранее [создайте канал уведомлений](../../monium/operations/alert/create-channel.md) в [проекте каталога](*monium-folder-project), в котором находится кластер.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-
-    1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-
-    1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
-
-        * **{{ mmy-name }} — Cluster Overview** для настройки алертов кластера;
-        * **{{ mmy-name }} — Host Overview** для настройки алертов хостов.
-
+    1. [Перейдите]({{ link-console-main }}/link/managed-mysql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
+    1. Выберите вкладку:
+       * **Кластер** — для настройки алертов кластера.
+       * **Хосты** — для настройки алертов хостов. Выберите нужный хост.
+    1. На странице с графиками нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху. Графики откроются в {{ monium-name }}.
+    1. Убедитесь, что на панели сверху выбран проект каталога с кластером: `folder__<идентификатор_каталога>`. В этом проекте будет создан алерт.
     1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. Укажите название алерта и выберите тип **Пороговый**.
+    1. В блоке **Настройки алерта** проверьте запросы, перенесенные с графика. Для поиска метрик нужны метки:
 
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов читайте в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+       * `project = folder__<идентификатор_каталога>` — проект каталога с кластером.
+       * `cluster = default` — кластер {{ monium-name }}.
+       * `service = __managed-mysql__`.
+       * `resource_id = <идентификатор_кластера>` — кластер {{ mmy-name }}.
+       * `name = <имя_метрики>` — метрика из [справочника](../metrics.md).
 
-    1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для срабатывания алерта.
+       Для метрики отдельного хоста укажите его FQDN в метке `host`. Если нужны отдельные алерты для каждого хоста, выберите все хосты и добавьте `host` в блоке **Разложение по меткам**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. В блоке **Условия срабатывания** выберите запрос для проверки, функцию агрегации, функцию сравнения и окно вычисления. Укажите пороги **Warning** и **Alarm**. Примеры порогов приведены ниже.
+    1. В блоке **Обработка отсутствия данных** задайте статус **No data** для отсутствия точек и метрик, чтобы отличать отсутствие данных от нормальной работы кластера.
+    1. В блоке **Уведомления** выберите созданный канал и статусы, при которых нужны уведомления. Если используются способы уведомлений по умолчанию, сначала нажмите **Редактировать**.
+    1. Нажмите **Проверить результат** и убедитесь, что запрос возвращает нужные метрики, а условия срабатывания соответствуют ожидаемым.
+    1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
-{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+Подробнее о параметрах в инструкции [по созданию алерта](../../monium/operations/alert/create-alert.md), о запросах — в [описании языка запросов](../../monium/concepts/querying.md).
 
-Рекомендуемые значения порогов для некоторых метрик:
+Примеры порогов для метрик отдельного хоста приведены в таблице. Подберите значения и окно вычисления с учетом нагрузки и требований к вашему приложению.
 
-| Метрика                             | Обозначение               | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
-|-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
-| Задержка репликации                 | `mysql_replication_lag`   | `600`                     | `60`                      |
-| Количество работоспособных хостов   | `mysql_is_alive`          | `<количество_хостов> - 2` | `<количество_хостов> - 1` |
-| Среднее время выполнения запросов   | `mysql_latency_query_avg` | —                         | `2000`                    |
-| Размер использованного хранилища    | `disk.used_bytes`         | 90% от размера хранилища  | 80% от размера хранилища  |
-| Утилизация CPU                      | `cpu.idle`                | `10`                      | `20`                      |
+| Метрика | Обозначение | Функция сравнения | Alarm | Warning |
+|---------|-------------|------------------|-------|---------|
+| Задержка репликации, секунды | `mysql_replication_lag` | Больше или равно | `600` | `60` |
+| Работоспособность хоста | `mysql_is_alive` | Равно | `0` | — |
+| Среднее время выполнения запросов, миллисекунды | `mysql_latency_query_avg` | Больше или равно | — | `2000` |
+| Размер использованного хранилища, байты | `disk.used_bytes` | Больше или равно | 90% от размера хранилища | 80% от размера хранилища |
+| Доля незанятого CPU, % | `cpu.idle` | Меньше или равно | `10` | `20` |
+
+В строках со знаком «—» оставьте соответствующий порог незаданным. Значение `mysql_is_alive` равно `1` для работающего хоста и `0` для неработающего. Отсутствие метрики обрабатывается отдельно, по политике **No data**.
 
 Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-mysql-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [справочнике](../metrics.md).
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

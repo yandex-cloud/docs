@@ -142,6 +142,10 @@
 
  - [Удалить пользовательский набор правил](operations/custom-rules-sets/delete-set.md)
 
+## Практические руководства
+
+ - [Использование внешних политик Kyverno с KSPM](tutorials/kspm-external-kyverno-policies.md)
+
 ## Концепции
 
  - [Обзор](concepts/index.md)

@@ -121,9 +121,9 @@ You can get the FQDN using one of the following methods:
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the [management console]({{ link-console-main }}), copy the cluster connection command It contains the broker host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the cluster connection command It contains the broker host FQDN. To get this command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-* [Get the list of cluster hosts](../cluster-hosts.md#list-hosts) using the CLI or API.
+* [Get the list of cluster hosts](../cluster-hosts.md) using the CLI or API.
 
 With the [{{ mkf-short-name }} REST API](../../concepts/available-apis.md), you can send requests to any broker host: the API is available from all the cluster's broker hosts.
 

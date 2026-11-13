@@ -31,7 +31,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
@@ -40,7 +42,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
       - type: basic-card
         title: Организация
         text: Изучите основные термины и понятия
@@ -49,7 +53,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/briefcase.svg
+        gravityIcon:
+          name: Briefcase
+          color: text-color
       - type: basic-card
         title: Справочник API (англ.)
         text: "Используйте методы HTTP\_API для управления организацией"
@@ -58,7 +64,9 @@ blocks:
         animated: false
         centered: true
         size: s
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
       - type: basic-card
         title: История изменений
         text: Перечень обновлений сервиса
@@ -67,7 +75,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
       - type: basic-card
         title: "Синхронизация с Active\_Directory"
         text: "Синхронизация пользователей и групп с Microsoft\_Active\_Directory"
@@ -76,7 +86,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/logo-windows.svg
+        gravityIcon:
+          name: LogoWindows
+          color: text-color
   - type: card-layout-block
     title: "Управление\_пользователями\_организации"
     size: s
@@ -92,7 +104,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/person-plus.svg
+        gravityIcon:
+          name: PersonPlus
+          color: text-color
       - type: basic-card
         title: Пулы пользователей
         text: Централизованное управление пользователями и настройками доступа
@@ -111,7 +125,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/vector-square.svg
+        gravityIcon:
+          name: VectorSquare
+          color: text-color
   - type: card-layout-block
     title: Единый вход (SSO)
     size: s
@@ -127,7 +143,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: OIDC-приложения
         text: "Настройте единый вход по стандарту OpenID\_Connect\_(OIDC)"
@@ -135,7 +153,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/arrows-rotate-right.svg
+        gravityIcon:
+          name: ArrowsRotateRight
+          color: text-color
       - type: basic-card
         title: Практические руководства по настройке SSO
         text: Настройте единый вход в приложения (SSO)
@@ -143,7 +163,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/cloud-gear.svg
+        gravityIcon:
+          name: CloudGear
+          color: text-color
       - type: basic-card
         title: Сессии
         text: "Данные о сеансе работы пользователя с Yandex\_Identity\_Hub"
@@ -151,7 +173,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/shield.svg
+        gravityIcon:
+          name: Shield
+          color: text-color
   - type: card-layout-block
     title: Аутентификация
     size: s
@@ -167,7 +191,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/key.svg
+        gravityIcon:
+          name: Key
+          color: text-color
       - type: basic-card
         title: Политики аутентификации
         text: "Настройте доступ пользователей к приложениям Yandex\_Identity\_Hub"
@@ -175,7 +201,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: OS Login
         text: Управление доступом к виртуальным машинам
@@ -183,5 +211,7 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon: ../_assets/console-icons/arrow-right-to-square.svg
+        gravityIcon:
+          name: ArrowRightToSquare
+          color: text-color
 links: []

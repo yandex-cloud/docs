@@ -48,6 +48,12 @@ The cost of using {{ kms-name }} is based on:
 
 
 
+<MDX>
+  <Calculator
+    services={['kms']} collapsible
+  />
+</MDX>
+
 
 
 

@@ -100,6 +100,12 @@ blocks:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-spark']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

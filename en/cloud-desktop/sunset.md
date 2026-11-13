@@ -1,49 +1,31 @@
 ---
 title: '{{ cloud-desktop-full-name }} shutdown'
-description: Read on to learn when {{ cloud-desktop-name }} will be discontinued and how to save or migrate your data.
+description: How to recover your data after the {{ cloud-desktop-name }} shutdown and choose a migration option.
 ---
 
 # {{ cloud-desktop-full-name }} shutdown
 
 {% note warning %}
 
-{{ cloud-desktop-full-name }} will be discontinued on December 14, 2026. Make sure to save your important data and migrate your desktop to another service before it happens.
+{{ cloud-desktop-full-name }} has been discontinued. Desktops have been stopped, and access to the service through the management console, API, and CLI is no longer available.
 
 {% endnote %}
 
 ## What's happening {#what-happens}
 
-We have made the decision to discontinue {{ cloud-desktop-full-name }} since our product strategy changed. See below to learn when it will happen and how to migrate your desktops.
+The service has been discontinued due to a change in product strategy. Below, you can learn how to request your data and choose an alternative solution for virtual desktops.
 
-## Key dates {#key-dates}
+## How to recover your data {#data}
 
-The decommissioning process will follow these three stages:
-
-* **October 13, 2026**: {{ cloud-desktop-name }} will become unavailable to new users. Those users who started using it before will be able to continue working with it.
-
-* **November 10, 2026**: {{ cloud-desktop-name }} will go read-only. You will no longer be able to modify resources. You will still be able to copy your data and delete resources.
-
-* **December 14, 2026:** {{ cloud-desktop-name }} will be fully discontinued. Your desktops will be stopped an you will no longer be able to access {{ cloud-desktop-name }} through the management console API, or CLI.
-
-## What happens to your data {#data}
-
-Your data backups and logs will be saved in a long-term storage. To restore your data after {{ cloud-desktop-name }} is discontinued, contact our [support]({{ link-console-support }}).
-
-You may want to copy your desktop files and settings you need to another storage in advance, so that you may still have access to them after discontinuation.
+To recover your data, contact [support]({{ link-console-support }}).
 
 ## Migration {#migration}
 
-{{ yandex-cloud }} does not have any service to offer that would exactly replace {{ cloud-desktop-name }}. As an alternative, you can consider [{{ baremetal-name }} {{ baremetal-extend-virtualization-name }}](../baremetal/concepts/extend/virtualization.md), which is a virtualization platform deployed on dedicated servers. It allows you to create and configure dedicated VDI clusters.
+There is no direct replacement for {{ cloud-desktop-name }} in {{ yandex-cloud }}. As an alternative, consider [{{ baremetal-name }} {{ baremetal-extend-virtualization-name }}](../baremetal/concepts/extend/virtualization.md), a virtualization platform that runs on dedicated servers. You can use it to create and configure dedicated clusters for virtual desktop infrastructure (VDI).
 
-Please note that {{ baremetal-extend-virtualization-name }} is build for infrastructures that include hundreds of desktops. The fee for using it is calculated on a case-by-case basis.
+The solution is designed for hundreds of virtual desktops. Pricing is determined on a case-by-case basis.
 
-If you want to learn more about testing and possible migration to this solution, [submit a request](../baremetal/operations/extend/virtualization.md) or contact your account manager.
-
-Before {{ cloud-desktop-name }} is discontinued:
-
-1. Save the copies of your desktop files and settings you need.
-1. Migrate your runtime environment to the service of your choice and check whether the apps and data access work correctly.
-1. Once you made sure everything works fine, [delete the desktops](operations/desktops/delete.md) you no longer need.
+To discuss testing and migration, [submit a request](../baremetal/operations/extend/virtualization.md) or contact your account manager.
 
 ## Further questions {#support}
 

@@ -28,7 +28,9 @@ blocks:
         size: s
         urlTitle: Как начать работать с Yandex Cloud Detection and Response
         url: quickstart
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -37,7 +39,9 @@ blocks:
         size: s
         urlTitle: Инструкции по работе с Yandex Cloud Detection and Response
         url: operations/index
-        icon: ../_assets/console-icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -46,7 +50,9 @@ blocks:
         size: s
         urlTitle: Обзор Yandex Cloud Detection and Response
         url: concepts/index
-        icon: ../_assets/console-icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -57,7 +63,9 @@ blocks:
           Справочник функций и операторов KQL в Yandex Cloud Detection and
           Response.
         url: kql-reference
-        icon: ../_assets/console-icons/book-open.svg
+        gravityIcon:
+          name: BookOpen
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -66,7 +74,9 @@ blocks:
         urlTitle: Управление доступом в Yandex Cloud Detection and Response
         size: s
         url: security/index
-        icon: ../_assets/console-icons/persons.svg
+        gravityIcon:
+          name: Persons
+          color: text-color
         controlPosition: content
         animated: false
 links: []

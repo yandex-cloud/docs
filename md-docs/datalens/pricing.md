@@ -19,6 +19,8 @@ Yandex DataLens предоставляется **бесплатно для ин�
 Цены на ресурсы Yandex Cloud в разных [регионах](../overview/concepts/region.md) различаются. Валюта плательщика зависит от [юридического лица](../billing/quickstart/index.md), с которым был заключен договор. Все цены в рублях и тенге указаны с НДС.
 
 
+
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}

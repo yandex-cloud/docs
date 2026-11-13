@@ -4462,6 +4462,7 @@
   Выполните следующую команду:
 
   
+  
   ```bash
   yc managed-kafka cluster create \
      --name mykf \
@@ -4478,6 +4479,8 @@
      --security-group-ids enp6saqnq4ie******** \
      --deletion-protection
   ```
+
+
 
 
 
@@ -4502,6 +4505,7 @@
 
   Конфигурационный файл для такого кластера Managed Service for Apache Kafka® выглядит так:
 
+  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -4553,6 +4557,8 @@
     }
   }
   ```
+
+
 
 
 {% endlist %}

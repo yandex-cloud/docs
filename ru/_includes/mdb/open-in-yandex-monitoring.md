@@ -1,1 +1,1 @@
-Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monium-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** ![link](../../_assets/console-icons/arrow-up-right-from-square.svg) на панели сверху.
+Чтобы перейти к работе с метриками, дашбордами или алертами в {{ monium-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.

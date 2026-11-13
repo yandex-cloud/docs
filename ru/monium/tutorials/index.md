@@ -1,9 +1,9 @@
 ---
-title: Практические руководства для {{ monitoring-full-name }}
-description: На странице представлен список практических руководств для {{ monitoring-name }}.
+title: Практические руководства для {{ monium-full-name }}
+description: На странице представлен список практических руководств для {{ monium-name }}.
 ---
 
-# Практические руководства для {{ monitoring-full-name }}
+# Практические руководства для {{ monium-full-name }}
 
 * [{#T}](autoscale-monitoring.md)
 * [{#T}](monitoring.md)

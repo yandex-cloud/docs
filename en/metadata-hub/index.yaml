@@ -30,7 +30,9 @@ blocks:
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
-        icon: _assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Quotas in Yandex MetaData Hub
         url: ./concepts/limits
         centered: true
@@ -38,7 +40,9 @@ blocks:
       - type: basic-card
         title: Manage access
         text: How to configure access permissions to use the service
-        icon: _assets/icons/lock.svg
+        gravityIcon:
+          name: Lock
+          color: text-color
         urlTitle: Access management in Yandex MetaData Hub
         url: ./security/index
         centered: true
@@ -46,7 +50,9 @@ blocks:
       - type: basic-card
         title: Pricing policy
         text: Pricing and cost calculations
-        icon: _assets/icons/tag-ruble.svg
+        gravityIcon:
+          name: TagRuble
+          color: text-color
         urlTitle: Pricing policy for Yandex MetaData Hub
         url: pricing
         centered: true
@@ -54,7 +60,9 @@ blocks:
       - type: basic-card
         title: Release notes
         text: Updates and changes
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: Yandex MetaData Hub release notes
         url: release-notes/index
         centered: true
@@ -73,14 +81,18 @@ blocks:
         urlTitle: Connection
         url: ./concepts/connection-manager
         size: s
-        icon: _assets/icons/plug-connection.svg
+        gravityIcon:
+          name: PlugConnection
+          color: text-color
       - type: basic-card
         title: Apache Hive™ Metastore
         text: Creating and managing Apache Hive™ Metastore clusters.
         urlTitle: Apache Hive™ Metastore clusters
         url: concepts/metastore
         size: s
-        icon: _assets/icons/database.svg
+        gravityIcon:
+          name: Database
+          color: text-color
       - type: basic-card
         title: Schema Registry
         text: >-
@@ -89,7 +101,9 @@ blocks:
         urlTitle: Data schema registry
         url: ./concepts/schema-registry
         size: s
-        icon: _assets/icons/layout-cells.svg
+        gravityIcon:
+          name: LayoutCells
+          color: text-color
       - type: basic-card
         title: Data Catalog
         text: >-
@@ -98,7 +112,9 @@ blocks:
         urlTitle: Metadata folder
         url: concepts/data-catalog
         size: s
-        icon: _assets/icons/folder-magnifier.svg
+        gravityIcon:
+          name: FolderMagnifier
+          color: text-color
   - type: content-layout-block
     textContent:
       title: ''

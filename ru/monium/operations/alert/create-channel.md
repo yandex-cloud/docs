@@ -11,7 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![alt](../../../_assets/console-icons/megaphone.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Откройте [{{ monium-name }}]({{ link-monium }}) и на панели сверху выберите проект, в котором будете создавать алерты.
+  1. Слева выберите ![alt](../../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![alt](../../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Укажите параметры канала:
   
@@ -54,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
 
            Для уведомлений в {{ messenger-full-name }} можно включить отправку скриншота графика с метриками алерта.
    
-   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.
+   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. Канал появится в списке.
 
       После создания канала настройте в алерте статусы, при которых нужно отправлять уведомления, и интервал повторной отправки.
 

@@ -40,7 +40,7 @@ Your payout request is now submitted; wait to receive the document templates.
 
 Subject to your agreement terms, document templates will be emailed to you within seven business days after the [reporting period](../../billing/concepts/reporting-period.md) ends.
 
-* Partners with enabled [electronic document management](../../billing/operations/edo.md) receive document templates directly in their EDM system account. Sign the documents directly from the request sent by {{ yandex-cloud }}. Do not create a new request.
+* Partners with enabled electronic document management receive document templates directly in their EDM system account. Sign the documents directly from the request sent by {{ yandex-cloud }}. Do not create a new request.
 
 * Non-EDM users receive document templates by email, along with submission instructions.
 

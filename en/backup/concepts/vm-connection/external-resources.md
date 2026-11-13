@@ -20,7 +20,7 @@ To install the {{ backup-name }} agent, you need the `backup.user` [role](../../
 
 For more on installing the {{ backup-name }} agent on VMs or servers located outside {{ yandex-cloud }}, see [{#T}](../../operations/external/connect.md).
 
-After installing the {{ backup-name }} agent, [link](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) your VM or server to a [backup policy](../policy.md).
+After installing the {{ backup-name }} agent, [link](../../operations/policy-vm/attach-and-detach-vm.md) your VM or server to a [backup policy](../policy.md).
 
 ## Supported operating systems {#supported-oss}
 

@@ -48,6 +48,8 @@ Yandex Cloud Billing позволяет получать информацию о
 
  - [Установить уведомления](operations/budgets.md)
 
+ - [Зарезервировать потребление (CVoS)](operations/purchase-cvos.md)
+
 ### Оплата услуг
 
  - [Активировать промокод](operations/activate-promocode.md)
@@ -97,6 +99,8 @@ Yandex Cloud Billing позволяет получать информацию о
  - [Отчетный период](concepts/reporting-period.md)
 
  - [Pay as you go](concepts/payg.md)
+
+ - [Резервируемое потребление (CVoS)](concepts/cvos.md)
 
  - [Free tier](concepts/serverless-free-tier.md)
 

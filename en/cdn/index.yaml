@@ -9,8 +9,8 @@ description:
 meta:
   title: Yandex Cloud CDN
   description: >-
-    {{ cdn-full-name }} allows you to set up content delivery to your end users
-    via a content delivery network (CDN).
+    {{ cdn-full-name }} enables you to set up content delivery to your end users
+    over a content delivery network (CDN).
   keywords:
     - keyword: cdn
     - keyword: yandex cdn
@@ -27,9 +27,9 @@ blocks:
   - type: card-layout-block
     title: Yandex Cloud CDN
     description: >-
-      Yandex Cloud CDN enables you to set up content delivery to your end users
-      over a content delivery network (CDN). Caching on CDN servers reduces the
-      load on data sources and speeds up content delivery.
+      Yandex Cloud CDN enables you to deliver content to end users over a
+      content delivery network (CDN). Caching on CDN servers reduces the load on
+      data origins and speeds up content delivery.
     colSizes:
       all: 12
       sm: 6
@@ -38,8 +38,10 @@ blocks:
     children:
       - type: basic-card
         title: Getting started
-        text: Get started with content delivery over a CDN
-        icon: ../_assets/console-icons/rocket.svg
+        text: Start delivering content over a CDN
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started
         url: quickstart/
         centered: true
@@ -47,8 +49,10 @@ blocks:
         size: s
       - type: basic-card
         title: Step-by-step guides
-        text: Follow our guides for routine operations
-        icon: ../_assets/console-icons/list-ol.svg
+        text: Follow guides to perform routine operations
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Step-by-step guides
         url: operations/
         centered: true
@@ -56,8 +60,10 @@ blocks:
         size: s
       - type: basic-card
         title: Concepts
-        text: Learn how a CDN works and explore core Cloud CDN concepts
-        icon: ../_assets/console-icons/bookmark.svg
+        text: Learn how a CDN works and explore core service concepts
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Concepts
         url: concepts/
         centered: true
@@ -65,8 +71,10 @@ blocks:
         size: s
       - type: basic-card
         title: Tutorials
-        text: Solve standard tasks using the service
-        icon: ../_assets/console-icons/book.svg
+        text: Use the service to address common tasks
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Tutorials
         url: tutorials/
         centered: true
@@ -74,8 +82,10 @@ blocks:
         size: s
       - type: basic-card
         title: Quotas and limits
-        text: Technical and organizational limitations
-        icon: ../_assets/console-icons/sliders.svg
+        text: Technical and organizational limitations of the service
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Quotas and limits
         url: concepts/limits
         centered: true
@@ -83,8 +93,10 @@ blocks:
         size: s
       - type: basic-card
         title: Access management
-        text: Configure access permissions to use this service
-        icon: ../_assets/console-icons/persons-lock.svg
+        text: Configure access permissions for the service
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Access management
         url: security/
         centered: true
@@ -93,25 +105,31 @@ blocks:
       - type: basic-card
         title: Pricing policy
         text: Prices and cost calculation rules
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Pricing policy
         url: pricing
         centered: true
         animated: false
         size: s
       - type: basic-card
-        title: Release notes
-        text: Releases and updates
-        icon: ../_assets/console-icons/timeline.svg
-        urlTitle: Release notes
+        title: Changelog
+        text: Updates to the service
+        gravityIcon:
+          name: Timeline
+          color: text-color
+        urlTitle: Changelog
         url: release-notes
         centered: true
         animated: false
         size: s
       - type: basic-card
         title: FAQ
-        text: Answers to frequently asked questions and solutions to issues
-        icon: ../_assets/console-icons/circle-question.svg
+        text: Answers to common questions and troubleshooting tips
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         urlTitle: FAQ
         url: troubleshooting
         centered: true
@@ -119,8 +137,10 @@ blocks:
         size: s
       - type: basic-card
         title: CLI reference
-        text: Manage the service resources from the command line
-        icon: ../_assets/console-icons/terminal.svg
+        text: Manage service resources from the command line
+        gravityIcon:
+          name: Terminal
+          color: text-color
         urlTitle: CLI reference
         url: cli-ref/
         centered: true
@@ -129,7 +149,9 @@ blocks:
       - type: basic-card
         title: Terraform reference
         text: Create and update service resources using Terraform
-        icon: ../_assets/console-icons/cube.svg
+        gravityIcon:
+          name: Cube
+          color: text-color
         urlTitle: Terraform reference
         url: tf-ref
         centered: true
@@ -138,7 +160,9 @@ blocks:
       - type: basic-card
         title: API reference
         text: Use HTTP API methods to manage the service
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: API reference
         url: api-ref/
         centered: true
@@ -157,28 +181,32 @@ blocks:
         title: Terms of use
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         text: >
           The Yandex Cloud infrastructure is
           [protected](https://yandex.cloud/en/docs/security/conform#law)
-          pursuant to the Russian Federal Law 152-FZ on Personal Data.
+          pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 
 
-          * [Yandex Cloud CDN Terms of
-          Use](https://yandex.ru/legal/cloud_terms_cdn)
+          * [Terms of use for Yandex Cloud
+          CDN](https://yandex.ru/legal/cloud_terms_cdn)
 
 
-          * [Yandex Cloud Terms of
-          Use](https://yandex.ru/legal/cloud_specialterms)
+          * [Terms of use for Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
       - type: basic-card
         title: Service level
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-check.svg
+        gravityIcon:
+          name: FileCheck
+          color: text-color
         text: >
-          * [Yandex Cloud CDN Service
-          Level](https://yandex.ru/legal/cloud_sla_cdn)
+          * [Service level for Yandex Cloud
+          CDN](https://yandex.ru/legal/cloud_sla_cdn)
 
 
-          * [Yandex Cloud Service Level](https://yandex.ru/legal/cloud_sla)
+          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
 links: []

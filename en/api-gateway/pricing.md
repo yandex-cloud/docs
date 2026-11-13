@@ -49,6 +49,12 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['api-gateway']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

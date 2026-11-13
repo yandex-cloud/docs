@@ -155,6 +155,12 @@ The cost calculation for standard hosts will vary depending on the [host configu
 For dedicated hosts, there are two cost components: the [{{ compute-full-name }} computing resources](../../compute/pricing.md) and the {{ mgp-name }} markup on these resources.
 
 
+<MDX>
+  <Calculator
+    services={['managed-greenplum']} collapsible
+  />
+</MDX>
+
 
 
 

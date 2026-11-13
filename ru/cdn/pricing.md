@@ -101,6 +101,12 @@ blocks:
 
 {% include [pricing-for-dedicated-ip.md](../_includes/cdn/pricing-for-dedicated-ip.md) %}
 
+<MDX>
+  <Calculator
+    services={['cdn']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

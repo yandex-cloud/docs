@@ -106,6 +106,12 @@ The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 m
 
 {% include [ice-lake-local-ssd-note](../_includes/ice-lake-local-ssd-note.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-spqr']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

@@ -12,7 +12,7 @@ description: This section describes how to get started with {{ sd-name }} and ma
 To get started with {{ sd-name }} in {{ yandex-cloud }}:
 
 1. If you have not signed up to {{ yandex-cloud }} yet, go to the [management console]({{ link-console-main }}) and follow the instructions.
-1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its [status](../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 1. Make sure you have the necessary [permissions](./security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
 
@@ -60,7 +60,7 @@ To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-
 
 To get started with {{ dspm-name }}, [activate](#create-workspace) it in the current {{ sd-name }} [workspace](./concepts/workspace.md) settings and follow the guides on how to [analyze data](./operations/dspm/discovery-mode.md), [create a data source](./operations/dspm/create-data-source.md), and [create a scan](./operations/dspm/create-scan.md) for the information.
 
-For more information, see [{#T}](./concepts/dspm.md).
+For details, see [{#T}](./concepts/dspm.md).
 
 ### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm}
 
@@ -68,7 +68,7 @@ For more information, see [{#T}](./concepts/dspm.md).
 
 ### {{ access-analyzer-name }} {#access-analyzer}
 
-{{ sd-name }} [{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/) is a tool providing a centralized [view](./operations/access-analyzer/analyze-permissions.md#view) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/access-analyzer/analyze-permissions.md#revoke) excessive access permissions from subjects. For more information, see [{#T}](./concepts/access-analyzer.md).
+{{ sd-name }} [{{ access-analyzer-name }}]({{ link-sd-main }}access-analyzer/) is a tool providing a centralized [view](./operations/access-analyzer/analyze-permissions.md#view) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/access-analyzer/analyze-permissions.md#revoke) excessive access permissions from subjects. For details, see [{#T}](./concepts/access-analyzer.md).
 
 To get started with the {{ access-analyzer-name }} module, follow the guides for [viewing](./operations/access-analyzer/analyze-permissions.md#view) and [revoking](./operations/access-analyzer/analyze-permissions.md#revoke) accesses.
 
@@ -86,7 +86,7 @@ To get started with the {{ access-analyzer-name }} module, follow the guides for
 
 Scanning can start automatically when the image is pushed to the registry, on a schedule, or when the image is used in a {{ k8s }} cluster. The module is integrated with {{ kspm-name }} to detect active images and inform you which vulnerable images are used in the monitored workspace.
 
-For more information, see [{#T}](./concepts/vulnerability-management.md).
+For details, see [{#T}](./concepts/vulnerability-management.md).
 
 ### {{ atr-name }} {#access-transparency}
 
@@ -96,7 +96,7 @@ The tool ensures operations are transparent and provides control over actions by
 
 {% include [access-transparency-attach-ba-notice](../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
-For more information, see [{#T}](./concepts/access-transparency.md).
+For details, see [{#T}](./concepts/access-transparency.md).
 
 ## What's next {#whats-next}
 

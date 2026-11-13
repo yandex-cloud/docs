@@ -21,7 +21,9 @@ blocks:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=5c229918f492#calculator
         size: s
@@ -33,7 +35,9 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon:
+          name: CircleRuble
+          color: text-color
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn28okfvqh19eiue6l2m%2Cdn22pas77ftg9h3f2djj
         size: s
@@ -242,6 +246,12 @@ Access to Gen2 and AMD Zen 3 platforms is provided upon request, if technically 
 
 Dedicated hosts are priced per 1 vCPU, 1 GB RAM, and 1 GB of local disk storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, let’s assume a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19,200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
 
+
+<MDX>
+  <Calculator
+    services={['compute']} collapsible
+  />
+</MDX>
 
 
 

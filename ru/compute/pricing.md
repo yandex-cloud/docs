@@ -21,7 +21,9 @@ blocks:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=2362f8e07ee5#calculator
         size: s
@@ -33,7 +35,9 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon:
+          name: CircleRuble
+          color: text-color
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m
         size: s
@@ -45,7 +49,9 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
+        gravityIcon:
+          name: Flame
+          color: text-color
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -282,6 +288,23 @@ _{{ price-per-hour-count-per-second }}_
 
 
 
+## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
+
+{% include [cvos](../_includes/mdb/cvos.md) %}
+
+Сервис {{ compute-name }} предоставляет CVoS двух видов: на vCPU и RAM. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
+
+{% note info %}
+
+Для ресурсов, доступных по схеме CVoS, в разделе [Цены для региона Россия](#prices) представлены отдельные цены с пометкой CVoS и указанием срока резервирования.
+
+Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
+
+{% endnote %}
+
+
+_{{ price-per-hour-count-per-second }}_
+
 
 ## Цены для региона Россия {#prices}
 
@@ -294,6 +317,12 @@ _{{ price-per-hour-count-per-second }}_
 
 Для выделенных хостов указываются цены за 1 vCPU, 1 ГБ RAM и 1 ГБ хранилища на локальном диске. Тарифицируются все ресурсы, доступные на выделенном хосте, вне зависимости от того, используются ли они. Например, на хосте [типа](concepts/dedicated-host.md#host-types) `intel-6338-c108-m704-n3200x6` доступны 108 vCPU, 704 ГБ RAM и 19&nbsp;200 ГБ хранилища на локальных дисках. Смотрите пример расчета [выше](#dedicated-hosts).
 
+
+<MDX>
+  <Calculator
+    services={['compute']} collapsible
+  />
+</MDX>
 
 
 <MDX>

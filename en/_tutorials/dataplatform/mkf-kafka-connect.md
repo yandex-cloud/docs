@@ -62,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         
     1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) with a public IP address.
-    1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configure-security-groups) to allow all required traffic between your {{ mkf-name }} cluster and VM.
+    1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to allow all required traffic between your {{ mkf-name }} cluster and VM.
 
 
 - {{ TF }} {#tf}

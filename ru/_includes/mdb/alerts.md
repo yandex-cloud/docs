@@ -1,2 +1,3 @@
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе кластера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
+Чтобы получать уведомления о сбоях в работе кластера, [настройте алерты](#monitoring-integration) в {{ monium-name }}. Для порогового алерта можно задать два порога: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. Уведомления об изменении статуса отправляются через настроенные [каналы уведомлений](../../monium/concepts/alerting/notification-channel.md).
+

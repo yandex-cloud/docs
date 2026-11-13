@@ -46,10 +46,22 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
+  {% note tip %}
+  
+  В Terraform есть следующие типы ресурсов для назначения ролей, например, на каталог:
+  
+  * [yandex_resourcemanager_folder_iam_member](../../terraform/resources/resourcemanager_folder_iam_member.md) — одна роль одному субъекту.
+  * [yandex_resourcemanager_folder_iam_binding](../../terraform/resources/resourcemanager_folder_iam_binding.md) — все субъекты для одной роли, список которых заменяется при обновлении.
+  * [yandex_resourcemanager_folder_iam_policy](../../terraform/resources/resourcemanager_folder_iam_policy.md) — все назначенные роли на ресурс с заменой текущих.
+  
+  Рекомендуется использовать `iam_member`. Этот способ позволяет назначить одну роль одному субъекту, не меняя остальные назначенные роли. Не комбинируйте разные типы ресурсов для управления одними и теми же ролями и субъектами.
+  
+  {% endnote %}
+
   1. Опишите в конфигурационном файле параметры назначаемых [ролей](../../iam/concepts/access-control/roles.md):
 
       ```hcl
-      resource "yandex_organizationmanager_organization_iam_binding" "org_admin_role" {
+      resource "yandex_organizationmanager_organization_iam_member" "org_admin_role" {
         organization_id = "<идентификатор_организации>"
         role            = "organization-manager.admin"
         member          = "userAccount:<идентификатор_пользователя>"
@@ -59,7 +71,7 @@
       Где:
 
       * `organization_id` — [идентификатор](organization-get-id.md) организации.
-      * `role` — укажите роль `organization-manager.admin`. Для одной роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`.
+      * `role` — укажите роль `organization-manager.admin`. В одном ресурсе `yandex_organizationmanager_organization_iam_member` можно назначить одну роль одному субъекту.
       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           {% cut "Обозначения субъектов" %}
@@ -91,7 +103,7 @@
 
           {% endcut %}
 
-      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_binding` читайте в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_binding.md).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_member` читайте в [документации провайдера](../../terraform/resources/organizationmanager_organization_iam_member.md).
 
   1. Создайте ресурсы:
 

@@ -49,6 +49,12 @@
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
 
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}
+
 #### Useful links {#see-also}
 
 * [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

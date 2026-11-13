@@ -1,0 +1,18 @@
+items:
+  - name: Overview
+    href: coc-ref/index.md
+  - name: Branch Protection
+    href: coc-ref/branches.md
+  - name: Issues
+    href: coc-ref/issues.md
+  - name: Organisation policies
+    href: coc-ref/policies.md
+  - name: Code Review
+    href: coc-ref/review.md
+  - name: SourceCraft Sites
+    href: coc-ref/sites.md
+  - name: Skills
+    href: coc-ref/skills.md
+  - name: Webhooks
+    href: coc-ref/webhook.md
+path: en/_src-coc-ref/toc.yaml

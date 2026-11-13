@@ -29,7 +29,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
-* использование потока данных ([тарифы Data Streams](../../../../data-streams/pricing.md)).
+
+* использование потока данных ([тарифы Data Streams](../../../../data-streams/pricing.md));
 * использование Yandex Managed Service for YDB в бессерверном режиме ([тарифы Managed Service for YDB](../../../../ydb/pricing/serverless.md)).
 
 ## Подготовьте окружение {#environment-preparing}
@@ -390,7 +391,7 @@ MaxPatrol SIEM использует [статические ключи дост�
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Чтобы перестать платить за созданные ресурсы:
 
 * [удалите](../../../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных `maxpatrol-stream`;
 * [удалите](../../../../ydb/operations/manage-databases.md#delete-db) базу данных `maxpatrol-db`.

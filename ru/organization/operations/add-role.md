@@ -43,6 +43,8 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
+  {% include [terraform-role-assignment-resources](../../_includes/iam/terraform-role-assignment-resources.md) %}
+
   1. Выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить.
   1. [Получите](users-get.md) идентификатор пользователя.
   1. Опишите в конфигурационном файле параметры назначаемых ролей.
@@ -50,7 +52,7 @@
       Пример структуры конфигурационного файла для назначения роли на организацию:
 
       ```hcl
-      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
+      resource "yandex_organizationmanager_organization_iam_member" "editor" {
         organization_id = "<идентификатор_организации>"
         role            = "<идентификатор_роли>"
         member          = "userAccount:<идентификатор_пользователя>"
@@ -60,7 +62,7 @@
       Где:
 
       * `organization_id` — [идентификатор](./organization-get-id.md) организации.
-      * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один ресурс `yandex_organizationmanager_organization_iam_binding`.
+      * `role` — идентификатор назначаемой [роли](../../iam/roles-reference.md). В одном ресурсе `yandex_organizationmanager_organization_iam_member` можно назначить одну роль одному субъекту.
       * `member` — обозначение [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
 
           {% cut "Обозначения субъектов" %}
@@ -69,7 +71,7 @@
 
           {% endcut %}
 
-      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_binding` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding).
+      Подробнее о параметрах ресурса `yandex_organizationmanager_organization_iam_member` читайте в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
 
   1. Создайте ресурсы:
 

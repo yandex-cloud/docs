@@ -1,5 +1,5 @@
 ---
-subcategory: Unknown
+subcategory: Smart Web Security
 ---
 
 # yandex_sws_security_profile_advanced_rate_limiter_profile_attachment (Resource)

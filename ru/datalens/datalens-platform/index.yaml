@@ -52,7 +52,9 @@ blocks:
         title: Хранение и обработка данных
         centered: true
         text: Вы в этом разделе документации
-        icon: ../../_assets/console-icons/database-arrow-right.svg
+        gravityIcon:
+          name: DatabaseArrowRight
+          color: text-color
         url: concepts
         textSize: s
         controlPosition: content
@@ -60,7 +62,9 @@ blocks:
         backgroundColor: '#FFC4AE'
       - type: basic-card
         title: BI-система для бизнеса
-        icon: ../../_assets/console-icons/layout-header-side-content.svg
+        gravityIcon:
+          name: LayoutHeaderSideContent
+          color: text-color
         centered: true
         url: ../index
         textSize: s
@@ -109,7 +113,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Как начать работать с DataLens Platform
-        icon: ../../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Начало работы
         url: quickstart
         size: s
@@ -118,7 +124,9 @@ blocks:
       - type: basic-card
         title: Обзор сервиса
         text: Как устроена платформа и как пройти путь от источника до дашборда
-        icon: ../../_assets/console-icons/circle-info.svg
+        gravityIcon:
+          name: CircleInfo
+          color: text-color
         urlTitle: Обзор сервиса
         url: concepts/index
         size: s
@@ -129,7 +137,9 @@ blocks:
         text: >-
           Анализируйте данные и создавайте SQL-запросы и визуализации с
           Нейроаналитиком
-        icon: ../../_assets/console-icons/sparkles-fill.svg
+        gravityIcon:
+          name: SparklesFill
+          color: text-color
         urlTitle: AI-инструменты
         url: concepts/ai-tools/index
         size: s
@@ -138,7 +148,9 @@ blocks:
       - type: basic-card
         title: REST-каталог
         text: Организуйте хранение таблиц Apache Iceberg™ и доступ к ним
-        icon: ../../_assets/console-icons/database.svg
+        gravityIcon:
+          name: Database
+          color: text-color
         urlTitle: REST-каталог
         url: concepts/rest-catalog/index
         size: s
@@ -149,7 +161,9 @@ blocks:
         text: >-
           Загружайте данные из источников в REST-каталог разово или по
           расписанию
-        icon: ../../_assets/console-icons/database-arrow-right.svg
+        gravityIcon:
+          name: DatabaseArrowRight
+          color: text-color
         urlTitle: Поставки данных
         url: concepts/data-transfer/index
         size: s
@@ -158,7 +172,9 @@ blocks:
       - type: basic-card
         title: Пайплайны
         text: Автоматизируйте обработку данных с помощью Apache Airflow™
-        icon: ../../_assets/router.svg
+        gravityIcon:
+          name: Route
+          color: text-color
         urlTitle: Пайплайны
         url: concepts/airflow/index
         size: s
@@ -167,7 +183,9 @@ blocks:
       - type: basic-card
         title: Метаданные
         text: Изучайте структуру и связи данных, добавляйте описания и метки
-        icon: ../../_assets/console-icons/folder-magnifier.svg
+        gravityIcon:
+          name: FolderMagnifier
+          color: text-color
         urlTitle: Метаданные
         url: concepts/data-catalog/index
         size: s
@@ -176,7 +194,9 @@ blocks:
       - type: basic-card
         title: Редактор SQL
         text: Пишите SQL-запросы и просматривайте результаты в браузере
-        icon: ../../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: Редактор SQL
         url: concepts/sql/index
         size: s
@@ -185,7 +205,9 @@ blocks:
       - type: basic-card
         title: Кластеры и окружения
         text: Настраивайте окружения и вычислительные ресурсы для обработки данных
-        icon: ../../_assets/datalens/compute.svg
+        gravityIcon:
+          name: Cpu
+          color: text-color
         urlTitle: Кластеры и окружения
         url: concepts/clusters/index
         size: s
@@ -194,7 +216,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Настраивайте права команды на данные и другие объекты платформы
-        icon: ../../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом
         url: security/index
         size: s
@@ -203,7 +227,9 @@ blocks:
       - type: basic-card
         title: Квоты
         text: Технические и организационные ограничения сервиса
-        icon: ../../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Квоты
         url: concepts/limits
         size: s

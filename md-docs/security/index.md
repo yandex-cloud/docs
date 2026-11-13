@@ -304,7 +304,7 @@
 
  - [Поиск событий Yandex Cloud в Cloud Logging](tutorials/audit-logs/search-cloud-logging.md)
 
- - [Настройка алертов и дашбордов в Monitoring](tutorials/audit-logs/alerts-monitoring.md)
+ - [Настройка алертов и дашбордов в Monium](tutorials/audit-logs/alerts-monitoring.md)
 
  - [Настройка реагирования в Cloud Logging и Cloud Functions](tutorials/audit-logs/logging-functions.md)
 

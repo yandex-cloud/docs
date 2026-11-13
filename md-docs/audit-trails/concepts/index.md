@@ -12,7 +12,7 @@ Yandex Audit Trails позволяет собирать [аудитные лог
 
 * [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
 * [Загрузка аудитных логов в SIEM](export-siem.md).
-* [Настройка алертов в Yandex Monitoring](../tutorials/alerts-monitoring.md).
+* [Настройка алертов в Monium](../tutorials/alerts-monitoring.md).
 
 Логируются следующие [события уровня конфигурации](events.md):
 

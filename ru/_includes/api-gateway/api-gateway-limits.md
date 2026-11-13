@@ -5,9 +5,13 @@
 || Количество [триггеров](../../serverless-containers/concepts/trigger/index.md) в одном облаке^1^ 
 `serverless.triggers.count` | 100 ||
 || Количество [пользовательских сетей](../../api-gateway/concepts/networking.md#user-network) в одном облаке | 10 ||
+|| Количество [доменов](../../api-gateway/concepts/index.md#domains) в одном облаке | 1 ||
+|| Количество API-шлюзов, для которых настроены [ограничение скорости обработки запросов](../../api-gateway/concepts/extensions/rate-limit.md) и/или [интеграция с {{ sws-name }}](../../api-gateway/concepts/extensions/sws.md)^2^ | 1 ||
 |#
 
 {% include [quota-trigger-count](../quota-trigger-count.md) %}
+
+^2^ API-шлюз, для которого настроены и ограничение скорости обработки запросов, и интеграция с {{ sws-name }}, расходует одну единицу квоты.
 
 #### Лимиты {#api-gw-limits}
 
@@ -23,7 +27,6 @@
 Максимальное количество триггеров для одной [очереди сообщений](../../message-queue/concepts/queue.md) | 1
 Максимальное количество приемников у триггера ^2^ | 5
 Максимальный размер сообщения для триггера^3^ | 230 КБ
-Максимальное количество [доменов](../../api-gateway/concepts/index.md#domains), которое можно подключить к одному API-шлюзу | 20
 
 ^1^ Значение по умолчанию — 5 минут.
 ^2^ Лимит `Максимальное количество приемников у триггера` — общий для сервисов {{ api-gw-name }}, {{ sf-name }} и {{ serverless-containers-name }}.

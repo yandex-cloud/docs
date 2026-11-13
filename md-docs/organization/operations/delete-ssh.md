@@ -54,7 +54,7 @@
   1. Получите идентификатор нужного SSH-ключа, указав полученный ранее идентификатор организации:
 
       ```bash
-      yc organization-manager user-ssh-key list \
+      yc organization-manager oslogin user-ssh-key list \
         --organization-id <идентификатор_организации>
       ```
 
@@ -141,7 +141,7 @@
      Terraform удалит все требуемые ресурсы. Проверить наличие ресурсов можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../cli/index.md):
 
       ```bash
-      yc organization-manager user-ssh-key list \
+      yc organization-manager oslogin user-ssh-key list \
         --organization-id <идентификатор_организации>
       ```
 

@@ -1,10 +1,10 @@
-# Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
+# Delivering data from {{ KF }} to {{ CH }} using {{ data-transfer-full-name }}
 
 A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
 To set up data delivery from {{ mkf-full-name }} to {{ mch-name }}:
 
-1. [Set up your infrastructure](#deploy-infrastructure).
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Configure additional settings](#additional-settings).
 1. [Send test data to the {{ mkf-name }} topic](#send-sample-data-to-kf).
 1. [Prepare and activate your transfer](#prepare-transfer).
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Set up your infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -107,7 +107,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Configure additional settings {#additional-settings}
 
-1. Install the following tools:
+1. Install these tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in the {{ KF }} topic.
 
@@ -232,91 +232,92 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
 
 - Manually {#manual}
   
-  1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}`](../../data-transfer/operations/endpoint/source/kafka.md) source endpoint:
 
+      * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+      * Name the endpoint.
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+          * **Installation type**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and the name and password of the user created [earlier](#prepare-infrastructure).
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
+                  Copy and paste the data schema in JSON format:
 
-            Copy and paste the data schema in JSON format:
+                  {% cut "Data schema" %}
 
-            {% cut "Data schema" %}
+                  ```json
+                  [
+                    {
+                      "name": "device_id",
+                      "type": "string"
+                    },
+                    {
+                      "name": "datetime",
+                      "type": "datetime"
+                    },
+                    {
+                      "name": "latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "altitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "speed",
+                      "type": "double"
+                    },
+                    {
+                      "name": "battery_voltage",
+                      "type": "any"
+                    },
+                    {
+                      "name": "cabin_temperature",
+                      "type": "double"
+                    },
+                    {
+                      "name": "fuel_level",
+                      "type": "any"
+                    }
+                  ]
+                  ```
 
-            ```json
-            [
-              {
-                "name": "device_id",
-                "type": "string"
-              },
-              {
-                "name": "datetime",
-                "type": "datetime"
-              },
-              {
-                "name": "latitude",
-                "type": "double"
-              },
-              {
-                "name": "longitude",
-                "type": "double"
-              },
-              {
-                "name": "altitude",
-                "type": "double"
-              },
-              {
-                "name": "speed",
-                "type": "double"
-              },
-              {
-                "name": "battery_voltage",
-                "type": "any"
-              },
-              {
-                "name": "cabin_temperature",
-                "type": "double"
-              },
-              {
-                "name": "fuel_level",
-                "type": "any"
-              }
-            ]
-            ```
-
-            {% endcut %}
+                  {% endcut %}
 
 
-  1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
+  1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ CH }}` target](../../data-transfer/operations/endpoint/target/clickhouse.md):
 
+      * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+      * Name the endpoint.
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
 
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `Managed Service for ClickHouse cluster`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the target cluster from the list.
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
 
-  1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+  1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer and configure it to use the previously created endpoints.
   1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
 
@@ -335,7 +336,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
+      Endpoints and a transfer will be created. Once created, the transfer becomes active automatically.
 
 
 {% endlist %}
@@ -387,7 +388,7 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 {% endnote %}
 
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 
 {% list tabs group=instructions %}
@@ -395,7 +396,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Manually {#manual}
 
   1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-  1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+  1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
   1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
   1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 

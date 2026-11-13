@@ -48,7 +48,7 @@ description: Из статьи вы узнаете, какие типы диск
 Чтобы вывести кластер {{ mmy-name }} из режима read-only, [увеличьте размер хранилища](../operations/update.md#change-disk-size).
 
 
-Для отслеживания степени заполнения хранилища [настройте алерты в {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
+Для отслеживания степени заполнения хранилища [настройте алерты в {{ monium-full-name }}](../operations/monitoring.md#monitoring-integration).
 
 
 ### Автоматическое увеличение размера хранилища {#disk-size-autoscaling}

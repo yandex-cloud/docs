@@ -36,7 +36,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование виртуальных машин ([тарифы {{ compute-short-name }}](../../compute/pricing.md));
+* использование виртуальной машины ([тарифы {{ compute-short-name }}](../../compute/pricing.md));
 * плата за хранение данных в бакете ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
 * плата за операции с данными ([тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations));
 * плата за использование ключей {{ kms-short-name }} ([тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
@@ -113,12 +113,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя сервисного аккаунта в соответствии с правилами именования:
-  
-       {% include [name-format](../../_includes/name-format.md) %}
-
-       Например, `sa-arcsight`.
-  
+  1. Введите имя сервисного аккаунта — `sa-arcsight`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
 {% endlist %}
@@ -366,7 +361,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
 1. [Удалите](../../kms/operations/key.md#delete) ключ {{ kms-name }}.

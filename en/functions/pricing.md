@@ -65,6 +65,12 @@ However, if the function uses other {{ yandex-cloud }} resources, those are bill
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['functions']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

@@ -126,6 +126,12 @@ Suppose we calculate the 30-day usage cost of a cluster with the following confi
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-ytsaurus']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

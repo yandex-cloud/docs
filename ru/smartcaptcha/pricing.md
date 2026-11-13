@@ -93,6 +93,12 @@ blocks:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['smartcaptcha']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

@@ -30,7 +30,9 @@ blocks:
         size: s
         urlTitle: "Как начать работать с Yandex\_Identity and Access\_Management"
         url: quickstart-overview
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -39,7 +41,9 @@ blocks:
         size: s
         urlTitle: "Пошаговые инструкции для Identity and Access\_Management"
         url: operations/index
-        icon: _assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -48,7 +52,9 @@ blocks:
         size: s
         urlTitle: "Обзор Yandex\_Identity and Access\_Management"
         url: concepts/index
-        icon: _assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -57,7 +63,9 @@ blocks:
         size: s
         urlTitle: "Справочник ролей Yandex\_Cloud"
         url: roles-reference
-        icon: _assets/icons/book-open.svg
+        gravityIcon:
+          name: BookOpen
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -65,7 +73,9 @@ blocks:
         text: "Используйте методы HTTP\_API для управления доступами"
         size: s
         urlTitle: "Описание методов HTTP\_API"
-        icon: _assets/icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         url: api-ref/
         controlPosition: content
         animated: false
@@ -75,7 +85,9 @@ blocks:
         urlTitle: "История изменений в Yandex\_Identity and Access\_Management"
         size: s
         url: release-notes
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         controlPosition: content
         animated: false
   - type: card-layout-block
@@ -92,7 +104,9 @@ blocks:
         size: s
         urlTitle: "Как выбрать подходящий способ аутентификации в Yandex\_Cloud"
         url: concepts/authorization/index
-        icon: _assets/icons/key.svg
+        gravityIcon:
+          name: Key
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -101,7 +115,9 @@ blocks:
         size: s
         urlTitle: "Как устроено управление доступом в Yandex\_Cloud"
         url: concepts/access-control/index
-        icon: _assets/icons/person.svg
+        gravityIcon:
+          name: Person
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -110,7 +126,9 @@ blocks:
         size: s
         urlTitle: "Квоты и лимиты в Identity and Access\_Management"
         url: concepts/limits
-        icon: _assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -119,7 +137,9 @@ blocks:
         size: s
         urlTitle: "Управление доступом в сервисе Identity and Access\_Management"
         url: security/index
-        icon: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         controlPosition: content
         animated: false
 links: []

@@ -32,7 +32,9 @@ blocks:
       - type: basic-card
         title: Getting started
         text: Create your first cluster
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started with Yandex Data Processing
         url: quickstart
         centered: true
@@ -46,9 +48,9 @@ blocks:
         centered: true
         size: s
         animated: false
-        icon:
-          light: _assets/icons/list-ol.svg
-          dark: _assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
       - type: basic-card
         title: Concepts
         text: Introduction to the basic terms and concepts
@@ -57,9 +59,9 @@ blocks:
         centered: true
         size: s
         animated: false
-        icon:
-          light: _assets/icons/bookmark.svg
-          dark: _assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
       - type: basic-card
         title: API reference
         text: Use HTTP API methods for cluster management
@@ -68,9 +70,9 @@ blocks:
         centered: true
         size: s
         animated: false
-        icon:
-          light: _assets/icons/code.svg
-          dark: _assets/icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
       - type: basic-card
         title: Pricing policy
         text: Prices and cost calculation rules
@@ -79,9 +81,9 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon:
-          light: _assets/icons/calculator.svg
-          dark: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
@@ -90,9 +92,9 @@ blocks:
         centered: true
         size: s
         animated: false
-        icon:
-          light: _assets/icons/sliders.svg
-          dark: _assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
       - type: basic-card
         title: Manage access
         text: Configure access permissions for the service
@@ -101,13 +103,15 @@ blocks:
         centered: true
         animated: false
         size: s
-        icon:
-          light: _assets/icons/persons-lock.svg
-          dark: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: Release notes
         text: Releases and updates
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: Yandex Data Processing release notes
         url: release-notes/index
         centered: true
@@ -135,7 +139,9 @@ blocks:
           * [PCI DSS](https://yandex.cloud/en/docs/security/conform#pci-dss)
 
           * [ISO standards](https://yandex.cloud/en/docs/security/conform#iso)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
   - type: content-layout-block

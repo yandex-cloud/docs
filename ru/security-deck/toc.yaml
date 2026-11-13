@@ -144,6 +144,10 @@ items:
             href: operations/custom-rules-sets/enable-disable-set.md
           - name: Удалить пользовательский набор правил
             href: operations/custom-rules-sets/delete-set.md
+  - name: Практические руководства
+    items:
+      - name: Использование внешних политик Kyverno с {{ kspm-name }}
+        href: tutorials/kspm-external-kyverno-policies.md
   - name: Концепции
     items:
       - name: Обзор

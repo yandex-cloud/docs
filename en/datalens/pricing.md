@@ -22,6 +22,12 @@ The procedure for providing technical support is determined in line with the sel
 
 {{ yandex-cloud }} resources are priced differently in different [regions]({{ link-docs }}/overview/concepts/region). Your payment currency is determined by your contracting [legal entity]({{ link-docs }}/billing/quickstart/). All prices in RUB and KZT are inclusive of VAT.
 
+<MDX>
+  <Calculator
+    services={['datalens']} collapsible
+  />
+</MDX>
+
 
 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}

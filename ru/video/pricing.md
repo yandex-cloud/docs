@@ -47,6 +47,12 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['video']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

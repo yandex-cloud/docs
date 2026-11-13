@@ -17,7 +17,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
@@ -51,7 +51,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resourceGroups` field of the [server response](../api-ref/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 
@@ -79,7 +79,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
             yandex.cloud.trino.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. The description of resource groups and selector rules in the {{ mtr-name }} cluster is in the `resource_groups` field of the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.trino.v1.Cluster).
 
@@ -166,7 +166,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -379,7 +379,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
@@ -437,7 +437,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+     Learn how to create this file in [Creating a cluster](cluster-create.md).
   
   1. If no description of resource groups and selector rules in the {{ mtr-name }} cluster has been given yet, add the `resource_groups` section to the cluster description:
 
@@ -467,7 +467,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -713,7 +713,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/managed-trino) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.section_resource-management }}** section.
@@ -743,7 +743,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
+      Learn how to create this file in [Creating a cluster](cluster-create.md).
   
   1. To delete all resource groups and selector rules, delete the `resource_groups` parameter from the cluster description.
 

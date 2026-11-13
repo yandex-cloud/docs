@@ -101,7 +101,7 @@ You can configure security groups after creating a {{ dataproc-name }} cluster t
 
 A {{ dataproc-name }} cluster must include a subcluster with a master host and at least one subcluster for data storage or processing.
 
-If you want to create a {{ dataproc-name }} cluster copy, [import its configuration](#duplicate) to {{ TF }}.
+If you want to create a {{ dataproc-name }} cluster copy, [import its configuration](cluster-create.md#duplicate) to {{ TF }}.
 
 {% list tabs group=instructions %}
 
@@ -134,7 +134,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
         {% endnote %}
 
-     * Public part of the SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information on how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * Public part of the SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information on how to generate and use SSH keys, see [this {{ compute-full-name }} guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Service account that needs access to the {{ dataproc-name }} cluster.
      * Optionally, service account to manage [{{ dataproc-name }} autoscaling clusters](../concepts/autoscaling.md).
      * Availability zone for the {{ dataproc-name }} cluster.
@@ -187,7 +187,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure your network](#setup-network).
   
-     * Access to {{ dataproc-name }} subcluster hosts from the internet. To enable access, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to {{ dataproc-name }} subcluster hosts over SSL. For more information, see [{#T}](connect.md).
+     * Access to {{ dataproc-name }} subcluster hosts from the internet. To enable access, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to {{ dataproc-name }} subcluster hosts over SSL. For details, see [{#T}](connect.md).
   
        {% note warning %}
   
@@ -298,7 +298,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        * `disk-size`: Storage size, in GB.
        * `subnet-name`: Subnet name.
        * `hosts-count`: Number of hosts in the {{ dataproc-name }} subclusters for data storage or processing. The valid values range from `1` to `32`.
-       * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can be either `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster over SSL. For more information, see [{#T}](connect.md).
+       * `assign-public-ip`: Access to {{ dataproc-name }} subcluster hosts from the internet. It can be either `true` or `false`. If access is enabled, you can only connect to the {{ dataproc-name }} cluster over SSL. For details, see [{#T}](connect.md).
 
          {% note warning %}
 
@@ -653,7 +653,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration:
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

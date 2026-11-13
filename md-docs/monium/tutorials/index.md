@@ -1,9 +1,9 @@
 [Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Метрики > Практические руководства > Все практические руководства
 
-# Практические руководства для Monium Metrics
+# Практические руководства для Yandex Monium
 
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](autoscale-monitoring.md)
 * [Мониторинг показаний датчиков и уведомления о событиях](monitoring.md)
-* [Настройка дашбордов и алертов в Monium Metrics](alerts-monitoring.md)
+* [Настройка дашбордов и алертов в Yandex Monium](alerts-monitoring.md)
 * [Поиск проблем с производительностью кластера Managed Service for PostgreSQL](mpg-performance-problems.md)
 * [Сбор метрик кластера «1С:Предприятие» на базе Linux](collect-metrics-1c-cluster.md)

@@ -53,6 +53,7 @@ Codec for compressing events. Allowed values: RAW, GZIP, ZSTD. Default: RAW. ||
 || `--destination-eventrouter-connector-id` | `string`
 
 Specifies the ID of the destination EventRouter Connector. ||
+|| `--destination-monium` | Specifies Monium as the destination. ||
 || `--filter-all-folder-id` | `string`
 
 Specifies the ID of the folder from which all management events will be collected. ||

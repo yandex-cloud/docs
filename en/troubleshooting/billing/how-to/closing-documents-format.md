@@ -2,6 +2,8 @@
 
 
 
+{% include [kz-preview](../../../_includes/kz-preview.md) %}
+
 ## Case description {#case-description}
 
 You need to know which format the EDM-provided closing documents use.

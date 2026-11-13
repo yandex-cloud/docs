@@ -19,7 +19,7 @@ blocks:
     description: >-
       With Yandex Cloud Backup, you can set up automatic backups for [Yandex
       Compute Cloud](../compute/) VMs, [Yandex BareMetal](../baremetal/)
-      servers, as well as VMs and servers in the user or third-party provider
+      servers, as well as VMs and servers in your own or third-party
       infrastructure.
     colSizes:
       all: 12
@@ -29,8 +29,10 @@ blocks:
     children:
       - type: basic-card
         title: Getting started
-        text: Connect the VM to the service and create a backup
-        icon: ../_assets/console-icons/rocket.svg
+        text: Connect a VM to the service and create a backup
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started
         url: quickstart/
         centered: true
@@ -38,8 +40,10 @@ blocks:
         size: s
       - type: basic-card
         title: Step-by-step guides
-        text: Follow our guides for routine operations
-        icon: ../_assets/console-icons/list-ol.svg
+        text: Follow guides to perform routine operations
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Step-by-step guides
         url: operations/
         centered: true
@@ -47,10 +51,10 @@ blocks:
         size: s
       - type: basic-card
         title: Concepts
-        text: >-
-          Learn more about backups and backup policies, as well as the Cloud
-          Backup Agent.
-        icon: ../_assets/console-icons/bookmark.svg
+        text: Learn about backups, backup policies, and the Cloud Backup agent
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Concepts
         url: concepts/
         centered: true
@@ -58,8 +62,10 @@ blocks:
         size: s
       - type: basic-card
         title: Tutorials
-        text: Solve standard tasks using the service
-        icon: ../_assets/console-icons/book.svg
+        text: Use the service to address common tasks
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Tutorials
         url: tutorials/
         centered: true
@@ -67,8 +73,10 @@ blocks:
         size: s
       - type: basic-card
         title: Quotas
-        text: Technical and organizational limitations
-        icon: ../_assets/console-icons/sliders.svg
+        text: Technical and organizational limitations of the service
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Quotas
         url: concepts/limits
         centered: true
@@ -76,8 +84,10 @@ blocks:
         size: s
       - type: basic-card
         title: Access management
-        text: Configure access permissions to use this service
-        icon: ../_assets/console-icons/persons-lock.svg
+        text: Configure access permissions for the service
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Access management
         url: security/
         centered: true
@@ -86,25 +96,31 @@ blocks:
       - type: basic-card
         title: Pricing policy
         text: Prices and cost calculation rules
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Pricing policy
         url: pricing
         centered: true
         animated: false
         size: s
       - type: basic-card
-        title: Release notes
-        text: Releases and updates
-        icon: ../_assets/console-icons/timeline.svg
-        urlTitle: Release notes
+        title: Changelog
+        text: Updates to the service
+        gravityIcon:
+          name: Timeline
+          color: text-color
+        urlTitle: Changelog
         url: release-notes
         centered: true
         animated: false
         size: s
       - type: basic-card
         title: Troubleshooting
-        text: Learn how to resolve issues when using the service
-        icon: ../_assets/console-icons/circle-question.svg
+        text: Learn how to troubleshoot issues with the service
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         urlTitle: Troubleshooting
         url: qa/troubleshooting
         centered: true
@@ -112,8 +128,10 @@ blocks:
         size: s
       - type: basic-card
         title: CLI reference
-        text: Manage the service resources from the command line
-        icon: ../_assets/console-icons/terminal.svg
+        text: Manage service resources from the command line
+        gravityIcon:
+          name: Terminal
+          color: text-color
         urlTitle: CLI reference
         url: cli-ref/
         centered: true
@@ -122,7 +140,9 @@ blocks:
       - type: basic-card
         title: Terraform reference
         text: Create and update service resources using Terraform
-        icon: ../_assets/console-icons/cube.svg
+        gravityIcon:
+          name: Cube
+          color: text-color
         urlTitle: Terraform reference
         url: tf-ref
         centered: true
@@ -131,7 +151,9 @@ blocks:
       - type: basic-card
         title: API reference
         text: Use HTTP API methods to manage the service
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: API reference
         url: backup/api-ref/
         centered: true
@@ -150,28 +172,32 @@ blocks:
         title: Terms of use
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         text: >
           The Yandex Cloud infrastructure is
           [protected](https://yandex.cloud/en/docs/security/conform#law)
           pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 
 
-          * [Yandex Cloud Backup Terms of
-          Use](https://yandex.ru/legal/cloud_terms_backup)
+          * [Terms of use for Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_terms_backup)
 
 
-          * [Yandex Cloud Terms of
-          Use](https://yandex.ru/legal/cloud_specialterms)
+          * [Terms of use for Yandex
+          Cloud](https://yandex.ru/legal/cloud_specialterms)
       - type: basic-card
         title: Service level
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-check.svg
+        gravityIcon:
+          name: FileCheck
+          color: text-color
         text: >
-          * [Yandex Cloud Backup Service
-          Level](https://yandex.ru/legal/cloud_sla_backup)
+          * [Service level for Yandex Cloud
+          Backup](https://yandex.ru/legal/cloud_sla_backup)
 
 
-          * [Yandex Cloud Service Level](https://yandex.ru/legal/cloud_sla)
+          * [Service level for Yandex Cloud](https://yandex.ru/legal/cloud_sla)
 links: []

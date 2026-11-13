@@ -22,6 +22,12 @@ editable: false
 
 Цены на ресурсы {{ yandex-cloud }} в разных [регионах]({{ link-docs }}/overview/concepts/region) различаются. Валюта плательщика зависит от [юридического лица]({{ link-docs }}/billing/quickstart/), с которым был заключен договор. Все цены в рублях и тенге указаны с НДС.
 
+<MDX>
+  <Calculator
+    services={['datalens']} collapsible
+  />
+</MDX>
+
 
 {% list tabs group=pricing %}
 

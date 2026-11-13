@@ -76,6 +76,12 @@ blocks:
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+<MDX>
+  <Calculator
+    services={['metadata-hub']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

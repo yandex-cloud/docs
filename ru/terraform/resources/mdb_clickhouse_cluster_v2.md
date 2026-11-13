@@ -724,6 +724,7 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
 - `cloud_storage` [Block]. Cloud Storage settings.
+  - `bucket_max_size` (Number). Maximum size (in bytes) of the `Yandex Object Storage` bucket used for hybrid storage. Required when hybrid storage is enabled. Cannot be decreased.
   - `data_cache_enabled` (Bool). Enables temporary storage in the cluster repository of data requested from the object repository.
   - `data_cache_max_size` (Number). Defines the maximum amount of memory (in bytes) allocated in the cluster storage for temporary storage of data requested from the object storage.
   - `enabled` (**Required**)(Bool). Whether to use Yandex Object Storage for storing ClickHouse data. Can be either `true` or `false`.

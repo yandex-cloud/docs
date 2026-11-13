@@ -59,7 +59,7 @@ items:
             href: operations/resources/location-rules.md
           - name: Setting up a server name for SNI
             href: operations/resources/configure-server-name.md
-          - name: Suspending and resuming a resource
+          - name: Pausing and resuming a resource
             href: operations/resources/disable-resource.md
           - name: Managing resource labels
             href: operations/resources/labeling.md
@@ -132,6 +132,8 @@ items:
         href: concepts/points-of-presence.md
       - name: Resource
         href: concepts/resource.md
+      - name: Configuring {{ cdn-name }} when the origin is unavailable
+        href: concepts/fault-tolerance.md
       - name: Origins and origin groups
         href: concepts/origins.md
       - name: Data exchange between clients and the CDN

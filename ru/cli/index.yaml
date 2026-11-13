@@ -30,7 +30,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Установите CLI и выполните первую команду
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Начало работы
         url: quickstart
         centered: true
@@ -39,7 +41,9 @@ blocks:
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
-        icon: ../_assets/console-icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Пошаговые инструкции
         url: operations/
         centered: true
@@ -48,7 +52,9 @@ blocks:
       - type: basic-card
         title: Принципы работы с CLI
         text: Запуск команд, работа с профилями и конфигурация CLI
-        icon: ../_assets/console-icons/terminal.svg
+        gravityIcon:
+          name: Terminal
+          color: text-color
         urlTitle: Принципы работы с CLI
         url: concepts/
         centered: true
@@ -57,7 +63,9 @@ blocks:
       - type: basic-card
         title: Релизы CLI
         text: Новые возможности, изменения и исправления в CLI
-        icon: ../_assets/console-icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: Релизы CLI
         url: release-notes
         centered: true
@@ -66,7 +74,9 @@ blocks:
       - type: basic-card
         title: Решение проблем
         text: Узнайте, как собрать диагностическую информацию
-        icon: ../_assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         urlTitle: Решение проблем
         url: error
         centered: true
@@ -75,7 +85,9 @@ blocks:
       - type: basic-card
         title: Справочник CLI (англ.)
         text: Найдите нужные команды и их параметры
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: Справочник CLI (англ.)
         url: cli-ref/
         centered: true

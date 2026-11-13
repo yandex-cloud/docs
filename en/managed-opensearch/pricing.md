@@ -136,6 +136,12 @@ Calculation for the storage cost and total cost:
 {% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
+<MDX>
+  <Calculator
+    services={['managed-opensearch']} collapsible
+  />
+</MDX>
+
 
 
 

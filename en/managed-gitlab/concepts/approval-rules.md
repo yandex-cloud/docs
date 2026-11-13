@@ -27,7 +27,7 @@ Issue a new token and add it to the {{ GL }} instance settings before the curren
 
 ## Available configurations {#packages}
 
-The configuration you select affects the [cost of using the instance computing resources](../../managed-gitlab/pricing.md#prices).
+The configuration you select affects the [cost of using the computing resources of the instance](../../managed-gitlab/pricing.md#prices).
 
 You can choose a suitable configuration based on your team's objectives:
 

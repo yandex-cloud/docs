@@ -133,6 +133,12 @@ Calculation for the storage cost and total cost:
 
 {% include [storage-limitations-mrd](../_includes/mdb/mvk/storage-limitations-note.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-valkey']} collapsible
+  />
+</MDX>
+
 
 
 

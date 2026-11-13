@@ -31,7 +31,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Подключите ВМ к сервису и создайте резервную копию
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Начало работы
         url: quickstart/
         centered: true
@@ -40,7 +42,9 @@ blocks:
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
-        icon: ../_assets/console-icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Пошаговые инструкции
         url: operations/
         centered: true
@@ -51,7 +55,9 @@ blocks:
         text: >-
           Узнайте про резервные копии, политики копирования и агента Cloud
           Backup
-        icon: ../_assets/console-icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Концепции
         url: concepts/
         centered: true
@@ -60,7 +66,9 @@ blocks:
       - type: basic-card
         title: Практические руководства
         text: Решайте типовые задачи с помощью сервиса
-        icon: ../_assets/console-icons/book.svg
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Практические руководства
         url: tutorials/
         centered: true
@@ -69,7 +77,9 @@ blocks:
       - type: basic-card
         title: Квоты
         text: Технические и организационные ограничения сервиса
-        icon: ../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Квоты
         url: concepts/limits
         centered: true
@@ -78,7 +88,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для работы с сервисом
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом
         url: security/
         centered: true
@@ -87,7 +99,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг сервиса
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Правила тарификации
         url: pricing
         centered: true
@@ -96,7 +110,9 @@ blocks:
       - type: basic-card
         title: История изменений
         text: Перечень обновлений сервиса
-        icon: ../_assets/console-icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: История изменений
         url: release-notes
         centered: true
@@ -105,7 +121,9 @@ blocks:
       - type: basic-card
         title: Решение проблем
         text: Узнайте, как решать проблемы при работе с сервисом
-        icon: ../_assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         urlTitle: Решение проблем
         url: qa/troubleshooting
         centered: true
@@ -114,7 +132,9 @@ blocks:
       - type: basic-card
         title: Справочник CLI
         text: Управляйте ресурсами сервиса из командной строки
-        icon: ../_assets/console-icons/terminal.svg
+        gravityIcon:
+          name: Terminal
+          color: text-color
         urlTitle: Справочник CLI
         url: cli-ref/
         centered: true
@@ -123,7 +143,9 @@ blocks:
       - type: basic-card
         title: Справочник Terraform
         text: Создавайте и изменяйте ресурсы сервиса с помощью Terraform
-        icon: ../_assets/console-icons/cube.svg
+        gravityIcon:
+          name: Cube
+          color: text-color
         urlTitle: Справочник Terraform
         url: tf-ref
         centered: true
@@ -132,7 +154,9 @@ blocks:
       - type: basic-card
         title: Справочник API
         text: Используйте методы HTTP API для управления сервисом
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: Справочник API
         url: backup/api-ref/
         centered: true
@@ -151,7 +175,9 @@ blocks:
         title: Условия использования
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         text: >
           Инфраструктура Yandex Cloud
           [защищена](https://yandex.cloud/ru/docs/security/conform#law) в
@@ -169,7 +195,9 @@ blocks:
         title: Уровень обслуживания
         border: shadow
         size: s
-        icon: ../_assets/console-icons/file-check.svg
+        gravityIcon:
+          name: FileCheck
+          color: text-color
         text: >
           * [Уровень обслуживания Yandex Cloud
           Backup](https://yandex.ru/legal/cloud_sla_backup)

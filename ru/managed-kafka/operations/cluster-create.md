@@ -1581,6 +1581,7 @@ description: Следуя данной инструкции, вы сможете
   Выполните следующую команду:
 
   
+  
   ```bash
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
@@ -1597,6 +1598,8 @@ description: Следуя данной инструкции, вы сможете
      --security-group-ids {{ security-group }} \
      --deletion-protection
   ```
+
+
 
 
 
@@ -1621,6 +1624,7 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
 
+  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -1672,6 +1676,8 @@ description: Следуя данной инструкции, вы сможете
     }
   }
   ```
+
+
 
 
 {% endlist %}

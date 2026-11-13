@@ -33,7 +33,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Создайте свой первый кластер
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Как начать работать с Yandex Managed Service for Apache Airflow™
         url: quickstart
         centered: true
@@ -41,7 +43,9 @@ blocks:
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
-        icon: _assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: >-
           Все пошаговые инструкции для Yandex Managed Service for Apache
           Airflow™
@@ -51,7 +55,9 @@ blocks:
       - type: basic-card
         title: Концепции
         text: Изучите основные термины и понятия, используемые в сервисе
-        icon: _assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Все понятия в Yandex Managed Service for Apache Airflow™
         url: concepts/index
         centered: true
@@ -59,7 +65,9 @@ blocks:
       - type: basic-card
         title: Практические руководства
         text: Решайте типовые задачи при помощи сервиса
-        icon: _assets/icons/book.svg
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Практические руководства Yandex Managed Service for Apache Airflow™
         url: tutorials/index
         centered: true
@@ -67,7 +75,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Правила тарификации для Yandex Managed Service for Apache Airflow™
         url: pricing
         centered: true
@@ -75,7 +85,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для работы с сервисом
-        icon: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом в Yandex Managed Service for Apache Airflow™
         url: security/index
         centered: true
@@ -83,7 +95,9 @@ blocks:
       - type: basic-card
         title: Справочник API (англ.)
         text: "Используйте методы HTTP\_API для управления кластерами"
-        icon: _assets/icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         urlTitle: "Описание методов HTTP\_API"
         url: api-ref/authentication
         centered: true
@@ -91,7 +105,9 @@ blocks:
       - type: basic-card
         title: История изменений
         text: Перечень обновлений сервиса
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: История изменений в Yandex Managed Service for Apache Airflow™
         url: release-notes
         centered: true
@@ -125,7 +141,9 @@ blocks:
           DSS](https://yandex.cloud/ru/docs/security/conform#pci-dss)
 
           * [Стандарты ISO](https://yandex.cloud/ru/docs/security/conform#iso)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
       - type: basic-card
@@ -136,7 +154,9 @@ blocks:
           * [Уровень обслуживания Сервиса Управления для Apache Airflow™ /
           Yandex Managed Service for Apache
           Airflow™](https://yandex.ru/legal/cloud_sla_airflow/ru/)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
   - type: content-layout-block

@@ -822,7 +822,7 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [List](api-ref/Versions/list.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик Managed Service for MySQL®](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

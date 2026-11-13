@@ -44,9 +44,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/rocket.svg
-          dark: assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
@@ -55,9 +55,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/list-ol.svg
-          dark: assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
       - type: basic-card
         title: Концепции
         text: Изучите основные термины и понятия, используемые в сервисе
@@ -66,9 +66,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/bookmark.svg
-          dark: assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
       - type: basic-card
         title: Оплата ресурсов
         text: >-
@@ -78,9 +78,9 @@ blocks:
         url: payment/index
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/receipt.svg
-          dark: assets/icons/receipt.svg
+        gravityIcon:
+          name: Receipt
+          color: text-color
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для управления платежным аккаунтом
@@ -89,9 +89,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/persons-lock.svg
-          dark: assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: Правила тарификации
         text: Изучите цены и тарифы на использование сервисов Yandex Cloud
@@ -100,9 +100,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/calculator.svg
-          dark: assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
       - type: basic-card
         title: Вопросы и ответы
         text: Узнайте ответы на часто задаваемые вопросы
@@ -111,9 +111,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/circle-question.svg
-          dark: assets/icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
       - type: basic-card
         title: Справочник API (англ.)
         text: Используйте REST API для управления платежным аккаунтом
@@ -122,7 +122,7 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/code.svg
-          dark: assets/icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
 links: []

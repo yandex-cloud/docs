@@ -42,6 +42,8 @@ items:
         items:
           - name: Установить уведомления
             href: operations/budgets.md
+          - name: Зарезервировать потребление (CVoS)
+            href: operations/purchase-cvos.md
       - name: Оплата услуг
         items:
           - name: Активировать промокод
@@ -92,6 +94,8 @@ items:
         href: concepts/reporting-period.md
       - name: Pay as you go
         href: concepts/payg.md
+      - name: Резервируемое потребление (CVoS)
+        href: concepts/cvos.md
       - name: Free tier
         href: concepts/serverless-free-tier.md
       - name: Бюджет

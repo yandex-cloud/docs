@@ -30,9 +30,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/rocket.svg
-          dark: assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
       - type: basic-card
         title: Step-by-step guides
         text: Follow our guides for routine operations
@@ -41,9 +41,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/list-ol.svg
-          dark: assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
@@ -52,9 +52,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/sliders.svg
-          dark: assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
       - type: basic-card
         title: Manage access
         text: Configure access permissions for the service
@@ -63,9 +63,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/persons-lock.svg
-          dark: assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
       - type: basic-card
         title: Pricing policy
         text: Service pricing and cost calculation
@@ -74,9 +74,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/calculator.svg
-          dark: assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
       - type: basic-card
         title: Release notes
         text: Releases and updates
@@ -85,9 +85,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: assets/icons/timeline.svg
-          dark: assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
   - type: content-layout-block
     textContent:
       title: ''

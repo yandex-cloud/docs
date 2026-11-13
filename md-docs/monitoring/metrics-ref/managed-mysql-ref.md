@@ -2,11 +2,17 @@
 
 # Метрики Yandex Managed Service for MySQL®
 
-В этом разделе описаны метрики сервиса [Managed Service for MySQL®](../../managed-mysql/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [Managed Service for MySQL®](../../managed-mysql/index.md), автоматически передаваемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for MySQL®: 
+Для поиска метрик Managed Service for MySQL® в Monium укажите метки:
+
+* `project = folder__<идентификатор_каталога>` — проект каталога, в котором находится кластер Managed Service for MySQL®.
+* `cluster = default` — кластер Monium. Идентификатор кластера Managed Service for MySQL® задается отдельно, в метке `resource_id`.
+* `service = __managed-mysql__`.
+
+Общие метки для всех метрик сервиса Managed Service for MySQL®:
 
 Метка | Значение
 ----|----
@@ -15,7 +21,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `replica`
 resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
-service | Идентификатор сервиса: `managed-mysql`
+service | Идентификатор сервиса: `__managed-mysql__` в Monium, `managed-mysql` в Monitoring
 shard | Идентификатор шарда
 subcluster_name | Имя субкластера
 

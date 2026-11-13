@@ -6,7 +6,7 @@
 
 * {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_offer }} is a document which is freely available online and does not have to be signed by both parties.
 
-* {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_general }} is an agreement signed by both parties either in the EDM system (available for Russian residents) or in hard copy.
+* {{ ui-key.yacloud_org.billing.account.dashboard-info.contract_label_general }} is an agreement signed by both parties either in the EDM system (available in the [Russia region](../../overview/concepts/region.md) for Russian residents only) or in hard copy.
 
 ## Residents of Russia {#residents}
 

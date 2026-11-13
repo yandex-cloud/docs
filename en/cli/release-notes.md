@@ -7,6 +7,21 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.41.0 (12.10.26) {#v-1-41-0}
+
+#### {{ org-full-name }} {#v-1-41-0-org-name}
+
+* Added the `yc organization-manager authentication-policy-rule` command group for authentication policy management:
+  * `yc organization-manager authentication-policy-rule get`
+  * `yc organization-manager authentication-policy-rule list`
+  * `yc organization-manager authentication-policy-rule create`
+  * `yc organization-manager authentication-policy-rule update`
+  * `yc organization-manager authentication-policy-rule delete`
+  * `yc organization-manager authentication-policy-rule activate`
+  * `yc organization-manager authentication-policy-rule deactivate`
+
+## Previous releases {#previous-release}
+
 ### Version 1.40.0 (05/10/26) {#v-1-40-0}
 
 #### {{ at-name }} {#v-1-40-0-at-name}
@@ -28,8 +43,6 @@ description: This page presents CLI releases and their updates.
 #### Changes to the CLI system commands {#v-1-40-0-yc}
 
 * Added the warning of the authentication with the Yandex ID OAuth token becoming deprecated.
-
-## Previous releases {#previous-release}
 
 ### Version 1.39.0 (01/10/26) {#v-1-39-0}
 

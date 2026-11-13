@@ -26,7 +26,7 @@
 
        {% endnote %}
 
-     * Разверните собственные политики через Kubernetes API. Поддерживаются любые типы политик. Подробнее — в [документации Kyverno](https://kyverno.io/docs/guides/applying-policies/#via-apis).
+     * Разверните собственные политики через Kubernetes API. Поддерживаются любые типы политик. Подробнее в руководстве [Использование внешних политик Kyverno с KSPM](../tutorials/kspm-external-kyverno-policies.md).
 
 ### 2. Какие типы политик доступны в пользовательских правилах KSPM? {#custom-policy-types}
 

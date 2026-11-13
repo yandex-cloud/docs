@@ -402,6 +402,7 @@ output "network_id" {
     - `disk_type_id` (*Read-Only*) (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (*Read-Only*) (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
 - `cloud_storage` [Block]. Cloud Storage settings.
+  - `bucket_max_size` (*Read-Only*) (Number). Maximum size (in bytes) of the `Yandex Object Storage` bucket used for hybrid storage.
   - `data_cache_enabled` (*Read-Only*) (Bool). Enables temporary storage in the cluster repository of data requested from the object repository.
   - `data_cache_max_size` (*Read-Only*) (Number). Defines the maximum amount of memory (in bytes) allocated in the cluster storage for temporary storage of data requested from the object storage.
   - `enabled` (*Read-Only*) (Bool). Whether to use Yandex Object Storage for storing ClickHouse data. Can be either `true` or `false`.

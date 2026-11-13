@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
   1. Получите идентификатор нужного SSH-ключа, указав полученный ранее идентификатор организации:
 
       ```bash
-      yc organization-manager user-ssh-key list \
+      yc organization-manager oslogin user-ssh-key list \
         --organization-id <идентификатор_организации>
       ```
 
@@ -109,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
      {{ TF }} удалит все требуемые ресурсы. Проверить наличие ресурсов можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../cli/):
 
       ```bash
-      yc organization-manager user-ssh-key list \
+      yc organization-manager oslogin user-ssh-key list \
         --organization-id <идентификатор_организации>
       ```
 

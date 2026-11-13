@@ -78,6 +78,12 @@ Example of calculating the cost of a container with the following properties:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['serverless-containers']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

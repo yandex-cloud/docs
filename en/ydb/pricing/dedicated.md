@@ -106,6 +106,12 @@ The price covers one month of use. The minimum billing unit is 1 GB per hour; e.
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['ydb']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

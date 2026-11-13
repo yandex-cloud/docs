@@ -72,7 +72,7 @@
      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../cli/):
 
      ```bash
-     yc organization-manager group list-memebers \
+     yc organization-manager group list-members \
        --name <имя_группы> \
        --organization-id <идентификатор_организации>
      ```

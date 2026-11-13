@@ -96,6 +96,12 @@ blocks:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['postbox']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

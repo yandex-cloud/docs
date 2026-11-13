@@ -9,7 +9,7 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 - Residents of Russia {#russia}
 
   Russian residents can:
-  * Receive documents by way of [electronic document management](../concepts/edo.md) (EDM).
+  * Receive documents by way of electronic document (EDM) management.
   * [Download documents in {{ billing-name }}](../operations/download-reporting-docs.md). 
 
   If you have used your personal account funds during the reporting period, a [report](../concepts/act.md) and a [tax invoice](../concepts/invoice.md) will be delivered to you as follows:

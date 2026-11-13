@@ -93,7 +93,7 @@ Managed Service for MySQL® позволяет использовать сете
 Чтобы вывести кластер Managed Service for MySQL® из режима read-only, [увеличьте размер хранилища](../operations/update.md#change-disk-size).
 
 
-Для отслеживания степени заполнения хранилища [настройте алерты в Yandex Monitoring](../operations/monitoring.md#monitoring-integration).
+Для отслеживания степени заполнения хранилища [настройте алерты в Yandex Monium](../operations/monitoring.md#monitoring-integration).
 
 
 ### Автоматическое увеличение размера хранилища {#disk-size-autoscaling}

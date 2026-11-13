@@ -4,6 +4,65 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.248.0 (November 13, 2026)
+
+##### WARNING:
+* kubernetes: deprecate `master.master_logging.log_group_id` in `yandex_kubernetes_cluster`; remove it from configurations because Yandex Cloud Logging is decommissioned
+
+
+
+## 0.247.0 (November 12, 2026)
+
+##### BUG FIXES:
+* logging: allow explicitly skipping the log group sweeper with YC_SKIP_LOGGING_GROUP_SWEEPING=1 when Cloud Logging is unavailable in the test environment
+
+
+
+## 0.246.0 (November 11, 2026)
+
+##### FEATURES:
+* mdb_clickhouse: add `cloud_storage.bucket_max_size` support to `yandex_mdb_clickhouse_cluster_v2` resource and data source
+
+##### BUG FIXES:
+* postgresql: do not wait for host roles before adding, updating or deleting hosts of `yandex_mdb_postgresql_cluster`: these steps do not use the roles, and a host in `ROLE_UNKNOWN` state made each of them wait about two minutes. Before a failover only the role of the target host is awaited, and a failover to a host that does not report its role is no longer started: such a task fails in the worker and leaves the cluster in `MODIFY-ERROR`
+* mysql: do not wait for a MASTER host when reading hosts of `yandex_mdb_mysql_cluster_v2`; the resource does not expose host roles, so the wait only delayed a refresh of a cluster without a master by about two minutes
+* postgresql: do not wait for a MASTER host when reading hosts of `yandex_mdb_postgresql_cluster_v2`; the resource does not expose host roles, so the wait only delayed a refresh of a cluster without a master by about two minutes
+
+
+
+## 0.245.0 (November 9, 2026)
+
+##### BUG FIXES:
+* postgresql: do not wait for a MASTER host when reading a cluster in `STOPPED` status in `yandex_mdb_postgresql_cluster` resource, data source and `yandex_mdb_postgresql_cluster_v2`; such a refresh took about two minutes per cluster
+* mysql: do not wait for a MASTER host when reading a cluster in `STOPPED` status in `yandex_mdb_mysql_cluster_v2`; such a refresh took about two minutes per cluster
+* postgresql: wait only for the MASTER host, not for every host role, when refreshing `yandex_mdb_postgresql_cluster` (resource, data source) and `yandex_mdb_postgresql_cluster_v2`; a refresh of a cluster with a host in `ROLE_UNKNOWN` took about two minutes
+* mysql: wait only for the MASTER host, not for every host role, when refreshing `yandex_mdb_mysql_cluster_v2`; a refresh of a cluster with a host in `ROLE_UNKNOWN` took about two minutes
+* trino: `yandex_trino_catalog` keeps the catalog in state as tainted when waiting for its operation fails, default catalog timeouts are raised to 60m, catalog and access control operations on one cluster are serialized
+
+##### ENHANCEMENTS:
+* organizationmanager: change `obligations` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `networks_include` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `obligations` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `subjects_include` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `networks_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `subjects_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `applications_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `subjects_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `applications_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `applications_include` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `networks_include` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+* organizationmanager: change `networks_exclude` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `subjects_include` in `yandex_organizationmanager_policy_authentication_policy_rule` data source
+* organizationmanager: change `applications_include` in `yandex_organizationmanager_policy_authentication_policy_rule` resource
+
+##### WARNING:
+* organizationmanager: change `obligations.step_up_required` in `yandex_organizationmanager_policy_authentication_policy_rule` resource from optional+computed to optional
+* organizationmanager: change `obligations.reauthentication_required` in `yandex_organizationmanager_policy_authentication_policy_rule` resource from optional+computed to optional
+* organizationmanager: change `obligations.skip_mfa` in `yandex_organizationmanager_policy_authentication_policy_rule` resource from optional+computed to optional
+* organizationmanager: change `obligations.skip_mfa.require_once` in `yandex_organizationmanager_policy_authentication_policy_rule` data source from computed to optional+computed
+
+
+
 ## 0.244.0 (November 4, 2026)
 
 ##### FEATURES:

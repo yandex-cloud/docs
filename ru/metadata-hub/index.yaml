@@ -30,7 +30,9 @@ blocks:
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения сервиса
-        icon: _assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Квоты в Yandex MetaData Hub
         url: ./concepts/limits
         centered: true
@@ -38,7 +40,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Как настроить права доступа для работы с сервисом
-        icon: _assets/icons/lock.svg
+        gravityIcon:
+          name: Lock
+          color: text-color
         urlTitle: Управление доступом в Yandex MetaData Hub
         url: ./security/index
         centered: true
@@ -46,7 +50,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг
-        icon: _assets/icons/tag-ruble.svg
+        gravityIcon:
+          name: TagRuble
+          color: text-color
         urlTitle: Правила тарификации для Yandex MetaData Hub
         url: pricing
         centered: true
@@ -54,7 +60,9 @@ blocks:
       - type: basic-card
         title: История изменений
         text: Обновления и изменения
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: История изменений Yandex MetaData Hub
         url: release-notes/index
         centered: true
@@ -75,14 +83,18 @@ blocks:
         urlTitle: Подключение
         url: ./concepts/connection-manager
         size: s
-        icon: _assets/icons/plug-connection.svg
+        gravityIcon:
+          name: PlugConnection
+          color: text-color
       - type: basic-card
         title: Apache Hive™ Metastore
         text: Создание и управление кластерами Apache Hive™ Metastore.
         urlTitle: Кластеры Apache Hive™ Metastore
         url: concepts/metastore
         size: s
-        icon: _assets/icons/database.svg
+        gravityIcon:
+          name: Database
+          color: text-color
       - type: basic-card
         title: Schema Registry
         text: >-
@@ -91,7 +103,9 @@ blocks:
         urlTitle: Реестр схем данных
         url: ./concepts/schema-registry
         size: s
-        icon: _assets/icons/layout-cells.svg
+        gravityIcon:
+          name: LayoutCells
+          color: text-color
       - type: basic-card
         title: Data Catalog
         text: >-
@@ -100,7 +114,9 @@ blocks:
         urlTitle: Каталог метаданных
         url: concepts/data-catalog
         size: s
-        icon: _assets/icons/folder-magnifier.svg
+        gravityIcon:
+          name: FolderMagnifier
+          color: text-color
   - type: content-layout-block
     textContent:
       title: ''

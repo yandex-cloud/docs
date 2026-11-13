@@ -151,6 +151,12 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 There are two cost components: the [{{ compute-full-name }} computing resources](../compute/pricing.md#prices) and the {{ mmy-name }} markup on these resources.
 
+<MDX>
+  <Calculator
+    services={['managed-mysql']} collapsible
+  />
+</MDX>
+
 
 
 

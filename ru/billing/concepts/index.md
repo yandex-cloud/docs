@@ -15,6 +15,7 @@ description: В Billing {{ yandex-cloud }} используются следую
 * [{#T}](organization.md)
 * [{#T}](reporting-period.md)
 * [{#T}](payg.md)
+* [{#T}](cvos.md)
 * [{#T}](serverless-free-tier.md)
 * [{#T}](budget.md)
 * [{#T}](contract.md)

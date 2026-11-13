@@ -33,7 +33,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Создайте свой первый кластер
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Как начать работать с Managed Service for Apache Kafka®
         url: quickstart
         centered: true
@@ -41,7 +43,9 @@ blocks:
       - type: basic-card
         title: Пошаговые инструкции
         text: Следуйте инструкциям для выполнения рутинных операций
-        icon: _assets/icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         urlTitle: Все пошаговые инструкции для Managed Service for Apache Kafka®
         url: operations/index
         centered: true
@@ -49,7 +53,9 @@ blocks:
       - type: basic-card
         title: Концепции
         text: Изучите основные термины и понятия, используемые в сервисе
-        icon: _assets/icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         urlTitle: Все понятия
         url: concepts/index
         centered: true
@@ -57,7 +63,9 @@ blocks:
       - type: basic-card
         title: Практические руководства
         text: Решайте типовые задачи при помощи сервиса
-        icon: _assets/icons/book.svg
+        gravityIcon:
+          name: Book
+          color: text-color
         urlTitle: Практические руководства Managed Service for Apache Kafka®
         url: tutorials/index
         centered: true
@@ -65,7 +73,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Цены и правила расчета стоимости услуг
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Правила тарификации для Managed Service for Apache Kafka®
         url: pricing
         centered: true
@@ -73,7 +83,9 @@ blocks:
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения сервиса
-        icon: _assets/icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Квоты в Managed Service for Apache Kafka®
         url: concepts/limits
         centered: true
@@ -81,7 +93,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для работы с сервисом
-        icon: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом в Managed Service for Apache Kafka®
         url: security/index
         centered: true
@@ -89,7 +103,9 @@ blocks:
       - type: basic-card
         title: Обучающие курсы
         text: Информация о доступных программах обучения
-        icon: _assets/icons/graduation-cap.svg
+        gravityIcon:
+          name: GraduationCap
+          color: text-color
         urlTitle: Обучающие курсы по Yandex Managed Service for Apache Kafka®
         url: training
         centered: true
@@ -123,7 +139,9 @@ blocks:
           DSS](https://yandex.cloud/ru/docs/security/conform#pci-dss)
 
           * [Стандарты ISO](https://yandex.cloud/ru/docs/security/conform#iso)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
       - type: basic-card
@@ -134,7 +152,9 @@ blocks:
           * [Уровень обслуживания Сервиса Управления (для Apache Kafka®) /
           Yandex Managed Service (for Apache
           Kafka®)](https://yandex.ru/legal/cloud_sla_kfk/ru/)
-        icon: _assets/icons/file-text.svg
+        gravityIcon:
+          name: FileText
+          color: text-color
         centered: true
         size: s
   - type: content-layout-block

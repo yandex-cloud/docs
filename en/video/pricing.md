@@ -46,6 +46,12 @@ Learn more about the neural network functions in [AI features](../video/concepts
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['video']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

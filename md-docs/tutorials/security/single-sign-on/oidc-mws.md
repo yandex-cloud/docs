@@ -30,7 +30,7 @@
     * Подтвердите регистрацию, перейдя в письме по ссылке **Подтвердить почту**.
     * Примите условия пользовательского соглашения и нажмите кнопку **Войти в консоль**.
 1. В меню слева перейдите в **Организация**, затем в **Об организации**.
-1. Сохраните ID вашей организации MWS (например, `organization-test`), который потребуется для настройки интеграции.
+1. Сохраните идентификатор вашей организации MWS (например, `organization-test`), который потребуется для настройки интеграции.
 
 ## Создайте приложение {#create-app}
 
@@ -122,7 +122,6 @@
      ```
 
      Сохраните значение поля `secret_value`, оно понадобится для настройки MWS.
-  
   1. Создайте OIDC-приложение:
 
      ```bash
@@ -211,7 +210,7 @@
      yc organization-manager idp application oauth application get <идентификатор_приложения>
      ```
 
-     Где `<идентификатор_приложения>` — это ID OIDC-приложения, полученный при создании.
+     Где `<идентификатор_приложения>` — это идентификатор OIDC-приложения, полученный при создании.
 
      В результате вы получите информацию о приложении, включая:
 
@@ -246,11 +245,11 @@
 
 #### Настройте федерацию {#setup-federation}
 
-1. Войдите в [консоль вашей организации](https://org.mws.ru).
+1. Войдите в [консоль вашей организации](https://console.mws.ru/).
 1. В левой панели выберите раздел **Федерации**.
 1. Нажмите кнопку **Создать**.
 1. Настройте федерацию:
-    1. Задайте имя федерации. Сохраните ID федерации (например, `federation-test`), который потребуется для настройки интеграции.
+    1. Задайте имя федерации. Сохраните идентификатор федерации (например, `federation-test`), который потребуется для настройки интеграции.
     1. (Опционально) Выберите роли, которые будут назначены пользователям, авторизованным через федерацию.
 
         {% note info %}
@@ -272,9 +271,9 @@
 1. В поле **Client ID** введите значение, скопированное ранее из поля **ClientID**.
 1. В поле **Client Secret** введите сгенерированный ранее секрет приложения.
 1. В блоке **Способ получения данных** выберите значение **Token Endpoint и UserInfo Endpoint** и нажмите **Далее**.
-1. Напротив атрибута `mws.subject` в поле **IdP** введите `preferred_username` и нажмите **Далее**.
+1. Напротив атрибута `mws.subject` в поле **IdP** введите `sub` и нажмите **Далее**.
 1. Проверьте конфигурацию и нажмите **Создать**.
-1. После завершения настройки снова выберите добавленный IdP в разделе **Федерации**, после чего сохраните ID провайдера (например, `-testprov`), который потребуется для настройки интеграции.
+1. После завершения настройки снова выберите добавленный IdP в разделе **Федерации**, после чего сохраните идентификатор провайдера (например, `testprov`), который потребуется для настройки интеграции.
 
 ### Настройте Redirect URI {#setup-redirect}
 
@@ -285,7 +284,7 @@
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
   1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
-      1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашей федерации MWS в формате:
+      1. В поле **Redirect URI** укажите Redirect URI федерации MWS в формате:
 
           ```text
           https://auth.mws.ru/api/iam/v1/organizations/<идентификатор_организации>/userFederations/<идентификатор_созданной_федерации>/providers/<идентификатор_провайдера>/login-callback
@@ -294,7 +293,7 @@
           Например: 
 
           ```text
-          https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
+          https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/testprov/login-callback
           ```
       1. В блоке **Безопасность OAuth/OIDC** отключите опцию **Требовать PKCE**, чтобы приложение Yandex Identity Hub при обмене данными не требовало от внешнего приложения использовать расширение безопасности [PKCE](*pkce_info).
          
@@ -318,21 +317,20 @@
   ```
 
   Где:
-  
   * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
-  * `--redirect-uris` — эндпоинт аутентификации для вашей федерации MWS. Например: 
+  * `--redirect-uris` — Redirect URI федерации MWS. Например: 
 
      ```text
-     https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
+     https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/testprov/login-callback
      ```
 
   Результат:
 
   ```text
-  id: ajeiu3otac08********
-  name: mws-oidc-app
+  id: ajeqqip130i1********
+  name: mws-oauth-client
   redirect_uris:
-    - https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
+    - https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/testprov/login-callback
   scopes:
     - openid
     - email
@@ -381,28 +379,20 @@
   1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md) или [группы пользователей](../../../organization/operations/group-get-id.md).
 
   1. Чтобы добавить в приложение пользователя или группу пользователей:
-   
      1. Посмотрите описание команды CLI для добавления пользователей в приложение:
-   
         ```bash
         yc organization-manager idp application oauth application add-assignments --help
         ```
-   
      1. Выполните команду:
-   
         ```bash
         yc organization-manager idp application oauth application add-assignments \
           --id <идентификатор_приложения> \
           --subject-id <идентификатор_пользователя_или_группы>
         ```
-   
         Где:
-   
         * `--id` — идентификатор OIDC-приложения.
         * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
-   
         Результат:
-   
         ```text
         assignment_deltas:
           - action: ADD
@@ -426,7 +416,7 @@
 
 Для этого:
 
-1. В браузере перейдите в [консоль вашей организации](https://org.mws.ru).
+1. В браузере перейдите в [консоль вашей организации](https://console.mws.ru/).
 1. В левой панели выберите раздел **Федерации**.
 1. Выберите добавленный ранее IdP.
 1. На странице провайдера скопируйте из секции **Основное** значение **Sign In URL**. Это ссылка для входа в консоль MWS в качестве пользователя федерации.

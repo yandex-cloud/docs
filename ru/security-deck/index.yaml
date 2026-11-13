@@ -104,7 +104,9 @@ blocks:
       - type: basic-card
         title: Начало работы
         text: Настройте первое окружение
-        icon: _assets/icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Начало работы с Yandex Security Deck
         url: quickstart-overview
         centered: true
@@ -113,7 +115,9 @@ blocks:
       - type: basic-card
         title: Правила тарификации
         text: Изучите цены и тарифы
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Правила тарификации Yandex Security Deck
         url: pricing
         centered: true
@@ -122,7 +126,9 @@ blocks:
       - type: basic-card
         title: Управление доступом
         text: Настройте права доступа для работы с сервисом
-        icon: _assets/icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Управление доступом в Yandex Security Deck
         url: security/index
         centered: true
@@ -131,7 +137,9 @@ blocks:
       - type: basic-card
         title: История изменений
         text: Обновления и изменения в сервисе
-        icon: _assets/icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         urlTitle: История изменений Yandex Security Deck
         url: release-notes
         centered: true
@@ -172,7 +180,9 @@ blocks:
         urlTitle: Access Analyzer
         url: concepts/access-analyzer
         size: s
-        icon: _assets/icons/ciem.svg
+        gravityIcon:
+          name: PersonGear
+          color: text-color
         iconPosition: left
         animated: false
       - type: basic-card
@@ -181,7 +191,9 @@ blocks:
         urlTitle: Контроль конфигурации (CSPM)
         url: concepts/cspm
         size: s
-        icon: _assets/icons/cspm.svg
+        gravityIcon:
+          name: ShieldCheck
+          color: text-color
         iconPosition: left
         animated: false
       - type: basic-card
@@ -190,7 +202,9 @@ blocks:
         urlTitle: Обнаружение угроз (TD)
         url: concepts/threat-detector
         size: s
-        icon: _assets/icons/td.svg
+        gravityIcon:
+          name: ShieldExclamation
+          color: text-color
         iconPosition: left
         animated: false
       - type: basic-card
@@ -208,7 +222,9 @@ blocks:
         urlTitle: Access Transparency
         url: concepts/access-transparency
         size: s
-        icon: _assets/icons/at.svg
+        gravityIcon:
+          name: At
+          color: text-color
         iconPosition: left
         animated: false
       - type: basic-card

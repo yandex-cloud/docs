@@ -41,7 +41,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле инфраструктуру, удалив нужную [группу](../../organization/concepts/groups.md):
+  1. Найдите в конфигурационном файле блок ресурса `yandex_organizationmanager_group`, который соответствует удаляемой группе, например:
 
      ```hcl
      resource "yandex_organizationmanager_group" "my-group" {
@@ -51,24 +51,12 @@
      }
      ```
 
-     Где:
-     * `name` — название группы. Название должно быть уникальным в организации и соответствовать требованиям:
-
-        {% include [group-name-format](group-name-format.md) %}
-
-     * `description` — описание группы. Необязательный параметр.
-     * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой нужно присоединить группу.
-  1. Создайте ресурсы:
+     Удалите этот блок из конфигурации. Не удаляйте блоки других ресурсов.
+  1. Примените изменения:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../cli/):
-
-     ```bash
-     yc organization-manager group list-members \
-       --name <имя_группы> \
-       --organization-id <идентификатор_организации>
-     ```
+     {{ TF }} удалит группу. Проверить ее отсутствие можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

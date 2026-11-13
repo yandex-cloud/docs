@@ -1,12 +1,18 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for MySQL®](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for MySQL®](index.md) > Справочник метрик Managed Service for MySQL®
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Managed Service for MySQL®
 
-В этом разделе описаны метрики сервиса Managed Service for MySQL®, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+Метрики сервиса Managed Service for MySQL® автоматически передаются в [Monium Metrics](../monium/metrics/quickstart.md), в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for MySQL®: 
+Для поиска метрик Managed Service for MySQL® в Monium укажите метки:
+
+* `project = folder__<идентификатор_каталога>` — проект каталога, в котором находится кластер Managed Service for MySQL®.
+* `cluster = default` — кластер Monium. Идентификатор кластера Managed Service for MySQL® задается отдельно, в метке `resource_id`.
+* `service = __managed-mysql__`.
+
+Общие метки для всех метрик сервиса Managed Service for MySQL®:
 
 Метка | Значение
 ----|----
@@ -15,7 +21,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `replica`
 resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
-service | Идентификатор сервиса: `managed-mysql`
+service | Идентификатор сервиса: `__managed-mysql__` в Monium, `managed-mysql` в Monitoring
 shard | Идентификатор шарда
 subcluster_name | Имя субкластера
 
@@ -282,3 +288,5 @@ subcluster_name | Имя субкластера
 #### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера MySQL® и хостов](operations/monitoring.md)
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

@@ -18,7 +18,7 @@ For the {{ backup-name }} connection to work correctly, link to the VM a [servic
 
 {% endnote %}
 
-After connecting to {{ backup-name }}, [associate](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) your VM with a [backup policy](../policy.md).
+After connecting to {{ backup-name }}, [associate](../../operations/policy-vm/attach-and-detach-vm.md) your VM with a [backup policy](../policy.md).
 
 {% note info %}
 
@@ -73,7 +73,7 @@ You can manually install the {{ backup-name }} agent on a VM. For more informati
 * [Guide for Linux](../../operations/connect-vm-linux.md)
 * [Guide for Windows](../../operations/connect-vm-windows.md)
 
-For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
+For a complete list of supported operating systems, see the [backup provider guides](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/{{ backup-provider-docs-version }}/user/supported-operating-systems-and-environments.html).
 
 If you have issues installing the {{ backup-name }} agent, [contact]({{ link-console-support }}) support.
 

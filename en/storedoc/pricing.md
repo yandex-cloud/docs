@@ -125,6 +125,12 @@ Prices for computing resources are the same for all host types: `mongod`, `mongo
 
 Access to ultra-high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
+<MDX>
+  <Calculator
+    services={['storedoc']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

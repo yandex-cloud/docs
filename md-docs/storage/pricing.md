@@ -16,7 +16,9 @@ blocks:
       - type: basic-card
         title: Калькулятор цен
         text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Калькулятор цен
         url: https://yandex.cloud/ru/prices?state=83e1258e152c#calculator
         size: s
@@ -28,7 +30,9 @@ blocks:
       - type: basic-card
         title: Прайс-лист
         text: Актуальные тарифы на все наши услуги
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon:
+          name: CircleRuble
+          color: text-color
         urlTitle: Прайс-лист
         url: https://yandex.cloud/ru/price-list?services=dn2li5qddoc5cad2n6br
         size: s
@@ -40,7 +44,9 @@ blocks:
       - type: basic-card
         title: Акции и free tier
         text: Гранты, специальные условия и программы поддержки
-        icon: _assets/icons/flame.svg
+        gravityIcon:
+          name: Flame
+          color: text-color
         urlTitle: Акции и free tier
         url: https://yandex.cloud/ru/all-offers
         size: s
@@ -125,6 +131,8 @@ blocks:
 Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта в разделе [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
+
+
 
 
 | Услуга                                                                                                                                                    | Цена              | Ед. тарификации     | Действует с     | Действует до |

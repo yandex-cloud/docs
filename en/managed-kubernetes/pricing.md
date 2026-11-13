@@ -39,6 +39,12 @@ If the cluster is stopped, master resources are not billable. You pay only for c
 
 ### Master {#master}
 
+<MDX>
+  <Calculator
+    services={['managed-kubernetes']} collapsible
+  />
+</MDX>
+
 
 
 

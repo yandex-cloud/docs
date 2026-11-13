@@ -7,11 +7,54 @@ description: Из статьи вы узнаете, какие бывают ош
 
 ## Existing Kyverno installation detected and has to be removed manually {#existing-kyverno-installation}
 
-В кластере ранее был установлен Admission Controller на базе Kyverno. Для корректной работы {{ kspm-name }} Admission Controller требуется отсутствие Kyverno при установке. При удалении версии Kyverno также нужно удалить все [CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions), созданные Kyverno:
+Установке {{ kspm-name }} мешают [CRD](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions) Kyverno, не принадлежащие {{ kspm-name }}. Для корректной работы {{ kspm-name }} Admission Controller требуется отсутствие Kyverno при установке. Если вам нужны собственные политики, используйте [пользовательские правила](../concepts/custom-rules.md) {{ sd-name }} или [устанавливайте внешние политики Kyverno](../tutorials/kspm-external-kyverno-policies.md) после установки {{ kspm-name }}.
 
-```bash
-kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
-```
+{% cut "Чтобы удалить конфликтующие CRD:" %}
+
+1. Получите полный список конфликтующих CRD:
+
+   ```bash
+   kubectl get crd -l 'kspm.yandex.cloud/managed-by!=kspm' \
+     -o custom-columns=NAME:.metadata.name,GROUP:.spec.group --no-headers \
+     | awk '$2 ~ /(^|\.)kyverno\.io$/ || $2 == "wgpolicyk8s.io" {print $1}'
+   ```
+
+   Результат:
+   
+   ```text
+   clusterpolicies.kyverno.io
+   policyreports.wgpolicyk8s.io
+   validatingpolicies.policies.kyverno.io
+   ```
+
+1. До удаления сохраните определения выбранных CRD, исходные манифесты политик и необходимые данные. Для каждого выбранного CRD выгрузите его ресурсы во всех пространствах имен. Например, для `validatingpolicies.policies.kyverno.io`:
+
+   ```bash
+   crd_name=validatingpolicies.policies.kyverno.io
+   kubectl get crd "$crd_name" -o yaml > "$crd_name.crd.yaml"
+   kubectl get "$crd_name" --all-namespaces -o yaml > "$crd_name.resources.yaml"
+   ```
+
+   {% note info %}
+   
+   Удаление CRD удаляет все ресурсы этого типа во всем кластере. Если CRD используется другими инструментами, согласуйте с их владельцами порядок удаления и восстановления.
+   
+   {% endnote %}
+
+1. Удалите прежнюю установку Kyverno штатным для нее способом.
+
+1. Удалите только выбранные и проверенные CRD, если они остались после удаления Kyverno на предыдущем шшаге.
+В команде укажите имя CRD, для которого уже сохранены данные:
+
+   ```bash
+   kubectl delete crd "$crd_name"
+   ```
+
+1. Дождитесь установки: KSPM периодически повторяет проверку и продолжит установку после удаления всех конфликтующих CRD. Если часть CRD осталась, сообщение об ошибке обновится и покажет оставшиеся имена.
+
+1. При необходимости после готовности KSPM восстановите совместимые внешние политики из сохраненных манифестов и проверьте их работу.
+
+{% endcut %}
 
 ## Unable to check for existing Kyverno installation {#kyverno-check-error}
 

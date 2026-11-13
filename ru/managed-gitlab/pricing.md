@@ -166,6 +166,12 @@ blocks:
 
 Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md).
 
+<MDX>
+  <Calculator
+    services={['managed-gitlab']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

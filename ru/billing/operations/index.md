@@ -31,6 +31,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Оптимизация расходов {#cost-optimization}
 
 * [{#T}](budgets.md)
+* [{#T}](purchase-cvos.md)
 
 
 ## Оплата услуг {#payment}

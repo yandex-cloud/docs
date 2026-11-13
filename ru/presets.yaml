@@ -2644,6 +2644,7 @@ default:
         filter_label-labels-all: Все метки
         filter_label-products-all: Все продукты
         filter_label-services-all: Все сервисы
+        label_credit-cudCredit: Скидка на резервируемое потребление
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         label_deselected-all: Очистить
@@ -2778,6 +2779,7 @@ default:
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
             section_contract: Информация о договоре
+            usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
             action_download-without-facsimile: Скачать акт без подписи
@@ -2790,6 +2792,7 @@ default:
           switch_expences: История расходов
           switch_exports: Экспорт детализации
           switch_history: История платежей
+          switch_offers: Резервируемый объём
           switch_users: Управление доступом
           tab_acts-title: Закрывающие документы
           tab_reconciliation-reports-title: Акты сверки
@@ -2801,6 +2804,9 @@ default:
         accounts:
           button_bind: Привязать
           column_status: Статус
+        cud:
+          purchase:
+            button_purchase: Зарезервировать потребление
         label_service: Yandex Cloud Billing
         title_accounts: Платёжные аккаунты
       common:
@@ -3015,7 +3021,6 @@ default:
           max: Максимум
           min: Минимум
       alert:
-        button_add-channel: Добавить канал
         button_create-alert: Создать алерт
         label_alarm: Alarm
         label_evaluation-period: Окно вычисления
@@ -3025,7 +3030,6 @@ default:
         label_warning: Warning
         section_alert-conditions: Настройки алерта
         section_metrics: Метрики
-        section_notifications: Каналы уведомлений
         status_alarm: Alarm
         status_error: Error
         status_no_data: No data
@@ -3243,6 +3247,8 @@ default:
             previous: Предыдущее значение
         flap-suppressor:
           checkbox: Подавление шума
+        header:
+          create-button: Создать
         label:
           downsampling-fill: Заполнение
           edit-notify-methods: Редактировать
@@ -3296,6 +3302,7 @@ default:
       navigation:
         dialogs:
           button_save: Сохранить
+          title_save-dashboard: Сохранить дашборд
       notification-methods:
         create-button:
           channel: Канал уведомления

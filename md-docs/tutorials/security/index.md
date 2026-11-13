@@ -25,8 +25,8 @@
 * [Передача логов кластера Yandex Managed Service for Kubernetes в Yandex Cloud Logging](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security](balancer-with-sws-profile/index.md)
 * [Создание распределенной инфраструктуры с защищенным доступом](distributed-secured-infrastructure.md)
-* [Централизованная публикация в интернете и защита от DDoS-атак приложений, размещенных в разных каталогах Yandex Cloud](different-folders-services.md)
-* [Настройка дашбордов и алертов в Yandex Monitoring](alerts-monitoring.md)
+* [Централизованная публикация в интернете и защита от DDoS-атак приложений из разных каталогов Yandex Cloud](different-folders-services.md)
+* [Настройка дашбордов и алертов в Yandex Monium](alerts-monitoring.md)
 * [Загрузка аудитных логов в MaxPatrol SIEM](maxpatrol/index.md)
 * [Загрузка аудитных логов в SIEM Splunk](export-logs-to-splunk.md)
 * [Загрузка аудитных логов в SIEM ArcSight](export-logs-to-arcsight.md)
@@ -34,6 +34,7 @@
 * [Получение сведений, необходимых для включения ресурса в белый список Минцифры](info-for-federal-ip-whitelist.md)
 * [Загрузка объектов в бакет Yandex Object Storage с помощью эфемерного ключа доступа](ephemeral-key-storage.md)
 * [Интеграция LiteLLM Proxy с Yandex AI Studio и Monium Traces](traces-for-litellm-proxy.md)
+* [Использование внешних политик Kyverno с KSPM](kspm-external-kyverno-policies.md)
 
 ## Управление федерациями удостоверений {#federations}
 

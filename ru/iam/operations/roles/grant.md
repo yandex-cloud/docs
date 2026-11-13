@@ -27,17 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-{% note tip %}
-
-В {{ TF }} есть следующие типы ресурсов для назначения ролей, например, на каталог:
-
-* [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md) — одна роль одному субъекту.
-* [yandex_resourcemanager_folder_iam_binding](../../../terraform/resources/resourcemanager_folder_iam_binding.md) — все субъекты для одной роли, список которых заменяется при обновлении.
-* [yandex_resourcemanager_folder_iam_policy](../../../terraform/resources/resourcemanager_folder_iam_policy.md) — все назначенные роли на ресурс с заменой текущих.
-
-Рекомендуется использовать `iam_member`. Этот способ позволяет назначить одну роль одному субъекту, не меняя остальные назначенные роли. Не комбинируйте разные типы ресурсов для управления одними и теми же ролями и субъектами.
-
-{% endnote %}
+{% include [terraform-role-assignment-resources](../../../_includes/iam/terraform-role-assignment-resources.md) %}
 
 ## Назначить роль на каталог или облако {#cloud-or-folder}
 

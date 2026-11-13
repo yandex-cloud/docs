@@ -38,7 +38,9 @@ blocks:
         size: s
         urlTitle: "How to create your first folder in Yandex\_Cloud"
         url: quickstart
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -47,7 +49,9 @@ blocks:
         size: s
         urlTitle: "Step-by-step guides on Resource\_Manager"
         url: operations/index
-        icon: ../_assets/console-icons/list-ol.svg
+        gravityIcon:
+          name: ListOl
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -56,7 +60,9 @@ blocks:
         size: s
         urlTitle: "Yandex\_Cloud resource hierarchy"
         url: concepts/resources-hierarchy
-        icon: ../_assets/console-icons/bookmark.svg
+        gravityIcon:
+          name: Bookmark
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -64,7 +70,9 @@ blocks:
         text: "Use HTTP\_API methods to manage resources in Yandex\_Cloud"
         size: s
         urlTitle: "HTTP\_API method descriptions"
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
         url: api-ref/
         controlPosition: content
         animated: false
@@ -74,7 +82,9 @@ blocks:
         size: s
         urlTitle: "Quotas and limits in Resource\_Manager"
         url: concepts/limits
-        icon: ../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -83,7 +93,9 @@ blocks:
         size: s
         urlTitle: "Access management in Resource\_Manager"
         url: security/index
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         controlPosition: content
         animated: false
       - type: basic-card
@@ -92,7 +104,9 @@ blocks:
         size: s
         urlTitle: "Yandex\_Resource\_Manager release notes"
         url: release-notes
-        icon: ../_assets/console-icons/timeline.svg
+        gravityIcon:
+          name: Timeline
+          color: text-color
         controlPosition: content
         animated: false
 links: []

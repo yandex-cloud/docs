@@ -6,7 +6,7 @@ description: Follow this guide to create a VM or server backup in {{ backup-full
 # Creating a backup of a resource
 
 
-To create a backup of a [resource](../../concepts/index.md#protected-resources), [connect](../../concepts/vm-connection/index.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). All backups are created only as part of policies.
+To create a backup of a [resource](../../concepts/index.md#protected-resources), [connect](../../concepts/vm-connection/index.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md) it to at least one [backup policy](../../concepts/policy.md). All backups are created only as part of policies.
 
 {{ backup-name }} automatically creates backups based on the schedule detailed in a policy.
 

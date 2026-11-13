@@ -82,14 +82,18 @@ blocks:
           поддержки
         urlTitle: Порядок оказания технической поддержки
         url: overview
-        icon: assets/console-icons/trapezoid-left-line-horizontal.svg
+        gravityIcon:
+          name: TrapezoidLeftLineHorizontal
+          color: text-color
         animated: false
       - type: basic-card
         title: Поддержка в Cloud Center
         text: Найдите решение самостоятельно или создайте обращение
         urlTitle: Поддержка в Cloud Center
         url: cloud-center
-        icon: assets/console-icons/layout-header-side-content.svg
+        gravityIcon:
+          name: LayoutHeaderSideContent
+          color: text-color
         animated: false
       - type: basic-card
         title: Оповещения от поддержки Yandex Cloud
@@ -98,48 +102,62 @@ blocks:
           поддержка
         urlTitle: Оповещения от поддержки Yandex Cloud
         url: notify
-        icon: assets/console-icons/bell.svg
+        gravityIcon:
+          name: Bell
+          color: text-color
         animated: false
       - type: basic-card
         title: Чат в Telegram
         text: Начните общение с технической поддержкой Yandex Cloud в Telegram
         urlTitle: Поддержка Yandex Cloud в Telegram
         url: tg-chat
-        icon: assets/console-icons/logo-telegram.svg
+        gravityIcon:
+          name: LogoTelegram
+          color: text-color
         animated: false
       - type: basic-card
         title: Запросы данных
         text: Посмотрите, какие данные можно запросить у технической поддержки
         urlTitle: Запросы данных
         url: request
-        icon: assets/console-icons/database-magnifier.svg
+        gravityIcon:
+          name: DatabaseMagnifier
+          color: text-color
         animated: false
       - type: basic-card
         title: Копирование ошибок из консоли браузера
         text: Узнайте, как скопировать сообщение из консоли ошибок
         urlTitle: Копирование ошибок из консоли браузера
         url: browser-console
-        icon: assets/console-icons/copy.svg
+        gravityIcon:
+          name: Copy
+          color: text-color
         animated: false
       - type: basic-card
         title: Сохранение взаимодействия браузера и сервера в HAR-файл
         text: Узнайте, как сохранить HAR-файл
         urlTitle: Сохранение взаимодействия браузера и сервера в HAR-файл
         url: create-har
-        icon: assets/console-icons/file-zipper.svg
+        gravityIcon:
+          name: FileZipper
+          color: text-color
         animated: false
       - type: basic-card
         title: Правила тарификации
         text: Изучите цены и тарифы технической поддержки
         urlTitle: Правила тарификации
         url: pricing
-        icon: assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         animated: false
       - type: basic-card
         title: Вопросы и ответы
         text: Узнайте ответы на часто задаваемые вопросы
         urlTitle: Вопросы и ответы
-        icon: assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         url: qa
         animated: false
 links: []

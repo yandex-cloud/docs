@@ -4,7 +4,7 @@ This tutorial describes how to use the [spark-submit utility](https://spark.apac
 
 {% note info %}
 
-You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../../datasphere/concepts/data-processing.md#existing-clusters).
+You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../../datasphere/concepts/data-processing-operations.md).
 
 {% endnote %}
 
@@ -346,7 +346,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 1. [Delete the {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-delete.md).
 1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).

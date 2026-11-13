@@ -131,6 +131,12 @@ Suppose we calculate the 30-day usage cost of a cluster with the following confi
 
 {% include [local-ssd for Intel Ice Lake only by request](../_includes/ice-lake-local-ssd-note.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-kafka']} collapsible
+  />
+</MDX>
+
 
 
 

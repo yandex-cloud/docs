@@ -35,6 +35,12 @@ You can [manage](#pricing-management) {{ org-full-name }} billing through the [{
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['organization']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

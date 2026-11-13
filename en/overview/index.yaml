@@ -38,9 +38,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/rocket.svg
-          dark: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
       - type: basic-card
         title: Regions
         text: Information on the geographic location of data centers
@@ -49,9 +49,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/map-pin.svg
-          dark: ../_assets/console-icons/map-pin.svg
+        gravityIcon:
+          name: MapPin
+          color: text-color
       - type: basic-card
         title: Cloud terminology
         text: Dictionary of cloud terms
@@ -60,9 +60,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/book.svg
-          dark: ../_assets/console-icons/book.svg
+        gravityIcon:
+          name: Book
+          color: text-color
   - type: card-layout-block
     title:
       text: Yandex Cloud services
@@ -79,9 +79,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/layers-3-diagonal.svg
-          dark: ../_assets/console-icons/layers-3-diagonal.svg
+        gravityIcon:
+          name: Layers3Diagonal
+          color: text-color
       - type: basic-card
         title: Release stages
         text: Information on service release stages
@@ -90,9 +90,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/circle-info.svg
-          dark: ../_assets/console-icons/circle-info.svg
+        gravityIcon:
+          name: CircleInfo
+          color: text-color
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
@@ -101,9 +101,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/sliders.svg
-          dark: ../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
       - type: basic-card
         title: Troubleshooting
         text: Answers to frequently asked questions
@@ -112,9 +112,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon:
-          light: ../_assets/console-icons/circle-question.svg
-          dark: ../_assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
   - type: card-layout-block
     title:
       text: Service interfaces
@@ -132,7 +132,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: ../_assets/console-icons/code.svg
+        gravityIcon:
+          name: Code
+          color: text-color
       - type: basic-card
         title: SDK
         text: Development tools for interfacing with cloud infrastructure
@@ -141,7 +143,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: ../_assets/console-icons/folder-tree.svg
+        gravityIcon:
+          name: FolderTree
+          color: text-color
       - type: basic-card
         title: Mobile app
         text: Manage resources from your mobile device
@@ -150,7 +154,9 @@ blocks:
         border: shadow
         controlPosition: content
         animated: false
-        icon: ../_assets/console-icons/smartphone.svg
+        gravityIcon:
+          name: Smartphone
+          color: text-color
   - type: content-layout-block
     textContent:
       title: ''

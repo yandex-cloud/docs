@@ -92,6 +92,12 @@ You can choose one of the following billing models when [activating dedicated IP
 
 {% include [pricing-for-dedicated-ip.md](../_includes/cdn/pricing-for-dedicated-ip.md) %}
 
+<MDX>
+  <Calculator
+    services={['cdn']} collapsible
+  />
+</MDX>
+
 
 
 

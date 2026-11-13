@@ -22,6 +22,12 @@ You can configure [redirection of requests](./http-rewrite.md) from a CDN resour
 
 Resource settings [apply a short while after](#delay) you create or update the resource. It may take up to 15 minutes.
 
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}
+
 
 ## Domain names for content distribution {#hostnames}
 

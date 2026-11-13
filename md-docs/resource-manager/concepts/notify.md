@@ -105,6 +105,6 @@
 ## Примеры использования {#examples}
 
 * [Мониторинг показаний датчиков и уведомления о событиях](../../functions/tutorials/monitoring.md)
-* [Настройка дашбордов и алертов в Yandex Monitoring](../../tutorials/security/alerts-monitoring.md)
+* [Настройка дашбордов и алертов в Yandex Monium](../../tutorials/security/alerts-monitoring.md)
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -54,6 +54,12 @@ Suppose we calculate the 30-day usage cost of a cluster with the following confi
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
+<MDX>
+  <Calculator
+    services={['managed-trino']} collapsible
+  />
+</MDX>
+
 
 
 <MDX>

@@ -54,7 +54,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка дашбордов и алертов в Monitoring](tutorials/alerts-monitoring.md)
+ - [Настройка дашбордов и алертов в Monium](tutorials/alerts-monitoring.md)
 
  - [Настройка реагирования в Cloud Functions](tutorials/logging-functions.md)
 

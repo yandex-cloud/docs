@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Unknown > Resources > sws_security_profile_advanced_rate_limiter_profile_attachment
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Smart Web Security > Resources > sws_security_profile_advanced_rate_limiter_profile_attachment
 
 # yandex_sws_security_profile_advanced_rate_limiter_profile_attachment (Resource)
 

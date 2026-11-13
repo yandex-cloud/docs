@@ -35,7 +35,9 @@ blocks:
       - type: basic-card
         title: Getting started
         text: Getting started with DataLens
-        icon: ../_assets/console-icons/rocket.svg
+        gravityIcon:
+          name: Rocket
+          color: text-color
         urlTitle: Getting started
         url: quickstart
         size: s
@@ -44,7 +46,9 @@ blocks:
       - type: basic-card
         title: Neuroanalyst
         text: Your data interpretation and coding assistant
-        icon: ../_assets/console-icons/sparkles-fill.svg
+        gravityIcon:
+          name: SparklesFill
+          color: text-color
         urlTitle: Neuroanalyst
         url: ./concepts/neuroanalyst
         size: s
@@ -53,7 +57,9 @@ blocks:
       - type: basic-card
         title: Connections
         text: Connect various data sources
-        icon: ../_assets/console-icons/thunderbolt.svg
+        gravityIcon:
+          name: Thunderbolt
+          color: text-color
         urlTitle: Connections
         url: concepts/connection/index
         size: s
@@ -62,7 +68,9 @@ blocks:
       - type: basic-card
         title: Datasets
         text: Describe the structure of data you get from the source
-        icon: ../_assets/console-icons/circles-intersection.svg
+        gravityIcon:
+          name: CirclesIntersection
+          color: text-color
         urlTitle: Datasets
         url: dataset/index
         size: s
@@ -73,7 +81,9 @@ blocks:
         text: >-
           Build charts using the self-service visualization builder or use
           JavaScript customization
-        icon: ../_assets/console-icons/chart-column.svg
+        gravityIcon:
+          name: ChartColumn
+          color: text-color
         urlTitle: Charts
         url: concepts/chart/index
         size: s
@@ -82,7 +92,9 @@ blocks:
       - type: basic-card
         title: Dashboards
         text: Keep your charts on the same page
-        icon: ../_assets/console-icons/layout-cells-large.svg
+        gravityIcon:
+          name: LayoutCellsLarge
+          color: text-color
         urlTitle: Dashboards
         url: ./concepts/dashboard
         size: s
@@ -91,7 +103,9 @@ blocks:
       - type: basic-card
         title: Reports
         text: Make print-ready multipage documents
-        icon: ../_assets/console-icons/display-pulse.svg
+        gravityIcon:
+          name: DisplayPulse
+          color: text-color
         urlTitle: Reports
         url: reports/index
         size: s
@@ -100,7 +114,9 @@ blocks:
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
-        icon: ../_assets/console-icons/sliders.svg
+        gravityIcon:
+          name: Sliders
+          color: text-color
         urlTitle: Quotas and limits
         url: ./concepts/limits
         size: s
@@ -109,7 +125,9 @@ blocks:
       - type: basic-card
         title: Access management
         text: Permissions required to use the service
-        icon: ../_assets/console-icons/persons-lock.svg
+        gravityIcon:
+          name: PersonsLock
+          color: text-color
         urlTitle: Access management
         url: security/index
         size: s
@@ -118,7 +136,9 @@ blocks:
       - type: basic-card
         title: Pricing policy
         text: Prices and cost calculation rules
-        icon: ../_assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Pricing policy
         url: pricing
         size: s
@@ -127,7 +147,9 @@ blocks:
       - type: basic-card
         title: Courses
         text: Available courses and training programs
-        icon: ../_assets/console-icons/graduation-cap.svg
+        gravityIcon:
+          name: GraduationCap
+          color: text-color
         urlTitle: Courses
         url: training
         size: s
@@ -136,7 +158,9 @@ blocks:
       - type: basic-card
         title: DataLens Gallery
         text: Ready-made dashboards for inspiration and business.
-        icon: ../_assets/console-icons/layers-3-diagonal.svg
+        gravityIcon:
+          name: Layers3Diagonal
+          color: text-color
         urlTitle: DataLens Gallery
         url: ./concepts/gallery
         size: s

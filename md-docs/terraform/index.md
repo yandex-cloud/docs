@@ -1170,6 +1170,10 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [sws_security_profile](resources/sws_security_profile.md)
 
+ - [sws_security_profile_advanced_rate_limiter_profile_attachment](resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md)
+
+ - [sws_security_profile_waf_profile_attachment](resources/sws_security_profile_waf_profile_attachment.md)
+
  - [sws_waf_profile](resources/sws_waf_profile.md)
 
 #### Unknown
@@ -1181,10 +1185,6 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [resource_manager_cloud_iam_policy_binding](resources/resource_manager_cloud_iam_policy_binding.md)
 
  - [resource_manager_folder_iam_policy_binding](resources/resource_manager_folder_iam_policy_binding.md)
-
- - [sws_security_profile_advanced_rate_limiter_profile_attachment](resources/sws_security_profile_advanced_rate_limiter_profile_attachment.md)
-
- - [sws_security_profile_waf_profile_attachment](resources/sws_security_profile_waf_profile_attachment.md)
 
 #### Virtual Private Cloud
 

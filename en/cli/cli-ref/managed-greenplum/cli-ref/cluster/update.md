@@ -84,6 +84,7 @@ Connection pooler client idle timeout ||
 || `--connection-pooling-idle-in-transaction-timeout` | `int`
 
 Connection pooler idle in transaction timeout ||
+|| `--connection-pooling-discard` | Clean up server connections when they are returned to the connection pool. ||
 || `--pxf-connection-timeout` | `int`
 
 Timeout for pxf connections ||

@@ -39,7 +39,7 @@ To create a [resource](../../concepts/resource.md):
             1. Add other origins if needed.
             1. Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
 
-          For more information, see [{#T}](../../concepts/origins.md).
+          For details, see [{#T}](../../concepts/origins.md).
         * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select a protocol for the origins.
         * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the primary domain name you will use in your website links to CDN-hosted content, e.g., `cdn.example.com`.
 
@@ -97,7 +97,7 @@ To create a [resource](../../concepts/resource.md):
           1. In the **Access policy** field, select `Block specified countries` or `Allow specified countries only`.
           1. In the **Country list** field, enter two-letter uppercase [country codes](../../concepts/geo-acl.md#country-codes) separated by commas, e.g., `RU, KZ`.
 
-          For more information, see [{#T}](configure-geo-acl.md).
+          For details, see [{#T}](configure-geo-acl.md).
 
   1. Click **{{ ui-key.yacloud.common.continue }}**.
   1. Optionally, under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, do the following:
@@ -346,3 +346,9 @@ To create a [resource](../../concepts/resource.md):
   ```
 
 {% endlist %}
+
+{% note tip %}
+
+{% include [fault-tolerance-recommendations](../../../_includes/cdn/fault-tolerance-recommendations.md) %}
+
+{% endnote %}

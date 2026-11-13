@@ -37,6 +37,7 @@ description: Различные сценарии использования по
 * [{#T}](info-for-federal-ip-whitelist.md)
 * [{#T}](ephemeral-key-storage.md)
 * [{#T}](traces-for-litellm-proxy.md)
+* [{#T}](kspm-external-kyverno-policies.md)
 
 ## Управление федерациями удостоверений {#federations}
 

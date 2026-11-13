@@ -49,6 +49,12 @@ editable: false
 
 
 
+<MDX>
+  <Calculator
+    services={['kms']} collapsible
+  />
+</MDX>
+
 
 <MDX>
   <PriceList

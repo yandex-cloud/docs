@@ -57,46 +57,52 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для добавления атрибута:
+  1. Посмотрите описание команды CLI для изменения SAML-приложения:
 
      ```bash
-     yc organization-manager idp application saml attribute create --help
+     yc organization-manager idp application saml application update --help
      ```
 
-  1. Чтобы добавить атрибут пользователя, выполните команду:
+  1. Получите текущую конфигурацию приложения:
 
      ```bash
-     yc organization-manager idp application saml attribute create \
-       --application-id <идентификатор_приложения> \
-       --name <имя_атрибута> \
-       --value <значение_атрибута>
+     yc organization-manager idp application saml application get \
+       --id <идентификатор_приложения> \
+       --format yaml
+     ```
+
+     Сохраните настройки из поля `attribute_mapping`: формат и значение обязательного атрибута `NameID`, а также имена и значения остальных атрибутов.
+
+     {% note warning %}
+
+     При изменении атрибутов CLI передает всю конфигурацию `attribute_mapping`, а не изменение одного атрибута. Передайте полный итоговый список атрибутов, включая те, которые нужно сохранить, и текущий формат `NameID`. Не рассчитывайте на автоматическое сохранение пропущенных настроек.
+
+
+
+     {% endnote %}
+
+  1. Чтобы добавить или изменить атрибуты пользователей, передайте итоговый набор атрибутов. Например, для набора `email`, `firstName` и `lastName`:
+
+     ```bash
+     yc organization-manager idp application saml application update \
+       --id <идентификатор_приложения> \
+       --name-id-format <текущий_формат_nameid> \
+       --attribute "email=SubjectClaims.email" \
+       --attribute "firstName=SubjectClaims.given_name" \
+       --attribute "lastName=SubjectClaims.family_name"
      ```
 
      Где:
 
-     * `--application-id` — идентификатор SAML-приложения.
-     * `--name` — имя атрибута, уникальное для вашего приложения.
-     * `--value` — значение атрибута. Возможные значения:
+     * `--id` — идентификатор SAML-приложения. Обязательный параметр.
+     * `--name-id-format` — текущий формат `NameID`: `persistent` для значения `PERSISTENT` или `email` для значения `EMAIL` в полученной конфигурации.
+     * `--attribute` — имя и значение атрибута в формате `имя=значение`. Для каждого атрибута передайте отдельный параметр. Чтобы удалить отдельный атрибут и сохранить остальные, передайте остальные атрибуты, не включая удаляемый. Пример предполагает, что в итоговом списке остается хотя бы один пользовательский атрибут.
+
+       Возможные значения атрибутов:
 
        {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 
-  1. Чтобы добавить атрибут групп пользователей, выполните команду:
-
-     ```bash
-     yc organization-manager idp application saml attribute create \
-       --application-id <идентификатор_приложения> \
-       --name <имя_атрибута_групп> \
-       --value <значение_атрибута_групп>
-     ```
-
-     Где:
-
-     * `--name` — имя атрибута групп пользователей. Имя атрибута должно быть уникальным для вашего приложения.
-     * `--value` — значение атрибута групп. Возможные значения:
-
-       {% include [saml-app-group-assertion](./saml-app-group-assertion.md) %}
-
-  1. Чтобы указать, какое значение группы будет передаваться поставщику услуг (имя, идентификатор или внешний идентификатор группы), выполните команду:
+  1. Чтобы указать, какие группы и какое значение группы будут передаваться поставщику услуг, выполните команду. При изменении существующих настроек укажите все три параметра групп с нужными итоговыми значениями:
 
      ```bash
      yc organization-manager idp application saml application update \
@@ -122,19 +128,14 @@
        * `id` — идентификатор группы.
        * `external-id` — внешний идентификатор группы.
 
-  1. Чтобы изменить атрибут, выполните команду:
+     Эта команда изменяет настройки передачи групп, а не список атрибутов пользователей. Чтобы отключить передачу групп, укажите `none` в параметре `--group-distribution-type`.
+
+  1. Проверьте итоговую конфигурацию приложения:
 
      ```bash
-     yc organization-manager idp application saml attribute update \
-       --id <идентификатор_атрибута> \
-       --name <новое_имя_атрибута> \
-       --value <новое_значение_атрибута>
-     ```
-
-  1. Чтобы удалить атрибут, выполните команду:
-
-     ```bash
-     yc organization-manager idp application saml attribute delete <идентификатор_атрибута>
+     yc organization-manager idp application saml application get \
+       --id <идентификатор_приложения> \
+       --format yaml
      ```
 
 - {{ TF }} {#tf}

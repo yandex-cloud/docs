@@ -7,6 +7,28 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.45.0 (12.11.26) {#v-1-45-0}
+
+#### {{ at-name }} {#v-1-45-0-at-name}
+
+* Добавлен параметр `--destination-monium` в команды для отправки событий аудита в Monium:
+  * `yc audit-trails trail create`;
+  * `yc audit-trails trail update`.
+
+#### {{ mgl-name }} {#v-1-45-0-mgl-name}
+
+* Добавлены команды для получения ссылок скачивания бэкапа и реквизитов S3 для его загрузки:
+  * `yc managed-gitlab instance prepare-backup-upload`;
+  * `yc managed-gitlab instance get-backup-download-urls`.
+
+#### {{ mgp-name }} {#v-1-45-0-mgp-name}
+
+* В команду `yc managed-greenplum cluster update` добавлен параметр `--connection-pooling-discard` для управления очисткой серверных соединений при возврате в пул. В команду `yc managed-greenplum cluster create` добавлены все параметры управления пулом — `--connection-pooling-mode`, `--connection-pooling-size`, `--connection-pooling-client-idle-timeout`, `--connection-pooling-idle-in-transaction-timeout` и `--connection-pooling-discard`:
+  * `yc managed-greenplum cluster create`;
+  * `yc managed-greenplum cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.44.0 (05.11.26) {#v-1-44-0}
 
 #### {{ mch-name }} {#v-1-44-0-mch-name}
@@ -25,8 +47,6 @@ description: На странице представлены релизы CLI, а
 #### {{ ydb-name }} {#v-1-44-0-ydb-name}
 
 * Добавлен параметр `--paths-to-restore` в команду `yc ydb database restore` для восстановления выбранных путей из резервной копии.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.43.0 (02.11.26) {#v-1-43-0}
 

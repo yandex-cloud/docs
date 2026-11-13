@@ -47,7 +47,7 @@ items:
             href: tutorials/search-events-audit-logs/tools.md
           - name: Примеры запросов для поиска событий
             href: tutorials/search-events-audit-logs/examples.md
-      - name: Настройка дашбордов и алертов в {{ monitoring-name }}
+      - name: Настройка дашбордов и алертов в {{ monium-name }}
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md

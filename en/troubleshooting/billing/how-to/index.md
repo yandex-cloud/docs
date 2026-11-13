@@ -13,7 +13,6 @@
 * [How to get a reconciliation report](getting-reconcillation-report.md)
 * [How to get closing documents](getting-reporting-docs.md)
 * [How to change the email address](change-email.md)
-* [Closing documents format in EDM](closing-documents-format.md)
 * [What negative balance limit is set for wire transfers](overdraft-while-transferring.md)
 * [How to change the account owner for a business account](changing-account-owner-for-legal-entities.md)
 * [Payment deadline](deadline-for-paymens.md)

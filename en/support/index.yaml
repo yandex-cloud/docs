@@ -78,62 +78,80 @@ blocks:
         text: Find out what requests can be made to technical support
         urlTitle: Technical support procedure
         url: overview
-        icon: assets/console-icons/trapezoid-left-line-horizontal.svg
+        gravityIcon:
+          name: TrapezoidLeftLineHorizontal
+          color: text-color
         animated: false
       - type: basic-card
         title: Support in Cloud Center
         text: Find a solution yourself or create a ticket
         urlTitle: Support in Cloud Center
         url: cloud-center
-        icon: assets/console-icons/layout-header-side-content.svg
+        gravityIcon:
+          name: LayoutHeaderSideContent
+          color: text-color
         animated: false
       - type: basic-card
         title: Notifications from Yandex Cloud support
         text: Learn what events technical support notifies you about and how
         urlTitle: Notifications from Yandex Cloud support
         url: notify
-        icon: assets/console-icons/bell.svg
+        gravityIcon:
+          name: Bell
+          color: text-color
         animated: false
       - type: basic-card
         title: Telegram chat
         text: Start communicating with Yandex Cloud technical support in Telegram
         urlTitle: Yandex Cloud support in Telegram
         url: tg-chat
-        icon: assets/console-icons/logo-telegram.svg
+        gravityIcon:
+          name: LogoTelegram
+          color: text-color
         animated: false
       - type: basic-card
         title: Data requests
         text: See what data can be requested from technical support
         urlTitle: Data requests
         url: request
-        icon: assets/console-icons/database-magnifier.svg
+        gravityIcon:
+          name: DatabaseMagnifier
+          color: text-color
         animated: false
       - type: basic-card
         title: Copying errors from the browser console
         text: Learn how to copy a message from the error console
         urlTitle: Copying errors from the browser console
         url: browser-console
-        icon: assets/console-icons/copy.svg
+        gravityIcon:
+          name: Copy
+          color: text-color
         animated: false
       - type: basic-card
         title: Saving browser-server interactions to a HAR file
         text: Learn how to save a HAR file
         urlTitle: Saving browser-server interactions to a HAR file
         url: create-har
-        icon: assets/console-icons/file-zipper.svg
+        gravityIcon:
+          name: FileZipper
+          color: text-color
         animated: false
       - type: basic-card
         title: Pricing policy
         text: Review technical support prices and service plans
         urlTitle: Pricing policy
         url: pricing
-        icon: assets/console-icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         animated: false
       - type: basic-card
         title: FAQ
         text: Find answers to frequently asked questions
         urlTitle: FAQ
-        icon: assets/console-icons/circle-question.svg
+        gravityIcon:
+          name: CircleQuestion
+          color: text-color
         url: qa
         animated: false
 links: []

@@ -21,7 +21,9 @@ blocks:
       - type: basic-card
         title: Price calculator
         text: Calculate the cost of the service based on your needs
-        icon: _assets/icons/calculator.svg
+        gravityIcon:
+          name: Calculator
+          color: text-color
         urlTitle: Price calculator
         url: https://yandex.cloud/en/prices?state=39504f78134a#calculator
         size: s
@@ -33,7 +35,9 @@ blocks:
       - type: basic-card
         title: Price list
         text: Current prices of all our services
-        icon: _assets/icons/circle-ruble.svg
+        gravityIcon:
+          name: CircleRuble
+          color: text-color
         urlTitle: Price list
         url: https://yandex.cloud/en/price-list?services=dn2li5qddoc5cad2n6br
         size: s
@@ -111,6 +115,12 @@ If you delete from your [ice storage](./concepts/storage-class.md) an object tha
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+<MDX>
+  <Calculator
+    services={['storage']} collapsible
+  />
+</MDX>
 
 
 
