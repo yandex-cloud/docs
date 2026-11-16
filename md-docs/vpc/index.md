@@ -950,7 +950,7 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [ListOperations](privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик VPC](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

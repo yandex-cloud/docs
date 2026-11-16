@@ -27,6 +27,9 @@ items:
             href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Recovery from a WAL-G backup
+            href: operations/cluster-outbound-backups.md
+            hidden: true
           - name: Managing backup policies
             href: operations/backup-retention-policies.md
           - name: Managing cluster access

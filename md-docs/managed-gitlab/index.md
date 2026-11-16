@@ -160,6 +160,8 @@
 
  - [Create](api-ref/grpc/Instance/create.md)
 
+ - [PrepareBackupUpload](api-ref/grpc/Instance/prepareBackupUpload.md)
+
  - [Update](api-ref/grpc/Instance/update.md)
 
  - [Delete](api-ref/grpc/Instance/delete.md)
@@ -167,6 +169,8 @@
  - [Start](api-ref/grpc/Instance/start.md)
 
  - [Stop](api-ref/grpc/Instance/stop.md)
+
+ - [GetBackupDownloadUrls](api-ref/grpc/Instance/getBackupDownloadUrls.md)
 
 #### Operation
 
@@ -190,6 +194,8 @@
 
  - [Create](api-ref/Instance/create.md)
 
+ - [PrepareBackupUpload](api-ref/Instance/prepareBackupUpload.md)
+
  - [Update](api-ref/Instance/update.md)
 
  - [Delete](api-ref/Instance/delete.md)
@@ -197,6 +203,8 @@
  - [Start](api-ref/Instance/start.md)
 
  - [Stop](api-ref/Instance/stop.md)
+
+ - [GetBackupDownloadUrls](api-ref/Instance/getBackupDownloadUrls.md)
 
 #### Operation
 

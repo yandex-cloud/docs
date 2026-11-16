@@ -693,13 +693,14 @@ spec:
 
 ## IngressGroupSettings {#groupsettings}
 
+{% include [monium-logs-kz-note](../../application-load-balancer/monium-logs-kz-note.md) %}
+
 ```yaml
 apiVersion: alb.yc.io/v1alpha1
 kind: IngressGroupSettings
 metadata:
   name: non-default-settings
 logOptions:
-  logGroupID: <идентификатор_лог-группы>
   discardRules:
     - discardPercent: 50
       grpcCodes:
@@ -715,7 +716,9 @@ logOptions:
         - 404
 ```
 
-Укажите идентификатор лог-группы и параметры [правил отбрасывания логов](../../../application-load-balancer/concepts/monitoring.md#discard-logs-rules):
+Логи записываются в проект {{ monium-name }} `folder__<идентификатор_каталога>` для каталога с балансировщиком. Если вы ранее настраивали запись логов в {{ cloud-logging-name }}, поле `logOptions.logGroupID` можно оставить в конфигурации: теперь оно игнорируется.
+
+Укажите параметры [правил отбрасывания логов](../../../application-load-balancer/concepts/monitoring.md#discard-logs-rules):
 
 * `httpCodes` — HTTP-коды.
 * `httpCodeIntervals` — классы HTTP-кодов.

@@ -5,7 +5,7 @@ description: If necessary, you can stop and restart a {{ PG }} database cluster.
 
 # Stopping and restarting a {{ PG }} cluster
 
-If necessary, you can stop and restart your {{ PG }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart your {{ PG }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

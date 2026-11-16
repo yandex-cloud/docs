@@ -10,48 +10,48 @@ description: In this article, you will learn about disk types in {{ mch-name }},
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
-## Hybrid storage features {#hybrid-storage-features}
 
-If you enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** setting when creating or updating a cluster, you will be able to distribute data between the cluster storage and object storage in [{{ objstorage-full-name }}](../../storage/). Thus your data will be placed in either a cluster or object storage, depending on the storage policy you specify. For example, you can choose to store your frequently used (hot) data in the cluster storage and rarely used (cold) data in the less expensive and slower object storage.
 
-{% note warning %}
+## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage is only available for [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables. For other table engines, data is only placed in the cluster storage.
+Hybrid storage in {{ mch-name }} integrates two data storage tiers:
 
-{% endnote %}
+* Cluster storage: Frequently accessed (hot) data resides on fast storage media (cluster network drives).
+* Object storage: Rarely used (cold) data resides in the less expensive and slower [{{ objstorage-full-name }}](../../storage/).
+
+[Policies](#storage-policies) define whether to write new data to cluster or object storage. For example, under the default policy, new data is initially written to cluster storage. {{ CH }} handles this data using its standard workflows, including segmentation into partitions and data parts. Then {{ CH }} monitors data access frequency and automatically moves colder files to object storage. Automatic reverse migration from object to cluster storage is not supported, but you can move data manually using the `MOVE PARTITION` and `MOVE PART` commands.
 
 The object storage uses a service bucket with unlimited storage capacity. Its [storage class](../../storage/concepts/storage-class.md) is **standard**, and you cannot change it. The [{{ objstorage-name }} limits](../../storage/concepts/limits.md) apply to the object storage.
 
-To start using hybrid storage:
 
-1. Create a cluster of the appropriate type. You do not need to configure the object storage.
+Storing cold data and its backups in hybrid storage counts towards the total [cluster usage cost](../pricing.md#rules-storage).
 
-1. Add databases and tables to the cluster. If the default storage policy does not work for certain tables, set the appropriate policies for these tables:
 
-    * To set a policy when creating a table, specify the `storage_policy` setting:
+You can enable hybrid storage when [creating](../operations/hybrid-storage.md#cluster-create) or [updating](../operations/hybrid-storage.md#cluster-update) a cluster.
 
-        ```sql
-        CREATE TABLE table_with_non_default_policy (
-            <table_schema>
-        ) ENGINE = MergeTree
-        ...
-        SETTINGS storage_policy = '<storage_policy_type>';
-        ```
+{% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-    * To create or update the policy for an existing table, run this query:
 
-        ```sql
-        ALTER TABLE table_with_non_default_policy
-        MODIFY SETTING storage_policy = '<storage_policy_type>';
-        ```
+### Pros and cons of hybrid storage {#advantages}
 
-See an example in [Using hybrid storage](../tutorials/hybrid-storage.md).
+Key benefits of using hybrid storage include:
 
-To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage.
+* Fast network drives deliver high-speed processing for active data. This achieves low latency and high speeds for analytical queries.
+* Rarely used (cold) data resides in the less expensive and slower object storage, reducing storage costs.
+* Automated data management. You can set conditions, such as disk capacity thresholds or [TTL](#ttl), to trigger automatic data migration between storage tiers, or move data manually.
+* Simplified scaling. When you add a new replica to a cluster with hybrid storage, only the hot data on network drives is copied. Object storage data is not duplicated. This reduces resource consumption and allows for faster scaling.
+* Access to data via a single interface. {{ CH }} abstracts its storage infrastructure from data consumers, so users can run both rare queries against cold data and frequent queries to hot data via a single interface.
 
-Storing cold data and its backups in hybrid storage counts towards the total [cluster usage cost](../pricing.md#prices-storage).
+Hybrid storage constraints:
+
+* Slower access to object storage.
+* Hybrid storage is only available for [MergeTree tables]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree). For other table engines, data is only placed in the cluster storage.
+* Once hybrid storage is enabled in a cluster, you cannot revert to standard storage.
+
 
 ### Available storage policies {#storage-policies}
+
+You can distribute data between cluster and object storage using storage policies set at the database table level.
 
 {% note info %}
 
@@ -59,58 +59,63 @@ You cannot create new storage policies or update the existing ones.
 
 {% endnote %}
 
-A {{ mch-name }} cluster with enabled hybrid storage supports the following storage policies:
+In a {{ mch-name }} cluster with hybrid storage enabled, the following storage policies are available:
 
 * `default`: Cluster automatically manages data placement depending on the following:
 
     * [Hybrid storage settings](#hybrid-storage-settings).
-    * Table [TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) (time-to-live) settings.
+    * Table [TTL](#ttl) settings.
 
-    If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to the object storage. Thus you can move the data to the object storage in parts before your cluster storage is filled up.
+* `local`: For a table with this policy, rows can only be placed in the cluster storage. No data is moved between storage tiers.
 
-    You can configure moving rows with the expired TTL to the object storage and set the TTL value when creating a table or later on.
+* `object_storage`: For a table with this policy, rows can only be placed in the object storage. No data is moved between storage tiers.
 
-* `local`: For a table with this policy, rows can only be placed in the cluster storage. No data is moved between the storages.
-
-* `object_storage`: For a table with this policy, rows can only be placed in the object storage. No data is moved between the storages.
-
-Storage policies do not affect [merge operations]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) for data parts. With any storage policy, you can:
-
-* Enable and disable the `prefer_not_to_merge` setting that merges stored data parts. This setting is available in the [CLI and API](../operations/update.md#change-hybrid-storage).
-* Set any `max_data_part_size_bytes` value for the maximum size of the data part you can get upon merging smaller ones.
-
-However, you can change the behavior of these operations using the [settings](./settings-list.md) available in the cluster.
-
-To view current policy settings, run this query:
-
-```sql
-SELECT *
-FROM system.storage_policies;
-```
+Storage policies do not affect merge operations for data parts.
 
 For more information about storage policies and their settings, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
+
+
+### Merge operations {#comparison-operations}
+
+Inserting data into MergeTree tables creates immutable data parts sorted by primary key. Over time, the number of these parts can grow, creating query processing overhead. To address this, {{ CH }} runs regular background merges of small data parts into larger ones.
+
+[Merge operations]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) are controlled by the following [hybrid storage settings](#hybrid-storage-settings):
+
+* [prefer_not_to_merge](#hybrid-storage-settings): Enables or disables merging data parts within object storage.
+* `max_data_part_size_bytes`: Sets the maximum merged data part size in object storage. You can only configure this setting by submitting a request to support.
+
+You can also adjust merge behavior using [settings](./settings-list.md) available in the cluster. Use the `merge` keyword to search for those settings. Examples include:
+
+* **Max bytes to merge at max space in pool**
+* **Merge max block size**
+* **Merge tree max bytes to use cache**
+
 
 ### Hybrid storage settings {#hybrid-storage-settings}
 
 
 A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
-* `data_cache_enabled`: Enables caching data accessed from the object storage in the cluster storage. The default value is `true` (enabled).
+{% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
-    In this case, cold data accessed from the object storage is moved to high-speed drives for faster processing.
+You can specify hybrid storage settings when [creating](../operations/hybrid-storage.md#cluster-create) or [updating](../operations/hybrid-storage.md#change-hybrid-storage) a cluster.
 
-* `data_cache_max_size`: Sets the maximum cache size, in bytes, allocated in the cluster storage for data accessed from the object storage. If no value is set, the maximum cache size defaults to half the size of the cluster storage.
-* `move_factor`: Sets the minimum percentage of free space in the cluster storage. If your free space percentage is below this value, the data will be moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum value is `1`, and the default value is `0.01`.
+For more on hybrid storage settings, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
-    Data parts are queued up in descending order by size. The number of data parts that will be moved is determined by the `move_factor` condition.
 
-* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) in cluster and object storages. Merges are enabled by default.
+### TTL {#ttl}
 
-    Once inserted into the table, the data is saved as a data part and sorted by its primary key. Then, {{ CH }} runs a background merge of data parts belonging to the same partition into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
+TTL (time-to-live) is a tool you can use to restrict the lifetime of your data. Once the specified time interval expires, you can automatically delete, move, or aggregate table rows and columns. You can configure moving rows with the expired TTL to the object storage and set the TTL value when [creating a table](../tutorials/hybrid-storage.md#create-table) or later on.
 
-You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
+If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to the object storage. Thus you can move the data to the object storage in parts before your cluster storage is filled up.
 
-For more information about setting up hybrid storage, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
+While specifying TTL for hybrid storage is optional, doing so gives you explicit control over what data is moved to object storage. Without a defined TTL, data is only moved to the object storage when you run out of space in your cluster storage.
+
+Data is moved between cluster and object storage in [parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes) rather than row by row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to the object storage. In the simplest setup, your TTL expression should use the same columns as the partitioning key.
+
+For more information on configuring TTL, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
+
+
 
 ## Selecting the disk type when creating a cluster {#storage-type-selection}
 
@@ -131,10 +136,10 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
 For information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 
-
 ## Disk encryption {#disk-encryption}
 
 {% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
 
 
 ## Managing disk space {#manage-storage-space}
@@ -143,6 +148,7 @@ In {{ mch-name }}, if your storage runs out of space, `INSERT` queries, backgrou
 
 
 To monitor your storage utilization, [set up alerts in {{ monitoring-full-name }}](../operations/monitoring.md#monitoring-integration).
+
 
 
 ### Automatic storage expansion {#autoscaling}
@@ -170,7 +176,9 @@ You can configure automatic storage expansion when [creating](../operations/clus
 
 {% endnote %}
 
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/hybrid-storage.md)
+* [How to set up {{ CH }} hybrid storage: a KazanExpress case study](https://yandex.cloud/ru/blog/posts/2022/11/clickhouse-kazanexpress)
 * [{#T}](../tutorials/sharding.md)

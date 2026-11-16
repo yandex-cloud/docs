@@ -64,7 +64,7 @@
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
 * при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
 * при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
+* при включении логирования балансировщика плата за запись и хранение логов ([тарифы Monium](../../../monium/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}
 
@@ -780,7 +780,7 @@ Nextcloud использует базу данных MySQL® для хранен
       1. В поле **Сеть** выберите сеть `nextcloud-network`.
       1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите группу безопасности `nextcloud-sg`.
       1. В блоке **Размещение** убедитесь, что выбраны все зоны доступности.
-      1. Если вы не хотите сохранять логи работы балансировщика в [лог-группу](../../../logging/concepts/log-group.md), отключите опцию **Запись логов**.
+      1. В блоке **Настройки логов** настройка пока недоступна. После создания балансировщика [настройте запись логов в Monium Logs](../../../application-load-balancer/operations/application-load-balancer-manage-logs.md) через CLI, API или Terraform.
       1. В секции **Обработчики** нажмите кнопку **Добавить обработчик** и в открывшейся форме:
 
           1. В поле **Имя** укажите имя обработчика `nextcloud-listener`.
@@ -849,7 +849,6 @@ Nextcloud использует базу данных MySQL® для хранен
 1. Если вы создавали группу ВМ, [удалите](../../../compute/operations/instance-groups/delete.md) ее.
 1. Если вы создавали ресурсные записи, удалите их в [Yandex Cloud DNS](../../../dns/operations/resource-record-delete.md) или в личном кабинете вашего регистратора доменных имен.
 1. Если вы создавали зону DNS, удалите ее в [Yandex Cloud DNS](../../../dns/operations/zone-delete.md) или в личном кабинете вашего регистратора доменных имен.
-1. Если вы оставляли включенной опцию записи логов L7-балансировщика, [удалите](../../../logging/operations/delete-group.md) лог-группу.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
 1. [Удалите](../../../managed-mysql/operations/cluster-delete.md) кластер БД MySQL®.
 1. [Удалите](../../operations/objects/delete.md) созданные в бакете объекты, затем [удалите](../../operations/buckets/delete.md) сам бакет.

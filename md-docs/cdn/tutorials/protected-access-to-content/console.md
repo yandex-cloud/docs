@@ -52,8 +52,8 @@
   1. Нажмите **Создать сеть**.
   1. На панели слева выберите ![subnets](../../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Справа сверху нажмите **Создать подсеть**.
-  1. В поле **Имя** укажите `webserver-subnet-ru-central1-b`.
-  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Имя** укажите `webserver-subnet-ru-central1-e`.
+  1. В поле **Зона доступности** выберите зону доступности `ru-central1-e`.
   1. В поле **Сеть** выберите облачную сеть `webserver-network`.
   1. В поле **CIDR** укажите `192.168.1.0/24`.
   1. Нажмите **Создать подсеть**.
@@ -78,11 +78,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в зоне доступности `ru-central1-b`:
+  1. Создайте подсеть в зоне доступности `ru-central1-e`:
 
       ```bash
-      yc vpc subnet create webserver-subnet-ru-central1-b \
-        --zone ru-central1-b \
+      yc vpc subnet create webserver-subnet-ru-central1-e \
+        --zone ru-central1-e \
         --network-name webserver-network \
         --range 192.168.1.0/24
       ```
@@ -93,9 +93,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: webserver-subnet-ru-central1-b
+      name: webserver-subnet-ru-central1-e
       network_id: enp1gg8kr3pv********
-      zone_id: ru-central1-b
+      zone_id: ru-central1-e
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -237,10 +237,10 @@
 
   1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
   1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `LAMP` и выберите образ [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp).
-  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-e`.
   1. В блоке **Сетевые настройки**:
 
-      * В поле **Подсеть** выберите созданную ранее подсеть `webserver-subnet-ru-central1-b`.
+      * В поле **Подсеть** выберите созданную ранее подсеть `webserver-subnet-ru-central1-e`.
       * В поле **Публичный IP-адрес** выберите `Автоматически`.
       * В поле **Группы безопасности** выберите созданную ранее группу безопасности `webserver-sg`.
 
@@ -275,8 +275,8 @@
   ```bash
   yc compute instance create \
     --name mywebserver \
-    --zone ru-central1-b \
-    --network-interface subnet-name=webserver-subnet-ru-central1-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+    --zone ru-central1-e \
+    --network-interface subnet-name=webserver-subnet-ru-central1-e,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-id=fd8jtn9i7e9ha5q25niu \
     --ssh-key ~/.ssh/id_ed25519.pub
   ```
@@ -293,7 +293,7 @@
   folder_id: b1gt6g8ht345********
   created_at: "2023-12-23T05:36:34Z"
   name: mywebserver
-  zone_id: ru-central1-b
+  zone_id: ru-central1-e
   platform_id: standard-v2
   resources:
     memory: "2147483648"

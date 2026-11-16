@@ -59,7 +59,6 @@ Gwin — инструмент для управления балансировщ
     * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
     * [k8s.viewer](../security/index.md#k8s-viewer) — для определения, в какой сети контроллеру нужно развернуть L7-балансировщик.
     * (опционально) [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Yandex Smart Web Security к виртуальному хосту L7-балансировщика.
-    * (опционально) [logging.writer](../../logging/security/index.md#logging-writer) — при указании в ресурсе [Gateway](gateway.md) [лог-группы](../../logging/concepts/log-group.md) для записи логов L7-балансировщика в Yandex Cloud Logging.
 
 1. Выберите способ аутентификации Gwin в API Yandex Cloud для создания и управления балансировщиками нагрузки Yandex Application Load Balancer.
 

@@ -31,6 +31,9 @@ items:
             href: operations/replication-slots.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Recovery from a WAL-G backup
+            hidden: true
+            href: operations/cluster-outbound-backups.md
           - name: Managing backup policies
             href: operations/backup-retention-policies.md
           - name: Managing disk space
@@ -83,6 +86,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: postgresql_anonymizer
             href: operations/extensions/pg_anon.md
+          - name: vector
+            href: operations/extensions/vector.md
           - name: Hunspell dictionaries for full-text search
             href: operations/extensions/hunspell.md
       - name: Logs and monitoring
@@ -171,6 +176,8 @@ items:
           Executing analytical queries in {{ mpg-name }} with processing in {{
           mch-name }}
         href: tutorials/mpg-pg-clickhouse-extension.md
+      - name: Running a vector search with `pgvector` in {{ mos-full-name }}
+        href: tutorials/mpg-vector-extension.md
       - name: Replication and migration
         items:
           - name: Logical replication in {{ PG }}

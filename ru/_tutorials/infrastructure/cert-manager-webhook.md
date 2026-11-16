@@ -64,8 +64,6 @@
   1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. Введите имя кластера: `kubernetes-cluster-wh`.
-  1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
-  1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться узлами {{ managed-k8s-name }} для доступа к реестру Docker-образов.
   1. Укажите [релизный канал](../../managed-kubernetes/concepts/release-channels-and-updates.md). Эту настройку невозможно изменить после создания кластера {{ managed-k8s-name }}.
   1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** — выберите версию {{ k8s }}, которая будет установлена на [мастере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master). Версия не должна отличаться от версии командной строки {{ k8s }}.
@@ -75,6 +73,8 @@
        * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
        * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
      * Выберите [группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться для создания ресурсов.
+  1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — укажите сервисный аккаунт `sa-kubernetes`, который будет использоваться узлами {{ managed-k8s-name }} для доступа к реестру Docker-образов.
   1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../managed-kubernetes/concepts/index.md#pod).
      * **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../managed-kubernetes/concepts/index.md#service).

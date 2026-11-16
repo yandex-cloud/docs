@@ -14,10 +14,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+	* In serverless mode, you pay for data operations, stored data volume, and backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -48,7 +48,7 @@ Set up your infrastructure:
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the target cluster from the list.
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
@@ -80,7 +80,7 @@ Set up your infrastructure:
         * `source_db_name`: {{ ydb-name }} database name.
         * `target_db_name`: {{ CH }} database name.
         * `target_user` and `target_password`: {{ CH }} database owner username and password.
-        * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create the source endpoint manually](#prepare-transfer).
+        * `transfer_enabled`: Set to `0` not to create a transfer until [a source endpoint has been created manually](#prepare-transfer).
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -117,7 +117,7 @@ Set up your infrastructure:
 }
 ```
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
@@ -213,10 +213,10 @@ Set up your infrastructure:
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-yds-mch.tf` file, specify the following variables:
+        1. In `data-transfer-yds-mch.tf`, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -230,7 +230,7 @@ Set up your infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 

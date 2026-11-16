@@ -3028,7 +3028,6 @@ default:
         label_evaluation-window: Окно вычисления
         label_trigger-condition: Условие срабатывания
         label_warning: Warning
-        section_alert-conditions: Настройки алерта
         section_metrics: Метрики
         status_alarm: Alarm
         status_error: Error
@@ -3341,10 +3340,6 @@ default:
           execute-query: Выполнить запрос
         button:
           apply-and-parse: Выполнить
-        functions:
-          label:
-            category-COMBINE: Комбинирование
-            category-TRANSFORMATION: Преобразование
         hint:
           search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
         tokens:
@@ -4855,7 +4850,6 @@ default:
         section_workers: Конфигурация воркеров
       alb:
         button_add-backend: Создать бэкенд
-        button_add-discard-rule: Добавить правило
         button_add-healthcheck: Добавить проверку состояния
         button_add-host-id: Добавить хост
         button_add-listener: Добавить обработчик
@@ -4891,13 +4885,8 @@ default:
         label_body: Тело ответа
         label_bucket: Бакет
         label_certificate: Сертификаты
-        label_default-log-group: Лог-группа по умолчанию
         label_detailed-settings: Расширенные настройки
         label_disable-traffic: Прием трафика
-        label_discard-grpc-codes: gRPC-коды
-        label_discard-http-code-intervals: Классы HTTP-кодов
-        label_discard-http-codes: HTTP-коды
-        label_discard-percent: Доля отбрасываемых логов
         label_enable-proxy-protocol: Протокол PROXY
         label_expected-statuses: HTTP-коды
         label_fqmn: FQMN
@@ -4927,8 +4916,6 @@ default:
         label_load-balancers: Балансировщики
         label_load-balancing-mode: Режим балансировки
         label_locality-aware-routing: Локализация трафика
-        label_log-group: Лог-группа Cloud Logging
-        label_log-requests: Запись логов
         label_map: Карта балансировки
         label_match-exact: Совпадает с
         label_match-prefix: Начинается с

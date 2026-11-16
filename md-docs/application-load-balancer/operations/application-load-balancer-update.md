@@ -30,18 +30,8 @@
 
       1. В блоке **Настройки автомасштабирования** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
-      1. В блоке **Настройки логов**:
+      1. В блоке **Настройки логов** настройка пока недоступна. При необходимости [настройте запись логов в Monium Logs](application-load-balancer-manage-logs.md) через CLI, API или Terraform.
 
-          1. Измените [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
-          1. Измените [правила отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
-    
-              * **HTTP-коды** — измените HTTP-коды.
-              * **Классы HTTP-кодов** — измените классы HTTP-кодов.
-              * **gRPC-коды** — измените gRPC-коды.
-              * **Доля отбрасываемых логов** — измените процент отбрасываемых логов.
-    
-              Чтобы добавить еще одно правило, нажмите кнопку **Добавить правило**.
-    
       1. В блоке **Обработчики** измените параметры нужных обработчиков.
 
   1. Внизу страницы нажмите кнопку **Сохранить**.
@@ -93,14 +83,13 @@
        locations:
        - zone_id: ru-central1-a
          subnet_id: buc4gsmpj8hv********
-     log_group_id: eolul9ap0bv0********
      security_group_ids:
        - enpulh2tbrep********
        - enpg05a3ck35********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [Yandex Cloud Logging](../../logging/index.md):
+  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [Monium Logs](../../monium/logs/quickstart-resources.md):
 
       1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -108,18 +97,16 @@
           yc alb load-balancer logging --help
           ```
 
-      1. Добавьте новое правило отбрасывания логов:
+      1. Задайте правила отбрасывания логов. Переданный набор полностью заменит прежние правила:
 
           ```bash
           yc alb load-balancer logging <имя_балансировщика> \
-            --log-group-id <идентификатор_лог-группы> \
             --enable \
-            --discard codes=[200,3XX,GRPC_OK],percent=90
+            --discard 'codes=[200,3XX,GRPC_OK],percent=90'
           ```
 
           Где:
 
-          * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
           * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
             
             * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
@@ -134,7 +121,6 @@
           folder_id: b1gug7dbelh********
           ...
           log_options:
-            log_group_id: e23p9bcvh6gr********
             discard_rules:
               - http_codes:
                   - "200"
@@ -215,12 +201,10 @@
        locations:
        - zone_id: ru-central1-a
          subnet_id: e9bs1hp7lgdl********
-     log_group_id: ckgs4u5km3u8********
      security_group_ids:
      - enp49ot04g63********
      created_at: "2022-04-04T02:12:40.160629110Z"
      log_options:
-       log_group_id: e23p9bfjvsgr********
        discard_rules:
          - http_codes:
              - "200"
@@ -321,11 +305,11 @@
        }
 
        log_options {
-         log_group_id = "<идентификатор_лог-группы>"
+         disable = false
          discard_rule {
-           http_codes          = ["200"]
-           http_code_intervals = ["HTTP_2XX"]
-           grpc_codes          = ["GRPC_OK"]
+           http_codes          = [200]
+           http_code_intervals = ["2XX"]
+           grpc_codes          = ["OK"]
            discard_percent     = 15
          }
        }
@@ -416,12 +400,6 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
-
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
-  
-  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
   1. Посмотрите описание команды CLI для удаления обработчика:
 
      ```bash
@@ -442,11 +420,6 @@
      ```
 
 - Terraform {#tf}
-
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
-  
-  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Откройте файл конфигурации Terraform и удалите блок `listener` в описании L7-балансировщика:
 
@@ -517,31 +490,6 @@
      ```bash
      yc alb load-balancer get <имя_L7-балансировщика>
      ```
-
-     {% note warning "Ограничения по времени" %}
-     
-     Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
-     
-     Операции, которые длятся дольше указанного времени, прерываются.
-     
-     {% cut "Как изменить эти ограничения?" %}
-     
-     Добавьте к описанию балансировщика блок `timeouts`, например:
-     
-     ```hcl
-     resource "yandex_alb_load_balancer" "<имя_балансировщика>" {
-       ...
-       timeouts {
-         create = "60m"
-         update = "60m"
-         delete = "60m"
-       }
-     }
-     ```
-     
-     {% endcut %}
-     
-     {% endnote %}
 
 - API {#api}
 

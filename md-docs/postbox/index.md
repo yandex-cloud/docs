@@ -132,6 +132,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Метод PutDomainIdentityDkimAttributes](aws-compatible-api/api-ref/put-domain-identity-dkim-attributes.md)
 
+ - [Метод PutEmailIdentityDkimSigningAttributes](aws-compatible-api/api-ref/put-email-identity-dkim-signing-attributes.md)
+
  - [Метод DeleteDomainIdentity](aws-compatible-api/api-ref/delete-domain-identity.md)
 
 #### Конфигурации
@@ -149,6 +151,8 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод PutConfigurationSetDeliveryOptions](aws-compatible-api/api-ref/put-configuration-set-delivery-options.md)
 
  - [Метод PutConfigurationSetSuppressionOptions](aws-compatible-api/api-ref/put-configuration-set-suppression-options.md)
+
+ - [Метод PutConfigurationSetVdmOptions](aws-compatible-api/api-ref/put-configuration-set-vdm-options.md)
 
 #### Стоп-лист
 
@@ -185,6 +189,14 @@ Cloud Postbox позволяет не тратить бюджет и время 
  - [Метод UpdateConfigurationSetEventDestination](aws-compatible-api/api-ref/update-configuration-set-event-destination.md)
 
  - [Метод DeleteConfigurationSetEventDestination](aws-compatible-api/api-ref/delete-configuration-set-event-destination.md)
+
+#### Метки
+
+ - [Метод ListTagsForResource](aws-compatible-api/api-ref/list-tags-for-resource.md)
+
+ - [Метод TagResource](aws-compatible-api/api-ref/tag-resource.md)
+
+ - [Метод UntagResource](aws-compatible-api/api-ref/untag-resource.md)
 
  - [Заголовки запросов](aws-compatible-api/api-ref/request-headers.md)
 

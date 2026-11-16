@@ -1,10 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > Справочник метрик SmartCaptcha
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик SmartCaptcha
 
-В этом разделе описаны метрики сервиса SmartCaptcha, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса SmartCaptcha автоматически передаются в [Monium Metrics](../monium/metrics/overview.md), в [проект каталога](*monium-folder-project) с капчей.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик SmartCaptcha:
 
@@ -37,3 +41,5 @@ captcha | Идентификатор [капчи](concepts/validation.md) |
 | `smartcaptcha.captcha.slider.success_count`<br>`IGAUGE`, штуки | Количество успешных решений основного задания с типом `Слайдер`. |
 | `smartcaptcha.captcha.validate.failed_count`<br>`IGAUGE`, штуки | Количество событий неуспешной [валидации пользователя](concepts/validation.md). |
 | `smartcaptcha.captcha.validate.success_count`<br>`IGAUGE`, штуки | Количество событий успешной валидации пользователя. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

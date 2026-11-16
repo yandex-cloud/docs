@@ -1,6 +1,6 @@
 # Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN
 
-Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](../../glossary/sso.md) пользователей, решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
+Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](../../glossary/sso.md) пользователей решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
 
 В данном сценарии вы развернете в {{ yandex-cloud }} облачную инфраструктуру для организации Remote access VPN на основе WireGuard VPN по следующей схеме:
 
@@ -182,8 +182,8 @@
    * В секции `folder_id` укажите ID каталога для размещения ресурсов, например `b1grj7grr1kn********`.
    * В секции `vpc_id` укажите ID облачной сети для размещения ресурсов, например `enp48c1ndilt********`.
    * В секции `trusted_ip_for_mgmt` укажите список публичных IP адресов/подсетей, с которых разрешено подключение по SSH к Firezone и Keycloak ВМ, например `["A.A.A.A/32", "B.B.B.0/24"]`.
-   * В секции `admin_email` почтовый адрес администратора (логин) для доступа к веб-интерфейсу администратора Firezone, например `admin@example.com`.
-   * В секции `email` почтовый адрес тестового пользователя, который будет добавлен в Firezone после успешной аутентификации в Keycloak, например `user@example.com`.
+   * В секции `admin_email` укажите почтовый адрес администратора (логин) для доступа к веб-интерфейсу администратора Firezone, например `admin@example.com`.
+   * В секции `email` укажите почтовый адрес тестового пользователя, который будет добавлен в Firezone после успешной аутентификации в Keycloak, например `user@example.com`.
    * Остальные параметры можете оставить по умолчанию или изменить на свои значения кроме параметров `image_folder_id` и `image_name`.
 
    {% note warning %}
@@ -210,7 +210,7 @@
       | Кластер Managed Service for PostgreSQL      | 1          |
       | Объем SSD-хранилища для кластера PostgreSQL | 10 ГБ      |
       | Количество vCPU для кластера PostgreSQL     | 2          |
-      | Объем памяти для кластера PostgreSQL        | 8          |
+      | Объем памяти для кластера PostgreSQL        | 8 ГБ       |
 
    {% endcut %}
 
@@ -315,7 +315,7 @@
 
 ## Настройте Firezone {#configure-firezone}
 
-1. Перейдите в браузере по адресу `https://firezone_url`, где `firezone_url` — вывод команды `terraform output firezone_url` в папке `main`, в данном примере `https://vpn.example.com`
+1. Перейдите в браузере по адресу `https://firezone_url`, где `firezone_url` — вывод команды `terraform output firezone_url` в папке `main`, в данном примере `https://vpn.example.com`.
 1. Войдите в интерфейс администратора Firezone с учетной записью администратора из вывода команды `terraform output firezone_admin_credentials` в папке `main`.
 1. Перейдите в раздел **SETTINGS / Defaults** для изменения настроек по умолчанию.
 1. В поле **Allowed IPs** укажите, для каких облачных IP подсетей (укажите через запятую адреса подсетей/маски) VPN клиенты будут направлять трафик в VPN туннель. Пример: `192.168.1.0/24, 192.168.2.0/24`.

@@ -36,12 +36,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 1. [Create topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster:
-   1. Service topic named `_confluent-ksql-default__command_topic` configured as follows:
-        * Replication factor: `1`
-        * Number of partitions: `1`
-        * Log cleanup policy: `Delete`
-        * Log segment lifetime, ms: `-1`
-        * Minimum number of in-sync replicas: `1`
    1. Service topic named `default_ksql_processing_log` to write ksqlDB logs to. Use any settings.
    1. Data storage topic named `locations`. Use any settings.
 
@@ -51,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Install `kafkacat` on the ksqlDB server and check that you can use it to [connect to the {{ mkf-name }} cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-1. Install [jq](https://stedolan.github.io/jq/) on the ksqlDB server to process JSON data streams.
+1. Install [jq](https://jqlang.org/) on the ksqlDB server to process JSON data streams.
 
 ## Set up {{ KF }} integration for the ksqlDB database {#configure-ksqldb-for-kf}
 
@@ -164,7 +158,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     sudo systemctl restart confluent-ksqldb.service
-    ````
+    ```
 
 ## Review the format of the data coming from {{ mkf-name }} {#explore-kf-data-format}
 

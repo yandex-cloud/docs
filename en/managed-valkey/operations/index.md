@@ -16,6 +16,8 @@ description: This page features step-by-step guides for {{ mrd-name }}.
 * [Managing cluster hosts](hosts.md)
 * [Migrating hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [{#T}](data-recovery.md)
+* [Restoring a database from a WAL-G backup](cluster-outbound-backups.md)
 * [Managing backup policies](backup-retention-policies.md)
 * [Managing cluster access](cluster-access.md)
 * [Maintenance](cluster-maintenance.md)

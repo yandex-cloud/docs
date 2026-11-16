@@ -1,4 +1,4 @@
-# Метод CreateConfigurationSetEventDestinations
+# Метод CreateConfigurationSetEventDestination
 
 Создает [подписку](../../concepts/glossary.md#subscription) для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.
 
@@ -31,9 +31,11 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
     "KinesisFirehoseDestination": {
       "IamRoleArn": "<роль>",
       "DeliveryStreamArn": "<поток_данных>"
-    }
-  },
-  "MatchingEventTypes": [ "string" ]
+    },
+    "MatchingEventTypes": [
+      "<тип_события>"
+    ]
+  }
 }
 ```
 
@@ -42,7 +44,7 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 || `EventDestinationName` | **Тип**: string.
 
 Название подписки. ||
-|| `EventDestinations` | **Тип**: object.
+|| `EventDestination` | **Тип**: object.
 
 Объект, который содержит параметры подписки. ||
 || `Enabled` | **Тип**: boolean.
@@ -67,15 +69,7 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 {% endcut %} ||
 || `MatchingEventTypes` | **Тип**: array.
 
-Массив типов событий, для которых будет отправляться уведомление. Допустимые значения:
-- `SEND` — письмо отправлено;
-- `BOUNCE` — письмо не доставлено;
-- `SUBSCRIPTION` — подписка на рассылку;
-- `DELIVERY` — письмо доставлено;
-- `DELIVERY_DELAY` — задержка доставки письма;
-- `OPEN` — письмо открыто;
-- `CLICK` — переход по ссылке в письме.
-||
+{% include [matching-event-types](../../../_includes/postbox/matching-event-types.md) %} ||
 |#
 
 ## Ответы {#responses}

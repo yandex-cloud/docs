@@ -30,7 +30,6 @@ _Ресурс_ — это основная логическая сущность
 
 {% endnote %}
 
-
 ## Доменные имена для раздачи контента {#hostnames}
 
 _Доменные имена для раздачи контента_ используются в запросах клиентов к CDN-серверам. Например, чтобы файл `styles/common.css` был доступен по адресу `cdn.example.com/styles/common.css`, нужно указать доменное имя `cdn.example.com`.  
@@ -58,7 +57,6 @@ _Доменные имена для раздачи контента_ испол�
 * Для легковесного контента и почтового сервера. В этом случае вы можете использовать ресурсные записи ANAME и [MX](../../dns/concepts/resource-record.md#mx).
 
 {% endnote %}
-
 
 ## Время, требуемое на применение настроек {#delay}
 
@@ -95,18 +93,17 @@ Cloud CDN предоставляет метрики использования �
 
 Посмотреть статистику можно на странице ресурса в [консоли управления](https://console.yandex.cloud).
 
-## Метрики Monitoring {#resource-stats}
+## Метрики Monium Metrics {#resource-stats}
 
-Cloud CDN автоматически отправляет метрики работы ресурсов в сервис [Yandex Monitoring](../../monitoring/index.md).
+Cloud CDN автоматически отправляет метрики работы ресурсов в [Monium Metrics](../../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
-Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе Monitoring](../operations/resources/get-stats.md#monitoring).
+Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе Monium](../operations/resources/get-stats.md#monitoring).
 
 Метрики Cloud CDN обновляются в среднем раз в 3 минуты. 
 
-При просмотре метрик в [интерфейсе Monitoring](https://monitoring.yandex.cloud) временные значения метрик соответствуют реальным.
+При просмотре метрик в [интерфейсе Monium](https://monium.yandex.cloud) временные значения метрик соответствуют реальным.
 
-Список метрик, передаваемых в Monitoring, представлен в [справочнике](../metrics-yc.md).
-
+Список метрик представлен в [справочнике](../metrics-yc.md).
 
 ## Примеры использования {#examples}
 
@@ -117,8 +114,9 @@ Cloud CDN автоматически отправляет метрики раб�
 * [Интеграция L7-балансировщика с Cloud CDN и Object Storage](../tutorials/cdn-storage-integration/index.md)
 * [Организация защищенного доступа к контенту в Cloud CDN](../tutorials/protected-access-to-content/index.md)
 
-
 #### Полезные ссылки {#see-also}
 
-* [Инструкции по работе с ресурсами](../operations/index.md#resources).
-* [Инструкция по работе с основными настройками ресурса](../operations/resources/configure-basics.md).
+* [Инструкции по работе с ресурсами](../operations/index.md#resources)
+* [Инструкция по работе с основными настройками ресурса](../operations/resources/configure-basics.md)
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

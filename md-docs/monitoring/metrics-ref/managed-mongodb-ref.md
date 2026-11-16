@@ -3,15 +3,21 @@
 # Метрики Yandex StoreDoc
 
 
-В этом разделе описаны метрики сервиса [Yandex StoreDoc](../../storedoc/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [Yandex StoreDoc](../../storedoc/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Выберите проект каталога с кластером Yandex StoreDoc. Идентификатор кластера задается в метке `resource_id`.
 
 Общие метки для всех метрик сервиса Yandex StoreDoc: 
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `managed-mongodb`
+service | Идентификатор сервиса: `managed-mongodb`.
 resource_type | Тип ресурса: `cluster`
 resource_id | Идентификатор кластера
 host | FQDN хоста

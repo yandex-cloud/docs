@@ -49,6 +49,8 @@ description: This page features step-by-step guides for {{ mch-name }}.
 * [Configuring access to {{ objstorage-name }}](s3-access.md)
 
 
+* [Working with hybrid storage](hybrid-storage.md)
+
 ## Sharding {#sharding}
 
 * [Managing shards](shards.md)

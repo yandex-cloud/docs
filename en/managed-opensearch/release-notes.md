@@ -36,7 +36,7 @@ A new {{ OS }} version is out: [3.5](https://github.com/opensearch-project/opens
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
 * Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
 * The [updated](operations/cluster-version-update.md) {{ OS }} versions [3.3.2](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.3.2.md) and [3.4.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.4.0.md) improve the performance of queries with aggregation and fix a number of bugs, including the [NPE error when executing bulk queries](https://github.com/opensearch-project/k-NN/issues/2852).
 

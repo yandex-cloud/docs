@@ -4,9 +4,13 @@
 
 В этом разделе описаны метрики сервиса [Application Load Balancer](../../application-load-balancer/index.md), поставляемые в Monitoring.
 
-Имя метрики пишется в метку `name`.
+Имя метрики пишется в метку `name`. Значение метки `service` — `application-load-balancer`.
 
-При поиске метрик Application Load Balancer в Monium укажите метки `cluster=default` и `service=__application-load-balancer__` в проекте `folder__<идентификатор_каталога>` с ресурсами балансировщика.
+Для метрик Application Load Balancer используйте [проект каталога](*monium-folder-project) с балансировщиком.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 ## Метрики HTTP {#http-metrics}
 
@@ -56,5 +60,7 @@
 
 | Имя<br>Тип, единицы измерения | Описание |
 | --- | --- |
-| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.</li><li>`js_challenge` — запрос направлен на [проверку JS Challenge](../../smartwebsecurity/concepts/rules.md#client-checks).</li><li>`cookie_challenge` — запрос направлен на [проверку Cookie Challenge](../../smartwebsecurity/concepts/rules.md#client-checks).</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
+| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.</li><li>`js_challenge` — запрос направлен на [проверку JS Challenge](../../smartwebsecurity/concepts/rules.md#client-checks).</li><li>`cookie_challenge` — запрос направлен на [проверку Cookie Challenge](../../smartwebsecurity/concepts/rules.md#client-checks).</li><li>`deny` — запрос заблокирован.</li></ul> |
 | `load_balancer.smart_web_security.`<br/>`arl_requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду, прошедших через модуль [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md).<br/>Общая метка `folderId` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).<br/><br/>Специальные метки:<ul><li>`arl_profile` — идентификатор профиля Advanced Rate Limiter.</li><li>`arl_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис Yandex SmartCaptcha для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

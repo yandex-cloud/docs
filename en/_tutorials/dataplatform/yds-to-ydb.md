@@ -5,19 +5,25 @@ With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name
 
 To transfer data:
 
-1. [Set up a data stream in {{ yds-name }}](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Create a data stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
+
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+### Required paid resources {#paid-resources}
+
+* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+
+    * In serverless mode, you pay for data operations, stored data volume, and backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -27,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infrastructure}
 
 Set up your data delivery infrastructure:
 
@@ -86,19 +92,22 @@ Set up your data delivery infrastructure:
 
 1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+    * Name the endpoint.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database for the data stream in {{ yds-name }} from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
+            * **Connection type**: Select `{{ ydb-name }}` database.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the [previously created](#prepare-infrastructure) {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream [you created](#prepare-source).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select the [previously created](#prepare-infrastructure) service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
                 Fill in the data schema:
 
@@ -149,13 +158,18 @@ Set up your data delivery infrastructure:
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Name the endpoint.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydbtopic.console.form.ydbtopic.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
 
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} target database from the list.
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `ydb.editor` role.
+            
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `ydb.editor` role.
+
 
 1. Create a transfer:
 
@@ -216,7 +230,7 @@ Set up your data delivery infrastructure:
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder with the database.
+        1. In the [management console]({{ link-console-main }}), select the folder containing your database.
         1. [Navigate]({{ link-console-main }}/link/ydb) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
@@ -246,9 +260,9 @@ Before deleting any resources, [deactivate the transfer](../../data-transfer/ope
 To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created any service accounts, [delete them](../../iam/operations/sa/delete.md).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 
@@ -261,3 +275,4 @@ To minimize resource consumption, delete the resources you no longer need:
        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
+

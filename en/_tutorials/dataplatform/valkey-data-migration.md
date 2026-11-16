@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: Same as for the {{ mrd-name }} cluster.
 
     
-    1. If using {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configuring-security-groups).
+    1. If using {{ vpc-name }} security groups, [configure them](../../managed-valkey/operations/connect/index.md#configure-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -248,7 +248,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             bash ./load-dump.sh
             ```
 
-            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For more information, see [{#T}](../../managed-valkey/concepts/sharding.md).
+            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For details, see [{#T}](../../managed-valkey/concepts/sharding.md).
 
     - Connecting with TLS {#with-tls}
 
@@ -313,7 +313,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             bash ./load-dump.sh
             ```
 
-            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For more information, see [{#T}](../../managed-valkey/concepts/sharding.md).
+            While the script runs, you may see data insertion error messages. This is normal behavior for the `redis-cli` command, as each shard in a sharded cluster stores only a portion of the data. For details, see [{#T}](../../managed-valkey/concepts/sharding.md).
 
     {% endlist %}
 

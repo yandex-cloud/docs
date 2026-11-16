@@ -50,10 +50,10 @@
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type`: Service type for log entries. Possible values are `mysql-error`, `mysql-general`, `mysql-slow-query`, and `mysql-audit`.
-        * `--columns`: List of data columns:
+        * `--columns`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `hostname`: [Host name](hosts.md#list).
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
 
@@ -220,8 +220,8 @@ This method allows you to stream cluster logs in real time.
 
         * `columnFilter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `hostname`: [Host name](hosts.md#list).
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.
@@ -273,8 +273,8 @@ This method allows you to stream cluster logs in real time.
 
         * `column_filter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
-            * `id`: Request ID.
+            * `hostname`: [Host name](hosts.md#list).
+            * `id`: Query ID.
             * `message`: Message output by the service.
             * `status`: Message status, e.g., `Note` or `Warning`.
             * `raw`: Raw data for all columns.

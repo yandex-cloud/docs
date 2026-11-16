@@ -16,7 +16,7 @@ You can influence master selection in a {{ SD }} cluster by [configuring priorit
 
 You can set the host priority using the YC CLI, API, or {{ TF }}:
 
-* When [creating a cluster](../operations/cluster-create.md) or [a host in a cluster](../operations/hosts.md#add).
+* When [creating a cluster](../operations/cluster-create.md) or [a host in a cluster](../operations/hosts.md#add-host).
 * When [changing the host settings](../operations/hosts.md#update).
 
 The default priority value of `1` represents the lowest priority. The minimum value is `0`. A host with this priority level cannot become the master, even if there are no other suitable hosts in the cluster. The maximum value is `1000`. Only integer values can be used.

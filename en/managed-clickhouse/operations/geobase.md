@@ -45,7 +45,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 1. [Attach the service account to the cluster](s3-access.md#connect-service-account). You will use this [service account](../../iam/concepts/users/service-accounts.md) to configure access to the geobase archive.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
-1. [Get a link](s3-access.md#get-link-to-object) to the geobase archive.
+1. [Get a link](../../storage/operations/objects/link-for-download.md) to the geobase archive.
 
 
 ## Adding a geobase to a {{ CH }} cluster {#add}

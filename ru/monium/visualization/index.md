@@ -28,23 +28,9 @@ description: Платформа {{ monium-name }} позволяет отобр�
 
 ## Сервисные дашборды {#service-dashboards}
 
-Чтобы посмотреть дашборд с наиболее распространенными метриками для ресурса или сервиса {{ yandex-cloud }}:
+Сервисные дашборды содержат готовые графики с метриками ресурсов {{ yandex-cloud }}. В {{ monium-name }} они находятся в разделе **Дашборды**, на вкладке **Сервисные дашборды**. В консоли управления их можно открыть в разделе или на вкладке **Мониторинг** нужного сервиса.
 
-{% list tabs group=instructions %}
-
-- Интерфейс {{ monium-name }} {#console}
-
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
-  1. Найдите нужный сервис и выберите его в списке.
-
-     Например, **Compute** (для поиска дашбордов сервиса {{ compute-name }}) или **Logs Overview** (для сервиса {{ monium-logs-name }}).
-  
-     Описание дашбордов и метрик приведено в документации сервиса.
-  
-  1. Чтобы составить собственный дашборд из виджетов сервисного дашборда, [скопируйте виджеты](../../monium/operations/dashboard/widget-management.md) на свой дашборд или [дашборд целиком](../../monium/operations/dashboard/copy.md).
-
-{% endlist %}
+Сервисный дашборд нельзя изменить, но можно сохранить измененный график на другой дашборд или создать редактируемую копию всего дашборда. Порядок действий приведен в инструкции [Посмотреть сервисные дашборды](../operations/dashboard/service-dashboards.md).
 
 #### Полезные ссылки {#see-also}
 

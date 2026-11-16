@@ -1,6 +1,6 @@
 # Посмотреть статистику L7-балансировщика
 
-{{ alb-name }} автоматически отправляет метрики работы балансировщика в [{{ monium-full-name }}](../../monium/).
+{{ alb-name }} автоматически отправляет метрики работы балансировщика в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком.
 
 Полный список метрик представлен в [справочнике](../metrics.md).
 
@@ -54,3 +54,5 @@
   1. Если нужно обновить дашборд, нажмите кнопку ![](../../_assets/console-icons/arrows-rotate-right.svg). Также рядом с кнопкой вы можете задать частоту автообновления статистики.
 
 {% endlist %}
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

@@ -16,7 +16,7 @@ To enable this management method, select **{{ ui-key.yacloud.mdb.forms.database_
 
 In a cluster with enabled database management via SQL:
 
-* You cannot manage databases and [users](./cluster-users.md#sql-user-management) via the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console.
+* You cannot manage databases and [users](../concepts/user-access-rights.md#sql-user-management) via the native {{ yandex-cloud }} interfaces, such as the CLI, API, and management console.
 * You cannot enable user or database management via the native {{ yandex-cloud }} interfaces.
 * The existing users, user settings, and databases created with the native {{ yandex-cloud }} interfaces will remain unchanged.
 * Use the `admin` account for management. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** options.
@@ -149,7 +149,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
 
   Where:
   * `--cluster-name`: Database cluster name.
-  * `--engine`: Database engine. This is an optional setting. The possible values are:
+  * `--engine`: Database engine. This is an optional setting. Its possible values are:
     * `database-engine-atomic` (default): `Atomic` engine; supports non-blocking `DROP TABLE` and `RENAME TABLE` queries, and atomic `EXCHANGE TABLES` queries.
     * `database-engine-replicated`: `Replicated` engine; supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
@@ -183,7 +183,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
         Where:
         * `cluster_id`: Database cluster ID.
         * `name`: Database name.
-        * `engine`: Database engine. This is an optional setting. The possible values are:
+        * `engine`: Database engine. This is an optional setting. Its possible values are:
           * `atomic` (default): `Atomic` engine; supports non-blocking `DROP TABLE` and `RENAME TABLE` queries, and atomic `EXCHANGE TABLES` queries.
           * `replicated`: `Replicated` engine; supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
@@ -212,7 +212,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -247,7 +247,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
         
-      * `databaseSpec.engine`: Database engine. The possible values are:
+      * `databaseSpec.engine`: Database engine. Its possible values are:
         
         {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -288,7 +288,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
         
-      * `database_spec.engine`: Database engine. The possible values are:
+      * `database_spec.engine`: Database engine. Its possible values are:
 
         {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
@@ -350,7 +350,7 @@ For more about limits, see [Quotas and limits](../concepts/limits.md).
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

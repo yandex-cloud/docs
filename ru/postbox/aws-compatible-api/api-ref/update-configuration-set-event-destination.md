@@ -17,7 +17,7 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{Even
 Название конфигурации. ||
 || `EventDestinationName` | **Тип**: string.
 
-Название подписки, которая будет изменена.
+Название подписки, которая будет изменена. ||
 |#
 
 ### Заголовки запроса {#request-headers}
@@ -33,7 +33,10 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{Even
     "KinesisFirehoseDestination": {
       "IamRoleArn": "<параметр_для_совместимости>",
       "DeliveryStreamArn": "<поток данных>"
-    }
+    },
+    "MatchingEventTypes": [
+      "<тип_события>"
+    ]
   }
 }
 ```
@@ -63,7 +66,12 @@ PUT /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{Even
 `arn:yc:yds:ru-central1::https://yds.serverless.yandexcloud.net/ru-central1/b1gkgm9daf9605nj****/etn5nuveugdr18ak****:postbox`
 
 {% endcut %} ||
+|| `MatchingEventTypes` | **Тип**: array.
+
+{% include [matching-event-types](../../../_includes/postbox/matching-event-types.md) %} ||
 |#
+
+Метод заменяет параметры подписки целиком. Передавайте в запросе все параметры подписки, включая `Enabled` и `MatchingEventTypes`, даже если нужно изменить только один из них.
 
 ## Ответы {#responses}
 

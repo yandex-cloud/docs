@@ -27,18 +27,8 @@ description: Следуя данной инструкции, вы сможете
 
       1. В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
-      1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
+      1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** настройка пока недоступна. При необходимости [настройте запись логов в {{ monium-logs-name }}](application-load-balancer-manage-logs.md) через CLI, API или {{ TF }}.
 
-          1. Измените [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
-          1. Измените [правила отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
-    
-              * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — измените HTTP-коды.
-              * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — измените классы HTTP-кодов.
-              * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — измените gRPC-коды.
-              * **{{ ui-key.yacloud.alb.label_discard-percent }}** — измените процент отбрасываемых логов.
-    
-              Чтобы добавить еще одно правило, нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}**.
-    
       1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** измените параметры нужных обработчиков.
 
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -88,14 +78,13 @@ description: Следуя данной инструкции, вы сможете
        locations:
        - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hv********
-     log_group_id: eolul9ap0bv0********
      security_group_ids:
        - enpulh2tbrep********
        - enpg05a3ck35********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+  1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ monium-logs-name }}](../../monium/logs/quickstart-resources.md):
 
       1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -103,18 +92,16 @@ description: Следуя данной инструкции, вы сможете
           yc alb load-balancer logging --help
           ```
 
-      1. Добавьте новое правило отбрасывания логов:
+      1. Задайте правила отбрасывания логов. Переданный набор полностью заменит прежние правила:
 
           ```bash
           yc alb load-balancer logging <имя_балансировщика> \
-            --log-group-id <идентификатор_лог-группы> \
             --enable \
-            --discard codes=[200,3XX,GRPC_OK],percent=90
+            --discard 'codes=[200,3XX,GRPC_OK],percent=90'
           ```
 
           Где:
 
-          * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
           * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
             
             * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
@@ -129,7 +116,6 @@ description: Следуя данной инструкции, вы сможете
           folder_id: b1gug7dbelh********
           ...
           log_options:
-            log_group_id: e23p9bcvh6gr********
             discard_rules:
               - http_codes:
                   - "200"
@@ -210,12 +196,10 @@ description: Следуя данной инструкции, вы сможете
        locations:
        - zone_id: {{ region-id }}-a
          subnet_id: e9bs1hp7lgdl********
-     log_group_id: ckgs4u5km3u8********
      security_group_ids:
      - enp49ot04g63********
      created_at: "2022-04-04T02:12:40.160629110Z"
      log_options:
-       log_group_id: e23p9bfjvsgr********
        discard_rules:
          - http_codes:
              - "200"
@@ -267,11 +251,11 @@ description: Следуя данной инструкции, вы сможете
        }
 
        log_options {
-         log_group_id = "<идентификатор_лог-группы>"
+         disable = false
          discard_rule {
-           http_codes          = ["200"]
-           http_code_intervals = ["HTTP_2XX"]
-           grpc_codes          = ["GRPC_OK"]
+           http_codes          = [200]
+           http_code_intervals = ["2XX"]
+           grpc_codes          = ["OK"]
            discard_percent     = 15
          }
        }
@@ -339,10 +323,6 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
   1. Посмотрите описание команды CLI для удаления обработчика:
 
      ```bash
@@ -363,8 +343,6 @@ description: Следуя данной инструкции, вы сможете
      ```
 
 - {{ TF }} {#tf}
-
-  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Откройте файл конфигурации {{ TF }} и удалите блок `listener` в описании L7-балансировщика:
 
@@ -435,8 +413,6 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc alb load-balancer get <имя_L7-балансировщика>
      ```
-
-     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

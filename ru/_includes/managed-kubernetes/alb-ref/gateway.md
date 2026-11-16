@@ -14,6 +14,8 @@
 
 ## Gateway {#gateway}
 
+{% include [monium-logs-kz-note](../../application-load-balancer/monium-logs-kz-note.md) %}
+
 ```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -95,7 +97,7 @@ spec: <GatewaySpec>
 
     * `gateway.alb.yc.io/logs.logGroupId` (`string`)
 
-      Идентификатор [лог-группы](../../../logging/concepts/log-group.md) для записи [логов балансировщика](../../../application-load-balancer/logs-ref.md) в {{ cloud-logging-full-name }}.
+      {% include [log-group-region](../../application-load-balancer/log-group-region.md) %}
 
     * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodes` (`string`)
 

@@ -62,7 +62,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
@@ -91,7 +91,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 

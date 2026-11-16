@@ -112,13 +112,13 @@ To work with the `BACKUP`/`RESTORE` commands in a third-party cluster, you need 
 
 You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate either individual tables or an entire database from a third-party {{ CH }} cluster.
 
-1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) enabled.
+1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management) enabled.
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role.
 1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
     Save both the key and its ID, as you will need them in the next steps.
 
-1. [Create a {{ objstorage-name }}](../../storage/operations/buckets/create.md) bucket.
+1. [Create an {{ objstorage-name }}](../../storage/operations/buckets/create.md) bucket.
 
 
 1. If [encryption](../../storage/concepts/encryption.md) is enabled for the bucket, [assign](../../kms/operations/key-access.md#add-access-binding) to the service account the [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) role for the encryption key linked to the bucket.

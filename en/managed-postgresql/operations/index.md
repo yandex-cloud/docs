@@ -53,6 +53,7 @@ description: This page features step-by-step guides for {{ mpg-name }}.
 * [Using `pgaudit`](./extensions/pgaudit.md)
 * [Using `pgcrypto`](./extensions/pgcrypto.md)
 * [Using `postgresql_anonymizer`](./extensions/pg_anon.md)
+* [Using vector](extensions/vector.md)
 * [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)
 
 ## Logs and monitoring {#logs-and-monitoring}

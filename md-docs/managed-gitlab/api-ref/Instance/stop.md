@@ -18,7 +18,7 @@ Request message for InstanceService.Stop.
 ||Field | Description ||
 || instanceId | **string**
 
-Required field. ||
+Required field. ID of the GitLab instance to stop. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

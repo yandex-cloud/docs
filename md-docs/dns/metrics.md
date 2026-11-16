@@ -1,10 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud DNS](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud DNS](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Cloud DNS, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Cloud DNS автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится ресурс.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Все метрики сервиса Cloud DNS имеют общую метку `service=dns`.
 
@@ -18,3 +22,5 @@
 #### Полезные ссылки {#see-also}
 
 [Просмотр метрик Cloud DNS](operations/monitoring.md)
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

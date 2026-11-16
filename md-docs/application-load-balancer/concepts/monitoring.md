@@ -10,7 +10,7 @@
 
 {% endnote %}
 
-Балансировщик автоматически передает метрики в [Yandex Monium](../../monium/index.md). Доступны следующие дашборды и показатели:
+Балансировщик автоматически передает метрики в [Monium Metrics](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком. Доступны следующие дашборды и показатели:
 
 * **HTTP-статистика**:
 
@@ -27,7 +27,7 @@
   * **Requests per second** — количество запросов в секунду.
   * **Bytes per second** — объем обрабатываемых данных в секунду.
 
-Полный список метрик, передаваемых в Yandex Monium, представлен в [справочнике](../metrics.md).
+Полный список метрик приведен в [справочнике](../metrics.md).
 
 В Application Load Balancer доступна обобщенная статистика балансировщика. В Monium можно смотреть статистику с разбивкой по ресурсам, привязанным к балансировщику (HTTP-роутерам, виртуальным хостам, маршрутам и т. д.), а также [настроить алерты](../operations/application-load-balancer-manage-alerts.md).
 
@@ -35,17 +35,17 @@
 
 ## Логирование {#logging}
 
-Вы можете [настроить](../operations/application-load-balancer-manage-logs.md) поставку логов балансировщика в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
 
-Просмотр логов описан в инструкции [Посмотреть логи L7-балансировщика](../operations/application-load-balancer-get-logs.md).
+
+Логи балансировщика записываются в [Monium Logs](../../monium/logs/quickstart-resources.md), в [проект каталога](*monium-folder-project) с балансировщиком. [Настроить запись логов](../operations/application-load-balancer-manage-logs.md) можно через CLI, API или Terraform. Управление логированием и просмотр логов в интерфейсе Application Load Balancer пока недоступны.
+
+Как посмотреть логи: [Посмотреть логи L7-балансировщика](../operations/application-load-balancer-get-logs.md).
 
 Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) передается в логи в соответствии со стандартом [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md). 
 
-Также вы можете [передавать логи балансировщика в БД PostgreSQL](../tutorials/logging.md).
-
 ### Правила отбрасывания логов {#discard-logs-rules}
 
-Запись и хранение логов в Cloud Logging тарифицируются согласно [правилам](../../logging/pricing.md#prices) сервиса. Чтобы записывать меньше логов, добавьте правила их отбрасывания.
+Запись и хранение логов в Monium Logs [тарифицируются](../../monium/pricing.md). Чтобы записывать меньше логов, добавьте правила их отбрасывания.
 
 Доступные правила:
 
@@ -144,3 +144,5 @@
 
 * [Графики мониторинга](function-monitoring.md)
 * [Настроить алерты](../operations/application-load-balancer-manage-alerts.md)
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

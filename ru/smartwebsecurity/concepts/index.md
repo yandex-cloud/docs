@@ -19,9 +19,9 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 
 ## Мониторинг и аудит {#monitoring-audit}
 
-[Метрики](../operations/monitoring.md) {{ sws-name }} передаются в сервис [{{ monium-full-name }}](../../monium/index.yaml) и доступны в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
+[Метрики](../operations/monitoring.md) {{ sws-name }} передаются в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером. Просматривать их можно в разделе **{{ ui-key.yacloud.common.monitoring }}** сервиса {{ sws-name }}.
 
-Логи профилей безопасности передаются в [{{ monium-full-name }}](../../monium/), логи прокси-серверов — в [{{ cloud-logging-full-name }}](../../logging/). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе {{ sws-name }} и соответствующего сервиса логирования.
+Логи профилей безопасности и прокси-серверов передаются в [{{ monium-logs-name }}](../../monium/logs/quickstart-resources.md) в [проект каталога](*monium-folder-project) с соответствующим ресурсом. [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсах {{ sws-name }} и {{ monium-name }}.
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/index.yaml).
 
@@ -42,3 +42,5 @@ description: Что такое {{ sws-full-name }}, какие типы угро
 * [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)
 * [Как защитить сайт от накрутки посещаемости и заблокировать ботов](https://yandex.cloud/ru/blog/how-to-stop-bots)
 
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

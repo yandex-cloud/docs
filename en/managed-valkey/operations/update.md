@@ -2035,7 +2035,7 @@ In a sharded cluster, you can enable [shard autoscaling](../concepts/sharding.md
 
 {% note warning %}
 
-You may need to [configure security groups](connect/index.md#configuring-security-groups) to enable access to your cluster.
+You may need to [configure security groups](connect/index.md#configure-security-groups) to enable access to your cluster.
 
 {% endnote %}
 

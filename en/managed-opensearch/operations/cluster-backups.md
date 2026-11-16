@@ -859,3 +859,11 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
     ```http
     DELETE https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/<snapshot_name>
     ```
+
+### Restoring a cluster from a backup using the {{ OS }} API {#mos-backup}
+
+You can connect {{ objstorage-name }} to a {{ mos-name }} cluster as a snapshot repository. You will be able to create backups manually or on schedule using the [{{ OS }} Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+
+1. [Create a repository](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) to store snapshots specifying {{ objstorage-name }}.
+1. [Create a policy](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) for regular snapshot creation.
+1. [Configure access permissions](s3-access.md#configure-acl) and [add the snapshot repository](s3-access.md#register-snapshot-repository) for your {{ mos-name }} cluster.

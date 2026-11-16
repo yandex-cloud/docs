@@ -2,30 +2,19 @@
 
 # Настроить запись логов L7-балансировщика
 
-[Логи](../concepts/monitoring.md#logging) [L7-балансировщика](../concepts/application-load-balancer.md) можно отправлять в сервис [Yandex Cloud Logging](../../logging/index.md).
+
+
+Логи L7-балансировщика записываются в [Monium Logs](../../monium/logs/quickstart-resources.md) в [проект каталога](*monium-folder-project) с балансировщиком. Если вы ранее настраивали запись логов в Cloud Logging, идентификатор лог-группы можно оставить в конфигурации: теперь он игнорируется.
+
+{% note info %}
+
+Управление логированием в интерфейсе Application Load Balancer пока недоступно. Используйте CLI, API или Terraform. [Просматривать логи](application-load-balancer-get-logs.md) можно в интерфейсе Monium.
+
+{% endnote %}
 
 ## Включить запись логов {#enable-logs}
 
 {% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Настройки логов**:
-     
-     1. Включите опцию **Запись логов**.
-     1. Выберите [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **Добавить правило** и настройте его [параметры](../concepts/monitoring.md#discard-logs-rules):
-        
-        * **HTTP-коды** — добавьте HTTP-коды.
-        * **Классы HTTP-кодов** — добавьте классы HTTP-кодов.
-        * **gRPC-коды** — добавьте gRPC-коды.
-        * **Доля отбрасываемых логов** — добавьте процент отбрасываемых логов.
-
-        Вы можете задать больше одного правила.
-  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -41,25 +30,23 @@
      yc alb load-balancer logging --help
      ```
 
-  1. Включите логирование и установите параметры записи [логов](../logs-ref.md) в Cloud Logging:
+  1. Включите логирование и установите параметры записи [логов](../logs-ref.md) в Monium Logs:
 
      ```bash
      yc alb load-balancer logging <имя_балансировщика> \
        --enable \
-       --log-group-id <идентификатор_лог-группы> \
-       --discard codes=[<HTTP-код>,<класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+       --discard 'codes=[200,3XX,GRPC_OK],percent=70'
      ```
 
      Где:
      
      * `--enable` — параметр для включения логирования.
-     * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
-     * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
+     * `--discard` — необязательное [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
        
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
-       Вы можете задать больше одного правила.
+       Повторите `--discard` для каждого правила. Переданный набор полностью заменяет прежние правила отбрасывания. В примере отбрасывается 70% записей с HTTP-кодом `200`, кодами класса `3XX` или gRPC-кодом `OK`.
 
      Результат:
 
@@ -69,18 +56,23 @@
      name: test-load-balancer
      ...
      log_options:
-       log_group_id: e23p9bfj2kyr********
        discard_rules:
          - http_codes:
              - "200"
            http_code_intervals:
-             - HTTP_2XX
+             - HTTP_3XX
            grpc_codes:
              - OK
            discard_percent: "70"
      ```
 
 - Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
@@ -91,19 +83,18 @@
 
      ```hcl
      log_options {
-       log_group_id = "<идентификатор_лог-группы>"
+       disable = false
+
        discard_rule {
-         http_codes          = ["200"]
-         http_code_intervals = ["HTTP_2XX"]
-         grpc_codes          = ["GRPC_OK"]
-         discard_percent     = 75
+         http_codes      = [200]
+         discard_percent = 70
        }
      }
      ```
 
-     Где `log_options` — параметры записи [логов](../logs-ref.md) в Cloud Logging:
+     Где `log_options` — параметры записи [логов](../logs-ref.md) в Monium Logs:
      
-     * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
+     * `disable = false` — включить запись логов.
      * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes` — HTTP-коды.
@@ -111,7 +102,7 @@
        * `grpc_codes` — gRPC-коды.
        * `discard_percent` — доля отбрасываемых логов в процентах.
 
-       Вы можете задать больше одного правила.
+       Вы можете задать больше одного правила. Параметры блока описаны в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
   
   1. Примените изменения:
 
@@ -143,7 +134,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      После этого в указанном балансировщике будет включено логирование. Проверить статус логирования и другие настройки балансировщика можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
+      Проверьте настройки логирования командой CLI:
 
       ```bash
       yc alb load-balancer get <имя_балансировщика>
@@ -184,31 +175,7 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Настройки логов**:
-     
-     1. Измените лог-группу Cloud Logging, в которую будут записываться логи балансировщика.
-     1. Измените [правила отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
-        
-        * **HTTP-коды** — измените HTTP-коды.
-        * **Классы HTTP-кодов** — измените классы HTTP-кодов.
-        * **gRPC-коды** — измените gRPC-коды.
-        * **Доля отбрасываемых логов** — измените процент отбрасываемых логов.
-
-        Чтобы добавить еще одно правило, нажмите кнопку **Добавить правило**.
-  1. Нажмите **Сохранить**.
-
 - CLI {#cli}
-
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
-
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
-  
-  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -216,23 +183,21 @@
      yc alb load-balancer logging --help
      ```
 
-  1. Измените параметры записи [логов](../logs-ref.md) в Cloud Logging:
+  1. Измените параметры записи [логов](../logs-ref.md) в Monium Logs:
 
      ```bash
      yc alb load-balancer logging <имя_балансировщика> \
-       --log-group-id <идентификатор_лог-группы> \
-       --discard codes=[<HTTP-код>,<класс_HTTP-кода>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+       --discard 'codes=[200,3XX,GRPC_OK],percent=70'
      ```
 
      Где:
      
-     * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
      * `--discard` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules). Параметры правила:
        
        * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
        * `percent` — доля отбрасываемых логов в процентах.
 
-       Вы можете задать больше одного правила.
+       Повторите `--discard` для каждого правила. Переданный набор полностью заменяет прежние правила отбрасывания. В примере отбрасывается 70% записей с HTTP-кодом `200`, кодами класса `3XX` или gRPC-кодом `OK`.
 
      Результат:
 
@@ -242,12 +207,11 @@
      name: test-load-balancer
      ...
      log_options:
-       log_group_id: e23p9bfj2kyr********
        discard_rules:
          - http_codes:
              - "200"
            http_code_intervals:
-             - HTTP_2XX
+             - HTTP_3XX
            grpc_codes:
              - OK
            discard_percent: "70"
@@ -255,28 +219,22 @@
 
 - Terraform {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
-  
-  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
-
-  1. В конфигурационном файле с описанием балансировщика измените блок `log_options` с новыми настройками логирования:
+  1. В конфигурационном файле с описанием балансировщика измените настройки логирования в блоке `log_options`:
 
      ```hcl
      log_options {
-       log_group_id = "<идентификатор_лог-группы>"
+       disable = false
+
        discard_rule {
-         http_codes          = ["200"]
-         http_code_intervals = ["HTTP_2XX"]
-         grpc_codes          = ["GRPC_OK"]
-         discard_percent     = 75
+         http_codes      = [200]
+         discard_percent = 70
        }
      }
      ```
 
-     Где `log_options` — параметры записи [логов](../logs-ref.md) в Cloud Logging:
+     Где `log_options` — параметры записи [логов](../logs-ref.md) в Monium Logs:
      
-     * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md), в которую будут записываться логи балансировщика.
+     * `disable = false` — включить запись логов.
      * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
        
        * `http_codes` — HTTP-коды.
@@ -284,7 +242,7 @@
        * `grpc_codes` — gRPC-коды.
        * `discard_percent` — доля отбрасываемых логов в процентах.
 
-       Вы можете задать больше одного правила.
+       Вы можете задать больше одного правила. Параметры блока описаны в [документации провайдера](../../terraform/resources/alb_load_balancer.md).
   1. Примените изменения:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -315,36 +273,11 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      После этого в указанном балансировщике будут изменены параметры логирования. Проверить настройки балансировщика можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+      Проверьте настройки логирования командой [CLI](../../cli/quickstart.md):
 
       ```bash
       yc alb load-balancer get <имя_балансировщика>
       ```
-
-      {% note warning "Ограничения по времени" %}
-      
-      Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
-      
-      Операции, которые длятся дольше указанного времени, прерываются.
-      
-      {% cut "Как изменить эти ограничения?" %}
-      
-      Добавьте к описанию балансировщика блок `timeouts`, например:
-      
-      ```hcl
-      resource "yandex_alb_load_balancer" "<имя_балансировщика>" {
-        ...
-        timeouts {
-          create = "60m"
-          update = "60m"
-          delete = "60m"
-        }
-      }
-      ```
-      
-      {% endcut %}
-      
-      {% endnote %}
 
 - API {#api}
 
@@ -356,21 +289,7 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Настройки логов** выключите опцию **Запись логов**.
-  1. Нажмите **Сохранить**.
-
 - CLI {#cli}
-
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
-
-  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`.
-  
-  Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для управления логированием в балансировщике:
 
@@ -399,16 +318,11 @@
 
 - Terraform {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  
-  
-  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
-
-  1. В конфигурационном файле с описанием балансировщика удалите блок `log_options`:
+  1. В конфигурационном файле с описанием балансировщика установите `disable = true` в блоке `log_options`:
 
      ```hcl
      log_options {
-     ...
+       disable = true
      }
      ```
 
@@ -442,39 +356,16 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     После этого в указанном балансировщике будет выключено логирование. Проверить статус логирования и другие настройки балансировщика можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     Проверьте настройки логирования командой [CLI](../../cli/quickstart.md):
 
      ```bash
      yc alb load-balancer get <имя_балансировщика>
      ```
-
-     {% note warning "Ограничения по времени" %}
-     
-     Провайдер Terraform ограничивает время на выполнение операций с балансировщиками Application Load Balancer 10 минутами.
-     
-     Операции, которые длятся дольше указанного времени, прерываются.
-     
-     {% cut "Как изменить эти ограничения?" %}
-     
-     Добавьте к описанию балансировщика блок `timeouts`, например:
-     
-     ```hcl
-     resource "yandex_alb_load_balancer" "<имя_балансировщика>" {
-       ...
-       timeouts {
-         create = "60m"
-         update = "60m"
-         delete = "60m"
-       }
-     }
-     ```
-     
-     {% endcut %}
-     
-     {% endnote %}
 
 - API {#api}
 
   Чтобы выключить запись логов, воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md).
 
 {% endlist %}
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

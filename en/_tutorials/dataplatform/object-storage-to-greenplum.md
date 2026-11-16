@@ -1,7 +1,7 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-full-name }} to a {{ GP }}/{{ CB }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate data from {{ objstorage-full-name }} to a {{ GP }}/{{ CB }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -126,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: {{ objstorage-name }} bucket name.
@@ -148,7 +148,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     Leave the other settings at their defaults.
 
-1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#gp) with these cluster connection settings:
+1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md#managed-service) with these cluster connection settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}**: `<target_{{ GP }}_cluster_name>` from the drop-down list.
@@ -256,7 +256,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

@@ -1,14 +1,16 @@
 ---
-title: Справочник метрик сервиса {{ dns-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ dns-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ dns-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ dns-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ dns-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+Метрики сервиса {{ dns-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится ресурс.
 
 {% include [dns](../_includes/monitoring/metrics-ref/dns.md) %}
 
 #### Полезные ссылки {#see-also}
 
-[Просмотр метрик Cloud DNS](./operations/monitoring.md)
+[Просмотр метрик {{ dns-name }}](./operations/monitoring.md)
+
+[*monium-folder-project]: {% include [folder-project](../_includes/monium/folder-project.md) %}

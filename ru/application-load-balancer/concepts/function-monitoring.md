@@ -11,7 +11,7 @@ description: Графики мониторинга показывают сост
 
 {% endnote %}
 
-Графики мониторинга показывают состояние [балансировщика](./application-load-balancer.md) и связанные метрики. Используйте их для обнаружения аномалий и анализа производительности. Балансировщик автоматически передает метрики в [{{ monium-full-name }}](../../monium/). Полный список метрик представлен в [справочнике](../metrics.md).
+Графики мониторинга показывают состояние [балансировщика](./application-load-balancer.md) и связанные метрики. Используйте их для обнаружения аномалий и анализа производительности. Балансировщик автоматически передает метрики в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком. Полный список метрик представлен в [справочнике](../metrics.md).
 
 ## HTTP статистика {#http-stats}
 
@@ -93,3 +93,5 @@ Bytes per second — суммарный объем запросов и отве�
 
 * [{#T}](./monitoring.md)
 * [{#T}](../operations/application-load-balancer-manage-alerts.md)
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

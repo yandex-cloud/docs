@@ -1,16 +1,22 @@
-[Документация Yandex Cloud](../index.md) > [Yandex StoreDoc](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex StoreDoc](index.md) > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Yandex StoreDoc
 
-В этом разделе описаны метрики сервиса Yandex StoreDoc, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+Метрики сервиса Yandex StoreDoc автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Выберите проект каталога с кластером Yandex StoreDoc. Идентификатор кластера задается в метке `resource_id`.
 
 Общие метки для всех метрик сервиса Yandex StoreDoc: 
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `managed-mongodb`
+service | Идентификатор сервиса: `managed-mongodb`.
 resource_type | Тип ресурса: `cluster`
 resource_id | Идентификатор кластера
 host | FQDN хоста
@@ -446,6 +452,8 @@ dc | [Зона доступности](../overview/concepts/geo-scope.md)
 | `oplog-diff`<br/>`DGAUGE`, миллисекунды | Размер журнала операций (в миллисекундах). | 
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
 
 #### Полезные ссылки {#see-also}
 

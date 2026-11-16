@@ -170,7 +170,7 @@ Monium объединяет сбор, хранение и анализ метр�
 
 * [Дашборд в Monium](../../concepts/visualization/dashboard.md)
 * [Добавление параметра дашборда](add-parameters.md)
-* [Копирование дашборда](copy.md)
+* [Скопировать дашборд](copy.md)
 
 [*shard]: # Основные понятия Monium
           

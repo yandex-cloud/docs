@@ -194,7 +194,7 @@ You can add and remove users, manage individual user settings, and change databa
         For this authorization method, select the account in the **{{ ui-key.yacloud.common.user }}** field.
 
 
-  1. Select the deletion protection option for the user. The possible values are:
+  1. Select the deletion protection option for the user. Its possible values are:
 
      * **Same as cluster**
      * **Enabled**
@@ -303,7 +303,7 @@ You can add and remove users, manage individual user settings, and change databa
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -442,10 +442,10 @@ You cannot change the username.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
   
-  1. To change a user’s password, locate the user in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. To change a user's password, locate the user in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**:
   
      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Set your own password. It must be from 8 to 128 characters long.
-     * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man).
+     * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#create-cluster).
 
         To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
@@ -603,7 +603,7 @@ You cannot change the username.
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -777,7 +777,7 @@ Before you delete a user, [disable their deletion protection](#updateuser).
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

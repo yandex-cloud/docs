@@ -1,10 +1,16 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud CDN](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud CDN](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Cloud CDN, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Cloud CDN автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
 Имя метрики записывается в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Для Cloud CDN в обзоре метрик укажите `service = __cdn__`.
 
 Общие метки для всех метрик сервиса Cloud CDN с подключенным провайдером Yandex Cloud CDN:
 
@@ -71,3 +77,5 @@ folder_id | Идентификатор [каталога](../resource-manager/co
 #### Полезные ссылки {#see-also}
 
 [Просмотр статистики CDN-ресурса](operations/resources/get-stats.md)
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

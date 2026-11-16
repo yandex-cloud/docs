@@ -884,28 +884,6 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
 {% endlist %}
 
-
-### {{ connection-manager-name }} {#conn-man}
-
-If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do it in the [management console]({{ link-console-main }}).
-
-The following resources will be created for each database user:
-
-* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
-
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. {{ lockbox-name }} provides secure storage for passwords.
-
-The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
-
-You need the `connection-manager.viewer` role to view the connection details. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
-
-{% note info %}
-
-{{ connection-manager-name }} and secrets created with it are free of charge.
-
-{% endnote %}
-
-
 ## Manual master failover {#start-manual-failover}
 
 In a fault-tolerant multi-host {{ mpg-name }} cluster, you can perform a manual failover from the current master host to one of the replicas. Once this operation is complete, the former master host will act as a replica to the new master.

@@ -1,6 +1,6 @@
 ---
 title: '{{ mpg-full-name }} use cases'
-description: Various use cases for {{ mpg-full-name }} in {{ yandex-cloud }}.
+description: Use cases for {{ mpg-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ mpg-name }} tutorials
@@ -29,6 +29,7 @@ description: Various use cases for {{ mpg-full-name }} in {{ yandex-cloud }}.
 * [{#T}](conn-man-secret-access.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](mpg-pg-clickhouse-extension.md)
+* [{#T}](mpg-vector-extension.md)
 
 ## Replication and migration {#replication-and-migration}
 

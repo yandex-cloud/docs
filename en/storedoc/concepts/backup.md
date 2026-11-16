@@ -24,6 +24,7 @@ keywords:
 You can create backups either automatically or manually; in both cases, you get a full backup of all databases.
 
 For sharded clusters, two backups are created: a sharded one and a non-sharded one. The sharded backup displays a larger size which includes:
+
 * Backup size for `mongoinfra` or `mongocfg` type hosts.
 * Total size of all non-sharded backups. This total is counted towards the overall size of a sharded backup, but technically non-sharded backups do not take up extra storage space as part of a sharded backup.
 
@@ -76,12 +77,6 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 The `oplog` is archived in a running cluster a few times a minute and then uploaded to object storage.
 
 It takes some time to create and upload an `oplog` archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
-
-{% note warning %}
-
-PITR is not supported for clusters with [sharding](../tutorials/sharding.md) enabled. These clusters can only be restored to the point in time when the chosen backup was created.
-
-{% endnote %}
 
 PITR only works for clusters with a single replica set. Therefore, to use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster.
 

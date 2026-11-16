@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+	* In serverless mode, you pay for data operations, stored data volume, and backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -207,7 +207,7 @@ Set up your infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 

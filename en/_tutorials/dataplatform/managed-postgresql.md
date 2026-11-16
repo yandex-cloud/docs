@@ -1,7 +1,13 @@
 # Migrating {{ PG }} clusters
 
 
-To migrate your database to {{ mpg-full-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
+You can migrate your database to {{ mpg-full-name }} by doing one of the following:
+
+* [Migrate your data using {{ data-transfer-full-name }}](#data-transfer).
+
+* [Use quick data transfer to a new cluster](#quick-transfer), which automatically creates the transfer and endpoints.
+
+During migration, put the old database in read-only mode and, once the migration is complete, switch the workload over to the {{ yandex-cloud }} database cluster.
 
 {% note warning %}
 
@@ -15,11 +21,12 @@ Using {{ data-transfer-name }} for migration allows you to:
 * Minimize the DB downtime when migrating data.
 * Migrate from older {{ PG }} versions to newer versions.
 
-For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+For details, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 To use these migration methods, allow connecting to the source cluster from the internet.
 
-## Transferring data {#data-transfer}
+
+## Migrating data via {{ data-transfer-full-name }} {#data-transfer}
 
 {% include notitle [MPG moving data with Data Transfer](datatransfer/managed-postgresql.md) %}
 
@@ -28,16 +35,29 @@ To use these migration methods, allow connecting to the source cluster from the 
 
 After creating a {{ mpg-name }} cluster, you can immediately transfer data from another {{ mpg-name }} cluster or custom database installation into it.
 
+To use quick data transfer:
+
+1. [Get your cloud ready](#before-you-begin-quick).
+1. [Transfer data](#transfer-data-quickly).
+
 This migration method provides:
 
 * Automatic creation of a transfer and endpoints.
 * One-time transfer of the data snapshot from the source to the target.
 
-### Required paid resources {#paid-resources}
+If you no longer need the resources you created, [delete them](#clear-out-quick).
+
+### Getting started {#before-you-begin-quick}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-quick}
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
 
 ### Transfer the data {#transfer-data-quickly}
 
@@ -111,9 +131,9 @@ This migration method provides:
 
       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete data from the transferred tables, leaving the schema intact.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: The system will only transfer data from the tables in this list.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: The system will not transfer data from the tables in this list.
 
       The lists include the name of the [schema]({{ pg-docs }}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
@@ -136,11 +156,13 @@ This migration method provides:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-1. To minimize resource consumption, delete the resources you no longer need:
+### Delete the resources you created {#clear-out-quick}
 
-    1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) if you transferred data from it.
-    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-    1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+To reduce resource usage, delete the resources you no longer need:
+
+1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) if you transferred data from it.
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
   
 
 ## Transferring tables with data types from {{ PG }} extensions

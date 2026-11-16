@@ -23,6 +23,9 @@ items:
             href: operations/cluster-stop.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Recovery from a WAL-G backup
+            hidden: true
+            href: operations/cluster-outbound-backups.md
           - name: Managing cluster access
             href: operations/cluster-access.md
           - name: '{{ mgp-full-name }} version upgrade'

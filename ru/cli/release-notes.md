@@ -7,6 +7,14 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.46.0 (16.11.26) {#v-1-46-0}
+
+#### Изменения в системных командах CLI {#v-1-46-0-yc}
+
+* Исправлена ошибка при одновременном сохранении конфигурации из нескольких процессов CLI.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.45.0 (12.11.26) {#v-1-45-0}
 
 #### {{ at-name }} {#v-1-45-0-at-name}
@@ -26,8 +34,6 @@ description: На странице представлены релизы CLI, а
 * В команду `yc managed-greenplum cluster update` добавлен параметр `--connection-pooling-discard` для управления очисткой серверных соединений при возврате в пул. В команду `yc managed-greenplum cluster create` добавлены все параметры управления пулом — `--connection-pooling-mode`, `--connection-pooling-size`, `--connection-pooling-client-idle-timeout`, `--connection-pooling-idle-in-transaction-timeout` и `--connection-pooling-discard`:
   * `yc managed-greenplum cluster create`;
   * `yc managed-greenplum cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.44.0 (05.11.26) {#v-1-44-0}
 

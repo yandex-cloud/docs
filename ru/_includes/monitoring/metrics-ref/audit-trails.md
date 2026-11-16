@@ -1,10 +1,12 @@
 Имя метрики пишется в метку `name`.
 
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
 Общие метки для всех метрик {{ at-name }}:
 
 | Метка | Значение |
 | --- | --- |
-service | Идентификатор сервиса: `__audit-trails__` в {{ monium-name }}, `audit-trails` в {{ monitoring-name }} |
+service | Идентификатор сервиса: `audit-trails` |
 trail | Идентификатор [трейла](../../../audit-trails/concepts/trail.md) |
 status | [Статус](../../../audit-trails/concepts/diagnostics.md) трейла |
 event_type | Тип события |

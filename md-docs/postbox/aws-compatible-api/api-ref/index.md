@@ -18,6 +18,7 @@
 || [GetDomainIdentity](get-domain-identity.md) | Возвращает информацию об адресе. ||
 || [CreateDomainIdentity](create-domain-identity.md) | Создает адрес. ||
 || [PutDomainIdentityDkimAttributes](put-domain-identity-dkim-attributes.md) | Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. ||
+|| [PutEmailIdentityDkimSigningAttributes](put-email-identity-dkim-signing-attributes.md) | Перепроверяет DKIM-подпись адреса и возвращает ее статус. ||
 || [DeleteDomainIdentity](delete-domain-identity.md) | Удаляет адрес. ||
 |#
 
@@ -32,6 +33,7 @@
 || [DeleteConfigurationSet](delete-configuration-set.md) | Удаляет конфигурацию. ||
 || [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) | Управляет настройками доставки. ||
 || [PutConfigurationSetSuppressionOptions](put-configuration-set-suppression-options.md) | Управляет настройками стоп-листа. ||
+|| [PutConfigurationSetVdmOptions](put-configuration-set-vdm-options.md) | Управляет настройками сбора статистики. ||
 |#
 
 ## Стоп-лист {#suppressed-destinations}
@@ -57,6 +59,12 @@
 || [PutDedicatedIpInPool](put-dedicated-ip-in-pool.md) | Перемещает выделенный IP-адрес в пул. ||
 |#
 
+{% note info %}
+
+Метод PutDedicatedIpPoolScalingAttributes не поддерживается: пулы работают только в режиме масштабирования `STANDARD`, изменить его нельзя. При вызове метод возвращает ошибку `400 BadRequestException` с сообщением `Managed scaling mode is not supported.`
+
+{% endnote %}
+
 ## Подписки {#event-destinations}
 
 #|
@@ -65,4 +73,13 @@
 || [CreateConfigurationSetEventDestination](create-configuration-set-event-destinations.md) | Создает подписку. ||
 || [UpdateConfigurationSetEventDestination](update-configuration-set-event-destination.md) | Обновляет подписку. ||
 || [DeleteConfigurationSetEventDestination](delete-configuration-set-event-destination.md) | Удаляет подписку. ||
+|#
+
+## Метки {#tags}
+
+#|
+|| **Метод** | **Описание** ||
+|| [ListTagsForResource](list-tags-for-resource.md) | Возвращает список меток адреса, конфигурации или пула выделенных IP-адресов. ||
+|| [TagResource](tag-resource.md) | Добавляет метки пулу выделенных IP-адресов. ||
+|| [UntagResource](untag-resource.md) | Удаляет метки пула выделенных IP-адресов. ||
 |#

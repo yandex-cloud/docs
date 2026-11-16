@@ -38,17 +38,7 @@ description: Следуя данной инструкции, вы сможете
   1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
      Количество единиц будет меняться автоматически с учетом нагрузки на балансировщик и установленных ограничений. От количества единиц зависит [тарификация балансировщика](../pricing.md).
-  1. (Опционально) В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
-     1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
-     1. Выберите [лог-группу](../../logging/concepts/log-group.md) [{{ cloud-logging-full-name }}](../../logging/), в которую будут записываться логи балансировщика.
-     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-discard-rule }}** и настройте его [параметры](../concepts/monitoring.md#discard-logs-rules):
-        * **{{ ui-key.yacloud.alb.label_discard-http-codes }}** — добавьте HTTP-коды.
-        * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}** — добавьте классы HTTP-кодов.
-        * **{{ ui-key.yacloud.alb.label_discard-grpc-codes }}** — добавьте gRPC-коды.
-        * **{{ ui-key.yacloud.alb.label_discard-percent }}** — добавьте процент отбрасываемых логов.
-
-        Вы можете задать больше одного правила.
-
+  1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** настройка пока недоступна. После создания балансировщика [настройте запись логов в {{ monium-logs-name }}](application-load-balancer-manage-logs.md) через CLI, API или {{ TF }}.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
   
      1. Введите имя обработчика.
@@ -115,7 +105,6 @@ description: Следуя данной инструкции, вы сможете
        locations:
        - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hv********
-     log_group_id: eolul9ap0bv0********
      security_group_ids:
        - enpulh2tbrep********
        - enpg05a3ck35********
@@ -126,31 +115,29 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
-  1. (Опционально) Установите параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
-     1. Посмотрите описание команды CLI для добавления логирования в балансировщик:
+  1. (Опционально) Установите параметры записи [логов](../logs-ref.md) в [{{ monium-logs-name }}](../../monium/logs/quickstart-resources.md):
+     1. Посмотрите описание команды CLI для настройки записи логов:
 
         ```bash
         yc alb load-balancer logging --help
         ```
 
-     1. Привяжите лог-группу к балансировщику и настройте [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
+     1. Включите запись логов и настройте [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
         ```bash
         yc alb load-balancer logging <имя_балансировщика> \
-          --log-group-id <идентификатор_лог-группы> \
           --enable \
-          --discard codes=[<HTTP-код>,<класс_HTTP-кодов>,<gRPC-код>],percent=<доля_отбрасываемых_логов>
+          --discard 'codes=[200,3XX,GRPC_OK],percent=90'
         ```
 
         Где:
         
-        * `--log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
         * `--discard` — правило отбрасывания логов. Параметры правила:
           
           * `codes` — HTTP-коды, классы HTTP-кодов или gRPC-коды.
           * `percent` — доля отбрасываемых логов в процентах.
 
-        Вы можете задать больше одного правила.
+        Повторите `--discard` для каждого правила. Переданный набор полностью заменит прежние правила. В примере отбрасывается 90% записей с HTTP-кодом `200`, кодами класса `3XX` или gRPC-кодом `OK`.
 
         Результат:
 
@@ -160,7 +147,6 @@ description: Следуя данной инструкции, вы сможете
         name: test-load-balancer
         ...
         log_options:
-          log_group_id: e23p9bfjvsgr********
           discard_rules:
             - http_codes:
                 - "200"
@@ -241,12 +227,10 @@ description: Следуя данной инструкции, вы сможете
        locations:
        - zone_id: {{ region-id }}-a
          subnet_id: e9bs1hp7lgdl********
-     log_group_id: ckgs4u5km3u8********
      security_group_ids:
      - enp49ot04g63********
      created_at: "2022-04-04T02:12:40.160629110Z"
      log_options:
-       log_group_id: e23p9bfjvsgr********
        discard_rules:
          - http_codes:
              - "200"
@@ -346,11 +330,11 @@ description: Следуя данной инструкции, вы сможете
         }
 
         log_options {
-          log_group_id = "<идентификатор_лог-группы>"
+          disable = false
           discard_rule {
-            http_codes          = ["<HTTP-код>"]
-            http_code_intervals = ["<класс_HTTP-кодов>"]
-            grpc_codes          = ["<gRPC-код>"]
+            http_codes          = [<http_код>]
+            http_code_intervals = ["<класс_http_кодов>"]
+            grpc_codes          = ["<grpc_код>"]
             discard_percent     = <доля_отбрасываемых_логов>
           }
         }
@@ -412,9 +396,9 @@ description: Следуя данной инструкции, вы сможете
                         * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`.
                         * `idle_timeout` (опционально) — время ожидания без активности, после которого соединение закрывается. Например: `"10s"`, `"5m"`, `"1h"`. Значение `"0"` отключает таймаут. По умолчанию — 1 час.
 
-      * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+      * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ monium-logs-name }}](../../monium/logs/quickstart-resources.md):
 
-          * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
+          * `disable` — отключение записи логов. Значение `false` включает запись, `true` — отключает.
           * `discard_rule` — [правило отбрасывания логов](../concepts/monitoring.md#discard-logs-rules):
 
             * `http_codes` — HTTP-коды.

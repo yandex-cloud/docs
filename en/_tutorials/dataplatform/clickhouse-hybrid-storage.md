@@ -1,7 +1,7 @@
 # Using hybrid storage in {{ mch-name }}
 
 
-Hybrid storage enables you to store frequently used data on the {{ mch-name }} cluster’s network drives while keeping rarely used data in {{ objstorage-full-name }}. Your hybrid storage will automatically create a bucket and connect it to {{ CH }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+Hybrid storage enables you to store frequently used data on the {{ mch-name }} cluster’s network drives while keeping rarely used data in {{ objstorage-full-name }}. Your hybrid storage will automatically create a bucket and connect it to {{ CH }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables. For details, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
 
@@ -92,7 +92,7 @@ When creating the `tutorial.hits_v1` table, we will [configure it](#create-table
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table configured for hybrid storage by running the following SQL query. Replace the `<schema>` placeholder with a table schema from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables):
+Create the `tutorial.hits_v1` table configured for hybrid storage by running the following SQL query. Replace the `<schema>` placeholder with a table schema from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/get-started/sample-datasets/anon-web-analytics-metrica#create-the-database-and-table):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -121,17 +121,13 @@ The `TTL ...` expression defines the policy for managing aging data: {#ttl}
    * Records where the elapsed time, in days, since `EventDate` is less than the TTL value are retained on the network disk storage.
    * Records where the elapsed time since `EventDate` meets or exceeds the TTL value are moved to the object storage, as per the `TO DISK 'object_storage'` policy.
 
-While specifying TTL for hybrid storage is optional, doing so gives you explicit control over what data is moved to {{ objstorage-name }}. Without a defined TTL, data is only moved to the object storage when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
-
 {% note info %}
 
 The TTL expression in our example is complex because the test dataset we use requires splitting historical, static data across various storage tiers. For the majority of frequently updated tables, you can use a simple TTL expression, such as `EventDate + INTERVAL 5 DAY`, which moves data to the object storage after a five-day period.
 
 {% endnote %}
 
-Data is moved between the network disk storage and object storage in [parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes), rather than per row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to the object storage. At a minimum, the TTL expression should use the same columns as the partitioning key, e.g., `EventDate` in the example above.
-
-Read more about configuring TTL in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
+For more on TTL, see [Storage in {{ mch-name }}](../../managed-clickhouse/concepts/storage.md#ttl).
 
 ## Populate the table with data {#fill-table-with-data}
 
@@ -257,16 +253,7 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 
 ## Monitor the volume of data in {{ objstorage-name }} (optional step) {#metrics}
 
-To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
-
-1. Open the [management console]({{ link-console-main }}).
-1. [Navigate]({{ link-console-main }}/link/monitoring) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Open the **Metric Explorer** section.
-1. Run this query:
-
-    ```text
-    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
-    ```
+{% include [hybrid-storage-monitoring](../../_includes/mdb/mch/hybrid-storage-monitoring.md) %}
 
 ## Delete the resources you created {#clear-out}
 

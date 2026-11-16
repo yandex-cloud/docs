@@ -26,7 +26,7 @@ Odyssey supports three modes of connection management:
 
     The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ PG }} clients and does not allow using:
 
-    * [Temporary tables](https://www.postgresql.org/docs/current/sql-createtable.html), [cursors](https://www.postgresql.org/docs/current/plpgsql-cursors.html), and [advisory locks](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS) that exist beyond a single transaction.
+    * [Temporary tables](https://www.postgresql.org/docs/current/sql-createtable.html), [cursors](https://www.postgresql.org/docs/current/plpgsql-cursors.html), and [advisory locks](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS) that persist beyond a single transaction.
 
     * [Prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html).
 
@@ -42,7 +42,7 @@ Odyssey supports three modes of connection management:
 
     This approach pays off if the `AUTOCOMMIT` mode is enabled for client sessions, where each transaction is already limited to a single query. However, not all {{ PG }} clients support query mode, and when both `AUTOCOMMIT` and the `synchronous_commit = remote_apply` setting are enabled at the same time, the cluster's performance is greatly reduced.
 
-You can [change](../operations/update.md#change-pooler-config) the connection pooler mode after the cluster is created.
+You can [change](../operations/update.md#change-additional-settings) the connection pooler mode after the cluster is created.
 
 {% note info %}
 
@@ -58,7 +58,7 @@ Integrating {{ mpg-name }} with the Odyssey connection pooler has several advant
 |------------------------|---------|-----------|
 | Resource usage | {{ mpg-name }} clusters are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS. | PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load. |
 | Supporting client connections | Odyssey strives to keep the client connection alive as long as possible after the transaction ends in order to re-use it if this client returns with a new transaction. | PgBouncer seeks to return such kind of connection to the pool as quickly as possible. |
-| Handling errors | {{ mpg-name }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ PG }} side are sent to the client application without any changes. | PgBouncer hides {{ PG }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
+| Error handling | A {{ mpg-name }} cluster provides improved error handling capabilities, thus ensuring that errors on the {{ PG }} side are sent to the client application without any changes. | PgBouncer hides {{ PG }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
 
 In addition, thanks to its integration with Odyssey, a {{ mpg-name }} cluster:
 

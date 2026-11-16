@@ -536,7 +536,7 @@ Yandex Cloud CDN позволяет организовать доставку к
 
  - [GetProviderCName](api-ref/Resource/getProviderCName.md)
 
- - [Метрики Monitoring](metrics-yc.md)
+ - [Метрики Monium Metrics](metrics-yc.md)
 
  - [Логи запросов](logs-ref.md)
 

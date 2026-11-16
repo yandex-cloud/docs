@@ -28,12 +28,12 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 * Added IAM authentication support for the CLI and API.
 * Added support for self-signed certificates.
-* Improved logic for recovery from a backup. Now the recovery progress is saved more frequently: not after processing each table entirely, but at smaller intervals. This allows to significantly reduce cluster recovery time.
+* Improved backup recovery logic. Recovery progress now saves more frequently, at shorter intervals rather than after each processed table. This considerably reduces cluster recovery time.
 * Added support for [Replicated](https://clickhouse.com/docs/reference/engines/database-engines/replicated) databases.
-* Added the ability to schedule replica synchronization to the management console.
-* When adding new replicas, schema copying is now enabled by default. This ensures consistency of table structures between replicas.
-* Added the ability to create a cluster from a backup in {{ TF }}.
-* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option also works for existing resources of the service.
+* Added the ability to schedule replica synchronization via the management console.
+* Enabled data schema copying by default when provisioning new replicas. This ensures table structure consistency across replicas.
+* Enabled creating a cluster from a backup in {{ TF }}.
+* Added the option to export Terraform code in a single click when creating or editing cluster settings in the management console. This option is also supported for existing service resources.
 * Added a [method for available DBMS version listing](api-ref/Versions/list.md) to the public API.
 * Released a new {{ CH }} version: [26.5](https://clickhouse.com/blog/clickhouse-release-26-05).
 
@@ -76,15 +76,15 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
-* Improved implementation of the `stats` and `Persistent Watches` methods in [{{ CK }}](concepts/replication.md#ck) to support a {{ ZK }}-compatible protocol.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
+* Improved implementation of the `stats` and `Persistent Watches` methods in [{{ CK }}](concepts/coordination-system.md#ck) to support a {{ ZK }}-compatible protocol.
 * Optimized [replica](concepts/replication.md) recovery. Recovery of large (2 TB and larger) non-replicated disks became faster.
-* {{ CK }} coordination service running on separate hosts is [billable](pricing.md#prices-keeper). It works faster than {{ ZK }} and uses the [Raft](https://en.wikipedia.org/wiki/Raft_(algorithm)) consensus algorithm. This configuration is recommended for the production environment.
+* If used on separate hosts, the {{ CK }} coordination service is billable. It works faster than {{ ZK }} and uses the [Raft](https://en.wikipedia.org/wiki/Raft_(algorithm)) consensus algorithm. This configuration is recommended for the production environment.
 * A new {{ CH }} version is out: [25.11](https://clickhouse.com/blog/clickhouse-release-25-11).
 
 ## November 2025 {#nov-2025}
 
-* {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. Learn more about {{ CK }} in [Replication](concepts/replication.md#ck).
+* The {{ CK }} coordination service is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. For more information on {{ CK }}, see [Coordination service](concepts/coordination-system.md#ck).
 * Added the `managed-clickhouse.restorer` role for restoring clusters from backups. To learn more, see [Access management](security.md#managed-clickhouse-restorer).
 * Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 * New {{ CH }} versions are out: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09), and [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
@@ -107,7 +107,7 @@ Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a 
 
 ## April 2025 {#apr-2025}
 
-Added [integration with {{ connection-manager-name }}](operations/update.md#conn-man). Now, a connection in {{ connection-manager-name }} is automatically created for all new clusters.
+Added [integration with {{ connection-manager-name }}](../metadata-hub/quickstart/connection-manager.md#mdb-integration). Now, a connection in {{ connection-manager-name }} is automatically created for all new clusters.
 
 ## March 2025 {#mar-2025}
 

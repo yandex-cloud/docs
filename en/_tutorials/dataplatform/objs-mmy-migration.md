@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -40,7 +40,7 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
 
-    1. [Assign](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the target database to the {{ MY }} user.
+    1. [Assign](../../managed-mysql/operations/grant.md#grant-privilege) the `ALL_PRIVILEGES` role for the target database to the {{ MY }} user.
 
 - {{ TF }} {#tf}
 
@@ -159,10 +159,10 @@ Set up your infrastructure:
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-objs-mmy.tf` file, specify the following variables:
+        1. In `data-transfer-objs-mmy.tf`, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -227,7 +227,7 @@ To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the rest of the resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=resources %}
 

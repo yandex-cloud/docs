@@ -4,15 +4,17 @@
 
 В этом разделе описаны метрики сервиса Audit Trails, поставляемые в [Monium Metrics](../../monium/metrics/quickstart.md).
 
-Для поиска метрик в Monium выберите проект каталога, в котором находится трейл: `project = folder__<идентификатор_каталога>`. Задайте метки `cluster = default` и `service = __audit-trails__`.
-
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик Audit Trails:
 
 | Метка | Значение |
 | --- | --- |
-service | Идентификатор сервиса: `__audit-trails__` в Monium, `audit-trails` в Monitoring |
+service | Идентификатор сервиса: `audit-trails` |
 trail | Идентификатор [трейла](trail.md) |
 status | [Статус](diagnostics.md) трейла |
 event_type | Тип события |

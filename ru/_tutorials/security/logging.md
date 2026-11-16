@@ -1,5 +1,11 @@
 # Запись логов балансировщика в {{ PG }}
 
+{% note warning %}
+
+Руководство устарело: оно использует лог-группу и триггер {{ cloud-logging-name }}. Сейчас логи {{ alb-name }} записываются в {{ monium-logs-name }}, поэтому описанная схема выгрузки в {{ PG }} больше не применима. Для просмотра и поиска логов используйте [инструкцию для {{ monium-name }}](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+
+{% endnote %}
+
 
 Вы можете записывать [логи](../../application-load-balancer/concepts/monitoring.md#logging) балансировщика — сообщения с информацией о каждом входящем запросе к балансировщику {{ alb-full-name }} — в базу данных {{ PG }}.
 

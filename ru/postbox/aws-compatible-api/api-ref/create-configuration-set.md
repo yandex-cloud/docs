@@ -24,6 +24,11 @@ POST /v2/email/configuration-sets HTTP/2
     "TlsPolicy": "REQUIRE|OPTIONAL",
     "SendingPoolName": "<имя_пула>"
   },
+  "VdmOptions": {
+    "DashboardOptions": {
+      "EngagementMetrics": "ENABLED|DISABLED"
+    }
+  },
   "Tags": [
     {
       "Key": "<ключ_метки>",
@@ -63,6 +68,17 @@ POST /v2/email/configuration-sets HTTP/2
 Имя [пула](../../concepts/dedicated-ip.md), с IP-адресов которого будут отправляться письма с конфигурацией.
 
 Необязательный параметр. ||
+|| `VdmOptions` | **Тип**: object.
+
+Настройки сбора статистики для конфигурации. Содержит объект `DashboardOptions`.
+
+Необязательный параметр. Изменить настройки сбора статистики у существующей конфигурации можно с помощью метода [PutConfigurationSetVdmOptions](put-configuration-set-vdm-options.md). ||
+|| `DashboardOptions` | **Тип**: object.
+
+Объект, который содержит параметр `EngagementMetrics`. ||
+|| `EngagementMetrics` | **Тип**: string.
+
+{% include [engagement-metrics](../../../_includes/postbox/engagement-metrics.md) %} ||
 || `Tags` | **Тип**: array.
 
 Массив меток для конфигурации.

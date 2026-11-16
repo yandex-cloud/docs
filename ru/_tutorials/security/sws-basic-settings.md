@@ -57,7 +57,6 @@ description: Руководство помогает с нуля настрои�
 * Плата за инфраструктуру [{{ alb-name }}](../../application-load-balancer/pricing.md) или [{{ api-gw-name }}](../../api-gateway/pricing.md) при ее использовании.
 * Плата за ресурсы [прокси-сервера](../../smartwebsecurity/pricing.md) при использовании [доменов](../../smartwebsecurity/concepts/domain-protect.md).
 * [Плата за запись и хранение логов](../../monium/pricing.md) в {{ monium-logs-name }}.
-* [Плата за запись и хранение логов](../../logging/pricing.md) в {{ cloud-logging-name }} при включении логирования прокси-сервера или L7-балансировщика.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -108,7 +107,7 @@ description: Руководство помогает с нуля настрои�
     1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
-    1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}** и выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [создайте новую](../../logging/operations/create-group.md).
+    1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**. Логи будут записываться в {{ monium-logs-name }} в [проект каталога](*monium-folder-project) с прокси-сервером.
 
        Чтобы уменьшить объем логов, настройте правило отбрасывания:
 
@@ -228,7 +227,7 @@ description: Руководство помогает с нуля настрои�
      1. В блоке **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.requestsSectionTitle_jMc7W }}** выберите все вердикты.
      1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowPercentageTitle_3334 }}** укажите `0%`, чтобы записывать все разрешенные запросы.
 
-     Логи будут поступать в {{ monium-logs-name }}, в проект `folder__<идентификатор_каталога>` для каталога с профилем безопасности.
+     Логи будут поступать в {{ monium-logs-name }} в [проект каталога](*monium-folder-project) с профилем безопасности.
 
   1. В разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}** оставьте включенным согласие об использовании информации об HTTP-запросах для улучшения моделей машинного обучения. Иначе в сервис {{ sws-name }} не будут поступать данные для расследования инцидентов безопасности.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -360,13 +359,14 @@ description: Руководство помогает с нуля настрои�
 
 - {{ monium-name }} {#monium}
 
-  1. [Откройте страницу поиска логов](../../monium/logs/logs-explorer.md#logs-search) и задайте период поиска.
+  1. Откройте [{{ monium-name }}]({{ link-monium }}).
+  1. На панели слева выберите ![compass](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
+  1. Задайте период поиска логов.
   1. В строке запроса укажите метки:
 
-     * `project` = `folder__<идентификатор_каталога>` — каталог с профилем безопасности;
-     * `security_profile_id` = `<идентификатор_профиля>` — профиль `site-protection`.
-
-     Значения `cluster` и `service` выберите из выпадающих списков.
+     * `project` — [проект каталога](*monium-folder-project) с профилем безопасности;
+     * `service` = `__smartwebsecurity__`;
+     * `security_profile_id` — [идентификатор профиля безопасности](../../smartwebsecurity/operations/profile-get.md) `site-protection`.
 
   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
@@ -374,7 +374,7 @@ description: Руководство помогает с нуля настрои�
 
 Для анализа срабатываний используйте [фильтры для правил в режиме логирования](../../smartwebsecurity/operations/configure-logging.md#dry-run-filters).
 
-Подробное описание работы с логами смотрите в разделе [{#T}](../../smartwebsecurity/operations/configure-logging.md).
+Подробное описание работы с логами — в разделе [{#T}](../../smartwebsecurity/operations/configure-logging.md).
 
 После тестирования правил внесите необходимые корректировки и снова проверьте их работу в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
 
@@ -476,14 +476,14 @@ description: Руководство помогает с нуля настрои�
 - Консоль управления или {{ monium-name }} {#console}
 
   1. [Откройте логи профиля безопасности](#test-sp-rules) `site-protection`.
-  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил ARL, сохранив метки `project`, `cluster`, `service` и `security_profile_id`.
+  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил ARL.
 
-      Примеры условий:
+      В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе:
 
       * Запросы, которые превысили лимит правила `arl-rule-1` в режиме логирования:
 
         ```text
-        meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
+        meta.dry_run_exceeded_quota_names = "arl-rule-1"
         ```
 
       * Запросы, заблокированные правилами ARL после отключения режима логирования:
@@ -504,7 +504,7 @@ description: Руководство помогает с нуля настрои�
 
   1. [Откройте раздел мониторинга](../../smartwebsecurity/operations/monitoring.md) в {{ sws-name }}.
   1. Посмотрите информацию на графиках:
-     * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, которое не превышает лимит в профиле ARL.
+     * **Allowed by ARL Profile RPS** — количество входящих запросов в секунду, разрешенных профилем ARL.
      * **Denied by ARL Profile RPS** — количество входящих запросов в секунду, превысивших лимит профиля ARL и заблокированных.
      * **Redirected to SmartCaptcha by ARL Profile RPS** — количество входящих запросов в секунду, направленных профилем ARL в {{ captcha-name }} для дополнительной верификации.
 
@@ -599,9 +599,9 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 - Консоль управления или {{ monium-name }} {#console}
 
   1. [Откройте логи профиля безопасности](#test-sp-rules) `site-protection`.
-  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил WAF, сохранив метки `project`, `cluster`, `service` и `security_profile_id`.
+  1. В текстовом режиме добавьте в селектор запроса условия для поиска правил WAF.
 
-      Примеры условий:
+      В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе:
 
       * Запросы, которые были бы заблокированы профилем `waf-site-protection` в режиме логирования:
 
@@ -624,3 +624,5 @@ Web Application Firewall (WAF) защищает от эксплуатации р
 ## Дальнейшая настройка политик безопасности {#further-configuration}
 
 При каждом изменении или добавлении новых правил для профилей безопасности, WAF и ARL включайте режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**. Активируйте правило только после того, как логи подтвердят его корректную работу. Это поможет избежать ложных срабатываний и обеспечит стабильную работу вашего веб-приложения.
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

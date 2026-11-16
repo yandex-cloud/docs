@@ -1,10 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Cloud Notification Service
 
-В этом разделе описаны метрики сервиса Cloud Notification Service, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Cloud Notification Service автоматически передаются в [Monium Metrics](../monium/metrics/overview.md), в [проект каталога](*monium-folder-project) с ресурсами сервиса.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик Cloud Notification Service:
 
@@ -39,7 +43,7 @@
 * `app` — имя канала (приложения).
 * `platform` — название платформы мобильных уведомлений.
 * `error` — расшифровка статуса `client_error` при отправке сообщения. Возможные значения:
-  * `rate_limit` — слишком много запросов отправки в устройство.
+  * `rate_limit` — слишком много запросов на отправку сообщений на устройство.
   * `misconfigured_channel` — неправильно сконфигурирован [канал](concepts/index.md#channels), например загружен неправильный секрет мобильного приложения.
   * `invalid_or_revoked_endpoint` — эндпоинт некорректен или инвалидирован платформой.
   * `invalid_message_or_endpoint` — некорректное сообщение, параметры отправки или эндпоинта.
@@ -73,3 +77,5 @@
 * `topic_name` — имя топика.
 * `error` — расшифровка статуса `client_error` при отправке сообщения.||
 |#
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

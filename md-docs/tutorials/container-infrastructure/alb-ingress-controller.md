@@ -827,9 +827,11 @@
 
 ## (Опционально) Настройте группу ресурсов Ingress {#configure-group}
 
-Если при настройке ресурса Ingress вы указали имя для настроек группы ресурсов Ingress в аннотации `ingress.alb.yc.io/group-settings-name`, то вы можете задать настройки логирования для L7-балансировщика. Для этого [создайте пользовательскую лог-группу](../../logging/operations/create-group.md) и укажите настройки группы ресурсов Ingress в дополнительном ресурсе `IngressGroupSettings`:
 
-1. Создайте файл `settings.yaml` и укажите в нем настройки логирования и идентификатор пользовательской лог-группы, например:
+
+Если в ресурсе Ingress задана аннотация `ingress.alb.yc.io/group-settings-name`, настройте правила отбрасывания логов в ресурсе `IngressGroupSettings`. Логи записываются в проект Monium `folder__<идентификатор_каталога>` для каталога с балансировщиком.
+
+1. Создайте файл `settings.yaml` и укажите в нем настройки логирования, например:
 
     ```yaml
     apiVersion: alb.yc.io/v1alpha1
@@ -837,7 +839,6 @@
     metadata:
       name: <имя_для_настроек_группы_ресурсов_Ingress>
     logOptions:
-      logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
         - discardPercent: 50
           grpcCodes:

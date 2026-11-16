@@ -20,6 +20,8 @@
 
 ## Gateway {#gateway}
 
+
+
 ```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -101,7 +103,7 @@ spec: <GatewaySpec>
 
     * `gateway.alb.yc.io/logs.logGroupId` (`string`)
 
-      Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../../application-load-balancer/logs-ref.md) в Yandex Cloud Logging.
+      Идентификатор лог-группы Cloud Logging. Если вы ранее настраивали запись логов в этот сервис, параметр можно оставить в конфигурации: теперь он игнорируется. Логи записываются в проект Monium `folder__<идентификатор_каталога>` для каталога с балансировщиком.
 
     * `gateway.alb.yc.io/logs.discardRule.<имя_правила>.httpCodes` (`string`)
 

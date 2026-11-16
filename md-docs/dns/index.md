@@ -530,7 +530,7 @@ Yandex Cloud DNS служит для управления зонами DNS (Doma
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

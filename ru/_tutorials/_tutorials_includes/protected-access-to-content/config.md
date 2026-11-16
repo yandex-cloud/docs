@@ -36,7 +36,7 @@ variable "content_file_path" {
 locals {
   sa_name          = "my-service-account"
   network_name     = "webserver-network"
-  subnet_name      = "webserver-subnet-{{ region-id }}-b"
+  subnet_name      = "webserver-subnet-{{ region-id }}-e"
   sg_name          = "webserver-sg"
   vm_name          = "mywebserver"
   domain_zone_name = "my-domain-zone"
@@ -87,9 +87,9 @@ resource "yandex_vpc_network" "webserver-network" {
 
 # Создание подсети
 
-resource "yandex_vpc_subnet" "webserver-subnet-b" {
+resource "yandex_vpc_subnet" "webserver-subnet-e" {
   name           = local.subnet_name
-  zone           = "{{ region-id }}-b"
+  zone           = "{{ region-id }}-e"
   network_id     = "${yandex_vpc_network.webserver-network.id}"
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
@@ -134,7 +134,7 @@ resource "yandex_vpc_security_group" "webserver-sg" {
 
 resource "yandex_compute_disk" "boot-disk" {
   type     = "network-ssd"
-  zone     = "{{ region-id }}-b"
+  zone     = "{{ region-id }}-e"
   size     = "20"
   image_id = "fd8jtn9i7e9ha5q25niu"
 }
@@ -144,7 +144,7 @@ resource "yandex_compute_disk" "boot-disk" {
 resource "yandex_compute_instance" "mywebserver" {
   name        = local.vm_name
   platform_id = "standard-v2"
-  zone        = "{{ region-id }}-b"
+  zone        = "{{ region-id }}-e"
 
   resources {
     cores  = "2"
@@ -156,7 +156,7 @@ resource "yandex_compute_instance" "mywebserver" {
   }
 
   network_interface {
-    subnet_id          = "${yandex_vpc_subnet.webserver-subnet-b.id}"
+    subnet_id          = "${yandex_vpc_subnet.webserver-subnet-e.id}"
     nat                = true
     security_group_ids = ["${yandex_vpc_security_group.webserver-sg.id}"]
   }

@@ -46,7 +46,7 @@
 * плата за аренду серверов {{ baremetal-name }} ([тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md));
 * плата за использование вычислительных ресурсов L7-балансировщика ([тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
 * плата за запросы, обработанные правилами профиля безопасности ([тарифы {{ sws-full-name }}](../../smartwebsecurity/pricing.md));
-* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* при включении логирования балансировщика плата за запись и хранение логов ([тарифы {{ monium-name }}](../../monium/pricing.md)).
 
 {% include [bms-vpc-private-over-cic-free-traffic](../../_includes/baremetal/bms-vpc-private-over-cic-free-traffic.md) %}
 
@@ -544,7 +544,7 @@
   1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `sample-network`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите группу безопасности `alb-sg`.
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** оставьте только зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b` с подсетями `vpc-subnet-a` и `vpc-subnet-b` соответственно.
-  1. Если вы не хотите сохранять логи работы балансировщика в [лог-группу](../../logging/concepts/log-group.md), отключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** настройка пока недоступна. После создания балансировщика [настройте запись логов в {{ monium-logs-name }}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md) через CLI, API или {{ TF }}.
   1. В секции **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и в открывшейся форме:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя [обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener) `alb-bms-listener`.
@@ -664,7 +664,6 @@
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик, затем последовательно удалите [HTTP-роутер](../../application-load-balancer/operations/http-router-delete.md), [группу бэкендов](../../application-load-balancer/operations/backend-group-delete.md) и [целевую группу](../../application-load-balancer/operations/target-group-delete.md) балансировщика.
 1. [Удалите](../../smartwebsecurity/operations/profile-delete.md) профиль безопасности {{ sws-name }}, затем удалите [профиль WAF](../../smartwebsecurity/operations/waf-profile-delete.md) и [профиль ARL](../../smartwebsecurity/operations/arl-profile-delete.md).
 1. Удалить серверы {{ baremetal-name }} нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления их аренды.
-1. Если вы оставляли включенной опцию записи логов L7-балансировщика, [удалите](../../logging/operations/delete-group.md) лог-группу.
 1. При необходимости последовательно удалите [группы безопасности](../../vpc/operations/security-group-delete.md), [подсети](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md).
 1. При необходимости удалите приватное соединение:
 

@@ -130,6 +130,9 @@ items:
               - name: Метод PutDomainIdentityDkimAttributes
                 href: >-
                   aws-compatible-api/api-ref/put-domain-identity-dkim-attributes.md
+              - name: Метод PutEmailIdentityDkimSigningAttributes
+                href: >-
+                  aws-compatible-api/api-ref/put-email-identity-dkim-signing-attributes.md
               - name: Метод DeleteDomainIdentity
                 href: aws-compatible-api/api-ref/delete-domain-identity.md
           - name: Конфигурации
@@ -151,6 +154,9 @@ items:
               - name: Метод PutConfigurationSetSuppressionOptions
                 href: >-
                   aws-compatible-api/api-ref/put-configuration-set-suppression-options.md
+              - name: Метод PutConfigurationSetVdmOptions
+                href: >-
+                  aws-compatible-api/api-ref/put-configuration-set-vdm-options.md
           - name: Стоп-лист
             items:
               - name: Метод ListSuppressedDestinations
@@ -191,6 +197,14 @@ items:
               - name: Метод DeleteConfigurationSetEventDestination
                 href: >-
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
+          - name: Метки
+            items:
+              - name: Метод ListTagsForResource
+                href: aws-compatible-api/api-ref/list-tags-for-resource.md
+              - name: Метод TagResource
+                href: aws-compatible-api/api-ref/tag-resource.md
+              - name: Метод UntagResource
+                href: aws-compatible-api/api-ref/untag-resource.md
           - name: Заголовки запросов
             href: aws-compatible-api/api-ref/request-headers.md
       - name: SMTP

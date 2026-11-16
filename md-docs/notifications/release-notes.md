@@ -37,7 +37,7 @@
 
 * Добавлена возможность строить графики по метрикам уведомлений в Yandex Monitoring.
 
-   Подробнее в разделе [Справочник метрик Yandex Monitoring](metrics.md).
+   Подробнее в разделе [Справочник метрик Cloud Notification Service](metrics.md).
 
 * Реализована поддержка AWS SDK для [C++](tools/sdk-cpp.md), [Go](tools/sdk-go.md), [Java](tools/sdk-java.md), [JavaScript](tools/sdk-javascript.md), [Kotlin](tools/sdk-kotlin.md), [.NET](tools/sdk-dot-net.md). В консоли управления добавлены примеры для этих SDK:
   

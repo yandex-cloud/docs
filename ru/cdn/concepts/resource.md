@@ -28,7 +28,6 @@ _Ресурс_ — это основная логическая сущность
 
 {% endnote %}
 
-
 ## Доменные имена для раздачи контента {#hostnames}
 
 _Доменные имена для раздачи контента_ используются в запросах клиентов к CDN-серверам. Например, чтобы файл `styles/common.css` был доступен по адресу `cdn.example.com/styles/common.css`, нужно указать доменное имя `cdn.example.com`.  
@@ -56,7 +55,6 @@ _Доменные имена для раздачи контента_ испол�
 * Для легковесного контента и почтового сервера. В этом случае вы можете использовать ресурсные записи ANAME и [MX](../../dns/concepts/resource-record.md#mx).
 
 {% endnote %}
-
 
 ## Время, требуемое на применение настроек {#delay}
 
@@ -93,16 +91,15 @@ CDN-ресурс начинает корректно работать через
 
 Посмотреть статистику можно на странице ресурса в [консоли управления]({{ link-console-main }}).
 
-## Метрики {{ monitoring-name }} {#resource-stats}
+## Метрики {{ metrics-name }} {#resource-stats}
 
-{{ cdn-name }} автоматически отправляет метрики работы ресурсов в сервис [{{ monitoring-full-name }}](../../monitoring/).
+{{ cdn-name }} автоматически отправляет метрики работы ресурсов в [{{ metrics-name }}](../../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
-Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе {{ monitoring-name }}](../operations/resources/get-stats.md#monitoring).
+Вы можете посмотреть статистику работы на [странице ресурса](../operations/resources/get-stats.md#cdn-ui) или в [интерфейсе {{ monium-name }}](../operations/resources/get-stats.md#monitoring).
 
 {% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
-Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics-yc.md).
-
+Список метрик представлен в [справочнике](../metrics-yc.md).
 
 ## Примеры использования {#examples}
 
@@ -113,8 +110,9 @@ CDN-ресурс начинает корректно работать через
 * [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 
-
 #### Полезные ссылки {#see-also}
 
-* [Инструкции по работе с ресурсами](../operations/index.md#resources).
-* [Инструкция по работе с основными настройками ресурса](../operations/resources/configure-basics.md).
+* [Инструкции по работе с ресурсами](../operations/index.md#resources)
+* [Инструкция по работе с основными настройками ресурса](../operations/resources/configure-basics.md)
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

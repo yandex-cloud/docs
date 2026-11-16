@@ -38,7 +38,6 @@
 * [Посмотреть статистику L7-балансировщика](application-load-balancer-get-stats.md)
 * [Посмотреть логи L7-балансировщика](application-load-balancer-get-logs.md)
 * [Настроить запись логов L7-балансировщика](application-load-balancer-manage-logs.md)
-* [Получить идентификатор лог-группы L7-балансировщика](application-load-balancer-get-log-group-id.md)
 * [Остановить и запустить L7-балансировщик](application-load-balancer-stop-and-start.md)
 * [Переместить виртуальную машину в целевую группу в новой зоне доступности](application-load-balancer-relocate.md)
 * [Удалить L7-балансировщик](application-load-balancer-delete.md)

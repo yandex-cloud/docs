@@ -1,5 +1,5 @@
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-monium }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+1. Откройте [{{ monium-name }}]({{ link-monium }}).
+1. На панели сверху выберите [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером. В этом проекте будут созданы канал уведомлений и алерт.
 1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![bell](../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
 1. В правом верхнем углу нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите **{{ ui-key.yacloud_monitoring.notification-methods.create-button.channel }}**.
 1. Задайте имя канала уведомлений.
@@ -9,7 +9,7 @@
 
     {% note info %}
 
-    {% include [notifications-requirements](../monitoring/notifications-requirements.md) %}
+    {% include [notifications-requirements](../monium/notifications-requirements.md) %}
 
     {% endnote %}
 

@@ -43,12 +43,12 @@ description: Следуя данной инструкции, вы сможете
 
   1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
 
-     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите **{{ monium-name }}** для записи логов запросов и правил или **{{ at-name }}** для аудитных событий. Можно выбрать оба сервиса.
+     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите **{{ monium-name }}** для записи логов запросов и правил или **{{ at-name }}** для аудитных событий. Можно выбрать оба варианта.
      1. Настройте фильтры логов:
 
         {% include [security-profile-logging-options](../../_includes/smartwebsecurity/security-profile-logging-options.md) %}
 
-     Логи {{ monium-name }} записываются в проект `folder__<идентификатор_каталога>` для каталога с профилем. Для {{ at-name }} необходимо настроить трейл.
+     Логи записываются в {{ monium-logs-name }} в [проект каталога](*monium-folder-project) с профилем безопасности. Для {{ at-name }} необходимо настроить трейл.
 
      Настройка логирования описана в разделе [{#T}](configure-logging.md).
 
@@ -212,3 +212,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](host-connect.md)
 * [{#T}](profile-update.md)
 * [{#T}](profile-delete.md)
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

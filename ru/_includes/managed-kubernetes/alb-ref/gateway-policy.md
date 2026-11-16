@@ -34,7 +34,6 @@ spec:
     securityGroups: ["sg-id-1", "sg-id-2"]
 
     logs:
-      logGroupID: "some-log-group-id"
       disable: false                 
       discardRule:
         http-errors:                 
@@ -127,6 +126,8 @@ status:
 
 Ресурс, определяющий облачные параметры балансировщика, которые могут быть заданы через политику.
 
+{% include [monium-logs-kz-note](../../application-load-balancer/monium-logs-kz-note.md) %}
+
 ```yaml
 subnets: [<string>, ...]
 securityGroups: [<string>, ...]
@@ -165,7 +166,7 @@ zone:
 
   * `logGroupID` (`string`)
   
-    Идентификатор [лог-группы](../../../logging/concepts/log-group.md) для записи [логов балансировщика](../../../application-load-balancer/logs-ref.md) в {{ cloud-logging-full-name }}.
+    {% include [log-group-region](../../application-load-balancer/log-group-region.md) %}
 
   * `disable` (`bool`)
   

@@ -38,9 +38,9 @@ Smart Web Security проверяет HTTP-запросы к защищаемо�
 
 ## Мониторинг и аудит {#monitoring-audit}
 
-[Метрики](../operations/monitoring.md) Smart Web Security передаются в сервис [Yandex Monium](../../monium/index.md) и доступны в разделе **Мониторинг** сервиса Smart Web Security.
+[Метрики](../operations/monitoring.md) Smart Web Security передаются в [Monium Metrics](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером. Просматривать их можно в разделе **Мониторинг** сервиса Smart Web Security.
 
-Логи профилей безопасности передаются в [Yandex Monium](../../monium/index.md), логи прокси-серверов — в [Yandex Cloud Logging](../../logging/index.md). [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсе Smart Web Security и соответствующего сервиса логирования.
+Логи профилей безопасности и прокси-серверов передаются в [Monium Logs](../../monium/logs/quickstart-resources.md) в [проект каталога](*monium-folder-project) с соответствующим ресурсом. [Просматривать логи](../operations/configure-logging.md#view-logs) можно в интерфейсах Smart Web Security и Monium.
 
 Аудитные логи Smart Web Security передаются в сервис [Yandex Audit Trails](../../audit-trails/index.md).
 
@@ -71,3 +71,6 @@ Smart Web Security проверяет HTTP-запросы к защищаемо�
 * [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
 * [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)
 * [Как защитить сайт от накрутки посещаемости и заблокировать ботов](https://yandex.cloud/ru/blog/how-to-stop-bots)
+
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

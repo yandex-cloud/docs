@@ -9,19 +9,23 @@ Using {{ data-transfer-name }} for migration allows you to:
 * Migrate from older to newer versions of {{ MG }}.
 * Eliminate the need for an intermediate VM or for exposing your {{ mmg-name }} target cluster to the internet.
 
-For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+For details, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 To use this migration method, enable internet access to the source cluster.
 
+## Getting started {#before-you-begin}
 
-## Required paid resources {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Required paid resources {#paid-resources}
 
 * {{ SD }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infra}
 
 [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with computing capacity and storage size matching the source database’s environment.
 

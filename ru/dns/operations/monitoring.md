@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Мониторинг зон DNS
 
-{{ dns-name }} автоматически отправляет метрики зон и запросов в сервис [{{ monitoring-full-name }}](../../monitoring).
+Метрики зоны DNS автоматически передаются в [{{ metrics-name }}](../../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится зона.
 
-Вы можете посмотреть общую статистику работы на [странице зоны](#zone-ui) или подробную статистику в [интерфейсе {{ monium-full-name }}](#monitoring).
+Вы можете посмотреть общую статистику работы на [странице зоны](#zone-ui) или подробную статистику в [интерфейсе {{ monium-name }}](#monitoring).
 
 Полный список метрик представлен в [справочнике](../metrics.md).
 
@@ -23,24 +23,29 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя или 1 месяц.
 
-      На вкладке отобразится дашборд **Zone requests** — количество запросов, пришедших в выбранную зону, за выбранный промежуток времени.
+      На вкладке отображается график **Zone requests** — количество запросов к зоне в секунду.
 
 {% endlist %}
 
-## Посмотреть подробную статистику в {{ monium-full-name }} {#monitoring}
+## Посмотреть подробную статистику в {{ monium-name }} {#monitoring}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
   Для перехода в [{{ monium-name }}]({{ link-monium }}) на странице зоны нажмите **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** ![image](../../_assets/console-icons/arrow-up-right-from-square.svg) или воспользуйтесь пошаговой инструкцией:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана зона.
-  1. [Перейдите]({{ link-monium }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
-  1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
-  1. В списке сервисов нажмите **DNS — Zone overview**.
-  1. В поле **DNS Zone** укажите идентификатор нужной зоны.
+  1. Откройте [{{ monium-name }}]({{ link-monium }}).
+  1. На панели сверху выберите [проект каталога](*monium-folder-project), в котором находится зона.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В открывшемся списке выберите **DNS — Zone overview**.
+  1. В поле **DNS Zone** укажите [идентификатор нужной зоны](zone-get-info.md).
   1. Выберите временной промежуток, за который хотите посмотреть статистику.
 
 {% endlist %}
+
+
+Чтобы изменить графики или создать редактируемую копию дашборда, воспользуйтесь [инструкцией по работе с сервисными дашбордами](../../monium/operations/dashboard/service-dashboards.md).
+
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

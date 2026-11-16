@@ -1,5 +1,7 @@
 Имя метрики пишется в метку `name`.
 
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
 Общие метки для всех метрик {{ captcha-name }}:
 
 | Метка | Значение |

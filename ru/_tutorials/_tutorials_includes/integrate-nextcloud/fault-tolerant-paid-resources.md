@@ -5,4 +5,4 @@
 * плата за использование управляемой БД {{ MY }} ([тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md));
 * при использовании {{ dns-full-name }} плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы {{ dns-name }}](../../../dns/pricing.md));
 * при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) ([тарифы {{ alb-full-name }}](../../../application-load-balancer/pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы {{ cloud-logging-full-name }}](../../../logging/pricing.md)).
+* при включении логирования балансировщика плата за запись и хранение логов ([тарифы {{ monium-name }}](../../../monium/pricing.md)).

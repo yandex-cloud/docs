@@ -17,7 +17,7 @@ After creating a cluster, you can:
 
     {% endnote %}
 
-* [Configure advanced cluster settings](#change-additional-settings).
+* [Change additional cluster settings](#change-additional-settings).
 * [Manually switch the master host](#start-manual-failover).
 * [Move the cluster](#move-cluster) to another folder.
 * [Edit security groups](#change-sg-set).
@@ -47,7 +47,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes. During the master upgrade, one of the replicas is temporarily promoted to master. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) will become the new master.
-* A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
+* A cluster host with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -948,29 +948,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 {% endlist %}
 
-
-### {{ connection-manager-name }} {#conn-man}
-
-If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do it in the [management console]({{ link-console-main }}).
-
-The following resources will be created for each database user:
-
-* {{ connection-manager-name }} [connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
-
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. {{ lockbox-name }} provides secure storage for passwords.
-
-  The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
-
-  You need the `connection-manager.viewer` role to view the connection details. You can [use {{ connection-manager-name }} to configure access to connections](../../metadata-hub/operations/connection-access.md).
-
-  {% note info %}
-
-  {{ connection-manager-name }} and any secrets created with it are free of charge.
-
-  {% endnote %}
-
-
-## Manually switching the master host {#start-manual-failover}
+## Manual master failover {#start-manual-failover}
 
 In a [highly available {{ mmy-name }} cluster](../concepts/high-availability.md) with multiple hosts, you can perform a failover to switch the master role from the current master host to one of its replicas. After the failover, the current master host becomes a replica for the new master.
 

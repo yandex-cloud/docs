@@ -12,7 +12,7 @@ You can migrate data from a third-party _source cluster_ to a {{ mpg-name }} _ta
 
     To use this method, enable public access to the source cluster.
 
-    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    For details, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Migrating data via logical replication](#logical-replication).
 
@@ -44,6 +44,7 @@ In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a u
 
 Migration stages:
 
+1. [Set up your infrastructure](#prepare-infra-logical).
 1. [Configure the source cluster](#source-setup).
 1. [Export the database schema in the source cluster](#source-schema-export).
 1. [Restore the database schema in the target cluster](#restore-schema).
@@ -53,14 +54,18 @@ Migration stages:
 
 If you no longer need the resources you created, [delete them](#clear-out-logical).
 
+### Getting started {#before-you-begin-logical}
 
-### Required paid resources {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-logical}
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
-### Getting started {#before-you-begin-logical}
+### Set up your infrastructure {#prepare-infra-logical}
 
 Create the required resources:
 
@@ -332,21 +337,26 @@ To use `pg_restore`, you may need to install the `pg_repack` database extension.
 
 Migration stages:
 
+1. [Set up your infrastructure](#prepare-infra-backup).
 1. [Create a dump of the database you want to migrate](#dump).
 1. [Optionally, create a {{ yandex-cloud }} VM and upload your database dump to it](#create-vm).
 1. [Restore the data from the dump into the target cluster](#restore).
 
 If you no longer need the resources you created, [delete them](#clear-out-backup).
 
+### Getting started {#before-you-begin-backup}
 
-### Required paid resources {#paid-resources}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-backup}
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
-### Getting started {#before-you-begin-backup}
+### Set up your infrastructure {#prepare-infra-backup}
 
 Create the required resources:
 
@@ -375,7 +385,7 @@ Create the required resources:
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Select either `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or a reserverd IP address from the list.
 
     
-    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect/index.md#configure-security-groups).
+    1. If you use security groups for the staging VM and the {{ mpg-name }} cluster, [configure them](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}

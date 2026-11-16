@@ -25,7 +25,7 @@ The setup method depends on whether [sharding](../../concepts/sharding.md) is en
 
 ### Linux (Bash) {#bash}
 
-Before connecting, install [MongoDB Shell](index.md#install-mongosh).
+Before connecting, install [MongoDB Shell](index.md#mongosh-install).
 
 {% list tabs group=connection %}
 
@@ -109,7 +109,7 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 ### Windows (PowerShell) {#powershell}
 
-Before connecting, install [MongoDB Shell](index.md#install-mongosh).
+Before connecting, install [MongoDB Shell](index.md#mongosh-install).
 
 {% list tabs group=connection %}
 

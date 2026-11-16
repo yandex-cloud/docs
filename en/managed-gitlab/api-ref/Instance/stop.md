@@ -7,7 +7,9 @@ apiPlayground:
       type: object
       properties:
         instanceId:
-          description: '**string**'
+          description: |-
+            **string**
+            ID of the GitLab instance to stop.
           type: string
       additionalProperties: false
     query: null
@@ -33,7 +35,7 @@ Request message for InstanceService.Stop.
 ||Field | Description ||
 || instanceId | **string**
 
-Required field. ||
+Required field. ID of the GitLab instance to stop. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

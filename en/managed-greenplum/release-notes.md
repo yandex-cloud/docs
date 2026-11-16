@@ -23,7 +23,7 @@ Increased the maximum local disk size per host to 36 TB. Disks of this size are 
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
 
 ## November 2025 {#nov-2025}
 

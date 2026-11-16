@@ -9,7 +9,7 @@ After creating a cluster, you can:
 
 * [Change the cluster name and description](#change-name-and-description).
 * [Change the public access setting](#change-public-access).
-* [Configure advanced cluster settings](#change-additional-settings).
+* [Change additional cluster settings](#change-additional-settings).
 * [Enabling access from {{ TR }}](gpfdist/trino-access.md).
 * [Change the scheduled maintenance operation settings](#change-background-settings).
 * [Update the DBMS settings](#change-gp-settings).
@@ -1062,7 +1062,7 @@ You can change the host class for both master hosts and segment hosts. When chan
 * A cluster host with local SSD storage may be unavailable for an extended period of time if data needs to be migrated to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
-Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ mgp-name }} server process.
+Changing the segment host class [affects](../concepts/calculate-specs.md#segment) the maximum amount of memory allocated to each {{ mgp-name }} server process.
 
 We recommend changing the host class only when the cluster is idle.
 

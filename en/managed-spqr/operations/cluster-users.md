@@ -473,7 +473,7 @@ You can add and remove users, as well as manage their individual settings.
      * `cluster-name`: Cluster name.
      * `permissions`: List of databases the user should have access to.
 
-     You can get the cluster name from the [list of clusters in your folder](#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
      To revoke access to a database, remove its name from the list, and run the command once again.
 
@@ -485,7 +485,7 @@ You can add and remove users, as well as manage their individual settings.
        --grants=<new_list_of_grants>
      ```
 
-     You can get the cluster name from the [list of clusters in your folder](#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](./cluster-list.md#list-clusters).
 
      To revoke a specific grant, remove it from the list, and run the command once again.
 

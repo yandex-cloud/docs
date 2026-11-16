@@ -6,8 +6,6 @@ editable: false
 
 # Правила тарификации для {{ cloud-registry-name }}
 
-
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -48,5 +46,5 @@ editable: false
 
 
 
-{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
+{% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -113,8 +113,8 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `secure-bastion-sg`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-  1. Укажите настройки правила:
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. В открывшемся окне выберите направление трафика — **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }}** и укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -138,8 +138,8 @@
   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `internal-bastion-sg`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-  1. Укажите настройки правила:
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. В открывшемся окне выберите направление трафика — **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-ingress }}** и укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -147,8 +147,8 @@
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `172.16.16.254/32`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}** в окне создания правила.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-  1. Укажите настройки правила:
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.label_section-rules }}** нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. В открывшемся окне выберите направление трафика — **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-direction-egress }}** и укажите настройки правила:
 
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -185,6 +185,7 @@
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `bastion-host`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `NAT-инстанс на основе Ubuntu 22.04 LTS` и выберите публичный образ [NAT-инстанс на основе Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**  настройте первый сетевой интерфейс:
@@ -214,7 +215,12 @@
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `bastion`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `bastion-host`.
+      {% note info %}
+
+      Образ NAT-инстанса использует авторизацию OS Login, поэтому подключиться к ВМ по SSH-ключу можно только при включенном [OS Login](../../organization/concepts/os-login.md) на уровне организации. Если OS Login не включен, создайте ВМ с доступом по SSH-ключу без OS Login.
+
+      {% endnote %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Когда серверная ВМ запустится и перейдет в статус **Running**, вы сможете увидеть назначенный ей публичный IP-адрес в поле **{{ ui-key.yacloud.compute.group.overview.label_instance-address }}**.
@@ -240,6 +246,7 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ с произвольной операционной системой, например [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** настройте сетевой интерфейс:
@@ -254,7 +261,6 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> bastion@<пу�
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `test`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
@@ -270,6 +276,12 @@ ssh -i ~/.ssh/<имя_файла_приватного_ключа> -J bastion@<п
 ```
 
 SSH-клиент автоматически подключится к внутреннему серверу.
+
+Параметр `-i` применяется только к целевому подключению: SSH-клиент не передает ключ на бастионный хост, и подключение завершится ошибкой `Permission denied`. Чтобы ключ использовался и для бастионного хоста, укажите его в файле `~/.ssh/config` для хоста бастиона или передайте явно через параметр `-o` с `ProxyCommand`:
+
+```bash
+ssh -i ~/.ssh/<имя_файла_приватного_ключа> -o ProxyCommand="ssh -i ~/.ssh/<имя_файла_приватного_ключа> -W %h:%p bastion@<публичный_IP_адрес_бастионного_хоста>" test@<внутренний_IP_адрес_виртуального_сервера>
+```
 
 Флаг `-J` поддерживается в OpenSSH начиная с версии 7.3. В более ранних версиях `-J` недоступен. В таком случае самый безопасный и простой способ — это использовать перенаправление стандартного ввода-вывода (флаг `-W`) для «проброса» соединения через бастионный хост. Например:
 
@@ -328,7 +340,7 @@ ssh -A bastion@<публичный_IP_адрес_бастионного_хост
 
 Пользователи Windows могут настроить туннели через PuTTY, выбрав **Подключение** → **SSH** → **Туннели**.
 
-Для простого установления подключений к сервисам удаленного рабочего стола (Remote Desktop Services, RDS) — т.е. работающим хостам Windows в облаке — можно использовать переадресацию портов (в особенности, локальную) путем установления туннельного подключения на порт 3389 и последующего подключения к `localhost` через RDS-клиент. Если RDS уже ожидает подключения на локальной машине, вы можете выбрать другой порт, как показано в примере:
+Для простого установления подключений к сервисам удаленного рабочего стола (Remote Desktop Services, RDS) — то есть работающим хостам Windows в облаке — можно использовать переадресацию портов (в особенности локальную) путем установления туннельного подключения на порт 3389 и последующего подключения к `localhost` через RDS-клиент. Если RDS уже ожидает подключения на локальной машине, вы можете выбрать другой порт, как показано в примере:
 
 ```bash
 ssh bastion@<публичный_IP_адрес_бастионного_хоста> -L 3390:<IP_адрес_Windows_хоста>:3389

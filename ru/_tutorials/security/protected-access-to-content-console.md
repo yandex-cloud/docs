@@ -38,8 +38,8 @@
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-e`.
+  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-e`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `webserver-network`.
   1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
@@ -64,11 +64,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в зоне доступности `{{ region-id }}-b`:
+  1. Создайте подсеть в зоне доступности `{{ region-id }}-e`:
 
       ```bash
-      yc vpc subnet create webserver-subnet-{{ region-id }}-b \
-        --zone {{ region-id }}-b \
+      yc vpc subnet create webserver-subnet-{{ region-id }}-e \
+        --zone {{ region-id }}-e \
         --network-name webserver-network \
         --range 192.168.1.0/24
       ```
@@ -79,9 +79,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: webserver-subnet-{{ region-id }}-b
+      name: webserver-subnet-{{ region-id }}-e
       network_id: enp1gg8kr3pv********
-      zone_id: {{ region-id }}-b
+      zone_id: {{ region-id }}-e
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -215,10 +215,10 @@
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` и выберите образ [LAMP](/marketplace/products/yc/lamp).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-e`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `webserver-subnet-{{ region-id }}-b`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `webserver-subnet-{{ region-id }}-e`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `webserver-sg`.
 
@@ -237,8 +237,8 @@
   ```bash
   yc compute instance create \
     --name mywebserver \
-    --zone {{ region-id }}-b \
-    --network-interface subnet-name=webserver-subnet-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+    --zone {{ region-id }}-e \
+    --network-interface subnet-name=webserver-subnet-{{ region-id }}-e,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-id=fd8jtn9i7e9ha5q25niu \
     --ssh-key ~/.ssh/id_ed25519.pub
   ```
@@ -255,7 +255,7 @@
   folder_id: b1gt6g8ht345********
   created_at: "2023-12-23T05:36:34Z"
   name: mywebserver
-  zone_id: {{ region-id }}-b
+  zone_id: {{ region-id }}-e
   platform_id: standard-v2
   resources:
     memory: "2147483648"

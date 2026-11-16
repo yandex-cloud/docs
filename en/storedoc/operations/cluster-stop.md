@@ -1,6 +1,6 @@
 # Stopping and restarting a {{ SD }} cluster
 
-If necessary, you can stop and restart your {{ SD }} cluster. During cluster downtime, you only pay for allocated storage and backup space, as per the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart your {{ SD }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -11,7 +11,7 @@ If necessary, you can stop and restart your {{ SD }} cluster. During cluster dow
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Locate the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
   1. Confirm that you want to stop the cluster by clicking **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
@@ -88,7 +88,7 @@ You can restart a cluster if its status is **STOPPED**.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select the folder.
   1. [Navigate]({{ link-console-main }}/link/storedoc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. In the list, locate the stopped cluster you want to restart, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
   1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm the cluster launch.
@@ -123,7 +123,7 @@ You can restart a cluster if its status is **STOPPED**.
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

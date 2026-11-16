@@ -28,13 +28,13 @@
       1. Клонируйте репозиторий с конфигурационными файлами.
 
          ```bash
-         git clone https://github.com/yandex-cloud-examples/cdn-storage-integration-config
+         git clone https://github.com/yandex-cloud-examples/yc-cdn-storage-integration-config
          ```
 
       1. Перейдите в папку с репозиторием. В ней должны появиться следующие файлы:
 
-          * `cdn-storage-integration-config.tf` — файл конфигурации создаваемой инфраструктуры.
-          * `cdn-storage-integration.auto.tfvars` — файл со значениями пользовательских переменных.
+          * `yc-cdn-storage-integration-config.tf` — файл конфигурации создаваемой инфраструктуры.
+          * `yc-cdn-storage-integration.auto.tfvars` — файл со значениями пользовательских переменных.
           * `index.html` — тестовый файл сервиса, который используется при проверке работоспособности решения.
 
     - Вручную {#manual}
@@ -42,17 +42,17 @@
       1. Создайте папку для конфигурационных файлов и в этой папке:
 
           1. {% include [create-index-html](../_tutorials_includes/cdn-storage-integration/create-index-html.md) %}
-          1. Создайте конфигурационный файл `cdn-storage-integration-config.tf`:
+          1. Создайте конфигурационный файл `yc-cdn-storage-integration-config.tf`:
 
-              {% cut "**cdn-storage-integration-config.tf**" %}
+              {% cut "**yc-cdn-storage-integration-config.tf**" %}
 
               {% include [cdn-storage-integration-config](../_tutorials_includes/cdn-storage-integration/cdn-storage-integration-config.md) %}
 
               {% endcut %}
 
-          1. Создайте файл с пользовательскими данными `cdn-storage-integration.auto.tfvars`:
+          1. Создайте файл с пользовательскими данными `yc-cdn-storage-integration.auto.tfvars`:
 
-              **cdn-storage-integration.auto.tfvars**
+              **yc-cdn-storage-integration.auto.tfvars**
 
               ```hcl
               folder_id       = "<идентификатор_каталога>"
@@ -80,7 +80,7 @@
     * [Виртуальный хост](../../application-load-balancer/concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
     * [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer).
 
-1. В файле `cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
+1. В файле `yc-cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
 
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
@@ -110,7 +110,7 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `cdn-storage-integration-config.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `yc-cdn-storage-integration-config.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

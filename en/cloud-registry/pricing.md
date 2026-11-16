@@ -6,8 +6,6 @@ editable: false
 
 # {{ cloud-registry-name }} pricing policy
 
-
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -37,6 +35,7 @@ If multiple [Docker images](concepts/artifacts/docker.md) in the same registry u
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 

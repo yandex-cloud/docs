@@ -76,7 +76,7 @@
    subject-id: ajea53egl28l********
    cloud-id: b1g159pa15cd********
    folder-id: b1g8o9jbt58********
-   compute-default-zone: {{ region-id }}-b
+   compute-default-zone: {{ region-id }}-d
    ```
 
 

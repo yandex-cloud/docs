@@ -29,7 +29,7 @@ After testing, [delete](#clear-out) the created resources if you no longer need 
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. If there are security groups in your cluster, make sure they are [configured correctly](../../managed-opensearch/operations/connect/index.md#configuring-security-groups) and allow connections to the cluster.
+        1. If there are security groups in your cluster, make sure they are [configured correctly](../../managed-opensearch/operations/connect/index.md#security-groups) and allow connections to the cluster.
 
     * Using {{ TF }} {#tf}
 

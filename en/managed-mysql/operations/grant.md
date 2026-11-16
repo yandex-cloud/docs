@@ -143,7 +143,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
 
           In the `permissions` array, add a separate element with permission settings for each database.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](cluster-users.md#list-users).
 
   1. Check the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -199,7 +199,7 @@ You can manage [user permissions](../concepts/user-rights.md) for the whole clus
 
           In the `permissions` array, add a separate element with permission settings for each database.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](cluster-users.md#list-users).
 
   1. Check the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

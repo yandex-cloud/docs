@@ -40,7 +40,6 @@ spec:
     securityGroups: ["sg-id-1", "sg-id-2"]
 
     logs:
-      logGroupID: "some-log-group-id"
       disable: false                 
       discardRule:
         http-errors:                 
@@ -133,6 +132,8 @@ status:
 
 Ресурс, определяющий облачные параметры балансировщика, которые могут быть заданы через политику.
 
+
+
 ```yaml
 subnets: [<string>, ...]
 securityGroups: [<string>, ...]
@@ -171,7 +172,7 @@ zone:
 
   * `logGroupID` (`string`)
   
-    Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../logs-ref.md) в Yandex Cloud Logging.
+    Идентификатор лог-группы Cloud Logging. Если вы ранее настраивали запись логов в этот сервис, параметр можно оставить в конфигурации: теперь он игнорируется. Логи записываются в проект Monium `folder__<идентификатор_каталога>` для каталога с балансировщиком.
 
   * `disable` (`bool`)
   

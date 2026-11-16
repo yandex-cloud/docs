@@ -52,7 +52,7 @@ keywords:
 
 ```
 yc load-balancer nlb disable-zones <имя_или_идентификатор_балансировщика> \
-  --zones={{ region-id }}-b \
+  --zones={{ region-id }}-e \
   --duration 30m
 ```
 
@@ -62,7 +62,7 @@ yc load-balancer nlb disable-zones <имя_или_идентификатор_б�
 id: enpmq********
 ...
 disable_zone_statuses:
-  - zone_id: {{ region-id }}-b
+  - zone_id: {{ region-id }}-e
     disabled_until: "2025-07-17T15:30:18.176751322Z"
 ```
 
@@ -95,7 +95,7 @@ disable_zone_statuses:
           - name: ...
             ...
     disable_zone_statuses:
-      - zone_id: {{ region-id }}-b
+      - zone_id: {{ region-id }}-e
         disabled_until: "2025-07-17T15:30:18.176751322Z"
    ```
 1. {% include [test-check](../_tutorials/_tutorials_includes/testing-zone-failure-for-alb/test-check.md) %}
@@ -106,7 +106,7 @@ disable_zone_statuses:
 
    ```
    yc load-balancer nlb enable-zones <имя_или_идентификатор_балансировщика> \
-     --zones={{ region-id }}-b
+     --zones={{ region-id }}-e
    ```
 1. {% include [test-fin-part2](../_tutorials/_tutorials_includes/testing-zone-failure-for-alb/test-fin-part2.md) %}
 

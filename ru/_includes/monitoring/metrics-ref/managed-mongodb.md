@@ -1,10 +1,14 @@
 Имя метрики пишется в метку `name`.
 
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Выберите проект каталога с кластером {{ mmg-name }}. Идентификатор кластера задается в метке `resource_id`.
+
 Общие метки для всех метрик сервиса {{ mmg-name }}: 
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `managed-mongodb`
+service | Идентификатор сервиса: `managed-mongodb`.
 resource_type | Тип ресурса: `cluster`
 resource_id | Идентификатор кластера
 host | FQDN хоста

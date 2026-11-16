@@ -34,7 +34,7 @@
 ## Создание канала уведомления {#create-channel}
 
 1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
-1. На панели сверху выберите проект каталога с балансировщиком: `folder__<идентификатор_каталога>`. В этом проекте будут созданы канал уведомлений и алерт.
+1. На панели сверху выберите [проект каталога](*monium-folder-project) с балансировщиком. В этом проекте будут созданы канал уведомлений и алерт.
 1. Слева выберите ![alt](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO** → ![alt](../../_assets/console-icons/bell.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
 1. Нажмите **Создать** → **Канал уведомления**.
 1. Укажите параметры канала:
@@ -49,7 +49,7 @@
 
     {% endnote %}
 
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_save }}**.
 
 ## Выбор метрик для контроля {#select-metrics}
 
@@ -64,11 +64,11 @@
 
    1. В строке запроса укажите параметры:
 
-      * `project` = `folder__<идентификатор_каталога>`;
+      * `project` = `folder__<идентификатор_каталога>` — [проект каталога](*monium-folder-project) с балансировщиком;
       * `cluster` = `default`;
       * `service` = `__application-load-balancer__`;
       * `name` = `load_balancer.requests_count_per_second`;
-      * `load_balancer` = `<идентификатор_балансировщика>`;
+      * `load_balancer` = `<идентификатор_балансировщика>` — [идентификатор балансировщика](application-load-balancer-get.md);
       * `code` = `total`.
 
       Для меток `http_router`, `virtual_host`, `route`, `backend_group`, `backend` и `zone` укажите `*`.
@@ -107,3 +107,5 @@
 1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
 1. [Проверьте вычисление алерта](../../monium/operations/alert/create-alert.md) на периоде, в котором есть запросы к балансировщику. Убедитесь, что запрос `C` возвращает один временной ряд со значениями от 0 до 100.
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

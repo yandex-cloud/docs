@@ -54,7 +54,7 @@
 * плата за аренду серверов BareMetal ([тарифы Yandex BareMetal](../../baremetal/pricing.md));
 * плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Yandex Application Load Balancer](../pricing.md));
 * плата за запросы, обработанные правилами профиля безопасности ([тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md));
-* при использовании [лог-группы](../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* при включении логирования балансировщика плата за запись и хранение логов ([тарифы Monium](../../monium/pricing.md)).
 
 Трафик между приватными адресами Yandex BareMetal и Yandex Virtual Private Cloud, передаваемый в обоих направлениях через [Yandex Cloud Interconnect](../../interconnect/index.md), не тарифицируется.
 
@@ -747,7 +747,7 @@ vpc:
   1. В поле **Сеть** выберите сеть `sample-network`.
   1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите группу безопасности `alb-sg`.
   1. В блоке **Размещение** оставьте только зоны доступности `ru-central1-a` и `ru-central1-b` с подсетями `vpc-subnet-a` и `vpc-subnet-b` соответственно.
-  1. Если вы не хотите сохранять логи работы балансировщика в [лог-группу](../../logging/concepts/log-group.md), отключите опцию **Запись логов**.
+  1. В блоке **Настройки логов** настройка пока недоступна. После создания балансировщика [настройте запись логов в Monium Logs](../operations/application-load-balancer-manage-logs.md) через CLI, API или Terraform.
   1. В секции **Обработчики** нажмите кнопку **Добавить обработчик** и в открывшейся форме:
 
       1. В поле **Имя** укажите имя [обработчика](../concepts/application-load-balancer.md#listener) `alb-bms-listener`.
@@ -867,7 +867,6 @@ vpc:
 1. [Удалите](../operations/application-load-balancer-delete.md) L7-балансировщик, затем последовательно удалите [HTTP-роутер](../operations/http-router-delete.md), [группу бэкендов](../operations/backend-group-delete.md) и [целевую группу](../operations/target-group-delete.md) балансировщика.
 1. [Удалите](../../smartwebsecurity/operations/profile-delete.md) профиль безопасности Smart Web Security, затем удалите [профиль WAF](../../smartwebsecurity/operations/waf-profile-delete.md) и [профиль ARL](../../smartwebsecurity/operations/arl-profile-delete.md).
 1. Удалить серверы BareMetal нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления их аренды.
-1. Если вы оставляли включенной опцию записи логов L7-балансировщика, [удалите](../../logging/operations/delete-group.md) лог-группу.
 1. При необходимости последовательно удалите [группы безопасности](../../vpc/operations/security-group-delete.md), [подсети](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md).
 1. При необходимости удалите приватное соединение:
 

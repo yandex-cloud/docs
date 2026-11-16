@@ -26,6 +26,11 @@ POST /v2/email/configuration-sets HTTP/2
     "TlsPolicy": "REQUIRE|OPTIONAL",
     "SendingPoolName": "<имя_пула>"
   },
+  "VdmOptions": {
+    "DashboardOptions": {
+      "EngagementMetrics": "ENABLED|DISABLED"
+    }
+  },
   "Tags": [
     {
       "Key": "<ключ_метки>",
@@ -65,6 +70,19 @@ POST /v2/email/configuration-sets HTTP/2
 Имя [пула](../../concepts/dedicated-ip.md), с IP-адресов которого будут отправляться письма с конфигурацией.
 
 Необязательный параметр. ||
+|| `VdmOptions` | **Тип**: object.
+
+Настройки сбора статистики для конфигурации. Содержит объект `DashboardOptions`.
+
+Необязательный параметр. Изменить настройки сбора статистики у существующей конфигурации можно с помощью метода [PutConfigurationSetVdmOptions](put-configuration-set-vdm-options.md). ||
+|| `DashboardOptions` | **Тип**: object.
+
+Объект, который содержит параметр `EngagementMetrics`. ||
+|| `EngagementMetrics` | **Тип**: string.
+
+Отслеживание [открытия писем](../../concepts/mail-opened.md) и [переходов по ссылкам](../../concepts/click-tracking.md) для сбора [метрик](../../concepts/statistics.md#metrics) `Открытия` и `Переходы`. Возможные значения: `ENABLED` — отслеживание включено, `DISABLED` — выключено.
+
+Параметр соответствует опции **Статистика вовлечённости** в консоли управления. Уведомления в поток данных Data Streams при этом не отправляются. Чтобы получать уведомления об открытиях и переходах, создайте [подписку](../../concepts/glossary.md#subscription) с типами событий `OPEN` и `CLICK`. ||
 || `Tags` | **Тип**: array.
 
 Массив меток для конфигурации.

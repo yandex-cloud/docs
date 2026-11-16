@@ -6,6 +6,6 @@ editable: false
 
 # Метрики {{ vpc-full-name }}
 
-В этом разделе описаны метрики {{ vpc-name }}, поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики {{ vpc-name }}, поставляемые в {{ metrics-name }}.
 
 {% include [vpc.md](../../_includes/monitoring/metrics-ref/vpc.md) %}

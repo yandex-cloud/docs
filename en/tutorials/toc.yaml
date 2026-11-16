@@ -1287,6 +1287,8 @@ items:
               Executing analytical queries in {{ mpg-name }} with processing in
               {{ mch-name }}
             href: dataplatform/mpg-pg-clickhouse-extension.md
+          - name: Running a vector search with `vector` in {{ mos-full-name }}
+            href: dataplatform/mpg-vector-extension.md
       - name: '{{ VLK }}'
         items:
           - name: >-
@@ -1296,7 +1298,7 @@ items:
           - name: Using a {{ mrd-name }} cluster as a PHP session storage
             href: dataplatform/valkey-as-php-sessions-storage.md
           - name: >-
-              Using the {{ mrd-name }} cluster with the Search module and {{
+              Using a {{ mrd-name }} cluster with a search module and {{
               foundation-models-full-name }} models for vector search in a RAG
               system
             href: dataplatform/valkey-rag-search.md
@@ -1728,7 +1730,7 @@ items:
             href: serverless/domain-identity-creating.md
           - name: Configuring Postfix to send emails via {{ postbox-full-name }}
             href: serverless/postfix-integration.md
-          - name: Web application on {{ src-name }} Sites and {{ sf-full-name }}
+          - name: Web application on {{ src-name }} Sites and {{ sf-name }}
             href: serverless/sourcecraft-sites-web-app.md
       - name: Serverless-based bots
         items:

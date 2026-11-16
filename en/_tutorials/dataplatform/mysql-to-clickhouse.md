@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
@@ -34,7 +34,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     
     1. If using security groups, configure them to allow internet access to your clusters:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -155,7 +155,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -167,7 +167,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        The transfer will be activated automatically upon creation.
+        Once created, the transfer becomes active automatically.
 
 {% endlist %}
 
@@ -258,13 +258,13 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+    1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
     1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
     1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).

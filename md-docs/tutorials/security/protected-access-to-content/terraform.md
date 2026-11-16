@@ -126,7 +126,7 @@ Terraform распространяется под лицензией [Business S
               locals {
                 sa_name          = "my-service-account"
                 network_name     = "webserver-network"
-                subnet_name      = "webserver-subnet-ru-central1-b"
+                subnet_name      = "webserver-subnet-ru-central1-e"
                 sg_name          = "webserver-sg"
                 vm_name          = "mywebserver"
                 domain_zone_name = "my-domain-zone"
@@ -177,9 +177,9 @@ Terraform распространяется под лицензией [Business S
               
               # Создание подсети
               
-              resource "yandex_vpc_subnet" "webserver-subnet-b" {
+              resource "yandex_vpc_subnet" "webserver-subnet-e" {
                 name           = local.subnet_name
-                zone           = "ru-central1-b"
+                zone           = "ru-central1-e"
                 network_id     = "${yandex_vpc_network.webserver-network.id}"
                 v4_cidr_blocks = ["192.168.1.0/24"]
               }
@@ -224,7 +224,7 @@ Terraform распространяется под лицензией [Business S
               
               resource "yandex_compute_disk" "boot-disk" {
                 type     = "network-ssd"
-                zone     = "ru-central1-b"
+                zone     = "ru-central1-e"
                 size     = "20"
                 image_id = "fd8jtn9i7e9ha5q25niu"
               }
@@ -234,7 +234,7 @@ Terraform распространяется под лицензией [Business S
               resource "yandex_compute_instance" "mywebserver" {
                 name        = local.vm_name
                 platform_id = "standard-v2"
-                zone        = "ru-central1-b"
+                zone        = "ru-central1-e"
               
                 resources {
                   cores  = "2"
@@ -246,7 +246,7 @@ Terraform распространяется под лицензией [Business S
                 }
               
                 network_interface {
-                  subnet_id          = "${yandex_vpc_subnet.webserver-subnet-b.id}"
+                  subnet_id          = "${yandex_vpc_subnet.webserver-subnet-e.id}"
                   nat                = true
                   security_group_ids = ["${yandex_vpc_security_group.webserver-sg.id}"]
                 }

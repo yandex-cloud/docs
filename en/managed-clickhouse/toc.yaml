@@ -43,6 +43,9 @@ items:
                 href: operations/host-migration.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Restoring data from a ch-backup
+            href: operations/cluster-outbound-backups.md
+            hidden: true
           - name: Managing cluster access
             href: operations/cluster-access.md
           - name: Deleting a cluster
@@ -81,6 +84,8 @@ items:
             href: operations/ml-models.md
           - name: Configuring access to {{ objstorage-name }}
             href: operations/s3-access.md
+          - name: Working with hybrid storage
+            href: operations/hybrid-storage.md
       - name: Sharding
         items:
           - name: Managing shards

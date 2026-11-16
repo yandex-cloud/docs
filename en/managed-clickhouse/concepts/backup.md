@@ -39,7 +39,7 @@ You can recover multiple shards to a single cluster if their backups were create
 
 {% endnote %}
 
-Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. For more information about engines, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines).
+Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. For more on engines, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines).
 
 The system uses random replica hosts to create backups. Thus, if cluster hosts lack data consistency, restoring such a cluster from a backup does not guarantee complete data recovery. For example, this may occur in the following cases:
 
@@ -71,6 +71,8 @@ Learn about creating manual backups in [Managing backups](../operations/cluster-
 * After you delete a cluster, all its backups are retained for {{ mch-backup-retention }} days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
+
+* The latest automatic backup of an existing cluster is never deleted, even when its retention period ends.
 
 ## Recovery from a backup {#capabilities}
 

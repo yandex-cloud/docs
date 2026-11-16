@@ -42,5 +42,5 @@ The following settings may also affect cluster availability:
 * [Storage disk type](storage.md) you selected.
 * [Host classes](instance-types.md).
 * [Quotas and limits](limits.md).
-* [Configuring security groups](../operations/connect/index.md#configuring-security-groups).
+* [Configuring security groups](../operations/connect/index.md#configure-security-groups).
 * {{ MY }} [Max connections](settings-list.md#setting-max-connections) and [Sync binlog](settings-list.md#setting-sync-binlog) settings.

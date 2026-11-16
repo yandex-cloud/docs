@@ -990,7 +990,7 @@ items:
                     href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
                   - name: ListOperations
                     href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик {{ vpc-short-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

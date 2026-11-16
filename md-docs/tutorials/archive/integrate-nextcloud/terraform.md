@@ -54,7 +54,7 @@
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
 * при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
 * при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
+* при включении логирования балансировщика плата за запись и хранение логов ([тарифы Monium](../../../monium/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}
 

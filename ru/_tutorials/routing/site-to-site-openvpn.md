@@ -74,13 +74,14 @@
 
 {% endlist %}
 
-### Создайте ВМ, которые хотите связать {#create-target-vm}
+## Создайте ВМ, которые хотите связать {#create-target-vm}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ao-openvpn-test`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -97,7 +98,6 @@
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ao-openvpn-test`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Повторите шаги 1-7 для создания второй ВМ с именем `vm-ovpn-host` и внутренним адресом `10.253.11.110`, которая будет размещена в подсети `ovpn-right`.
 
@@ -110,6 +110,7 @@
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-ovpn-gw`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-right`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -117,7 +118,7 @@
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `ovpn-network` и подсеть `ovpn-right`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
+          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip.md) или [сделайте](../../vpc/operations/set-static-ip.md) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ, и соединения перестанут работать.
 
       * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
       * В появившемся поле для ввода укажите `10.253.11.19`.
@@ -127,7 +128,6 @@
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-ovpn-gw`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
@@ -141,9 +141,10 @@
 - Консоль управления {#console}
 
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vpn-server`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` — это минимальный размер диска для образа OpenVPN Access Server.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -167,10 +168,9 @@
       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vpn-server`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Появится окно с информацией о типе тарификации: BYOL (Bring Your Own License).
-  1. Нажмите **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -213,6 +213,7 @@ OpenVPN Access Server предоставляет два веб-интерфей�
 1. Нажмите значок карандаша в столбце **More Settings** и в поле **Local Password** введите пароль нового пользователя.
 1. В поле **Access Control** выберите **Use Routing** и укажите текущую локальную подсеть, в которой установлен сервер OpenVPN Access Server, например `10.128.0.0/24`.
 1. В поле **VPN Gateway** выберите **Yes** и укажите другую локальную подсеть, к которой нужно прокинуть туннель, например `10.253.11.0/24`.
+1. Чтобы шлюз был доступен из интернета, в разделе **Configuration** → **VPN Settings** в блоке **Routing** отключите опцию **Should client Internet traffic be routed through the VPN?** и нажмите кнопку **Save settings**. Иначе весь трафик шлюза, включая ответы на подключения по публичному IP-адресу, будет идти через туннель.
 1. Нажмите кнопку **Save settings**.
 1. Нажмите кнопку **Update running server**.
 1. Зайдите в панель пользователя под новым аккаунтом `as-gw-user`, сохраните профиль подключения в файле `as-gw-user.conf` и перенесите этот файл на виртуальную машину, которая будет служить шлюзом для туннеля OpenVPN в другой подсети.
@@ -228,7 +229,7 @@ cp as-gw-user.conf /etc/openvpn/client/
 echo -e "as-gw-user\n<пароль>" > /etc/openvpn/client/param.txt
 ```
 
-После этого в папке `/etc/openvpn/client/`должен появиться файл `param.txt`, и туда же скопируйте созданный ранее файл конфигурации `as-gw-user.conf` пользователя OpenVPN, созданного для организации туннеля:
+После этого в папке `/etc/openvpn/client/` должен появиться файл `param.txt`, и туда же скопируйте созданный ранее файл конфигурации `as-gw-user.conf` пользователя OpenVPN, созданный для организации туннеля:
 
 ```bash
 ls -lh /etc/openvpn/client/
@@ -242,7 +243,7 @@ total 16K
 -rw-r--r-- 1 root root 24 Nov 10 14:31 param.txt
 ```
 
-В файле `/etc/openvpn/as-gw-user.conf` в строке с `auth-user-pass` укажите имя файла `param.txt`:
+В файле `/etc/openvpn/client/as-gw-user.conf` в строке с `auth-user-pass` укажите имя файла `param.txt`:
 
 ```
 dev tun
@@ -339,7 +340,7 @@ sudo ip route add 10.128.0.0/24 via 10.253.11.19
 
 На тестовой машине в облаке {{ yandex-cloud }} добавление статического маршрута внутри виртуальной машины не поможет. В облаке {{ yandex-cloud }} статические маршруты для виртуальных машин нужно указывать [иначе](../../vpc/concepts/routing.md).
 
-В облаке {{ yandex-cloud }} виртуальные машины `ao-openvpn-as` (сервер OpenVPN) и `ao-openvpn-test` находятся в одной подсети `default`. В настройках этой подсети добавьте статический маршрут с такими параметрами:
+В облаке {{ yandex-cloud }} виртуальные машины `vpn-server` (сервер OpenVPN) и `ao-openvpn-test` находятся в одной подсети `ovpn-left`. В настройках этой подсети добавьте статический маршрут с такими параметрами:
     
 ```
 Name: office-net
@@ -390,7 +391,9 @@ rtt min/avg/max/mdev = 5.688/5.976/6.229/0.203 ms
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы освободить ресурсы в каталоге, [удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `vpn-server` и тестовую ВМ.
+Чтобы освободить ресурсы в каталоге, [удалите](../../compute/operations/vm-control/vm-delete.md) созданные ВМ: `vpn-server`, `vm-ovpn-gw`, `ao-openvpn-test` и `vm-ovpn-host`.
+
+[Удалите](../../vpc/operations/subnet-delete.md) подсети `ovpn-left` и `ovpn-right` и [сеть](../../vpc/operations/network-delete.md) `ovpn-network`.
 
 Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
 

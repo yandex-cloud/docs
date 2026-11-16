@@ -54,7 +54,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
       1. Select the {{ OS }} version.
-      1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
+      1. Select the [plugins](plugins.md#list) you want to install in the cluster.
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#security-groups) to be able connect to the cluster.
@@ -228,7 +228,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) to install in the cluster.
-      * `--advanced-params`: Additional cluster parameters. The possible values are:
+      * `--advanced-params`: Additional cluster parameters. Its possible values are:
 
           * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} guide]({{ os.docs }}/query-dsl/compound/bool/).
           * `fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} guide]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).

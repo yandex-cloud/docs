@@ -323,6 +323,8 @@ items:
         href: concepts/visualization/context-links.md
       - name: Работа с дашбордами
         items:
+          - name: Посмотреть сервисные дашборды
+            href: operations/dashboard/service-dashboards.md
           - name: Создание и управление дашбордом
             href: operations/dashboard/create.md
           - name: Копирование дашборда

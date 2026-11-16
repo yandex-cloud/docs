@@ -4,10 +4,9 @@
 
 Этот способ записывает HTTP-запросы, которые обрабатывает L7-балансировщик, включая результат проверки Smart Web Security. Для подробного анализа сработавших правил и отбора логов по типам правил и вердиктам используйте [логирование через Smart Web Security](configure-logging.md).
 
-Для записи логов Smart Web Security используются сервисы:
+Для записи логов Smart Web Security используются:
 
-* [Monium Logs](../../monium/logs/quickstart-resources.md) — для логов профилей безопасности. Логи содержат информацию об HTTP-запросах и сработавших правилах, включая WAF и ARL, и сохраняются в проектах Monium.
-* [Cloud Logging](../../logging/index.md) — для логов прокси-серверов и L7-балансировщиков Application Load Balancer. Логи сохраняются в лог-группах.
+* [Monium Logs](../../monium/logs/quickstart-resources.md) — для логов профилей безопасности, прокси-серверов и L7-балансировщиков Application Load Balancer. Логи содержат информацию об HTTP-запросах и сработавших правилах, включая WAF и ARL.
 * [Audit Trails](../../audit-trails/index.md) — для сбора аудитных событий Smart Web Security. Это записи о событиях безопасности и действиях с ресурсами.
 
 ## Логи аудита {#audit-events}
@@ -21,11 +20,13 @@
 
 ## Логи HTTP-запросов и применения правил {#requests-logging}
 
-Логи проверки запросов можно записывать через профиль безопасности Smart Web Security в Monium Logs или через L7-балансировщик Application Load Balancer в Cloud Logging. Логирование через профиль безопасности предоставляет больше возможностей для анализа.
+Логи HTTP-запросов можно записывать в Monium Logs через профиль безопасности Smart Web Security, прокси-сервер или L7-балансировщик Application Load Balancer. Логирование через профиль безопасности предоставляет больше возможностей для анализа сработавших правил.
 
-Логи профиля безопасности поступают в проект Monium `folder__<идентификатор_каталога>`, где указан идентификатор каталога с профилем. Логи можно просматривать в интерфейсе Smart Web Security или Monium.
+Логи поступают в [проект каталога](*monium-folder-project), в котором находится соответствующий ресурс.
 
-Логи прокси-серверов и L7-балансировщиков поступают в выбранную лог-группу Cloud Logging. Логи прокси-сервера также доступны в интерфейсе Smart Web Security, а балансировщика — в интерфейсе Application Load Balancer.
+
+
+Логи профилей безопасности и прокси-серверов доступны в интерфейсах Smart Web Security и Monium, а логи L7-балансировщиков — в интерфейсе Monium. Просмотр логов в интерфейсе Application Load Balancer пока недоступен.
 
 Анализ логов позволяет настраивать и отслеживать работу Smart Web Security:
 
@@ -46,34 +47,19 @@
 
 {% note info %}
 
-Для управления [логированием](../concepts/logging.md) в L7-балансировщике нужны роли:
-
-* [alb.editor](../../application-load-balancer/security/index.md#alb-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с балансировщиком;
-* [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
-
-Для просмотра логов нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
+Для настройки логирования нужна роль [alb.editor](../../application-load-balancer/security/index.md#alb-editor), а для просмотра логов — [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на каталог с балансировщиком.
 
 {% endnote %}
 
-{% list tabs group=instructions %}
+{% list tabs group=sws-log-type %}
 
-- Cloud Logging {#logging}
+- Логи HTTP-запросов {#request-logs}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с балансировщиком.
-  1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
-  1. В списке выберите балансировщик, к которому привязан профиль безопасности.
-  1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-  1. В блоке **Настройки логов**:
+  [Включите запись логов балансировщика](../../application-load-balancer/operations/application-load-balancer-manage-logs.md#enable-logs) через CLI, API или Terraform. Управление логированием в интерфейсе Application Load Balancer пока недоступно.
 
-      1. Включите опцию **Запись логов**.
-      1. Выберите [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи балансировщика, или [создайте новую](../../logging/operations/create-group.md).
-      1. (Опционально) Чтобы уменьшить объем логов, нажмите **Добавить правило** и настройте [правило отбрасывания](../../application-load-balancer/concepts/monitoring.md#discard-logs-rules).
+  Для сокращения объема логов настройте [правила отбрасывания](../../application-load-balancer/operations/application-load-balancer-manage-logs.md#update-logs).
 
-  1. Нажмите **Сохранить**.
-
-  Другие способы включения логов описаны в разделе [Настроить запись логов L7-балансировщика](../../application-load-balancer/operations/application-load-balancer-manage-logs.md).
-
-- Audit Trails {#at}
+- Аудитные события {#audit-trails}
 
   Настройте запись событий Smart Web Security в [бакет](../../storage/concepts/bucket.md) Object Storage. Перед созданием трейла [подготовьте бакет и сервисный аккаунт](../../audit-trails/operations/create-trail.md#before-you-begin).
 
@@ -98,74 +84,54 @@
 
 {% list tabs group=instructions %}
 
-- Cloud Logging {#logging}
+- Monium {#monium}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с лог-группой.
-  1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
-  1. На вкладке **Группы** выберите лог-группу, в которую передаются логи балансировщика.
-  1. Перейдите на вкладку **Логи**.
+  Для просмотра логов нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на каталог с балансировщиком.
+  
+  1. Откройте [Monium](https://monium.yandex.cloud). Просмотр логов в интерфейсе Application Load Balancer пока недоступен.
+  1. На панели слева выберите ![compass](../../_assets/console-icons/compass.svg) **Обзор** → **Логи**.
   1. Задайте период поиска логов.
-  1. Введите фильтр на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите **Enter**. Например, чтобы отобрать логи конкретного балансировщика:
-
-      ```text
-      resource_type = "alb.loadBalancer" and resource_id = "<идентификатор_балансировщика>"
-      ```
-
-  1. Чтобы посмотреть содержимое записи, разверните ее.
-
-  Логи также можно [просмотреть в интерфейсе Application Load Balancer](../../application-load-balancer/operations/application-load-balancer-get-logs.md).
+  1. В строке запроса укажите значения меток:
+  
+     * `project` — [проект каталога](*monium-folder-project) с балансировщиком.
+     * `service` — `__application-load-balancer__`.
+     * `resource_id` — [идентификатор балансировщика](../../application-load-balancer/operations/application-load-balancer-get.md).
+  
+     Составьте запрос в режиме токенов или введите его в текстовом режиме:
+  
+     ```text
+     {project="folder__<идентификатор_каталога>", service="__application-load-balancer__", resource_id="<идентификатор_балансировщика>"}
+     ```
+  
+  1. Нажмите **Выполнить запрос**. Чтобы посмотреть содержимое записи, разверните ее.
+  
+  Для дополнительной фильтрации используйте [язык запросов Monium](../../monium/logs/query.md).
+  
+  Подробнее о работе с логами — в разделе [«Поиск и анализ логов»](../../monium/logs/logs-explorer.md).
+  
+  [*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.
 
   ## Примеры фильтрации логов {#filtration}
 
-  Одна запись соответствует одному HTTP-запросу к L7-балансировщику. Результат проверки Smart Web Security находится в блоке `json_payload.smartwebsecurity`. Описание полей приведено в [справочнике логов Application Load Balancer](../../application-load-balancer/logs-ref.md).
+  Одна запись соответствует одному HTTP-запросу к L7-балансировщику. Результат проверки Smart Web Security содержится в поле `smartwebsecurity`. Описание вложенных полей приведено в [справочнике логов Application Load Balancer](../../application-load-balancer/logs-ref.md).
 
-  Условия ниже можно объединить с фильтром по балансировщику с помощью `and`.
+  Чтобы отбирать запросы по результату проверки, добавляйте условия по этим полям на [языке запросов Monium](../../monium/logs/query.md). В примерах не указаны метки проекта, сервиса и ресурса — сохраните `project`, `service` и `resource_id` в запросе.
 
   ### Фильтры для активных правил {#active-rule-filters}
 
-  Чтобы отобрать запросы по результату проверки, используйте условия:
+  Для поиска заблокированных запросов и запросов, направленных на капчу, используйте следующие значения полей внутри `smartwebsecurity`:
 
-  * Запросы, заблокированные базовыми правилами:
-
-      ```text
-      json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-      ```
-
-  * Запросы, направленные правилами Smart Protection на капчу:
-
-      ```text
-      json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-      ```
-
-  * Запросы, заблокированные Cloud WAF:
-
-      ```text
-      json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-      ```
-
-  * Запросы, заблокированные ARL:
-
-      ```text
-      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
-      ```
-
-  * Запросы, заблокированные конкретным правилом ARL, например `arl-rule-1`:
-
-      ```text
-      json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY and json_payload.smartwebsecurity.advanced_rate_limiter.applied_quota_name = "arl-rule-1"
-      ```
+  * Базовые правила: `matched_rule.rule_type` — `RULE_CONDITION`, `matched_rule.verdict` — `DENY`.
+  * Smart Protection: `matched_rule.rule_type` — `SMART_PROTECTION`, `matched_rule.verdict` — `CAPTCHA`.
+  * WAF: `matched_rule.rule_type` — `WAF`, `matched_rule.verdict` — `DENY`.
+  * ARL: `advanced_rate_limiter.verdict` — `DENY`. Имя сработавшего правила указано в `advanced_rate_limiter.applied_quota_name`.
 
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
-  Для правил в режиме **Только логирование** используйте следующие условия:
+  Для правил в режиме **Только логирование** проверяйте следующие поля внутри `smartwebsecurity`:
 
-  * Запросы, которые правила Smart Protection направили бы на капчу:
-
-      ```text
-      json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-      ```
-
-  * Для ARL проверьте поле `json_payload.smartwebsecurity.advanced_rate_limiter.dry_run_exceeded_quota_names` — список правил, лимиты которых превышены. Найдите нужное имя правила в этом списке.
+  * Smart Protection: `dry_run_matched_rule.rule_type` — `SMART_PROTECTION`, `dry_run_matched_rule.verdict` — `CAPTCHA`.
+  * ARL: `advanced_rate_limiter.dry_run_exceeded_quota_names` — список правил, лимиты которых превышены.
 
   В режиме **Только логирование** правила ARL не блокируют запросы, поэтому вердикт `DENY` не подходит для их поиска. Если список `dry_run_exceeded_quota_names` пуст, лимиты правил в этом режиме не превышены.
 

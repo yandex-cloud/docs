@@ -28,14 +28,14 @@ High availability is achieved through [replication and master failover](replicat
 * [rdsync](https://github.com/yandex/rdsync), a host status management agent by Yandex, was integrated into the {{ mrd-name }} architecture; this agent automatically selects a new master and switches over to it in the event of a master failure. To ensure the optimal performance of `rdsync`, the number of hosts in the cluster must be even.
 * You can influence new master selection in a {{ mrd-name }} cluster by [configuring priorities](replication.md#master-failover) for cluster hosts.
 * You can [manually](../operations/failover.md) select a new master and switch over to it.
-* If you use public access for the master host, you must also enable it for the replicas; otherwise, the cluster will become unavailable on master failover.
+* If you use public access for the master host, you must also enable it for the replicas, otherwise the cluster will become unavailable following master failover.
 * {{ mrd-name }} clusters use [asynchronous replication](replication.md#replication), i.e., the result of a write request is committed to the master host, which then forwards the data to the cluster replicas.
 
 ## Connecting to a database {#connect}
 
 Cluster availability depends on the connection method and settings:
 * Only use [recommended clients](../concepts/supported-clients.md) for connection.
-* [Configure security groups](../operations/connect/index.md#configuring-security-groups).
+* [Configure security groups](../operations/connect/index.md#configure-security-groups).
 * Set the values of the [Timeout](settings-list.md#settings-timeout), [Maxmemory policy](settings-list.md#settings-maxmemory-policy), [Maxmemory percent](settings-list.md#settings-maxmemory-percent), [Client output buffer limit normal](settings-list.md#settings-limit-normal), and [Client output buffer limit pubsub](settings-list.md#settings-limit-pubsub) {{ VLK }} settings so that under there are no write operation failures or mass connection interruptions normal operating conditions.
 
 ## Storage settings {#storage-settings}

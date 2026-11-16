@@ -68,7 +68,7 @@ The minimum number of hosts depends on the selected [storage](../../managed-post
 
 The maximum number of hosts per cluster cannot exceed the set limits.
 
-For more information, see [{#T}](../../managed-postgresql/concepts/limits.md).
+For details, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How can I access a running database host? {#db-access}
 
@@ -177,7 +177,7 @@ No, superuser privileges are not available to {{ mpg-name }} users. Cluster acti
 
 #### Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file? {#copy-write-data}
 
-Yes, you can both copy data from a table to a local file and import data from a file into a table. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
+Yes, you can both copy data from a table to a local file and import data from a file into a table. For details, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
 
 #### Are there any specific features or restrictions for the garbage collector in a {{ mpg-name }} cluster? {#vacuum}
 
@@ -190,7 +190,7 @@ Yes, you can both copy data from a table to a local file and import data from a 
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/storage-space.md#change-disk-size).
 
 For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-postgresql/operations/cluster-backups.md#restore) from backup.
 

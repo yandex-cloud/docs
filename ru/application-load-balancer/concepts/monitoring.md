@@ -13,7 +13,7 @@ description: Узнайте, как отслеживать метрики {{ alb
 
 {% endnote %}
 
-Балансировщик автоматически передает метрики в [{{ monium-full-name }}](../../monium/). Доступны следующие дашборды и показатели:
+Балансировщик автоматически передает метрики в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком. Доступны следующие дашборды и показатели:
 
 * **HTTP-статистика**:
 
@@ -30,7 +30,7 @@ description: Узнайте, как отслеживать метрики {{ alb
   * **Requests per second** — количество запросов в секунду.
   * **Bytes per second** — объем обрабатываемых данных в секунду.
 
-Полный список метрик, передаваемых в {{ monium-full-name }}, представлен в [справочнике](../metrics.md).
+Полный список метрик приведен в [справочнике](../metrics.md).
 
 В {{ alb-name }} доступна обобщенная статистика балансировщика. В {{ monium-name }} можно смотреть статистику с разбивкой по ресурсам, привязанным к балансировщику (HTTP-роутерам, виртуальным хостам, маршрутам и т. д.), а также [настроить алерты](../operations/application-load-balancer-manage-alerts.md).
 
@@ -38,17 +38,17 @@ description: Узнайте, как отслеживать метрики {{ alb
 
 ## Логирование {#logging}
 
-Вы можете [настроить](../operations/application-load-balancer-manage-logs.md) поставку логов балансировщика в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+{% include [monium-logs-kz-note](../../_includes/application-load-balancer/monium-logs-kz-note.md) %}
 
-Просмотр логов описан в инструкции [{#T}](../operations/application-load-balancer-get-logs.md).
+Логи балансировщика записываются в [{{ monium-logs-name }}](../../monium/logs/quickstart-resources.md), в [проект каталога](*monium-folder-project) с балансировщиком. [Настроить запись логов](../operations/application-load-balancer-manage-logs.md) можно через CLI, API или {{ TF }}. Управление логированием и просмотр логов в интерфейсе {{ alb-name }} пока недоступны.
+
+Как посмотреть логи: [{#T}](../operations/application-load-balancer-get-logs.md).
 
 Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) передается в логи в соответствии со стандартом [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md). 
 
-Также вы можете [передавать логи балансировщика в БД PostgreSQL](../tutorials/logging.md).
-
 ### Правила отбрасывания логов {#discard-logs-rules}
 
-Запись и хранение логов в {{ cloud-logging-name }} тарифицируются согласно [правилам](../../logging/pricing.md#prices) сервиса. Чтобы записывать меньше логов, добавьте правила их отбрасывания.
+Запись и хранение логов в {{ monium-logs-name }} [тарифицируются](../../monium/pricing.md). Чтобы записывать меньше логов, добавьте правила их отбрасывания.
 
 Доступные правила:
 
@@ -147,3 +147,5 @@ description: Узнайте, как отслеживать метрики {{ alb
 
 * [{#T}](./function-monitoring.md)
 * [{#T}](../operations/application-load-balancer-manage-alerts.md)
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

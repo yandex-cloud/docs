@@ -137,7 +137,7 @@
        subject-id: b1g159pa15cd********
        username: <электронная_почта>
        folder-id: b1g8o9jbt58********
-       compute-default-zone: ru-central1-b
+       compute-default-zone: ru-central1-d
        ```
 
 - Федеративный аккаунт {#federated-account}
@@ -239,7 +239,7 @@
        subject-id: ajea53egl28l********
        cloud-id: b1g159pa15cd********
        folder-id: b1g8o9jbt58********
-       compute-default-zone: ru-central1-b
+       compute-default-zone: ru-central1-d
        ```
 
 - Аккаунт локального пользователя {#local-account}
@@ -356,7 +356,7 @@
           subject-id: ek00cd1m8hdd8********
           cloud-id: b1g159pa15cd********
           folder-id: b1g8o9jbt58********
-          compute-default-zone: ru-central1-b
+          compute-default-zone: ru-central1-d
           ```
     
     
@@ -367,7 +367,7 @@
           subject-id: b1g159pa15cd********
           username: <электронная_почта>
           folder-id: b1g8o9jbt58********
-          compute-default-zone: ru-central1-b
+          compute-default-zone: ru-central1-d
           ```
     
     

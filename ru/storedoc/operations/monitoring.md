@@ -273,67 +273,90 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-name }} {#monitoring-integration}
+
+Для настройки алертов нужны роли на каталог с кластером:
+
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — для чтения метрик.
+* [monium.alerts.editor](../../monium/security/index.md#monium-alerts-editor) — для создания алертов.
+* [monium.channels.editor](../../monium/security/index.md#monium-channels-editor) — для создания каналов уведомлений.
+
+Чтобы получать уведомления, заранее [создайте канал уведомлений](../../monium/operations/alert/create-channel.md) в [проекте каталога](*monium-folder-project), в котором находится кластер.
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-    1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели сверху выберите проект каталога с кластером: `folder__<идентификатор_каталога>`. В этом проекте будет создан алерт.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В открывшемся списке выберите сервисный дашборд:
 
-        * **{{ mmg-name }}** для настройки алертов кластера;
-        * **{{ mmg-name }} — Host Overview** для настройки алертов хостов.
+      * **{{ mmg-name }}** для настройки алертов кластера;
+      * **{{ mmg-name }} — Host Overview** для настройки алертов хостов.
+  1. На нужном графике нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос для проверки и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**.
+  1. Укажите название алерта и выберите тип **Пороговый**.
+  1. В блоке **Настройки алерта** проверьте запросы, перенесенные с графика. Убедитесь, что в метке `resource_id` выбран нужный кластер, а в метке `name` — нужная метрика. Сохраните остальные метки, перенесенные с сервисного дашборда, включая значение `service`.
 
-    1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов смотрите [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-    1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для срабатывания алерта.
-    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+      Для метрики отдельного хоста укажите его FQDN в метке `host`. Чтобы получать отдельные уведомления для каждого хоста, выберите все хосты и добавьте `host` в блоке **Разложение по меткам**.
+
+  1. В блоке **Условия срабатывания** выберите запрос для проверки, функцию агрегации, функцию сравнения и окно вычисления. Задайте пороги **Warning** и **Alarm**. Примеры приведены ниже.
+  1. В блоке **Обработка отсутствия данных** задайте статус **No data** для отсутствия точек и метрик.
+  1. В блоке **Уведомления** выберите созданный канал и статусы, при которых нужны уведомления. Если используются способы уведомлений по умолчанию, сначала нажмите **Редактировать**.
+  1. Нажмите **Проверить результат** и убедитесь, что запрос возвращает нужные метрики, а условия срабатывания соответствуют ожидаемым.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
-{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+Подробнее о параметрах в инструкции [по созданию алерта](../../monium/operations/alert/create-alert.md), о запросах — в [описании языка запросов](../../monium/concepts/querying.md).
 
-Рекомендуемые значения порогов для некоторых метрик:
+Примеры порогов для метрик отдельного хоста приведены в таблице. Подберите значения и окно вычисления с учетом нагрузки и требований к вашему приложению.
 
-| Метрика                         | Обозначение                     | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` |
-|---------------------------------|:-------------------------------:|:----------------------------------------------------:|:---------------------------------------------------:|
-| Доступность БД на запись        | `can_write`                     | `Равно 0`                                            | —                                                   |
-| Задержка репликации             | `replset_status-replicationLag` | `180`                                                | `30`                                                |
-| Объем использованного хранилища | `disk.used_bytes`               | 90% от размера хранилища                             | 70% от размера хранилища                            |
+| Метрика | Обозначение | Функция сравнения | Alarm | Warning |
+|---------|-------------|------------------|-------|---------|
+| Доступность мастера на запись | `can_write` | Равно | `0` | — |
+| Задержка репликации, секунды | `replset_status-replicationLag` | Больше или равно | `180` | `30` |
+| Объем использованного хранилища, байты | `disk.used_bytes` | Больше или равно | 90% от размера хранилища | 70% от размера хранилища |
 
-Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для `can_write` укажите `node = primary` и `host = *`, чтобы отслеживать текущий мастер и не проверять реплики, которые штатно недоступны на запись. Порог **Warning** для этой метрики оставьте незаданным. Отсутствие метрики обрабатывается отдельно, по политике **No data**.
+
+Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются в байтах. Например, для диска размером 100 ГБ пороги 90% и 70% соответствуют значениям:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байт (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `75161927680` байт (70%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-mongodb-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик приведен в [справочнике](../metrics.md).
 
 
 ### Отслеживание перехода в режим <q>только чтение</q> {#read-only-alert}
 
 Чтобы отслеживать степень заполнения хранилища на хостах кластера и получать уведомления в случае скорого исчерпания свободного места:
 
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md).
-1. Добавьте метрику состояния `disk.free_bytes`.
+1. [Откройте {{ monium-name }}]({{ link-monium }}) и выберите [проект каталога](*monium-folder-project), в котором находится кластер. Создайте канал уведомлений в том же проекте.
+1. [Создайте алерт](../../monium/operations/alert/create-alert.md) типа **Пороговый**.
+1. В блоке **Настройки алерта** выберите метрику `disk.free_bytes`:
 
-    Для этого создайте запрос в конструкторе запросов:
+    * `project = folder__<идентификатор_каталога>` — проект каталога с кластером.
+    * `cluster = default` — кластер {{ monium-name }}.
+    * `service = __managed-mongodb__` — сервис {{ mmg-name }}.
+    * `name = disk.free_bytes` — свободное место на диске, в байтах.
+    * `resource_id = <идентификатор_кластера>` — нужный кластер {{ mmg-name }}.
+    * `resource_type = cluster`.
+    * `host = *` — все хосты кластера. Для наблюдения за отдельным хостом укажите его FQDN.
 
-    `service=managed-mongodb` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+    {% include [query-select-different-project](../../_includes/monium/query-select-different-project.md) %}
 
-1. Задайте в параметрах алерта значения порогов для оповещения:
-   
-   * **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — выберите условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для размера свободного дискового пространства, при котором сработает алерт.
+1. В блоке **Условия срабатывания** выберите запрос для проверки, функцию сравнения **Меньше или равно**, функцию агрегации **Минимум** и окно вычисления — интервал, за который определяется минимум свободного места.
 
-       Рекомендуемые значения порогов в зависимости от размера хранилища:
-  
-       | Размер хранилища, ГБ | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`     | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`        |
-       |---------------------|-------------|------------------|
-       | ⩽ 600               | `1G` (1 ГБ) | `1500M` (1,5 ГБ) |
-       | > 600               | `6G` (6 ГБ) | `10G` (10 ГБ)    |
+    {% include [free-space-alert-thresholds](../../_includes/mdb/mmg-free-space-alert-thresholds.md) %}
 
-   * **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}** → **{{ ui-key.yacloud_monitoring.service.field.function }}** — выберите значение `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
+1. Чтобы получать отдельные уведомления для каждого хоста, добавьте `host` в блоке **Разложение по меткам**.
+1. В блоке **Обработка отсутствия данных** задайте статус **No data** для отсутствия точек и метрик.
+1. В блоке **Уведомления** выберите канал и статусы для отправки уведомлений. Если используются способы уведомлений по умолчанию, сначала нажмите **Редактировать**.
+1. Нажмите **Проверить результат**, затем **Создать**.
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

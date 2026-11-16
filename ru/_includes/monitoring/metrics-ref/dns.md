@@ -1,5 +1,7 @@
 Имя метрики пишется в метку `name`.
 
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
 Все метрики сервиса {{ dns-name }} имеют общую метку `service=dns`.
 
 ## Метрики сервиса {#service-metrics}

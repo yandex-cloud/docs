@@ -330,6 +330,8 @@ Monium платформа для сбора, хранения и анализа 
 
 ### Работа с дашбордами
 
+ - [Посмотреть сервисные дашборды](operations/dashboard/service-dashboards.md)
+
  - [Создание и управление дашбордом](operations/dashboard/create.md)
 
  - [Копирование дашборда](operations/dashboard/copy.md)

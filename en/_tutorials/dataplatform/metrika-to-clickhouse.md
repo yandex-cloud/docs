@@ -34,7 +34,7 @@ Set up the infrastructure:
 
 1. Create a [target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with your preferred configuration.
 
-## Prepare and activate a transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ metrika-endpoint }}` source](../../data-transfer/operations/endpoint/source/metrika.md).
 
@@ -93,9 +93,9 @@ Transfers process only the latest data, leaving historical data untouched. If yo
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce resource usage, delete the resources you no longer need:
+To reduce the consumption of resources, delete those you do not need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 1. Delete the {{ metrika }} tracking counter from your [Yandex Metrica Pro]({{ link-yandex }}/support/metrica/pro/intro.html) account.

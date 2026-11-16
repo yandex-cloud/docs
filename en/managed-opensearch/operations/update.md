@@ -458,7 +458,7 @@ For more on setting up a service account, see [Configuring access to {{ objstora
 
 {% endlist %}
 
-## Configuring advanced cluster settings {#change-additional-settings}
+## Changing additional cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
 
@@ -715,7 +715,7 @@ For more on setting up a service account, see [Configuring access to {{ objstora
 
 ## Updating security groups {#change-sg-set}
 
-After you assign other [security groups](../concepts/network.md#security-groups), you may need to [additionally set them up](connect/fqdn.md#security-groups) to connect to the cluster.
+After you assign other [security groups](../concepts/network.md#security-groups), you may need to [additionally set them up](connect/index.md#security-groups) to connect to the cluster.
 
 {% list tabs group=instructions %}
 

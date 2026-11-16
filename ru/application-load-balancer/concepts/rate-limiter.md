@@ -106,11 +106,11 @@ Global RateLimit позволяет задать лимит на количес�
 
 В {{ monium-name }} можно настроить дополнительные графики. Например, чтобы отслеживать количество ответов с кодом `429` в секунду, укажите в [запросе](../../monium/concepts/visualization/query-string.md) следующие метки:
 
-* `project` = `folder__<идентификатор_каталога>` — проект каталога с балансировщиком.
+* `project` = `folder__<идентификатор_каталога>` — [проект каталога](*monium-folder-project) с балансировщиком.
 * `cluster` = `default`.
 * `service` = `__application-load-balancer__`.
 * `name` = `load_balancer.requests_count_per_second`.
-* `load_balancer` = `<идентификатор_балансировщика>`.
+* `load_balancer` = `<идентификатор_балансировщика>` — [идентификатор балансировщика](../operations/application-load-balancer-get.md).
 * `http_router` = `*`.
 * `virtual_host` = `*`.
 * `route` = `*`.
@@ -124,3 +124,5 @@ Global RateLimit позволяет задать лимит на количес�
 Выборка метрик по параметрам `backend_group`, `virtual_host`, `route` и другим недоступна для запросов, которые были отклонены модулем RateLimit.
 
 {% endnote %}
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

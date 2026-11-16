@@ -42,7 +42,7 @@
 
 ```
 yc alb load-balancer disable-zones <имя_или_идентификатор_балансировщика> \
-  --zones={{ region-id }}-b \
+  --zones={{ region-id }}-e \
   --duration 30m
 ```
 
@@ -54,7 +54,7 @@ allocation_policy:
   locations:
     - zone_id: {{ region-id }}-a
       subnet_id: e9bnvnn56fs4********
-    - zone_id: {{ region-id }}-b
+    - zone_id: {{ region-id }}-e
       subnet_id: e2lqsms4cdl3********
       zonal_shift_active: true
       zonal_traffic_disabled: true
@@ -89,7 +89,7 @@ allocation_policy:
 
    ```
    yc alb load-balancer enable-zones <имя_или_идентификатор_балансировщика> \
-     --zones={{ region-id }}-b
+     --zones={{ region-id }}-e
    ```
 1. {% include [test-fin-part2](../_tutorials_includes/testing-zone-failure-for-alb/test-fin-part2.md) %}
 

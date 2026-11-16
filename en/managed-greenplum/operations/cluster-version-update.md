@@ -78,7 +78,7 @@ Make sure the upgrade will not disrupt your applications:
     * [{{ GP }} release notes](https://github.com/open-gpdb/gpdb/releases)
     * [{{ CB }} release notes](https://cloudberry.apache.org/blog/announce-apache-cloudberry-2.1.0/)
 
-1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, if {{ mgp-name }} [supports](#version-supported) the database version in the backup.
+1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, if {{ mgp-name }} [supports](#versions-list) the database version in the backup.
 1. [Back up](cluster-backups.md#create-backup) your main cluster before upgrading.
 
 
@@ -120,7 +120,7 @@ Once your database version is upgraded, you cannot revert the cluster to the pre
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

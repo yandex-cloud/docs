@@ -7,6 +7,6 @@ editable: false
 # Метрики {{ cns-full-name }}
 
 
-В этом разделе описаны метрики сервиса [{{ cns-name }}](../../notifications/), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [{{ cns-name }}](../../notifications/), поставляемые в {{ metrics-name }}.
 
 {% include [cns](../../_includes/monitoring/metrics-ref/cns.md) %}

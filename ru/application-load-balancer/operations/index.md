@@ -41,7 +41,6 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](application-load-balancer-get-stats.md)
 * [{#T}](application-load-balancer-get-logs.md)
 * [{#T}](application-load-balancer-manage-logs.md)
-* [{#T}](application-load-balancer-get-log-group-id.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)

@@ -2,6 +2,12 @@
 
 # Запись логов балансировщика в PostgreSQL
 
+{% note warning %}
+
+Руководство устарело: оно использует лог-группу и триггер Cloud Logging. Сейчас логи Application Load Balancer записываются в Monium Logs, поэтому описанная схема выгрузки в PostgreSQL больше не применима. Для просмотра и поиска логов используйте [инструкцию для Monium](../operations/application-load-balancer-get-logs.md).
+
+{% endnote %}
+
 
 Вы можете записывать [логи](../concepts/monitoring.md#logging) балансировщика — сообщения с информацией о каждом входящем запросе к балансировщику Yandex Application Load Balancer — в базу данных PostgreSQL.
 

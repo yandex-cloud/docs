@@ -6,8 +6,8 @@ With {{ data-transfer-full-name }}, you can deliver data from a stream in {{ yds
 To transfer data:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
-1. [Set up a data stream in {{ yds-name }}](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Create a data stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -19,14 +19,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ ydb-full-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ ydb-full-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
 	* In [serverless mode](../../ydb/pricing/serverless.md), you pay for data operations as well as the amount of stored data and backups.
     * In [dedicated instance mode](../../ydb/pricing/dedicated.md), you pay for the use of computing resources allocated to the database, storage and backup size.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-    * [Based on reserved resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [Based on reserved resources](../../data-streams/pricing.md#rules) : You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
 * {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
@@ -71,7 +71,7 @@ Set up your data delivery infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules for connection to a {{ mkf-name }} cluster.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for connecting to a {{ mkf-name }} cluster.
         * Service account.
         * {{ ydb-name }} database.
         * {{ mkf-name }} cluster.
@@ -81,16 +81,16 @@ Set up your data delivery infrastructure:
         * Target endpoint.
         * Transfer.
 
-    1. In the `yds-to-kafka.tf` file, specify the following settings:
+    1. In `yds-to-kafka.tf`, specify the following settings:
 
         * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * `ydb_name`: {{ ydb-name }} database name.
         * `stream_name`: {{ yds-name }} stream name.
-        * `mkf_version`: {{ KF }} cluster version.
+        * `mkf_version`: {{ KF }} cluster [version](../../managed-kafka/operations/cluster-version-update.md#version-list).
         * `mkf_user_name`: {{ mkf-name }} cluster user name.
         * `mkf_user_password`: User password in the {{ mkf-name }} cluster.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -118,15 +118,17 @@ Set up your data delivery infrastructure:
 
     1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+        * Name the endpoint.
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-                * **Connection type**: Select `{{ ydb-name }} database`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the [previously created](#before-you-begin) {{ ydb-name }} database from the list.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ydb-name }} base`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the [previously created](#prepare-infrastructure) {{ ydb-name }} database from the list.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream [you created](#prepare-source).
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select the [previously created](#before-you-begin) service account with the `yds.editor` role.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select the [previously created](#prepare-infrastructure) service account with the `yds.editor` role.
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
@@ -182,25 +184,26 @@ Set up your data delivery infrastructure:
 
     1. [Create a target endpoint in {{ mkf-name }}](../../data-transfer/operations/endpoint/index.md#create).
 
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+        * Name the endpoint.
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select your [previously created](#prepare-infrastructure) {{ mkf-name }} cluster from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and specify the credentials of the {{ KF }} user [you created](#prepare-infrastructure).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Specify `sensors`.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select your [previously created](#before-you-begin) {{ mkf-name }} cluster from the list.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and specify the credentials of the {{ KF }} user [you created](#before-you-begin).
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Set it to `sensors`.
-
-    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the new endpoints.
+    1. [Create](../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**-type transfer and configure it to use the previously created endpoints.
     1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
 - {{ TF }} {#tf}
 
-    1. In the `data-transfer-ydb-mkf.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
+    1. In the `yds-to-kafka.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -212,7 +215,7 @@ Set up your data delivery infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        The transfer will be activated automatically upon creation.
+        Once created, the transfer becomes active automatically.
 
 {% endlist %}
 
@@ -238,24 +241,24 @@ Set up your data delivery infrastructure:
 
 1. Make sure the data has been transferred to the `sensors` topic in the {{ mkf-name }} cluster:
 
-    1. [Get an SSL certificate](../../managed-kafka/operations/connect/index.md#get-ssl-cert) to connect to the {{ mkf-name }} cluster.
+    1. [Obtain an SSL certificate](../../managed-kafka/operations/connect/index.md#get-ssl-cert) required to connect to the {{ mkf-name }} cluster.
     1. [Install](../../managed-kafka/operations/connect/clients.md#kafkactl) `kafkactl`:
     1. [Run](../../managed-kafka/operations/connect/clients.md#with-ssl_1) the command for receiving messages from a topic.
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Delete the {{ yds-name }} data stream](../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
         1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
-        1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+        1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
         
         1. [Delete the service account](../../iam/operations/sa/delete.md).

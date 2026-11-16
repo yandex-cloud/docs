@@ -27,7 +27,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
        --name=<cluster_name>
     ```
 
-    You can get the master name for the required shard from the [cluster's host list](hosts.md#list), and the cluster name, from the [list of clusters in your folder](cluster-list.md#list-clusters).
+    You can get the master name for the required shard from the [cluster's host list](hosts.md#list-hosts), and the cluster name, from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -50,7 +50,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
                     }'
         ```
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list-hosts).
 
     1. Check the [server response](../api-ref/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -81,7 +81,7 @@ The switchover typically takes less than a minute. During the switchover, the cl
             yandex.cloud.mdb.mongodb.v1.ClusterService.StepdownHosts
         ```    
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the master name for the required shard, from the [cluster's host list](hosts.md#list-hosts).
 
     1. Check the [server response](../api-ref/grpc/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

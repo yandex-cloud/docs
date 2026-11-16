@@ -84,8 +84,8 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 ## December 2025 {#dec-2025}
 
-* Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
-* Added execution details for your [operations on the cluster](operations/cluster-list.md#list-operations).
+* Added [detailed metrics](operations/monitoring.md#monitoring-hosts) for disk usage on cluster hosts.
+* Added execution details for [operations on the cluster](operations/cluster-list.md#list-operations).
 * All [extensions](./operations/extensions/cluster-extensions.md) supported in {{ PG }} 17 are available for {{ PG }} 18.
 * Implemented authorization via {{ iam-short-name }} when [creating](./operations/cluster-users.md#adduser) a {{ PG }} user.
 
@@ -172,7 +172,7 @@ Key changes in the new version:
 
 Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
 
-For more information about the {{ PG }} version 16 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/16.0/).
+For more on {{ PG }} version 16 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/16.0/).
 
 ## Q3 2023 {#q3-2023}
 
@@ -196,7 +196,7 @@ For more information about the {{ PG }} version 16 updates, see [this {{ PG }} g
 
     Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
 
-    For more information about the {{ PG }} version 15 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/15.0/).
+    For more on {{ PG }} version 15 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/15.0/).
 
 * Added support for the [pgaudit](https://www.pgaudit.org/) and [pg_prewarm]({{ pg-docs }}/pgprewarm.html) extensions.
 * You can now restore a cluster from a backup in a different folder using any interface.

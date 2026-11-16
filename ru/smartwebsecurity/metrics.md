@@ -1,11 +1,13 @@
 ---
-title: Справочник метрик сервиса {{ sws-full-name }} в {{ monium-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ sws-name }}, поставляемых в {{ monium-full-name }}.
+title: Справочник метрик сервиса {{ sws-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ sws-name }}, поставляемых в {{ metrics-name }}.
 ---
 
 # Справочник метрик {{ sws-full-name }}
 
 В справочнике описаны метрики HTTP-трафика, профилей безопасности и ARL, которые собирает [{{ alb-full-name }}](../application-load-balancer/), а также метрики [Network Protection](concepts/network-protection.md).
+
+Метрики передаются в [{{ metrics-name }}](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
 
 Просматривать метрики можно:
 
@@ -17,19 +19,17 @@ description: На этой странице приведен справочни�
 
 ## Общие метки {#labels}
 
-В запросах {{ monium-name }} укажите следующие метки:
+{% include [metrics-search-labels](../_includes/monium/metrics-search-labels.md) %}
+
+Для метрик {{ sws-name }} используйте каталог с балансировщиком или прокси-сервером. Значения меток приведены в таблице:
 
 #|
 || **Метка** | **Значение** ||
-|| `project` | `folder__<идентификатор_каталога>` — проект каталога, в котором находится балансировщик или прокси-сервер. ||
-|| `cluster` | `default`. ||
-|| `service` | `__application-load-balancer__` — метрики профилей безопасности, ARL и HTTP-трафика; `__antiddos__` — метрики Network Protection. ||
+|| `service` | `application-load-balancer` — метрики профилей безопасности, ARL и HTTP-трафика; `antiddos` — метрики Network Protection. ||
 || `name` | Имя метрики из таблиц ниже. ||
 |#
 
 ## Метрики профилей безопасности и ARL {#sws-metrics}
-
-Для просмотра метрик профилей безопасности, ARL и общей скорости запросов в {{ monium-name }} используйте `service = __application-load-balancer__`.
 
 {% include [alb-sws](../_includes/monitoring/metrics-ref/alb-sws.md) %}
 
@@ -48,7 +48,7 @@ description: На этой странице приведен справочни�
 
 ## Метрики Network Protection {#network-protection-metrics}
 
-Метрики Network Protection автоматически передаются в {{ monium-name }} в проект каталога, в котором находится прокси-сервер. Для их получения используйте `service = __antiddos__`. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
+Метрики Network Protection автоматически передаются в {{ metrics-name }} в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
 
 Все метрики Network Protection — накопительные счетчики. Чтобы получить количество пакетов или байт в секунду, используйте функцию `non_negative_derivative`.
 
@@ -64,3 +64,5 @@ description: На этой странице приведен справочни�
 
 * [{#T}](./operations/monitoring.md)
 * [{#T}](./operations/alerting.md)
+
+[*monium-folder-project]: {% include notitle [folder-project](../_popups/monium/folder-project.md) %}

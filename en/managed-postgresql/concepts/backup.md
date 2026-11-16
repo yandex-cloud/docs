@@ -23,7 +23,7 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 
 The first and every seventh automatic backups as well as all manually created backups are full backups of all databases. To save space, other backups are incremental and only store the data that has changed since the previous backup.
 
-Both full and incremental backups are created using the [wal-g](https://wal-g.readthedocs.io/PostgreSQL/) utility. The _Point-in-Time Recovery_ (PITR) is implemented using data from Write Ahead Logs (WAL). For more information, see [{#T}](#pitr-details).
+Both full and incremental backups are created using the [wal-g](https://wal-g.readthedocs.io/PostgreSQL/) utility. The _Point-in-Time Recovery_ (PITR) is implemented using data from Write Ahead Logs (WAL). For details, see [{#T}](#pitr-details).
 
 To reduce the load on the master, the backup data is taken from a replica.
 
@@ -62,7 +62,7 @@ Storing backups in {{ mpg-name }}:
 
     * Manual backups are stored with no time limit.
 
-* After you delete a cluster, all its backups are kept for seven days, including those created manually. Backup storage during this period is free of charge.
+* After a cluster is deleted, its backups are retained based on the cluster’s settings. The default retention period is 7 days. Backup storage during this period is free of charge.
 
 * {% include [manual-backup-delete-restriction](../../_includes/mdb/backups/manual-backup-delete-restriction.md) %}
 
@@ -74,7 +74,7 @@ Storing backups in {{ mpg-name }}:
 
 ## Recovery from a backup {#restore}
 
-By restoring a cluster from a backup, you create a new cluster. You need to specify all the cluster's settings, just as when creating a new cluster. If your folder lacks [resources](limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+By restoring a cluster from a backup, you create a new cluster. You need to specify all the cluster's settings, just as when creating a new cluster. If your folder lacks [resources](limits.md) to create such a cluster, you will not be able to recover it from a backup. The average backup recovery speed is 10 MBps per database core.
 
 The cluster is restored to a selected point in time using [PITR](#pitr-details). The new cluster will reflect the state of:
 

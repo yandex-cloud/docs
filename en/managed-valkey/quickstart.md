@@ -43,7 +43,7 @@ To get started:
 
 1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the new {{ VLK }} cluster.
 
-    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) to allow [non-sharded {{ VLK }} cluster](./concepts/sharding.md) connections. Configure the rule to allow incoming traffic from the default security group assigned to the VM.
+    In the security group, add a [rule](./operations/connect/index.md#configure-security-groups) to allow [non-sharded {{ VLK }} cluster](./concepts/sharding.md) connections. Configure the rule to allow incoming traffic from the default security group assigned to the VM.
 
 
 ## Create a cluster {#cluster-create}

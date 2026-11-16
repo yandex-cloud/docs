@@ -6,11 +6,11 @@
 
 Имя метрики пишется в метку `name`.
 
-Для поиска метрик Managed Service for MySQL® в Monium укажите метки:
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
 
-* `project = folder__<идентификатор_каталога>` — проект каталога, в котором находится кластер Managed Service for MySQL®.
-* `cluster = default` — кластер Monium. Идентификатор кластера Managed Service for MySQL® задается отдельно, в метке `resource_id`.
-* `service = __managed-mysql__`.
+При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Идентификатор кластера Managed Service for MySQL® задается в метке `resource_id`.
 
 Общие метки для всех метрик сервиса Managed Service for MySQL®:
 
@@ -21,7 +21,7 @@ host | FQDN хоста
 node | Тип хоста: `primary`, `replica`
 resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
-service | Идентификатор сервиса: `__managed-mysql__` в Monium, `managed-mysql` в Monitoring
+service | Идентификатор сервиса: `managed-mysql`
 shard | Идентификатор шарда
 subcluster_name | Имя субкластера
 

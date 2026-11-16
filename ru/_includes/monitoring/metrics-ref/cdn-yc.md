@@ -1,5 +1,9 @@
 Имя метрики записывается в метку `name`.
 
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Для {{ cdn-name }} в обзоре метрик укажите `service = __cdn__`.
+
 Общие метки для всех метрик сервиса {{ cdn-name }} с подключенным провайдером {{ cdn-full-name }}:
 
 Метка | Значение

@@ -6,11 +6,15 @@
 
 Имя метрики пишется в метку `name`.
 
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
 Общие метки для всех метрик Audit Trails:
 
 | Метка | Значение |
 | --- | --- |
-service | Идентификатор сервиса: `__audit-trails__` в Monium, `audit-trails` в Monium Metrics |
+service | Идентификатор сервиса: `audit-trails` |
 trail | Идентификатор [трейла](../../audit-trails/concepts/trail.md) |
 status | [Статус](../../audit-trails/concepts/diagnostics.md) трейла |
 event_type | Тип события |

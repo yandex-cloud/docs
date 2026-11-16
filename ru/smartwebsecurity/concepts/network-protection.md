@@ -35,7 +35,7 @@ Network Protection отбрасывает пакеты атак до их пос
 
 ## Метрики {#metrics}
 
-Метрики Network Protection автоматически передаются в [{{ monium-full-name }}](../../monium/) в проект `folder__<идентификатор_каталога>` каталога с прокси-сервером. Они показывают объем входящего, отброшенного и пропущенного трафика.
+Метрики Network Protection автоматически передаются в [{{ metrics-name }}](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с прокси-сервером. Они показывают объем входящего, отброшенного и пропущенного трафика.
 
 Для просмотра метрик выберите сервис `__antiddos__`.
 
@@ -51,3 +51,5 @@ Network Protection отбрасывает пакеты атак до их пос
 [*proxy-server]: {% include notitle [proxy-server](../../_popups/sws/proxy-server.md) %}
 
 [*syn-cookie]: {% include notitle [syn-cookie](../../_popups/sws/syn-cookie.md) %}
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

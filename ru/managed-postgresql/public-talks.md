@@ -10,6 +10,7 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2026 год {#2026-articles}
 
+* Как запустить 1С в облаке на {{ mpg-full-name }} и ускорить базу данных. [Статья](https://yandex.cloud/ru/blog/managed-postgresql-1c-cloud-performance-diagnostics).
 * Своя база данных или управляемый сервис: считаем реальную стоимость на горизонте трех лет. [Статья](https://yandex.cloud/ru/blog/database-or-managed-service).
 * Выбираем конфигурацию для нового кластера {{ PG }}. [Статья](https://yandex.cloud/ru/blog/postgresql-configurations).
 * {{ PG }} в 2026 году: архитектура, надежность и гибкость. [Статья](https://yandex.cloud/ru/blog/postgresql-overview).

@@ -74,8 +74,6 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Настроить запись логов L7-балансировщика](operations/application-load-balancer-manage-logs.md)
 
- - [Получить идентификатор лог-группы L7-балансировщика](operations/application-load-balancer-get-log-group-id.md)
-
  - [Остановить и запустить L7-балансировщик](operations/application-load-balancer-stop-and-start.md)
 
  - [Переместить ВМ в целевую группу в новой зоне доступности](operations/application-load-balancer-relocate.md)

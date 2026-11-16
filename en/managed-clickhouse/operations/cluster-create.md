@@ -20,15 +20,7 @@ With the coordination service disabled, you can only create a cluster consisting
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
 
 
-Cluster DB connections are managed by {{ connection-manager-name }}. Creating a cluster automatically creates:
-
-* [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) connection with information about the database connection.
-
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) that stores the DB owner's user password.
-
-The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page. You need the `connection-manager.viewer` role to view the connection details.
-
-{{ connection-manager-name }} and secrets created with it are free of charge.
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
 
 
 
@@ -181,7 +173,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         You can only set the engine when creating a database and cannot change it later.
 
-      * If required, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
+      * If necessary, turn on and set up a [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster:
+
+        {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
 
         {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
@@ -317,7 +311,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. To enable [user management via SQL](./cluster-users.md#sql-user-management):
+      1. To enable [user management via SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * Set `--enable-sql-user-management` to `true`.
          * Set a password for `admin` in the `--admin-password` parameter.
@@ -362,22 +356,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * Provide the hybrid storage settings in the relevant parameters:
 
+            ```bash
+            {{ yc-mdb-ch }} cluster create \
+               ...
+               --cloud-storage=true \
+               --cloud-storage-data-cache=<file_storage> \
+               --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
+               --cloud-storage-move-factor=<share_of_free_space> \
+               --cloud-storage-prefer-not-to-merge=<merging_data_parts>
+              ...
+            ```
+
+            Where:
+
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-         ```bash
-         {{ yc-mdb-ch }} cluster create \
-            ...
-            --cloud-storage=true \
-            --cloud-storage-data-cache=<file_storage> \
-            --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
-            --cloud-storage-move-factor=<share_of_free_space> \
-            --cloud-storage-prefer-not-to-merge=<merging_data_parts>
-           ...
-         ```
-
-         Where:
-         * `--cloud-storage-data-cache`: Set to store files in a cluster storage, `true` or `false`.
-         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
       1. To configure automatic {{ CH }} storage expansion settings, use the `--disk-size-autoscaling` flag:
 
@@ -435,7 +427,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Where `--maintenance-window` defines the maintenance window settings:
 
-         * `type`: Maintenance window type. Valid values:
+         * `type`: Maintenance window type. The valid values include:
 
            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
@@ -645,6 +637,27 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
+       1. To enable and set up a [hybrid storage](../concepts/storage.md#hybrid-storage-settings), add the `cloud_storage` section:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
+            ...
+            cloud_storage = {
+              enabled             = true
+              move_factor         = <share_of_free_space>
+              data_cache_enabled  = <cache_data>
+              data_cache_max_size = <maximum_memory_in_bytes>
+              prefer_not_to_merge = <disable_merging_data_parts>
+            }
+          }
+          ```
+
+          Where:
+
+          * `enabled`: Enables hybrid storage.
+
+          {% include [tf-hybrid-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
     1. Validate your {{ TF }} configuration:
@@ -827,12 +840,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `cloudStorage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
 
+                    * `enabled`: Enable hybrid storage in the cluster if it is disabled, `true` or `false`. The default value is `false` (disabled).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
                     {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
                     * `adminPassword`: `admin` password.
-                    * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sqlUserManagement`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -1076,12 +1093,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `cloud_storage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
 
+                    * `enabled`: Enable hybrid storage in the cluster if it is disabled, `true` or `false`. The default value is `false` (disabled).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
                     {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
                     * `admin_password`: `admin` password.
-                    * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sql_user_management`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -1288,7 +1309,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         You can only set the engine when creating a database and cannot change it later.
 
-      * If required, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
+      * If necessary, turn on and set up a [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster:
+
+        {% include [hybrid-storage-settings-console](../../_includes/mdb/mch/hybrid-storage-settings-console.md) %}
 
         {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
@@ -1418,7 +1441,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-      1. To enable [user management via SQL](./cluster-users.md#sql-user-management):
+      1. To enable [user management via SQL](../concepts/user-access-rights.md#sql-user-management):
 
          * Set `--enable-sql-user-management` to `true`.
          * Set a password for `admin` in the `--admin-password` parameter.
@@ -1463,22 +1486,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          * Provide the hybrid storage settings in the relevant parameters:
 
+            ```bash
+            {{ yc-mdb-ch }} cluster create \
+               ...
+               --cloud-storage=true \
+               --cloud-storage-data-cache=<file_storage> \
+               --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
+               --cloud-storage-move-factor=<share_of_free_space> \
+               --cloud-storage-prefer-not-to-merge=<merging_data_parts>
+              ...
+            ```
+
+            Where:
+
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-         ```bash
-         {{ yc-mdb-ch }} cluster create \
-            ...
-            --cloud-storage=true \
-            --cloud-storage-data-cache=<file_storage> \
-            --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
-            --cloud-storage-move-factor=<share_of_free_space> \
-            --cloud-storage-prefer-not-to-merge=<merging_data_parts>
-           ...
-         ```
-
-         Where:
-         * `--cloud-storage-data-cache`: Set to store files in a cluster storage, `true` or `false`.
-         * `--cloud-storage-prefer-not-to-merge`: Disables merging of data parts in a cluster and object storage, `true` or `false`.
 
       1. To configure automatic expansion settings for your {{ CH }} and {{ ZK }} storages, use the `--disk-size-autoscaling` flag:
 
@@ -1524,7 +1545,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
          Where `--maintenance-window` defines the maintenance window settings:
 
-         * `type`: Maintenance window type. Valid values:
+         * `type`: Maintenance window type. The valid values include:
 
            {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}        
 
@@ -1743,6 +1764,27 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
           To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
+       1. To enable and set up a [hybrid storage](../concepts/storage.md#hybrid-storage-settings), add the `cloud_storage` section:
+
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
+            ...
+            cloud_storage = {
+              enabled             = true
+              move_factor         = <share_of_free_space>
+              data_cache_enabled  = <cache_data>
+              data_cache_max_size = <maximum_memory_in_bytes>
+              prefer_not_to_merge = <disable_merging_data_parts>
+            }
+          }
+          ```
+
+          Where:
+
+          * `enabled`: Enables hybrid storage.
+
+          {% include [tf-hybrid-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
     1. Validate your {{ TF }} configuration:
@@ -1941,12 +1983,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `cloudStorage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
 
+                    * `enabled`: Enable hybrid storage in the cluster if it is disabled, `true` or `false`. The default value is `false` (disabled).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
                     {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
                 * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
 
                     * `adminPassword`: `admin` password.
-                    * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sqlUserManagement`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 
@@ -2203,12 +2249,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
                 * `cloud_storage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
 
+                    * `enabled`: Enable hybrid storage in the cluster if it is disabled, `true` or `false`. The default value is `false` (disabled).
+
+                        {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
                     {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
                 * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
 
                     * `admin_password`: `admin` password.
-                    * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sql_user_management`: [User management via SQL](../concepts/user-access-rights.md#sql-user-management), `true` or `false`.
                     * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management via SQL.
 
 

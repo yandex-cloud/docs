@@ -1,13 +1,13 @@
 # Настройка защищенного туннеля GRE поверх IPsec
 
 
-Для безопасного взаимодействия удаленных ресурсов между собой и передачи данных через открытые каналы связи (например через интернет) применяются технологии организации защищенных соединений, такие как протокол [IPsec](https://www.ietf.org/rfc/rfc2401.txt). Однако, IPsec имеет существенные ограничения — он предназначен для передачи только IP-пакетов, а также не поддерживает многоадресный трафик ([мультикаст-трансляцию](https://en.wikipedia.org/wiki/IP_multicast)) и комбинирование с другими протоколами в рамках одного запроса.
+Для безопасного взаимодействия удаленных ресурсов между собой и передачи данных через открытые каналы связи (например, через интернет) применяются технологии организации защищенных соединений, такие как протокол [IPsec](https://www.ietf.org/rfc/rfc2401.txt). Однако IPsec имеет существенные ограничения — он предназначен для передачи только IP-пакетов, а также не поддерживает многоадресный трафик ([мультикаст-трансляцию](https://en.wikipedia.org/wiki/IP_multicast)) и комбинирование с другими протоколами в рамках одного запроса.
 
 Чтобы расширить возможности протокола IPsec, используется протокол [GRE](https://ru.wikipedia.org/wiki/GRE_(протокол)), настроенный поверх IPsec. Протокол GRE инкапсулирует сетевые пакеты в IP-пакеты, что позволяет передавать по IPsec-протоколу любой трафик.
 
-В этом примере вы создадите защищенный туннель по протоколу GRE поверх IPsec между двумя виртуальными маршрутизаторами [Cisco CSR 1000v](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr), расположенными в {{ yandex-cloud }} в разных [виртуальных сетях](../../vpc/concepts/network.md) и [зонах доступности](../../overview/concepts/geo-scope.md). 
+В этом руководстве вы создадите защищенный туннель по протоколу GRE поверх IPsec между двумя виртуальными маршрутизаторами [Cisco CSR 1000v](https://yandex.cloud/ru/marketplace/products/yc/cisco-csr), расположенными в {{ yandex-cloud }} в разных [виртуальных сетях](../../vpc/concepts/network.md) и [зонах доступности](../../overview/concepts/geo-scope.md).
 
-Поскольку {{ yandex-cloud }} использует [NAT](https://ru.wikipedia.org/wiki/NAT), а GRE-протокол не предусматривает использование портов, настройка IPSEC приводится в режиме NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)). Этот режим обеспечивает возможность трансляции адресов маршрутизаторов через NAT при использовании туннеля GRE поверх IPsec. Благодаря этому описанная в примере настройка туннеля подходит как для облачной инфраструктуры в {{ yandex-cloud }}, так и для удаленных ресурсов, находящихся за устройством, которое осуществляет NAT-трансляцию. 
+Поскольку {{ yandex-cloud }} использует [NAT](https://ru.wikipedia.org/wiki/NAT), а GRE-протокол не предусматривает использование портов, настройка IPSEC приводится в режиме NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)). Этот режим обеспечивает возможность трансляции адресов маршрутизаторов через NAT при использовании туннеля GRE поверх IPsec. Благодаря этому описанная в примере настройка туннеля подходит как для облачной инфраструктуры в {{ yandex-cloud }}, так и для удаленных ресурсов, находящихся за устройством, которое осуществляет NAT-трансляцию.
 
 Чтобы настроить защищенный туннель между двумя виртуальными маршрутизаторами:
 
@@ -30,7 +30,7 @@
 
 {% note alert %}
 
-Пропускная способность роутера при использовании образа Cisco CSR 1000v без лицензии ограничена 100 Кбит/с. Чтобы снять ограничение, [установите лицензию](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
+Пропускная способность маршрутизатора при использовании образа Cisco CSR 1000v без лицензии ограничена 100 Кбит/с. Чтобы снять ограничение, [установите лицензию](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
 
 {% endnote %}
 
@@ -136,7 +136,7 @@
 
 {% endlist %}
 
-Аналогично создайте второй каталог с именем `site-b`.
+Аналогично создайте второй каталог с именем `site-f`.
 
 ## Создайте две виртуальные машины с Cisco Cloud Services Router {#create-routers}
 
@@ -175,7 +175,7 @@
 
 {% endlist %}
 
-### Задайте роутеру имя хоста {#hostname}
+### Задайте маршрутизатору имя хоста {#hostname}
 
 {% list tabs group=instructions %}
 
@@ -192,14 +192,14 @@
       enable
       ```
 
-   1. Перейдите в режим конфигурирования и задайте роутеру имя хоста:
+   1. Перейдите в режим конфигурирования и задайте маршрутизатору имя хоста:
 
       ```bash
       conf t
       hostname cisco-router
       ```
 
-      Имя роутера в начале командной строки должно измениться на `cisco-router`.
+      Имя маршрутизатора в начале командной строки должно измениться на `cisco-router`.
 
 {% endlist %}
 
@@ -278,13 +278,13 @@
       ```bash
       ip ssh pubkey-chain
         username test-user
-         key-hash ssh-rsa <хэш_ключа> <логин_связанный_с_этим_ключом>
+         key-hash ssh-rsa <хеш_ключа> <логин_связанный_с_этим_ключом>
       !
       !
       ...
       ```
 
-      Сравните хеш SSH-ключа на роутере с хешем ключа на вашем компьютере.
+      Сравните хеш SSH-ключа на маршрутизаторе с хешем ключа на вашем компьютере.
 
    1. В серийной консоли задайте пароль для включения привилегированного режима:
 
@@ -296,20 +296,30 @@
 {% endlist %}
 
 
-### Проверьте SSH-подключение к роутеру {#test-ssh}
+### Проверьте SSH-подключение к маршрутизатору {#test-ssh}
 
-1. Выполните вход по SSH на роутер. Для этого на своем компьютере в терминале выполните команду:
+1. Выполните вход по SSH на маршрутизатор. Для этого на своем компьютере в терминале выполните команду:
 
    ```bash
-   ssh -i <путь_к_файлу_с_закрытым_ключом> test-user@<публичный_IP-адрес_роутера> 
+   ssh -i <путь_к_файлу_с_закрытым_ключом> test-user@<публичный_IP-адрес_маршрутизатора>
    ```
 
-   Если все настроено верно, вы зайдете на роутер под именем `test-user`. Если соединение не устанавливается, убедитесь, что настройка роутера в серийной консоли выполнена верно: выполнена команда `aaa new-model`, хеши ключей на вашем компьютере и роутере совпадают, авторизация по паролю у тестового пользователя выключена. Если обнаружить проблему не получается, повторите шаги из предыдущих пунктов.
-1. Перейдите в режим привилегированного пользователя. Для этого введите команду `enable` и пароль. Если все настроено верно, вы сможете конфигурировать роутер.
+   {% note info %}
+
+   Cisco CSR 1000v (IOS 16.9) поддерживает только устаревшие алгоритмы SSH. Если вы используете современный SSH-клиент, например OpenSSH, и он не подключается к маршрутизатору, разрешите эти алгоритмы с помощью параметров:
+
+   ```bash
+   ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa -i <путь_к_файлу_с_закрытым_ключом> test-user@<публичный_IP-адрес_маршрутизатора>
+   ```
+
+   {% endnote %}
+
+    Если все настроено верно, вы зайдете на маршрутизатор под именем `test-user`. Если соединение не устанавливается, убедитесь, что настройка маршрутизатора в серийной консоли выполнена верно: выполнена команда `aaa new-model`, хеши ключей на вашем компьютере и маршрутизаторе совпадают, авторизация по паролю у тестового пользователя выключена. Если обнаружить проблему не получается, повторите шаги из предыдущих пунктов.
+1. Перейдите в режим привилегированного пользователя. Для этого введите команду `enable` и пароль. Если все настроено верно, вы сможете конфигурировать маршрутизатор.
 
 ### Создайте и настройте вторую ВМ с Cisco Cloud Services Router {#create-second-vm}
 
-1. В каталоге `site-b` создайте ВМ `cisco-router-b` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-b**.
+1. В каталоге `site-f` создайте ВМ `cisco-router-f` по вышеописанной схеме. В качестве зоны доступности выберите **{{ region-id }}-f**.
 1. Настройте ВМ так же, как ВМ `cisco-router-d`.
 
 ## Настройте IPsec-протоколы {#ipsec-setup}
@@ -357,25 +367,25 @@
      ```bash
      crypto ikev2 keyring MY_IKEV2_KEYRING
         peer SiteB
-        address cisco-router-b
-        pre-shared-key <секретный_ключ> 
+        address <публичный_ip-адрес_вм_cisco-router-f>
+        pre-shared-key <секретный_ключ>
         exit
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
      crypto ikev2 keyring MY_IKEV2_KEYRING
         peer SiteA
-        address cisco-router-d
-        pre-shared-key <секретный_ключ> 
+        address <публичный_ip-адрес_вм_cisco-router-d>
+        pre-shared-key <секретный_ключ>
         exit
      ```
 
    {% endlist %}
 
    Где:
-   * `<секретный_ключ>` — ключ шифрования, длиной не менее 16 символов, например `MySecretKey12345`. Используйте один ключ на обеих ВМ.
+   * `<секретный_ключ>` — ключ шифрования длиной не менее 16 символов, например `MySecretKey12345`. Используйте один ключ на обеих ВМ.
 
 1. Создайте IKEv2-профиль:
 
@@ -386,7 +396,7 @@
      ```bash
      crypto ikev2 profile MY_IKEV2_PROFILE
         match address local interface GigabitEthernet1
-        match identity remote address cisco-router-b
+        match identity remote address 0.0.0.0
         authentication remote pre-share
         authentication local pre-share
         keyring local MY_IKEV2_KEYRING
@@ -395,12 +405,12 @@
         exit
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
      crypto ikev2 profile MY_IKEV2_PROFILE
         match address local interface GigabitEthernet1
-        match identity remote address cisco-router-d
+        match identity remote address 0.0.0.0
         authentication remote pre-share
         authentication local pre-share
         keyring local MY_IKEV2_KEYRING
@@ -411,12 +421,8 @@
 
    {% endlist %}
 
-   {% note info %}
-
-   Для целей тестирования вместо IP-адресов вы можете использовать шаблон `0.0.0.0`, чтобы обеспечить доступ к любым IP-адресам.
-   Также можно настроить отдельные профили для разных пиров.
-
-   {% endnote %}
+   ВМ в {{ yandex-cloud }} получают приватные IP-адреса, а трафик идет через NAT. Поэтому в идентификаторе пира маршрутизатор видит приватный IP-адрес, а не публичный, и `match identity remote address` с публичным IP-адресом не сработает. Для тестирования используйте шаблон `0.0.0.0`, чтобы принимать подключения с любых адресов.
+   Также вы можете настроить отдельные профили для разных пиров.
 
 1. Добавьте IKEv2-профиль в IPsec-профиль:
 
@@ -455,12 +461,12 @@
         ip mtu 1400
         ip tcp adjust-mss 1360
         tunnel source GigabitEthernet1
-        tunnel destination cisco-router-b
+        tunnel destination <публичный_ip-адрес_вм_cisco-router-f>
         tunnel mode ipsec ipv4
         tunnel protection ipsec profile MY_IPSEC_PROFILE
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
      conf t
@@ -471,7 +477,7 @@
         ip mtu 1400
         ip tcp adjust-mss 1360
         tunnel source GigabitEthernet1
-        tunnel destination cisco-router-d
+        tunnel destination <публичный_ip-адрес_вм_cisco-router-d>
         tunnel mode ipsec ipv4
         tunnel protection ipsec profile MY_IPSEC_PROFILE
      ```
@@ -485,13 +491,13 @@
    - ВМ cisco-router-d
 
      ```bash
-     show crypto ikev2 sa remote cisco-router-b
+     show crypto ikev2 sa remote <публичный_ip-адрес_вм_cisco-router-f>
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
-     show crypto ikev2 sa remote cisco-router-d
+     show crypto ikev2 sa remote <публичный_ip-адрес_вм_cisco-router-d>
      ```
 
    {% endlist %}
@@ -522,7 +528,7 @@
 
 {% endnote %}
 
-1. Для обеспечения отправки ответа на запрос, настройте [Loopback](https://ru.wikipedia.org/wiki/Loopback)-интерфейс:
+1. Для обеспечения отправки ответа на запрос настройте интерфейс [Loopback](https://ru.wikipedia.org/wiki/Loopback):
 
    {% list tabs %}
 
@@ -535,7 +541,7 @@
         exit
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
      conf t
@@ -546,7 +552,7 @@
 
    {% endlist %}
 
-1. Для обеспечения динамической маршрутизации, настройте BGP-протокол:
+1. Для обеспечения динамической маршрутизации настройте протокол BGP:
 
    {% list tabs %}
 
@@ -564,7 +570,7 @@
      exit
      ```
 
-   - ВМ cisco-router-b
+   - ВМ cisco-router-f
 
      ```bash
      router bgp 65002
@@ -598,7 +604,7 @@
    Success rate is 100 percent (5/5), round-trip min/avg/max = 10/10/11 ms
    ```
 
-Для диагностики туннеля GRE, вы также можете выполнить следующие команды:
+Для диагностики туннеля GRE вы также можете выполнить следующие команды:
 
    ```bash
    show ip int brief

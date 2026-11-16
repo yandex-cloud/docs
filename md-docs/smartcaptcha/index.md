@@ -204,7 +204,7 @@ Yandex SmartCaptcha позволяет определить, кем являет
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик SmartCaptcha](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

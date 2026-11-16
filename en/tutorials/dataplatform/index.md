@@ -9,7 +9,7 @@ description: This page provides a list of tutorials for building a data platform
 
 ## Data migration and DBMS version upgrades {#migration}
 
-Migration is a task that involves transferring data from one storage system to another, such as from on-premises databases to managed cloud databases, between clusters, or involving a change in the DBMS type. The tutorials in this group describe migration scenarios for {{ MY }}, {{ PG }}, {{ CH }}, {{ GP }}, {{ MG }}, {{ ydb-short-name }}, {{ OS }}, and other systems, as well as database version upgrades with minimal downtime.
+Migration is a task that involves transferring data from one storage system to another, e.g., from on-premises databases to managed cloud databases, between clusters, or with a change of the DBMS type. The tutorials in this group describe migration scenarios for {{ MY }}, {{ PG }}, {{ CH }}, {{ GP }}, {{ MG }}, {{ ydb-short-name }}, {{ OS }}, and other systems, as well as database version upgrades with minimal downtime.
 
 {% cut "Full list of tutorials" %}
 
@@ -48,7 +48,7 @@ Migration is a task that involves transferring data from one storage system to a
 
 ## Replication and streaming data change capture {#replication}
 
-Replication and CDC (Change Data Capture) are processes for continuously tracking changes at the source and delivering them to the target in real time. The tutorials in this group describe setting up cross-cluster replication, as well as capturing changes using Debezium and delivering data streams to target systems.
+Replication and CDC (Change Data Capture) are processes for continuous tracking of changes at the source and delivering them to the target in real time. The tutorials of this group describe the configuration of cross-cluster replication, change capture with the help of Debezium, and delivery of data streams to target systems.
 
 {% cut "Full list of tutorials" %}
 
@@ -65,9 +65,9 @@ Replication and CDC (Change Data Capture) are processes for continuously trackin
 {% endcut %}
 
 
-## Loading and delivering data {#loading-delivery}
+## Data loading and delivery {#loading-delivery}
 
-Tutorials describe architectural patterns for building data flows: from sources (external databases, files, logs, brokers) to storage systems and back. Scenarios are examined for streaming via {{ DS }}, event delivery from {{ KF }} and {{ RMQ }}, batch loading, and end-to-end transfer using {{ data-transfer-name }}. 
+The tutorials describe architectural patterns for building data streams: from sources (external databases, files, logs, brokers) to storage systems and back. They cover scenarios including streaming via {{ DS }}, event delivery from {{ KF }} and {{ RMQ }}, batch loading, and end-to-end transfer via {{ data-transfer-name }}.
 
 {% cut "Full list of tutorials" %}
 
@@ -107,10 +107,9 @@ Tutorials describe architectural patterns for building data flows: from sources 
 
 {% endcut %}
 
-
 ## Integration and exchange between data storage and processing systems {#integration}
 
-The tutorials in this group describe bidirectional data exchange between heterogeneous storage and computing systems, such as {{ CH }}, {{ GP }}, {{ PG }}, {{ ydb-short-name }}, {{ OS }}, {{ objstorage-name }}, and external DBMSs via JDBC. Scenarios include delivering data from analytical clusters to relational databases, data exchange between {{ objstorage-name }}and managed database services, and integrating {{ OS }} with other storage solutions.
+The tutorials of this group describe bidirectional data exchange between heterogeneous storage and computing systems: {{ CH }}, {{ GP }}, {{ PG }}, {{ ydb-short-name }}, {{ OS }}, {{ objstorage-name }}, and external DBMSs via JDBC. The scenarios include delivering data from analytical clusters to relational databases, data exchange between {{ objstorage-name }} and managed database services, and integration between {{ OS }} and other storage solutions.
 
 {% cut "Full list of tutorials" %}
 
@@ -138,9 +137,9 @@ The tutorials in this group describe bidirectional data exchange between heterog
 {% endcut %}
 
 
-## Analytic calculations {#analytical}
+## Analytical calculations {#analytical}
 
-Tutorials for launching analytics jobs: {{ SPRK }}, PySpark, {{ metastore-name }}, MapReduce. This includes scenarios for remotely launching tasks, reading and writing data, integrating {{ SPRK }} with {{ metastore-name }} and {{ ml-platform-short-name }}, and loading data from relational sources via Sqoop.
+Tutorials on how to run analytical jobs: {{ SPRK }}, PySpark, {{ metastore-name }}, MapReduce. This includes scenarios for remote running of jobs, data reading and writing, {{ SPRK }} integration with {{ metastore-name }} and {{ ml-platform-short-name }}, and loading data from relational sources via Sqoop.
 
 {% cut "Full list of tutorials" %}
 
@@ -164,7 +163,7 @@ Tutorials for launching analytics jobs: {{ SPRK }}, PySpark, {{ metastore-name }
 
 ## Pipeline orchestration {#pipeline-orchestration}
 
-Tutorials on describing automation and planning execution of data processing tasks using {{ AF }}. Scenarios include automated triggering of tasks, use of the Python SDK within a DAG, joint execution of {{ AF }} and {{ SPRK }}, and configuration of email notifications for pipeline failures.
+Tutorials on describing the automation and planning the execution of data processing jobs using {{ AF }}. These scenarios include auto-running jobs, use of the Python SDK inside a DAG, joint execution of {{ AF }} and {{ SPRK }}, and setting up email notifications in the event of pipeline failures.
 
 {% cut "Full list of tutorials" %}
 
@@ -180,7 +179,7 @@ Tutorials on describing automation and planning execution of data processing tas
 
 ## Storage, archiving, and data lifecycle {#storage-archiving}
 
-Tutorials on data lifecycle management in storage systems: hybrid storage, sharding, cold storage policies and index rotation in {{ OS }}, configuration of retention policies, and data archiving.
+Tutorials on data lifecycle management in storage systems: hybrid storage, sharding, cold storage policies and index rotation in {{ OS }}, retention policies, data archiving.
 
 {% cut "Full list of tutorials" %}
 
@@ -198,7 +197,7 @@ Tutorials on data lifecycle management in storage systems: hybrid storage, shard
 
 ## Performance and diagnostics {#productivity-diagnostics}
 
-Bottleneck diagnosis, profiling, and resolution of performance issues in DBMSs and processing services. Scripts will help quickly isolate and fix issues related to load and query execution speed.
+Bottleneck diagnostics, profiling, and troubleshooting performance issues in DBMSs and processing services. These scenarios will help you quickly isolate and fix issues related to load and query execution speed.
 
 {% cut "Full list of tutorials" %}
 
@@ -213,7 +212,7 @@ Bottleneck diagnosis, profiling, and resolution of performance issues in DBMSs a
 
 ## Monitoring, logs, audit, billing {#monitoring-logs}
 
-Tutorials on processing and analyzing various types of telemetry: audit logs, {{ cloud-logging-name }} logs, and detailed billing files, as well as configuring notifications from {{ OS }} and working with Jupyter Notebook in conjunction with {{ yq-full-name }}.
+Tutorials on how to process and analyze various types of telemetry including audit logs, {{ cloud-logging-name }} logs, and detailed billing files, how to set up {{ OS }} notifications and work with Jupyter Notebook in conjunction with {{ yq-full-name }}.
 
 {% cut "Full list of tutorials" %}
 
@@ -228,7 +227,7 @@ Tutorials on processing and analyzing various types of telemetry: audit logs, {{
 
 ## Security and access {#security-and-access}
 
-Scenarios for configuring secure access to data platform resources: authentication to {{ OS }} via SAML and Keycloak, secret management during PySpark job execution and via {{ connection-manager-name }}, as well as DNS peering configuration for a {{ CH }} private network.
+Scenarios for configuring secure access to data platform resources: authentication to {{ OS }} via SAML and Keycloak, secret management when running PySpark jobs and via {{ connection-manager-name }}, and setting up DNS peering for a private {{ CH }} network.
 
 {% cut "Full list of tutorials" %}
 
@@ -240,9 +239,9 @@ Scenarios for configuring secure access to data platform resources: authenticati
 {% endcut %}
 
 
-## Managing data schemas {#data-management}
+## Data schema management {#data-management}
 
-{{ schema-registry-name }}: Service for storing and managing message schemas in Avro, JSON Schema, and Protobuf formats. Scenarios include creating and configuring a managed {{ schema-registry-name }}, working with REST APIs, and integrating with Confluent Schema Registry to ensure data compatibility in stream processing.
+{{ schema-registry-name }} is a service made to store and manage message schemas in Avro, JSON Schema, and Protobuf formats. The scenarios include creating and configuring a managed {{ schema-registry-name }}, working with REST APIs, and integration with Confluent Schema Registry to ensure data compatibility in stream processing.
 
 {% cut "Full list of tutorials" %}
 
@@ -256,7 +255,7 @@ Scenarios for configuring secure access to data platform resources: authenticati
 
 ## Cluster deployment and configuration {#cluster-deployment}
 
-Specialized configuration and deployment scenarios for managed database clusters: installing the {{ KF }} web interface, configuring a web server with a configuration file for the `s3` protocol, initialization in {{ dataproc-short-name }} via init scripts, using a {{ PG }} cluster for 1C, storing PHP sessions in a {{ mrd-name }} cluster, configuring {{ mch-name }} for Graphite, PXF named queries, and connecting a lemmatizer to {{ OS }}.
+Specialized configuration and deployment scenarios for managed database clusters: installing the {{ KF }} web interface, setting up a web server with a configuration file for the `s3` protocol, initialization in {{ dataproc-short-name }} via init scripts, using a {{ PG }} cluster for 1C, storing PHP sessions in a {{ mrd-name }} cluster, setting up {{ mch-name }} for Graphite, PXF named queries, and connecting a lemmatizer to {{ OS }}.
 
 {% cut "Full list of tutorials" %}
 
@@ -264,6 +263,7 @@ Specialized configuration and deployment scenarios for managed database clusters
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](data-processing-init-actions-geesefs.md)
 * [{#T}](1c-postgresql.md)
+* [{#T}](mpg-vector-extension.md)
 * [{#T}](valkey-as-php-sessions-storage.md)
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](pxf-named-queries.md)

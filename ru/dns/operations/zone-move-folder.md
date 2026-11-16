@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Ограничения {#limits}
 
-При переносе зоны DNS метрики в [{{ monitoring-full-name }}](../../monitoring/) не переносятся. Те, что были в предыдущем каталоге, останутся в нем, а новые метрики будут создаваться уже в новом каталоге.
+После переноса зоны DNS накопленные метрики в [{{ metrics-name }}](../../monium/metrics/overview.md) остаются в [проекте исходного каталога](*monium-folder-project). Новые метрики поступают в проект целевого каталога.
 
 ## Перенести зону DNS {#relocate-zone}
 
@@ -290,3 +290,5 @@ description: Следуя данной инструкции, вы сможете
     Подробное описание метода в [справочнике gRPC API](../api-ref/grpc/DnsZone/move.md).
 
 {% endlist %}
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

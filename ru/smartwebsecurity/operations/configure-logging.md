@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить логирование через {{ sws-name }}
 
-Этот способ дает подробные логи проверки запросов правилами безопасности, WAF и ARL. В профиле можно выбирать типы правил и вердикты для записи. [Логирование через {{ alb-name }}](configure-logging-alb.md) сохраняет HTTP-запросы балансировщика с результатом проверки {{ sws-name }}.
+Логи профиля безопасности содержат подробные результаты проверки запросов правилами профиля, WAF и ARL. Можно выбирать типы правил и вердикты для записи. Логи прокси-сервера содержат HTTP-запросы его балансировщика с результатами проверки {{ sws-name }}, как и при [логировании через {{ alb-name }}](configure-logging-alb.md).
 
 {% include [logging-services](../../_includes/smartwebsecurity/logging-services.md) %}
 
@@ -13,15 +13,17 @@ description: Следуя данной инструкции, вы сможете
 
 Включить логирование можно при создании [профиля безопасности](profile-create.md) или [прокси-сервера](proxy-create.md), а также при их редактировании.
 
+Запись и хранение логов в {{ monium-logs-name }} [тарифицируются](../../monium/pricing.md).
+
 {% note info %}
 
-Для настройки логирования в профиле безопасности нужна роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с профилем. Для просмотра логов в {{ monium-name }} нужна [роль с правом чтения логов](../../monium/security/index.md#roles-list).
+Для настройки логирования нужна роль [smart-web-security.editor](../security/index.md#smart-web-security-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с профилем безопасности или прокси-сервером.
 
 {% endnote %}
 
-{% list tabs group=instructions %}
+{% list tabs group=sws-log-source %}
 
-- Профиль безопасности ({{ monium-name }}) {#monium}
+- Профиль безопасности {#security-profile}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
@@ -35,27 +37,30 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- Прокси-сервер ({{ cloud-logging-name }}) {#logging}
+  Чтобы отключить логирование, выключите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** в той же форме и сохраните изменения.
+
+- Прокси-сервер {#proxy-server}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с прокси-сервером.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
   1. В строке с нужным прокси-сервером нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**.
-  1. Выберите [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи, или [создайте новую](../../logging/operations/create-group.md).
   1. (Опционально) Чтобы уменьшить объем логов, создайте правило отбрасывания:
 
       1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}** в блоке **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.discard-rules-title_xn6cP }}**.
       1. Выберите **HTTP-коды** или **Классы HTTP-кодов**, для которых нужно сократить запись логов.
-      1. Укажите **Долю отбрасываемых логов** от `0%` (все логи записываются) до `100%` (логи не записываются).
+      1. Укажите **Долю отбрасываемых логов** для выбранных кодов: от `0%` (сохранять все подходящие записи) до `100%` (отбрасывать все подходящие записи).
 
       Для других HTTP-кодов добавьте отдельные правила.
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-- {{ at-name }} {#at}
+  Чтобы отключить логирование, выключите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}** в той же форме и сохраните изменения.
 
-  Настройте запись событий {{ sws-name }} в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}. Перед созданием трейла [подготовьте бакет и сервисный аккаунт](../../audit-trails/operations/create-trail.md#before-you-begin).
+- Аудитные события {#audit-trails}
+
+  Настройте запись событий {{ sws-name }} через {{ at-name }} в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}. Перед созданием трейла [подготовьте бакет и сервисный аккаунт](../../audit-trails/operations/create-trail.md#before-you-begin).
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -68,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.audit-trails.section_general-info }}** введите имя трейла, например `trail-sws`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Будут записываться все события {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
+  Трейл настроен на сбор событий {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
 
   Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
@@ -96,32 +101,47 @@ description: Следуя данной инструкции, вы сможете
 
 - Интерфейс {{ sws-name }} {#console}
 
-  Для профиля безопасности:
+  Для просмотра логов нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на каталог с профилем безопасности или прокси-сервером.
 
-  {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
-
-  Для прокси-сервера:
-
-  Нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с прокси-сервером.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с профилем безопасности или прокси-сервером.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
-  1. Выберите нужный прокси-сервер.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
+  1. Откройте логи нужного ресурса:
 
-  Логи прокси-сервера также можно [просмотреть в {{ cloud-logging-name }}](../../logging/operations/read-logs.md).
+     * **Профиль безопасности** — на панели слева выберите ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**. В поле **Профиль безопасности** выберите нужный профиль. По умолчанию отображаются логи всех профилей каталога.
+     * **Прокси-сервер** — на панели слева выберите ![image](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**, откройте нужный прокси-сервер и перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
+
+     В запросе уже заданы метки `project` и `service`. Для прокси-сервера также задана метка `resource_id` с идентификатором его балансировщика.
+
+  1. Задайте период поиска логов.
+  1. При необходимости добавьте условия фильтрации в строке запроса.
+
+     Для ввода запроса в текстовом режиме нажмите ![code](../../_assets/console-icons/code.svg) и используйте [язык запросов {{ monium-name }}](../../monium/logs/query.md). Сохраните метки, выбранные по умолчанию.
+
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**. Чтобы посмотреть содержимое записи, разверните ее.
 
 - {{ monium-name }} {#monium}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![compass](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
-  1. Задайте период поиска логов.
-  1. В строке запроса укажите `project = "folder__<идентификатор_каталога>"` для каталога с профилем безопасности. Выберите значения `cluster` и `service` для логов {{ sws-name }} из выпадающих списков.
-  1. Чтобы найти логи конкретного профиля, добавьте условие `security_profile_id = "<идентификатор_профиля>"`.
+  Для просмотра логов нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на каталог с профилем безопасности или прокси-сервером.
 
-     Запрос можно составить из меток в выпадающих списках или ввести на [языке запросов {{ monium-name }}](../../monium/logs/query.md). Для ввода запроса нажмите ![code](../../_assets/console-icons/code.svg).
+  1. Откройте [{{ monium-name }}]({{ link-monium }}).
+  1. На панели слева выберите ![compass](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
+  1. Задайте период поиска логов.
+  1. В строке запроса для метки `project` выберите [проект каталога](*monium-folder-project) с профилем безопасности или прокси-сервером.
+  1. Выберите значение метки `service` в зависимости от типа логов. Чтобы просмотреть логи конкретного ресурса, добавьте фильтр:
+
+     #|
+     || **Тип логов** | **Значение `service`** | **Фильтр для ресурса** ||
+     || Профиль безопасности | `__smartwebsecurity__` | `security_profile_id` — [идентификатор профиля безопасности](profile-get.md). ||
+     || Прокси-сервер | `__application-load-balancer__` | `resource_id` — идентификатор балансировщика прокси-сервера. ||
+     |#
+
+     Для прокси-сервера откройте его страницу в консоли {{ sws-name }} и на вкладке **{{ ui-key.yacloud.common.overview }}** скопируйте **Идентификатор** из блока **Балансировщик нагрузки**.
+
+     Запрос можно составить в режиме токенов или ввести на [языке запросов {{ monium-name }}](../../monium/logs/query.md). Для ввода запроса в текстовом режиме нажмите ![code](../../_assets/console-icons/code.svg).
 
   1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**. Чтобы посмотреть содержимое записи, разверните ее.
+
+  Подробнее о работе с логами — в разделе [«Поиск и анализ логов»](../../monium/logs/logs-explorer.md).
 
 - {{ at-name }} {#at}
 
@@ -137,15 +157,17 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Примеры готовых фильтров для логов {#filtration}
+## Примеры фильтров для логов профилей безопасности {#filtration}
 
-Примеры ниже относятся к логам профиля безопасности и подходят для интерфейсов {{ sws-name }} и {{ monium-name }}. Логи поставляются в формате JSON: одна запись соответствует одному запросу клиента, обработанному {{ sws-name }}.
+Примеры относятся к логам профиля безопасности и подходят для поиска логов в интерфейсах {{ sws-name }} и {{ monium-name }}. Логи поставляются в формате JSON: одна запись соответствует одному запросу клиента, обработанному {{ sws-name }}.
 
-Запросы для фильтрации логов составляются, исходя из взаимосвязи профилей и правил [{{ sws-name }}](../concepts/profiles.md#profile-rules-schema). Вы можете посмотреть логи активных, работающих правил или правил в режиме **Только логирование** (dry run).
+Фильтры ниже помогают найти запросы, для которых сработали правила в обычном режиме или в режиме **Только логирование** (dry run).
 
-Добавьте нужные условия из примеров ниже в селектор запроса, сохранив метки `project`, `cluster` и `service`. Поля описаны в разделе [{#T}](../concepts/logging.md).
+Добавьте условия из примеров в селектор запроса. Поля описаны в разделе [{#T}](../concepts/logging.md).
 
 ### Фильтры для активных правил {#active-rule-filters}
+
+В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе.
 
 * Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
 
@@ -179,6 +201,8 @@ description: Следуя данной инструкции, вы сможете
 
 ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
+В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе.
+
 * Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
 
   ```text
@@ -188,7 +212,9 @@ description: Следуя данной инструкции, вы сможете
 * Показать запросы, для которых было превышение по конкретному правилу ARL — `arl-rule-1`:
 
   ```text
-  meta.arl_dry_run_exceeded_quota_names = "arl-rule-1"
+  meta.dry_run_exceeded_quota_names = "arl-rule-1"
   ```
 
 Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
+
+[*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

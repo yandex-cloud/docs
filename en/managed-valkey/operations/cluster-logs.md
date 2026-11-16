@@ -49,9 +49,9 @@
         Where:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-        * `--columns`: List of output data columns:
+        * `--columns`: List of output columns:
             
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -85,9 +85,9 @@
 
         * `serviceType`: Type of service to request logs for. The valid value is `REDIS`.
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -136,9 +136,9 @@
 
         * `service_type`: Type of service to request logs for. The valid value is `REDIS`.
 
-        * `column_filter`: List of output data columns:
+        * `column_filter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -199,9 +199,9 @@ This method allows you to stream cluster logs in real time.
 
         * `serviceType`: Type of service to request logs for. The valid value is `REDIS`.
 
-        * `columnFilter`: List of output data columns:
+        * `columnFilter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).
@@ -257,9 +257,9 @@ This method allows you to stream cluster logs in real time.
 
         * `service_type`: Type of service to request logs for. The valid value is `REDIS`.
 
-        * `column_filter`: List of output data columns:
+        * `column_filter`: List of output columns:
 
-            * `hostname`: [Host name](hosts.md#list-hosts).
+            * `hostname`: [Host name](hosts.md#list).
             * `message`: Message output by the service.
             * `pid`: Server process ID of the current session.
             * `role`: Cluster component role, e.g., `X` or `M` (`Sentinel` and `Master`, respectively).

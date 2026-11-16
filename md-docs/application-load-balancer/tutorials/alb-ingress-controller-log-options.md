@@ -12,9 +12,11 @@
 
 Из этой статьи вы узнаете, как создать три L7-балансировщика с различными настройками логирования:
 
-* Запись в [лог-группу по умолчанию](../../logging/concepts/log-group.md).
-* Запись в пользовательскую лог-группу.
+* Запись всех логов в [Monium Logs](../../monium/logs/quickstart-resources.md).
+* Запись в Monium Logs с отбрасыванием части логов.
 * Без записи логов.
+
+
 
 Чтобы задать настройки для L7-балансировщиков:
 
@@ -33,7 +35,7 @@
 * Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Каждый активный L7-балансировщик: использование вычислительных ресурсов ([тарифы Application Load Balancer](../pricing.md)).
 * Публичные IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
+* Запись и хранение логов ([тарифы Monium](../../monium/pricing.md)).
 
 
 ## Перед началом работы {#before-begin}
@@ -93,8 +95,6 @@
         * Укажите ранее созданные сервисный аккаунт для узлов и группы безопасности.
         * Выделите публичный IP-адрес, чтобы предоставить группе узлов доступ в интернет и возможность скачивать Docker-образы и компоненты.
 
-    1. [Создайте пользовательскую лог-группу Cloud Logging](../../logging/operations/create-group.md).
-
 - Terraform {#tf}
 
     1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -103,6 +103,8 @@
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
     1. Скачайте в ту же рабочую директорию файл конфигурации [k8s-and-registry-for-alb.tf](https://github.com/yandex-cloud-examples/yc-mk8s-ingress-controller-logging/blob/main/k8s-and-registry-for-alb.tf).
+
+        Скачанная конфигурация содержит настройки для записи логов в Cloud Logging. Сейчас логи записываются в проект Monium, а идентификатор лог-группы игнорируется. Его можно не удалять из конфигурации.
 
         В этом файле описаны:
 
@@ -121,7 +123,6 @@
 
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов и узлов Managed Service for Kubernetes.
         * Сервисный аккаунт для работы Ingress-контроллера Application Load Balancer.
-        * [Пользовательская лог-группа](../../logging/concepts/log-group.md) Cloud Logging.
         * [Авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта Ingress-контроллера.
         * Создание локального файла `key.json` с данными авторизованного ключа. Данные ключа необходимы для [установки](#install-alb-ingress-controller) приложения ALB Ingress Controller.
 
@@ -131,7 +132,6 @@
         * [Версию Kubernetes](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
         * Имя сервисного аккаунта для ресурсов и узлов Kubernetes.
         * Имя сервисного аккаунта для работы Ingress-контроллера Application Load Balancer.
-        * Имя пользовательской лог-группы Cloud Logging.
 
     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -462,14 +462,14 @@
 
 ## Задайте настройки для групп ресурсов Ingress {#configure-group}
 
-Создайте ресурс `IngressGroupSettings` с настройками логирования для групп ресурсов Ingress:
+Создайте ресурсы `IngressGroupSettings` с настройками логирования для групп ресурсов Ingress:
 
-* `non-default-settings` — запись в пользовательскую лог-группу, созданную [ранее](#deploy-infrastructure), с определенными правилами.
+* `non-default-settings` — запись в Monium Logs с правилами отбрасывания части логов.
 * `logs-disabled-settings` — запись логов отключена.
 
-Для записи в лог-группу по умолчанию настройки не указываются.
+Без дополнительных настроек балансировщик записывает все логи в проект Monium `folder__<идентификатор_каталога>` для каталога с балансировщиком.
 
-1. Создайте файл `settings.yaml` и укажите в нем идентификатор лог-группы:
+1. Создайте файл `settings.yaml` с настройками логирования:
 
     ```yaml
     apiVersion: alb.yc.io/v1alpha1
@@ -477,7 +477,6 @@
     metadata:
       name: non-default-settings
     logOptions:
-      logGroupID: <идентификатор_пользовательской_лог-группы>
       discardRules:
         - discardPercent: 50
           grpcCodes:
@@ -517,11 +516,24 @@
 
 ## Проверьте результат {#check-result}
 
-[Получите идентификаторы лог-групп](../operations/application-load-balancer-get-log-group-id.md) для созданных L7-балансировщиков и убедитесь, что они соответствуют настройкам в файле `settings.yaml`:
+1. [Получите информацию](../operations/application-load-balancer-get.md) о каждом из созданных L7-балансировщиков и проверьте поле `log_options` в ответе CLI:
 
-* Для одного балансировщика должна быть выбрана созданная пользовательская лог-группа с определенными правилами.
-* Для другого — лог-группа по умолчанию.
-* Для третьего запись логов должна быть отключена.
+   * Для балансировщика с настройками `non-default-settings` должны быть заданы правила отбрасывания из файла `settings.yaml`.
+   * Для балансировщика без дополнительных настроек правила отбрасывания не заданы.
+   * Для балансировщика с настройками `logs-disabled-settings` должно быть задано `disable: true`.
+
+1. Отправьте несколько HTTP-запросов к тестовому приложению через каждый балансировщик.
+1. [Откройте логи в Monium](../operations/application-load-balancer-get-logs.md). В запросе укажите значения меток:
+
+   * `project` — [проект каталога](*monium-folder-project) с балансировщиком.
+   * `service` — `__application-load-balancer__`.
+   * `resource_id` — [идентификатор проверяемого балансировщика](../operations/application-load-balancer-get.md).
+
+   Выберите период после применения настроек.
+
+   Для балансировщиков с включенным логированием отображаются записи, которые не были отброшены правилами. Для балансировщика с отключенным логированием новые записи не поступают.
+
+Подробнее о работе с логами — в разделе [«Поиск и анализ логов»](../../monium/logs/logs-explorer.md).
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -534,7 +546,6 @@
     1. [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
     1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
     1. [Удалите сервисные аккаунты](../../iam/operations/sa/delete.md).
-    1. [Удалите лог-группу](../../logging/operations/delete-group.md).
 
 - Terraform {#tf}
 
@@ -559,3 +570,5 @@
         Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

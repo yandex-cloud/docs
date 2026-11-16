@@ -56,13 +56,13 @@ Terraform распространяется под лицензией [Business S
       1. Клонируйте репозиторий с конфигурационными файлами.
 
          ```bash
-         git clone https://github.com/yandex-cloud-examples/cdn-storage-integration-config
+         git clone https://github.com/yandex-cloud-examples/yc-cdn-storage-integration-config
          ```
 
       1. Перейдите в папку с репозиторием. В ней должны появиться следующие файлы:
 
-          * `cdn-storage-integration-config.tf` — файл конфигурации создаваемой инфраструктуры.
-          * `cdn-storage-integration.auto.tfvars` — файл со значениями пользовательских переменных.
+          * `yc-cdn-storage-integration-config.tf` — файл конфигурации создаваемой инфраструктуры.
+          * `yc-cdn-storage-integration.auto.tfvars` — файл со значениями пользовательских переменных.
           * `index.html` — тестовый файл сервиса, который используется при проверке работоспособности решения.
 
     - Вручную {#manual}
@@ -82,9 +82,9 @@ Terraform распространяется под лицензией [Business S
                </body>
              </html>
              ```
-          1. Создайте конфигурационный файл `cdn-storage-integration-config.tf`:
+          1. Создайте конфигурационный файл `yc-cdn-storage-integration-config.tf`:
 
-              {% cut "**cdn-storage-integration-config.tf**" %}
+              {% cut "**yc-cdn-storage-integration-config.tf**" %}
 
               ```hcl
               # Объявление переменных
@@ -108,7 +108,7 @@ Terraform распространяется под лицензией [Business S
               locals {
                 network_name     = "example-network"
                 subneta_name     = "example-subnet-ru-central1-a"
-                subnetb_name     = "example-subnet-ru-central1-b"
+                subnetb_name     = "example-subnet-ru-central1-e"
                 subnetd_name     = "example-subnet-ru-central1-d"
                 sg_name          = "example-sg"
                 object_key       = "index.html"
@@ -193,9 +193,9 @@ Terraform распространяется под лицензией [Business S
                 v4_cidr_blocks = ["192.168.1.0/24"]
               }
               
-              resource "yandex_vpc_subnet" "my-subnet-b" {
+              resource "yandex_vpc_subnet" "my-subnet-e" {
                 name           = local.subnetb_name
-                zone           = "ru-central1-b"
+                zone           = "ru-central1-e"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.2.0/24"]
               }
@@ -322,8 +322,8 @@ Terraform распространяется под лицензией [Business S
                   }
               
                   location {
-                    zone_id   = "ru-central1-b"
-                    subnet_id = yandex_vpc_subnet.my-subnet-b.id
+                    zone_id   = "ru-central1-e"
+                    subnet_id = yandex_vpc_subnet.my-subnet-e.id
                   }
               
                   location {
@@ -388,9 +388,9 @@ Terraform распространяется под лицензией [Business S
 
               {% endcut %}
 
-          1. Создайте файл с пользовательскими данными `cdn-storage-integration.auto.tfvars`:
+          1. Создайте файл с пользовательскими данными `yc-cdn-storage-integration.auto.tfvars`:
 
-              **cdn-storage-integration.auto.tfvars**
+              **yc-cdn-storage-integration.auto.tfvars**
 
               ```hcl
               folder_id       = "<идентификатор_каталога>"
@@ -418,7 +418,7 @@ Terraform распространяется под лицензией [Business S
     * [Виртуальный хост](../../concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host](../../../terraform/resources/alb_virtual_host.md).
     * [L7-балансировщик нагрузки](../../concepts/application-load-balancer.md) — [yandex_alb_load_balancer](../../../terraform/resources/alb_load_balancer.md).
 
-1. В файле `cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
+1. В файле `yc-cdn-storage-integration.auto.tfvars` задайте значения пользовательских переменных:
 
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
@@ -486,7 +486,7 @@ Terraform распространяется под лицензией [Business S
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `cdn-storage-integration-config.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `yc-cdn-storage-integration-config.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 
     1. В терминале перейдите в директорию с конфигурационным файлом.

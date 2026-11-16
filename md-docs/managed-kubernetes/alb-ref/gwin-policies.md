@@ -15,7 +15,9 @@ Gwin — инструмент для создания балансировщик
 * Ограничение скорости обработки запросов на уровне виртуальных хостов.
 * [Профили безопасности](../../smartwebsecurity/concepts/profiles.md) и [WAF-защита](../../smartwebsecurity/concepts/waf.md).
 * Использование [групп безопасности](../../vpc/concepts/security-groups.md).
-* Интеграция с сервисами Yandex Cloud — [Yandex Certificate Manager](../../certificate-manager/index.md), [Yandex Cloud Logging](../../logging/index.md).
+* Интеграция с Yandex Certificate Manager и платформой Yandex Monium для [управления сертификатами](../../certificate-manager/index.md) и [работы с логами](../../monium/logs/quickstart-resources.md).
+
+
 
 Механизм политик открывает доступ к этим возможностям. Он также позволяет:
 
@@ -38,7 +40,7 @@ Gwin — инструмент для создания балансировщик
       name: example-ingress
       annotations:
         gwin.yandex.cloud/subnets: "subnet-1,subnet2"
-        gwin.yandex.cloud/logs.logGroupId: "group-1"
+        gwin.yandex.cloud/logs.disable: "false"
         gwin.yandex.cloud/rules.backends.balancing.mode: "ROUND_ROBIN"
     spec:
       ...
@@ -67,7 +69,7 @@ Gwin — инструмент для создания балансировщик
       policy:
         subnets: ["subnet-1", "subnet2"]
         logs:
-          logGroupId: "group-1"
+          disable: false
         rules:
           backends:
             balancing:
@@ -121,7 +123,7 @@ kind: Ingress
 metadata:
   annotations:
     gwin.yandex.cloud/subnets: "subnet-1,subnet-2"
-    gwin.yandex.cloud/logs.logGroupId: "group-1"
+    gwin.yandex.cloud/logs.disable: "false"
 ```
 
 Ресурс политики `IngressPolicy`:
@@ -140,15 +142,14 @@ spec:
 Результат слияния настроек в единую конфигурацию:
 
 ```yaml
+subnets: ["subnet-1", "subnet-2"]
 securityGroups: ["sg-1"]
 logs:
-  subnets: ["subnet-1", "subnet-2"]
-  securityGroups: ["sg-1"]
-  logGroupId: "group-1"
-  rules:
-    backends:
-      balancing:
-        mode: "ROUND_ROBIN"
+  disable: false
+rules:
+  backends:
+    balancing:
+      mode: "ROUND_ROBIN"
 ```
 
 ### Слияние глобальных и специфичных настроек {#merge-global-specific}

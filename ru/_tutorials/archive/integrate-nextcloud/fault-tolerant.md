@@ -470,7 +470,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
       1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `nextcloud-network`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите группу безопасности `nextcloud-sg`.
       1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** убедитесь, что выбраны все зоны доступности.
-      1. Если вы не хотите сохранять логи работы балансировщика в [лог-группу](../../../logging/concepts/log-group.md), отключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
+      1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** настройка пока недоступна. После создания балансировщика [настройте запись логов в {{ monium-logs-name }}](../../../application-load-balancer/operations/application-load-balancer-manage-logs.md) через CLI, API или {{ TF }}.
       1. В секции **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и в открывшейся форме:
 
           1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя обработчика `nextcloud-listener`.
@@ -526,7 +526,6 @@ Nextcloud использует базу данных {{ MY }} для хране�
 1. Если вы создавали группу ВМ, [удалите](../../../compute/operations/instance-groups/delete.md) ее.
 1. Если вы создавали ресурсные записи, удалите их в [{{ dns-full-name }}](../../../dns/operations/resource-record-delete.md) или в личном кабинете вашего регистратора доменных имен.
 1. Если вы создавали зону DNS, удалите ее в [{{ dns-full-name }}](../../../dns/operations/zone-delete.md) или в личном кабинете вашего регистратора доменных имен.
-1. Если вы оставляли включенной опцию записи логов L7-балансировщика, [удалите](../../../logging/operations/delete-group.md) лог-группу.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
 1. [Удалите](../../../managed-mysql/operations/cluster-delete.md) кластер БД {{ MY }}.
 1. [Удалите](../../../storage/operations/objects/delete.md) созданные в бакете объекты, затем [удалите](../../../storage/operations/buckets/delete.md) сам бакет.

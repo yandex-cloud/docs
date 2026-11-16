@@ -4935,6 +4935,9 @@ default:
           add_shard-btn: Add shard
           databases:
             popup-add_button_add: Create
+          field_cloud-storage-data-cache: Data caching
+          field_cloud-storage-data-cache-max-size: Cache size
+          field_cloud-storage-move-factor: Min. share of free space on cluster disks
           field_cluster-sharding: Cluster sharding
           field_shard-resources-type: Configuration
           format-schemas:
@@ -9546,6 +9549,13 @@ default:
                         title: Sub directory for tables
                       shard_count:
                         title: Number of shards
+            ydbtopic:
+              console:
+                form:
+                  ydbtopic:
+                    Connection:
+                      connection_type:
+                        title: Connection type
             yds:
               console:
                 form:

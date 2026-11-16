@@ -15,7 +15,6 @@ After creating a cluster, you can:
 * [Change additional cluster settings](#change-additional-settings).
 * [Move the cluster](#move-cluster) to another folder.
 * [Change cluster security groups](#change-sg-set).
-* [Change the hybrid storage settings](#change-hybrid-storage).
 
 Learn more about other cluster updates:
 
@@ -23,6 +22,7 @@ Learn more about other cluster updates:
 * [Migrating a cluster to a different availability zone](host-migration.md).
 * [Configuring {{ CH }} servers](change-server-level-settings.md) as described in [this {{ CH }} article]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
+* [Changing the hybrid storage settings](hybrid-storage.md#change-hybrid-storage).
 
 
 ## Changing the service account settings {#change-service-account}
@@ -556,7 +556,7 @@ You can also [change the disk type and storage size for an individual shard](sha
 
 ## Setting up a coordination service {#coordination}
 
-You can choose to activate the {{ CK }} or {{ ZK }} [coordination service](#enable-coordination) on individual hosts if it had not been set. If the cluster uses the built-in {{ CK }}, you can only enable {{ CK }} on individual hosts. You can [change the settings](#change-coordination) of the active coordination service.
+You can choose to activate the {{ CK }} or {{ ZK }} [coordination service](#enable-coordination) on individual hosts if it had not been set. If the cluster uses the built-in {{ CK }}, you can activate only the {{ CK }} coordination service on individual hosts. You can [change the settings](#change-coordination) of the active coordination service.
 
 ### Turning on the coordination service {#enable-coordination}
 
@@ -829,7 +829,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
 {% endlist %}
 
-## Configuring advanced cluster settings {#change-additional-settings}
+## Changing additional cluster settings {#change-additional-settings}
 
 
 {% list tabs group=instructions %}
@@ -1216,28 +1216,6 @@ You cannot disable settings for user or database management via SQL once they ar
 
 {% endlist %}
 
-
-### {{ connection-manager-name }} {#conn-man}
-
-If you cluster has no integration with {{ connection-manager-name }}, enable **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. You can only do it in the [management console]({{ link-console-main }}).
-
-The following resources will be created for each database user:
-
-* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) containing database connection details.
-
-* [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) containing the user password. {{ lockbox-name }} provides secure storage for passwords.
-
-  The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
-
-  You need the `connection-manager.viewer` role to view the connection details. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
-
-  {% note info %}
-
-  {{ connection-manager-name }} and any secrets created with it are free of charge.
-
-  {% endnote %}
-
-
 ## Moving a cluster {#move-cluster}
 
 {% list tabs group=instructions %}
@@ -1523,145 +1501,11 @@ The following resources will be created for each database user:
 
 {% note warning %}
 
-You may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to [configure security groups](connect/index.md#configuring-security-groups) to enable access to your cluster.
 
 {% endnote %}
 
 
-## Changing the hybrid storage settings {#change-hybrid-storage}
 
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To change the [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
-
-  1. View the description of the CLI command for updating a cluster:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update --help
-      ```
-
-  1. If hybrid storage is disabled in your cluster, enable it:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-          --cloud-storage=true
-      ```
-
-      {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
-
-  1. Provide the list of settings to update:
-
-      ```bash
-      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
-          --cloud-storage-data-cache=<file_storage> \
-          --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
-          --cloud-storage-move-factor=<share_of_free_space> \
-          --cloud-storage-prefer-not-to-merge=<merging_data_parts>
-      ```
-
-      You can update the following settings:
-
-      {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
-
-- REST API {#api}
-
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
-
-        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
-
-        ```bash
-        curl \
-            --request PATCH \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
-            --data '{
-                      "updateMask": "<list_of_settings_to_update>",
-                      "configSpec": {
-                        "cloudStorage": {
-                          "enabled": <hybrid_storage_use>,
-                          "moveFactor": "<share_of_free_space>",
-                          "dataCacheEnabled": <temporary_file_storage>,
-                          "dataCacheMaxSize": "<maximum_memory_for_file_storage>",
-                          "preferNotToMerge": <disabling_data_part_merging>
-                        }
-                      }
-                    }'
-        ```
-
-        Where:
-
-        * `updateMask`: Comma-separated string of settings to update.
-
-        * `configSpec.cloudStorage`: Hybrid storage settings:
-
-            {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
-
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
-
-- gRPC API {#grpc-api}
-
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-
-    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
-
-        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                  "cluster_id": "<cluster_ID>",
-                  "update_mask": {
-                    "paths": [
-                      <list_of_settings_to_update>
-                    ]
-                  },
-                  "config_spec": {
-                    "cloud_storage": {
-                      "enabled": <hybrid_storage_use>,
-                      "move_factor": "<share_of_free_space>",
-                      "data_cache_enabled": <temporary_file_storage>,
-                      "data_cache_max_size": "<maximum_memory_for_file_storage>",
-                      "prefer_not_to_merge": <disabling_data_part_merging>
-                    }
-                  }
-                }' \
-            {{ api-host-mdb }}:{{ port-https }} \
-            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
-        ```
-
-        Where:
-        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-
-        * `config_spec.cloud_storage`: Hybrid storage settings:
-
-            {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
-
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

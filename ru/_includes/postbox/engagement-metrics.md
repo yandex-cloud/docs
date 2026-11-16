@@ -1,0 +1,3 @@
+Отслеживание [открытия писем](../../postbox/concepts/mail-opened.md) и [переходов по ссылкам](../../postbox/concepts/click-tracking.md) для сбора [метрик](../../postbox/concepts/statistics.md#metrics) `Открытия` и `Переходы`. Возможные значения: `ENABLED` — отслеживание включено, `DISABLED` — выключено.
+
+Параметр соответствует опции **{{ ui-key.yacloud.postbox.field_engagement-metrics }}** в консоли управления. Уведомления в поток данных {{ yds-name }} при этом не отправляются. Чтобы получать уведомления об открытиях и переходах, создайте [подписку](../../postbox/concepts/glossary.md#subscription) с типами событий `OPEN` и `CLICK`.

@@ -4,6 +4,8 @@
 
 В справочнике описаны метрики HTTP-трафика, профилей безопасности и ARL, которые собирает [Yandex Application Load Balancer](../application-load-balancer/index.md), а также метрики [Network Protection](concepts/network-protection.md).
 
+Метрики передаются в [Monium Metrics](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
+
 Просматривать метрики можно:
 
 * В разделе **Мониторинг** сервиса Smart Web Security — на дашбордах профилей безопасности и ARL.
@@ -14,19 +16,19 @@
 
 ## Общие метки {#labels}
 
-В запросах Monium укажите следующие метки:
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Для метрик Smart Web Security используйте каталог с балансировщиком или прокси-сервером. Значения меток приведены в таблице:
 
 #|
 || **Метка** | **Значение** ||
-|| `project` | `folder__<идентификатор_каталога>` — проект каталога, в котором находится балансировщик или прокси-сервер. ||
-|| `cluster` | `default`. ||
-|| `service` | `__application-load-balancer__` — метрики профилей безопасности, ARL и HTTP-трафика; `__antiddos__` — метрики Network Protection. ||
+|| `service` | `application-load-balancer` — метрики профилей безопасности, ARL и HTTP-трафика; `antiddos` — метрики Network Protection. ||
 || `name` | Имя метрики из таблиц ниже. ||
 |#
 
 ## Метрики профилей безопасности и ARL {#sws-metrics}
-
-Для просмотра метрик профилей безопасности, ARL и общей скорости запросов в Monium используйте `service = __application-load-balancer__`.
 
 Метки для метрик профилей безопасности и ARL:
 
@@ -42,7 +44,7 @@
 
 | Имя<br>Тип, единицы измерения | Описание |
 | --- | --- |
-| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [Yandex SmartCaptcha](../smartcaptcha/index.md) для дополнительной верификации.</li><li>`js_challenge` — запрос направлен на [проверку JS Challenge](concepts/rules.md#client-checks).</li><li>`cookie_challenge` — запрос направлен на [проверку Cookie Challenge](concepts/rules.md#client-checks).</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
+| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [Yandex SmartCaptcha](../smartcaptcha/index.md) для дополнительной верификации.</li><li>`js_challenge` — запрос направлен на [проверку JS Challenge](concepts/rules.md#client-checks).</li><li>`cookie_challenge` — запрос направлен на [проверку Cookie Challenge](concepts/rules.md#client-checks).</li><li>`deny` — запрос заблокирован.</li></ul> |
 | `load_balancer.smart_web_security.`<br/>`arl_requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду, прошедших через модуль [Advanced Rate Limiter](concepts/arl.md).<br/>Общая метка `folderId` — идентификатор [каталога](../resource-manager/concepts/resources-hierarchy.md#folder).<br/><br/>Специальные метки:<ul><li>`arl_profile` — идентификатор профиля Advanced Rate Limiter.</li><li>`arl_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис Yandex SmartCaptcha для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
 
 ## Общая скорость запросов {#incoming-requests}
@@ -60,7 +62,7 @@
 
 ## Метрики Network Protection {#network-protection-metrics}
 
-Метрики Network Protection автоматически передаются в Monium в проект каталога, в котором находится прокси-сервер. Для их получения используйте `service = __antiddos__`. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
+Метрики Network Protection автоматически передаются в Monium Metrics в [проект каталога](*monium-folder-project) с прокси-сервером. В метке `ip` укажите публичный IPv4-адрес прокси-сервера. [Как узнать адрес и построить запрос](operations/monitoring.md#network-protection).
 
 Все метрики Network Protection — накопительные счетчики. Чтобы получить количество пакетов или байт в секунду, используйте функцию `non_negative_derivative`.
 
@@ -76,3 +78,5 @@
 
 * [Мониторинг в Smart Web Security](operations/monitoring.md)
 * [Настроить алерты для сервиса](operations/alerting.md)
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

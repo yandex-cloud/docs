@@ -74,7 +74,7 @@
     1. На панели слева выберите ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Нажмите **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Введите произвольное имя для прокси-сервера, например, `test-proxy`.
-    1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}** и выберите [лог-группу](../logging/concepts/log-group.md) {{ cloud-logging-name }} или [создайте новую](../logging/operations/create-group.md).
+    1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.swith-enable-logging_e42nT }}**. Логи будут записываться в {{ monium-logs-name }} в [проект каталога](*monium-folder-project) с прокси-сервером.
 
        Чтобы уменьшить объем логов, настройте правило отбрасывания:
 
@@ -399,3 +399,5 @@ ARL позволяет устанавливать лимиты на количе
 [*api-gateway]: {% include notitle [api-gateway](../_popups/api-gateway/api-gateway.md) %}
 
 [*domain]: {% include notitle [domain](../_popups/sws/domain.md) %}
+
+[*monium-folder-project]: {% include notitle [folder-project](../_popups/monium/folder-project.md) %}

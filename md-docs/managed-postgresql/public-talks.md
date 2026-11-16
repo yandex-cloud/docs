@@ -7,6 +7,7 @@
 
 ### 2026 год {#2026-articles}
 
+* Как запустить 1С в облаке на Yandex Managed Service for PostgreSQL и ускорить базу данных. [Статья](https://yandex.cloud/ru/blog/managed-postgresql-1c-cloud-performance-diagnostics).
 * Своя база данных или управляемый сервис: считаем реальную стоимость на горизонте трех лет. [Статья](https://yandex.cloud/ru/blog/database-or-managed-service).
 * Выбираем конфигурацию для нового кластера PostgreSQL. [Статья](https://yandex.cloud/ru/blog/postgresql-configurations).
 * PostgreSQL в 2026 году: архитектура, надежность и гибкость. [Статья](https://yandex.cloud/ru/blog/postgresql-overview).

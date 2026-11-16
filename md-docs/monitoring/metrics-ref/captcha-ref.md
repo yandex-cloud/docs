@@ -3,9 +3,13 @@
 # Метрики Yandex SmartCaptcha
 
 
-В этом разделе описаны метрики сервиса [SmartCaptcha](../../smartcaptcha/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [SmartCaptcha](../../smartcaptcha/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
+
+Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+
+При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик SmartCaptcha:
 

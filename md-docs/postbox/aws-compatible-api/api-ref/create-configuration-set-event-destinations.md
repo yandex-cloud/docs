@@ -1,6 +1,6 @@
 [Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Postbox](../../index.md) > [Справочник API](../index.md) > [REST](index.md) > Подписки > Метод CreateConfigurationSetEventDestination
 
-# Метод CreateConfigurationSetEventDestinations
+# Метод CreateConfigurationSetEventDestination
 
 Создает [подписку](../../concepts/glossary.md#subscription) для [конфигурации](../../concepts/glossary.md#configuration) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.
 
@@ -33,9 +33,11 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
     "KinesisFirehoseDestination": {
       "IamRoleArn": "<роль>",
       "DeliveryStreamArn": "<поток_данных>"
-    }
-  },
-  "MatchingEventTypes": [ "string" ]
+    },
+    "MatchingEventTypes": [
+      "<тип_события>"
+    ]
+  }
 }
 ```
 
@@ -44,7 +46,7 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 || `EventDestinationName` | **Тип**: string.
 
 Название подписки. ||
-|| `EventDestinations` | **Тип**: object.
+|| `EventDestination` | **Тип**: object.
 
 Объект, который содержит параметры подписки. ||
 || `Enabled` | **Тип**: boolean.
@@ -69,15 +71,21 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 {% endcut %} ||
 || `MatchingEventTypes` | **Тип**: array.
 
-Массив типов событий, для которых будет отправляться уведомление. Допустимые значения:
-- `SEND` — письмо отправлено;
-- `BOUNCE` — письмо не доставлено;
-- `SUBSCRIPTION` — подписка на рассылку;
-- `DELIVERY` — письмо доставлено;
-- `DELIVERY_DELAY` — задержка доставки письма;
-- `OPEN` — письмо открыто;
-- `CLICK` — переход по ссылке в письме.
-||
+Массив типов событий, для которых отправляются уведомления. Допустимые значения:
+
+* `SEND` — письмо принято сервисом;
+* `DELIVERY` — письмо доставлено;
+* `BOUNCE` — письмо не доставлено;
+* `SUBSCRIPTION` — получатель отписался от рассылки;
+* `OPEN` — письмо открыто;
+* `CLICK` — получатель перешел по ссылке в письме;
+* `DELIVERY_DELAY` — доставка письма задерживается;
+* `COMPLAINT` — получатель пожаловался на письмо;
+* `RENDERING_FAILURE` — ошибка рендеринга письма.
+
+Если параметр не указан или массив пустой, уведомления отправляются только для событий `SEND`, `DELIVERY` и `BOUNCE`.
+
+Подробнее в разделе [Уведомления об операциях с письмами](../../concepts/notification.md). ||
 |#
 
 ## Ответы {#responses}

@@ -1,14 +1,16 @@
 ---
-title: Справочник метрик сервиса {{ cdn-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ cdn-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ cdn-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ cdn-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ cdn-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+Метрики сервиса {{ cdn-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
 {% include [cdn-yc](../_includes/monitoring/metrics-ref/cdn-yc.md) %}
 
 #### Полезные ссылки {#see-also}
 
 [{#T}](./operations/resources/get-stats.md)
+
+[*monium-folder-project]: {% include [folder-project](../_includes/monium/folder-project.md) %}

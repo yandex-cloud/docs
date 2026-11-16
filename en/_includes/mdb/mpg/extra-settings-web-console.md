@@ -4,7 +4,7 @@
 
     Changing the retention period affects both new and existing automatic backups. For example, the initial retention period was 7 days. A specific automatic backup has 1 day of remaining lifetime. If you increase the retention period to 9 days, that backup’s remaining lifetime becomes 3 days.
 
-    Automatic cluster backups are stored for a specified number of days, while manually created ones are stored indefinitely. After a cluster is deleted, all its backups are retained for 7 days.
+    Automatic cluster backups are stored for a specified number of days, while manually created ones are stored indefinitely. After a cluster is deleted, its backups are retained based on the cluster’s settings. The default retention period is 7 days.
 
 - **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../../../managed-postgresql/concepts/maintenance.md) settings:
 

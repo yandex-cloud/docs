@@ -1,6 +1,6 @@
 # Stopping and starting a {{ mgp-name }} cluster
 
-You can stop and restart clusters if required. You are not charged for the number of vCPUs and host RAM in a stopped cluster, but you continue to pay for cluster storage capacity and backups based on your [plan](../pricing/index.md#prices-storage).
+You can stop and restart clusters if required. You are not charged for the number of vCPUs and host RAM in a stopped cluster, but you continue to pay for cluster storage capacity and backups based on your [plan](../pricing/index.md#rules-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/mgp/pricing-status-warning.md) %}
 
@@ -120,7 +120,7 @@ You can stop and restart clusters if required. You are not charged for the numbe
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
