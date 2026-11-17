@@ -6,7 +6,7 @@ You can cancel deletion while the cloud status is `PENDING_DELETION`.
 
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
-To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-owner }}` role for the cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To be able to cancel the deletion of a cloud, you must have the `resource-manager.clouds.owner` role for the cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
@@ -14,7 +14,7 @@ To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-
 
   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   
-  1. In the upper-right corner, click ![***](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
+  1. In the top-right corner, click ![***](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
 
   The pending cloud deletion will be canceled.
 

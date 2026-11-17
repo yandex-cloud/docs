@@ -123,11 +123,11 @@ A _provisioned instance_ is a container instance that is guaranteed not to have 
 * {{ serverless-containers-name }} runtime environment components are initialized.
 * The user application is loaded and initialized.
 
-The initialization and operation processes of a simple and provisioned container instances are identical. A provisioned instance is remains suspended and does not consume CPU unit it begins processing a call.
+The initialization and operation processes of a simple and provisioned container instances are identical. A provisioned instance is suspended and does not consume CPU unit it begins processing a call.
 
 {% include [provisioned-instances-price](../../_includes/serverless-containers/provisioned-instances-price.md) %}
 
-If the number of container invocations exceeds the number of provisioned instances, {{ serverless-containers-name }} scales the container within the [quotas](limits.md#functions-quotas), but unprovisioned instances have a cold start when they are first started.
+If the number of container invocations exceeds the number of provisioned instances, {{ serverless-containers-name }} scales the container within the [quotas](limits.md#serverless-containers-quotas), but unprovisioned instances have a cold start when they are first started.
 
 Provisioned instances count towards the following [quotas](limits.md) even when they are not running:
 * Number of container instances per availability zone.
@@ -142,7 +142,7 @@ The `concurrency` parameter cannot be greater than 1 if the `Commands` [operatio
 
 If the user specifies call IDs (`RequestID`) themselves, they must ensure these are unique; otherwise, an error will be returned when the instance attempts to process a call with a duplicate ID.
 
-When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To ensure that the logs record the IDs of all calls that a container handles, use [structured logs](logs.md#structured-logs).
+When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To log the IDs of all calls a container handles, use [structured logs](logs.md#structured-logs).
 
 If at least one call reaches a timeout, that call and all the others handled by the same container instance will be aborted. Learn more about timeout in [this section](limits.md#serverless-containers-limits).
 
@@ -155,6 +155,6 @@ If at least one call reaches a timeout, that call and all the others handled by 
 
 #### Useful links {#see-also}
 
-* [Creating a container revision](../operations/manage-revision.md#create)
+* [Creating a container revision](../operations/manage-revision.md)
 * [Adding scaling settings](../operations/scaling-settings-add.md)
 * [{#T}](../operations/concurrency.md)

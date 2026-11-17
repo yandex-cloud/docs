@@ -19,6 +19,7 @@ resource "yandex_organizationmanager_organization_iam_member" "editor" {
 
 ## Arguments & Attributes Reference
 
+- `cel_expression` (String). CEL condition for the access binding. Changing the expression replaces the binding.
 - `id` (String). The ID of this resource.
 - `member` (**Required**)(String). An identity that will be granted the privilege in the `role`. It can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.

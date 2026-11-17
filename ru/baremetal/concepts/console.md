@@ -13,7 +13,7 @@ description: В этом разделе вы узнаете о возможно�
 
 Раздел позволяет [арендовать](../operations/servers/server-lease.md) серверы {{ baremetal-name }}, [изменять](../operations/servers/server-update.md) их основные настройки, [запускать, перезапускать и останавливать](../operations/servers/server-stop-and-start.md) серверы, [переустанавливать](../operations/servers/reinstall-os-from-marketplace.md) операционную систему серверов, а также [отказываться](../operations/servers/server-lease-cancel.md) от их аренды.
 
-Кроме того, в этом разделе для каждого сервера {{ baremetal-name }} доступна [KVM-консоль](../operations/servers/server-kvm.md) — специальный интерфейс, позволяющий управлять сервером на уровне операционной системы, изменять [дополнительные настройки](./server-advanced-settings.md) сервера, запускать его с загрузочных носителей и [устанавливать](../operations/servers/reinstall-os-from-own-image.md) на него операционные системы и другие программные продукты из [пользовательских образов](./images.md#user-images).
+Кроме того, в этом разделе для каждого сервера {{ baremetal-name }} доступна [KVM-консоль](../operations/servers/server-kvm.md) — специальный интерфейс, позволяющий управлять сервером на уровне операционной системы, изменять [дополнительные настройки](./server-advanced-settings.md) сервера, запускать его с загрузочных носителей и [устанавливать](../operations/servers/reinstall-os-from-own-image.md) на него операционные системы и другие программные продукты из [загрузочных образов](./images.md#user-images).
 
 Подробнее о серверах {{ baremetal-name }} читайте в разделе [{#T}](./servers.md).
 
@@ -43,11 +43,11 @@ description: В этом разделе вы узнаете о возможно�
 
 #### ![layers](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}** {#images}
 
-Раздел позволяет загружать в {{ baremetal-name }} собственные [образы](./images.md#user-images) операционных систем и программных продуктов и удалять их.
+Раздел позволяет создавать в {{ baremetal-name }} собственные [загрузочные образы](./images.md#user-images) из ISO-файлов и удалять их.
 
-На серверы {{ baremetal-name }} вы можете устанавливать операционные системы и другие продукты из собственных образов. Для этого [загрузите](../operations/image-upload.md) ваш образ в {{ baremetal-full-name }} и запустите установку из этого образа с помощью KVM-консоли.
+Загрузочные образы позволяют запускать серверы {{ baremetal-name }} для самостоятельной установки ПО, диагностики или устранения неполадок. Для этого [создайте загрузочный образ](../operations/image-upload.md) в {{ baremetal-name }}, смонтируйте его с помощью KVM-консоли и запустите сервер с этого образа.
 
-Подробнее о пользовательских образах читайте в разделе [{#T}](./images.md#user-images).
+Подробнее о загрузочных образах читайте в разделе [{#T}](./images.md#user-images).
 
 #### ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** {#operations}
 

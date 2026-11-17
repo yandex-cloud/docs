@@ -1,4 +1,4 @@
-[Загрузите](../../baremetal/operations/image-upload.md#upload-file) ISO-образ в [{{ objstorage-full-name }}](../../storage/index.yaml) и получите ссылку на загруженный объект:
+Загрузите ISO-образ в [{{ objstorage-full-name }}](../../storage/index.yaml) и получите ссылку на загруженный объект:
 
 1. Создайте бакет {{ objstorage-name }}:
 
@@ -51,7 +51,7 @@
 
     {% endlist %}
 
-1. Загрузите скачанный файл с образом в созданный бакет:
+1. Загрузите файл образа в созданный бакет:
 
     {% list tabs group=instructions %}
 

@@ -279,7 +279,7 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 * `400 BadRequest`: Error in HTTPS request parameters.
 * `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function. 
 * `404 Not Found`: Function is not found at the specified URL.
-* `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#limits) is exceeded by more than 3.5 MB.
+* `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#functions-limits) is exceeded by more than 3.5 MB.
 * `429 TooManyRequests`: Function call intensity is too high: 
     * The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
     * Cannot execute the request because all executors are already overloaded by existing requests to this function.

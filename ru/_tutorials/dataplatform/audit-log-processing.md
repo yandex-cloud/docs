@@ -63,10 +63,7 @@
 1. В разделе **{{ ui-key.yql.yq-audit-trails.audit-trails.title }}** в интерфейсе {{ yq-full-name }} выберите тип анализа данных **{{ ui-key.yql.yq-audit-trails.audit-trails-type-toggle.option-streaming }}**, а в списке [привязок к данным](../../query/concepts/glossary.md#binding) выберите созданную привязку.
 1. Выберите нужный запрос к данным из потока {{ yds-name }} из списка и нажмите кнопку **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
-Результаты потокового запроса можно:
-
-* [отправить в {{ monitoring-full-name }}](../../query/sources-and-sinks/monitoring.md) в виде метрик;
-* [отправить в выходной поток {{ yds-name }}](../../query/sources-and-sinks/data-streams-write.md) в виде данных, а далее обработать с помощью [триггеров {{ sf-full-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
+Результаты потокового запроса можно [отправить в выходной поток {{ yds-name }}](../../query/sources-and-sinks/data-streams-write.md) в виде данных, а далее обработать с помощью [триггеров {{ sf-full-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
 
 #### Полезные ссылки {#see-also}
 

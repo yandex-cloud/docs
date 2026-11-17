@@ -8,8 +8,8 @@ For more information about creating an email trigger, see [{#T}](../../operation
 
 ## Roles required for the proper operation of an email trigger {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
-* For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles or higher.
+* For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder where the API gateway resides.
 * {% include [attachments-requirements](../../../_includes/functions/attachments-requirements.md) %}
 
 ## Email trigger message format {#format}

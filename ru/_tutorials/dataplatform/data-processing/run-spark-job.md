@@ -8,11 +8,9 @@
 
 Ниже рассматривается пример, по которому будет рассчитана статистика по воздушному трафику США за 2018 год по данным с сайта [transtats.bts.gov](https://transtats.bts.gov/). Набор данных представлен в формате [Parquet](https://parquet.apache.org/) и находится в публичном бакете {{ objstorage-full-name }} с именем `yc-mdb-examples`.
 
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -20,7 +18,6 @@
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 * Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -77,6 +74,8 @@
     1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей конфигурации с настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_version }}** — `2.1`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_services }}** — `HDFS`, `YARN`, `SPARK`, `MAPREDUCE`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `data-proc-bucket`.
@@ -105,7 +104,11 @@
         * бакет, в котором будут храниться зависимости заданий и результаты их выполнения;
         * кластер {{ dataproc-name }}.
 
-    1. Укажите в файле конфигурации `data-proc-for-spark-jobs.tf` необходимые параметры.
+    1. Укажите в файле конфигурации `data-proc-for-spark-jobs.tf` необходимые параметры для выполнения руководства:
+
+        * В блоке `locals` задайте `data_proc_version = "2.1"`.
+        * В блоке `cluster_config.hadoop` укажите `services = ["HDFS", "YARN", "SPARK", "MAPREDUCE"]`.
+
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -166,7 +169,7 @@
 
 ## Использование Spark Submit {#spark-submit}
 
-Spark Submit позволяет запускать заранее написанные приложения через скрипт `spark-submit`. Для примера рассчитывается количество перелетов по месяцам. 
+Spark Submit позволяет запускать заранее написанные приложения через скрипт `spark-submit`. Для примера рассчитывается количество перелетов по месяцам.
 
 {% list tabs %}
 
@@ -253,11 +256,11 @@ Spark Submit позволяет запускать заранее написан
           Версии указаны в названии JAR-файлов. Пример:
 
           ```text
-          spark-core_2.12-3.0.3.jar
-          spark-sql_2.12-3.0.3.jar
+          spark-core_2.12-3.3.2.jar
+          spark-sql_2.12-3.3.2.jar
           ```
 
-          Нужный номер версии — `3.0.3`.
+          Нужный номер версии — `3.3.2`.
 
       1. В папке `spark-app` создайте файл `build.sbt` с конфигурацией:
 
@@ -273,11 +276,11 @@ Spark Submit позволяет запускать заранее написан
           Пример:
 
           ```scala
-          scalaVersion := "2.12.10"
+          scalaVersion := "2.12.17"
 
           libraryDependencies ++= Seq(
-              "org.apache.spark" %% "spark-core" % "3.0.3" % "provided",
-              "org.apache.spark" %% "spark-sql" % "3.0.3" % "provided"
+              "org.apache.spark" %% "spark-core" % "3.3.2" % "provided",
+              "org.apache.spark" %% "spark-sql" % "3.3.2" % "provided"
           )
           ```
 
@@ -287,10 +290,10 @@ Spark Submit позволяет запускать заранее написан
       sbt compile && sbt package
       ```
 
-  1. Получите название собранного JAR-файла:
+  1. Получите название собранного JAR-файла. Для Scala 2.12.x в пути используется бинарная версия `2.12`:
 
       ```bash
-      ls ~/spark-app/target/scala-<версия_Scala>
+      ls ~/spark-app/target/scala-2.12
       ```
 
       Результат — `spark-app_2.12-0.1.0-SNAPSHOT.jar`.
@@ -298,7 +301,7 @@ Spark Submit позволяет запускать заранее написан
   1. Запустите получившееся приложение:
 
       ```bash
-      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-<версия_Scala>/<название_собранного_JAR-файла>
+      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-2.12/<название_собранного_JAR-файла>
       ```
 
       Пример:
@@ -324,6 +327,7 @@ Spark Submit позволяет запускать заранее написан
    ```bash
    yarn application -list
    ```
+
 1. Завершите ненужное приложение:
 
    ```bash
@@ -360,7 +364,7 @@ Spark Submit позволяет запускать заранее написан
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Установите и настройте](../../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
-1. Установите Python. Убедитесь, что версия Python совпадает с версией, доступной из образа. Проверить версию можно в разделе [{#T}](../../../data-proc/concepts/environment.md). Для версии образа 2.0 используйте Python 3.8.10:
+1. Установите Python. Убедитесь, что версия Python совпадает с версией, доступной из образа. Проверить версию можно в разделе [{#T}](../../../data-proc/concepts/environment.md). Для версии образа 2.1 используйте Python 3.8.13:
 
     ```bash
     sudo apt update && sudo apt install python3.8
@@ -440,7 +444,7 @@ Spark Submit позволяет запускать заранее написан
          --name=<имя_задачи> \
          --main-python-file-uri="s3a://data-proc-bucket/bin/job.py" \
          --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
-         --args="tmp/jobs/"
+         --args="/tmp/jobs/"
       ```
 
       В команде укажите:
@@ -493,12 +497,14 @@ Spark Submit позволяет запускать заранее написан
 1. Узнайте установленную версию Scala с помощью команды `scala -version`.
 1. Создайте файл `spark-app/build.sbt` с описанием зависимостей и стратегии их слияния в одном JAR-файле. В файле `build.sbt` укажите версию Scala:
 
+    Укажите для зависимостей {{ SPRK }} область `provided`: они уже доступны на кластере и не должны включаться в JAR-файл приложения.
+
     ```scala
     scalaVersion := "<версия_Scala>"
 
     libraryDependencies ++= Seq(
-        "org.apache.spark" %% "spark-core" % "2.4.4",
-        "org.apache.spark" %% "spark-sql" % "2.4.4",
+        "org.apache.spark" %% "spark-core" % "3.3.2" % "provided",
+        "org.apache.spark" %% "spark-sql" % "3.3.2" % "provided",
     )
 
     assembly / assemblyMergeStrategy := {
@@ -524,6 +530,7 @@ Spark Submit позволяет запускать заранее написан
         oldStrategy(x)
     }
     ```
+
 1. Создайте файл `spark-app/src/main/scala/app.scala` с кодом приложения:
 
     ```scala
@@ -557,6 +564,7 @@ Spark Submit позволяет запускать заранее написан
         }
       }
     ```
+
 1. Запустите сборку приложения в папке `spark-app`:
 
     ```bash
@@ -575,14 +583,14 @@ Spark Submit позволяет запускать заранее написан
 
     {% endcut %}
 
-Файл будет доступен по следующему пути: `spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
+Для Scala 2.12.x в пути используется бинарная версия `2.12`. Файл будет доступен по следующему пути: `spark-app/target/scala-2.12/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
 #### Загрузите JAR-файл в {{ objstorage-name }} {#scala-upload}
 
 Чтобы Spark имел доступ к собранному JAR-файлу, загрузите файл в бакет `data-proc-bucket`. Загрузить файл можно с помощью [s3cmd](../../../storage/tools/s3cmd.md):
 
 ```bash
-s3cmd put ~/spark-app/target/scala-<версия_Scala>/spark-app-assembly-0.1.0-SNAPSHOT.jar s3://data-proc-bucket/bin/
+s3cmd put ~/spark-app/target/scala-2.12/spark-app-assembly-0.1.0-SNAPSHOT.jar s3://data-proc-bucket/bin/
 ```
 
 Файл загружается по адресу `s3://data-proc-bucket/bin/spark-app-assembly-0.1.0-SNAPSHOT.jar`.

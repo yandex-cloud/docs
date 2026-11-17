@@ -14,7 +14,7 @@ You can enable automatic vulnerability [scans](../../concepts/vulnerability-scan
 
 To configure automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](index.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) using {{ TF }}:
 
-1. [Get your cloud ready](#before-you-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Set up your environment](#prepare).
 1. [Create the infrastructure](#deploy).
 1. [Push your Docker image](#download-image).
@@ -53,7 +53,7 @@ To create an infrastructure to automatically scan Docker images on push using {{
         git clone https://github.com/yandex-cloud-examples/yc-cr-image-scanning
         ```
 
-     1. Navigate to the repository directory. It should now contain the following files:
+     1. Navigate to the repository directory. The following files should appear in it:
         * `image-auto-scan.tf`: New infrastructure configuration.
         * `image-auto-scan.auto.tfvars`: User data file.
         * `function.zip`: ZIP archive with the function code.

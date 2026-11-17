@@ -73,18 +73,18 @@ Action | Methods | Required roles
 Viewing resource details | `get`, `list` | `viewer` for this resource
 Viewing information about a folder or cloud | `get`, `list` | `resource-manager.viewer` for the folder or cloud
 View metadata about a folder or cloud | `get`, `list` | `resource-manager.auditor` for the folder or cloud
-**Managing resources** | |
-[Creating a cloud](../operations/cloud/create.md) | | To create your first cloud, no roles are required. You only need to authenticate (a user is automatically assigned the `resource-manager.clouds.owner` role in the created organization). Later, you will need the `resource-manager.editor` or `editor` role for the organization.
+**Managing resources**  | |
+[Creating a cloud](../operations/cloud/create.md) | `create` | `resource-manager.editor` or `editor` for the organization. The organization creator gets the necessary permissions as its owner.
 [Updating a cloud](../operations/cloud/update.md) | `update` | `editor` or `resource-manager.editor` for the cloud
-[Deleting a cloud](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` for the cloud
+[Deleting a cloud](../operations/cloud/delete.md) | `delete` | `resource-manager.editor` or `editor` for the cloud
 [Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` or `resource-manager.editor` for the cloud
 [Updating a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder
 [Deleting a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder
 **Managing resource access** | |
-Inviting a new user to an organization | | `{{ roles-organization-admin }}` |
+Inviting a new user to an organization | | `organization-manager.admin` |
 [Making a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for this cloud
 View roles granted for a resource | `listAccessBindings` | `viewer` for this resource
-View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud
+View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.auditor` for the folder or cloud
 [Assign a role](../../iam/operations/roles/grant.md) and [revoke a role](../../iam/operations/roles/revoke.md) for the folder or cloud | `setAccessBindings`, `updateAccessBindings` | `admin` or `resource-manager.admin` for the folder or cloud
 
 #### What's next {#what-is-next}

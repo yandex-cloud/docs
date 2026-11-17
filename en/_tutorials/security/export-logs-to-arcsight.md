@@ -178,7 +178,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
 
 - CLI {#cli}
 
-  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#roles) for the folder:
+  1. `audit-trails.viewer` [role](../../audit-trails/security/index.md#roles-list) for the folder:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -210,7 +210,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
       * `--id`: `example-folder` ID.
       * `--service-account-id`: `sa-arcsight` service account ID.
 
-  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#service) for the `arcsight-kms` encryption key:
+  1. `kms.keys.encrypterDecrypter` [role](../../kms/security/index.md#service-roles) for the `arcsight-kms` encryption key:
   
       ```
       yc kms symmetric-key add-access-binding \
@@ -366,7 +366,7 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Delete](../../kms/operations/key.md#delete) the {{ kms-name }} key.

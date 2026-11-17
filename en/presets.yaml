@@ -1266,7 +1266,6 @@ default:
   roles-organization-admin: organization-manager.admin
   roles-organization-owner: organization-manager.organizations.owner
   roles-resource-manager-admin: resource-manager.admin
-  roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechsense-data-editor: Data editor
@@ -2108,6 +2107,9 @@ default:
         title_secrets-scanning_qjZ4J: Secret scanning alerts
         title_security-risks_mkLFM: Alerts by severity level
       cicd:
+        action_start_7MWxe: Launch now
+        action_start-workflow_njaSz: New launch
+        title_cicd_qoXmk: CI/CD
         value_status-created_9AAET: Queued
         value_succeeded_3Dd8C: Success
       lib:
@@ -2115,6 +2117,7 @@ default:
         organizations_5CjkW: Organizations
         repositories_vLJYc: Repositories
         settings_cwUYS: Settings
+        value_role-org-admin_sTd3t: Organization admin
         value_role-org-owner_f9UaR: Organization owner
       mainApp:
         route_create-repository_4e8Ef: Create repository
@@ -2127,6 +2130,7 @@ default:
       repo:
         action_cicd_4jypo: CI/CD
         action_commit_brj4B: Commit changes
+        action_edit_ahQT7: Edit
         button_commit_si86H: Commit changes
         button_use-template_ttBnP: Use template
         field_after-commit-action_mKjo4: After commit action
@@ -2589,6 +2593,8 @@ default:
             title: Escalation policies
           explorer:
             title: Metrics
+          llm-monitoring:
+            title: LLM Observability
           logs-analytics:
             title: Errors
           logs-metrics:
@@ -2713,6 +2719,10 @@ default:
         title_alerts: Alerts
         title_service-dashboards: Service dashboards
         title_service-features: Features
+      llm-tracing:
+        search:
+          actions:
+            execute: Run query
       logs-metrics:
         form:
           block:
@@ -3512,6 +3522,9 @@ default:
           reject_common_passwords_9bpqu: >-
             You cannot use passwords included in the database of common
             passwords
+          ResetUserPasswordDialog:
+            resetMethodAutomatic_2W6hk: Generate automatically
+            resetMethodManual_vsFDC: Set manually
           title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
@@ -4131,6 +4144,8 @@ default:
             count: Number of SAML certificates for federations
           federationUsers:
             count: Number of users in all federations in an organization
+          linkedApplications:
+            count: Number of linked applications in organization
         storage:
           volume:
             size-key-value: Storage volume

@@ -48,7 +48,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Восстановить сервер из карантина](operations/servers/restore-from-quarantine.md)
 
- - [Загрузить свой образ ОС](operations/image-upload.md)
+ - [Создать загрузочный образ](operations/image-upload.md)
 
  - [Подключить существующий сервер BareMetal к Cloud Backup](operations/backup-baremetal.md)
 
@@ -154,7 +154,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Обзор](concepts/control.md)
 
- - [Образы](concepts/images.md)
+ - [Образы в Yandex BareMetal](concepts/images.md)
 
 #### Аудитные логи Audit Trails
 

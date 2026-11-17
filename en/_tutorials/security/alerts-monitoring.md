@@ -1,6 +1,6 @@
 # Configuring dashboards and alerts in {{ monitoring-full-name }}
 
-In this tutorial, you will learn how to track [trail](../../audit-trails/concepts/trail.md) status using [dashboards](../../monitoring/concepts/visualization/dashboard.md) and [{{ monitoring-full-name }}](../../monitoring/) [alerts](../../monitoring/concepts/alerting.md#alert).
+In this tutorial, you will learn how to track [trail](../../audit-trails/concepts/trail.md) status using [dashboards](../../monitoring/concepts/visualization/dashboard.md) and [{{ monitoring-full-name }}](../../monitoring/) [alerts](../../monitoring/concepts/alerting/alert.md).
 
 This guide assumes that you already have deployed your infrastructure: 
 
@@ -37,7 +37,7 @@ The channel will appear in the list.
 
 You can set up one or more alerts.
 
-For more information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting.md#alert-parameters), see the {{ monitoring-full-name }} documentation.
+For more information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting/alert.md#alert-parameters), see the {{ monitoring-full-name }} documentation.
 
 #### Deactivating a trail {#deactivating-trail}
 

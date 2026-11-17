@@ -12,6 +12,11 @@
 
 {% endnote %}
 
+{% note info %}
+
+Для выполнения руководства используйте образ Yandex Data Processing версии 2.0. Этот образ имеет статус deprecated, но создание кластеров с ним доступно. В образах 2.1 и 2.2 компонент Hive недоступен.
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -23,13 +28,11 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластеры Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
-
 
 ## Работа с заданиями в CLI Yandex Cloud {#run-hive-job-cli}
 
@@ -48,21 +51,23 @@ SQL-запрос для Hive можно передать двумя способ
 
 ### Подготовьте инфраструктуру {#infra-yc-cli}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по OS Login, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) с [образом версии 2.0](../../data-proc/concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **Сервисы**:
+
         * `HDFS`;
         * `HIVE`;
         * `MAPREDUCE`;
         * `SPARK`;
         * `YARN`.
+
     * **Сервисный аккаунт** — выберите созданный ранее сервисный аккаунт.
     * **Имя бакета** — выберите бакет для результатов обработки.
     * **Публичный доступ** — включите опцию для доступа к хостам всех подкластеров.
@@ -317,13 +322,15 @@ SQL-запрос для Hive можно передать двумя способ
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) с [образом версии 2.0](../../data-proc/concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **Сервисы**:
+
         * `HDFS`;
         * `HIVE`;
         * `SPARK`;
         * `YARN`.
+
     * **Сервисный аккаунт** — выберите созданный ранее сервисный аккаунт.
     * **Публичный доступ** — включите опцию для доступа к хостам всех подкластеров.
 
@@ -411,7 +418,6 @@ SQL-запрос для Hive можно передать двумя способ
     ```
 
     {% endcut %}
-
 
 ## Удалите созданные ресурсы {#clear-out}
 

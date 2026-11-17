@@ -234,7 +234,7 @@ Each commit triggers a build pipeline. To verify that it completed successfully:
 
 ## Enable a Docker image lifecycle policy {#lifecycle-policy}
 
-To avoid storing outdated Docker images and their tags, configure a [Docker image lifecycle policy](../../container-registry/concepts/lifecycle-policy.md). It applies to images in your [{{ container-registry-name }} repository](../../container-registry/concepts/repository.md) and enables timely cleanup of the repository. This way, you do not pay extra for [storing outdated images](../../container-registry/pricing.md#prices-storage).
+To avoid storing outdated Docker images and their tags, configure a [Docker image lifecycle policy](../../container-registry/concepts/lifecycle-policy.md). It applies to images in your [{{ container-registry-name }} repository](../../container-registry/concepts/repository.md) and enables timely cleanup of the repository. This way, you do not pay extra for [storing outdated images](../../container-registry/pricing.md#rules-storage).
 
 To create a policy, [follow this guide](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
 

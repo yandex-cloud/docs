@@ -53,9 +53,9 @@ To invoice your organization:
 
 #### How to connect to EDM? {#edm}
 
-Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents have the same legal effect as their paper versions and are accepted by tax and judicial authorities via the internet.
-
 {% include [kz-preview](../../_includes/kz-preview.md) %}
+
+Electronic document management is used for the electronic exchange of documents that are signed with a qualified electronic signature (advanced e-signature). Electronic documents have the same legal effect as their paper versions and are accepted by tax and judicial authorities via the internet.
 
 {{ yandex-cloud }} sends unilateral reports using electronic document management.
 

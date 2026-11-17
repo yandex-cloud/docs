@@ -7,13 +7,15 @@ description: In this tutorial, you will learn how to view {{ iam-full-name }} ac
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-A [folder’s](../../concepts/resources-hierarchy.md#folder) access policies can be managed by users with the [`resource-manager.admin`](../../security/index.md#resource-manager-admin) or [`admin`](../../../iam/roles-reference.md#admin) role for the folder.
+The [folder](../../concepts/resources-hierarchy.md#folder) access policies can be assigned and revoked by users with the [resource-manager.admin](../../security/index.md#resource-manager-admin) or [admin](../../../iam/roles-reference.md#admin) that folder or a broader role.
 
 ## Creating an access policy for a folder {#assign}
 
 {% include [access-policies-assign-folder](../../../_includes/iam/access-policies-assign-folder.md) %}
 
 ## Viewing the list of your folder’s access policies {#view-assigned}
+
+To view access policies, it is enough to have the [resource-manager.auditor](../../security/index.md#resource-manager-auditor) role for the folder.
 
 {% include [access-policies-view-assigned-folder](../../../_includes/iam/access-policies-view-assigned-folder.md) %}
 

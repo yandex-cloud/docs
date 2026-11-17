@@ -20,7 +20,7 @@
 
 ### Version 2.1.0 {#version2.1.0}
 
-* Added XFS file support in the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
+* Added XFS file support in the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 * Added Docker container labels to identify automatically launched containers.
 * Added COI version data to Docker image descriptions.
 * Fixed the disk mount issue after a VM restart when using the Docker Compose spec.
@@ -87,7 +87,7 @@ Fixed the automatic launch of Docker containers:
 ### Version 1.0.2 {#version1.0.2}
 
 Fixed the automatic launch of Docker containers:
-* Added a detailed error message when using `docker login` for a domain with a configured Docker credential helper.
+* Added a detailed error message when using `docker login` for a domain with a Docker credential helper configured.
 
 ### Version 1.0.1 {#version1.0.1}
 

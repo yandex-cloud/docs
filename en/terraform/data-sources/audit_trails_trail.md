@@ -19,7 +19,7 @@ data "yandex_audit_trails_trail" "basic-trail" {
 
 ## Arguments & Attributes Reference
 
-- `data_stream_destination` (*Read-Only*) (List Of Object). Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination` and `storage_destination`.
+- `data_stream_destination` (*Read-Only*) (List Of Object). Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination`, `storage_destination` and `monium_destination`.
   - `codec` . 
   - `database_id` . 
   - `stream_name` . 
@@ -87,12 +87,13 @@ data "yandex_audit_trails_trail" "basic-trail" {
 - `folder_id` (*Read-Only*) (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
 - `labels` (*Read-Only*) (Map Of String). A set of key/value label pairs which assigned to resource.
-- `logging_destination` (*Read-Only*) (List Of Object). Structure describing destination log group of the trail. Mutually exclusive with `storage_destination` and `data_stream_destination`.
+- `logging_destination` (*Read-Only*) (List Of Object). Structure describing destination log group of the trail. Mutually exclusive with `storage_destination`, `data_stream_destination` and `monium_destination`.
   - `log_group_id` . 
+- `monium_destination` (*Read-Only*) (List Of Object). Structure describing Monium destination of the trail. Mutually exclusive with `storage_destination`, `logging_destination` and `data_stream_destination`. This block has no configurable parameters.
 - `name` (*Read-Only*) (String). The resource name.
 - `service_account_id` (*Read-Only*) (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `status` (*Read-Only*) (String). Status of this trail.
-- `storage_destination` (*Read-Only*) (List Of Object). Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
+- `storage_destination` (*Read-Only*) (List Of Object). Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination`, `data_stream_destination` and `monium_destination`.
   - `aggregation_period` . 
   - `bucket_name` . 
   - `object_prefix` . 

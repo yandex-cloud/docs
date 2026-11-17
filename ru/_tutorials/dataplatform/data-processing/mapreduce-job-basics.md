@@ -13,11 +13,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -25,10 +23,9 @@
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по {{ oslogin }}, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. {% include [Создать бакеты и выдать SA кластера права на них](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
@@ -36,23 +33,25 @@
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание MapReduce {#create-job}
 
-1. [Скачайте](http://download.geonames.org/export/dump/cities500.zip) и [загрузите в бакет](../../../storage/operations/objects/upload.md) для исходных данных архив CSV-файла с набором данных о городах.
+1. [Скачайте](https://download.geonames.org/export/dump/cities500.zip) и [загрузите в бакет](../../../storage/operations/objects/upload.md) для исходных данных архив CSV-файла с набором данных о городах.
 1. Загрузите в бакет для исходных данных файлы на языке Python с кодом программ предобработки данных (этап map) `mapper.py` и вычисления финальных данных (этап reduce) `reducer.py`:
 
     `mapper.py`
 
     ```python
-    #!/usr/bin/python
+    #!/usr/bin/env python3
     import sys
-    
+
     population = sum(int(line.split('\t')[14]) for line in sys.stdin)
     print(population)
     ```
@@ -60,9 +59,9 @@
     `reducer.py`
 
     ```python
-    #!/usr/bin/python
+    #!/usr/bin/env python3
     import sys
-    
+
     population = sum(int(value) for value in sys.stdin)
     print(population)
     ```
@@ -71,6 +70,7 @@
 
     * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
     * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
+
        * `-mapper`
        * `mapper.py`
        * `-reducer`
@@ -81,10 +81,14 @@
        * `s3a://<имя_бакета_для_исходных_данных>/cities500.txt`
        * `-output`
        * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
+
     * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
+
        * `s3a://<имя_бакета_для_исходных_данных>/mapper.py`
        * `s3a://<имя_бакета_для_исходных_данных>/reducer.py`
+
     * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
+
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`
        * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`

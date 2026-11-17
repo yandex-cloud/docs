@@ -35,7 +35,7 @@ By default, clouds are isolated from each other. You cannot move resources from 
 
 #### Cloud owner {#owner}
 
-A newly created cloud gets an owner assigned. A _cloud owner_ is a user with the `{{ roles-cloud-owner }}` role assigned for the cloud.
+A newly created cloud gets an owner assigned. A _cloud owner_ is a user with the `resource-manager.clouds.owner` role assigned for the cloud.
 
 An owner can perform any operation with the cloud and the resources within it.
 
@@ -45,7 +45,7 @@ A cloud must have at least one owner. The user creating a cloud becomes its owne
 
 #### Cloud member {#member}
 
-The `{{ roles-cloud-member }}` role does not grant any rights to handle resources. This role is used in combination with other roles.
+The `resource-manager.clouds.member` role does not grant any rights to handle resources. This role is used in combination with other roles.
 
 {% include [roles-cloud-member-organization](../../_includes/roles-cloud-member-organization.md) %}
 
@@ -69,11 +69,11 @@ Resource access permissions are inherited as follows:
 >    * `Alice` service account
 >    * `Bob` service account
 >
-> A user with the `resource-manager.viewer` role for an organization will see a list of all its clouds, folders, and resources but will not be able to manage them.
+> A user with the `resource-manager.viewer` role for an organization will see a list of all its clouds, folders, and resources; they will be able to view them in the management console but will not be able to manage them. This role’s permissions are inherited by clouds and folders, so you do not need to assign the role to each individual cloud for console access.
 > 
-> An additional `{{ roles-editor }}` role for a cloud named `mycloud` will enable the user to manage all the cloud's resources, including the `Alice` and `Bob` service accounts, but not to grant another user access to them.
+> An additional `editor` role for a cloud named `mycloud` will enable the user to manage all the cloud's resources, including the `Alice` and `Bob` service accounts, but not to grant another user access to them.
 > 
-> The `{{ roles-admin }}` role for the `robots` folder will allow the user to manage all the folder's resources, including `Alice` and `Bob`.
+> The `admin` role for the `robots` folder will allow the user to manage all the folder's resources, including `Alice` and `Bob`.
 
 For some resources, you cannot assign a role directly, in which case a role should be assigned for a folder, cloud, or organization. If the folder access permissions are missing, {{ iam-name }} checks the cloud and organization access permissions.
 

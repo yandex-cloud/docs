@@ -52,7 +52,7 @@ Do not use `?integration=raw` to invoke this function. If you do, the function w
 To create a function:
 1. Create a file named `Handler.java` at `/src/main/java/Handler.java` and a file named `pom.xml`.
 1. Add the `/src` directory and the `pom.xml` file to a ZIP archive.
-1. [Upload](../../../operations/function/version-manage.md#func-version-create) the ZIP archive to {{ sf-name }}.
+1. [Upload](../../../operations/function/version-manage.md#version-create) the ZIP archive to {{ sf-name }}.
 
 `pom.xml`:
 

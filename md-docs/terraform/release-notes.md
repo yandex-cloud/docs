@@ -1,5 +1,24 @@
 [Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
 
+## 0.250.0 (November 17, 2026)
+
+##### ENHANCEMENTS:
+* organizationmanager: add `cel_expression` to `yandex_organizationmanager_organization_iam_member` resource
+* resourcemanager: add `cel_expression` to `yandex_resourcemanager_folder_iam_member` resource
+* resourcemanager: add `cel_expression` to `yandex_resourcemanager_cloud_iam_member` resource
+
+##### WARNING:
+* cloud_desktops: remove the desktop and desktop group resources and the desktop, desktop group, and image data sources
+
+
+
+## 0.249.0 (November 16, 2026)
+
+##### ENHANCEMENTS:
+* audit_trails: support delivering trail events to Monium
+
+
+
 ## 0.248.0 (November 13, 2026)
 
 ##### WARNING:

@@ -1,6 +1,6 @@
 # Renaming a cloud
 
-To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#editor) role or higher for that cloud. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
+To rename a cloud, you need either the [resource-manager.editor](../../security/index.md#resource-manager-editor) or [editor](../../../iam/roles-reference.md#editor) role for that cloud or a broader role. You cannot rename a suspended cloud. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
@@ -86,8 +86,8 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
       {% endcut %}
 
-      For more on `yandex_resourcemanager_cloud` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
-  1. In the command line, change to the folder where you edited the configuration file.
+      For more on the properties of the `yandex_resourcemanager_cloud` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -106,7 +106,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
   1. Apply the configuration changes:
 
       ```bash

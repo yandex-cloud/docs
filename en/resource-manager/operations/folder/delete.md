@@ -1,6 +1,6 @@
 # Deleting a folder
 
-To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that folder. If you cannot perform this operation, contact an [administrator](../../../iam/roles-reference.md#admin) or the [folder owner](../../concepts/resources-hierarchy.md#owner).
+To delete a [folder](../../concepts/resources-hierarchy.md#folder), you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) role or higher for that folder. If you cannot perform this operation, contact the cloud [administrator](../../../iam/roles-reference.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
 {% note info %}
 
@@ -123,7 +123,7 @@ Deleting a folder may be denied if there is a `resourceManager.denyFolderRemoval
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
 

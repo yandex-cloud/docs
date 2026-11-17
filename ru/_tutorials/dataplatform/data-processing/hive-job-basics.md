@@ -11,11 +11,15 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% note info %}
+
+Для выполнения руководства используйте образ {{ dataproc-name }} версии 2.0. Этот образ имеет статус deprecated, но создание кластеров с ним доступно. В образах 2.1 и 2.2 компонент Hive недоступен.
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -23,20 +27,21 @@
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по {{ oslogin }}, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. {% include [tutorials-basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с [образом версии 2.0](../../../data-proc/concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`
         * `SPARK`
         * `HIVE`
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
@@ -81,7 +86,7 @@
     LOCATION 's3a://<бакет_для_исходных_данных>/cities';
 
     /* Показать количество городов и суммарную численность населения в них: */
-    SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
+    SELECT COUNT(*) num_cities, SUM(population) sum_population FROM cities;
 
     /* Показать минимальную и максимальную численность населения: */
     SELECT MIN(population) min_population, MAX(population) max_population FROM cities;
@@ -94,7 +99,7 @@
     * **{{ ui-key.yacloud.dataproc.jobs.field_driver }}**: `Файл`
     * **{{ ui-key.yacloud.dataproc.jobs.field_query-file-uri }}**: `s3a://<имя_бакета_для_исходных_данных>/cities.sql`
 
-1. Подождите, пока [статус задания](../../../data-proc/operations/jobs-spark.md#get-info) изменится на `Done`.
+1. Подождите, пока [статус задания](../../../data-proc/operations/jobs-hive.md#get-info) изменится на `Done`.
 
 1. [Откройте логи задания](../../../data-proc/operations/jobs-hive#get-logs) и просмотрите результаты обработки:
 

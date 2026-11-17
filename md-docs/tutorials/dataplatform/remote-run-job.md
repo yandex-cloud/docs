@@ -17,7 +17,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -28,13 +27,11 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -42,10 +39,11 @@
 
 {% list tabs %}
 
-- Версия образа 1.4
+- Версия образа 2.1
 
-  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md).
-  1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `dataproc-sa` с ролями [`dataproc.agent`](../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../data-proc/security/index.md#dataproc-provisioner).
+  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md). При создании кластера укажите сервисный аккаунт `dataproc-sa`.
+  1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 22.04.
   1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
@@ -54,10 +52,11 @@
       ```
 
   1. Скопируйте настройки репозитория с любого из хостов кластера Yandex Data Processing. Для этого выполните последовательность команд на созданной виртуальной машине.
+
      1. Скопируйте адрес репозитория:
 
         ```bash
-        ssh root@<FQDN_хоста_кластера> \
+        ssh ubuntu@<FQDN_хоста_кластера> \
         "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
         sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         ```
@@ -65,8 +64,9 @@
      1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
 
         ```bash
-        ssh root@<FQDN_хоста_кластера> \
-        "cat /srv/dataproc.gpg" | sudo apt-key add -
+        ssh ubuntu@<FQDN_хоста_кластера> \
+        "cat /srv/dataproc.gpg" | \
+        gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/yandex-dataproc.gpg > /dev/null
         ```
 
      1. Обновите кеш репозиториев:
@@ -78,41 +78,50 @@
   1. Установите необходимые пакеты:
 
      ```bash
-     sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core spark-python
+     sudo apt install default-jre-headless hadoop-client hadoop-hdfs spark-core
      ```
 
-     {% note info %}
-
-     Пакет `spark-python` необходим только для запуска заданий PySpark.
-
-     {% endnote %}
-
-  1. Скопируйте конфигурационные файлы Hadoop и Spark:
+  1. Для запуска заданий PySpark скопируйте Python-библиотеки Apache Spark™ с хоста кластера:
 
      ```bash
      sudo -E scp -r \
-         root@<FQDN_хоста_кластера>:/etc/hadoop/conf/* \
+         ubuntu@<FQDN_хоста_кластера>:/usr/lib/spark/python \
+         /usr/lib/spark/
+     ```
+
+  1. Скопируйте конфигурационные файлы Hadoop и Apache Spark™:
+
+     ```bash
+     sudo -E scp -r \
+         ubuntu@<FQDN_хоста_кластера>:/etc/hadoop/conf/* \
          /etc/hadoop/conf/ && \
      sudo -E scp -r \
-         root@<FQDN_хоста_кластера>:/etc/spark/conf/* \
+         ubuntu@<FQDN_хоста_кластера>:/etc/spark/conf/* \
          /etc/spark/conf/
+     ```
+
+  1. В скопированном файле `/etc/hadoop/conf/hadoop-env.sh` укажите путь к Java, установленной на клиентской ВМ:
+
+     ```bash
+     export JAVA_HOME=/usr/lib/jvm/default-java
      ```
 
   1. Создайте пользователя `sparkuser`, от имени которого будут запускаться задания:
 
      ```bash
      sudo useradd sparkuser && \
-     ssh root@<FQDN_хоста_кластера> "
+     ssh ubuntu@<FQDN_хоста_кластера> "
        hadoop fs -mkdir /user/sparkuser
        sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser
        sudo -u hdfs hdfs dfs -ls /user/sparkuser
      "
      ```
 
-- Версия образа 2.0
+- Версия образа 2.2
 
-  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md).
-  1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 20.04 LTS.
+  1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `dataproc-sa` с ролями [`dataproc.agent`](../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../data-proc/security/index.md#dataproc-provisioner).
+  1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md). При создании кластера укажите сервисный аккаунт `dataproc-sa`.
+  1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 22.04.
   1. Чтобы обеспечить сетевой доступ к кластеру Yandex Data Processing с созданной ВМ, [настройте группы безопасности](../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../glossary/ssh-keygen.md):
 
@@ -121,6 +130,7 @@
      ```
 
   1. Скопируйте настройки репозитория с любого из хостов кластера Yandex Data Processing. Для этого выполните последовательность команд на созданной виртуальной машине.
+
      1. Скопируйте адрес репозитория:
 
         ```bash
@@ -133,7 +143,8 @@
 
         ```bash
         ssh ubuntu@<FQDN_хоста_кластера> \
-        "cat /srv/dataproc.gpg" | sudo apt-key add -
+        "cat /srv/dataproc.gpg" | \
+        gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/yandex-dataproc.gpg > /dev/null
         ```
 
      1. Обновите кеш репозиториев:
@@ -145,7 +156,7 @@
   1. Установите необходимые пакеты:
 
      ```bash
-     sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core spark-python
+     sudo apt install default-jre-headless hadoop-client hadoop-hdfs spark-core spark-python
      ```
 
      {% note info %}
@@ -154,7 +165,7 @@
 
      {% endnote %}
 
-  1. Скопируйте конфигурационные файлы Hadoop и Spark:
+  1. Скопируйте конфигурационные файлы Hadoop и Apache Spark™:
 
      ```bash
      sudo -E scp -r \
@@ -299,7 +310,7 @@
 
 - PySpark-задание
 
-  1. На виртуальной машине создайте файл `month_stat.py` со следующим кодом:
+  1. На виртуальной машине создайте файл `/tmp/month_stat.py` со следующим кодом:
 
      ```python
      import sys
@@ -322,13 +333,11 @@
              main()
      ```
 
-  1. Скопируйте файл `month_stat.py` на хосте-мастере кластера:
+  1. Разрешите пользователю `sparkuser` читать файл:
 
      ```bash
-     sudo -E scp month_stat.py <имя_пользователя>@<FQDN_хоста_кластера>:~/month_stat.py
+     chmod 644 /tmp/month_stat.py
      ```
-
-     Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`.
 
   1. Запустите приложение:
 
@@ -336,7 +345,7 @@
      sudo -u sparkuser spark-submit \
           --master yarn \
           --deploy-mode cluster \
-          month_stat.py
+          /tmp/month_stat.py
      ```
 
   1. Результат работы приложения будет выгружен в HDFS на кластере. Список получившихся файлов можно вывести командой:
@@ -345,7 +354,7 @@
      ssh <имя_пользователя>@<FQDN_хоста_кластера> "hdfs dfs -ls /tmp/month_stat"
      ```
 
-     Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`.
+     Для образов 2.0 (deprecated), 2.1 и 2.2 укажите пользователя `ubuntu`.
 
 {% endlist %}
 
@@ -355,10 +364,10 @@
 
 {% endnote %}
 
-
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 1. [Удалите кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
 1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) `dataproc-sa`.

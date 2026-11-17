@@ -2,7 +2,7 @@
 
 # Управление заданиями MapReduce
 
-[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранится в Yandex Object Storage. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
+[MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранятся в Yandex Object Storage. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
 
 ## Создать задание {#create}
 

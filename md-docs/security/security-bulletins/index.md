@@ -849,6 +849,10 @@ fatal_error_backtraces = 0
 
 Ссылка на NVD: <https://nvd.nist.gov/vuln/detail/CVE-2026-111943>.
 
+Второй идентификатор CVE — CVE-2026-114406: присвоен Red Hat 21.10.2026 для отслеживания удаления скомпрометированных промежуточных сертификатов eMudhra из системных хранилищ доверенных сертификатов (пакеты `ca-certificates`).
+
+Ссылка на CVE: <https://www.cve.org/CVERecord?id=CVE-2026-114406>, [запись Red Hat](https://access.redhat.com/security/cve/CVE-2026-114406).
+
 Уведомления Ubuntu: [USN-8944-1](https://ubuntu.com/security/notices/USN-8944-1), [USN-8944-2](https://ubuntu.com/security/notices/USN-8944-2).
 
 ### Исходный отчет {#original-report-CVE-2026-111943}
@@ -861,6 +865,18 @@ fatal_error_backtraces = 0
 
 Злоумышленник, восстановивший закрытый ключ, может выпустить TLS-сертификат для любого домена и выдать себя за любой HTTPS-ресурс для клиентов, которые доверяют этим цепочкам. Компрометация затрагивает проверку подлинности сервера. Она не позволяет ретроспективно расшифровать уже переданный трафик, если соединение использовало прямую секретность (forward secrecy).
 
+{% note info "Обновление от 16.11.2026" %}
+
+07.11.2026 eMudhra отозвала еще восемь промежуточных сертификатов — на этот раз с ключами RSA-4096 (EM DV/OV/EV TLS CA — G2B/G2C, EM OV CS CA — G2B/G2C): шесть предназначены для выпуска TLS-сертификатов, два — для подписи кода. Ключи получены в той же церемонии 30.04.2025, но дефект иной: закрытые ключи читались в память машины, использованной для церемонии, вместо HSM, что нарушает политику eMudhra по обращению с ключами (CPS §6.2.6). В отличие от исходных восьми ключей ECDSA/P-384, эти ключи математически не ослаблены — отзыв сделан потому, что компания не может подтвердить соответствие ключей процедуре, а не из-за доказанной компрометации.
+
+Отзыв оформлен с причиной `cessationOfOperation`. При октябрьском отзыве сертификатов ECDSA CA использовался код `cACompromise`. Для оценки риска на стороне клиентов это не снижает срочность: обработка закрытых компонентов RSA-ключей вне HSM не позволяет исключить доступ к ним третьих лиц. Ситуация требует того же реагирования, что и подтвержденная компрометация.
+
+Всего под отозванными RSA-сертификатами выпущено порядка 195 конечных сертификатов; часть CA выпускала сертификаты для использования в рабочих средах с мая по 03.11.2026 (дату последнего выпущенного сертификата). Полный отчет о причинах eMudhra опубликовала 10.11.2026 в комментарии 82 к Mozilla bug 2083449.
+
+Отдельно от конкретных скомпрометированных CA корневые программы расширяют меры на всю иерархию eMudhra: Microsoft с 16.11.2026 удаляет оставшиеся 10 корней eMudhra, включая emSign Root CA — G1, из Windows и Edge; Chrome и Firefox с 16.11.2026 не доверяют новым сертификатам, выпущенным под G1; Apple 30.11.2026 полностью прекращает доверие всем сертификатам G1, включая ранее выпущенные. eMudhra объявила о выходе из бизнеса публично доверенных TLS-сертификатов и прекращает выпуск под G1 до 16.11.2026; независимый отчет KPMG по инциденту ожидается к 04.12.2026.
+
+{% endnote %}
+
 ### Затронутые технологии {#technologies-affected-CVE-2026-111943}
 
 Проблема затрагивает хранилища доверенных сертификатов (системные пакеты `ca-certificates` и собственные хранилища сред выполнения и приложений) и проверку цепочек сертификатов TLS.
@@ -871,15 +887,19 @@ fatal_error_backtraces = 0
 
 Уязвимые и исправленные версии Debian, Ubuntu, RHEL и производных, Alpine Linux, openSUSE, SLES, distroless-образов, Java, Go, Python, Node.js, браузеров и продуктов на основе Microsoft Windows (Kosmos и SPM) в Cloud Marketplace приведены в разделе [Безопасная версия уязвимого продукта или патч](#safe-version-CVE-2026-111943).
 
+С 16.11.2026 область уязвимости расширяется: продукты, которые доверяют корневому сертификату emSign Root CA — G1 целиком, а не только восьми исходным и восьми дополнительно отозванным промежуточным сертификатам, необходимо проверить и обновить отдельно. Браузеры и ОС поэтапно отзывают доверие ко всей иерархии G1 вплоть до 30.11.2026.
+
 ### Разработчик {#vendor-CVE-2026-111943}
 
 eMudhra — удостоверяющий центр.
 
 ### Уровень опасности согласно CVSS {#attack-vector-and-severity-level-CVE-2026-111943}
 
-На момент подготовки бюллетеня оценка CVSS для CVE-2026-111943 не присвоена. Оценки связанных уязвимостей в отдельных продуктах не являются оценкой инцидента в целом.
+Для CVE-2026-111943 присвоена оценка 6.8 (Medium), вектор `CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N`. Источник оценки — CNA Go, Red Hat подтверждает тот же вектор со статусом verified. В NVD запись остается в статусе Awaiting Analysis, собственной оценки NVD нет (проверено 17.11.2026).
 
-<!-- Перед публикацией подтвердить актуальный статус оценки CVSS в NVD. -->
+Для CVE-2026-114406 оценка и вектор те же — 6.8 (Medium), `CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N`; качественный уровень опасности по шкале Red Hat — Critical.
+
+Оценки связанных уязвимостей в отдельных продуктах не являются оценкой инцидента в целом.
 
 ### Рекомендации по обнаружению уязвимости {#recommendations-for-vulnerability-detection-CVE-2026-111943}
 
@@ -892,6 +912,8 @@ curl https://dv-g3b-aaa-emudhra.we-have-a-problem.com/
 
 Ошибка проверки сертификата для обоих адресов означает, что клиент не доверяет скомпрометированным цепочкам. Успешный ответ хотя бы для одного адреса означает, что клиент им доверяет. Ошибки DNS, сетевого соединения или таймауты не подтверждают защиту. Не отключайте проверку сертификатов параметрами `-k` или `--insecure`.
 
+Эти два адреса проверяют октябрьские цепочки. Для ноябрьской меры проверьте все шесть корней в хранилище, которым приложение действительно пользуется.
+
 `curl` проверяет хранилище сертификатов, настроенное для его сборки. Приложения с собственным хранилищем (Java, Python с `certifi`, Node.js, Go со встроенным набором сертификатов) и контейнерные образы проверьте запросами к тем же адресам из самого приложения или контейнера.
 
 Определите версии пакетов и сред выполнения следующими командами, затем сравните их с исправленными версиями из раздела [Безопасная версия уязвимого продукта или патч](#safe-version-CVE-2026-111943):
@@ -899,28 +921,46 @@ curl https://dv-g3b-aaa-emudhra.we-have-a-problem.com/
 #|
 || **Продукт** | **Команда** ||
 || Debian, Ubuntu | `dpkg-query -W ca-certificates` ||
-|| RHEL, CentOS, Rocky Linux, AlmaLinux, Fedora, Amazon Linux 2023, openSUSE, SLES | `rpm -q ca-certificates` ||
+|| RHEL, CentOS, Rocky Linux, AlmaLinux, Fedora, Amazon Linux 2023 | `rpm -q ca-certificates` ||
+|| openSUSE, SLES | `rpm -q ca-certificates-mozilla` ||
 || Alpine Linux | `apk info -v 2>/dev/null \| grep ca-certificates` ||
 || Go | `go version`, для собранного приложения — `go version <путь_к_бинарному_файлу>` ||
 || Python | `python3 -m pip show certifi`, `python3 -m pip --version` ||
 || Node.js | `node --version` ||
 |#
 
-Чтобы проверить наличие корневых сертификатов в хранилище Java, выполните команду:
+{% cut "Как проверить хранилище Java на наличие шести корневых CA" %}
+
+Для проверки Java укажите `JAVA_HOME` среды приложения. Если приложение использует отдельное хранилище, укажите его путь в `TRUSTSTORE`. Для нестандартного пароля задайте `STOREPASS`. Команда выводит алиас каждого найденного корня из шести. Пустой вывод при успешном завершении означает, что совпадений нет.
 
 ```bash
-keytool -list -v -cacerts -storepass changeit | grep -iE 'Alias name:.*(emsign.*ecc.*g3|aaa)'
+(
+set -eu
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+: "${JAVA_HOME:?Set JAVA_HOME to the application JDK}"
+store=${TRUSTSTORE:-"$JAVA_HOME/lib/security/cacerts"}
+if [ -z "${TRUSTSTORE:-}" ] && [ -f "$JAVA_HOME/jre/lib/security/cacerts" ]; then
+  store="$JAVA_HOME/jre/lib/security/cacerts"
+fi
+"$JAVA_HOME/bin/keytool" -J-Duser.language=en -J-Duser.country=US -list -v \
+  -keystore "$store" -storepass "${STOREPASS:-changeit}" > "$work/list"
+awk '/^Alias name: / {alias=substr($0,13)}
+     $1=="SHA256:" {fp=toupper($2); gsub(/:/,"",fp)
+       if (fp ~ /^(86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B|D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4|40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367|125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F|BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3|0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66)$/) print alias}' "$work/list" > "$work/aliases"
+cat "$work/aliases"
+)
 ```
 
-Для Java 8 вместо `-cacerts` укажите `-keystore "${JAVA_HOME}/jre/lib/security/cacerts"`. Если пароль хранилища отличается от стандартного, используйте свой пароль. Наличие записи означает, что корневой сертификат присутствует в хранилище; проверьте, блокируется ли скомпрометированная цепочка самим приложением.
+{% endcut %}
 
 ### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2026-111943}
 
-Обновите хранилище сертификатов до исправленной версии. Если исправление недоступно, примените временное решение для своего продукта.
+Версии в таблицах ниже относятся к октябрьским исправлениям. Для ноябрьской меры проверьте все шесть корней после обновления и исключите те, которым приложение еще доверяет.
 
 {% note warning %}
 
-Временные решения для Linux исключают из доверия корневые сертификаты Comodo AAA Services root и emSign ECC Root CA - G3 целиком. После этого могут перестать проверяться и легитимные сертификаты, выпущенные под этими корневыми сертификатами. Перед применением оцените влияние на свои приложения. Не отключайте проверку TLS-сертификатов для обхода ошибок.
+Из доверенных исключаются шесть корневых сертификатов: emSign ECC Root CA - G3, AAA Certificate Services, emSign Root CA - G1, emSign Root CA - C1, emSign ECC Root CA - C3 и COMODO Certification Authority. После этого могут перестать проверяться и легитимные сертификаты, выпущенные под этими корневыми сертификатами. Перед применением оцените влияние на свои приложения. Не отключайте проверку TLS-сертификатов для обхода ошибок.
 
 {% endnote %}
 
@@ -955,13 +995,10 @@ apt update && apt install --only-upgrade ca-certificates
 
 Для Ubuntu 14.04–20.04 LTS без Ubuntu Pro обновление не устраняет проблему. Например, в Ubuntu 20.04 обновление до `20240203~20.04.1` из основного репозитория добавляет корневой сертификат emSign ECC Root CA - G3. В этом случае, а также для Debian 11 и более ранних релизов примените временное решение.
 
-Чтобы временно исключить корневые сертификаты из доверенных, выполните команду от имени `root`:
+Чтобы отключить все шесть пакетных CA, выполните команду от имени `root`:
 
 ```bash
-sed -i \
-  -e 's|^mozilla/emSign_ECC_Root_CA_-_G3.crt|!&|' \
-  -e 's|^mozilla/Comodo_AAA_Services_root.crt|!&|' \
-  /etc/ca-certificates.conf && update-ca-certificates
+sed -i -E 's~^mozilla/(emSign_ECC_Root_CA_-_(G3|C3)|emSign_Root_CA_-_(G1|C1)|Comodo_AAA_Services_root|COMODO_Certification_Authority)\.crt$~!&~' /etc/ca-certificates.conf && update-ca-certificates --fresh
 ```
 
 {% endcut %}
@@ -971,23 +1008,36 @@ sed -i \
 #|
 || **Дистрибутив** | **Уязвимые версии `ca-certificates`** | **Исправленная версия** ||
 || Fedora 43–46 | До `2026.2.92_v9.0.319` | `2026.2.92_v9.0.319` ||
-|| CentOS Stream 8, 9, 10 | До `2026.2.92_v9.0.319` | `2026.2.92_v9.0.319`: исправление добавлено в исходный код пакета, сборка ожидается ||
-|| RHEL 6–10 | Все | На момент подготовки бюллетеня не выпущена, подробности — в [RHSB-2026-012](https://access.redhat.com/security/vulnerabilities/RHSB-2026-012) ||
-|| Rocky Linux, AlmaLinux, Amazon Linux 2023 | Все | На момент подготовки бюллетеня не выпущена ||
+|| CentOS Stream 9, 10 | До `2026.2.92_v9.0.319` | CentOS Stream 9 — `2026.2.92_v9.0.319-91.3.el9`, CentOS Stream 10 — `2026.2.92_v9.0.319-100.3.el10`: пакеты опубликованы в репозитории BaseOS. CentOS Stream 8 снят с поддержки 31.05.2024, исправление не ожидается ||
+|| RHEL 8, 9, 10 | Все ниже исправленной | RHEL 10 — `2026.2.92_v9.0.319-100.3.el10_2` (RHSA-2026:88455 от 22.10.2026), RHEL 9 — `2026.2.92_v9.0.319-90.3.el9_8` (RHSA-2026:88459 от 22.10.2026), RHEL 8 — `2026.2.92_v9.0.319-81.3.el8_10` (RHSA-2026:88550 от 23.10.2026). Для ветвей EUS, AUS, TUS и SAP выпущены отдельные сборки: `-100.3.el10_0`, `-90.3.el9_6`, `-90.3.el9_4`, `-90.3.el9_2`, `-80.3.el8_8`, `-80.3.el8_6`, `-80.3.el8_4`. Подробности — в [RHSB-2026-012](https://access.redhat.com/security/vulnerabilities/RHSB-2026-012) ||
+|| RHEL 7 ELS, RHEL 6 ELS | Все ниже исправленной | RHEL 7 ELS — `2026.2.92_v9.0.319-70.3.el7_9` (RHSA-2026:88779 от 23.10.2026), RHEL 6 ELS — `2026.2.92_v9.0.319-60.3.el6_10` вместе с `nss-3.44.0-15.el6_10` (RHSA-2026:90985 от 27.10.2026) ||
+|| AlmaLinux 8, 9, 10; Rocky Linux 8, 9, 10 | Все ниже исправленной | `2026.2.92_v9.0.319-81.3.el8_10`, `2026.2.92_v9.0.319-90.3.el9_8`, `2026.2.92_v9.0.319-100.3.el10_2` — пакеты опубликованы в репозиториях BaseOS обоих дистрибутивов ||
+|| Amazon Linux 2023 | Все ниже исправленной | `2025.2.76-1.0.amzn2023.0.4`; в репозитории доступна также более свежая сборка `2025.2.76-1.0.amzn2023.0.5` ||
 || CentOS 7 | Все | Не ожидается: дистрибутив не поддерживается ||
 |#
 
-Чтобы временно исключить корневые сертификаты из доверенных, выполните команды от имени `root`:
+От имени `root` добавьте в список недоверенных все найденные корни из шести. Команда выбирает сертификаты по SHA-256 и пересобирает системное хранилище:
 
 ```bash
+(
+set -eu
 d=/etc/pki/ca-trust/source/blocklist; [ -d "$d" ] || d=/etc/pki/ca-trust/source/blacklist
-trust extract --overwrite --format=pem-bundle \
-  --filter='pkcs11:object=Comodo%20AAA%20Services%20root;type=cert' \
-  "$d/Comodo_AAA_Services_root.pem" &&
-trust extract --overwrite --format=pem-bundle \
-  --filter='pkcs11:object=emSign%20ECC%20Root%20CA%20-%20G3;type=cert' \
-  "$d/emSign_ECC_Root_CA_-_G3.pem" &&
+mkdir -p "$d"
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+trust extract --filter=ca-anchors --purpose=server-auth --format=pem-directory "$work/anchors"
+chmod u+w "$work/anchors"
+for cert in "$work/anchors"/*.pem; do
+  [ -f "$cert" ] || continue
+  digest=$(openssl x509 -in "$cert" -noout -fingerprint -sha256)
+  fp=$(printf '%s' "${digest#*=}" | tr -d ':' | tr 'a-f' 'A-F')
+  case "$fp" in
+    86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B|D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4|40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367|125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F|BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3|0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66)
+      install -m 0644 "$cert" "$d/$fp.pem" ;;
+  esac
+done
 update-ca-trust
+)
 ```
 
 {% endcut %}
@@ -999,31 +1049,47 @@ update-ca-trust
 || `ca-certificates`, `ca-certificates-bundle` | До `20261020-r0` | `20261020-r0` ||
 |#
 
-Если обновление недоступно, выполните временное решение от имени `root`:
+Для Alpine установите полный пакет `ca-certificates`, отключите все шесть пакетных CA и пересоберите набор сертификатов от имени `root`:
 
 ```bash
-apk add ca-certificates &&
-sed -i -e 's|^mozilla/emSign_ECC_Root_CA_-_G3.crt|!&|' \
-  /etc/ca-certificates.conf && update-ca-certificates
+apk add --no-cache ca-certificates &&
+sed -i -E 's~^mozilla/(emSign_ECC_Root_CA_-_(G3|C3)|emSign_Root_CA_-_(G1|C1)|Comodo_AAA_Services_root|COMODO_Certification_Authority)\.crt$~!&~' /etc/ca-certificates.conf &&
+update-ca-certificates --fresh
 ```
 
 {% endcut %}
 
 {% cut "openSUSE, SLES" %}
 
-На момент подготовки бюллетеня исправленная версия `ca-certificates` не выпущена.
+Исправление выпущено (проверено 17.11.2026). В SUSE и openSUSE обновляется пакет `ca-certificates-mozilla`, а не `ca-certificates`:
 
-Чтобы временно исключить корневые сертификаты из доверенных, выполните команды от имени `root`:
+* SUSE Linux Enterprise Server 15 SP4–SP6 LTSS и SLE HPC 15 SP4, SP5 — `ca-certificates-mozilla 2.92-150200.50.2` (SUSE-SU-2026:24373-1 и SUSE-SU-2026:24383-1 от 27.10.2026).
+* SUSE Linux Enterprise Server 16.0, включая SLES for SAP Applications 16.0 — `2.92-160000.1.1` (SUSE-SU-2026:24414-1 от 29.10.2026).
+* openSUSE Leap 16.0 — `2.92-160000.1.1`, openSUSE Tumbleweed — `2.92-2.1`.
+* SLES 12 SP5 — исправление на 17.11.2026 не выпущено, применяйте временное решение.
+
+От имени `root` добавьте в список недоверенных все найденные корни из шести. Команда выбирает сертификаты по SHA-256 и пересобирает системное хранилище:
 
 ```bash
+(
+set -eu
 d=/etc/pki/trust/blocklist; [ -d "$d" ] || d=/etc/pki/trust/blacklist
-trust extract --overwrite --format=pem-bundle \
-  --filter='pkcs11:object=Comodo%20AAA%20Services%20root;type=cert' \
-  "$d/Comodo_AAA_Services_root.pem" &&
-trust extract --overwrite --format=pem-bundle \
-  --filter='pkcs11:object=emSign%20ECC%20Root%20CA%20-%20G3;type=cert' \
-  "$d/emSign_ECC_Root_CA_-_G3.pem" &&
+mkdir -p "$d"
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+trust extract --filter=ca-anchors --purpose=server-auth --format=pem-directory "$work/anchors"
+chmod u+w "$work/anchors"
+for cert in "$work/anchors"/*.pem; do
+  [ -f "$cert" ] || continue
+  digest=$(openssl x509 -in "$cert" -noout -fingerprint -sha256)
+  fp=$(printf '%s' "${digest#*=}" | tr -d ':' | tr 'a-f' 'A-F')
+  case "$fp" in
+    86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B|D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4|40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367|125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F|BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3|0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66)
+      install -m 0644 "$cert" "$d/$fp.pem" ;;
+  esac
+done
 update-ca-certificates
+)
 ```
 
 {% endcut %}
@@ -1039,15 +1105,12 @@ update-ca-certificates
 
 В distroless-образах нет пакетного менеджера и командной оболочки, поэтому обновляйте хранилище сертификатов пересборкой приложения на актуальном базовом образе. Проверьте отдельно хранилища сред выполнения внутри образа: например, `/etc/ssl/certs/java/cacerts` для Java, встроенный набор Node.js и `certifi` для Python.
 
-Для временного решения скопируйте в образ хранилище, из которого исключены корневые сертификаты, на промежуточном этапе сборки:
+Для distroless соберите системный `ca-certificates.crt`, исключив все шесть корневых CA: emSign ECC Root CA - G3, AAA Certificate Services, emSign Root CA - G1, emSign Root CA - C1, emSign ECC Root CA - C3 и COMODO Certification Authority. Скопируйте полученный файл в итоговый образ:
 
 ```dockerfile
 FROM debian:12 AS certs
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
- && sed -i \
-      -e 's|^mozilla/emSign_ECC_Root_CA_-_G3.crt|!&|' \
-      -e 's|^mozilla/Comodo_AAA_Services_root.crt|!&|' \
-      /etc/ca-certificates.conf \
+ && sed -i -E 's~^mozilla/(emSign_ECC_Root_CA_-_(G3|C3)|emSign_Root_CA_-_(G1|C1)|Comodo_AAA_Services_root|COMODO_Certification_Authority)\.crt$~!&~' /etc/ca-certificates.conf \
  && update-ca-certificates
 
 FROM gcr.io/distroless/static-debian12
@@ -1055,17 +1118,26 @@ COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certifica
 # ... сборка приложения
 ```
 
-Для Java-образов дополнительно удалите корневые сертификаты из хранилища `cacerts` на промежуточном этапе сборки:
+Для Java-образа обновите оба хранилища. Соберите системный `ca-certificates.crt`, как в предыдущем примере. Из `cacerts` самого Java-образа удалите записи тех же шести CA по SHA-256. Скопируйте оба файла в итоговый образ:
 
 ```dockerfile
+FROM debian:12 AS certs
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
+ && sed -i -E 's~^mozilla/(emSign_ECC_Root_CA_-_(G3|C3)|emSign_Root_CA_-_(G1|C1)|Comodo_AAA_Services_root|COMODO_Certification_Authority)\.crt$~!&~' /etc/ca-certificates.conf \
+ && update-ca-certificates
+
 FROM gcr.io/distroless/java21-debian12 AS jks
 FROM eclipse-temurin:21-jdk AS cacerts
 COPY --from=jks /etc/ssl/certs/java/cacerts /cacerts
-RUN keytool -list -v -keystore /cacerts -storepass changeit \
-    | sed -n 's/^Alias name: //p' | grep -iE "emsign.*ecc.*g3|aaa" \
-    | while read -r a; do keytool -delete -keystore /cacerts -storepass changeit -alias "$a"; done
+RUN set -eu; \
+    keytool -J-Duser.language=en -J-Duser.country=US -list -v -keystore /cacerts -storepass changeit > /cert-list; \
+    awk '/^Alias name: / {alias=substr($0,13)} \
+         $1=="SHA256:" {fp=toupper($2); gsub(/:/,"",fp); \
+           if (fp ~ /^(86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B|D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4|40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367|125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F|BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3|0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66)$/) print alias}' /cert-list > /remove; \
+    while IFS= read -r a; do keytool -delete -keystore /cacerts -storepass changeit -alias "$a"; done < /remove
 
 FROM gcr.io/distroless/java21-debian12
+COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=cacerts /cacerts /etc/ssl/certs/java/cacerts
 # ... сборка приложения
 ```
@@ -1085,18 +1157,18 @@ COPY --from=cacerts /cacerts /etc/ssl/certs/java/cacerts
 
 Подробнее об исправлениях — в [бюллетене OpenJDK](https://openjdk.org/groups/vulnerability/advisories/2026-10-21) и [рекомендациях Oracle](https://ops.java/emudhra).
 
-Хранилище сертификатов зависит от сборки JDK:
+Уточните путь к хранилищу в поставке JDK. Если приложение задает `javax.net.ssl.trustStore`, проверьте также указанный там файл:
 
 #|
-|| **Сборка** | **Хранилище** | **Запись emSign ECC Root CA - G3** | **Запись Comodo AAA Services root** ||
-|| Eclipse Temurin 17 и выше | Собственное: `${JAVA_HOME}/lib/security/cacerts` | `cn_emsign_ecc_root_ca__g3,o_emudhra_technologies_limited,ou_emsign_pki,c_in [jdk]` | Отсутствует ||
-|| Eclipse Temurin 8, 11; Microsoft Build of OpenJDK | Собственное: `${JAVA_HOME}/lib/security/cacerts`, для Java 8 — `${JAVA_HOME}/jre/lib/security/cacerts` | `cn=emsign_ecc_root_ca_-_g3,o=emudhra_technologies_limited,ou=emsign_pki,c=in` | Отсутствует ||
-|| Azul Zulu, BellSoft Liberica, Axiom JDK | Собственное: `${JAVA_HOME}/lib/security/cacerts` | `emsigneccrootcag3 [jdk]` | `comodoaaaca [jdk]` ||
-|| Amazon Corretto, OpenJDK из репозиториев RHEL и производных | Системное: `/etc/pki/ca-trust/extracted/java/cacerts` | `emsigneccrootca-g3` | `comodoaaaservicesroot` ||
-|| OpenJDK из репозиториев Debian и Ubuntu | Системное: `/etc/ssl/certs/java/cacerts` | `debian:emsign_ecc_root_ca_-_g3.pem` | `debian:comodo_aaa_services_root.pem` ||
+|| **Сборка** | **Хранилище** ||
+|| Eclipse Temurin 17 и выше | Собственное: `${JAVA_HOME}/lib/security/cacerts` ||
+|| Eclipse Temurin 8, 11; Microsoft Build of OpenJDK | Собственное: `${JAVA_HOME}/lib/security/cacerts`, для Java 8 — `${JAVA_HOME}/jre/lib/security/cacerts` ||
+|| Azul Zulu, BellSoft Liberica, Axiom JDK | Собственное: `${JAVA_HOME}/lib/security/cacerts` ||
+|| Amazon Corretto, OpenJDK из репозиториев RHEL и производных | Системное: `/etc/pki/ca-trust/extracted/java/cacerts` ||
+|| OpenJDK из репозиториев Debian и Ubuntu | Системное: `/etc/ssl/certs/java/cacerts` ||
 |#
 
-Для сборок с системным хранилищем примените исправление или временное решение для ОС: хранилище Java пересобирается вместе с системным. Для сборок с собственным хранилищем примените одну из следующих мер ко всем установленным средам выполнения Java.
+Для системного `cacerts` примените инструкцию для ОС и проверьте результат командой из раздела обнаружения. Для собственного `cacerts` каждой среды выполните удаление шести корней ниже. Блокировка октябрьских промежуточных сертификатов и проверка отзыва — дополнительные меры.
 
 **Заблокируйте промежуточные сертификаты.** Добавьте SHA-256-отпечатки 16 скомпрометированных промежуточных сертификатов и кросс-подписей в список заблокированных сертификатов JDK. Мера работает и для сборок с системным хранилищем. Выполните команды от имени `root`. Для Java 8 используйте файл `${JAVA_HOME}/jre/lib/security/blacklisted.certs`:
 
@@ -1123,20 +1195,27 @@ A496E23AC0CAB8155FC9B117B97EAE368EFCBB9041AEC8804D5A308D2D01C2D8
 EOF
 ```
 
-**Удалите корневые сертификаты из собственного хранилища `cacerts`.** Укажите записи из таблицы выше. Для Java 8 вместо `-cacerts` используйте `-keystore "${JAVA_HOME}/jre/lib/security/cacerts"`. Команды выполняются от имени `root`.
-
-Например, для Eclipse Temurin 21:
+Удалите шесть корней из `cacerts` по SHA-256. Укажите `JAVA_HOME` и при необходимости `TRUSTSTORE` и `STOREPASS`, как в команде проверки. Перед изменением сохраните резервную копию файла. Команда предназначена для хранилища доверенных CA. После удаления повторите проверку:
 
 ```bash
-keytool -delete -cacerts -storepass changeit \
-  -alias "cn_emsign_ecc_root_ca__g3,o_emudhra_technologies_limited,ou_emsign_pki,c_in [jdk]"
-```
-
-Для Azul Zulu, BellSoft Liberica и Axiom JDK:
-
-```bash
-keytool -delete -cacerts -storepass changeit -alias "emsigneccrootcag3 [jdk]"
-keytool -delete -cacerts -storepass changeit -alias "comodoaaaca [jdk]"
+(
+set -eu
+work=$(mktemp -d)
+trap 'rm -rf "$work"' EXIT
+: "${JAVA_HOME:?Set JAVA_HOME to the application JDK}"
+store=${TRUSTSTORE:-"$JAVA_HOME/lib/security/cacerts"}
+if [ -z "${TRUSTSTORE:-}" ] && [ -f "$JAVA_HOME/jre/lib/security/cacerts" ]; then
+  store="$JAVA_HOME/jre/lib/security/cacerts"
+fi
+"$JAVA_HOME/bin/keytool" -J-Duser.language=en -J-Duser.country=US -list -v \
+  -keystore "$store" -storepass "${STOREPASS:-changeit}" > "$work/list"
+awk '/^Alias name: / {alias=substr($0,13)}
+     $1=="SHA256:" {fp=toupper($2); gsub(/:/,"",fp)
+       if (fp ~ /^(86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B|D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4|40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367|125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F|BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3|0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66)$/) print alias}' "$work/list" > "$work/aliases"
+while IFS= read -r alias; do
+  "$JAVA_HOME/bin/keytool" -delete -keystore "$store" -storepass "${STOREPASS:-changeit}" -alias "$alias"
+done < "$work/aliases"
+)
 ```
 
 **Включите проверку отзыва сертификатов.** Добавьте в параметры запуска `-Dcom.sun.net.ssl.checkRevocation=true -Dcom.sun.security.enableCRLDP=true`. Мера требует доступа приложения к точкам распространения списков отзыва (CRL). При их недоступности TLS-соединения завершаются ошибкой, поэтому мера неприменима в изолированных сетях.
@@ -1152,7 +1231,7 @@ keytool -delete -cacerts -storepass changeit -alias "comodoaaaca [jdk]"
 
 После обновления Go пересоберите приложения.
 
-Для временного решения на большинстве платформ достаточно исключить корневые сертификаты из системного хранилища средствами ОС. Если приложение использует собственный набор сертификатов (переменные окружения `SSL_CERT_FILE`, `SSL_CERT_DIR` или встроенный в бинарный файл набор), исключите из него Comodo AAA Services root и emSign ECC Root CA - G3.
+Если Go использует системные корни, примените инструкцию для ОС. Если приложение задает `SSL_CERT_FILE`, `SSL_CERT_DIR`, создает свой `CertPool` или встраивает PEM при сборке, исключите те же шесть CA из каждого подключенного источника. После изменения встроенного набора пересоберите приложение.
 
 {% endcut %}
 
@@ -1172,13 +1251,48 @@ keytool -delete -cacerts -storepass changeit -alias "comodoaaaca [jdk]"
 python3 -m pip install --upgrade certifi pip
 ```
 
-Для временного решения после исправления системного хранилища укажите его библиотеке `requests` вместо `certifi`. Путь зависит от ОС: например, `/etc/ssl/certs/ca-certificates.crt` для Debian, Ubuntu и Alpine или `/etc/pki/tls/certs/ca-bundle.crt` для RHEL и производных:
+Для `requests` укажите системный набор сертификатов, из которого исключены все шесть CA. Для Debian, Ubuntu и Alpine используется путь из примера ниже, для RHEL и производных — `/etc/pki/tls/certs/ca-bundle.crt`. Проверьте, что приложение не задает другой набор сертификатов через `verify`:
 
 ```bash
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ```
 
-Для `pip` временного решения нет: переменная `PIP_CERT` не отключает встроенный в `pip` набор сертификатов. Обновите `pip` до версии `26.2.2`.
+Если приложение использует `certifi` напрямую, найдите его набор сертификатов командой `python3 -m certifi`. У `pip` может быть отдельная копия: ее путь показывает команда `python3 -c "from pip._vendor import certifi; print(certifi.where())"`. Для каждого используемого PEM примените фильтр ниже на этапе сборки после установки зависимостей. Для `pip` с системным доверием дополнительно очистите хранилище ОС. Повторяйте при обновлении зависимостей. Тот же фильтр подходит для системного PEM: для проверки без записи добавьте `--check` после пути к файлу. Для `uv` с системным TLS используйте очищенное системное хранилище и настройку `UV_SYSTEM_CERTS=true` в версиях, которые ее поддерживают:
+
+```bash
+python3 - /path/to/cacert.pem <<'PY'
+import base64, hashlib, os, re, shutil, sys, tempfile
+from pathlib import Path
+
+path = Path(sys.argv[1]).resolve(strict=True)
+blocked = set("""86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B
+D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4
+40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367
+125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F
+BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3
+0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66""".split())
+data = path.read_bytes()
+pem = re.compile(rb"-----BEGIN CERTIFICATE-----(.*?)-----END CERTIFICATE-----", re.S)
+def keep(match):
+    der = base64.b64decode(b"".join(match[1].split()), validate=True)
+    return b"" if hashlib.sha256(der).hexdigest().upper() in blocked else match[0]
+
+clean, count = pem.subn(keep, data)
+if not count or not pem.search(clean):
+    sys.exit("Invalid or empty CA bundle")
+if "--check" in sys.argv[2:]:
+    sys.exit("FAIL: target CA present" if clean != data else 0)
+if clean != data:
+    with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as tmp:
+        tmp.write(clean)
+    try:
+        shutil.copymode(path, tmp.name)
+        os.replace(tmp.name, path)
+    finally:
+        if os.path.exists(tmp.name):
+            os.unlink(tmp.name)
+PY
+```
 
 {% endcut %}
 
@@ -1193,7 +1307,7 @@ export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 Node.js использует встроенный в бинарный файл набор корневых сертификатов, поэтому обновление хранилища ОС на него не влияет.
 
-Для временного решения исправьте системное хранилище и запускайте Node.js с параметром `--use-openssl-ca`, чтобы использовать хранилище ОС вместо встроенного набора. Параметр `--use-system-ca` для этой цели не подходит: он добавляет сертификаты ОС к встроенному набору, а не заменяет его.
+Для временного решения исключите все шесть CA из системного хранилища и запускайте Node.js с параметром `--use-openssl-ca`, чтобы использовать хранилище ОС вместо встроенного набора. Параметр `--use-system-ca` для этой цели не подходит: он добавляет сертификаты ОС к встроенному набору, а не заменяет его. Проверьте также `NODE_EXTRA_CA_CERTS` и PEM, который приложение передает в параметре `ca`: к этим файлам примените фильтр из раздела Python.
 
 ```bash
 export NODE_OPTIONS=--use-openssl-ca
@@ -1204,6 +1318,8 @@ export NODE_OPTIONS=--use-openssl-ca
 {% cut "Браузеры" %}
 
 Скомпрометированные сертификаты заблокированы механизмами отзыва браузеров: в Firefox и Chrome — с 17.10.2026, на устройствах Apple — с 19.10.2026, на платформах Microsoft — с 20.10.2026. Обновите браузер до актуальной версии и не отключайте автоматическое обновление. В Firefox блокировка, которая не зависит от доставки списков отзыва, включена в версиях `158.0.1`, ESR `153.5.1` и ESR `115.43.1`.
+
+Для управляемых браузеров примените политику недоверия ко всем шести корням в хранилище, которое использует конкретный браузер и профиль. Учитывайте локально импортированные CA. Проверка двух октябрьских адресов не подтверждает исключение всех шести.
 
 {% endcut %}
 
@@ -1219,6 +1335,28 @@ export NODE_OPTIONS=--use-openssl-ca
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Block-EmudhraCompromisedCA.ps1
 ```
 
+Для ноябрьской меры распространите все шесть корней в «Недоверенные сертификаты» компьютера через групповую политику. Для локальной ВМ поместите шесть исходных корневых сертификатов в отдельный каталог в формате DER с расширением `.cer` и выполните следующий блок PowerShell от имени администратора. Он сверяет полный набор по SHA-256 перед импортом в `LocalMachine\Disallowed`:
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$expected = @(
+  '86A1ECBA089C4A8D3BBE2734C612BA341D813E043CF9E8A862CD5C57A36BBE6B'
+  'D7A7A0FB5D7E2731D771E9484EBCDEF71D5F0C3E0A2948782BC83EE0EA699EF4'
+  '40F6AF0346A99AA1CD1D555A4E9CCE62C7F9634603EE406615833DC8C8D00367'
+  '125609AA301DA0A249B97A8239CB6A34216F44DCAC9F3954B14292F2E8C8608F'
+  'BC4D809B15189D78DB3E1D8CF4F9726A795DA1643CA5F1358E1DDB0EDC0D7EB3'
+  '0C2CD63DF7806FA399EDE809116B575BF87989F06518F9808C860503178BAF66'
+)
+$files = @(Get-ChildItem -LiteralPath 'C:\CA\emudhra' -Filter '*.cer' -File)
+$hashes = @($files | ForEach-Object { (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash })
+if ($files.Count -ne 6 -or (Compare-Object $expected $hashes)) {
+    throw 'Expected exactly the six listed DER certificates'
+}
+foreach ($file in $files) {
+    Import-Certificate -FilePath $file.FullName -CertStoreLocation 'Cert:\LocalMachine\Disallowed' -ErrorAction Stop
+}
+```
+
 Приложения, которые используют независимые наборы сертификатов, требуют отдельного обновления.
 
 
@@ -1227,7 +1365,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Block-EmudhraCompromis
 
 ### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2026-111943}
 
-В критических сервисах и зависимостях Yandex Cloud отзывается доверие к сертификатам eMudhra. Пользовательские образы и образы в Cloud Marketplace в процессе обновления.
+В критических сервисах и зависимостях Yandex Cloud отзывается доверие к сертификатам eMudhra. Пользовательские образы и образы в Cloud Marketplace в процессе обновления. Отзыв доверия и обновление образов охватывают также вторую партию сертификатов eMudhra (RSA CA) и корневой сертификат emSign Root CA — G1.
 
 ### Дополнительные материалы {#references-CVE-2026-111943}
 
@@ -1236,6 +1374,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Block-EmudhraCompromis
 * [Бюллетень Red Hat RHSB-2026-012](https://access.redhat.com/security/vulnerabilities/RHSB-2026-012).
 * [Описание инцидента на Xakep.ru](https://xakep.ru/2026/10/21/emudhra-certs/).
 * [Связанная уязвимость Firefox CVE-2026-113470](https://nvd.nist.gov/vuln/detail/CVE-2026-113470).
+* [eMudhra Revokes 8 More CAs It Previously Declared Unaffected by Key Compromise — The Hacker News](https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html).
+* [Mozilla bug 2083449 — eMudhra: Private key compromise of Intermediate Certificates](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449).
 
 *Упомянутые названия продуктов и компаний могут являться товарными знаками соответствующих правообладателей. Упоминание товарных знаков носит информационный характер и не означает связи с правообладателями, их одобрения или поддержки.*
 

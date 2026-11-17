@@ -421,7 +421,7 @@
             * `version-id` — версия секрета.
             * `key` — ключ секрета.
 
-        [Установить](../../baremetal/operations/servers/reinstall-os-from-own-image.md) операционную систему из [собственного ISO-образа](../../baremetal/concepts/images.md#user-images) вы сможете позднее.
+        [Установить](../../baremetal/operations/servers/reinstall-os-from-own-image.md) операционную систему из [собственного загрузочного ISO-образа](../../baremetal/concepts/images.md#user-images) вы сможете позднее.
 
       * `storages` — настройки разметки [дисков](../../baremetal/concepts/disks/disk-types.md) в объекте `os-settings`. Необязательная настройка: если ее не передать, будет использована разметка по умолчанию для выбранной конфигурации. Возможные значения:
         

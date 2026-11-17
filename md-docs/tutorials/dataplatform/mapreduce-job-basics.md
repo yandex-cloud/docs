@@ -2,7 +2,7 @@
 
 # Работа с заданиями MapReduce
 
-[MapReduce](http://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранится в Yandex Object Storage. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
+[MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) — инструмент параллельной обработки больших (порядка нескольких десятков ТБ) наборов данных на кластерах в экосистеме Hadoop. Позволяет работать с данными в разных форматах. Ввод и вывод задания хранятся в Yandex Object Storage. MapReduce использует ряд библиотек, путь к которым определяется сборщиком [Apache Bigtop](https://github.com/apache/bigtop).
 
 В этой статье на простом примере показывается, как в Yandex Data Processing использовать MapReduce. При помощи MapReduce подсчитывается количество жителей 500 самых населенных городов мира из набора данных о городах.
 
@@ -15,7 +15,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -26,17 +25,15 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по OS Login, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
@@ -47,23 +44,25 @@
 
     * **Окружение** — `PRODUCTION`.
     * **Сервисы**:
+
         * `HDFS`
         * `MAPREDUCE`
         * `YARN`
+
     * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
     * **Имя бакета**: выберите бакет для результатов обработки.
 
 ## Создайте задание MapReduce {#create-job}
 
-1. [Скачайте](http://download.geonames.org/export/dump/cities500.zip) и [загрузите в бакет](../../storage/operations/objects/upload.md) для исходных данных архив CSV-файла с набором данных о городах.
+1. [Скачайте](https://download.geonames.org/export/dump/cities500.zip) и [загрузите в бакет](../../storage/operations/objects/upload.md) для исходных данных архив CSV-файла с набором данных о городах.
 1. Загрузите в бакет для исходных данных файлы на языке Python с кодом программ предобработки данных (этап map) `mapper.py` и вычисления финальных данных (этап reduce) `reducer.py`:
 
     `mapper.py`
 
     ```python
-    #!/usr/bin/python
+    #!/usr/bin/env python3
     import sys
-    
+
     population = sum(int(line.split('\t')[14]) for line in sys.stdin)
     print(population)
     ```
@@ -71,9 +70,9 @@
     `reducer.py`
 
     ```python
-    #!/usr/bin/python
+    #!/usr/bin/env python3
     import sys
-    
+
     population = sum(int(value) for value in sys.stdin)
     print(population)
     ```
@@ -82,6 +81,7 @@
 
     * **Основной класс**: `org.apache.hadoop.streaming.HadoopStreaming`
     * **Аргументы**:
+
        * `-mapper`
        * `mapper.py`
        * `-reducer`
@@ -92,10 +92,14 @@
        * `s3a://<имя_бакета_для_исходных_данных>/cities500.txt`
        * `-output`
        * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
+
     * **Файлы**:
+
        * `s3a://<имя_бакета_для_исходных_данных>/mapper.py`
        * `s3a://<имя_бакета_для_исходных_данных>/reducer.py`
+
     * **Настройки**:
+
        * `mapreduce.job.maps: 6`
        * `yarn.app.mapreduce.am.resource.mb: 2048`
        * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`

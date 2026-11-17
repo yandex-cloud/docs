@@ -11,7 +11,7 @@
 * [Подключиться к KVM-консоли](servers/server-kvm.md)
 * [Остановить, запустить или перезапустить сервер](servers/server-stop-and-start.md)
 * [Отказаться от аренды сервера](servers/server-lease-cancel.md)
-* [Загрузить собственный образ операционной системы](image-upload.md)
+* [Создать загрузочный образ](image-upload.md)
 * [Подключить сервер BareMetal к Yandex Cloud Backup](backup-baremetal.md)
 * [Воспользоваться диском восстановления и диагностики Rescue-CD](servers/rescue-boot.md)
 * [Переустановить операционную систему из образа Marketplace](servers/reinstall-os-from-marketplace.md)

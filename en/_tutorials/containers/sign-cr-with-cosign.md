@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. [Create these service accounts](../../iam/operations/sa/create.md):
      * [Service account](../../iam/concepts/users/service-accounts.md) for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) that will host the new [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This service account will be used to create {{ managed-k8s-name }} cluster resources.
-     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the Docker image [registry](../../container-registry/concepts/registry.md) folder. Nodes will use this account to pull the required Docker images from the registry.
+     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the Docker image [registry](../../container-registry/concepts/registry.md) folder. Nodes will use this account to pull the required Docker images from the registry.
 
      You can use the same service account for both operations.
 
@@ -277,7 +277,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a policy to verify signatures {#kyverno}
 
-1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role and save it to a file:
+1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role and save it to a file:
 
    ```bash
    yc iam key create \

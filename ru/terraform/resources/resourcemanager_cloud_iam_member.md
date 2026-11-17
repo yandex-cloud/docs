@@ -25,6 +25,7 @@ resource "yandex_resourcemanager_cloud_iam_member" "admin" {
 
 ## Arguments & Attributes Reference
 
+- `cel_expression` (String). CEL condition for the access binding. Changing the expression replaces the binding.
 - `cloud_id` (**Required**)(String). The ID of the `cloud` to attach the policy to.
 - `id` (String). The ID of this resource.
 - `member` (**Required**)(String). An identity that will be granted the privilege in the `role`. It can have one of the following values:

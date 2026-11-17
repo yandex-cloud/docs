@@ -1,6 +1,6 @@
 # Deleting a cloud
 
-To delete a [cloud](../../concepts/resources-hierarchy.md#cloud), you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To delete a [cloud](../../concepts/resources-hierarchy.md#cloud), you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% note info %}
 
@@ -106,7 +106,7 @@ Also, if the `resourceManager.denyFolderRemoval` access policy is created for a 
 
       For more on the properties of the `yandex_resourcemanager_cloud` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
 
-  1. In the command line, change to the folder where you edited the configuration file.
+  1. In the terminal, navigate to the directory where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
@@ -125,7 +125,7 @@ Also, if the `resourceManager.denyFolderRemoval` access policy is created for a 
       terraform plan
       ```
 
-      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
 

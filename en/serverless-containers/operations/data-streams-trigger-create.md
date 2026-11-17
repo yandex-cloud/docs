@@ -20,7 +20,7 @@ To create a trigger, you will need:
 * Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](create.md).
-    * [Create a container revision](manage-revision.md#create).
+    * [Create a container revision](manage-revision.md).
 
 * Optionally, a [dead-letter queue](../concepts/dlq.md) for unprocessed messages from the container. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
@@ -162,7 +162,7 @@ To create a trigger, you will need:
          yds = {
            stream             = "<data_stream_name>"
            database           = "<database_location>"
-           consumer           = "<onsumer_name>"
+           consumer           = "<сonsumer_name>"
            service_account_id = "<service_account_ID>"
            batch_settings = {
              max_count = <max_number_of_messages>

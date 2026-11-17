@@ -1,6 +1,6 @@
 ---
 title: '{{ api-gw-full-name }} use cases'
-description: Various use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
+description: Use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ api-gw-name }} tutorials
@@ -17,6 +17,7 @@ description: Various use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](canary-release.md)
 * [{#T}](serverless-live-debug.md)
+* [{#T}](sourcecraft-sites-web-app.md)
 
 ## Serverless bots {#bots}
 

@@ -19,7 +19,7 @@ When you migrate your cloud from one organization to another, the Yandex account
 
 {% endnote %}
 
-To move a cloud to another organization, you need the `{{ roles-cloud-owner }}` [role](../../security/index.md#resource-manager-clouds-owner) for the cloud you are transferring and the `{{ roles-organization-owner }}` [role](../../../organization/security/index.md#organization-manager-organizations-owner) for the target organization. For more information about role assignment, see [Assigning a role for a cloud](set-access-bindings.md#access-to-user) and [Assigning a role for an organization](../../../organization/security/index.md#add-role).
+To move a cloud to another organization, you need the `resource-manager.clouds.owner` [role](../../security/index.md#resource-manager-clouds-owner) for the cloud you are transferring and the `organization-manager.organizations.owner` [role](../../../organization/security/index.md#organization-manager-organizations-owner) for the target organization. For more information about role assignment, see [Assigning a role for a cloud](set-access-bindings.md#access-to-user) and [Assigning a role for an organization](../../../organization/security/index.md#add-role).
 
 {% list tabs group=instructions %}
 

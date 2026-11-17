@@ -5,7 +5,9 @@ description: Follow this guide to create a new cloud.
 
 # Creating a new cloud
 
-[After you sign up](../../../billing/quickstart/index.md#create_billing_account) with {{ yandex-cloud }} and create an [organization](../../../organization/concepts/organization.md), you can create your first [cloud](../../concepts/resources-hierarchy.md#cloud). If you need an additional cloud, follow the same guide to create it.
+[After you sign up](../../../billing/quickstart/index.md) with {{ yandex-cloud }} and create an [organization](../../../organization/concepts/organization.md), you can create your first [cloud](../../concepts/resources-hierarchy.md#cloud). If you need an additional cloud, follow the same guide to create it.
+
+To create a cloud, you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) or [editor](../../../iam/roles-reference.md#editor) role for the organization you are creating the cloud in or a broader role. If you [created an organization](../../../organization/quickstart.md#create-organization), you already have the required permissions as its owner.
 
 {% note info %}
 
@@ -19,7 +21,7 @@ To create a cloud:
 
 - Management console {#console}
 
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure that the [billing account](../../../billing/concepts/billing-account.md) is in the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. Navigate to the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page and make sure your [billing account](../../../billing/concepts/billing-account.md) status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../../billing/quickstart/index.md) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
   1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) and select the [organization](../../../organization/concepts/organization.md).
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the organization name.
   1. Select ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.

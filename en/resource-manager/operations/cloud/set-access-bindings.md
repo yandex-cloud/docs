@@ -8,6 +8,8 @@
 
 To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the cloud.
 
+To assign roles, you need either the [resource-manager.admin](../../security/index.md#resource-manager-admin) or [admin](../../../iam/roles-reference.md#admin) role for that cloud or a broader role. Only the cloud owner can assign the [resource-manager.clouds.owner](../../security/index.md#resource-manager-clouds-owner) role.
+
 ## Assigning a role for a cloud {#access-to-user}
 
 {% list tabs group=instructions %}
@@ -88,8 +90,8 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
       Where:
 
-      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
-      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--role`: ID of the role you need to assign, e.g., `resource-manager.clouds.owner`.
+      * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -105,7 +107,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
   1. Describe the roles you are assigning in the configuration file:
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -121,9 +123,9 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
       Where:
 
-      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `cloud_id`: Cloud ID. You can get the list of available clouds using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
       * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -167,7 +169,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
       }
       ```
 
-  1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+  1. Get the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
 
       ```bash
       curl \
@@ -214,7 +216,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -243,7 +245,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Make sure the resource has no important roles assigned before proceeding:
+  1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```bash
       yc resource-manager cloud list-access-bindings <cloud_name_or_ID>
@@ -259,7 +261,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
       Where:
 
       * `role`: ID of the role you need to assign.
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to.
 
           {% cut "Subject designations" %}
 
@@ -283,7 +285,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
   1. Describe the cloud access permission parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -305,9 +307,9 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
 
       Where:
 
-      * `cloud_id`: Cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`. This is a required setting.
+      * `cloud_id`: Cloud ID. You can get the list of available clouds using the `yc resource-manager cloud list` [CLI](../../../cli/quickstart.md) command. This is a required setting.
       * `role`: Role you need to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_member` resource, only one role can be assigned. This is a required setting.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -361,7 +363,7 @@ To grant a user access to [cloud](../../concepts/resources-hierarchy.md#cloud) r
   Where:
 
   * `roleId`: Role.
-  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       {% cut "Subject designations" %}
 
@@ -386,7 +388,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
 - Management console {#console}
 
-  You assign roles to a service account the same way as to a user account.
+  Roles are assigned to a service account the same way as to a user account.
 
   To assign a service account a role for a cloud:
 
@@ -394,7 +396,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
 - CLI {#cli}
 
-  1. Find out the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Get the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       yc iam service-account list
@@ -420,7 +422,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
       Where:
 
-      * `--role`: ID of the role you need to assign, e.g., `{{ roles-cloud-owner }}`.
+      * `--role`: ID of the role you need to assign, e.g., `resource-manager.clouds.owner`.
       * `--service-account-id`: Service account ID. You can also use the `--service-account-name` parameter and specify the service account name instead of the ID.
 
 - {{ TF }} {#tf}
@@ -429,7 +431,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
   1. In the configuration file, describe the resources you want to create:
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
@@ -442,8 +444,8 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       Where:
 
       * `cloud_id`: Cloud ID. This is a required setting.
-      * `role`: Role. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md). This is a required setting.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`. This is a required setting.
+      * `role`: Role. For role descriptions, see the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md) in the {{ iam-full-name }} documentation. This is a required setting.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to. For a service account, specify `serviceAccount:<service_account_ID>`. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -459,7 +461,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
 
 - API {#api}
 
-  1. Find out the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
+  1. Get the ID of the service account you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       curl \
@@ -510,7 +512,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 

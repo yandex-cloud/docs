@@ -51,7 +51,7 @@ yc config set folder-id <идентификатор_каталога>
 В примерах CLI ниже используются переменные. На рабочей станции задайте их значения:
 
 ```bash
-export VERSION=26.3.1
+export VERSION=26.3.2
 export IMAGE_NAME="stackland-${VERSION//./-}"
 export ZONE=ru-central1-d
 export NETWORK_NAME=stackland-network
@@ -214,7 +214,7 @@ ssh "yc-user@<ip_бастиона>"
 Переменные рабочей станции не передаются в SSH-сессию автоматически. На бастионном хосте задайте ту же версию Stackland и тот же домен кластера:
 
 ```bash
-export VERSION=26.3.1
+export VERSION=26.3.2
 export BASE_DOMAIN=stackland.internal
 ```
 
@@ -225,7 +225,7 @@ sudo apt update
 sudo apt install unzip jq curl wget -y
 ```
 
-Установите `kubectl`: он понадобится для проверки состояния кластера после установки. Для релиза `26.3.1` используйте `v1.34.1` — версию Kubernetes в этом релизе. Согласно [правилам совместимости Kubernetes](https://kubernetes.io/releases/version-skew-policy/), версия `kubectl` может отличаться от версии API-сервера не более чем на один минорный выпуск.
+Установите `kubectl`: он понадобится для проверки состояния кластера после установки. Для релиза `26.3.2` используйте `v1.34.1` — версию Kubernetes в этом релизе. Согласно [правилам совместимости Kubernetes](https://kubernetes.io/releases/version-skew-policy/), версия `kubectl` может отличаться от версии API-сервера не более чем на один минорный выпуск.
 
 ```bash
 KUBECTL_VERSION="v1.34.1"

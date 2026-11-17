@@ -30,7 +30,7 @@ items:
             href: operations/servers/server-lease-cancel.md
           - name: Восстановить сервер из карантина
             href: operations/servers/restore-from-quarantine.md
-          - name: Загрузить свой образ ОС
+          - name: Создать загрузочный образ
             href: operations/image-upload.md
           - name: >-
               Подключить существующий сервер {{ baremetal-name }} к {{
@@ -145,7 +145,7 @@ items:
         items:
           - name: Обзор
             href: concepts/control.md
-          - name: Образы
+          - name: Образы в {{ baremetal-full-name }}
             href: concepts/images.md
           - name: Аудитные логи {{ at-name }}
             items:

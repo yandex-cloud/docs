@@ -13,7 +13,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -24,7 +23,6 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
@@ -34,7 +32,7 @@
 
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../security/index.md#dataproc-agent) и [`dataproc.provisioner`](../security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по OS Login, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
@@ -45,9 +43,11 @@
 
     * **Окружение** — `PRODUCTION`.
     * **Сервисы**:
+
         * `HDFS`
         * `SPARK`
         * `YARN`
+
     * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
     * **Имя бакета**: выберите бакет для результатов обработки.
 
@@ -100,7 +100,7 @@
                 .reduceByKey(lambda a, b: a + b)
 
             if out_dir.startswith('s3a://'):
-                counts.saveAsTextFile(out_dir) 
+                counts.saveAsTextFile(out_dir)
             else:
                 default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
                 counts.saveAsTextFile(default_fs + out_dir)

@@ -2,6 +2,8 @@
 
 To update a [folder](../../concepts/resources-hierarchy.md#folder) name or description, use the management console, CLI, API, or {{ TF }}.
 
+To assign roles, you need either the [resource-manager.editor](../../security/index.md#resource-manager-editor) or [editor role](../../../iam/roles-reference.md#editor) for that folder or a broader role.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -56,7 +58,7 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
 
      {% endcut %}
 
-     For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+     For more on the properties of the `yandex_resourcemanager_folder` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. Validate your configuration using this command:
      ```
@@ -74,7 +76,7 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
      terraform plan
      ```
   
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
      ```

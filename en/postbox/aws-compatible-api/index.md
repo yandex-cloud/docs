@@ -48,4 +48,4 @@ A request must include one of the authentication headers:
 
    You can test the signature generation process using the AWS CLI in debug mode. For this, add the `--debug` flag to the `aws` command. For more information, see [this debug example](signing-requests.md#debugging).
 
-   To avoid generating the signature manually, use the [cURL](https://curl.se/) utility: it automatically signs requests to the Amazon API. For more information, see [this API usage example](#ses-api-example).
+   To avoid generating the signature manually, use the [cURL](https://curl.se/) utility: it automatically signs requests to the Amazon API. For more information, see [this API usage example](../api-ref/authentication.md#ses-api-example).

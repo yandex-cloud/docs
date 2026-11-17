@@ -418,11 +418,7 @@ description: Из статьи вы узнаете, как изменить на
 
 ## Изменить дополнительные настройки кластера {#change-additional-settings}
 
-{% note warning %}
-
-Изменение дополнительных настроек приведет к перезапуску кластера. Исключением являются настройки окна обслуживания и защиты от удаления.
-
-{% endnote %}
+{% include [additional-settings-change-impact](../../_includes/mdb/mpg/additional-settings-change-impact.md) %}
 
 {% list tabs group=instructions %}
 

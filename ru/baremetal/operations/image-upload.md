@@ -1,11 +1,11 @@
 ---
-title: Как загрузить собственный образ в {{ baremetal-full-name }}
-description: Следуя данной инструкции, вы сможете добавить собственный образ и развернуть из него сервер.
+title: Как создать загрузочный образ в {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы сможете создать собственный загрузочный ISO-образ в {{ baremetal-name }}, чтобы запустить с него сервер.
 ---
 
-# Загрузить собственный образ операционной системы
+# Создать загрузочный образ
 
-Вы можете добавить [собственный образ](../concepts/images.md#user-images) операционной системы или программного продукта, чтобы иметь возможность самостоятельно установить его на сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса {{ objstorage-full-name }}.
+Вы можете добавить [собственный загрузочный ISO-образ](../concepts/images.md#user-images), чтобы запускать с него сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса {{ objstorage-full-name }}.
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
@@ -17,9 +17,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [upload-iso-to-bucket](../../_includes/baremetal/upload-iso-to-bucket.md) %}
 
-## Создайте образ в {{ baremetal-name }} {#create-image}
+## Создайте загрузочный образ в {{ baremetal-name }} {#create-image}
 
-Создайте новый образ по ссылке, полученной в {{ objstorage-name }}:
+Создайте новый загрузочный образ с помощью ссылки, полученной в {{ objstorage-name }}:
 
 {% list tabs group=instructions %}
 
@@ -43,13 +43,13 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Посмотрите описание команды для загрузки образа:
+   1. Посмотрите описание команды для создания загрузочного образа:
 
       ```bash
       yc baremetal v2 boot-image create --help
       ```
 
-   1. Загрузите образ:
+   1. Создайте загрузочный образ:
 
       ```bash
       yc baremetal v2 boot-image create \
@@ -73,12 +73,12 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
+  Чтобы создать загрузочный образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
   
   {% include [create-baremetal-image-api](../../_includes/baremetal/create-baremetal-image-api.md) %}
 
 {% endlist %}
 
-## Удалите образ из {{ objstorage-name }} {#delete-image}
+## Удалите образ из {{ objstorage-name }} (опционально) {#delete-image}
 
-После создания образа можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
+После создания загрузочного образа в {{ baremetal-name }} можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса {{ objstorage-name }}. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.

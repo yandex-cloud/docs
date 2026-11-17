@@ -13,7 +13,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
@@ -24,17 +23,15 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../security/index.md#dataproc-agent) и [`dataproc.provisioner`](../security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по OS Login, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
@@ -45,9 +42,11 @@
 
     * **Окружение** — `PRODUCTION`.
     * **Сервисы**:
+
         * `HDFS`
         * `SPARK`
         * `YARN`
+
     * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
     * **Имя бакета**: выберите бакет для результатов обработки.
 
@@ -70,7 +69,7 @@
    
    1. [Загрузите](../../storage/operations/objects/upload.md) файл `text.txt` в бакет для исходных данных.
 
-1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://storage.yandexcloud.net/examples/scala-spark/word_count.scala) на языке Scala:
+1. Создайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.12-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа `word_count.scala` на языке Scala:
 
     {% cut "word_count.scala" %}
 
@@ -81,7 +80,7 @@
 
 
     object Main {
-        def main(args: Array[String]) {
+        def main(args: Array[String]): Unit = {
             if (args.length != 2){ // check number of args
                 System.err.println("Usage spark-app.jar <входная_директория> <выходная_директория>");
                 System.exit(-1);
@@ -118,9 +117,10 @@
 
 1. [Создайте задание Spark](../operations/jobs-spark.md#create) с параметрами:
 
-    * **Основной JAR файл**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **Основной JAR файл**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.12-0.1.0-SNAPSHOT.jar`
     * **Основной класс**: `com.yandex.cloud.dataproc.scala.Main`
     * **Аргументы**:
+
         * `s3a://<имя_бакета_для_исходных_данных>/text.txt`
         * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
 

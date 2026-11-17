@@ -5,10 +5,14 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ at-name }}
 
-В этом разделе описаны метрики сервиса {{ at-name }}, поставляемые в [{{ metrics-name }}](../../monium/metrics/quickstart.md).
+Метрики {{ at-name }} автоматически передаются в {{ metrics-name }} и доступны в [проекте каталога](*monium-folder-project), в котором находится трейл.
 
 {% include [audit-trails](../../_includes/monitoring/metrics-ref/audit-trails.md) %}
 
-## Что дальше {#whats-next}
+
+#### Полезные ссылки {#see-also}
 
 * Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) {{ at-name }} в {{ monium-name }}.
+
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

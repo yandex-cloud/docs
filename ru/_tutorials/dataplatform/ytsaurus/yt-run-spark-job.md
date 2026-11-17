@@ -163,7 +163,7 @@
 1. Получите версию Spark из названия tgz-файла:
 
     ```bash
-    yt find //home/spark/distrib --name *tgz
+    yt find //home/spark/distrib --name '*tgz'
     ```
 
     Результат:

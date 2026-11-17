@@ -203,6 +203,28 @@ resource "yandex_audit_trails_trail" "storage_trail" {
   }
 }
 ```
+```terraform
+//
+// Export management events to the same Monium project as Audit Trails metrics.
+// The destination project cannot be configured.
+//
+resource "yandex_audit_trails_trail" "monium_trail" {
+  name               = "monium-trail"
+  folder_id          = "home-folder"
+  service_account_id = "trail-service-account"
+
+  monium_destination {}
+
+  filtering_policy {
+    management_events_filter {
+      resource_scope {
+        resource_id   = "home-folder"
+        resource_type = "resource-manager.folder"
+      }
+    }
+  }
+}
+```
 
 ## Arguments & Attributes Reference
 
@@ -214,7 +236,7 @@ resource "yandex_audit_trails_trail" "storage_trail" {
 - `service_account_id` (**Required**)(String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `status` (*Read-Only*) (String). Status of this trail.
 - `trail_id` (*Read-Only*) (String). ID of the trail resource.
-- `data_stream_destination` [Block]. Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination` and `storage_destination`.
+- `data_stream_destination` [Block]. Structure describing destination data stream of the trail. Mutually exclusive with `logging_destination`, `storage_destination` and `monium_destination`.
   - `codec` (String). Codec for compressing events. Allowed values: RAW, GZIP, ZSTD. Default: RAW
   - `database_id` (**Required**)(String). ID of the [YDB](https://yandex.cloud/docs/ydb/concepts/resources) hosting the destination data stream.
   - `stream_name` (**Required**)(String). Name of the [YDS stream](https://yandex.cloud/docs/data-streams/concepts/glossary#stream-concepts) belonging to the specified YDB.
@@ -278,9 +300,10 @@ resource "yandex_audit_trails_trail" "storage_trail" {
     - `resource_scope` [Block]. Structure describing that events will be gathered from the specified resource.
       - `resource_id` (**Required**)(String). Resource ID.
       - `resource_type` (**Required**)(String). Resource type.
-- `logging_destination` [Block]. Structure describing destination log group of the trail. Mutually exclusive with `storage_destination` and `data_stream_destination`.
+- `logging_destination` [Block]. Structure describing destination log group of the trail. Mutually exclusive with `storage_destination`, `data_stream_destination` and `monium_destination`.
   - `log_group_id` (**Required**)(String). ID of the destination [Cloud Logging Group](https://yandex.cloud/docs/logging/concepts/log-group).
-- `storage_destination` [Block]. Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination` and `data_stream_destination`.
+- `monium_destination` [Block]. Structure describing Monium destination of the trail. Mutually exclusive with `storage_destination`, `logging_destination` and `data_stream_destination`. This block has no configurable parameters.
+- `storage_destination` [Block]. Structure describing destination bucket of the trail. Mutually exclusive with `logging_destination`, `data_stream_destination` and `monium_destination`.
   - `aggregation_period` (String). Target interval between starts of event exports to Object Storage, as a duration string (for example, `1m`, `300s`, or `1h`). Must be between `1m` and `1h`, inclusive. If omitted on creation, the server uses `5m`.
   - `bucket_name` (**Required**)(String). Name of the [destination bucket](https://yandex.cloud/docs/storage/concepts/bucket).
   - `object_prefix` (String). Additional prefix of the uploaded objects. If not specified, objects will be uploaded with prefix equal to `trail_id`.

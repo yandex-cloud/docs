@@ -13,6 +13,11 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% note info %}
+
+Для выполнения руководства используйте образ Yandex Data Processing версии 2.0. Этот образ имеет статус deprecated, но создание кластеров с ним доступно. В образах 2.1 и 2.2 компонент Hive недоступен.
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -24,30 +29,30 @@
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../security/index.md#dataproc-agent) и [`dataproc.provisioner`](../security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по OS Login, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) с [образом версии 2.0](../concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **Окружение** — `PRODUCTION`.
     * **Сервисы**:
+
         * `HDFS`
         * `SPARK`
         * `HIVE`
+
     * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
     * **Имя бакета**: выберите бакет для результатов обработки.
 
@@ -92,7 +97,7 @@
     LOCATION 's3a://<бакет_для_исходных_данных>/cities';
 
     /* Показать количество городов и суммарную численность населения в них: */
-    SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
+    SELECT COUNT(*) num_cities, SUM(population) sum_population FROM cities;
 
     /* Показать минимальную и максимальную численность населения: */
     SELECT MIN(population) min_population, MAX(population) max_population FROM cities;
@@ -105,7 +110,7 @@
     * **Драйвер**: `Файл`
     * **Файл с запросами**: `s3a://<имя_бакета_для_исходных_данных>/cities.sql`
 
-1. Подождите, пока [статус задания](../operations/jobs-spark.md#get-info) изменится на `Done`.
+1. Подождите, пока [статус задания](../operations/jobs-hive.md#get-info) изменится на `Done`.
 
 1. [Откройте логи задания](../operations/jobs-hive.md#get-logs) и просмотрите результаты обработки:
 

@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {{ baremetal-full-name }} позволяет пользователям устанавливать и переустанавливать операционную систему сервера из собственных ISO-образов. Таким способом вы можете установить на сервер операционные системы семейств [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows). При этом, если устанавливаемая ОС требует лицензии, пользователь должен использовать собственную лицензию.
 
-При установке или переустановке ОС из [своего ISO-образа](../../concepts/images.md#user-images) вы можете произвольным образом [перераспределять](../../concepts/server-advanced-settings.md#storage-management) [дисковое пространство](../../concepts/disks/disk-types.md), доступное на сервере.
+При установке или переустановке ОС из [собственного загрузочного ISO-образа](../../concepts/images.md#user-images) вы можете произвольным образом [перераспределять](../../concepts/server-advanced-settings.md#storage-management) [дисковое пространство](../../concepts/disks/disk-types.md), доступное на сервере.
 
 Создание отказоустойчивой дисковой разметки требует опыта и понимания технологий [RAID](../../concepts/disks/raid.md) и/или [LVM](https://ru.wikipedia.org/wiki/LVM), поэтому рекомендуется использовать установку ОС из публичного образа {{ marketplace-short-name }}, а приведенный в этой инструкции способ установки использовать только при необходимости внесения существенных изменений, недоступных при установке из {{ marketplace-short-name }}.
 
@@ -23,63 +23,10 @@ description: Следуя данной инструкции, вы сможете
 
 ## Запустите сервер с собственного ISO-образа в режиме UEFI {#boot-from-image}
 
-Чтобы создать из вашего ISO-образа образ {{ baremetal-name }} и запустить с него сервер:
+Чтобы создать из вашего ISO-образа загрузочный образ {{ baremetal-name }} и запустить с него сервер:
 
 1. [Скачайте](https://releases.ubuntu.com/) на ваш локальный компьютер нужный образ операционной системы.
-1. {% include [upload-iso-to-bucket](../../../_includes/baremetal/upload-iso-to-bucket.md) %}
-1. [Создайте](../image-upload.md#create-image) из загруженного ISO-образа образ {{ baremetal-name }}:
-
-    {% list tabs group=instructions %}
-
-    - Консоль управления {#console}
-
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать образ.
-      1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-      1. На панели слева выберите ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
-      1. Нажмите кнопку **Загрузить образ**.
-      1. Введите имя образа. Требования к имени:
-
-           {% include [name-format](../../../_includes/name-format.md) %}
-
-      1. (Опционально) Добавьте описание образа.
-      1. Вставьте ссылку на образ, полученную в {{ objstorage-name }} на предыдущем шаге.
-      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
-
-    - CLI {#cli}
-
-      {% include [cli-install](../../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-      1. Посмотрите описание команды для загрузки образа:
-
-         ```bash
-         yc baremetal v2 boot-image create --help
-         ```
-
-      1. Выполните команду:
-
-         ```bash
-         yc baremetal v2 boot-image create \
-           --boot-image '{name="<имя_образа>",uri="<ссылка_на_образ>"}'
-         ```
-
-         В объекте `--boot-image` укажите:
-
-         * `name` — имя образа. Требования к имени:
-            
-             {% include [name-format](../../../_includes/name-format.md) %}
-
-         * `uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
-
-    - API {#api}
-
-      Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../../api-ref/Image/create.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../../api-ref/grpc/Image/create.md).
-      
-      {% include [create-baremetal-image-api](../../../_includes/baremetal/create-baremetal-image-api.md) %}
-
-    {% endlist %}
-
+1. [Создайте загрузочный образ](../image-upload.md) {{ baremetal-name }} из скачанного ISO-файла.
 1. [Подключитесь](./server-kvm.md) к KVM-консоли сервера.
 
     {% note info %}

@@ -8,6 +8,8 @@
 
 To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the folder.
 
+To assign roles, you need either the [resource-manager.admin](../../security/index.md#resource-manager-admin) or [admin](../../../iam/roles-reference.md#admin) role for that folder or a broader role.
+
 {% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 ## Assigning a role for a folder {#access-to-user}
@@ -92,7 +94,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       Where:
 
       * `--role`: ID of the role you need to assign.
-      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -108,7 +110,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   1. Describe the roles you are assigning in the configuration file:
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       data "yandex_resourcemanager_folder" "project1" {
@@ -126,7 +128,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
       * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
       * `role`: Role you need to assign. In one `yandex_resourcemanager_folder_iam_member` resource, only one role can be assigned.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -170,7 +172,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       }
       ```
 
-  1. Find out the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
+  1. Get the user ID by login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
 
       ```bash
       curl \
@@ -217,7 +219,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       Where:
 
       * `roleId`: Role.
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 
@@ -246,7 +248,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Make sure the resource has no important roles assigned before proceeding:
+  1. Make sure the resource has no roles assigned that you would not want to lose:
 
       ```bash
       yc resource-manager folder list-access-bindings <folder_name_or_ID>
@@ -262,7 +264,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       Where:
 
       * `role`: ID of the role you need to assign.
-      * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to.
 
           {% cut "Subject designations" %}
 
@@ -286,7 +288,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   1. Describe the folder access permissions in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Configuration file structure example:
 
       ```hcl
       data "yandex_resourcemanager_folder" "project1" {
@@ -310,7 +312,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
       * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required setting.
       * `role`: Role you need to assign. In one `yandex_resourcemanager_folder_iam_member` resource, only one role can be assigned.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. This is a required setting.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to. This is a required setting.
 
           {% cut "Subject designations" %}
 
@@ -363,7 +365,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   Where:
 
   * `roleId`: Role.
-  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+  * `subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       {% cut "Subject designations" %}
 
@@ -416,7 +418,7 @@ A service account can be [assigned](../../../iam/operations/sa/assign-role-for-s
 
       * `folder_id`: [Folder ID](get-id.md).
       * `role`: Role you need to assign.
-      * `member`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role. For a service account, specify `serviceAccount:<service_account_ID>`.
+      * `member`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) to assign the role to. For a service account, specify `serviceAccount:<service_account_ID>`.
 
           {% cut "Subject designations" %}
 
@@ -462,7 +464,7 @@ A service account can be [assigned](../../../iam/operations/sa/assign-role-for-s
 
       * `<folder_name_or_ID>`: Folder name or ID.
       * `--role`: Role ID, e.g., `editor`.
-      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Designation of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
           {% cut "Subject designations" %}
 

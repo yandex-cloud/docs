@@ -170,22 +170,6 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
  - [dns_zone_iam_binding](resources/dns_zone_iam_binding.md)
 
-#### Cloud Desktop
-
-##### Data Sources
-
- - [cloud_desktops_desktop](data-sources/cloud_desktops_desktop.md)
-
- - [cloud_desktops_desktop_group](data-sources/cloud_desktops_desktop_group.md)
-
- - [cloud_desktops_image](data-sources/cloud_desktops_image.md)
-
-##### Resources
-
- - [cloud_desktops_desktop](resources/cloud_desktops_desktop.md)
-
- - [cloud_desktops_desktop_group](resources/cloud_desktops_desktop_group.md)
-
 #### Cloud Interconnect
 
 ##### Data Sources

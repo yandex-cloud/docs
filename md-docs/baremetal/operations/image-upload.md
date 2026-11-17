@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Пошаговые инструкции](index.md) > Серверы > Загрузить свой образ ОС
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Пошаговые инструкции](index.md) > Серверы > Создать загрузочный образ
 
-# Загрузить собственный образ операционной системы
+# Создать загрузочный образ
 
-Вы можете добавить [собственный образ](../concepts/images.md#user-images) операционной системы или программного продукта, чтобы иметь возможность самостоятельно установить его на сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса Yandex Object Storage.
+Вы можете добавить [собственный загрузочный ISO-образ](../concepts/images.md#user-images), чтобы запускать с него сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса Yandex Object Storage.
 
 ## Загрузите файл образа в Object Storage {#upload-file}
 
@@ -12,7 +12,7 @@
 
 {% endnote %}
 
-[Загрузите](image-upload.md#upload-file) ISO-образ в [Yandex Object Storage](../../storage/index.md) и получите ссылку на загруженный объект:
+Загрузите ISO-образ в [Yandex Object Storage](../../storage/index.md) и получите ссылку на загруженный объект:
 
 1. Создайте бакет Object Storage:
 
@@ -67,7 +67,7 @@
 
     {% endlist %}
 
-1. Загрузите скачанный файл с образом в созданный бакет:
+1. Загрузите файл образа в созданный бакет:
 
     {% list tabs group=instructions %}
 
@@ -128,9 +128,9 @@
 
     {% endlist %}
 
-## Создайте образ в BareMetal {#create-image}
+## Создайте загрузочный образ в BareMetal {#create-image}
 
-Создайте новый образ по ссылке, полученной в Object Storage:
+Создайте новый загрузочный образ с помощью ссылки, полученной в Object Storage:
 
 {% list tabs group=instructions %}
 
@@ -158,13 +158,13 @@
    
    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   1. Посмотрите описание команды для загрузки образа:
+   1. Посмотрите описание команды для создания загрузочного образа:
 
       ```bash
       yc baremetal v2 boot-image create --help
       ```
 
-   1. Загрузите образ:
+   1. Создайте загрузочный образ:
 
       ```bash
       yc baremetal v2 boot-image create \
@@ -190,7 +190,7 @@
 
 - API {#api}
 
-  Чтобы создать образ в BareMetal, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
+  Чтобы создать загрузочный образ в BareMetal, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
   
   Выполните запрос:
   
@@ -245,6 +245,6 @@
 
 {% endlist %}
 
-## Удалите образ из Object Storage {#delete-image}
+## Удалите образ из Object Storage (опционально) {#delete-image}
 
-После создания образа можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса Object Storage. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.
+После создания загрузочного образа в BareMetal можно [удалить файл образа](../../storage/operations/objects/delete.md) из сервиса Object Storage. Также можно [удалить бакет](../../storage/operations/buckets/delete.md), если в нем не осталось объектов.

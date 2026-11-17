@@ -1,6 +1,6 @@
 # Getting notifications from services in a cloud
 
-By default, cloud owners (all users with the `{{ roles-cloud-owner }}` role) get notifications in the cloud.
+By default, cloud owners (all users with the `resource-manager.clouds.owner` role) get notifications in the cloud.
 
 If you want users to get notifications from services, add them to the list of users subscribed to notifications:
 

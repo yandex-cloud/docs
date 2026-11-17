@@ -19,4 +19,4 @@ For more information about Maven, see [this documentation](https://maven.apache.
 
 #### Useful links {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+[Supported artifact types](./index.md)

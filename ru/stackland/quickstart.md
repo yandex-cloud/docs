@@ -97,7 +97,7 @@ DNS-зона `$cluster.$baseDomain` должна быть делегирован
 
 {% include notitle [YAML-файл](_includes/yamls/quickstart/configuration.md) %}
 
-Для кластера с gVisor или Kata включите `spec.cluster.networking.cilium.socketLB.hostNamespaceOnly`. На работающем кластере следуйте процедуре [Настроить Cilium для gVisor и Kata](operations/cluster/upgrade-cluster.md#cilium-socket-lb).
+Начиная с версии 26.3.2, для кластера с gVisor или Kata параметр `spec.cluster.networking.cilium.socketLB.hostNamespaceOnly` включается автоматически, если его значение не задано явно. Порядок изменения настройки на работающем кластере и ее ограничения описаны в разделе [Настроить Cilium для gVisor и Kata](operations/cluster/upgrade-cluster.md#cilium-socket-lb).
 
 {% note tip %}
 

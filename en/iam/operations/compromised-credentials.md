@@ -42,7 +42,7 @@ To prevent an intruder from using your token:
 
 ### Authorized key {#key-reissue}
 
-If you need to prevent threats posed by a compromised key as quickly as possible, [delete](sa/delete.md) the service account.
+If you need to prevent threats posed by a compromised key as quickly as possible, [suspend](sa/suspend-reactivate.md#suspend) or [delete](sa/delete.md) the service account.
 
 If you prioritize keeping the process that uses the service account running, reissue the authorized keys:
 
@@ -71,7 +71,7 @@ Follow the steps described in the [Authorized key](#key-reissue) section.
 
 ### {{ captcha-name }} server key {#captcha-server-key}
 
-[Create a new CAPTCHA](../../smartcaptcha/quickstart.md#creat-captcha) and, on the website page, replace the old CAPTCHA, whose [server key](../../smartcaptcha/concepts/keys.md) was compromised, with the new one.
+[Create a new CAPTCHA](../../smartcaptcha/quickstart.md#create-captcha) and, on the website page, replace the old CAPTCHA, whose [server key](../../smartcaptcha/concepts/keys.md) was compromised, with the new one.
 
 ### Cookie {#cookie-invalidation}
 

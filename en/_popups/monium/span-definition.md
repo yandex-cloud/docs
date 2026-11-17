@@ -1,0 +1,1 @@
+A _span_ is a basic distributed tracing element representing a single operation in your system, e.g., HTTP request, database call, or function execution. For more information, see [{#T}](../../monium/traces/concepts.md#span).

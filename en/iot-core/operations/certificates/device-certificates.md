@@ -6,7 +6,7 @@ To start exchanging data and commands between devices and registries, you need t
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-* [Viewing a list of device certificates](device-certificates.md#list-cert)
+* [Viewing a list of device certificates](device-certificates.md#device-certificates-list)
 * [Adding a certificate to a device](device-certificates.md#add-cert)
 * [Deleting a device certificate](device-certificates.md#delete-cert)
 

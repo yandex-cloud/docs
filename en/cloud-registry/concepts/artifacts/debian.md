@@ -32,7 +32,7 @@ For more information on signature settings, see [{#T}](../../operations/debian/i
 
 #### Useful links {#see-also}
 
-* [Supported artifact types](./index.md#artifacts)
+* [Supported artifact types](./index.md)
 * [{#T}](../../operations/debian/installation.md)
 * [{#T}](../../operations/debian/push.md)
 * [{#T}](../../operations/debian/pull.md)

@@ -151,6 +151,8 @@ items:
             href: tutorials/canary-release.md
           - name: Interactive debugging of functions in {{ sf-name }}
             href: tutorials/serverless-live-debug.md
+          - name: Web application on {{ src-name }} Sites and {{ sf-name }}
+            href: tutorials/sourcecraft-sites-web-app.md
       - name: Serverless-based bots
         items:
           - name: Developing a Telegram bot

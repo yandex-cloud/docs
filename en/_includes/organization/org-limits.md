@@ -16,6 +16,8 @@
 `organization-manager.federationCertificates.count` | 100 ||
 || {{ ui-key.yacloud_quotas.quotas.organization-manager.federationUsers.count }}
 `organization-manager.federationUsers.count` | 1,000 ||
+|| {{ ui-key.yacloud_quotas.quotas.organization-manager.linkedApplications.count }}
+`organization-manager.linkedApplications.count` | 100 ||
 || Maximum number of certificates per federation | 100 ||
 || Maximum number of subjects per federation | 10,000 ||
 || Maximum number of clouds per organization | 5 ||

@@ -6,7 +6,7 @@ You can create a secure registry with autoscanning using a [vulnerability scanne
 
 {% note info %}
 
-Scanning Docker images for vulnerabilities is [charged](../../pricing.md#scanner).
+Scanning Docker images for vulnerabilities is [charged](../../pricing.md#rules).
 
 {% endnote %}
 

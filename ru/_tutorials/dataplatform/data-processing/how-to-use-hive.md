@@ -6,18 +6,21 @@
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
 
+{% note info %}
+
+Для выполнения руководства используйте образ {{ dataproc-name }} версии 2.0. Этот образ имеет статус deprecated, но создание кластеров с ним доступно. В образах 2.1 и 2.2 компонент Hive недоступен.
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластеры {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-
 
 ## Работа с заданиями в CLI {{ yandex-cloud }} {#run-hive-job-cli}
 
@@ -34,18 +37,20 @@ SQL-запрос для Hive можно передать двумя способ
 
 ### Подготовьте инфраструктуру {#infra-yc-cli}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по {{ oslogin }}, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. {% include [tutorials-basic-before-buckets](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
-1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с [образом версии 2.0](../../../data-proc/concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`;
         * `HIVE`;
         * `MAPREDUCE`;
         * `SPARK`;
         * `YARN`.
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — выберите бакет для результатов обработки.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** — включите опцию для доступа к хостам всех подкластеров.
@@ -57,7 +62,7 @@ SQL-запрос для Hive можно передать двумя способ
 1. Создайте внешнюю таблицу (external table) для данных примера в формате Parquet. Таблица будет содержать список перелетов между городами США в 2018-м году. Выполните следующий запрос с помощью CLI {{ yandex-cloud }}:
 
     ```bash
-    yc dataproc job create-hive \
+    {{ yc-dp }} job create-hive \
        --cluster-id=<идентификатор_кластера> \
        --name=task-one \
        --query-list="CREATE EXTERNAL TABLE flights (
@@ -186,7 +191,7 @@ SQL-запрос для Hive можно передать двумя способ
 1. Выполните команду:
 
     ```bash
-    yc dataproc job create-hive \
+    {{ yc-dp }} job create-hive \
       --cluster-id=<идентификатор_кластера> \
       --name=task-one \
       --query-file-uri="s3a://<имя_бакета_для_исходных_данных>/create-table.sql"
@@ -221,7 +226,7 @@ SQL-запрос для Hive можно передать двумя способ
 1. Выполните команду:
 
     ```bash
-    yc dataproc job create-hive \
+    {{ yc-dp }} job create-hive \
       --cluster-id=<идентификатор_кластера> \
       --name=task-two \
       --query-file-uri="s3a://<имя_бакета_для_исходных_данных>/get-data.sql"
@@ -296,13 +301,15 @@ SQL-запрос для Hive можно передать двумя способ
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с [образом версии 2.0](../../../data-proc/concepts/environment.md#deprecated-images) и следующими настройками:
 
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`;
         * `HIVE`;
         * `SPARK`;
         * `YARN`.
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** — включите опцию для доступа к хостам всех подкластеров.
 
@@ -386,7 +393,6 @@ SQL-запрос для Hive можно передать двумя способ
     ```
 
     {% endcut %}
-
 
 ## Удалите созданные ресурсы {#clear-out}
 

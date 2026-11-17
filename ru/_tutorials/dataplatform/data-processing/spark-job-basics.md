@@ -11,11 +11,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -23,10 +21,9 @@
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 * Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными ([тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 
-
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по {{ oslogin }}, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. {% include [Создать бакеты и выдать SA права на них](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
@@ -34,9 +31,11 @@
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`
         * `SPARK`
         * `YARN`
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
@@ -44,7 +43,7 @@
 
 1. {% include [Скачать и загрузить файл с текстовыми данными](../../../_includes/data-processing/tutorials/sample-txt.md) %}
 
-1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
+1. Создайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.12-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа `word_count.scala` на языке Scala:
 
     {% cut "word_count.scala" %}
 
@@ -55,7 +54,7 @@
 
 
     object Main {
-        def main(args: Array[String]) {
+        def main(args: Array[String]): Unit = {
             if (args.length != 2){ // check number of args
                 System.err.println("Usage spark-app.jar <входная_директория> <выходная_директория>");
                 System.exit(-1);
@@ -92,9 +91,10 @@
 
 1. [Создайте задание Spark](../../../data-proc/operations/jobs-spark#create) с параметрами:
 
-    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.12-0.1.0-SNAPSHOT.jar`
     * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `com.yandex.cloud.dataproc.scala.Main`
     * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
+
         * `s3a://<имя_бакета_для_исходных_данных>/text.txt`
         * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
 

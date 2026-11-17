@@ -109,9 +109,9 @@ You can configure settings for automatically scanning artifacts in the registry.
 
         * `<policy_name>`: Automatic scan policy name.
         * `--registry-id`: ID of the registry for which you are creating the policy.
-        * `--description`: Policy description. This is an optional parameter.
-        * `--scan-lang-packages`: Enable language package scanning. This is an optional parameter.
-        * `--rules`: Path to the JSON file with scan rules. This is an optional parameter.
+        * `--description`: Policy description. This is an optional setting.
+        * `--scan-lang-packages`: Enable language package scanning. This is an optional setting.
+        * `--rules`: Path to the JSON file with scan rules. This is an optional setting.
 
 - API {#api}
 

@@ -234,7 +234,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateAccessBindings](api-ref/grpc/Trail/updateAccessBindings.md)
 
- - [Метрики Monitoring](concepts/user-metrics.md)
+ - [Метрики Monium Metrics](concepts/user-metrics.md)
 
  - [Справочник событий уровня конфигурации](concepts/events.md)
 

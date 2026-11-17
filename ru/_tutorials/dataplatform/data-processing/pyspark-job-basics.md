@@ -11,11 +11,9 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -26,7 +24,7 @@
 
 ## Подготовьте инфраструктуру {#infra}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями [`dataproc.agent`](../../../data-proc/security/index.md#dataproc-agent) и [`dataproc.provisioner`](../../../data-proc/security/index.md#dataproc-provisioner). Если вы будете подключаться к кластеру по {{ oslogin }}, также назначьте сервисному аккаунту роль [`resource-manager.auditor`](../../../resource-manager/security/index.md#resource-manager-auditor) на каталог, в котором будет создан кластер.
 
 1. {% include [Создать бакеты и выдать SA кластера права на них](../../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
@@ -34,9 +32,11 @@
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+
         * `HDFS`
         * `SPARK`
         * `YARN`
+
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
     * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
@@ -74,7 +74,7 @@
                 .reduceByKey(lambda a, b: a + b)
 
             if out_dir.startswith('s3a://'):
-                counts.saveAsTextFile(out_dir) 
+                counts.saveAsTextFile(out_dir)
             else:
                 default_fs = sc._jsc.hadoopConfiguration().get('fs.defaultFS')
                 counts.saveAsTextFile(default_fs + out_dir)

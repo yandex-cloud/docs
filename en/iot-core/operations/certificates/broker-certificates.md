@@ -13,7 +13,7 @@ To start exchanging messages between broker clients, you need to [authenticate](
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-* [Viewing a list of broker certificates](broker-certificates.md#list-cert)
+* [Viewing a list of broker certificates](broker-certificates.md#broker-certificates-list)
 * [Adding a certificate to a broker](broker-certificates.md#add-cert)
 * [Deleting a broker certificate](broker-certificates.md#delete-cert)
 

@@ -959,6 +959,8 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
+      - name: Миграция баз данных в {{ yandex-cloud }}
+        href: dataplatform/db-migration.md
       - name: '{{ KF }}'
         items:
           - name: Поставка данных с помощью {{ data-transfer-name }}

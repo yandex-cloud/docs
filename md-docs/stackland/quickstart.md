@@ -218,7 +218,7 @@ spec:
 #  ...
 ```
 
-Для кластера с gVisor или Kata включите `spec.cluster.networking.cilium.socketLB.hostNamespaceOnly`. На работающем кластере следуйте процедуре [Настроить Cilium для gVisor и Kata](operations/cluster/upgrade-cluster.md#cilium-socket-lb).
+Начиная с версии 26.3.2, для кластера с gVisor или Kata параметр `spec.cluster.networking.cilium.socketLB.hostNamespaceOnly` включается автоматически, если его значение не задано явно. Порядок изменения настройки на работающем кластере и ее ограничения описаны в разделе [Настроить Cilium для gVisor и Kata](operations/cluster/upgrade-cluster.md#cilium-socket-lb).
 
 {% note tip %}
 
@@ -235,13 +235,13 @@ spec:
 Скачайте инструмент `sladm` и установочный образ:
 
 ```bash
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.1/sladm-26.3.1-linux-amd64.zip
-unzip sladm-26.3.1-linux-amd64.zip
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.2/sladm-26.3.2-linux-amd64.zip
+unzip sladm-26.3.2-linux-amd64.zip
 chmod +x sladm
 
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.1/images/stackland-amd64-26.3.1.iso
-wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.1/images/stackland-amd64-26.3.1.iso.sha256
-sha256sum -c stackland-amd64-26.3.1.iso.sha256
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.2/images/stackland-amd64-26.3.2.iso
+wget https://storage.yandexcloud.net/stackland-public/stackland/26.3.2/images/stackland-amd64-26.3.2.iso.sha256
+sha256sum -c stackland-amd64-26.3.2.iso.sha256
 ```
 
 ### Подготовка секретов {#prepare-secrets}
@@ -457,7 +457,7 @@ sladm validate --config config/
    * `--config` — путь к папке с конфигурационными файлами Stackland;
    * `--image-bundle` — тип пакета образов. Используйте `full` для полного набора всех необходимых образов.
 
-   Команда создаст папку `stackland-26.3.1-full-oci` с образами контейнеров в формате OCI. Папка занимает 20-25 ГБ.
+   Команда создаст папку `stackland-26.3.2-full-oci` с образами контейнеров в формате OCI. Папка занимает 20-25 ГБ.
 
    {% note info %}
 
@@ -467,9 +467,9 @@ sladm validate --config config/
 
 2. Подготовьте список файлов для переноса:
 
-   * `stackland-26.3.1-full-oci/` — папка с образами контейнеров;
+   * `stackland-26.3.2-full-oci/` — папка с образами контейнеров;
    * `config/` — папка с конфигурационными файлами;
-   * `stackland-26.3.1-amd64.iso` — установочный ISO-образ;
+   * `stackland-26.3.2-amd64.iso` — установочный ISO-образ;
    * `sladm` — инструмент установки.
 
 #### Перенос артефактов на изолированную машину {#offline-transfer}
@@ -493,7 +493,7 @@ sladm validate --config config/
 ```bash
 sladm install \
   --config config/ \
-  --image-bundle-folder stackland-26.3.1-full-oci \
+  --image-bundle-folder stackland-26.3.2-full-oci \
   --image-bundle full
 ```
 

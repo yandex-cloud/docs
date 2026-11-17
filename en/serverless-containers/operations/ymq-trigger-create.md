@@ -11,7 +11,7 @@ To create a trigger, you will need:
 * Container the trigger will invoke. If you do not have a container:
 
     * [Create a container](create.md).
-    * [Create a container revision](manage-revision.md#create).
+    * [Create a container revision](manage-revision.md).
 
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
 

@@ -840,6 +840,8 @@
 
  - [Все руководства](dataplatform/index.md)
 
+ - [Миграция баз данных в Yandex Cloud](dataplatform/db-migration.md)
+
 ### Apache Kafka®
 
 #### Поставка данных с помощью Data Transfer

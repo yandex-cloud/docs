@@ -1,6 +1,6 @@
 # Getting started with service accounts
 
-In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge and enable flexible access management for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
+In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge and enable flexible access management for your programs. For details, see [{#T}](concepts/users/service-accounts.md).
 
 This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](./roles-reference.md#admin) role for a cloud or folder. Users with the [`editor`](./roles-reference.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
@@ -12,11 +12,11 @@ You will learn how to:
 
 * [Create service accounts and assign roles to them](#create-sa).
 * [Run operations in the CLI](#run-operation-from-sa).
-* [Delete service accounts](#delete-sa).
+* [Delete service accounts](#disable-or-delete-sa).
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
     1. In the management console, click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
@@ -27,7 +27,7 @@ You will learn how to:
         * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`)
         * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`)
 
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 
 ## Create a service account {#create-sa}
 
@@ -62,6 +62,6 @@ To pause a service account, [suspend](operations/sa/suspend-reactivate.md#suspen
 ## What's next {#what-is-next}
 
 * The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
-* [Read more about service accounts](concepts/users/service-accounts.md) in the concepts section.
+* [Learn more about service accounts](concepts/users/service-accounts.md) in the concepts.
 * See the [best practices for using service accounts securely](best-practices/using-iam-securely.md#use-sa).
 * Use [authentication and authorization security checklist](../security/domains/iam-checklist.md).

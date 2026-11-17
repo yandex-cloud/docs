@@ -28,7 +28,7 @@
 `baremetal.assemblingServers.count` | 0 ||
 || Количество [VRF](private-network.md#vrf-segment)
 `baremetal.vrfs.count` | 20 ||
-|| Количество образов
+|| Количество загрузочных образов
 `baremetal.images.count` | 10 ||
 || Количество [приватных подсетей](private-network.md#private-subnet)
 `baremetal.privateSubnets.count` | 2 ||

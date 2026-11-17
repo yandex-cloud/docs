@@ -33,4 +33,4 @@ The Docker image and all its versions are stored in a registry.
 
 #### Useful links {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+[Supported artifact types](./index.md)

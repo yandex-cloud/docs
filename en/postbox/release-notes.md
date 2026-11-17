@@ -9,7 +9,7 @@ description: This section contains the {{ postbox-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for [dedicated IP addresses](concepts/dedicated-ip.md). You can group dedicated IP addresses into pools and link those pools with [configurations](concepts/configuration.md). All emails to which the configuration applies will be sent from the IP addresses of the pool linked with it. Pool management is available via an [AWS-compatible HTTP API](aws-compatible-api/api-ref/index.md#dedicated-ips) and the AWS CLI.
+* Added support for [dedicated IP addresses](concepts/dedicated-ip.md). You can group dedicated IP addresses into pools and link those pools to [configurations](concepts/configuration.md). All emails the configuration applies to will be sent from the linked pool’s IP addresses. To manage pools, use the [AWS-compatible HTTP API](aws-compatible-api/api-ref/index.md#dedicated-ips) and AWS CLI.
 * Added support for the [custom suppression list](concepts/suppression-list.md#user).
 
 ## July 2026 {#july-2026}
@@ -91,7 +91,7 @@ description: This section contains the {{ postbox-name }} release notes.
 ### Updates {#updates}
 
 * Added support for sending [notifications about email delivery](concepts/notification.md) to a {{ yds-full-name }} data stream.
-* Added support for [API key authentication](operations/send-email.md#smtp-send) when sending emails from the email client over SMTP.
+* Added support for [API key authentication](operations/send-email.md#smtp) when sending emails from the email client over SMTP.
 
 ## August 2024 {#august-2024}
 

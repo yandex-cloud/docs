@@ -44,6 +44,8 @@ Odyssey поддерживает три режима управления сое
 
 Режим работы менеджера подключений можно [изменить](../operations/update.md#change-additional-settings) после создания кластера.
 
+{% include [additional-settings-change-impact](../../_includes/mdb/mpg/additional-settings-change-impact.md) %}
+
 {% note info %}
 
 Время жизни самой длинной активной сессии/транзакции задается настройкой СУБД уровня кластера [Session duration timeout](./settings-list.md#setting-session-duration-timeout).

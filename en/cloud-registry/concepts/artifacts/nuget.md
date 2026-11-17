@@ -11,4 +11,4 @@ NuGet artifacts are used to distribute libraries, tools, and components you can 
 
 #### Useful links {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+[Supported artifact types](./index.md)

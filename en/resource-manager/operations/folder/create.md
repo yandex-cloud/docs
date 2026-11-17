@@ -1,6 +1,8 @@
-# Creating a metadata catalog
+# Creating a folder
 
 A _folder_ is a space where {{ yandex-cloud }} resources are created and [grouped](../../concepts/resources-hierarchy.md).
+
+To create a folder, you need the [resource-manager.editor](../../security/index.md#resource-manager-editor) or [editor](../../../iam/roles-reference.md#editor) role for the cloud you are creating the folder in or a broader role.
 
 {% list tabs group=instructions %}
 
@@ -42,7 +44,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
 
      * `cloud_id`: [ID of the cloud](../cloud/get-id.md) to create the folder in. This is an optional setting. It defaults to the value specified in the provider settings.
      * `name`: Name of the new folder. This is a required setting. The naming requirements are as follows:
@@ -51,7 +53,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
 
      * `description`: Folder description. This is an optional setting.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      resource "yandex_resourcemanager_folder" "folder1" {
@@ -61,7 +63,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
      }
      ```
 
-     For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+     For more on the properties of the `yandex_resourcemanager_folder` in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. Make sure the configuration files are correct.
 

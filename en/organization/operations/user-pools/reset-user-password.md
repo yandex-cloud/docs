@@ -21,9 +21,11 @@ To reset a [local](../../../iam/concepts/users/accounts.md#local) user password,
 
       Optionally, use the search bar or filter at the top of the page.
   1. In the row with the user, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select ![key](../../../_assets/console-icons/key.svg) **{{ ui-key.yacloud_org.entity.user.action.reset-password_jk19s }}**.
-  1. In the window that opens, confirm resetting the password.
+  1. In the window that appears, select a password reset method:
 
-      Save the generated password and communicate it to the user. After closing the window, you will not be able to view the new password.
+      * **{{ ui-key.yacloud_org.organization.userpools.ResetUserPasswordDialog.resetMethodAutomatic_2W6hk }}**: A new password will be generated automatically. Save the generated password and communicate it to the user. After closing the window, you will not be able to view the new password.
+      * **{{ ui-key.yacloud_org.organization.userpools.ResetUserPasswordDialog.resetMethodManual_vsFDC }}**: Specify a new password yourself. It must comply with the user pool's [password policy](../../concepts/password-policy.md).
+  1. Click **{{ ui-key.yacloud_org.entity.user.action.reset-password_jk19s }}**.
 
 - CLI {#cli}
 
@@ -68,7 +70,7 @@ If a [password policy](../../concepts/password-policy.md) is configured for a us
 
 - {{ cloud-center }} UI {#cloud-center}
 
-  You cannot generate a random password for a local user via the {{ cloud-center }} interface. To change the password to a generated one, follow [this guide](#reset).
+  To set a random password for a local user, [reset](#reset) the previous one. When resetting, opt for **{{ ui-key.yacloud_org.organization.userpools.ResetUserPasswordDialog.resetMethodManual_vsFDC }}** and specify a new password.
 
 - CLI {#cli}
 
@@ -138,8 +140,10 @@ If a [password policy](../../concepts/password-policy.md) is configured for a us
 
 - API {#api}
 
-    To change your password, use the [setOwnPassword](../../idp/api-ref/User/setOwnPassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md) gRPC API call.
+  To change your password, use the [setOwnPassword](../../idp/api-ref/User/setOwnPassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/SetOwnPassword](../../idp/api-ref/grpc/User/setOwnPassword.md) gRPC API call.
 
-    To set a password for another user, use the [setOthersPassword](../../idp/api-ref/User/setOthersPassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/SetOthersPassword](../../idp/api-ref/grpc/User/setOthersPassword.md) gRPC API call.
+  To set a password for another user, use the [setOthersPassword](../../idp/api-ref/User/setOthersPassword.md) REST API method for the [User](../../idp/api-ref/User/index.md) resource or the [UserService/SetOthersPassword](../../idp/api-ref/grpc/User/setOthersPassword.md) gRPC API call.
 
 {% endlist %}
+
+The user must change this password on their first login to {{ yandex-cloud }}.

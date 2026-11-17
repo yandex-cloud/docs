@@ -7,13 +7,15 @@ description: In this tutorial, you will learn how to view {{ iam-full-name }} ac
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-The [cloud](../../concepts/resources-hierarchy.md#cloud) access policies can be managed by users with the [`resource-manager.admin`](../../security/index.md#resource-manager-admin) or [`admin`](../../../iam/roles-reference.md#admin) role for the cloud.
+The [cloud](../../concepts/resources-hierarchy.md#cloud) access policies can be assigned and revoked by users with the [resource-manager.admin](../../security/index.md#resource-manager-admin) or [admin](../../../iam/roles-reference.md#admin) role for the cloud or a broader role.
 
 ## Creating an access policy for a cloud {#assign}
 
 {% include [access-policies-assign-cloud](../../../_includes/iam/access-policies-assign-cloud.md) %}
 
 ## Viewing the list of your cloud's access policies {#view-assigned}
+
+To view access policies, [resource-manager.auditor](../../security/index.md#resource-manager-auditor) for the cloud is sufficient.
 
 {% include [access-policies-view-assigned-cloud](../../../_includes/iam/access-policies-view-assigned-cloud.md) %}
 

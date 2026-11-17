@@ -8,6 +8,8 @@
 * Создан [трейл](../../audit-trails/concepts/trail.md) {{ at-name }} для сбора событий.
 * Настроен [объект назначения](../../audit-trails/concepts/trail.md#target) для хранения аудитных логов: [бакет](../../storage/concepts/bucket.md), [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [лог-группа](../../logging/concepts/log-group.md).
 
+Метрики {{ at-name }} автоматически передаются в {{ metrics-name }} и доступны в [проекте каталога](*monium-folder-project), в котором находится трейл.
+
 Чтобы начать отслеживать статус трейлов:
 
 * [Настройте алерты](#setup-alerts).
@@ -17,7 +19,7 @@
 
 ## Настройте алерты {#setup-alerts}
 
-Выберите [проект {{ monium-name }}](../../monium/collector/project.md) для каталога, в котором находится трейл: `folder__<идентификатор_каталога>`. В этом проекте доступны метрики трейла и квоты трейлов на облако — `quota.trails_count.usage` и `quota.trails_count.limit`. Канал уведомлений и алерты создавайте в этом же проекте.
+Канал уведомлений и алерты создавайте в проекте каталога с трейлом.
 
 ### Создайте канал уведомлений {#create-channel}
 
@@ -45,7 +47,7 @@
 
 Вы можете настроить один или несколько алертов.
 
-Подробнее о [создании алерта](../../monium/operations/alert/create-alert.md) и его [параметрах](../../monium/concepts/alerting/alert.md#alert-parameters) в документации {{ monium-name }}.
+В примерах ниже используются пороговые алерты. Подробнее о [создании алерта](../../monium/operations/alert/create-alert.md) и его [параметрах](../../monium/concepts/alerting/alert.md#alert-parameters). Полный список метрик приведен в разделе [{#T}](../../audit-trails/concepts/user-metrics.md).
 
 #### Переход трейла в неактивное состояние {#deactivating-trail}
 
@@ -67,7 +69,7 @@
      * `service = __audit-trails__`.
      * `name = trail.status`.
      * `status != ACTIVE`.
-     * `trail = <идентификатор_трейла>`.
+     * `trail = <идентификатор_трейла>` — [идентификатор трейла](../../audit-trails/operations/get-info.md).
 
   1. В блоке **Условия срабатывания** задайте параметры:
 
@@ -111,7 +113,7 @@
      * `cluster = default`.
      * `service = __audit-trails__`.
      * `name = trail.delivered_events_count`.
-     * `trail = <идентификатор_трейла>`.
+     * `trail = <идентификатор_трейла>` — [идентификатор трейла](../../audit-trails/operations/get-info.md).
 
   1. В блоке **Условия срабатывания** задайте параметры:
 
@@ -134,7 +136,7 @@
 
 #### Изменение количества трейлов {#number-trails}
 
-Алерт отправит уведомление о том, что число трейлов в облаке изменилось.
+Алерт отправит уведомление, если число трейлов в облаке отличается от заданного. Метрика доступна в проекте каталога с трейлом и учитывает трейлы всего облака.
 
 {% list tabs group=instructions %}
 
@@ -189,16 +191,16 @@
      * `service = __audit-trails__`.
      * `name = quota.trails_count.usage`.
 
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и создайте запрос `B` с теми же метками, но с `name = quota.trails_count.limit`.
+  1. Добавьте запрос `C`, переключите его в текстовый режим ![code](../../_assets/console-icons/code.svg) и введите `100 * A / B` — процент использования квоты.
   1. В блоке **Условия срабатывания** задайте параметры:
 
-     * **Запрос для проверки** — `A`.
+     * **Запрос для проверки** — `C`.
      * **Функция агрегации** — **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-type.last-non-nan }}**.
      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — **{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}**.
      * **{{ ui-key.yacloud_monitoring.alert.label_warning }}** — очистите поле: в примере используется только порог `Alarm`.
-     * **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `<порог_количества_трейлов>`.
+     * **{{ ui-key.yacloud_monitoring.alert.label_alarm }}** — `80`.
      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — `5m`.
-
-     Рассчитайте порог как `0,8 × quota.trails_count.limit`, где `quota.trails_count.limit` — текущая квота трейлов на облако. При изменении квоты обновите порог.
 
   1. В блоке **Обработка отсутствия данных** для параметров **Отсутствие точек в окне вычисления** и **Отсутствие метрик по селектору** выберите `No data`. Это позволит отличать отсутствие данных от нулевого значения метрики.
 
@@ -210,7 +212,10 @@
 
 ## Настройте дашборд {#setup-dashboard}
 
-Готовые графики для наблюдения за состоянием трейлов находятся в [консоли управления]({{ link-console-main }}) → сервис **{{ at-name }}** → раздел ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+Готовые графики для наблюдения за состоянием трейлов находятся на [сервисных дашбордах](../../monium/operations/dashboard/service-dashboards.md) {{ monium-name }}:
+
+* **Audit Trails Trail Overview** — состояние выбранного трейла.
+* **Audit Trails Folder Overview** — состояние всех трейлов каталога.
 
 Чтобы отслеживать не только состояние трейлов, но и состояние объектов назначения, куда они доставляют аудитные логи, создайте дашборд в {{ monium-name }}.
 
@@ -241,6 +246,14 @@
 1. Откройте дашборд трейла в {{ monium-name }}:
 
     {% list tabs group=instructions %}
+
+    - Интерфейс {{ monium-name }} {#monium}
+
+      1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите ![alt](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**.
+      1. В левом верхнем углу выберите проект каталога, в котором находится трейл.
+      1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+      1. В списке выберите дашборд **Audit Trails Trail Overview** сервиса `audit-trails`.
+      1. Вверху в поле **Trail** выберите нужный трейл.
 
     - Консоль управления {#console}
 
@@ -298,7 +311,7 @@
 
 Статус `Error` сообщает об ошибке в работе трейла. В этом случае изучите лог диагностики трейла.
 
-#### Изучите лог диагностики трейла {#get-trail-diagnostics}
+#### Изучите лог диагностики трейла {#get-trail-log}
 
 {% list tabs group=instructions %}
 
@@ -319,13 +332,13 @@
 
 * **{{ objstorage-name }}**
 
-    Прекращение доставки логов может быть связано с достижением заданного максимального размера бакета. Чтобы отслеживать занятый объем и сравнивать его с ограничением, создайте график по [метрике](../../monitoring/metrics-ref/storage-ref.md) `space_usage` и добавьте метрику `max_size` в качестве порогового значения.
+    Прекращение доставки логов может быть связано с достижением заданного максимального размера бакета. Чтобы отслеживать занятый объем и сравнивать его с ограничением, создайте график по [метрике](../../monium/metrics-ref/storage-ref.md) `space_usage` и добавьте метрику `max_size` в качестве порогового значения.
 
     Метрика `max_size` недоступна, если для бакета не задан максимальный размер. В таком случае контролируйте использование [квоты](../../storage/concepts/limits.md#storage-quotas) на объем хранилища в облаке.
 
 * **{{ cloud-logging-name }}**
 
-    [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monitoring/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, приближается ли поток логов к максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
+    [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monium/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, приближается ли поток логов к максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
 
 
 * **{{ yds-name }}** — подробнее в документации [{{ ydb-full-name }}](../../ydb/):
@@ -358,3 +371,5 @@
     1. Подтвердите удаление.
 
   {% endlist %}
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

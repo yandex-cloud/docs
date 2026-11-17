@@ -71,10 +71,7 @@ Yandex Audit Trails — сервис для сбора и выгрузки ау�
 1. В разделе **Audit trails** в интерфейсе Yandex Query выберите тип анализа данных **Потоковый**, а в списке [привязок к данным](../../query/concepts/glossary.md#binding) выберите созданную привязку.
 1. Выберите нужный запрос к данным из потока Data Streams из списка и нажмите кнопку **Выполнить**.
 
-Результаты потокового запроса можно:
-
-* [отправить в Yandex Monitoring](../../query/sources-and-sinks/monitoring.md) в виде метрик;
-* [отправить в выходной поток Data Streams](../../query/sources-and-sinks/data-streams-write.md) в виде данных, а далее обработать с помощью [триггеров Yandex Cloud Functions](../../functions/operations/trigger/data-streams-trigger-create.md).
+Результаты потокового запроса можно [отправить в выходной поток Data Streams](../../query/sources-and-sinks/data-streams-write.md) в виде данных, а далее обработать с помощью [триггеров Yandex Cloud Functions](../../functions/operations/trigger/data-streams-trigger-create.md).
 
 #### Полезные ссылки {#see-also}
 

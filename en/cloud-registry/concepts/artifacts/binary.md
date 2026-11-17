@@ -32,4 +32,4 @@ You can delete a binary artifact from the [management console]({{ link-console-m
 
 #### Useful links {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+[Supported artifact types](./index.md)

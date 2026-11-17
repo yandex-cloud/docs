@@ -325,6 +325,10 @@ items:
           Uploading objects into an {{ objstorage-name }} bucket using an
           ephemeral access key
         href: security/ephemeral-key-storage.md
+      - name: >-
+          Integrating LiteLLM Proxy with {{ ai-studio-full-name }} and {{
+          traces-name }}
+        href: security/traces-for-litellm-proxy.md
   - name: Storing and recovering data
     items:
       - name: All tutorials

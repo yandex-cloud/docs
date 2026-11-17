@@ -228,7 +228,7 @@ items:
                 href: api-ref/grpc/Trail/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Trail/updateAccessBindings.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ metrics-name }}
     href: concepts/user-metrics.md
   - name: Справочник событий уровня конфигурации
     href: concepts/events.md

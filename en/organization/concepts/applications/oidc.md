@@ -120,14 +120,14 @@ By default, OIDC apps of all [types](#oidc-web) require the service provider to 
 For the integration to work correctly on the {{ org-full-name }} side, [configure](../../operations/applications/oidc-create.md#setup-idp) the following in the OIDC app:
 
 * [Redirect URI(s)](#oidc-redirect-uri).
-* User [attributes](#oidc-user-attributes) that will be given to the service provider.
+* User [attributes](#oidc-attributes) that will be given to the service provider.
 * [App secret](#oidc-secret).
 
 Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider.
 
 ### Redirect URI {#oidc-redirect-uri}
 
-_Redirect URI_ is an address on the external application side where the user will get redirected if successfully authenticated in {{ org-full-name }}.
+A _Redirect URI_ is an address on the external application side where the user will get redirected if successfully authenticated in {{ org-full-name }}.
 
 For [{{ ui-key.yacloud_org.organization.apps.web-title_aeKTZ }}](#oidc-web) and [{{ ui-key.yacloud_org.organization.apps.spa-title_1mhon }}](#oidc-single-page) apps, the Redirect URI must follow the `https` schema. You can only use an encryption-free protocol in apps of these types for testing purposes on a local host (`http://127.0.0.1` and `http://localhost`).
 

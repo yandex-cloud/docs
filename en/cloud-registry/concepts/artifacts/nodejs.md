@@ -22,4 +22,4 @@ For more information about NPM, see the [relevant documentation](https://docs.np
 
 #### Useful links {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+[Supported artifact types](./index.md)
