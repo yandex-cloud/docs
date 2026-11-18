@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как записывать 
 
 # Запись данных из {{ yq-full-name }} в потоки {{ yds-full-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 [{{ yds-full-name }}](../../data-streams/concepts/index.md) — сервис для передачи потоков данных нескольким приложениям. Каждое приложение обрабатывает данные независимо от других.
 
 Пример записи данных в формате JSON в {{ yds-full-name }}:

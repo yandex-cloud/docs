@@ -1,13 +1,15 @@
 ---
 title: Закрытие сервиса {{ monitoring-full-name }}
-description: Сервис {{ monitoring-name }} закрыт. Узнайте, как продолжить работу с метриками в {{ monium-name }} и использовать возможности единой платформы Observability.
+description: С 1 декабря 2026 года сервис {{ monitoring-name }} закрыт. Узнайте, как продолжить работу с метриками в {{ monium-name }} и использовать возможности единой платформы Observability.
 ---
 
 # Закрытие сервиса {{ monitoring-full-name }}
 
 {% note warning %}
 
-Сервис {{ monitoring-full-name }} закрыт. Все его возможности и метрики доступны на платформе [{{ monium-name }}]({{ link-monium }}).
+С 1 декабря 2026 года сервис {{ monitoring-full-name }} закрыт. Все его возможности и метрики доступны в {{ monium-name }} — единой платформе Observability.
+
+Продолжите работу с метриками в [интерфейсе {{ monium-name }}]({{ link-monium }}).
 
 {% endnote %}
 

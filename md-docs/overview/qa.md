@@ -52,6 +52,7 @@
 * [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/qa)
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/qa/index)
 * [Yandex DataSphere](../datasphere/qa/index.md)
+* [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/reference/error-codes)
 * [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/qa/)
 
 ### Безопасность {#security}
@@ -59,6 +60,8 @@
 * [Yandex Certificate Manager](../certificate-manager/qa/index.md)
 * [Yandex Key Management Service](../kms/qa/index.md)
 * [Yandex Lockbox](../lockbox/qa/index.md)
+* [Yandex Security Deck](../security-deck/qa/index.md)
+* [Yandex SmartCaptcha](../smartcaptcha/qa.md)
 
 
 ### Инструменты DevOps {#developer-tools}
@@ -79,15 +82,14 @@
 * [Yandex Cloud Functions](../functions/qa/index.md)
 * [Yandex Cloud Postbox](../postbox/qa/index.md)
 * [Yandex Data Streams](../data-streams/qa/index.md)
-* [Yandex IoT Core](../iot-core/qa/index.md)
 * [Yandex Message Queue](../message-queue/qa/index.md)
-* [Yandex Query](../query/qa/index.md)
 * [Yandex Serverless Containers](../serverless-containers/qa/index.md)
 
 
 ### Управление ресурсами {#resources-operations}
 
-* [Technical support](../support/qa.md)
+* [Техническая поддержка](../support/qa.md)
+* [Yandex Cloud Console](../console/qa/index.md)
 * [Yandex Cloud Billing](../billing/qa/all.md)
 * [Yandex Identity and Access Management](../iam/qa/index.md)
 * [Yandex Resource Manager](../resource-manager/qa/index.md)

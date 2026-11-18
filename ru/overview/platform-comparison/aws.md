@@ -9,7 +9,6 @@ description: В этой статье сопоставляются сервис�
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 | Amazon API Gateway | [{{ api-gw-name }}](../../api-gateway/) |
-| Amazon Athena | [{{ yq-full-name }}](../../query/) |
 | Amazon Aurora PostgreSQL Limitless Database | [{{ mspqr-full-name }}](../../managed-spqr/) |
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon CloudSearch | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) |
@@ -48,7 +47,6 @@ description: В этой статье сопоставляются сервис�
 | Amazon Transcribe, Amazon Kinesis | [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) |
 | Amazon Translate | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
-| Amazon WorkSpaces | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | AWS App Runner | [{{ cloud-apps-full-name }}](../../cloud-apps/) |
 | AWS Backup | [{{ backup-full-name }}](../../backup/) |
 | AWS Billing Console | [{{ billing-name }}](../../billing/) |
@@ -62,7 +60,6 @@ description: В этой статье сопоставляются сервис�
 | AWS EC2 Bare Metal | [{{ baremetal-full-name }}](../../baremetal/) |
 | AWS Elastic Container Service | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | AWS Identity and Access Management, AWS Cognito | [{{ iam-full-name }}](../../iam/) |
-| AWS IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | AWS Lambda | [{{ sf-full-name }}](../../functions/) |
 | AWS Marketplace | [{{ marketplace-full-name }}](../../marketplace/) |

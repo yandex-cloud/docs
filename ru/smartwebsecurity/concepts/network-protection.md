@@ -7,7 +7,7 @@ description: Как Network Protection защищает прокси-серве�
 
 {% note info %}
 
-Network Protection находится на стадии [Preview](../../overview/concepts/launch-stages.md) и не тарифицируется.
+Network Protection находится на стадии [Preview](../../overview/concepts/launch-stages.md). С 1 декабря 2026 года использование Network Protection [тарифицируется](../pricing.md#network-protection).
 
 {% endnote %}
 

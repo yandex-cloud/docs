@@ -141,3 +141,16 @@ The first argument `db_function_name` must be a constant string with the name of
 The function name must contain only alphanumeric characters, underscore and colon characters.
 
 
+
+## [DB_COLUMN](DB_COLUMN.md)
+
+**Syntax:**`DB_COLUMN( column_name )`
+
+Returns a native database column by its name. Supported column names and their result types are defined by the connector.
+
+The argument `column_name` must be a constant string with one of the values supported by the connector. For ClickHouse, all results have type `String` and the supported values are:
+`"_table"`, `"_partition_id"`, `"_file"`, `"_path"`.
+
+Unlike DB_CALL_* formulas, this formula emits a column reference, not a function call. On ClickHouse, virtual-column availability depends on the table engine and server version: `_partition_id` belongs to the MergeTree family, `_table` to the Merge engine/table function, and `_file` / `_path` to File/S3.
+
+

@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Работа с базами данных {{ ydb-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе приведена основная информация о работе с [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb).
 
 Для работы с базой данных {{ ydb-name }} из {{ yq-full-name }} выполните следующие шаги:

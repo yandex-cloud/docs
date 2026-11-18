@@ -1,5 +1,7 @@
 # Обзор {{ yq-full-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {{ yq-full-name }} – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [{{ objstorage-full-name }}](../../storage/concepts/index.md), управляемым базам данных [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse), [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum), [{{ mmy-name }}](https://yandex.cloud/ru/services/managed-mysql), [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql) и [{{ ydb-name }}](https://yandex.cloud/ru/services/ydb), а также потокам данных реального времени [{{ yds-full-name }}](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, {{ yq-full-name }} позволяет агрегировать результаты выполнения запросов [между этими системами](../concepts/federated-processing.md).
 
 {{ yq-full-name }} является полностью управляемым облачным решением, это означает, что нет необходимости иметь запущенные сервера, на которых развернуто ПО. Все необходимые ресурсы для исполнения запросов выделяются в момент их запуска и освобождаются после завершения, а сами запросы начинают исполняться немедленно.

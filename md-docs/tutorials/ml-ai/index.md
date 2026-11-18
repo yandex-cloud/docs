@@ -50,4 +50,5 @@
 ## Использование генеративных нейросетей Yandex AI Studio {#generative-neuronets}
 
 * [Интеграция AI Studio с сервисом Yandex Data Catalog](data-catalog-integration.md)
+* [Память, RAG и семантический кеш для ИИ-агента с Managed Service for YDB в режиме Serverless](ydb-ai-agent-memory.md)
 * [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](../dataplatform/valkey-rag-search.md)

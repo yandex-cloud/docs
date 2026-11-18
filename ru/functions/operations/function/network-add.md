@@ -58,3 +58,4 @@ description: Следуя данной инструкции, вы сможете
 #### Полезные ссылки {#see-also}
 
 [Сетевое взаимодействие в {{ sf-name }}](../../concepts/networking.md)
+[{#T}](../../tutorials/database-connection-via-vpc.md)

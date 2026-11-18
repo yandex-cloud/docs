@@ -10,7 +10,7 @@
 | Artifact Registry | [Yandex Cloud Registry](../../cloud-registry/index.md)<br/>[Yandex Container Registry](../../container-registry/index.md)  |
 | Backup and DR Service | [Yandex Cloud Backup](../../backup/index.md) |
 | Bare Metal Solution | [Yandex BareMetal](../../baremetal/index.md) |
-| BigQuery | [Yandex Query](../../query/index.md)<br/>[Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md)<br/>[Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) |
+| BigQuery | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md)<br/>[Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) |
 | Certificate Authority Service | [Yandex Certificate Manager](../../certificate-manager/index.md) |
 | Cloud Armor | [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) |
 | Cloud Armor,<br/>Cloud Identity | [Yandex Smart Web Security](../../smartwebsecurity/index.md) |
@@ -22,7 +22,6 @@
 | Cloud DNS | [Yandex Cloud DNS](../../dns/index.md) |
 | Cloud Functions | [Yandex Cloud Functions](../../functions/index.md) |
 | Cloud Interconnect | [Yandex Cloud Interconnect](../../interconnect/index.md) |
-| Cloud IoT Core | [Yandex IoT Core](../../iot-core/index.md) |
 | Cloud Key Management Service | [Yandex Key Management Service](../../kms/index.md) |
 | Cloud Load Balancing | [Yandex Network Load Balancer](../../network-load-balancer/index.md) |
 | Cloud Logging | [Yandex Cloud Logging](../../logging/index.md) |
@@ -44,7 +43,6 @@
 | Cloud Storage | [Yandex Object Storage](../../storage/index.md) |
 | Cloud Translation API | [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/index) |
 | Cloud Vision | [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) |
-| Cloud Workstations | [Yandex Cloud Desktop](../../cloud-desktop/index.md) |
 | Compute Engine | [Yandex Compute Cloud](../../compute/index.md) |
 | Confluent and Google Cloud | [Yandex Managed Service for Apache Kafka®](../../managed-kafka/index.md) |
 | Contact Center AI | [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/) |

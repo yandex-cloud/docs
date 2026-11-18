@@ -384,7 +384,9 @@
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Рекомендации по использованию Managed Service for Kubernetes](concepts/usage-recommendations.md)
+### [Рекомендации по использованию Managed Service for Kubernetes](concepts/usage-recommendations.md)
+
+ - [Высокая доступность и отказоустойчивость](concepts/high-availability.md)
 
  - [Рекомендуемые конфигурации мастера](concepts/master-configuration.md)
 

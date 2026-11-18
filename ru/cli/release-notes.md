@@ -23,12 +23,6 @@ description: На странице представлены релизы CLI, а
   * `yc audit-trails trail create`;
   * `yc audit-trails trail update`.
 
-#### {{ mgl-name }} {#v-1-45-0-mgl-name}
-
-* Добавлены команды для получения ссылок скачивания бэкапа и реквизитов S3 для его загрузки:
-  * `yc managed-gitlab instance prepare-backup-upload`;
-  * `yc managed-gitlab instance get-backup-download-urls`.
-
 #### {{ mgp-name }} {#v-1-45-0-mgp-name}
 
 * В команду `yc managed-greenplum cluster update` добавлен параметр `--connection-pooling-discard` для управления очисткой серверных соединений при возврате в пул. В команду `yc managed-greenplum cluster create` добавлены все параметры управления пулом — `--connection-pooling-mode`, `--connection-pooling-size`, `--connection-pooling-client-idle-timeout`, `--connection-pooling-idle-in-transaction-timeout` и `--connection-pooling-discard`:

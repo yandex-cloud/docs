@@ -2,6 +2,12 @@
 
 # Работа с базами данных Managed Service for ClickHouse®
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 В этом разделе приведена основная информация о работе с [Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse).
 
 Для работы с базой данных Managed Service for ClickHouse® выполните следующие шаги:

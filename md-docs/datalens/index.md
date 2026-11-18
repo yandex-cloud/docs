@@ -28,8 +28,6 @@
 
 ## AI-агенты
 
- - [Использование DataLens с AI-агентами](operations/ai-agents.md)
-
  - [AI-агенты в DataLens](concepts/ai-agents.md)
 
  - [Нейроаналитик DataLens](concepts/neuroanalyst.md)
@@ -371,6 +369,8 @@
  - [DB_CALL_INT](function-ref/DB_CALL_INT.md)
 
  - [DB_CALL_STRING](function-ref/DB_CALL_STRING.md)
+
+ - [DB_COLUMN](function-ref/DB_COLUMN.md)
 
 #### Оконные функции
 

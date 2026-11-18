@@ -1,5 +1,7 @@
 # {{ AF }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 Для работы под управлением [{{ AF }}](https://airflow.apache.org) {{ yq-full-name }} предоставляет пакет [apache-airflow-providers-yandex](https://pypi.org/project/apache-airflow-providers-yandex/). [Задания {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/index.html) представляют собой приложения на языке Python, состоящие из набора [операторов {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) и их [зависимостей](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html), определяющих порядок выполнения. Для выполнения запросов к {{ yq-full-name }} в составе пакета содержится оператор {{ AF }} [`YQExecuteQueryOperator`](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/_api/airflow/providers/yandex/operators/yq/index.html).
 
 Для выполнения запросов к {{ yq-full-name }} необходимо инициализировать `YQExecuteQueryOperator` оператор с помощью аргументов, указанных ниже.

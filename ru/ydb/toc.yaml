@@ -143,6 +143,10 @@ items:
             href: tutorials/maxpatrol/terraform.md
       - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
         href: tutorials/postbox-webhook.md
+      - name: >-
+          Память, RAG и семантический кеш для ИИ-агента с {{ ydb-name }} в
+          режиме Serverless
+        href: tutorials/ydb-ai-agent-memory.md
       - name: Развертывание кластера {{ ydb-short-name }} во внешней инфраструктуре
         href: tutorials/deploy-ydb-cluster-on-premise.md
   - name: Концепции

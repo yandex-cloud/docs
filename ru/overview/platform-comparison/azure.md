@@ -26,7 +26,6 @@ description: В этой статье сопоставляются сервис�
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Azure Database for PostgreSQL Elastic Clusters | [{{ mspqr-full-name }}](../../managed-spqr/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
-| Azure Data Explorer, Microsoft Fabric | [{{ yq-full-name }}](../../query/) |
 | Azure Data Lake | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Azure Dedicated Hosts | [{{ baremetal-full-name }}](../../baremetal/) |
@@ -36,7 +35,6 @@ description: В этой статье сопоставляются сервис�
 | Azure Front Door (WAF) | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Azure Functions | [{{ sf-full-name }}](../../functions/) |
 | Azure HDInsight | [{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ msp-full-name }}](../../managed-spark/) |
-| Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/)<br/>[{{ lockbox-name }}](../../lockbox/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Azure Logic Apps | [{{ ai-studio-full-name }}: {{ sw-name }}]({{ link-docs-ai }}ai-studio/quickstart/workflows) |
@@ -53,7 +51,6 @@ description: В этой статье сопоставляются сервис�
 | Azure Security Center | [{{ sd-full-name }}](../../security-deck/) |
 | Azure Stack Hub | [{{ stackland-full-name }}](../../stackland/) |
 | Azure Synapse Analytics | [{{ mgp-full-name }}](../../managed-greenplum/) |
-| Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Azure Virtual WAN | [{{ cr-full-name }}](../../cloud-router/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |

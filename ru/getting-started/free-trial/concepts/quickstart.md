@@ -5,11 +5,9 @@ description: Пробный период доступен для юридиче�
 
 # Как работает пробный период
 
-
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
 {% include [free-trial-conditions](../../../_includes/free-trial-conditions.md) %}
-
 
 {% include [free-trial-first-section](../../../_includes/free-trial-first-section.md) %}
 

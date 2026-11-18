@@ -24,7 +24,7 @@
 
 * **Управление доступом**. Механизмы аутентификации, инфраструктура [{{ iam-full-name }}](*iam_service_info), сервисные роли (`ai.playground.user`, `ai.languageModels.user`, `ai.assistants.editor` и др.).
 
-* **Роли для {{ ai-studio-name }}**. Предоставление [гранулярных](*granularity_definition) ролей: `auditor`, `viewer`, `editor`, `admin` для агентов, [датасетов]({{ link-docs-ai }}ai-studio/concepts/resources/dataset), моделей и MCP-серверов.
+* **Роли для {{ ai-studio-name }}**. Предоставление [гранулярных](*granularity_definition) ролей: `auditor`, `viewer`, `editor`, `admin` для агентов, моделей и MCP-серверов.
 
 * **Аудитные логи**. Сервис [{{ at-full-name }}](*audit-trails_service_info) для сбора событий уровня платформы, экспорт событий в [{{ objstorage-full-name }}](*storage_service_info) или [{{ cloud-logging-full-name }}](*logging_service_info).
 

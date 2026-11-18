@@ -1,5 +1,11 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Обработка аудитных логов Audit Trails
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 # Обработка аудитных логов Yandex Audit Trails
 
 Yandex Audit Trails — сервис для сбора и выгрузки аудитных логов ресурсов Yandex Cloud в различные принимающие системы, в том числе в Yandex Object Storage и в Yandex Data Streams. Audit Trails и Yandex Query интегрированы между собой, что позволяет решать задачи поиска в аудитных логах.

@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник {{ TF }} для {{ yq-full-name }}
 
+{% include [sunset](../_includes/query/sunset.md) %}
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

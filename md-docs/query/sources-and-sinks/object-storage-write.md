@@ -2,6 +2,12 @@
 
 # Запись данных в Yandex Object Storage
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 
 В Yandex Query для записи данных в бакет Yandex Object Storage можно использовать [соединения](#connection-write) или [привязки к данным](#bindings-write).
 

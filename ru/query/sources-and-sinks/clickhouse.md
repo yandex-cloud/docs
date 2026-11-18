@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Работа с базами данных {{ mch-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе приведена основная информация о работе с [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse).
 
 Для работы с базой данных {{ mch-name }} выполните следующие шаги:

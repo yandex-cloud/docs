@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как записывать 
 
 # Запись данных в {{ objstorage-full-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 
 В {{ yq-full-name }} для записи данных в бакет {{ objstorage-full-name }} можно использовать [соединения](#connection-write) или [привязки к данным](#bindings-write).
 

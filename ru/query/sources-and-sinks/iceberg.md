@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Чтение данных из таблиц {{ yq-iceberg-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе описана основная информация о работе с таблицами {{ yq-iceberg-name }}.
 
 Чтобы прочитать данные из таблицы {{ yq-iceberg-name }}, расположенной в {{ objstorage-full-name }}:

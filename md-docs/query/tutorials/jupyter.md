@@ -1,5 +1,11 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Анализ данных с помощью Jupyter
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 # Анализ данных с помощью Jupyter
 
 Yandex Query поддерживает интеграцию с [Jupyter](https://jupyter.org) и [VSCode](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) через магические команды Python `cell` (`%%yq`) и `line` (`%yq`). Интеграция позволяет упростить рабочие процессы сбора и анализа данных, делая их более эффективными и удобными.

@@ -5,6 +5,8 @@ description: Соединение необходимо для подключен
 
 # Управление соединениями
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 [Соединение](../concepts/glossary.md#connection) необходимо для подключения {{ yq-full-name }} к источникам и приемникам данных.
 
 ## Создать соединение {#create}

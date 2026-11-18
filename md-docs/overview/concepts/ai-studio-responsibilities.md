@@ -26,7 +26,7 @@
 
 * **Управление доступом**. Механизмы аутентификации, инфраструктура [Yandex Identity and Access Management](*iam_service_info), сервисные роли (`ai.playground.user`, `ai.languageModels.user`, `ai.assistants.editor` и др.).
 
-* **Роли для AI Studio**. Предоставление [гранулярных](*granularity_definition) ролей: `auditor`, `viewer`, `editor`, `admin` для агентов, [датасетов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset), моделей и MCP-серверов.
+* **Роли для AI Studio**. Предоставление [гранулярных](*granularity_definition) ролей: `auditor`, `viewer`, `editor`, `admin` для агентов, моделей и MCP-серверов.
 
 * **Аудитные логи**. Сервис [Yandex Audit Trails](*audit-trails_service_info) для сбора событий уровня платформы, экспорт событий в [Yandex Object Storage](*storage_service_info) или [Yandex Cloud Logging](*logging_service_info).
 

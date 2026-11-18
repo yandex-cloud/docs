@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Работа с базами данных {{ mpg-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе приведена основная информация о работе с [{{ mpg-name }}](https://yandex.cloud/ru/services/managed-postgresql).
 
 Для работы с базой данных {{ mpg-name }} выполните следующие шаги:

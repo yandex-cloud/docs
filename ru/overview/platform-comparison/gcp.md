@@ -13,7 +13,7 @@ description: В этой статье сопоставляются сервис�
 | Artifact Registry | [{{ cloud-registry-full-name }}](../../cloud-registry/)<br/>[{{ container-registry-full-name }}](../../container-registry/)  |
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
 | Bare Metal Solution | [{{ baremetal-full-name }}](../../baremetal/) |
-| BigQuery | [{{ yq-full-name }}](../../query/)<br/>[{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
+| BigQuery | [{{ myt-full-name }}](../../managed-ytsaurus/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
 | Certificate Authority Service | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Cloud Armor,<br/>Cloud Identity | [{{ sws-full-name }}](../../smartwebsecurity/) |
@@ -25,7 +25,6 @@ description: В этой статье сопоставляются сервис�
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
 | Cloud Interconnect | [{{ interconnect-full-name }}](../../interconnect/) |
-| Cloud IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Cloud Logging | [{{ cloud-logging-full-name }}](../../logging/) |
@@ -47,7 +46,6 @@ description: В этой статье сопоставляются сервис�
 | Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cloud Translation API | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |
 | Cloud Vision | [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) |
-| Cloud Workstations | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Compute Engine | [{{ compute-full-name }}](../../compute/) |
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Contact Center AI | [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) |

@@ -2652,6 +2652,8 @@ default:
         label_selected-all: Выбрать все
         value_empty_resources: Все ресурсы
         value_empty_service_instances: Все рабочие пространства
+      billing-payment-dialog:
+        popup-payment_button_card_individual-action: Оплатить картой или СБП
       billing-widget:
         activate_promocode: Активировать промокод
         details: Детализация

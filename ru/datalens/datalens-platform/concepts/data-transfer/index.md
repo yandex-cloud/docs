@@ -33,6 +33,8 @@ description: Из статьи вы узнаете, какие бывают по
 
 Подробнее о том, [как создать разовое копирование](../../operations/data-transfer/one-time-copy.md).
 
-## Захват изменений данных {#cdc} `Скоро`
+## CDC (непрерывная передача изменений) {#cdc}
+
+{% include [cdc-pg](../../../../_includes/dlp/transfer/cdc-pg.md) %}
 
 {% include [cdc](../../../../_includes/dlp/transfer/cdc.md) %}

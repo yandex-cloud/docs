@@ -103,7 +103,7 @@
 
 ## Дообучите модель {#fine-tuning}
 
-Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения]({{ link-docs-ai }}ai-studio/concepts/resources/dataset#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука {{ ml-platform-name }}. Данные для дообучения хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 

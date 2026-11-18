@@ -8,6 +8,8 @@
 
   - [Перевод через СБП (Систему быстрых платежей)](../operations/pay-the-bill.md#individuals)
 
+  - [Перевод цифрового рубля](../operations/pay-the-bill.md#individuals)
+
 - Юридические лица и ИП {#businesses}
   
   - [Перевод с расчетного счета (через банк)](../operations/pay-the-bill.md#transfer)
@@ -15,5 +17,7 @@
   - [Перевод с банковской карты](../operations/pay-the-bill.md#card)
 
   - [Перевод через СБП (Систему быстрых платежей)](../operations/pay-the-bill.md#sbp)
+
+  - [Перевод цифрового рубля](../operations/pay-the-bill.md#digital-rub)
 
 {% endlist %}

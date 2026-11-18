@@ -76,11 +76,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [cdn-limits](../../_includes/cdn/limits.md) %}
 
 
-### {{ cloud-desktop-full-name }} {#cloud-desktop}
-
-{% include [limits](../../_includes/cloud-desktop/limits.md) %}
-
-
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
@@ -176,11 +171,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 
 
-### {{ iot-full-name }} {#iot}
-
-{% include [iot-limits.md](../../_includes/iot-limits.md) %}
-
-
 ### {{ kms-full-name }} {#kms}
 
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
@@ -247,7 +237,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
-### {{ mspqr-full-name}} {#mspqr}
+### {{ mspqr-full-name }} {#mspqr}
 
 {% include [managed-spqr-limits.md](../../_includes/managed-spqr/limits.md) %}
 
@@ -326,11 +316,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ objstorage-full-name }} {#storage}
 
 {% include [storage-limits.md](../../_includes/storage-limits.md) %}
-
-
-### {{ yq-full-name }} {#yq}
-
-{% include [limits.md](../../query/_includes/limits.md) %}
 
 
 ### {{ resmgr-full-name }} {#resource-manager}

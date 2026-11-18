@@ -116,6 +116,8 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 
+ - [Память, RAG и семантический кеш для ИИ-агента с Managed Service for YDB в режиме Serverless](tutorials/ydb-ai-agent-memory.md)
+
  - [Развертывание кластера YDB во внешней инфраструктуре](tutorials/deploy-ydb-cluster-on-premise.md)
 
 ## Концепции

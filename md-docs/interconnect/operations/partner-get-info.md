@@ -12,6 +12,8 @@
 
 {% endnote %}
 
+Доступную [емкость](../concepts/capacity.md) партнерского транкового подключения уточните в [технической поддержке](https://center.yandex.cloud/support).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

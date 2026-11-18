@@ -6,7 +6,6 @@
 | Amazon Web Services | Yandex Cloud |
 |----|----|
 | Amazon API Gateway | [API Gateway](../../api-gateway/index.md) |
-| Amazon Athena | [Yandex Query](../../query/index.md) |
 | Amazon Aurora PostgreSQL Limitless Database | [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md) |
 | Amazon CloudFront | [Yandex Cloud CDN](../../cdn/index.md) |
 | Amazon CloudSearch | [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts/index) |
@@ -45,7 +44,6 @@
 | Amazon Transcribe, Amazon Kinesis | [Yandex SpeechSense](https://aistudio.yandex.ru/docs/ru/speechsense/) |
 | Amazon Translate | [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/index) |
 | Amazon Virtual Private Cloud | [Yandex Virtual Private Cloud](../../vpc/index.md) |
-| Amazon WorkSpaces | [Yandex Cloud Desktop](../../cloud-desktop/index.md) |
 | AWS App Runner | [Yandex Cloud Apps](../../cloud-apps/index.md) |
 | AWS Backup | [Yandex Cloud Backup](../../backup/index.md) |
 | AWS Billing Console | [Yandex Cloud Billing](../../billing/index.md) |
@@ -59,7 +57,6 @@
 | AWS EC2 Bare Metal | [Yandex BareMetal](../../baremetal/index.md) |
 | AWS Elastic Container Service | [Yandex Serverless Containers](../../serverless-containers/index.md) |
 | AWS Identity and Access Management, AWS Cognito | [Yandex Identity and Access Management](../../iam/index.md) |
-| AWS IoT Core | [Yandex IoT Core](../../iot-core/index.md) |
 | AWS Key Management Service | [Yandex Key Management Service](../../kms/index.md) |
 | AWS Lambda | [Yandex Cloud Functions](../../functions/index.md) |
 | AWS Marketplace | [Yandex Cloud Marketplace](../../marketplace/index.md) |

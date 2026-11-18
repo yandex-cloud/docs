@@ -412,6 +412,9 @@ items:
         href: concepts/limits.md
       - name: Рекомендации по использованию {{ managed-k8s-name }}
         href: concepts/usage-recommendations.md
+        items:
+          - name: Высокая доступность и отказоустойчивость
+            href: concepts/high-availability.md
       - name: Рекомендуемые конфигурации мастера
         href: concepts/master-configuration.md
   - name: Управление доступом

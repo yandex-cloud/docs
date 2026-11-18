@@ -6,7 +6,6 @@ editable: false
 
 # Ограничения пробного периода
 
-
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 
 В рамках пробного периода вы можете использовать ресурсы {{ yandex-cloud }} с некоторыми ограничениями.

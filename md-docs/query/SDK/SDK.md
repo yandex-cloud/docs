@@ -2,6 +2,12 @@
 
 # SDK
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 Yandex Query построен на основе [внешних таблиц YDB](https://ydb.tech/docs/ru//concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [YDB SDK](https://ydb.tech/docs/ru//reference/ydb-sdk/).
 
 C помощью YDB SDK возможно использование Yandex Query в различных языках программирования:

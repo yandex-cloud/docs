@@ -5,6 +5,8 @@ description: На этой странице приведен справочни�
 
 # Справочник аудитных логов {{ at-full-name }}
 
+{% include [sunset](../_includes/query/sunset.md) %}
+
 В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ yq-full-name }}. Подробнее в разделе [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):

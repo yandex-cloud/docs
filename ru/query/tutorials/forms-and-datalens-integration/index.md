@@ -6,6 +6,8 @@ canonical: '{{ link-docs }}/tutorials/serverless/forms-and-datalens-integration/
 
 # Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
 
+{% include [sunset](../../../_includes/query/sunset.md) %}
+
 
 {% include notitle [forms-and-datalens-intro](../../../_tutorials/_tutorials_includes/forms-and-datalens-intro.md) %}
 

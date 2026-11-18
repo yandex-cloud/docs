@@ -5,6 +5,8 @@ description: Аутентификация, подключение, выполн�
 
 # SDK
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {{ yq-full-name }} построен на основе [внешних таблиц {{ ydb-short-name }}]({{ ydb.docs }}/concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
 
 C помощью {{ ydb-short-name }} SDK возможно использование {{ yq-full-name }} в различных языках программирования:

@@ -5,7 +5,6 @@ description: Пробный период — это разовое ознако�
 
 # Пробный период для новых клиентов
 
-
 {% include [free-trial-invoice-only](../../_includes/billing/free-trial-invoice-only.md) %}
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}

@@ -295,7 +295,7 @@ yc components update
 
 ### Подготовительные действия {#prepare}
 
-1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [Высокая доступность и отказоустойчивость](../concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
+1. Проверьте, используются ли стратегии `nodeSelector`, `affinity` или `topology spread constraints` для привязки подов к узлам группы. Подробнее о стратегиях смотрите в [документации Kubernetes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) и разделе [Высокая доступность и отказоустойчивость Managed Service for Kubernetes](../concepts/usage-recommendations.md#high-availability). Чтобы проверить привязку пода к узлам и убрать ее:
 
    {% list tabs group=instructions %}
 

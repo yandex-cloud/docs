@@ -15,6 +15,8 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% endnote %}
 
+Доступную [емкость](../concepts/capacity.md) партнерского транкового подключения уточните в [технической поддержке]({{ link-console-support }}).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

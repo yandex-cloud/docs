@@ -29,3 +29,4 @@ description: Следуя данной инструкции, вы сможете
 #### Полезные ссылки {#see-also}
 
 [Сетевое взаимодействие в {{ serverless-containers-name }}](../concepts/networking.md)
+[{#T}](../tutorials/database-connection-via-vpc.md)

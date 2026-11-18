@@ -53,7 +53,6 @@
 
 * [{{ at-full-name }}](../audit-trails/release-notes.md)
 * [{{ certificate-manager-full-name }}](../certificate-manager/release-notes.md)
-* [{{ cloud-desktop-full-name }}](../cloud-desktop/release-notes.md)
 * [{{ org-full-name }}](../organization/release-notes.md)
 * [{{ lockbox-full-name }}](../lockbox/release-notes.md)
 * [{{ sd-full-name }}](../security-deck/release-notes.md)
@@ -76,7 +75,6 @@
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
 * [{{ cns-full-name }}](../notifications/release-notes.md)
 * [{{ postbox-full-name }}](../postbox/release-notes.md)
-* [{{ iot-full-name }}](../iot-core/release-notes.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/release-notes.md)
 
 ## Управление ресурсами {#resources-operations}
@@ -85,7 +83,6 @@
 * [{{ quota-manager-full-name }}](../quota-manager/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
 * [{{ resmgr-full-name }}](../resource-manager/release-notes.md)
-
 
 ## Инструменты {{ yandex-cloud }} {#working-tools}
 

@@ -1,5 +1,11 @@
 [Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Автоматизация задач с помощью Managed Service for Apache Airflow™
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 # Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™
 
 

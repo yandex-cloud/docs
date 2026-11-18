@@ -5,6 +5,8 @@ description: На странице представлены публичные �
 
 # Публичные материалы
 
+{% include [sunset](../_includes/query/sunset.md) %}
+
 ## Визуализация данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }} {#shorts3}
 
 

@@ -2,6 +2,12 @@
 
 # Работа с базами данных Yandex MPP Analytics for PostgreSQL
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 В этом разделе приведена основная информация о работе с [Yandex MPP Analytics for PostgreSQL](https://yandex.cloud/ru/services/managed-greenplum).
 
 Для работы с базой данных Yandex MPP Analytics for PostgreSQL выполните следующие шаги:

@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Работа с базами данных {{ mgp-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе приведена основная информация о работе с [{{ mgp-name }}](https://yandex.cloud/ru/services/managed-greenplum).
 
 Для работы с базой данных {{ mgp-name }} выполните следующие шаги:

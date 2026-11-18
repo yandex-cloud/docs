@@ -5,6 +5,8 @@ description: В этом разделе собраны обучающие кур
 
 # Обучающие курсы по {{ yq-full-name }}
 
+{% include [sunset](../_includes/query/sunset.md) %}
+
 {% include [training-intro](../_includes/training/training-intro.md) %}
 
 Подробнее узнать об использовании сервиса {{ yq-full-name }} можно в следующих курсах:

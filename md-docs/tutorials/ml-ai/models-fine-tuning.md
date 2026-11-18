@@ -115,7 +115,7 @@
 
 ## Дообучите модель {#fine-tuning}
 
-Код для дообучения запускается из ноутбука DataSphere. [Данные для дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука DataSphere. Данные для дообучения хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 

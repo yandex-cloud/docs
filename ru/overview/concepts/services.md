@@ -33,17 +33,17 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ mmy-full-name }}](../../managed-mysql/index.yaml) | Сервис для создания и управления кластерами {{ MY }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ mos-full-name }}](../../managed-opensearch/index.yaml) | Сервис для создания и управления кластерами {{ OS }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) | Сервис для создания и управления кластерами {{ PG }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ mspqr-full-name }}](../../managed-spqr/index.yaml) | Сервис для создания и управления кластерами {{ PG }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ mspqr-full-name }}](../../managed-spqr/index.yaml) | Сервис для создания и управления шардированными кластерами {{ PG }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ mtr-full-name }}](../../managed-trino/index.yaml) | Сервис управления распределенным аналитическим SQL-движком | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ mrd-full-name }}](../../managed-valkey/index.yaml) | Сервис для создания и управления кластерами {{ VLK }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ ydb-full-name }}](../../ydb/index.yaml) | Сервис управления для базы данных {{ ydb-full-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ ydb-full-name }}](../../ydb/index.yaml) | Сервис для управления базами данных {{ ydb-full-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml) | Сервис для создания и управления кластерами {{ ytsaurus-name }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) | Сервис для управления подключениями к базам данных, хранения схем обмена данными и описания наборов данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ mgp-full-name }}](../../managed-greenplum/index.yaml) | Сервис для создания и управления кластерами баз данных {{ GP }} и {{ CB }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ mmg-full-name }}](../../storedoc/index.yaml) | Сервис для создания и управления кластерами {{ SD }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ websql-full-name }}](../../websql/index.yaml) | Сервис для подключения к кластерам управляемых баз данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Искусственный интеллект** | > | > | > ||
-|| [{{ vc-full-name }}]({{ link-src-docs }}/vibecraft/) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ vc-full-name }}]({{ link-src-docs }}/vibecraft/) | Платформа с ИИ для быстрого создания сайтов и веб-приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ ai-studio-full-name }}]({{ link-docs-ai }}) | Платформа для создания AI-приложений и AI-агентов на базе больших генеративных моделей | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | Сервис для ML-разработки полного цикла | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) | Сервис поисковых запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
@@ -55,14 +55,13 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ gost-gateway-name }}](../../gost-gateway/index.yaml) | {{ preview-stage }} Сервис для защиты информации | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ at-full-name }}](../../audit-trails/index.yaml) | Сервис сбора и выгрузки аудитных логов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml) | Сервис для управления TLS-сертификатами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ cloud-desktop-full-name }}](../../cloud-desktop/index.yaml) | {{ preview-stage }} Сервис для создания удаленных рабочих мест в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ ycdr-full-name }}](../../ycdr/index.yaml) | Сервис собирает данные с облачной инфраструктуры для выявления аномалий | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ ycdr-full-name }}](../../ycdr/index.yaml) | Сервис для мониторинга и реагирования на инциденты в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | Сервис для хранения артефактов разработки и управления ими | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ org-full-name }}](../../organization/index.yaml) | Сервис для управления составом организации, настройки интеграции с каталогом сотрудников и разграничения доступа пользователей к облачным ресурсам организации | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ kms-full-name }}](../../kms/index.yaml) | Сервис для управления ключами шифрования | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ lockbox-name }}](../../lockbox/index.yaml) | Сервис для создания и хранения секретов в инфраструктуре {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ sd-full-name }}](../../security-deck/index.yaml) | Сервис для управления безопасностью в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ yandex-siem-full-name }}](../../siem/index.yaml) | {{ preview-stage }} Сервис собирает данные с облачной инфраструктуры для выявления аномалий | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [{{ yandex-siem-full-name }}](../../siem/index.yaml) | {{ preview-stage }} Cобственная SIEM-система {{ yandex-cloud }} для мониторинга и анализа событий безопасности в облачной инфраструктуре | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | Сервис для распознавания пользователей системы | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | Сервис для защиты от DDoS-атак и ботов на уровне приложений (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Инструменты DevOps** | > | > | > ||
@@ -81,15 +80,13 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 || [{{ cns-full-name }}](../../notifications/index.yaml) | Сервис для мультиканальной отправки уведомлений пользователям | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ postbox-full-name }}](../../postbox/index.yaml) | Сервис отправки почтовых сообщений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ yds-full-name }}](../../data-streams/index.yaml) | Сервис для управления потоками данных в режиме реального времени | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [{{ iot-full-name }}](../../iot-core/index.yaml) | Сервис интернета вещей для двустороннего обмена сообщениями между реестрами и устройствами по [протоколу MQTT](../../glossary/mqtt-server.md#mqtt-protocol) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ message-queue-full-name }}](../../message-queue/index.yaml) | Сервис обмена сообщениями между приложениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ yq-full-name }}](../../query/index.yaml)                                    | Сервис выполнения запросов с помощью единого диалекта SQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) | Сервис бессерверного запуска контейнеризированных приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Управление ресурсами** | > | > | > ||
 || [{{ cloud-apps-full-name }}](../../cloud-apps/index.yaml) | Сервис для разворачивания приложений на базе {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [{{ billing-name }}](../../billing/index.yaml) | Сервис для оплаты и детализации расходов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ console-full-name }}](../../console/index.yaml) | Консоль управления ресурсами {{ yandex-cloud }} | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml)                 | Сервис для управления квотами ваших ресурсов в облаке. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [{{ quota-manager-full-name }}](../../quota-manager/index.yaml) | Сервис для управления квотами ваших ресурсов в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ iam-full-name }}](../../iam/index.yaml) | Сервис для управления доступом к облачным ресурсам | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [{{ resmgr-full-name }}](../../resource-manager/index.yaml) | Сервис для управления облачными ресурсами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 |#

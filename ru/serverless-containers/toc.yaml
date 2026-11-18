@@ -231,6 +231,10 @@ items:
               Разработка функций в Functions Framework и их развертывание в {{
               serverless-containers-full-name }}
             href: tutorials/functions-framework-to-container.md
+          - name: >-
+              Подключение к управляемым БД из контейнера через пользовательскую
+              сеть {{ vpc-short-name }}
+            href: tutorials/database-connection-via-vpc.md
       - name: Рабочие процессы и автоматизация на Serverless
         items:
           - name: >-

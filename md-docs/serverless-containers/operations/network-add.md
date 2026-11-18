@@ -34,3 +34,4 @@
 #### Полезные ссылки {#see-also}
 
 [Сетевое взаимодействие в Serverless Containers](../concepts/networking.md)
+[Подключение к управляемым БД из контейнера Serverless Containers через пользовательскую сеть VPC](../tutorials/database-connection-via-vpc.md)

@@ -484,6 +484,8 @@ items:
                 href: function-ref/DB_CALL_INT.md
               - name: DB_CALL_STRING
                 href: function-ref/DB_CALL_STRING.md
+              - name: DB_COLUMN
+                href: function-ref/DB_COLUMN.md
           - name: Operators
             items:
               - name: Overview

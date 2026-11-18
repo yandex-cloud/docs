@@ -60,7 +60,7 @@ The cost depends on the billing mode:
 
 Both methods are based on the number of requests across all [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud) linked to a single [billing account](../billing/concepts/billing-account.md).
 
-Only [legitimate requests](concepts/rules.md#rule-action) are counted for billing purposes. These are requests that were allowed by all rules and let through to the protected resource.
+Only [legitimate requests](concepts/rules.md#rule-action) are counted when calculating the cost of request processing. These are requests that were allowed by all rules and let through to the protected resource.
 
 At the same time, there are things to consider about billing in the dry run mode:
 
@@ -68,7 +68,9 @@ At the same time, there are things to consider about billing in the dry run mode
 
 * If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted for billing.
 
-Requests processed by ARL profile rules will not be counted for billing. Blocked requests will not be counted either, no matter when and which rule blocked them.
+Requests processed by ARL profile rules are not billed separately. Blocked requests are not counted when calculating the cost of request processing, no matter when and which rule blocked them.
+
+When using a proxy server, Network Protection is billed separately. Its cost includes incoming traffic passed by Network Protection, including traffic of requests that were later blocked at L7. The calculation rules are described in the [Network Protection](#network-protection) section.
 
 When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [you pay](#proxy-resources) for the computing resources of the proxy server. Since domain protection is not included in the subscription, you can only enable it with request-count-based billing.
 
@@ -144,8 +146,68 @@ The default minimum number of resource units is 6; you can increase this number 
 
 The proxy server fee is per hour. You are charged for the minimum number of resource units that were running for an hour.
 
-Traffic protection from DDoS attacks at levels L3–L4 is charged based on the amount of [legitimate](concepts/rules.md#rule-action) traffic in GB.
+Applications connected to a proxy server also get L3–L4 DDoS protection from Network Protection, which is [billed separately](#network-protection).
 
+#### Network Protection {#network-protection}
+
+{% note warning %}
+
+Network Protection rates apply from December 1, 2026.
+
+{% endnote %}
+
+Network Protection protects applications connected to {{ sws-full-name }} proxy servers against DDoS attacks at L3–L4.
+
+
+
+{% include [usd-network-protection-pricing](../_pricing/smartwebsecurity/usd-network-protection-pricing.md) %}
+
+
+The cost is calculated separately for each proxy server. The price per 1 Mbps is the same at any bandwidth volume. There is no minimum fee, minimum billable bandwidth, or minimum usage period.
+
+Proxy server computing resources, request processing by security profile rules, and Cloud WAF are billed separately. A zero Network Protection cost does not cancel the fees for these components.
+
+##### Which traffic is billed {#network-protection-traffic}
+
+Billing covers cleaned incoming traffic: data that Network Protection scrubbing nodes passed to the proxy server on all ports of its address. If this traffic is later blocked at L7, it is still counted in the Network Protection cost.
+
+Traffic dropped by Network Protection and outgoing responses from the resource to clients are not counted. If no billable incoming traffic was recorded during the entire billing period, the Network Protection cost is zero.
+
+##### How the monthly cost is calculated {#network-protection-formula}
+
+For each proxy server, two metrics are determined for the period of connection to protection:
+
+- **p95**: The 95th percentile of average incoming traffic speeds over five-minute intervals, in Mbps. This metric reduces the impact of short load spikes.
+- **Average speed**: The total volume of billable incoming traffic divided by the connection duration to protection, converted to Mbps. The volume includes short spikes.
+
+The billable bandwidth equals the larger of these two values. Therefore, short spikes can increase the cost through the average speed, even if p95 does not change.
+
+
+
+**Monthly cost = rate × max(p95, average speed) × T / M**.
+
+
+Here, `T` is the total duration of all proxy server connection intervals to protection in the billing month, including intervals without traffic. `M` is the duration of the full calendar month. Use the same time units for the `T / M` ratio.
+
+The billing month starts at 00:00 on the first day of the month, Moscow time. If protection is enabled for part of the month, the cost is calculated in proportion to the connection duration. If there is no connection, the cost is zero.
+
+##### Protection period and proxy server stop {#network-protection-period}
+
+Network Protection is enabled automatically when a proxy server is created. Deleting the proxy server ends the protection period.
+
+Stopping a proxy server keeps its address protected and does not end the billing period. Five-minute intervals without traffic are counted at zero speed. After the same proxy server is restarted, the statistics accumulated for the month are preserved.
+
+Intervals with zero speed are included in the calculation of the average speed and p95, and in the connection duration to protection. Therefore, stopping a resource does not guarantee a proportional cost reduction: the result depends on the traffic over the entire connection period in the month.
+
+A new proxy server is billed separately. If an old proxy server is stopped but not deleted, its calculation continues according to the general formula. The total cost is the sum of charges for both resources.
+
+##### Charges and traffic review {#network-protection-billing}
+
+During the month, the billing shows the accumulated charge for the billable consumption. When the load changes, the amount may increase unevenly. It is not a forecast of the full-month cost. The final cost is calculated after the month ends using the formula above.
+
+You can view the charges in the **Details** section of {{ billing-name }}. For instructions, see [Viewing service usage details](../billing/operations/check-charges.md).
+
+To verify the final calculation independently, use the data on incoming traffic passed by Network Protection in {{ monium-full-name }} for the same proxy server and the completed billing month. For instructions, see [Monitoring in {{ sws-name }}](operations/monitoring.md).
 
 <MDX>
   <Calculator
@@ -183,5 +245,12 @@ The prices below are for reference only. {{ sws-name }} usage by your services w
 
 
 {% include [usd-requests-pricing-examples](../_includes/smartwebsecurity/usd-requests-pricing-examples.md) %}
+
+
+#### Examples of Network Protection cost calculation {#network-protection-price-example}
+
+
+
+{% include [usd-network-protection](../_pricing_examples/smartwebsecurity/usd-network-protection.md) %}
 
 

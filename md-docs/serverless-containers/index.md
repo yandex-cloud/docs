@@ -230,6 +230,8 @@
 
  - [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](tutorials/functions-framework-to-container.md)
 
+ - [Подключение к управляемым БД из контейнера через пользовательскую сеть VPC](tutorials/database-connection-via-vpc.md)
+
 ### Рабочие процессы и автоматизация на Serverless
 
  - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)

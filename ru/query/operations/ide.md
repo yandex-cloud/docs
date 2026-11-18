@@ -1,5 +1,7 @@
 # Подключение с помощью IDE
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {{ yq-full-name }} позволяет выполнять подключения по протоколу Java DataBase Connectivity ([JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity)), поэтому для работы с подключениями в {{ yq-name }} подходят графические IDE, также поддерживающие этот протокол: например DBeaver, DataGrip или другие.
 
 В этом документе описан процесс подключения с помощью DBeaver, но подключение в рамках любой системы, поддерживающей источники данных JDBC, выполняется аналогично.

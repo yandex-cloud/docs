@@ -55,7 +55,6 @@
 
 * [Yandex Audit Trails](../audit-trails/release-notes.md)
 * [Yandex Certificate Manager](../certificate-manager/release-notes.md)
-* [Yandex Cloud Desktop](../cloud-desktop/release-notes.md)
 * [Yandex Identity Hub](../organization/release-notes.md)
 * [Yandex Lockbox](../lockbox/release-notes.md)
 * [Yandex Security Deck](../security-deck/release-notes.md)
@@ -78,7 +77,6 @@
 * [Yandex API Gateway](../api-gateway/release-notes.md)
 * [Yandex Cloud Notification Service](../notifications/release-notes.md)
 * [Yandex Cloud Postbox](../postbox/release-notes.md)
-* [Yandex IoT Core](../iot-core/release-notes.md)
 * [Yandex Serverless Containers](../serverless-containers/release-notes.md)
 
 ## Управление ресурсами {#resources-operations}
@@ -87,7 +85,6 @@
 * [Yandex Cloud Quota Manager](../quota-manager/release-notes.md)
 * [Yandex Identity and Access Management](../iam/release-notes.md)
 * [Yandex Resource Manager](../resource-manager/release-notes.md)
-
 
 ## Инструменты Yandex Cloud {#working-tools}
 

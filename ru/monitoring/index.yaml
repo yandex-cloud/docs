@@ -1,8 +1,9 @@
 title: Yandex Monitoring
 description:
   - >-
-    Сервис {{ monitoring-full-name }} закрыт. Все его возможности и метрики
-    доступны в {{ monium-name }} — единой платформе Observability.
+    С 1 декабря 2026 года сервис {{ monitoring-full-name }} закрыт. Все его
+    возможности и метрики доступны в {{ monium-name }} — единой платформе
+    Observability.
   - >-
     Продолжите работу с метриками в <a href="{{ link-monium }}">интерфейсе {{
     monium-name }}</a>. Подробнее на странице <a href="sunset">Закрытие сервиса
@@ -15,8 +16,8 @@ description:
 meta:
   title: Yandex Monitoring
   description: >-
-    Сервис {{ monitoring-name }} закрыт. Все его возможности и метрики доступны
-    в {{ monium-name }}.
+    С 1 декабря 2026 года сервис {{ monitoring-name }} закрыт. Все его
+    возможности и метрики доступны в {{ monium-name }}.
   keywords:
     - keyword: monitoring
     - keyword: мониторинг

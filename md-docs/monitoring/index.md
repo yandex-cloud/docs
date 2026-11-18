@@ -2,7 +2,7 @@
 
 # Yandex Monitoring
 
-Сервис Yandex Monitoring закрыт. Все его возможности и метрики доступны в Monium — единой платформе Observability.
+С 1 декабря 2026 года сервис Yandex Monitoring закрыт. Все его возможности и метрики доступны в Monium — единой платформе Observability.
 
 Продолжите работу с метриками в <a href="https://monium.yandex.cloud">интерфейсе Monium</a>. Подробнее на странице <a href="sunset.md">Закрытие сервиса Yandex Monitoring</a>.
 

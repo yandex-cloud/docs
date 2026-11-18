@@ -55,6 +55,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ vc-name }}]({{ link-src-docs }}/vibecraft/qa)
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
+* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/reference/error-codes)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
 
 ### Безопасность {#security}
@@ -62,6 +63,8 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ certificate-manager-full-name }}](../certificate-manager/qa/index.md)
 * [{{ kms-full-name }}](../kms/qa/index.md)
 * [{{ lockbox-full-name }}](../lockbox/qa/index.md)
+* [{{ sd-full-name }}](../security-deck/qa/index.md)
+* [{{ captcha-full-name }}](../smartcaptcha/qa.md)
 
 
 ### Инструменты DevOps {#developer-tools}
@@ -82,15 +85,14 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ sf-full-name }}](../functions/qa/index.md)
 * [{{ postbox-full-name }}](../postbox/qa/index.md)
 * [{{ yds-full-name }}](../data-streams/qa/index.md)
-* [{{ iot-full-name }}](../iot-core/qa/index.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
-* [{{ yq-full-name }}](../query/qa/index.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
 
 
 ### Управление ресурсами {#resources-operations}
 
-* [Technical support](../support/qa.md)
+* [Техническая поддержка](../support/qa.md)
+* [{{ console-full-name }}](../console/qa/index.md)
 * [{{ billing-name }}](../billing/qa/all.md)
 * [{{ iam-full-name }}](../iam/qa/index.md)
 * [{{ resmgr-full-name }}](../resource-manager/qa/index.md)

@@ -38,18 +38,19 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing_account.billing-payment-dialog.popup-payment_button_card_individual-action }}**.
   1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}).
-    1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
-    1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
+  1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
 
-        {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
-    1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-    1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
+     {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+    
+  1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing_account.billing-payment-dialog.popup-payment_button_card_individual-action }}**.
+  1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
 {% endlist %}
 
@@ -85,6 +86,7 @@ description: Следуя данной инструкции, вы сможете
   1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Эта кнопка доступна только после [перехода на платное потребление](activate-commercial.md).
 
       {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+  
   1. {% include [business_payment_methods](../_includes/business-payment-methods.md) %}
 
 {% endlist %}

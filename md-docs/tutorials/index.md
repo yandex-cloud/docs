@@ -1658,4 +1658,6 @@
 
  - [Интеграция AI-аналитика данных с Data Catalog](ml-ai/data-catalog-integration.md)
 
+ - [Память, RAG и семантический кеш для ИИ-агента с Managed Service for YDB в режиме Serverless](ml-ai/ydb-ai-agent-memory.md)
+
  - [Использование Yandex Managed Service for Valkey™ с модулем Search и моделей Yandex AI Studio для векторного поиска в RAG-системе](dataplatform/valkey-rag-search.md)

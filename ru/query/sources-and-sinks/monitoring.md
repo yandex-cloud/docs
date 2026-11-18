@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как настроить с
 
 # Чтение данных из {{ monitoring-name }} с помощью соединений в {{ yq-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {% include [public-preview](../../_includes/preview-pp.md) %}
 
 [{{ monitoring-name }}](../../monitoring/concepts/index.md) — сервис для сбора и хранения метрик, а также их отображения на дашбордах. Данные в {{ monitoring-name }} содержат значения измеряемых величин — метрики — и описывающие их метки.

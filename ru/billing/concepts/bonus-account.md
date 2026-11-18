@@ -44,7 +44,6 @@
 
 {% endlist %}
 
-
 ## Стартовый грант {#start}
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
@@ -56,7 +55,6 @@
 Одному физическому лицу, ИП или организации может быть выдан только один стартовый грант.
 
 {% endnote %}
-
 
 ## Дополнительные гранты {#additional}
 

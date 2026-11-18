@@ -12,6 +12,7 @@ description: На странице представлен список прак�
 * [{#T}](pg-connect.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](functions-framework-to-container.md)
+* [{#T}](database-connection-via-vpc.md)
 
 ## Рабочие процессы и автоматизация на Serverless {#automation}
 

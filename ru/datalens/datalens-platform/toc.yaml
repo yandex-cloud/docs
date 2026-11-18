@@ -26,6 +26,8 @@ items:
         href: operations/data-transfer/regular-copy.md
       - name: Создание разового копирования
         href: operations/data-transfer/one-time-copy.md
+      - name: Создание поставки данных в режиме CDC
+        href: operations/data-transfer/cdc.md
       - name: Управление поставками
         href: operations/data-transfer/manage-transfer.md
   - name: Пайплайны

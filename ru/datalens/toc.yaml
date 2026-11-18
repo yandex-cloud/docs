@@ -27,8 +27,6 @@ items:
         href: workbooks-collections/export-import-notifications.md
   - name: AI-агенты
     items:
-      - name: Использование {{ datalens-name }} с AI-агентами
-        href: operations/ai-agents.md
       - name: AI-агенты в {{ datalens-name }}
         href: concepts/ai-agents.md
       - name: Нейроаналитик DataLens
@@ -380,6 +378,8 @@ items:
                 href: function-ref/DB_CALL_INT.md
               - name: DB_CALL_STRING
                 href: function-ref/DB_CALL_STRING.md
+              - name: DB_COLUMN
+                href: function-ref/DB_COLUMN.md
           - name: Оконные функции
             items:
               - name: Обзор

@@ -15,6 +15,7 @@
 * [Канареечный релиз функции Cloud Functions](canary-release.md)
 * [Интерактивная отладка функций Cloud Functions](serverless-live-debug.md)
 * [Веб-приложение на SourceCraft Sites и Yandex Cloud Functions](sourcecraft-sites-web-app.md)
+* [Подключение к управляемым БД из функции Cloud Functions через пользовательскую сеть VPC](database-connection-via-vpc.md)
 
 ## Боты на Serverless {#bots}
 

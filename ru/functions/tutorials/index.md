@@ -18,6 +18,7 @@ description: В этом разделе собраны практические 
 * [{#T}](canary-release.md)
 * [{#T}](serverless-live-debug.md)
 * [{#T}](sourcecraft-sites-web-app.md)
+* [{#T}](database-connection-via-vpc.md)
 
 ## Боты на Serverless {#bots}
 

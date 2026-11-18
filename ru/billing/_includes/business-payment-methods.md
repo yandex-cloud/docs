@@ -37,5 +37,13 @@
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Выберите способ пополнения баланса через СБП и нажмите кнопку **Оплатить СБП**.
       
     Отсканируйте QR-код с помощью приложения вашего банка и подтвердите платеж.
+  
+  - Цифровой рубль {#digital-rub}
+
+    {% include [payment-digital-rub-info](../../_includes/billing/payment-digital-rub-info.md) %}
+
+    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Выберите способ пополнения баланса через цифровой рубль и нажмите кнопку **Оплатить**.
+      
+    Отсканируйте QR-код с помощью приложения вашего банка и подтвердите платеж.
       
   {% endlist %}

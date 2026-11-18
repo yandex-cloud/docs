@@ -187,6 +187,8 @@ yc managed-postgresql cluster start-failover <имя_кластера> --host <�
 
 Для снижения времени недоступности сервиса во время обновлений кластера необходимо настроить политики `podDisruptionBudget`.
 
+Подробные рекомендации по размещению мастера, узлов и приложений, запасу мощности и настройке ресурсов приложений приведены в разделе [Высокая доступность и отказоустойчивость Managed Service for Kubernetes](../managed-kubernetes/concepts/high-availability.md).
+
 ## Средства автоматического масштабирования {#auto-scaling}
 
 
@@ -345,7 +347,7 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 
 * [Создание группы узлов](../managed-kubernetes/operations/node-group/node-group-create.md).
 * [Восстановление постоянного тома из снапшота](../managed-kubernetes/tutorials/pvc-snapshot-restore.md#restore-from-snapshot).
-* [Рекомендации по обеспечению высокой доступности и отказоустойчивости](../managed-kubernetes/concepts/usage-recommendations.md#high-availability).
+* [Рекомендации по обеспечению высокой доступности и отказоустойчивости](../managed-kubernetes/concepts/high-availability.md).
 
 #### Смотрите также {#see-also}
 

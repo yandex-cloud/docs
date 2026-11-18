@@ -4,4 +4,6 @@ description: Следуя данному руководству, вы сможе
 canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-yq'
 ---
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {% include [debezium-yq](../../_tutorials/dataplatform/debezium-yq.md) %}

@@ -13,4 +13,4 @@ Yandex DataSphere предоставляет возможность работа
   * Большая языковая модель [Mistral](https://mistral.ai/).
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora) — дообученная русскоязычная версия Mistral.
 
-Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/index) в сервисе Yandex AI Studio.
+[Дообучение моделей в Yandex AI Studio отключено](https://aistudio.yandex.ru/docs/ru/ai-studio/release-notes/deprecations#model-tuning).

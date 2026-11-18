@@ -35,17 +35,17 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [Yandex Managed Service for MySQL®](../../managed-mysql/index.md) | Сервис для создания и управления кластерами MySQL® | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Managed Service for OpenSearch](../../managed-opensearch/index.md) | Сервис для создания и управления кластерами OpenSearch | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) | Сервис для создания и управления кластерами PostgreSQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md) | Сервис для создания и управления кластерами PostgreSQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md) | Сервис для создания и управления шардированными кластерами PostgreSQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Managed Service for Trino](../../managed-trino/index.md) | Сервис управления распределенным аналитическим SQL-движком | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Managed Service for Valkey™](../../managed-valkey/index.md) | Сервис для создания и управления кластерами Valkey™ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Managed Service for YDB](../../ydb/index.md) | Сервис управления для базы данных Yandex Managed Service for YDB | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [Yandex Managed Service for YDB](../../ydb/index.md) | Сервис для управления базами данных Yandex Managed Service for YDB | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md) | Сервис для создания и управления кластерами YTsaurus | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex MetaData Hub](../../metadata-hub/index.md) | Сервис для управления подключениями к базам данных, хранения схем обмена данными и описания наборов данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) | Сервис для создания и управления кластерами баз данных Greenplum® и Apache Cloudberry™ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex StoreDoc](../../storedoc/index.md) | Сервис для создания и управления кластерами Yandex StoreDoc | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex WebSQL](../../websql/index.md) | Сервис для подключения к кластерам управляемых баз данных | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Искусственный интеллект** | > | > | > ||
-|| [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/) | Платформа для совместной разработки, объединяющая управление исходным кодом, CI/CD и инструменты работы с AI | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [VibeCraft](https://sourcecraft.dev/portal/docs/ru/vibecraft/) | Платформа с ИИ для быстрого создания сайтов и веб-приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/) | Платформа для создания AI-приложений и AI-агентов на базе больших генеративных моделей | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex DataSphere](../../datasphere/index.md) | Сервис для ML-разработки полного цикла | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/concepts/index) | Сервис поисковых запросов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
@@ -57,14 +57,13 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [GOST Gateway](../../gost-gateway/index.md) | <code><b><small>Preview</small></b></code> Сервис для защиты информации | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Audit Trails](../../audit-trails/index.md) | Сервис сбора и выгрузки аудитных логов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Certificate Manager](../../certificate-manager/index.md) | Сервис для управления TLS-сертификатами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Cloud Desktop](../../cloud-desktop/index.md) | <code><b><small>Preview</small></b></code> Сервис для создания удаленных рабочих мест в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [Yandex Cloud Detection and Response](../../ycdr/index.md) | Сервис собирает данные с облачной инфраструктуры для выявления аномалий | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [Yandex Cloud Detection and Response](../../ycdr/index.md) | Сервис для мониторинга и реагирования на инциденты в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Registry](../../cloud-registry/index.md) | Сервис для хранения артефактов разработки и управления ими | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Identity Hub](../../organization/index.md) | Сервис для управления составом организации, настройки интеграции с каталогом сотрудников и разграничения доступа пользователей к облачным ресурсам организации | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Key Management Service](../../kms/index.md) | Сервис для управления ключами шифрования | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Lockbox](../../lockbox/index.md) | Сервис для создания и хранения секретов в инфраструктуре Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Security Deck](../../security-deck/index.md) | Сервис для управления безопасностью в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [Yandex SIEM](../../siem/index.md) | <code><b><small>Preview</small></b></code> Сервис собирает данные с облачной инфраструктуры для выявления аномалий | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
+|| [Yandex SIEM](../../siem/index.md) | <code><b><small>Preview</small></b></code> Cобственная SIEM-система Yandex Cloud для мониторинга и анализа событий безопасности в облачной инфраструктуре | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex SmartCaptcha](../../smartcaptcha/index.md) | Сервис для распознавания пользователей системы | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Smart Web Security](../../smartwebsecurity/index.md) | Сервис для защиты от DDoS-атак и ботов на уровне приложений (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Инструменты DevOps** | > | > | > ||
@@ -83,15 +82,13 @@ _Сервис_ в составе Yandex Cloud позволяет управля�
 || [Yandex Cloud Notification Service](../../notifications/index.md) | Сервис для мультиканальной отправки уведомлений пользователям | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Postbox](../../postbox/index.md) | Сервис отправки почтовых сообщений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Data Streams](../../data-streams/index.md) | Сервис для управления потоками данных в режиме реального времени | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
-|| [Yandex IoT Core](../../iot-core/index.md) | Сервис интернета вещей для двустороннего обмена сообщениями между реестрами и устройствами по [протоколу MQTT](../../glossary/mqtt-server.md#mqtt-protocol) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Message Queue](../../message-queue/index.md) | Сервис обмена сообщениями между приложениями | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Query](../../query/index.md)                                    | Сервис выполнения запросов с помощью единого диалекта SQL | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Serverless Containers](../../serverless-containers/index.md) | Сервис бессерверного запуска контейнеризированных приложений | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || **Управление ресурсами** | > | > | > ||
 || [Yandex Cloud Apps](../../cloud-apps/index.md) | Сервис для разворачивания приложений на базе Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) ||
 || [Yandex Cloud Billing](../../billing/index.md) | Сервис для оплаты и детализации расходов | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Cloud Console](../../console/index.md) | Консоль управления ресурсами Yandex Cloud | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
-|| [Yandex Cloud Quota Manager](../../quota-manager/index.md)                 | Сервис для управления квотами ваших ресурсов в облаке. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
+|| [Yandex Cloud Quota Manager](../../quota-manager/index.md) | Сервис для управления квотами ваших ресурсов в облаке | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Identity and Access Management](../../iam/index.md) | Сервис для управления доступом к облачным ресурсам | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 || [Yandex Resource Manager](../../resource-manager/index.md) | Сервис для управления облачными ресурсами | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) ||
 |#

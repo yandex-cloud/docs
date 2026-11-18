@@ -2,6 +2,12 @@
 
 # Поиск событий Yandex Cloud в Query
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 # Поиск событий Yandex Cloud в Yandex Query
 
 

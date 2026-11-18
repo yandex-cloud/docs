@@ -1,9 +1,9 @@
 title: Yandex Monitoring
 description:
   - >-
-    {{ monitoring-full-name }} has been discontinued. All its features and
-    metrics are available in {{ monium-name }}, a unified observability
-    platform.
+    Effective December 1, 2026, {{ monitoring-full-name }} is discontinued. All
+    its features and metrics are available in {{ monium-name }}, a unified
+    observability platform.
   - >-
     Continue working with metrics in the <a href="{{ link-monium }}">{{
     monium-name }} UI</a>. For more information, see <a
@@ -17,8 +17,8 @@ description:
 meta:
   title: Yandex Monitoring
   description: >-
-    Yandex Monitoring allows you to collect metrics, store them, and display
-    them in dashboard charts.
+    Effective December 1, 2026, {{ monitoring-name }} is discontinued. All its
+    features and metrics are available in {{ monium-name }}.
   keywords:
     - keyword: monitoring
     - keyword: Monitoring

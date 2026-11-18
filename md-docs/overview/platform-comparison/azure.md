@@ -23,7 +23,6 @@
 | Azure Database for PostgreSQL | [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) |
 | Azure Database for PostgreSQL Elastic Clusters | [Yandex Managed Service for Sharded PostgreSQL](../../managed-spqr/index.md) |
 | Azure Database Migration Service | [Yandex Data Transfer](../../data-transfer/index.md) |
-| Azure Data Explorer, Microsoft Fabric | [Yandex Query](../../query/index.md) |
 | Azure Data Lake | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md) |
 | Azure DDoS Protection | [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) |
 | Azure Dedicated Hosts | [Yandex BareMetal](../../baremetal/index.md) |
@@ -33,7 +32,6 @@
 | Azure Front Door (WAF) | [Yandex Smart Web Security](../../smartwebsecurity/index.md) |
 | Azure Functions | [Yandex Cloud Functions](../../functions/index.md) |
 | Azure HDInsight | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md)<br/>[Yandex Managed Service for Apache Spark™](../../managed-spark/index.md) |
-| Azure IoT Hub | [Yandex IoT Core](../../iot-core/index.md) |
 | Azure Key Vault | [Yandex Certificate Manager](../../certificate-manager/index.md)<br/>[Yandex Lockbox](../../lockbox/index.md) |
 | Azure Kubernetes Service (AKS) | [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) |
 | Azure Logic Apps | [Yandex AI Studio: Workflows](https://aistudio.yandex.ru/docs/ru/ai-studio/quickstart/workflows) |
@@ -50,7 +48,6 @@
 | Azure Security Center | [Yandex Security Deck](../../security-deck/index.md) |
 | Azure Stack Hub | [Yandex Cloud Stackland](../../stackland/index.md) |
 | Azure Synapse Analytics | [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md) |
-| Azure Virtual Desktop | [Yandex Cloud Desktop](../../cloud-desktop/index.md) |
 | Azure Virtual WAN | [Yandex Cloud Router](../../cloud-router/index.md) |
 | Blob Storage | [Yandex Object Storage](../../storage/index.md) |
 | Cognitive Services: Language | [Yandex Translate](https://aistudio.yandex.ru/docs/ru/translate/concepts/index) |

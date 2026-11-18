@@ -5,4 +5,6 @@ description: Следуя данным рекомендациям, вы смож
 
 # Аутентификация в API {{ yq-full-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {% include notitle [authentication-billing](../../_includes/authentication-billing.md) %}

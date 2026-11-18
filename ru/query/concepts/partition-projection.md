@@ -1,5 +1,7 @@
 # Расширенное партицирование
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 [Партицирование](partitioning.md) позволяет подсказать для {{ yq-full-name }} правила размещения данных в {{ objstorage-full-name }}.
 
 Предположим, что данные в {{ objstorage-full-name }} хранятся в следующей структуре каталогов:

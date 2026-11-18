@@ -2,6 +2,12 @@
 
 # Обзор начала работы с Query
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 Yandex Query позволяет выполнять [аналитическую обработку](../concepts/batch-processing.md) хранимых в [Yandex Object Storage](../../storage/index.md) данных, а также [потоковую обработку](../concepts/stream-processing.md) данных реального времени из [Yandex Data Streams](../../data-streams/index.md). Query разработан в концепции [объединенных потоковых и аналитических вычислений](../concepts/unified-processing.md), это позволяет с помощью единого запроса обрабатывать как потоковые, так и аналитические данные.
 
 Query выполняет запросы к данным на диалекте SQL — [YQL](https://ydb.tech/docs/ru//yql/reference/syntax/).

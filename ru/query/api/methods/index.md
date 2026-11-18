@@ -1,5 +1,7 @@
 # Все методы
 
+{% include [sunset](../../../_includes/query/sunset.md) %}
+
 HTTP API {{ yq-full-name }} доступен по адресу [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).
 
 Спецификация Open API 3.0 доступна по адресу [https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml](https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml).

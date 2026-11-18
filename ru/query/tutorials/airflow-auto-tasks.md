@@ -4,4 +4,6 @@ description: В этом руководстве вы узнаете, как ис
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-auto-tasks'
 ---
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {% include [airflow-auto-tasks](../../_tutorials/dataplatform/airflow-auto-tasks.md) %}

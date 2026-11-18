@@ -2,6 +2,12 @@
 
 # Apache Airflow™
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../sunset.md).
+
+{% endnote %}
+
 Для работы под управлением [Apache Airflow™](https://airflow.apache.org) Yandex Query предоставляет пакет [apache-airflow-providers-yandex](https://pypi.org/project/apache-airflow-providers-yandex/). [Задания Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/index.html) представляют собой приложения на языке Python, состоящие из набора [операторов Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) и их [зависимостей](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html), определяющих порядок выполнения. Для выполнения запросов к Yandex Query в составе пакета содержится оператор Apache Airflow™ [`YQExecuteQueryOperator`](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/_api/airflow/providers/yandex/operators/yq/index.html).
 
 Для выполнения запросов к Yandex Query необходимо инициализировать `YQExecuteQueryOperator` оператор с помощью аргументов, указанных ниже.

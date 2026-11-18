@@ -5,4 +5,6 @@ description: Как получить логи моей работы в серв�
 
 # Общие вопросы про {{ yq-full-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 {% include [logs](../../_qa/logs.md) %}

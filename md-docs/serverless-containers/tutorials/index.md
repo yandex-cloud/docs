@@ -9,6 +9,7 @@
 * [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](pg-connect.md)
 * [Разработка пользовательской интеграции в API Gateway](api-gw-integration.md)
 * [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](functions-framework-to-container.md)
+* [Подключение к управляемым БД из контейнера Serverless Containers через пользовательскую сеть VPC](database-connection-via-vpc.md)
 
 ## Рабочие процессы и автоматизация на Serverless {#automation}
 

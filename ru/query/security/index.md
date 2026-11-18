@@ -1,5 +1,7 @@
 # Управление доступом в {{ yq-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 Для управления правами доступа в {{ yq-name }} используются [роли](../../iam/concepts/access-control/roles.md).
 
 {% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}

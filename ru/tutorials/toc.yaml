@@ -2058,6 +2058,10 @@ items:
           - name: Интеграция AI-аналитика данных с {{ data-catalog-name }}
             href: ml-ai/data-catalog-integration.md
           - name: >-
+              Память, RAG и семантический кеш для ИИ-агента с {{ ydb-name }} в
+              режиме Serverless
+            href: ml-ai/ydb-ai-agent-memory.md
+          - name: >-
               Использование {{ mrd-name }} с модулем Search и моделей {{
               foundation-models-full-name }} для векторного поиска в RAG-системе
             href: dataplatform/valkey-rag-search.md

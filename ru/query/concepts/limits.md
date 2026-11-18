@@ -5,6 +5,8 @@ description: В {{ yq-full-name }} действует ряд квот и лим�
 
 # Квоты и лимиты в {{ yq-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В сервисе {{ yq-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

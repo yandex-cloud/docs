@@ -7,9 +7,7 @@ description: Из статьи вы узнаете, как создать пла
 
 Платежный аккаунт необходим, даже если вы планируете пользоваться только бесплатными сервисами. 
 
-
 ![quickstart](../../_assets/overview/individuals-paid-version.svg)
-
 
 ## Создайте платежный аккаунт {#create-billing-account}
 

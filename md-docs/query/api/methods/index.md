@@ -2,6 +2,12 @@
 
 # Все методы
 
+{% note warning %}
+
+Сервис Yandex Query будет отключен 1 декабря 2026 года и станет недоступен. Подробнее о закрытии сервиса и переходе на другие решения читайте в разделе [Закрытие сервиса Yandex Query](../../sunset.md).
+
+{% endnote %}
+
 HTTP API Yandex Query доступен по адресу [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).
 
 Спецификация Open API 3.0 доступна по адресу [https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml](https://api.yandex-query.cloud.yandex.net/resources/v1/openapi.yaml).

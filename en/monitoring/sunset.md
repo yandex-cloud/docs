@@ -1,13 +1,15 @@
 ---
 title: Discontinuation of {{ monitoring-full-name }}
-description: '{{ monitoring-name }} has been discontinued. Learn how to continue working with metrics in {{ monium-name }} and use the features of a unified observability platform.'
+description: Effective December 1, 2026, {{ monitoring-name }} is discontinued. Learn how to continue working with metrics in {{ monium-name }} and use the features of a unified observability platform.
 ---
 
 # Discontinuation of {{ monitoring-full-name }}
 
 {% note warning %}
 
-{{ monitoring-full-name }} has been discontinued. All its features and metrics are available in [{{ monium-name }}]({{ link-monium }}).
+Effective December 1, 2026, {{ monitoring-full-name }} is discontinued. All its features and metrics are available in {{ monium-name }}, a unified observability platform.
+
+Continue working with metrics in the [{{ monium-name }} UI]({{ link-monium }}).
 
 {% endnote %}
 

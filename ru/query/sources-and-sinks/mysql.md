@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как подключить�
 
 # Работа с базами данных {{ mmy-name }}
 
+{% include [sunset](../../_includes/query/sunset.md) %}
+
 В этом разделе приведена основная информация о работе с [{{ mmy-name }}](https://yandex.cloud/ru/services/managed-mysql).
 
 Для работы с базой данных {{ mmy-name }} выполните следующие шаги:

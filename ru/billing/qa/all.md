@@ -25,11 +25,9 @@ description: На странице представлены вопросы и о
 
 {% include notitle [billing-account](../../_qa/billing/billing-account.md) %}
 
-
 ## Вопросы о пробном периоде и платной версии {#trial-commercial}
 
 {% include notitle [trial-commercial](../../_qa/billing/trial-commercial.md) %}
-
 
 ## Вопросы о регулярном экспорте детализации {#export}
 

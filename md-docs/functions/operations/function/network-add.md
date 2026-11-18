@@ -65,3 +65,4 @@
 #### Полезные ссылки {#see-also}
 
 [Сетевое взаимодействие в Cloud Functions](../../concepts/networking.md)
+[Подключение к управляемым БД из функции Cloud Functions через пользовательскую сеть VPC](../../tutorials/database-connection-via-vpc.md)

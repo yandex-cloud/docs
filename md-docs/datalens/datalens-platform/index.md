@@ -26,6 +26,8 @@
 
  - [Создание разового копирования](operations/data-transfer/one-time-copy.md)
 
+ - [Создание поставки данных в режиме CDC](operations/data-transfer/cdc.md)
+
  - [Управление поставками](operations/data-transfer/manage-transfer.md)
 
 ## Пайплайны

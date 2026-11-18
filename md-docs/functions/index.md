@@ -464,6 +464,8 @@
 
  - [Веб-приложение на SourceCraft Sites и Cloud Functions](tutorials/sourcecraft-sites-web-app.md)
 
+ - [Подключение к управляемым БД из функции через пользовательскую сеть VPC](tutorials/database-connection-via-vpc.md)
+
 ### Боты на Serverless
 
 #### Разработка Telegram-бота
