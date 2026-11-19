@@ -33,7 +33,13 @@ Aliases:
 
   - [yc managed-gitlab instance get](instance/get.md) — Show information about the specified gitlab instance
 
+  - [yc managed-gitlab instance get-backup-download-urls](instance/get-backup-download-urls.md) — Get temporary download URLs for a GitLab backup and secrets file
+
   - [yc managed-gitlab instance list](instance/list.md) — List Gitlab instances
+
+  - [yc managed-gitlab instance list-backups](instance/list-backups.md) — List backups for the specified GitLab instance
+
+  - [yc managed-gitlab instance prepare-backup-upload](instance/prepare-backup-upload.md) — Prepare S3 credentials for uploading a GitLab backup and secrets file
 
   - [yc managed-gitlab instance start](instance/start.md) — Start the specified Gitlab instance
 

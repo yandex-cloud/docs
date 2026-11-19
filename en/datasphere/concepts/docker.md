@@ -22,7 +22,7 @@ By default, Docker images are stored in {{ container-registry-name }}. They are 
 
 Storing images in {{ container-registry-name }} is cheaper, but it increases the project start time. You also cannot share an image from the registry with the community.
 
-To reduce the project start time, you can create an optimized copy of your Docker image stored in {{ container-registry-name }}. This optimized copy is stored on a separate disk in {{ ml-platform-name }} and greatly reduces start time, but storing it adds extra [charges](../pricing.md#storage). You can [publish](../operations/user-images.md#share) an optimized Docker image in the community to use it in multiple projects. 
+To reduce the project start time, you can create an optimized copy of your Docker image stored in {{ container-registry-name }}. This optimized copy is stored on a separate disk in {{ ml-platform-name }} and greatly reduces start time, but storing it adds [extra charges](../pricing.md#storage). You can [publish](../operations/user-images.md#share) an optimized Docker image in the community to use it in multiple projects.
 
 After you create an optimized copy, you can delete the original image from the registry to avoid paying for storing both the original and the copy. If you delete an optimized copy of the Docker image, {{ ml-platform-name }} will attempt to pull the Docker image from {{ container-registry-name }} again when the project starts. The project will continue using the original version if it is still available in {{ container-registry-name }}. 
 

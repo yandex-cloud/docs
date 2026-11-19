@@ -54,7 +54,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
 
-
 ### Security {#security}
 
 * [{{ certificate-manager-full-name }}](../certificate-manager/qa/index.md)

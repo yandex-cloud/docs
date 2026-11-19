@@ -25,8 +25,10 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-domain-action }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя домена.
   1. (Опционально) Добавьте описание домена.
+  1. {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
+  1. (Опционально) Добавьте [тег](../../concepts/data-catalog.md#classifications-and-tags) для разметки домена.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
+    {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
 
 {% endlist %}

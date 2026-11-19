@@ -17,6 +17,10 @@ description: Создайте окружение {{ yandex-cloud }} для ре�
 
 ### Требования к облаку и сети {#before-you-begin}
 
+Для создания окружения нужна роль [resource-manager.admin](../../../../resource-manager/security/index.md#resource-manager-admin) на облако {{ yandex-cloud }}, в котором создается окружение, или роль с более широкими разрешениями.
+
+Если вы создаете новое облако для окружения, нужна роль [organization-manager.editor](../../../../organization/security/index.md#organization-manager-editor) на организацию, в которой создается облако, или роль с более широкими разрешениями.
+
 Для работы окружения необходимо облако {{ yandex-cloud }}, [привязанное к платежному аккаунту](../../../../billing/operations/pin-cloud.md).
 
 Перед созданием окружения вручную подготовьте в этом облаке:

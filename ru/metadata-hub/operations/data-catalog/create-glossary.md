@@ -27,6 +27,8 @@ description: Следуя данной инструкции, вы сможете
 
       * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя глоссария.
       * (Опционально) Добавьте описание глоссария.
+      * {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
+      * (Опционально) Добавьте [тег](../../concepts/data-catalog.md#classifications-and-tags) для разметки глоссария.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

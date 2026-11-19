@@ -42,6 +42,9 @@
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for OpenSearch](single-sign-on/saml-opensearch.md)
 * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с MWS](single-sign-on/oidc-mws.md)
 * [Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenSearch](single-sign-on/saml-opensearch-self-managed.md)
+* OpenCode Console
+    * [Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenCode Console](single-sign-on/saml-opencode.md)
+    * [Создать OIDC-приложение в Yandex Identity Hub для интеграции с OpenCode Console](single-sign-on/oidc-opencode.md)
 * OpenVPN
     * [Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenVPN Access Server](single-sign-on/saml-ovpn.md)
     * [Настроить аутентификацию в OpenVPN Community Edition через Yandex Identity Hub по протоколу OIDC](single-sign-on/oidc-ovpn.md)

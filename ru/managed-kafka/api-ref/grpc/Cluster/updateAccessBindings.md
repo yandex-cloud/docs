@@ -23,7 +23,8 @@ Updates access bindings for the specified Apache Kafka® cluster.
         "subject": {
           "id": "string",
           "type": "string"
-        }
+        },
+        "cel_expression": "string"
       }
     }
   ]
@@ -72,6 +73,16 @@ The maximum string length in characters is 64. ||
 
 Required field. Identity for which access binding is being created.
 It can represent an account with a unique ID or several accounts with a system identifier. ||
+|| cel_expression | **string**
+
+CEL expression that must evaluate to true for the binding to apply.
+An empty expression does not restrict the binding.
+Only supported for services:
+* [yandex.cloud.resourcemanager.v1.CloudService](/docs/resource-manager/api-ref/grpc/Cloud/)
+* [yandex.cloud.resourcemanager.v1.FolderService](/docs/resource-manager/api-ref/grpc/Folder/)
+* [yandex.cloud.organizationmanager.v1.OrganizationService](/docs/organization/api-ref/grpc/Organization/)
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Subject {#yandex.cloud.access.Subject}

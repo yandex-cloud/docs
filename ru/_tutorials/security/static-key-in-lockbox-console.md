@@ -39,11 +39,11 @@
       Результат:
 
       ```text
-      done (1s)
       id: ajeplujf759j********
       folder_id: b1gt6g8ht345********
       created_at: "2024-05-07T19:18:37.244159066Z"
       name: storage-bucket-sa
+      status: ACTIVE
       ```
 
       Сохраните идентификатор (`id`) созданного сервисного аккаунта, он понадобится при назначении сервисному аккаунту ролей.
@@ -63,19 +63,6 @@
       * `<имя_или_идентификатор_каталога>` — имя или [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором создан сервисный аккаунт.
       * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта, сохраненный ранее.
 
-      Результат:
-
-      ```yml
-      done (2s)
-      effective_deltas:
-        - action: ADD
-          access_binding:
-            role_id: storage.editor
-            subject:
-              id: ajeplujf759j********
-              type: serviceAccount
-      ```
-
       Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
   1. Аналогичным способом назначьте сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}` на каталог:
@@ -86,7 +73,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-  1. Создайте для сервисного аккаунта статический ключ доступа. Для того чтобы не выводить на экран значение ключа, он будет сохранен в переменную `STATIC_KEY`:
+  1. Создайте для сервисного аккаунта статический ключ доступа. Чтобы не выводить на экран значение ключа, оно будет сохранено в переменную `STATIC_KEY`:
 
       ```bash
       STATIC_KEY=$(yc iam access-key create --service-account-name storage-bucket-sa)
@@ -121,7 +108,6 @@
       Результат:
 
       ```yml
-      done (1s)
       id: e6qk0c62b4ep********
       folder_id: b1gt6g8ht345********
       created_at: "2024-05-07T20:05:51.569Z"
@@ -148,7 +134,7 @@
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
-1. Получите статический ключ доступа, сохраненный в секрете `static-key`. Для того чтобы не выводить на экран значение ключа, он будет сохранен в переменную `SECRET`:
+1. Получите статический ключ доступа, сохраненный в секрете `static-key`. Чтобы не выводить на экран значение ключа, оно будет сохранено в переменную `SECRET`:
 
     {% list tabs group=instructions %}
 
@@ -201,5 +187,18 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать использовать созданные ресурсы:
+
+{% note tip %}
+
+Если при создании секрета вы включили защиту от удаления, снимите ее, выполнив команду:
+
+```bash
+yc lockbox secret update \
+  --name static-key \
+  --deletion-protection=false
+```
+
+{% endnote %}
+
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.

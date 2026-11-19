@@ -31,7 +31,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     Используйте URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns):
 
     ```text
-    https://c-<идентификатор_кластера>rw.{{ dns-zone }}/
+    https://c-<идентификатор_кластера>.rw.{{ dns-zone }}/
     ```
 
     Пример URL: `https://c-e4ut2....rw.{{ dns-zone }}/`

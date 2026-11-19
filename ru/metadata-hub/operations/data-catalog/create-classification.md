@@ -25,6 +25,7 @@ description: Следуя данной инструкции, вы создади
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя классификации.
   1. (Опционально) Добавьте описание классификации.
+  1. {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
   1. (Опционально) Выберите опцию **{{ ui-key.yacloud.data-catalog.label_tag-mutual-exclusion }}**.
 
       Если опция включена, то на любой ресурс {{ data-catalog-name }} можно будет назначить не более одного тега классификации.

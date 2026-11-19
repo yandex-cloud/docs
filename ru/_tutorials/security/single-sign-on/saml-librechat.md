@@ -69,6 +69,15 @@
 
       Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
+  1. Настройте уникальность и неизменность идентификатора пользователя:
+
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+      1. Выберите атрибут `NameID` и в открывшемся окне:
+
+          1. В поле **{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_nameId_format_kYx16 }}** выберите `{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_nameId_persistent_kZU3P }}`.
+          1. В поле **{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_attribute_value_phaZc }}** выберите `SubjectClaims.sub`.
+          1. Нажмите **{{ ui-key.yacloud.common.update }}**.
+
 {% endlist %}
 
 ### Настройте аутентификацию на стороне LibreChat {#setup-sp}
@@ -87,6 +96,7 @@
 `SAML_GIVEN_NAME_CLAIM` | `"givenname"`
 `SAML_FAMILY_NAME_CLAIM` | `"surname"`
 `SAML_NAME_CLAIM` | `"fullname"`
+`SAML_NAME_ID_FORMAT` | `"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"`
 `SAML_BUTTON_LABEL` | `"Login with {{ org-full-name}}"`
 
 ### Добавьте пользователя {#add-user}

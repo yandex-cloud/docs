@@ -13,6 +13,7 @@ keywords:
 
 * [имя и описание кластера](#change-basic-settings);
 * [сервисный аккаунт](#change-sa);
+* [подсеть](#change-subnet);
 * [группы безопасности](#change-sg);
 * [параметры отказоустойчивого выполнения запросов](#change-retry-policy);
 * [настройки выполнения запросов](#change-query-params);
@@ -396,6 +397,28 @@ keywords:
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+## Изменить подсеть {#change-subnet}
+
+Вы можете изменить подсеть кластера даже если он был [остановлен](cluster-stop.md#stop-cluster).
+
+Вы можете выбрать для кластера другую подсеть в текущей [облачной сети](../../vpc/concepts/network.md#network). Если новая подсеть находится в другой [зоне доступности](../../overview/concepts/geo-scope.md), кластер будет перенесен в эту зону.
+
+Перед изменением подсети убедитесь, что новая подсеть соответствует [требованиям](../concepts/network.md#subnet-requirements). При необходимости [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую подсеть.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+{% endlist %}
+
+Если вы изменили подсеть остановленного кластера, [запустите его](cluster-stop.md#start-cluster).
 
 ## Изменить группы безопасности {#change-sg}
 

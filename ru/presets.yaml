@@ -1714,6 +1714,9 @@ default:
           v1|number: 25000
           v1|string: "25\_000\_₸"
   sku|KZT|sws:
+    proxy-server:
+      v1|number: 12.2
+      v1|string: "12,2\_₸"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -2244,6 +2247,9 @@ default:
           v1|number: 5000
           v1|string: "5\_000\_₽"
   sku|RUB|sws:
+    proxy-server:
+      v1|number: 2.44
+      v1|string: "2,44\_₽"
     requests:
       v1|number: 0
       v1|pricingRate:
@@ -2755,7 +2761,6 @@ default:
             tab_service: По сервисам
             value_cost: Потребление
           exports:
-            button_create-periodic-export: Создать регулярный экспорт
             button_open-yandex-query: Обработать в YQ
             button_resume-export: Возобновить
             field_bucket: Бакет
@@ -3498,7 +3503,6 @@ default:
             section_contract: Информация о договоре
             title_main: Информация об аккаунте
           detail:
-            button_create-periodic-export: Регулярный экспорт
             button_download-details: Выгрузить детализацию
             button_move-to-datalens-header: Детализация в DataLens
             popup-export_button_download: Скачать
@@ -3848,7 +3852,9 @@ default:
             field_attribute_name_rPYTn: Имя атрибута
             field_group_attribute_value_oxrpu: Передаваемые группы
           NameIdAttributeFormDialog:
+            field_attribute_value_phaZc: Значение
             field_nameId_email_mqNDG: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+            field_nameId_format_kYx16: Формат идентификатора
             field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
           native-title_1VrmN: Native Application
           OauthAppEditForm:
@@ -6333,6 +6339,10 @@ default:
         action_create-catalog: Cоздать каталог
         action_edit-domain: Редактировать домен
         action_set-domain: Присвоить домен
+        AiBaseComponents:
+          components:
+            FieldRules:
+              label_source-rules_qkxaP: Правила разметки
         label_add: Добавить
         label_add-subdomain-action: Добавить поддомен
         label_add-tags: Изменить теги

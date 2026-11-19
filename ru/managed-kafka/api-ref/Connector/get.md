@@ -73,7 +73,7 @@ The maximum string length in characters is 256. Value must match the regular exp
   "placement": {
     "dedicated": "boolean"
   },
-  // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
+  // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`
   "connectorConfigMirrormaker": {
     "sourceCluster": {
       "alias": "string",
@@ -159,6 +159,14 @@ The maximum string length in characters is 256. Value must match the regular exp
       "commitThreads": "string",
       "transactionalPrefix": "string"
     }
+  },
+  "connectorConfigMirrorCheckpoint": {
+    "sourceConnectorName": "string",
+    "groups": [
+      "string"
+    ],
+    "replicationPolicy": "string",
+    "offsetSyncsTopicLocation": "string"
   }
   // end of the list of possible fields
 }
@@ -201,21 +209,28 @@ Placement of the connector workers. ||
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Additional settings for the connector. ||
 || connectorConfigS3Sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
 
 Configuration of S3-Sink connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Additional settings for the connector. ||
 || connectorConfigIcebergSink | **[ConnectorConfigIcebergSink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSink)**
 
 Configuration of Iceberg Sink connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
+
+Additional settings for the connector. ||
+|| connectorConfigMirrorCheckpoint | **[ConnectorConfigMirrorCheckpoint](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorCheckpoint)**
+
+MirrorCheckpoint connector configuration.
+
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Additional settings for the connector. ||
 |#
@@ -520,4 +535,28 @@ Default: cores * 2 ||
 
 Prefix for transactional operations.
 Default: "" ||
+|#
+
+## ConnectorConfigMirrorCheckpoint {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorCheckpoint}
+
+#|
+||Field | Description ||
+|| sourceConnectorName | **string**
+
+MirrorMaker connector whose settings were copied at creation. ||
+|| groups[] | **string**
+
+Literal consumer group names whose offsets are synchronized. ||
+|| replicationPolicy | **enum** (ReplicationPolicy)
+
+Replication policy; unspecified uses the captured source settings.
+
+- `DEFAULT`: Prefix replicated topic names with the source cluster alias.
+- `IDENTITY`: Preserve original topic names. ||
+|| offsetSyncsTopicLocation | **enum** (OffsetSyncsTopicLocation)
+
+Offset-mapping location; unspecified uses the captured source settings.
+
+- `SOURCE`: Read offset mappings from the source cluster.
+- `TARGET`: Read offset mappings from the target cluster. ||
 |#

@@ -102,7 +102,7 @@
         --- | ---
         `OPENID_CLIENT_ID` | Значение поля **ClientID**, полученное [ранее](#get-credentials-secret) в свойствах OIDC-приложения на стороне Yandex Cloud.
         `OPENID_CLIENT_SECRET` | Секрет OIDC-приложения, сгенерированный [ранее](#get-credentials-secret).
-        `OPENID_ISSUER` | `"https://auth.yandex.cloud/"`
+        `OPENID_ISSUER` | `"https://auth.yandex.cloud"`
         `OPENID_SESSION_SECRET` | Дополнительный секрет, используемый для защиты сессий.</br></br>Самостоятельно сгенерируйте надежный секрет длиной не менее 32 символов.
         `OPENID_SCOPE` | `"openid profile email groups"`
         `OPENID_CALLBACK_URL` | `"/oauth/openid/callback"`

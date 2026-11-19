@@ -45,7 +45,7 @@ Terraform распространяется под лицензией [Business S
 
 Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью Terraform:
+Для создания инфраструктуры с помощью Terraform:
 
 1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
@@ -142,6 +142,7 @@ Terraform распространяется под лицензией [Business S
           }
           
           # Выходные переменные
+          # Записи в версии секрета выбираются по индексу: entries[0] — ключ key, entries[1] — ключ key_id
           
           output "key_id" {
             value = data.yandex_lockbox_secret_version.my_secret_version.entries[1].text_value
@@ -156,7 +157,7 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Подробнее о параметрах используемых ресурсов в Terraform смотрите в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в Terraform читайте в документации провайдера:
 
     * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
     * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
@@ -165,7 +166,7 @@ Terraform распространяется под лицензией [Business S
     * [Версия секрета](../../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version](../../../terraform/resources/lockbox_secret_version.md).
 
 1. В файле `static-key-in-lockbox-config.tf` задайте пользовательские параметры:
-    * `zone_id` — [зона доступности](../../../overview/concepts/geo-scope.md).
+    * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
 
 1. Создайте ресурсы:
@@ -210,8 +211,8 @@ Terraform распространяется под лицензией [Business S
 1. Сохраните идентификатор ключа, секретный ключ и значение региона размещения в переменные окружения AWS CLI:
 
     ```bash
-    AWS_ACCESS_KEY_ID=$(terraform output key_id)
-    AWS_SECRET_ACCESS_KEY=$(terraform output key)
+    AWS_ACCESS_KEY_ID=$(terraform output -raw key_id)
+    AWS_SECRET_ACCESS_KEY=$(terraform output -raw key)
     AWS_DEFAULT_REGION="ru-central1"
     ```
 
@@ -238,15 +239,15 @@ Terraform распространяется под лицензией [Business S
     
     В результате будет создан новый бакет в Object Storage. При создании бакета используется статический ключ доступа, полученный из секрета Yandex Lockbox и сохраненный в переменные окружения.
     
-    Вы также передать значения идентификатора ключа, секретного ключа и региона размещения непосредственно в каждой команде AWS CLI:
+    Вы также можете передать значения идентификатора ключа, секретного ключа и региона размещения непосредственно в каждой команде AWS CLI:
 
     {% list tabs group=instructions %}
 
     - AWS CLI {#aws-cli}
 
       ```bash
-      AWS_ACCESS_KEY_ID=$(terraform output key_id) \
-      AWS_SECRET_ACCESS_KEY=$(terraform output key) \
+      AWS_ACCESS_KEY_ID=$(terraform output -raw key_id) \
+      AWS_SECRET_ACCESS_KEY=$(terraform output -raw key) \
       AWS_DEFAULT_REGION="ru-central1" \
       aws --endpoint-url=https://storage.yandexcloud.net \
         s3 mb s3://<имя_бакета>
@@ -266,6 +267,36 @@ Terraform распространяется под лицензией [Business S
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../operations/buckets/delete.md) бакет.
+1. Снимите с секрета защиту от удаления, иначе удаление завершится ошибкой. Для этого в файле `static-key-in-lockbox-config.tf` измените значение параметра `deletion_protection` на `false` и примените изменения:
+
+    1. В терминале перейдите в директорию с конфигурационным файлом.
+    1. Проверьте корректность конфигурации с помощью команды:
+    
+       ```bash
+       terraform validate
+       ```
+    
+       Если конфигурация является корректной, появится сообщение:
+    
+       ```bash
+       Success! The configuration is valid.
+       ```
+    
+    1. Выполните команду:
+    
+       ```bash
+       terraform plan
+       ```
+    
+       В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+    1. Примените изменения конфигурации:
+    
+       ```bash
+       terraform apply
+       ```
+    
+    1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
 1. Откройте конфигурационный файл `static-key-in-lockbox-config.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 

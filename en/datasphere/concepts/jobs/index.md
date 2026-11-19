@@ -116,13 +116,13 @@ cloud-instance-types:
 
 # Extended working directory configuration.
 working-storage:
-  type: SSD    # Disk type in use. Optional, the default type is SSD. Valid values: SSD
+  type: SSD    # Disk type in use. Optional, the default type is SSD. Available values: SSD
   size: 150Gb  # Working directory size from 100 GB to 10 TB.
 
 # Configuring graceful shutdown.
 graceful-shutdown:
   signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
-                   # Valid values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
+                   # Available values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
   timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
 
 # List of datasets to create upon a successful job completion.
@@ -183,7 +183,7 @@ The `config.yaml` file has multiple sections.
 
 1. The `working-storage` section specifies the extended working directory parameters. By default, the working directory is created on the system disk. The directory's size is not guaranteed and is usually about 20 GB. If you need more space to complete the job, you can specify this explicitly. The extended working directory can range in size from 100 GB to 10 TB.
 
-   You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-jobs).
+   You pay for the extended working directory specified in the `working-storage` section according to the [data storage pricing policy](../../pricing.md#prices-storage).
 
 1. The `graceful-shutdown` section defines the graceful shutdown parameters. If the section is not specified, then the `SIGKILL` signal is sent to the job when the user presses **Ctrl** + **C**. In this section, you can redefine the signal itself as well as the wait time for graceful shutdown.
 

@@ -139,13 +139,13 @@ Custom configuration.
 >>>> - name (string)\
 Name of the configuration.
 >>>> - cpu (structure)\
-CPU configuration.
+CPU configuration. Required for orders without device_id.
 >>>>> - id (string)\
 ID of the CPU from configurator.
 >>>>> - count (integer)\
 Number of cpu.
 >>>> - disk-drives ([]structure)\
-Array of disk drive configurations.
+Disk selections. Required for orders without device_id.
 >>>>> - type (structure)\
 Type of the disk drive.
 >>>>> - count (integer)\
@@ -153,11 +153,13 @@ Number of disk drives.
 >>>>> - size-bytes (integer)\
 Size of a single disk drive.
 >>>> - ram (structure)\
-Random-access memory (RAM).
+RAM selection. Required for orders without device_id.
 >>>>> - id (string)\
 ID of the RAM from configurator.
 >>>>> - size-bytes (integer)\
 Ram size.
+>>>> - device-id (string)\
+Selects one device instead of CPU, RAM, disks, NIC, PSU and GPU components.
 >>> - stock-configuration-id (string)\
 ID of the stock configuration.
 
@@ -178,6 +180,7 @@ ID of the stock configuration.
           count = integer,
           id = string
         },
+        device-id = string,
         disk-drives = [
           {
             count = integer,
@@ -277,6 +280,7 @@ ID of the stock configuration.
             "count": "integer",
             "id": "string"
           },
+          "device-id": "string",
           "disk-drives": [
             {
               "count": "integer",

@@ -9,7 +9,7 @@ A {{ yandex-cloud }} network is formed of two large parts:
 
    A virtual network is often referred to as *overlay*. One or more [virtual networks](../../vpc/concepts/network.md) can be created in a single [resource folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Virtual networks are isolated from each other even if hosted in the same resource folder.
 
-Below is an overview of the [physical network](#underlay) and [virtual network](#overlay) in {{ yandex-cloud }}. For more information about network components, see [Extra materials](#refs).
+Below is an overview of the [physical network](#underlay) and [virtual network](#overlay) in {{ yandex-cloud }}. For more information about the network design, see [extra materials](#refs).
 
 ## Physical network in {{ yandex-cloud }} {#underlay}
 
@@ -71,7 +71,7 @@ VRouter also enables [security groups](../../vpc/concepts/security-groups.md) fo
 The VRouter agent is an auxiliary component used for traffic processing. It works together with VRouter and programs the network flows table on the server. This table defines traffic forwarding rules for a specific IP prefix. The VRouter agent enables the following protocols and functions on the server for VMs:
 
 * [VM metadata service](../../compute/concepts/vm-metadata.md) accessible only inside a VM via the `169.254.169.254` IP address.
-* DNS service processes DNS traffic on the cloud subnet's second IP address (`x.x.x.2`).
+* DNS service. Processes DNS traffic on the cloud subnet's second IP address (`x.x.x.2`).
 * ICMP.
 
 ### CloudGate {#cloudgate}

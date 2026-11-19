@@ -41,6 +41,11 @@ Values: 'status-active', 'status-inactive' ||
 || `--description` | `string`
 
  ||
+|| `--sspr-policies` | `mfa`
+
+Supported values:
+mfa - FIDO2 user verification,
+`two-any` - Entry of any two authenticators ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

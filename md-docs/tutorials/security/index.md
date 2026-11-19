@@ -103,6 +103,9 @@
 * [Managed Service for GitLab](single-sign-on/saml-managed-gitlab.md)
 * [Managed Service for OpenSearch](single-sign-on/saml-opensearch.md)
 * [MWS](single-sign-on/oidc-mws.md)
+* OpenCode Console
+    * [SAML](single-sign-on/opencode/saml-opencode.md)
+    * [OpenID Connect](single-sign-on/opencode/oidc-opencode.md)
 * [OpenSearch](single-sign-on/saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](single-sign-on/saml-ovpn.md)

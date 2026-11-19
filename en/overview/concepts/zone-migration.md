@@ -70,8 +70,8 @@ If you added a new host in the `{{ region-id }}-d` zone to a cluster with {{ dat
 
 To move a {{ managed-k8s-name }} cluster between availability zones:
 
-* [Migrate a master host](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-master).
-* [Migrate the node group and the pod workloads](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md#transfer-a-node-group).
+* [Migrate a master host](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
+* [Migrate the node group and the pod workloads](../../managed-kubernetes/tutorials/migration-to-an-availability-zone.md).
 
 ### {{ network-load-balancer-name }} {#nlb}
 

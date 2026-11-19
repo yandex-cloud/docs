@@ -1,7 +1,7 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mos-name }}
 
 
-[{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). [{{ mos-full-name }}](../../../managed-opensearch/) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. {{ mos-name }} поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). [{{ mos-full-name }}](../../../managed-opensearch/) — сервис для управления кластерами OpenSearch в инфраструктуре {{ yandex-cloud }}. {{ mos-name }} поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
 Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mos-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications/saml.md) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне кластера {{ OS }}.
 
@@ -51,7 +51,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите созданное ранее SAML-приложение.
-    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение параметра `Issuer / IdP EntityID`, которое необходимо задать на стороне кластера {{ OS }}.
+    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение параметра **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**, которое необходимо задать на стороне кластера {{ OS }}.
     1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
 
       Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
@@ -72,7 +72,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите нужные значения настроек:
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}** — идентификатор провайдера. Введите сохраненное ранее значение параметра `Issuer / IdP EntityID`.
+        * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}** — идентификатор провайдера. Введите сохраненное ранее значение параметра **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**.
 
         * **idp_metadata_file** — выберите и загрузите ранее скачанный файл с метаданными.
 
@@ -144,8 +144,9 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
     1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
-    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** оставьте значение `groups`.
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** оставьте значение `groups` — это имя должно совпадать со значением, которое вы указали в поле **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}** при настройке кластера.
     1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
+    1. В поле **Значение** укажите `GroupClaims.name`.
     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -204,6 +205,6 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен состоять в группе, добавленной в приложение.
 1. Убедитесь, что вы аутентифицировались в {{ OS }} Dashboards.
 1. Если вы настроили сопоставление ролей, то:
-     1. Нажмите на иконку пользователя в {{ OS }} Dashboards.
+     1. Нажмите на значок пользователя в {{ OS }} Dashboards.
      1. Перейдите в **View roles and identities**.
      1. Убедитесь, что в блоке **Roles** отображается роль `kibana_user`, а в блоке **Backend roles** — роль `opensearch-users`.

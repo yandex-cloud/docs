@@ -236,6 +236,14 @@
 
  - [update](cli-ref/v0/connector-iceberg-sink/update.md)
 
+#### connector-mirror-checkpoint
+
+ - [Overview](cli-ref/v0/connector-mirror-checkpoint/index.md)
+
+ - [create](cli-ref/v0/connector-mirror-checkpoint/create.md)
+
+ - [update](cli-ref/v0/connector-mirror-checkpoint/update.md)
+
 #### connector-mirrormaker
 
  - [Overview](cli-ref/v0/connector-mirrormaker/index.md)
@@ -359,6 +367,14 @@
  - [create](cli-ref/connector-iceberg-sink/create.md)
 
  - [update](cli-ref/connector-iceberg-sink/update.md)
+
+### connector-mirror-checkpoint
+
+ - [Overview](cli-ref/connector-mirror-checkpoint/index.md)
+
+ - [create](cli-ref/connector-mirror-checkpoint/create.md)
+
+ - [update](cli-ref/connector-mirror-checkpoint/update.md)
 
 ### connector-mirrormaker
 

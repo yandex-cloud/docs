@@ -3,10 +3,10 @@
 | Type of limit | Value |
 | ----- | ----- |
 | Number of synchronous requests per hour | 10,000 |
-| Number of synchronous requests per second | 10 |
+| Number of synchronous requests per second | 1 |
 | Number of synchronous requests per second to get a generative response | 1 |
 | Number of deferred requests per hour | 35,000 |
-| Number of deferred requests per second | 10 |
+| Number of deferred requests per second | 1 |
 | Number of requests per second for results of a deferred request | 10 |
 | Number of requests per hour for search with generative response| 1,000 |
 | Number of requests per hour for image search by text description |10,000 |
@@ -16,6 +16,8 @@
 | **{{ wordstat-name }} features**| |
 | Number of requests per second for statistics | 10 |
 | Number of requests per hour for statistics | 100 |
+
+Deferred requests are available only from 00:00 to 06:00 Moscow time.
 
 #### Limits {#search-api-limits}
 

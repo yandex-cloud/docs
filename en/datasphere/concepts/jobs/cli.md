@@ -47,7 +47,7 @@ Use the following commands to manage jobs and the utility:
 * [Canceling](#cancel) a job.
 * [Setting](#set-data-ttl) job data lifetime.
 * [Generating](#generate-requirements) job environment parameters.
-* [Getting](#projects-list) a list of community projects.
+* [Getting](#project-list) a list of community projects.
 * [Getting](#project-get) information about a project.
 * [Viewing](#version) {{ ds-cli }} version.
 * [Viewing](#changelog) {{ ds-cli }} changelogs.

@@ -17,7 +17,7 @@ In this section, you will learn about:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the [management console]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md), or [API](../api-ref/authentication.md).
+You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the [management console]({{ link-console-main }}), {{ yandex-cloud }} CLI, or [API](../api-ref/authentication.md).
 
 ## Roles this service has {#roles-list}
 

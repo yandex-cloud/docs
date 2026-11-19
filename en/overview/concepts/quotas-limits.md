@@ -9,16 +9,16 @@ description: '{{ yandex-cloud }} services can be subject to quotas and limits. Q
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum limits that {{ yandex-cloud }} can provide you with. Quotas are modifiable constraints that can potentially be increased up to the limit values. Quotas do not guarantee that resources are available.
+When designing your architecture in {{ yandex-cloud }}, account for its technical limits. Quotas can be increased upon request within the limits. Quotas do not guarantee that resources are available.
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too many resources for testing purposes.
+Quotas help regulate the consumption of cloud services. For example, they prevent new users from allocating excessive resources during testing.
 
-If ready to use more resources, you can increase your quotas in the following ways:
+If you need more resources, you can increase your quotas in one of the following ways:
 
 * [Make a request to increase your quotas]({{ link-console-quotas }}).
-* Contact [support]({{ link-console-support }}) and specify which quotas you want increased and by how much.
+* Contact [support]({{ link-console-support }}) and specify the quotas you want increased and their target values.
 
 To have your request processed, you must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
 
@@ -28,7 +28,7 @@ You can manage quotas with [{{ quota-manager-name }}](../../quota-manager/quicks
 
 Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
-For each quota, the table provides an ID you can use to manage quotas via {{ quota-manager-name }}.
+For quotas available in {{ quota-manager-name }}, the tables include their IDs. Use them to manage quotas via the CLI and API.
 
 
 ### {{ api-gw-full-name }} {#api-gw}

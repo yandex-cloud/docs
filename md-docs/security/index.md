@@ -170,6 +170,12 @@
 
  - [Настройка единого входа с помощью NetBird по стандарту OIDC](tutorials/single-sign-on/oidc-netbird.md)
 
+#### OpenCode Console
+
+ - [Настройка единого входа в OpenCode Console по стандарту SAML](tutorials/single-sign-on/saml-opencode.md)
+
+ - [Настройка единого входа в OpenCode Console по стандарту OIDC](tutorials/single-sign-on/oidc-opencode.md)
+
  - [Настройка единого входа в OpenSearch по стандарту SAML](tutorials/single-sign-on/saml-opensearch-self-managed.md)
 
 #### OpenVPN

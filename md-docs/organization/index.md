@@ -316,6 +316,12 @@
 
  - [NetBird](tutorials/single-sign-on/oidc-netbird.md)
 
+#### OpenCode Console
+
+ - [SAML](tutorials/single-sign-on/opencode/saml-opencode.md)
+
+ - [OpenID Connect](tutorials/single-sign-on/opencode/oidc-opencode.md)
+
  - [OpenSearch](tutorials/single-sign-on/saml-opensearch-self-managed.md)
 
 #### OpenVPN

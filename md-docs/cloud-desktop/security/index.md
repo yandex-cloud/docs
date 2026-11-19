@@ -19,7 +19,7 @@
 
 Роль можно назначить на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-На [группу рабочих столов](../concepts/desktops-and-groups.md) роль можно назначить через [консоль управления](https://console.yandex.cloud), Yandex Cloud [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md) или [API](../api-ref/authentication.md).
+На [группу рабочих столов](../concepts/desktops-and-groups.md) роль можно назначить через [консоль управления](https://console.yandex.cloud), Yandex Cloud CLI или [API](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

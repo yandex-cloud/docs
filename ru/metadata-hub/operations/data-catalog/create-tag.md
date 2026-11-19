@@ -28,6 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
      * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя тега.
      * (Опционально) Добавьте описание тега.
+     * {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

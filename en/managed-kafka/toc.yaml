@@ -243,6 +243,14 @@ items:
                 href: cli-ref/v0/connector-iceberg-sink/create.md
               - name: update
                 href: cli-ref/v0/connector-iceberg-sink/update.md
+          - name: connector-mirror-checkpoint
+            items:
+              - name: Overview
+                href: cli-ref/v0/connector-mirror-checkpoint/index.md
+              - name: create
+                href: cli-ref/v0/connector-mirror-checkpoint/create.md
+              - name: update
+                href: cli-ref/v0/connector-mirror-checkpoint/update.md
           - name: connector-mirrormaker
             items:
               - name: Overview
@@ -367,6 +375,14 @@ items:
             href: cli-ref/connector-iceberg-sink/create.md
           - name: update
             href: cli-ref/connector-iceberg-sink/update.md
+      - name: connector-mirror-checkpoint
+        items:
+          - name: Overview
+            href: cli-ref/connector-mirror-checkpoint/index.md
+          - name: create
+            href: cli-ref/connector-mirror-checkpoint/create.md
+          - name: update
+            href: cli-ref/connector-mirror-checkpoint/update.md
       - name: connector-mirrormaker
         items:
           - name: Overview

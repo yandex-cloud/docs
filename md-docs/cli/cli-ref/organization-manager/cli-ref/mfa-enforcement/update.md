@@ -38,6 +38,11 @@ Values: 'status-active', 'status-inactive' ||
 || `--description` | `string`
 
  ||
+|| `--sspr-policies` | `mfa`
+
+Supported values:
+mfa - FIDO2 user verification,
+`two-any` - Entry of any two authenticators ||
 || `--id` | `string`
 
 mfa enforcement id ||

@@ -7,13 +7,36 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.47.0 (19.11.26) {#v-1-47-0}
+
+#### {{ cloud-desktop-name }} {#v-1-47-0-cloud-desktop-name}
+
+* Удалена группа команд `yc desktops`.
+
+#### {{ mgl-name }} {#v-1-47-0-mgl-name}
+
+* Добавлена команда `yc managed-gitlab instance list-backups` для просмотра списка резервных копий инстанса.
+* Добавлены команды для подготовки загрузки и получения ссылок для скачивания резервной копии:
+  * `yc managed-gitlab instance prepare-backup-upload`;
+  * `yc managed-gitlab instance get-backup-download-urls`.
+
+#### {{ mkf-name }} {#v-1-47-0-mkf-name}
+
+* Добавлена группа команд `yc managed-kafka connector-mirror-checkpoint` для добавления коннектора MirrorMaker Checkpoint:
+  * `yc managed-kafka connector-mirror-checkpoint create`;
+  * `yc managed-kafka connector-mirror-checkpoint update`.
+
+#### {{ org-full-name }} {#v-1-47-0-org-name}
+
+* Добавлен параметр `--ssprPolicies` в команду `yc organization-manager mfa-enforcement create` для задания способа самостоятельного сброса пароля пользователями.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.46.0 (16.11.26) {#v-1-46-0}
 
 #### Изменения в системных командах CLI {#v-1-46-0-yc}
 
 * Исправлена ошибка при одновременном сохранении конфигурации из нескольких процессов CLI.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.45.0 (12.11.26) {#v-1-45-0}
 

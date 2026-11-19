@@ -4160,150 +4160,6 @@
 
  - [update](cli-ref/datatransfer/cli-ref/transfer/update.md)
 
-### desktops
-
- - [Overview](cli-ref/desktops/cli-ref/index.md)
-
-#### v0
-
- - [Overview](cli-ref/desktops/cli-ref/v0/index.md)
-
-##### desktop
-
- - [Overview](cli-ref/desktops/cli-ref/v0/desktop/index.md)
-
- - [create](cli-ref/desktops/cli-ref/v0/desktop/create.md)
-
- - [delete](cli-ref/desktops/cli-ref/v0/desktop/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/v0/desktop/get.md)
-
- - [get-rdp-file](cli-ref/desktops/cli-ref/v0/desktop/get-rdp-file.md)
-
- - [list](cli-ref/desktops/cli-ref/v0/desktop/list.md)
-
- - [list-operations](cli-ref/desktops/cli-ref/v0/desktop/list-operations.md)
-
- - [reset-password](cli-ref/desktops/cli-ref/v0/desktop/reset-password.md)
-
- - [restart](cli-ref/desktops/cli-ref/v0/desktop/restart.md)
-
- - [start](cli-ref/desktops/cli-ref/v0/desktop/start.md)
-
- - [stop](cli-ref/desktops/cli-ref/v0/desktop/stop.md)
-
- - [update](cli-ref/desktops/cli-ref/v0/desktop/update.md)
-
- - [update-properties](cli-ref/desktops/cli-ref/v0/desktop/update-properties.md)
-
-##### group
-
- - [Overview](cli-ref/desktops/cli-ref/v0/group/index.md)
-
- - [add-access-bindings](cli-ref/desktops/cli-ref/v0/group/add-access-bindings.md)
-
- - [create](cli-ref/desktops/cli-ref/v0/group/create.md)
-
- - [delete](cli-ref/desktops/cli-ref/v0/group/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/v0/group/get.md)
-
- - [list](cli-ref/desktops/cli-ref/v0/group/list.md)
-
- - [list-access-bindings](cli-ref/desktops/cli-ref/v0/group/list-access-bindings.md)
-
- - [list-desktops](cli-ref/desktops/cli-ref/v0/group/list-desktops.md)
-
- - [list-operations](cli-ref/desktops/cli-ref/v0/group/list-operations.md)
-
- - [remove-access-bindings](cli-ref/desktops/cli-ref/v0/group/remove-access-bindings.md)
-
- - [set-access-bindings](cli-ref/desktops/cli-ref/v0/group/set-access-bindings.md)
-
- - [update](cli-ref/desktops/cli-ref/v0/group/update.md)
-
-##### image
-
- - [Overview](cli-ref/desktops/cli-ref/v0/image/index.md)
-
- - [copy](cli-ref/desktops/cli-ref/v0/image/copy.md)
-
- - [delete](cli-ref/desktops/cli-ref/v0/image/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/v0/image/get.md)
-
- - [list](cli-ref/desktops/cli-ref/v0/image/list.md)
-
- - [update](cli-ref/desktops/cli-ref/v0/image/update.md)
-
-#### desktop
-
- - [Overview](cli-ref/desktops/cli-ref/desktop/index.md)
-
- - [create](cli-ref/desktops/cli-ref/desktop/create.md)
-
- - [delete](cli-ref/desktops/cli-ref/desktop/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/desktop/get.md)
-
- - [get-rdp-file](cli-ref/desktops/cli-ref/desktop/get-rdp-file.md)
-
- - [list](cli-ref/desktops/cli-ref/desktop/list.md)
-
- - [list-operations](cli-ref/desktops/cli-ref/desktop/list-operations.md)
-
- - [reset-password](cli-ref/desktops/cli-ref/desktop/reset-password.md)
-
- - [restart](cli-ref/desktops/cli-ref/desktop/restart.md)
-
- - [start](cli-ref/desktops/cli-ref/desktop/start.md)
-
- - [stop](cli-ref/desktops/cli-ref/desktop/stop.md)
-
- - [update](cli-ref/desktops/cli-ref/desktop/update.md)
-
- - [update-properties](cli-ref/desktops/cli-ref/desktop/update-properties.md)
-
-#### group
-
- - [Overview](cli-ref/desktops/cli-ref/group/index.md)
-
- - [add-access-bindings](cli-ref/desktops/cli-ref/group/add-access-bindings.md)
-
- - [create](cli-ref/desktops/cli-ref/group/create.md)
-
- - [delete](cli-ref/desktops/cli-ref/group/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/group/get.md)
-
- - [list](cli-ref/desktops/cli-ref/group/list.md)
-
- - [list-access-bindings](cli-ref/desktops/cli-ref/group/list-access-bindings.md)
-
- - [list-desktops](cli-ref/desktops/cli-ref/group/list-desktops.md)
-
- - [list-operations](cli-ref/desktops/cli-ref/group/list-operations.md)
-
- - [remove-access-bindings](cli-ref/desktops/cli-ref/group/remove-access-bindings.md)
-
- - [set-access-bindings](cli-ref/desktops/cli-ref/group/set-access-bindings.md)
-
- - [update](cli-ref/desktops/cli-ref/group/update.md)
-
-#### image
-
- - [Overview](cli-ref/desktops/cli-ref/image/index.md)
-
- - [copy](cli-ref/desktops/cli-ref/image/copy.md)
-
- - [delete](cli-ref/desktops/cli-ref/image/delete.md)
-
- - [get](cli-ref/desktops/cli-ref/image/get.md)
-
- - [list](cli-ref/desktops/cli-ref/image/list.md)
-
- - [update](cli-ref/desktops/cli-ref/image/update.md)
-
 ### dns
 
  - [Overview](cli-ref/dns/cli-ref/index.md)
@@ -6466,7 +6322,13 @@
 
  - [get](cli-ref/managed-gitlab/cli-ref/v0/instance/get.md)
 
+ - [get-backup-download-urls](cli-ref/managed-gitlab/cli-ref/v0/instance/get-backup-download-urls.md)
+
  - [list](cli-ref/managed-gitlab/cli-ref/v0/instance/list.md)
+
+ - [list-backups](cli-ref/managed-gitlab/cli-ref/v0/instance/list-backups.md)
+
+ - [prepare-backup-upload](cli-ref/managed-gitlab/cli-ref/v0/instance/prepare-backup-upload.md)
 
  - [start](cli-ref/managed-gitlab/cli-ref/v0/instance/start.md)
 
@@ -6484,7 +6346,13 @@
 
  - [get](cli-ref/managed-gitlab/cli-ref/instance/get.md)
 
+ - [get-backup-download-urls](cli-ref/managed-gitlab/cli-ref/instance/get-backup-download-urls.md)
+
  - [list](cli-ref/managed-gitlab/cli-ref/instance/list.md)
+
+ - [list-backups](cli-ref/managed-gitlab/cli-ref/instance/list-backups.md)
+
+ - [prepare-backup-upload](cli-ref/managed-gitlab/cli-ref/instance/prepare-backup-upload.md)
 
  - [start](cli-ref/managed-gitlab/cli-ref/instance/start.md)
 
@@ -6938,6 +6806,14 @@
 
  - [update](cli-ref/managed-kafka/cli-ref/v0/connector-iceberg-sink/update.md)
 
+##### connector-mirror-checkpoint
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/v0/connector-mirror-checkpoint/index.md)
+
+ - [create](cli-ref/managed-kafka/cli-ref/v0/connector-mirror-checkpoint/create.md)
+
+ - [update](cli-ref/managed-kafka/cli-ref/v0/connector-mirror-checkpoint/update.md)
+
 ##### connector-mirrormaker
 
  - [Overview](cli-ref/managed-kafka/cli-ref/v0/connector-mirrormaker/index.md)
@@ -7061,6 +6937,14 @@
  - [create](cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/create.md)
 
  - [update](cli-ref/managed-kafka/cli-ref/connector-iceberg-sink/update.md)
+
+#### connector-mirror-checkpoint
+
+ - [Overview](cli-ref/managed-kafka/cli-ref/connector-mirror-checkpoint/index.md)
+
+ - [create](cli-ref/managed-kafka/cli-ref/connector-mirror-checkpoint/create.md)
+
+ - [update](cli-ref/managed-kafka/cli-ref/connector-mirror-checkpoint/update.md)
 
 #### connector-mirrormaker
 

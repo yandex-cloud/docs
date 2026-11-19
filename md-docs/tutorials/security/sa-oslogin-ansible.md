@@ -4,7 +4,7 @@
 
 Чтобы управлять [виртуальными машинами](../../compute/concepts/vm.md) с помощью [Ansible](https://www.ansible.com/), вы можете использовать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), для которого создан [профиль OS Login](../../organization/concepts/os-login.md#os-login-profiles) c SSH-ключом. Такая конфигурация позволит иметь отдельную учетную запись для управления ВМ через Ansible с возможностью отзыва SSH-ключа по времени или вручную. 
 
-Кроме этого, такая конфигурация позволяет временно повышать привилегии этой учетной записи путем назначения сервисному аккаунту дополнительных [ролей](../../iam/concepts/access-control/roles.md). Например, для использования директивы `become` в задачах Ansible потребуется временно назначить сервисному аккаунту [роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin`.
+Кроме этого, такая конфигурация позволяет временно повышать привилегии этой учетной записи, назначив сервисному аккаунту дополнительные [роли](../../iam/concepts/access-control/roles.md). Например, для использования директивы `become` в задачах Ansible потребуется временно назначить сервисному аккаунту [роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin`.
 
 Чтобы настроить сервисный аккаунт для управления ВМ с помощью Ansible:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -43,7 +43,7 @@
 
 ## Создайте сервисный аккаунт с SSH-ключом в профиле OS Login {#create-ssh-key}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `my-ansible-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`.  Также необходима роль `resource-manager.auditor` или выше на каталог, в котором размещена виртуальная машина.
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `my-ansible-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`. Также необходима роль `resource-manager.auditor` или выше на каталог, в котором размещена виртуальная машина.
 1. [Создайте](../../organization/operations/os-login-profile-create.md) для сервисного аккаунта `my-ansible-sa` [профиль OS Login](../../organization/concepts/os-login.md#os-login-profiles) с логином `my-ansible-sa-profile`.
 1. Создайте пару [SSH-ключей](../../glossary/ssh-keygen.md) типа `ed25519`, которые сервисный аккаунт будет использовать для подключения к виртуальным машинам:
 
@@ -120,20 +120,28 @@
 
 Убедитесь, что Ansible может подключаться к виртуальной машине от имени созданного сервисного аккаунта. Для этого создайте Inventory-файл и проверьте его с помощью Ansible-модуля `ansible.builtin.ping`: 
 
-1. Создайте файл `inventory.ini` с группой `yc` :
+1. Создайте файл `inventory.ini` с группой `yc`:
 
     ```ini
     [yc:vars]
     ansible_connection=ssh
     ansible_user=my-ansible-sa-profile
     ansible_ssh_private_key_file=<путь_к_закрытому_SSH-ключу>
+    ansible_ssh_common_args=-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
 
     [yc]
     <IP-адрес_ВМ>
     ```
+    
     Где:
     * `<путь_к_закрытому_SSH-ключу>` — путь к файлу, содержащему закрытую часть созданного ранее SSH-ключа. Например, `/home/user/ansible-key/my-ansible-sa-profile`.
     * `<IP-адрес_ВМ>` — публичный IP-адрес виртуальной машины с включенным доступом по OS Login.
+
+    {% note tip %}
+
+    Параметр `ansible_ssh_common_args` отключает проверку ключа хоста при первом подключении. В продуктивных средах рекомендуется предварительно выполнить SSH-подключение вручную и подтвердить отпечаток (`fingerprint`) хоста.
+
+    {% endnote %}
 
 1. Запустите Ansible с модулем `ansible.builtin.ping`:
 

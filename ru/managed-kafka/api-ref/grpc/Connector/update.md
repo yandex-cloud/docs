@@ -20,7 +20,7 @@ Updates an Apache Kafka® connector.
   "connector_spec": {
     "tasks_max": "google.protobuf.Int64Value",
     "properties": "map<string, string>",
-    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`
+    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`, `connector_config_mirror_checkpoint`
     "connector_config_mirrormaker": {
       "source_cluster": {
         "alias": "string",
@@ -103,6 +103,13 @@ Updates an Apache Kafka® connector.
         "commit_threads": "google.protobuf.Int64Value",
         "transactional_prefix": "string"
       }
+    },
+    "connector_config_mirror_checkpoint": {
+      "groups": [
+        "string"
+      ],
+      "replication_policy": "ReplicationPolicy",
+      "offset_syncs_topic_location": "OffsetSyncsTopicLocation"
     }
     // end of the list of possible fields
   }
@@ -146,21 +153,28 @@ Example: `sync.topics.config.enabled: false`. ||
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`, `connector_config_mirror_checkpoint`.
 
 Updated configuration for the connector. ||
 || connector_config_s3_sink | **[UpdateConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigS3SinkSpec)**
 
 Update specification for S3-Sink Connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`, `connector_config_mirror_checkpoint`.
 
 Updated configuration for the connector. ||
 || connector_config_iceberg_sink | **[UpdateConnectorConfigIcebergSinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigIcebergSinkSpec)**
 
 Update specification for Iceberg Sink Connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`, `connector_config_mirror_checkpoint`.
+
+Updated configuration for the connector. ||
+|| connector_config_mirror_checkpoint | **[UpdateConnectorConfigMirrorCheckpointSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigMirrorCheckpointSpec)**
+
+Updated configuration of the MirrorCheckpoint connector.
+
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`, `connector_config_mirror_checkpoint`.
 
 Updated configuration for the connector. ||
 |#
@@ -434,6 +448,27 @@ Default: cores * 2 ||
 
 Prefix for transactional operations.
 Default: "" ||
+|#
+
+## UpdateConnectorConfigMirrorCheckpointSpec {#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigMirrorCheckpointSpec}
+
+#|
+||Field | Description ||
+|| groups[] | **string**
+
+Replaces the list of literal consumer group names to synchronize. ||
+|| replication_policy | enum **ReplicationPolicy**
+
+Replication policy; unspecified restores the source setting captured at creation.
+
+- `DEFAULT`: Prefix replicated topic names with the source cluster alias.
+- `IDENTITY`: Preserve original topic names. ||
+|| offset_syncs_topic_location | enum **OffsetSyncsTopicLocation**
+
+Offset-mapping location; unspecified restores the source setting captured at creation.
+
+- `SOURCE`: Read offset mappings from the source cluster.
+- `TARGET`: Read offset mappings from the target cluster. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

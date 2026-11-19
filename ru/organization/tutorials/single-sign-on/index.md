@@ -27,6 +27,9 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [{{ mos-name }}](./saml-opensearch.md)
 * [MWS](./oidc-mws.md)
 * [NetBird](./oidc-netbird.md)
+* OpenCode Console
+    * [SAML](./opencode/saml-opencode.md)
+    * [OpenID Connect](./opencode/oidc-opencode.md)
 * [{{ OS }}](./saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](./saml-ovpn.md)

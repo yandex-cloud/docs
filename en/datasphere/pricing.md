@@ -64,7 +64,7 @@ If you need to store large amounts of data, you can use {{ objstorage-full-name 
 
 There is a separate charge for [storing your models](concepts/models/index.md) and [Docker images](concepts/docker.md) in {{ ml-platform-name }}. The pricing depends on model size in GB, rounded up to an integer.
 
-The charges for storing Docker images in {{ container-registry-full-name }} are based on the [{{ container-registry-name }} pricing policy](../container-registry/pricing.md#prices-storage). 
+The charges for storing Docker images in {{ container-registry-full-name }} are based on the [{{ container-registry-name }} pricing policy](../container-registry/pricing.md#rules-storage).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

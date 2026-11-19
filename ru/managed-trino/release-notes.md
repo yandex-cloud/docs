@@ -5,6 +5,10 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ mtr-full-name }}
 
+## Октябрь 2026 {#october-2026}
+
+Добавлена возможность [изменять подсеть кластера](operations/cluster-update.md#change-subnet) в текущей облачной сети.
+
 ## Сентябрь 2026 {#september-2026}
 
 * Доступна новая версия {{ TR }} [483](https://trino.io/docs/current/release/release-483.html).

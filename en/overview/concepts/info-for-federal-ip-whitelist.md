@@ -7,13 +7,13 @@ description: Read this article to learn how to find out the public IP addresses 
 
 During the periods of mobile internet restrictions in the Russian Federation, telecom providers continue to make a number of socially important resources permanently available to end users. These socially important resources constitute the so-called _whitelist_, maintained and regularly updated by the [Ministry of Digital Development, Communications and Mass Media of the Russian Federation (Ministry of Digital Development)](https://digital.gov.ru/).
 
-A special procedure is established for website or application owners to have their resources whitelisted by the Ministry of Digital Development. The fact that your resource resides in the {{ yandex-cloud }} infrastructure does not make it whitelisted automatically, because the Ministry of Digital Development considers each service on an individual basis.
+A special procedure is established for website or application owners to have their resources whitelisted by the Ministry of Digital Development. The fact that your resource resides in the {{ yandex-cloud }} infrastructure does not whitelist it automatically, because the Ministry of Digital Development considers each service on an individual basis.
 
-If you want your resources whitelisted by the Ministry of Digital Development, and your resources rely on the {{ yandex-cloud }} infrastructure and [services](./services.md), you will need the public IP addresses allocated by {{ yandex-cloud }} for end user access to your resources.
+If your resources are built based on the infrastructure and [services](./services.md) provided by {{ yandex-cloud }}, you can have them whitelisted by by the Ministry of Digital Development. To apply you will need the public IP addresses allocated by {{ yandex-cloud }} for end user access to your resources.
 
 ## How to find out the IP address of your resource in the {{ yandex-cloud }} infrastructure {#identify-your-ip}
 
-All public IP addresses of the resources you want whitelisted must be [reserved](#reserve-ip) for you and no one else. You may attach a relevant screenshot from the [management console]({{ link-console-main }}) as a proof of your right to use these IP addresses.
+All public IP addresses of the resources you want whitelisted must be [reserved](#reserve-ip) for you alone. You may attach a relevant screenshot from the [management console]({{ link-console-main }}) as a proof of your right to use these IP addresses.
 
 {% note warning %}
 

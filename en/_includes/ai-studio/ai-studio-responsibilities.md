@@ -8,7 +8,7 @@
 
 * **Platform infrastructure**: Platform fault tolerance, network security, and protection of hypervisors and infrastructure components.
 
-* **{{ ai-studio-name }} services and components**: Security and availability of [Model Gallery]({{ link-docs-ai }}ai-studio/concepts/generation/), [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/), [MCP Hub]({{ link-docs-ai }}ai-studio/concepts/mcp-hub), and the [API]({{ link-docs-ai }}ai-studio/concepts/api).
+* **{{ ai-studio-name }} services and components**: Security and availability of [Model Gallery]({{ link-docs-ai }}ai-studio/concepts/generation/), [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/), [MCP Hub]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/), and the [API]({{ link-docs-ai }}ai-studio/concepts/api).
 
 * **ML models and their use**: Ensuring the availability, updates, and support of the models offered by the service.
 
@@ -36,7 +36,7 @@
 
 * **Tools for building agents and apps**: Providing an API, [SDK]({{ link-docs-ai }}ai-studio/sdk/), [Agent Atelier]({{ link-docs-ai }}ai-studio/concepts/agents/) tools, and [{{ ai-studio-name }} UI]({{ link-console-ai }}).
 
-* **Model fine-tuning**: Model fine-tuning infrastructure ([Tuning API]({{ link-docs-ai }}ai-studio/concepts/tuning)) and training environment.
+* **Model fine-tuning**: Model fine-tuning infrastructure ([Tuning API]({{ link-docs-ai }}ai-studio/concepts/tuning/)) and training environment.
 
 * **Components for integration with external systems**: [{{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/) and [{{ search-api-full-name }}](*search-api_service_info).
 
@@ -76,7 +76,7 @@
 
 * **Scanning for vulnerabilities**: [Enabling](../../container-registry/operations/scanning-docker-image.md) a scan-on-push policy and periodically scanning images at least once a week in the production environment.
 
-* **Agent and application development**: Developing an [agent]({{ link-docs-ai }}ai-studio/concepts/agents) logic, configuring [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), testing prompts, and integrating them into business processes.
+* **Agent and application development**: Developing an [agent]({{ link-docs-ai }}ai-studio/concepts/agents/) logic, configuring [workflows]({{ link-docs-ai }}ai-studio/concepts/workflows/yawl/integration/workflow), testing prompts, and integrating them into business processes.
 
 * **Model fine-tuning**: Preparing [datasets]({{ link-docs-ai }}ai-studio/concepts/resources/dataset), selecting fine-tuning parameters, validating results, and securing training data.
 

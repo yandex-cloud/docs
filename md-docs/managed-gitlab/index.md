@@ -114,7 +114,13 @@
 
  - [get](cli-ref/v0/instance/get.md)
 
+ - [get-backup-download-urls](cli-ref/v0/instance/get-backup-download-urls.md)
+
  - [list](cli-ref/v0/instance/list.md)
+
+ - [list-backups](cli-ref/v0/instance/list-backups.md)
+
+ - [prepare-backup-upload](cli-ref/v0/instance/prepare-backup-upload.md)
 
  - [start](cli-ref/v0/instance/start.md)
 
@@ -132,7 +138,13 @@
 
  - [get](cli-ref/instance/get.md)
 
+ - [get-backup-download-urls](cli-ref/instance/get-backup-download-urls.md)
+
  - [list](cli-ref/instance/list.md)
+
+ - [list-backups](cli-ref/instance/list-backups.md)
+
+ - [prepare-backup-upload](cli-ref/instance/prepare-backup-upload.md)
 
  - [start](cli-ref/instance/start.md)
 

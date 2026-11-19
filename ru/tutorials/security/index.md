@@ -106,6 +106,9 @@ description: Различные сценарии использования по
 * [{{ mgl-name }}](./single-sign-on/saml-managed-gitlab.md)
 * [{{ mos-name }}](./single-sign-on/saml-opensearch.md)
 * [MWS](./single-sign-on/oidc-mws.md)
+* OpenCode Console
+    * [SAML](./single-sign-on/opencode/saml-opencode.md)
+    * [OpenID Connect](./single-sign-on/opencode/oidc-opencode.md)
 * [{{ OS }}](./single-sign-on/saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](./single-sign-on/saml-ovpn.md)

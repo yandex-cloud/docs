@@ -33,7 +33,7 @@ Managed Service for OpenSearch поддерживает все SAML 2.0-совм
     Используйте URL со [специальным FQDN кластера](connect/fqdn.md#special-fqdns):
 
     ```text
-    https://c-<идентификатор_кластера>rw.mdb.yandexcloud.net/
+    https://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net/
     ```
 
     Пример URL: `https://c-e4ut2....rw.mdb.yandexcloud.net/`

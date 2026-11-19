@@ -13,6 +13,7 @@ keywords:
 
 * [имя и описание кластера](#change-basic-settings);
 * [сервисный аккаунт](#change-sa);
+* [подсеть](#change-subnet);
 * [группы безопасности](#change-sg);
 * [конфигурацию драйверов и исполнителей](#change-configuration);
 * [дополнительные настройки кластера](#change-additional-settings).
@@ -53,7 +54,7 @@ keywords:
      ```bash
      {{ yc-mdb-sp }} cluster update <имя_или_идентификатор_кластера> \
        --new-name <имя_кластера> \
-       --description <описание_кластера> 
+       --description <описание_кластера>
      ```
 
      Где:
@@ -61,7 +62,7 @@ keywords:
      * `--new-name` — уникальное имя кластера в рамках облака.
      * `--description` — описание кластера.
 
-     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -74,9 +75,9 @@ keywords:
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
-        
+
     1. Измените в описании кластера значение параметра `description`:
-      
+
         ```hcl
         resource "yandex_spark_cluster" "<имя_кластера>" {
           ...
@@ -121,7 +122,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -207,7 +208,7 @@ keywords:
 
      Где `--service-account-id` — идентификатор сервисного аккаунта для доступа к сервисам {{ yandex-cloud }}. Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
 
-     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+     Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -216,7 +217,7 @@ keywords:
        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `service_account_id`:
-      
+
         ```hcl
         resource "yandex_spark_cluster" "<имя_кластера>" {
           ...
@@ -260,7 +261,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -307,6 +308,32 @@ keywords:
 
 {% endlist %}
 
+## Изменить подсеть {#change-subnet}
+
+Вы можете изменить подсеть кластера даже если он был [остановлен](cluster-stop.md#stop-cluster).
+
+Вы можете выбрать для кластера другую подсеть в текущей [облачной сети](../../vpc/concepts/network.md#network).
+
+
+Если новая подсеть находится в другой [зоне доступности](../../overview/concepts/geo-scope.md), кластер будет перенесен в эту зону.
+
+
+Перед изменением подсети убедитесь, что новая подсеть соответствует [требованиям](../concepts/network.md#subnet-requirements). При необходимости [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую подсеть.
+    1. Нажмите **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+{% endlist %}
+
+Если вы изменили подсеть остановленного кластера, [запустите его](cluster-stop.md#start-cluster).
+
 ## Изменить группы безопасности {#change-sg}
 
 {% list tabs group=instructions %}
@@ -342,7 +369,7 @@ keywords:
 
        Где `--security-group-ids` — список идентификаторов групп безопасности.
 
-       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
+       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
 - {{ TF }} {#tf}
 
@@ -351,7 +378,7 @@ keywords:
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `security_group_ids`:
-      
+
         ```hcl
         resource "yandex_spark_cluster" "<имя_кластера>" {
           ...
@@ -397,7 +424,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -504,7 +531,7 @@ keywords:
        * `--executor-min-size` — минимальное количество хостов для исполнителя при автоматическом масштабировании.
        * `--executor-max-size` — максимальное количество хостов для исполнителя при автоматическом масштабировании.
 
-       Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.  
+       Укажите либо фиксированное количество хостов (`--executor-fixed-size`), либо минимальное и максимальное количество хостов (`--executor-min-size`, `--executor-max-size`) для автоматического масштабирования.
 
        
        * `--executor-preemptible` — использование [прерываемых хостов](../concepts/instance-types.md#preemptible) для исполнителей: `true` — прерываемые хосты, `false` — обычные.
@@ -517,7 +544,7 @@ keywords:
        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените конфигурацию драйверов и исполнителей в блоках `config.resource_pools.driver` и `config.resource_pools.executor`:
-      
+
         
         ```hcl
         resource "yandex_spark_cluster" "<имя_кластера>" {
@@ -539,13 +566,13 @@ keywords:
         }
         ```
 
-        
+
         Где:
-        
+
         * `driver` — конфигурация хостов для запуска драйверов {{ SPRK }}. В этом блоке укажите:
 
           * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
-          * `size` — фиксированное количество экземпляров. 
+          * `size` — фиксированное количество экземпляров.
           * `min_size` — минимальное количество хостов, если используется автоматическое масштабирование.
           * `max_size` — максимальное количество хостов, если используется автоматическое масштабирование.
 
@@ -557,7 +584,7 @@ keywords:
           * `preemptible` — использование [прерываемых хостов](../concepts/instance-types.md#preemptible) для исполнителей: `true` — прерываемые хосты, `false` — обычные.
 
 
-          * `size` — фиксированное количество экземпляров. 
+          * `size` — фиксированное количество экземпляров.
           * `min_size` — минимальное количество хостов, если используется автоматическое масштабирование.
           * `max_size` — максимальное количество хостов, если используется автоматическое масштабирование.
 
@@ -617,7 +644,7 @@ keywords:
         Где:
 
         * `cluster_id` — идентификатор кластера.
-            
+
             Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
@@ -712,7 +739,7 @@ keywords:
   1. [Перейдите]({{ link-console-main }}/link/managed-spark) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
   1. Выберите кластер и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
-     
+
      * Выберите **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_dependencies-type_wJq6n }}**:
 
         * **{{ ui-key.yacloud.spark.ClusterForm.DependenciesSection.title_software-configuration-type-environment_wJq6n }}** — доступны базовые и пользовательские окружения. Пользовательское окружение необходимо [создать самостоятельно](environment-create.md).
@@ -726,19 +753,19 @@ keywords:
               ```text
               py4j>=0.10.9.7 pandas>=1.05 grpcio>=1.48,<1.57 grpcio-status>=1.48,<1.57 googleapis-common-protos==1.56.4
               ```
-                
+
               Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
 
            {% note warning %}
-           
+
            Добавление пакетов без создания окружения устарело и скоро будет недоступно. Используйте базовое окружение или [создайте пользовательское окружение](environment-create.md) с нужными пакетами.
-           
+
            {% endnote %}
-      
+
      * В настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** измените время [технического обслуживания](../concepts/maintenance.md) кластера:
 
         {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
-      
+
      * **{{ ui-key.yacloud.spark.label_metastore }}** —  выберите кластер [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md) для подключения в качестве хранилища метаданных.
      * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления пользователем.
      * **{{ ui-key.yacloud.spark.label_history-server }}** — опция позволяет использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html).
@@ -834,7 +861,7 @@ keywords:
             ...
             history_server = {
               enabled = <использование_Spark_History_Server>
-            } 
+            }
             metastore = {
               cluster_id = "<идентификатор_кластера_Apache_Hive™_Metastore>"
             }
@@ -1020,7 +1047,7 @@ keywords:
                    * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
 
                      > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
-                     
+
     1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash

@@ -2,6 +2,10 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [19.11.2026 — CVE-2026-123007 (NGINX2Root)](../../_includes/security/security-bulletins/cve-2026-123007-nginx2root.md) %}
+
+{% include [19.11.2026 — CVE-2026-114938 (Java4Shell)](../../_includes/security/security-bulletins/cve-2026-114938-java4shell.md) %}
+
 {% include [30.10.2026 — CVE-2026-116366 — удаленное выполнение кода в {{ CH }}](../../_includes/security/security-bulletins/cve-2026-116366-clickhouse.md) %}
 
 {% include [30.10.2026 — CVE-2026-98432 — удаленное выполнение кода в ядре Linux](../../_includes/security/security-bulletins/cve-2026-98432-linux.md) %}

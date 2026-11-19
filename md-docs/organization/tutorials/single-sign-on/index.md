@@ -24,6 +24,9 @@
 * [Managed Service for OpenSearch](saml-opensearch.md)
 * [MWS](oidc-mws.md)
 * [NetBird](oidc-netbird.md)
+* OpenCode Console
+    * [SAML](opencode/saml-opencode.md)
+    * [OpenID Connect](opencode/oidc-opencode.md)
 * [OpenSearch](saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](saml-ovpn.md)

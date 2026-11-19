@@ -71,6 +71,15 @@
 
       Подробнее о настройке атрибутов смотрите в разделе [Настройте атрибуты пользователей и групп](../../../operations/applications/saml-create.md#setup-attributes).
 
+  1. Настройте уникальность и неизменность идентификатора пользователя:
+
+      1. Перейдите на вкладку **Атрибуты**.
+      1. Выберите атрибут `NameID` и в открывшемся окне:
+
+          1. В поле **Формат идентификатора** выберите `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
+          1. В поле **Значение** выберите `SubjectClaims.sub`.
+          1. Нажмите **Обновить**.
+
 {% endlist %}
 
 ### Настройте аутентификацию на стороне LibreChat {#setup-sp}
@@ -89,6 +98,7 @@
 `SAML_GIVEN_NAME_CLAIM` | `"givenname"`
 `SAML_FAMILY_NAME_CLAIM` | `"surname"`
 `SAML_NAME_CLAIM` | `"fullname"`
+`SAML_NAME_ID_FORMAT` | `"urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"`
 `SAML_BUTTON_LABEL` | `"Login with Yandex Identity Hub"`
 
 ### Добавьте пользователя {#add-user}

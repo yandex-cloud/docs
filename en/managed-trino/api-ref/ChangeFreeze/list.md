@@ -1,10 +1,11 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://trino.{{ api-host }}/managed-trino/v1/changeFreezes
-    method: get
+  - url: https://trino.{{ api-host }}/managed-trino/v1/changeFreezes:list
+    method: post
     path: null
-    query:
+    query: null
+    body:
       type: object
       properties:
         resourcePath:
@@ -35,7 +36,6 @@ apiPlayground:
             The maximum string length in characters is 300.
           type: string
       additionalProperties: false
-    body: null
     definitions:
       Resource:
         type: object
@@ -56,13 +56,28 @@ apiPlayground:
 
 Lists change freezes by conditions, specified in request.
 
+
 ## HTTP request
 
 ```
-GET https://trino.{{ api-host }}/managed-trino/v1/changeFreezes
+POST https://trino.{{ api-host }}/managed-trino/v1/changeFreezes:list
 ```
 
-## Query parameters {#yandex.cloud.maintenance.v2.ListChangeFreezesRequest}
+## Body parameters {#yandex.cloud.maintenance.v2.ListChangeFreezesRequest}
+
+```json
+{
+  "resourcePath": [
+    {
+      "id": "string",
+      "type": "string"
+    }
+  ],
+  "pageSize": "string",
+  "pageToken": "string",
+  "filter": "string"
+}
+```
 
 #|
 ||Field | Description ||
@@ -141,6 +156,8 @@ Token to retrieve the next page of results. ||
 |#
 
 ## ChangeFreeze {#yandex.cloud.maintenance.v2.ChangeFreeze}
+
+Change freezes temporarily prevent maintenance operations for a specific resource over the time period specified. Use them during business-critical events or periods with limited operational support.
 
 #|
 ||Field | Description ||

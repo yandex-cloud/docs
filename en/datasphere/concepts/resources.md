@@ -14,7 +14,7 @@ You can use resources in multiple projects without recreating them. To make a re
 * [Docker images](docker.md)
 * [Datasets](dataset.md)
 * [S3 connectors](s3-connector.md)
-* [Nodes and aliases](deploy/index.md#python-nodes)
+* [Nodes and aliases](deploy/index.md#node)
 * [{{ dataproc-name }} templates](data-processing-template.md)
 * [Spark connectors](spark-connector.md)
 * [Models](models/index.md)

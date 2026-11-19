@@ -260,6 +260,12 @@
 
  - [NetBird](security/single-sign-on/oidc-netbird.md)
 
+#### OpenCode Console
+
+ - [SAML](security/single-sign-on/opencode/saml-opencode.md)
+
+ - [OpenID Connect](security/single-sign-on/opencode/oidc-opencode.md)
+
  - [OpenSearch](security/single-sign-on/saml-opensearch-self-managed.md)
 
 #### OpenVPN

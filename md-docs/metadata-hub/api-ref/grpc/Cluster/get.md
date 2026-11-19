@@ -93,7 +93,22 @@ The maximum string length in characters is 50. ||
     "latest_maintenance_time": "google.protobuf.Timestamp",
     "next_maintenance_window_time": "google.protobuf.Timestamp"
   },
-  "is_ha": "bool"
+  "is_ha": "bool",
+  "maintenance_windows": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_schedule`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_schedule": {
+      "slots": [
+        {
+          "day": "DayOfWeek",
+          "start_time": "google.type.TimeOfDay",
+          "duration": "google.protobuf.Duration",
+          "allow_temporary_unavailability": "bool"
+        }
+      ]
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -170,6 +185,7 @@ Cloud logging configuration. ||
 Network-related configuration options. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.metastore.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.metastore.v1.MaintenanceOperation)**
 
@@ -177,6 +193,9 @@ Maintenance operation scheduled for the nearest maintenance window. ||
 || is_ha | **bool**
 
 Output only. Whether the cluster is configured for high availability (multiple zones). ||
+|| maintenance_windows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## Monitoring {#yandex.cloud.metastore.v1.Monitoring}
@@ -361,4 +380,67 @@ Timestamp of the latest successfully completed maintenance. ||
 || next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the next scheduled maintenance window. ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|| weekly_maintenance_schedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_schedule`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | enum **DayOfWeek**
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+
+Required field. Start time in UTC. ||
+|| duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Required field. Slot duration. ||
+|| allow_temporary_unavailability | **bool**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
 |#

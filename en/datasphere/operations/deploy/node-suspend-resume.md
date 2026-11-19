@@ -1,9 +1,9 @@
 ---
-title: How to suspend or resume a node
+title: How to stop or resume a node
 description: Follow this guide to suspend or resume a node.
 ---
 
-# Suspending or resuming a node
+# Stopping or resuming a node
 
 ## Suspending a node {#suspend}
 

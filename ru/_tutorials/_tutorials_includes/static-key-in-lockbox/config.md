@@ -71,6 +71,7 @@ data "yandex_lockbox_secret_version" "my_secret_version" {
 }
 
 # Выходные переменные
+# Записи в версии секрета выбираются по индексу: entries[0] — ключ key, entries[1] — ключ key_id
 
 output "key_id" {
   value = data.yandex_lockbox_secret_version.my_secret_version.entries[1].text_value

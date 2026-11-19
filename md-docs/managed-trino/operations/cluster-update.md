@@ -6,6 +6,7 @@
 
 * [имя и описание кластера](#change-basic-settings);
 * [сервисный аккаунт](#change-sa);
+* [подсеть](#change-subnet);
 * [группы безопасности](#change-sg);
 * [параметры отказоустойчивого выполнения запросов](#change-retry-policy);
 * [настройки выполнения запросов](#change-query-params);
@@ -465,6 +466,28 @@
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+## Изменить подсеть {#change-subnet}
+
+Вы можете изменить подсеть кластера даже если он был [остановлен](cluster-stop.md#stop-cluster).
+
+Вы можете выбрать для кластера другую подсеть в текущей [облачной сети](../../vpc/concepts/network.md#network). Если новая подсеть находится в другой [зоне доступности](../../overview/concepts/geo-scope.md), кластер будет перенесен в эту зону.
+
+Перед изменением подсети убедитесь, что новая подсеть соответствует [требованиям](../concepts/network.md#subnet-requirements). При необходимости [настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. В блоке **Сетевые настройки** выберите другую подсеть.
+    1. Нажмите кнопку **Сохранить изменения**.
+
+{% endlist %}
+
+Если вы изменили подсеть остановленного кластера, [запустите его](cluster-stop.md#start-cluster).
 
 ## Изменить группы безопасности {#change-sg}
 

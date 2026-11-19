@@ -1770,6 +1770,9 @@ default:
           v1|number: 40.9836
           v1|string: $40.9836
   sku|USD|sws:
+    proxy-server:
+      v1|number: 0.0199999968
+      v1|string: $0.0199999968
     requests:
       v1|number: 0
       v1|pricingRate:

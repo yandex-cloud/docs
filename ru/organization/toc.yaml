@@ -323,6 +323,12 @@ items:
             href: tutorials/single-sign-on/oidc-mws.md
           - name: NetBird
             href: tutorials/single-sign-on/oidc-netbird.md
+          - name: OpenCode Console
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/opencode/saml-opencode.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/opencode/oidc-opencode.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: OpenVPN

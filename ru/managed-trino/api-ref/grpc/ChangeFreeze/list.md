@@ -6,6 +6,7 @@ editable: false
 
 Lists change freezes by conditions, specified in request.
 
+
 ## gRPC request
 
 **rpc List ([maintenance.v2.ListChangeFreezesRequest](#yandex.cloud.maintenance.v2.ListChangeFreezesRequest)) returns ([maintenance.v2.ListChangeFreezesResponse](#yandex.cloud.maintenance.v2.ListChangeFreezesResponse))**
@@ -101,6 +102,8 @@ Token to retrieve the next page of results. ||
 |#
 
 ## ChangeFreeze {#yandex.cloud.maintenance.v2.ChangeFreeze}
+
+Change freezes temporarily prevent maintenance operations for a specific resource over the time period specified. Use them during business-critical events or periods with limited operational support.
 
 #|
 ||Field | Description ||

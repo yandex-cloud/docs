@@ -120,8 +120,14 @@ items:
                 href: cli-ref/v0/instance/delete.md
               - name: get
                 href: cli-ref/v0/instance/get.md
+              - name: get-backup-download-urls
+                href: cli-ref/v0/instance/get-backup-download-urls.md
               - name: list
                 href: cli-ref/v0/instance/list.md
+              - name: list-backups
+                href: cli-ref/v0/instance/list-backups.md
+              - name: prepare-backup-upload
+                href: cli-ref/v0/instance/prepare-backup-upload.md
               - name: start
                 href: cli-ref/v0/instance/start.md
               - name: stop
@@ -138,8 +144,14 @@ items:
             href: cli-ref/instance/delete.md
           - name: get
             href: cli-ref/instance/get.md
+          - name: get-backup-download-urls
+            href: cli-ref/instance/get-backup-download-urls.md
           - name: list
             href: cli-ref/instance/list.md
+          - name: list-backups
+            href: cli-ref/instance/list-backups.md
+          - name: prepare-backup-upload
+            href: cli-ref/instance/prepare-backup-upload.md
           - name: start
             href: cli-ref/instance/start.md
           - name: stop

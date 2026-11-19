@@ -101,7 +101,7 @@ editable: false
       "placement": {
         "dedicated": "boolean"
       },
-      // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
+      // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`
       "connectorConfigMirrormaker": {
         "sourceCluster": {
           "alias": "string",
@@ -187,6 +187,14 @@ editable: false
           "commitThreads": "string",
           "transactionalPrefix": "string"
         }
+      },
+      "connectorConfigMirrorCheckpoint": {
+        "sourceConnectorName": "string",
+        "groups": [
+          "string"
+        ],
+        "replicationPolicy": "string",
+        "offsetSyncsTopicLocation": "string"
       }
       // end of the list of possible fields
     }
@@ -394,13 +402,16 @@ The maximum string length in characters is 63. ||
 || placement | **[ConnectorPlacement](#yandex.cloud.mdb.kafka.v1.ConnectorPlacement)** ||
 || connectorConfigMirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`. ||
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`. ||
 || connectorConfigS3Sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`. ||
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`. ||
 || connectorConfigIcebergSink | **[ConnectorConfigIcebergSink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSink)**
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`. ||
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`. ||
+|| connectorConfigMirrorCheckpoint | **[ConnectorConfigMirrorCheckpoint](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorCheckpoint)**
+
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`. ||
 |#
 
 ## ConnectorPlacement {#yandex.cloud.mdb.kafka.v1.ConnectorPlacement}
@@ -556,4 +567,20 @@ Includes only one of the fields `externalS3`. ||
 || commitTimeoutMs | **string** (int64) ||
 || commitThreads | **string** (int64) ||
 || transactionalPrefix | **string** ||
+|#
+
+## ConnectorConfigMirrorCheckpoint {#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorCheckpoint}
+
+#|
+||Field | Description ||
+|| sourceConnectorName | **string** ||
+|| groups[] | **string** ||
+|| replicationPolicy | **enum** (ReplicationPolicy)
+
+- `DEFAULT`
+- `IDENTITY` ||
+|| offsetSyncsTopicLocation | **enum** (OffsetSyncsTopicLocation)
+
+- `SOURCE`
+- `TARGET` ||
 |#

@@ -22,7 +22,7 @@ For detailed information on how to create and set up resources, see the _Step-by
 
 {% note info %}
 
-{{ ml-platform-name }} is not designed for pair programming. In [{{ dd }} mode](../../datasphere/concepts/project.md#dd), multiple users can collaborate within a single project if each user is working in a separate notebook.
+{{ ml-platform-name }} is not designed for pair programming. In [{{ dd }} mode](../../datasphere/concepts/project.md#mode), multiple users can collaborate within a single project if each user is working in a separate notebook.
 
 {% endnote %}
 

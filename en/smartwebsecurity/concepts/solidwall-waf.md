@@ -76,7 +76,7 @@ The `{{ ui-key.yacloud.smart-web-security.solidWallBasicTariff_hB5xS }}` plan us
 
 The `{{ ui-key.yacloud.smart-web-security.solidWallAdvancedTariff_6mLtW }}` plan also uses a _positive model_ to analyze requests, responses, and sessions while accounting for allowed parameters and sequences of user actions. Learn more about [security models](https://docs.solidwall.yandex.cloud/ru/concepts/positive-vs-negative).
 
-_RPS capacity_ is the selected number of requests per second for the total traffic across all applications in a profile. Choose a capacity based on peak daily traffic. For example, if traffic reaches 600 requests per second, select a tier that covers that load. Actual traffic is calculated using the 95th percentile of average RPS measured over five-minute intervals for the past 30 days. RPS capacity determines the billable load and is separate from the [traffic limits](limits.md#solidwall-waf-limits) for a SolidWall WAF profile.
+_RPS capacity_ is the selected number of requests per second for the total traffic across all applications in a profile. Choose a capacity based on peak daily traffic. For example, if traffic reaches 600 requests per second, select a tier that covers that load. Actual traffic is calculated using the 95th percentile of average RPS measured over five-minute intervals throughout the calendar month. RPS capacity determines the billable load and is separate from the [traffic limits](limits.md#solidwall-waf-limits) for a SolidWall WAF profile.
 
 Before traffic starts flowing, you can switch between plans freely, with changes taking effect immediately. After traffic appears, switching to another service plan takes effect on the first day of the following month.
 

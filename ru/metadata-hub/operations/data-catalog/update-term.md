@@ -30,9 +30,11 @@ description: Следуя данной инструкции, вы изменит
 
      * В поле **{{ ui-key.yacloud.common.name }}** задайте новое уникальное имя термина.
      * (Опционально) Измените описание термина.
+     * {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
      * (Опционально) В поле **{{ ui-key.yacloud.data-catalog.label_term-synonyms }}** добавьте или удалите один или несколько синонимов термина:
         * Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_term-synonyms-add }}**, введите новый синоним и нажмите **Enter**.
         * Справа от синонима, который вы хотите удалить, нажмите ![image](../../../_assets/console-icons/xmark.svg) .
+     * (Опционально) Добавьте [тег](../../concepts/data-catalog.md#classifications-and-tags) для разметки термина.
      * (Опционально) В поле **{{ ui-key.yacloud.data-catalog.label_connected-terms }}** добавьте или удалите близкие по смыслу термины этого глоссария:
         * Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_add }}**, в открывшемся окне выберите нужные термины и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
         * Нажмите ![image](../../../_assets/console-icons/xmark.svg) справа от термина, связь с которым вы хотите удалить, или выделите сразу несколько терминов и нажмите внизу кнопку **{{ ui-key.yacloud.common.delete }}**.

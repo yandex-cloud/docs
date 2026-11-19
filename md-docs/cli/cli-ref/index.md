@@ -44,8 +44,6 @@ Syntax:
 
 - [yc datatransfer](datatransfer/cli-ref/index.md) — Manage Data Transfer endpoints and transfers
 
-- [yc desktops](desktops/cli-ref/index.md) — Manage Desktop resources
-
 - [yc dns](dns/cli-ref/index.md) — Manage DNS resources
 
 - [yc help](help.md) — Help provides help for any command in the application.

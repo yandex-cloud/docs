@@ -161,7 +161,27 @@ The maximum string length in characters is 1000. ||
         "latestMaintenanceTime": "string",
         "nextMaintenanceWindowTime": "string"
       },
-      "isHa": "boolean"
+      "isHa": "boolean",
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
+      }
     }
   ],
   "nextPageToken": "string"
@@ -263,6 +283,7 @@ Cloud logging configuration. ||
 Network-related configuration options. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.metastore.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Maintenance window. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.metastore.v1.MaintenanceOperation)**
 
@@ -270,6 +291,9 @@ Maintenance operation scheduled for the nearest maintenance window. ||
 || isHa | **boolean**
 
 Output only. Whether the cluster is configured for high availability (multiple zones). ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)**
+
+Maintenance windows. ||
 |#
 
 ## Monitoring {#yandex.cloud.metastore.v1.Monitoring}
@@ -468,4 +492,84 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+Maintenance windows shared by all managed database services.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operations can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Maintenance operations can be scheduled during the specified weekly slots.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+Weekly time slots during which maintenance operations can be scheduled.
+At least one slot is required.
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+Day of the week.
+
+- `MONDAY`: The day-of-week of Monday.
+- `TUESDAY`: The day-of-week of Tuesday.
+- `WEDNESDAY`: The day-of-week of Wednesday.
+- `THURSDAY`: The day-of-week of Thursday.
+- `FRIDAY`: The day-of-week of Friday.
+- `SATURDAY`: The day-of-week of Saturday.
+- `SUNDAY`: The day-of-week of Sunday. ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)**
+
+Required field. Start time in UTC. ||
+|| duration | **string** (duration)
+
+Required field. Slot duration. ||
+|| allowTemporaryUnavailability | **boolean**
+
+Allows maintenance operations that may cause temporary write unavailability. ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+Represents a time of day. The date and time zone are either not significant
+or are specified elsewhere. An API may choose to allow leap seconds. Related
+types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32)
+
+Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+to allow the value "24:00:00" for scenarios like business closing time. ||
+|| minutes | **integer** (int32)
+
+Minutes of hour of day. Must be from 0 to 59. ||
+|| seconds | **integer** (int32)
+
+Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+allow the value 60 if it allows leap-seconds. ||
+|| nanos | **integer** (int32)
+
+Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 |#

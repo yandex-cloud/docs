@@ -12,7 +12,7 @@
 | 259&nbsp;250&nbsp;₽ {align="center"}
 | Рассчитывается индивидуально ||
 
-|| Абонентская плата за пакет WAF, ежемесячно. Пакет включает анализ запросов [правилами WAF](../../smartwebsecurity/concepts/rules.md#waf-rules)
+|| Абонентская плата за пакет WAF, ежемесячно. Пакет включает анализ запросов [правилами Cloud WAF](../../smartwebsecurity/concepts/rules.md#waf-rules)
 | 40&nbsp;667&nbsp;₽ {align="center"}
 | 76&nbsp;250&nbsp;₽ {align="center"}
 | 152&nbsp;500&nbsp;₽ {align="center"}

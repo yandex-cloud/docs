@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. В строке с нужным кластером нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
-  
+
         1. Измените имя и описание кластера.
         1. Удалите или добавьте новые [метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md).
         1. Выберите другой [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый с ролью `{{ roles.metastore.integrationProvider }}`.
@@ -27,17 +27,30 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}** — имя бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных {{ metastore-name }} (warehouse).
         * **{{ ui-key.yacloud.metastore.label_warehouse-path }}** — путь внутри бакета, который будет использоваться как префикс для данных {{ metastore-name }}. Опциональный параметр.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+
+      * Выберите подсети в текущей [облачной сети](../../../vpc/concepts/network.md#network).
+
+          Вы можете изменить подсети кластера даже если он был [остановлен](cluster-stop.md#stop-cluster).
+
+          
+          Если новые подсети находятся в другой [зоне доступности](../../../overview/concepts/geo-scope.md), кластер будет перенесен в эту зону. В этом случае удалите из списка подсети исходной зоны.
+
+
+          В новых подсетях должен быть [настроен NAT-шлюз](../../../vpc/operations/create-nat-gateway.md), чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
+
+      * Выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
+
   1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
   1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или отключите запись логов. Если логирование включено:
       * Укажите, в какую лог-группу или каталог будут записываться логи.
-      * Выберите минимальный уровень логирования. 
-      
+      * Выберите минимальный уровень логирования.
+
       Подробнее читайте в разделе [Передача логов кластера](logging.md).
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
-      
-      1. Включите или отключите защиту кластера от удаления. 
-          
+
+      1. Включите или отключите защиту кластера от удаления.
+
           {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       1. Измените время [технического обслуживания](../../concepts/metastore-maintenance.md) кластера:
@@ -45,6 +58,8 @@ description: Следуя данной инструкции, вы сможете
           {% include [Maintenance window](../../../_includes/metadata-hub/metastore-maintenance-window-console.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+
+  Если вы изменили подсети остановленного кластера, [запустите его](cluster-stop.md).
 
 - CLI {#cli}
 
@@ -55,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить настройки кластера {{ metastore-name }}:
 
   1. Посмотрите описание команды CLI для изменения кластера:
- 
+
       ```bash
       {{ yc-metastore }} cluster update --help
       ```

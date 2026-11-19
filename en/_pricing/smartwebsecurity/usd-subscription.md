@@ -12,7 +12,7 @@
 | $2,125.00 {align="center"}
 | Calculated separately ||
 
-|| Monthly subscription fee for the WAF package. The package includes requests analysis by [WAF rules](../../smartwebsecurity/concepts/rules.md#waf-rules)
+|| Monthly subscription fee for the WAF package. The WAF package covers requests processed by [Cloud WAF rules](../../smartwebsecurity/concepts/rules.md#waf-rules).
 | $333.33 {align="center"}
 | $625.00 {align="center"}
 | $1,250.00 {align="center"}

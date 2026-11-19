@@ -45,6 +45,9 @@ description: Различные практические руководства 
 * [{#T}](single-sign-on/saml-opensearch.md)
 * [{#T}](single-sign-on/oidc-mws.md)
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
+* OpenCode Console
+    * [{#T}](single-sign-on/saml-opencode.md)
+    * [{#T}](single-sign-on/oidc-opencode.md)
 * OpenVPN
     * [{#T}](single-sign-on/saml-ovpn.md)
     * [{#T}](single-sign-on/oidc-ovpn.md)

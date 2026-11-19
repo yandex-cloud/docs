@@ -25,6 +25,8 @@ description: Следуя данной инструкции, вы сможете
   1. В списке доменов нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным доменом и выберите **{{ ui-key.yacloud.common.edit }}**.  
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте новое уникальное имя домена.
   1. (Опционально) Измените описание домена.
+  1. {% include [markup-rules](../../../_includes/metadata-hub/data-catalog-ai-markup-rules.md) %}
+  1. (Опционально) Добавьте [тег](../../concepts/data-catalog.md#classifications-and-tags) для разметки домена.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 {% endlist %}

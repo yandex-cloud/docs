@@ -21,7 +21,8 @@ Updates access bindings for the specified Apache Airflow cluster.
         "subject": {
           "id": "string",
           "type": "string"
-        }
+        },
+        "cel_expression": "string"
       }
     }
   ]
@@ -70,6 +71,16 @@ The maximum string length in characters is 64. ||
 
 Required field. Identity for which access binding is being created.
 It can represent an account with a unique ID or several accounts with a system identifier. ||
+|| cel_expression | **string**
+
+CEL expression that must evaluate to true for the binding to apply.
+An empty expression does not restrict the binding.
+Only supported for services:
+* [yandex.cloud.resourcemanager.v1.CloudService](../../../../resource-manager/api-ref/grpc/Cloud/index.md)
+* [yandex.cloud.resourcemanager.v1.FolderService](../../../../resource-manager/api-ref/grpc/Folder/index.md)
+* [yandex.cloud.organizationmanager.v1.OrganizationService](../../../../organization/api-ref/grpc/Organization/index.md)
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Subject {#yandex.cloud.access.Subject}

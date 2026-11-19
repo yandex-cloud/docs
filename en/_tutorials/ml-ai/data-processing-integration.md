@@ -2,7 +2,7 @@
 
 In {{ ml-platform-full-name }} projects, you can use {{ SPRK }} clusters deployed in {{ msp-full-name }}. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
-1. [Prepare the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Set up the {{ ml-platform-name }} project](#project).
 1. [Create a bucket](#create-bucket).
 1. [Create a {{ dataproc-name }} cluster](#create-cluster).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
-## Prepare your infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 ### Create a folder and network {#create-folder}
 
@@ -315,7 +315,7 @@ The file will appear in the bucket's `test` folder. To view bucket contents in t
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/data-processing-s3-connector.md) %}
 
-To learn more about running computations on {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [this concept](../../datasphere/concepts/data-processing.md#existing-clusters).
+To learn more about running computations on {{ dataproc-name }} clusters in {{ ml-platform-name }}, see [this concept](../../datasphere/concepts/data-processing-operations.md).
 
 ## Delete the resources you created {#clear-out}
 

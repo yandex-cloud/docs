@@ -24,7 +24,7 @@
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Для создания инфраструктуры c помощью {{ TF }}:
+Для создания инфраструктуры с помощью {{ TF }}:
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
@@ -54,7 +54,7 @@
 
     {% endlist %}
 
-    Подробнее о параметрах используемых ресурсов в {{ TF }} смотрите в документации провайдера:
+    Подробнее о параметрах используемых ресурсов в {{ TF }} читайте в документации провайдера:
 
     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Назначение [роли](../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -63,7 +63,7 @@
     * [Версия секрета](../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
 1. В файле `static-key-in-lockbox-config.tf` задайте пользовательские параметры:
-    * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
     * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
 1. Создайте ресурсы:
@@ -82,8 +82,8 @@
 1. Сохраните идентификатор ключа, секретный ключ и значение региона размещения в переменные окружения AWS CLI:
 
     ```bash
-    AWS_ACCESS_KEY_ID=$(terraform output key_id)
-    AWS_SECRET_ACCESS_KEY=$(terraform output key)
+    AWS_ACCESS_KEY_ID=$(terraform output -raw key_id)
+    AWS_SECRET_ACCESS_KEY=$(terraform output -raw key)
     AWS_DEFAULT_REGION="{{ region-id }}"
     ```
 
@@ -98,8 +98,8 @@
     - AWS CLI {#aws-cli}
 
       ```bash
-      AWS_ACCESS_KEY_ID=$(terraform output key_id) \
-      AWS_SECRET_ACCESS_KEY=$(terraform output key) \
+      AWS_ACCESS_KEY_ID=$(terraform output -raw key_id) \
+      AWS_SECRET_ACCESS_KEY=$(terraform output -raw key) \
       AWS_DEFAULT_REGION="{{ region-id }}" \
       aws --endpoint-url=https://storage.yandexcloud.net \
         s3 mb s3://<имя_бакета>
@@ -119,6 +119,10 @@
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
+1. Снимите с секрета защиту от удаления, иначе удаление завершится ошибкой. Для этого в файле `static-key-in-lockbox-config.tf` измените значение параметра `deletion_protection` на `false` и примените изменения:
+
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 1. Откройте конфигурационный файл `static-key-in-lockbox-config.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 

@@ -209,6 +209,26 @@
         "delayedUntil": "string",
         "latestMaintenanceTime": "string",
         "nextMaintenanceWindowTime": "string"
+      },
+      "maintenanceWindows": {
+        // Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`
+        "anytime": "object",
+        "weeklyMaintenanceSchedule": {
+          "slots": [
+            {
+              "day": "string",
+              "startTime": {
+                "hours": "integer",
+                "minutes": "integer",
+                "seconds": "integer",
+                "nanos": "integer"
+              },
+              "duration": "string",
+              "allowTemporaryUnavailability": "boolean"
+            }
+          ]
+        }
+        // end of the list of possible fields
       }
     }
   },
@@ -433,6 +453,7 @@ The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)** ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)** ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)** ||
+|| maintenanceWindows | **[MaintenanceWindows](#yandex.cloud.mdb.v1.MaintenanceWindows)** ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -687,4 +708,53 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|| weeklyMaintenanceSchedule | **[WeeklyMaintenanceSchedule](#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceSchedule`. ||
+|#
+
+## WeeklyMaintenanceSchedule {#yandex.cloud.mdb.v1.WeeklyMaintenanceSchedule}
+
+#|
+||Field | Description ||
+|| slots[] | **[MaintenanceWindowSlot](#yandex.cloud.mdb.v1.MaintenanceWindowSlot)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## MaintenanceWindowSlot {#yandex.cloud.mdb.v1.MaintenanceWindowSlot}
+
+#|
+||Field | Description ||
+|| day | **enum** (DayOfWeek)
+
+- `MONDAY`
+- `TUESDAY`
+- `WEDNESDAY`
+- `THURSDAY`
+- `FRIDAY`
+- `SATURDAY`
+- `SUNDAY` ||
+|| startTime | **[TimeOfDay](#google.type.TimeOfDay)** ||
+|| duration | **string** (duration) ||
+|| allowTemporaryUnavailability | **boolean** ||
+|#
+
+## TimeOfDay {#google.type.TimeOfDay}
+
+#|
+||Field | Description ||
+|| hours | **integer** (int32) ||
+|| minutes | **integer** (int32) ||
+|| seconds | **integer** (int32) ||
+|| nanos | **integer** (int32) ||
 |#

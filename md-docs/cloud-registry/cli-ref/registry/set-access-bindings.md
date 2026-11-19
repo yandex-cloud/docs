@@ -31,6 +31,8 @@ Identity for which access binding is being created. It can represent an account 
 ID of the subject. It can contain one of the following values: * 'allAuthenticatedUsers': A special public group that represents anyone who is authenticated. It can be used only if the [type] is 'system'. * 'allUsers': A special public group that represents anyone. No authentication is required. For example, you don't need to specify the IAM token in an API query. It can be used only if the [type] is 'system'. * 'group:organization:&lt;id&gt;:users': A special system group that represents all members of organization with given &lt;id&gt;. It can be used only if the [type] is 'system'. * 'group:federation:&lt;id&gt;:users': A special system group that represents all users of federation with given &lt;id&gt;. It can be used only if the [type] is 'system'. * 'group:userpool:&lt;id&gt;:users': A special system group that represents all users of userpool with given &lt;id&gt;. It can be used only if the [type] is 'system'. * '&lt;cloud generated id&gt;': An identifier that represents a subject. It can be used only if the [type] is 'group', 'invitee', 'serviceAccount' or 'userAccount'.
 >> - type (string)\
 Type of the subject. It can contain one of the following values: * 'invitee': An existing or new user who has been invited to the organization but has not yet accepted the invitation. * 'group': A group of users. This type represents the [yandex.cloud.organizationmanager.v1.Group] resource. * 'userAccount': An account on Yandex ID. This type represents the [yandex.cloud.iam.v1.UserAccount] resource. * 'serviceAccount': A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount] resource. * 'system': System group. This type represents several accounts with a common system identifier. For more information, see documentation.
+> - cel-expression (string)\
+CEL expression that must evaluate to true for the binding to apply. An empty expression does not restrict the binding. Only supported for services: * [yandex.cloud.resourcemanager.v1.CloudService] * [yandex.cloud.resourcemanager.v1.FolderService] * [yandex.cloud.organizationmanager.v1.OrganizationService]
 
 {% endcut %}
 
@@ -39,6 +41,7 @@ Type of the subject. It can contain one of the following values: * 'invitee': An
 ```hcl
 [
   {
+    cel-expression = string,
     role-id = string,
     subject = {
       id = string,
@@ -55,6 +58,7 @@ Type of the subject. It can contain one of the following values: * 'invitee': An
 ```json
 [
   {
+    "cel-expression": "string",
     "role-id": "string",
     "subject": {
       "id": "string",

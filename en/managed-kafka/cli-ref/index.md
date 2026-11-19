@@ -77,6 +77,12 @@ Aliases:
 
   - [yc managed-kafka connector-iceberg-sink update](connector-iceberg-sink/update.md) — Modify attributes of a Kafka Iceberg-Sink connector.
 
+- [yc managed-kafka connector-mirror-checkpoint](connector-mirror-checkpoint/index.md) — Manage Kafka MirrorCheckpoint connector.
+
+  - [yc managed-kafka connector-mirror-checkpoint create](connector-mirror-checkpoint/create.md) — Create a Kafka MirrorCheckpoint connector.
+
+  - [yc managed-kafka connector-mirror-checkpoint update](connector-mirror-checkpoint/update.md) — Modify attributes of a Kafka MirrorCheckpoint connector.
+
 - [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
 
   - [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.

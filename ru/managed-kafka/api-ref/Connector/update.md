@@ -383,6 +383,38 @@ apiPlayground:
               - topics
           - required:
               - topicsRegex
+      UpdateConnectorConfigMirrorCheckpointSpec:
+        type: object
+        properties:
+          groups:
+            description: |-
+              **string**
+              Replaces the list of literal consumer group names to synchronize.
+            type: array
+            items:
+              type: string
+          replicationPolicy:
+            description: |-
+              **enum** (ReplicationPolicy)
+              Replication policy; unspecified restores the source setting captured at creation.
+              - `DEFAULT`: Prefix replicated topic names with the source cluster alias.
+              - `IDENTITY`: Preserve original topic names.
+            type: string
+            enum:
+              - REPLICATION_POLICY_UNSPECIFIED
+              - DEFAULT
+              - IDENTITY
+          offsetSyncsTopicLocation:
+            description: |-
+              **enum** (OffsetSyncsTopicLocation)
+              Offset-mapping location; unspecified restores the source setting captured at creation.
+              - `SOURCE`: Read offset mappings from the source cluster.
+              - `TARGET`: Read offset mappings from the target cluster.
+            type: string
+            enum:
+              - OFFSET_SYNCS_TOPIC_LOCATION_UNSPECIFIED
+              - SOURCE
+              - TARGET
       UpdateConnectorSpec:
         type: object
         properties:
@@ -404,23 +436,30 @@ apiPlayground:
             description: |-
               **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
               Configuration of the MirrorMaker connector.
-              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
               Updated configuration for the connector.
             $ref: '#/definitions/ConnectorConfigMirrorMakerSpec'
           connectorConfigS3Sink:
             description: |-
               **[UpdateConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigS3SinkSpec)**
               Update specification for S3-Sink Connector.
-              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
               Updated configuration for the connector.
             $ref: '#/definitions/UpdateConnectorConfigS3SinkSpec'
           connectorConfigIcebergSink:
             description: |-
               **[UpdateConnectorConfigIcebergSinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigIcebergSinkSpec)**
               Update specification for Iceberg Sink Connector.
-              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
               Updated configuration for the connector.
             $ref: '#/definitions/UpdateConnectorConfigIcebergSinkSpec'
+          connectorConfigMirrorCheckpoint:
+            description: |-
+              **[UpdateConnectorConfigMirrorCheckpointSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigMirrorCheckpointSpec)**
+              Updated configuration of the MirrorCheckpoint connector.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
+              Updated configuration for the connector.
+            $ref: '#/definitions/UpdateConnectorConfigMirrorCheckpointSpec'
         oneOf:
           - required:
               - connectorConfigMirrormaker
@@ -428,6 +467,8 @@ apiPlayground:
               - connectorConfigS3Sink
           - required:
               - connectorConfigIcebergSink
+          - required:
+              - connectorConfigMirrorCheckpoint
 ---
 
 # Managed Service for Apache Kafka® API, REST: Connector.Update
@@ -466,7 +507,7 @@ The maximum string length in characters is 256. Value must match the regular exp
   "connectorSpec": {
     "tasksMax": "string",
     "properties": "object",
-    // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`
+    // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`
     "connectorConfigMirrormaker": {
       "sourceCluster": {
         "alias": "string",
@@ -549,6 +590,13 @@ The maximum string length in characters is 256. Value must match the regular exp
         "commitThreads": "string",
         "transactionalPrefix": "string"
       }
+    },
+    "connectorConfigMirrorCheckpoint": {
+      "groups": [
+        "string"
+      ],
+      "replicationPolicy": "string",
+      "offsetSyncsTopicLocation": "string"
     }
     // end of the list of possible fields
   }
@@ -587,21 +635,28 @@ Example: `sync.topics.config.enabled: false`. ||
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Updated configuration for the connector. ||
 || connectorConfigS3Sink | **[UpdateConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigS3SinkSpec)**
 
 Update specification for S3-Sink Connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Updated configuration for the connector. ||
 || connectorConfigIcebergSink | **[UpdateConnectorConfigIcebergSinkSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigIcebergSinkSpec)**
 
 Update specification for Iceberg Sink Connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`.
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
+
+Updated configuration for the connector. ||
+|| connectorConfigMirrorCheckpoint | **[UpdateConnectorConfigMirrorCheckpointSpec](#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigMirrorCheckpointSpec)**
+
+Updated configuration of the MirrorCheckpoint connector.
+
+Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`, `connectorConfigIcebergSink`, `connectorConfigMirrorCheckpoint`.
 
 Updated configuration for the connector. ||
 |#
@@ -868,6 +923,27 @@ Default: cores * 2 ||
 
 Prefix for transactional operations.
 Default: "" ||
+|#
+
+## UpdateConnectorConfigMirrorCheckpointSpec {#yandex.cloud.mdb.kafka.v1.UpdateConnectorConfigMirrorCheckpointSpec}
+
+#|
+||Field | Description ||
+|| groups[] | **string**
+
+Replaces the list of literal consumer group names to synchronize. ||
+|| replicationPolicy | **enum** (ReplicationPolicy)
+
+Replication policy; unspecified restores the source setting captured at creation.
+
+- `DEFAULT`: Prefix replicated topic names with the source cluster alias.
+- `IDENTITY`: Preserve original topic names. ||
+|| offsetSyncsTopicLocation | **enum** (OffsetSyncsTopicLocation)
+
+Offset-mapping location; unspecified restores the source setting captured at creation.
+
+- `SOURCE`: Read offset mappings from the source cluster.
+- `TARGET`: Read offset mappings from the target cluster. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
