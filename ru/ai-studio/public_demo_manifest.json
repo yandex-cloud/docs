@@ -22,9 +22,51 @@
         }
       ],
       "characters": 541,
-      "api_requests": 3,
-      "billable_units": 3,
-      "estimated_rub": 0.4878
+      "api_requests": 4,
+      "billable_units": 4,
+      "estimated_rub": 0.6504,
+      "audio_version": "semantic_breath_chunks_2026-11-19",
+      "sample_duration_seconds": 37.478,
+      "sample_mp3_sha256": "126df3806cfbe54c00f84adef1b6c07890f565228b03b92836d86ab21efab83e",
+      "breath_chunks": [
+        {
+          "text": "Я опаздывала.\n\nДля любого другого дня это не имело бы значения. Птицы не сверяются с моим расписанием, и уж тем более им безразлично, сколько часов я провела в воздухе.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "pause_after_ms": 0
+        },
+        {
+          "text": "Но в тот день я могла не успеть увидеть самку лазурной дуплянки до того, как она скроется в дупле.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "pause_after_ms": 120
+        },
+        {
+          "text": "За стеклом медленно расходились каменные стены. Между ними лежал белый туман; из него торчали верхушки деревьев, растущих на недоступных снизу уступах.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "pause_after_ms": 0
+        },
+        {
+          "text": "Навигационная линия изгибалась передо мной, огибала скалу и исчезала за ней. Казалось, что маршрут ведёт прямо в камень.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "pause_after_ms": 0
+        }
+      ],
+      "breath_method": "Manual sentence/paragraph groups, no extra technical join silence, short speaker/paragraph pauses"
     },
     {
       "id": "02-aurora-elian",
@@ -86,7 +128,68 @@
       "characters": 353,
       "api_requests": 5,
       "billable_units": 5,
-      "estimated_rub": 0.9878
+      "estimated_rub": 0.9878,
+      "audio_version": "semantic_breath_chunks_2026-11-19",
+      "sample_duration_seconds": 22.841,
+      "sample_mp3_sha256": "daa556e1eba7dabb3eb8975a7bf65f241c49f4c0095118a32342cd8e6ddac817",
+      "breath_chunks": [
+        {
+          "text": "Я открыла записи за прошлую весну. Мы перебирали даты, сравнивали снимки и возвращались к его таблице. В какой-то момент мне уже не нужно было спрашивать, что он проверяет.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 0,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "— Если ваши наблюдения подтвердятся, мне придётся переписать статью.",
+          "voice": "denis",
+          "model": "livetts",
+          "speaker": "Элиан",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 1,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "— Простите.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 2,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "— За что? За то, что птицы не согласовали со мной свои маршруты?",
+          "voice": "denis",
+          "model": "livetts",
+          "speaker": "Элиан",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 3,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "Я рассмеялась. Он оторвался от экрана.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 4,
+          "pause_after_ms": 0
+        }
+      ],
+      "breath_method": "Manual sentence/paragraph groups, no extra technical join silence, short speaker/paragraph pauses"
     },
     {
       "id": "03-border-warning",
@@ -126,9 +229,81 @@
         }
       ],
       "characters": 804,
-      "api_requests": 4,
-      "billable_units": 4,
-      "estimated_rub": 0.6504
+      "api_requests": 6,
+      "billable_units": 6,
+      "estimated_rub": 0.9756,
+      "audio_version": "semantic_breath_chunks_2026-11-19",
+      "sample_duration_seconds": 55.217,
+      "sample_mp3_sha256": "723192f00fff736f4c4f24322a50e9fc0ca36394da31931a2c73ef9b676ba3e9",
+      "breath_chunks": [
+        {
+          "text": "Навигационная система сообщила о приближении к пограничному сектору. Следом раздался знакомый механический голос:",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 0,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "«Внимание! Вы приближаетесь к зоне особого пограничного контроля Аверии. Любой контакт с представителями сопредельной цивилизации карается пожизненным лишением свободы. Помните: соблюдение пограничного режима гарантирует вашу безопасность».",
+          "voice": "kirill",
+          "model": "general",
+          "speaker": "Автоинформатор",
+          "role": "strict",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 1,
+          "pause_after_ms": 150
+        },
+        {
+          "text": "Я отключила голосовое сопровождение.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 2,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "В школе нам показывали людей в прозрачных капсулах и объясняли, что за границей человека могут разобрать на части, а потом собрать заново — если сочтут его достаточно полезным.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 1,
+          "source_segment": 2,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Мне особенно запомнилось слово «полезным».",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 2,
+          "source_segment": 2,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "В Симарии умеют восстанавливать повреждённые ткани и выращивать органы. Об этом говорят даже в наших новостях. Но следом обязательно рассказывают об экспериментах, из которых не возвращаются.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 3,
+          "source_segment": 2,
+          "pause_after_ms": 0
+        }
+      ],
+      "breath_method": "Manual sentence/paragraph groups, no extra technical join silence, short speaker/paragraph pauses"
     },
     {
       "id": "04-aurora-flight",
@@ -148,9 +323,114 @@
         }
       ],
       "characters": 706,
-      "api_requests": 4,
-      "billable_units": 4,
-      "estimated_rub": 0.6504
+      "api_requests": 9,
+      "billable_units": 9,
+      "estimated_rub": 1.4634,
+      "audio_version": "semantic_breath_chunks_2026-11-19",
+      "sample_duration_seconds": 49.417,
+      "sample_mp3_sha256": "3996b99901e401cc3fc372218921d2d899cd64d2105e96cc993ab2d9083f87f4",
+      "breath_chunks": [
+        {
+          "text": "Машина пыталась выровняться. На стекле одна за другой вспыхивали отметки, навигационная линия уходила влево, а нас всё ещё несло к стене.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 0,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Я вернула взгляд к просвету между скалами.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 1,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Туда. Только туда.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 2,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Руки делали то, чему я училась много лет, но аппарат не слушался с привычной лёгкостью. Его встряхнуло, развернуло боком. От бортовой панели донёсся короткий сигнал.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 3,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "— Давай, — выговорила я сквозь зубы.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 4,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Камень ушёл из поля зрения.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 5,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Мы вывалились в широкую ложбину. Ещё один толчок — и машина выровнялась. Я проверила высоту, расстояние до склонов, состояние аппарата. Вернулась к первому показателю и посмотрела ещё раз.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 6,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Всё цело.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 7,
+          "source_segment": 0,
+          "pause_after_ms": 120
+        },
+        {
+          "text": "Колени дрожали так, будто это они только что удерживали аэроглайдер.",
+          "voice": "lera",
+          "model": "general",
+          "speaker": "Аврора",
+          "role": "neutral",
+          "speed": "1.0",
+          "paragraph_index": 8,
+          "source_segment": 0,
+          "pause_after_ms": 0
+        }
+      ],
+      "breath_method": "Manual sentence/paragraph groups, no extra technical join silence, short speaker/paragraph pauses"
     },
     {
       "id": "05-news-russia",
@@ -223,5 +503,10 @@
     }
   ],
   "release_updated_at": "2026-11-19",
-  "release_update_notes": "Two news demos revised for 19 Nov; four novel demos unchanged"
+  "release_update_notes": "Four novel demos rerecorded with meaning-based breath chunks, two dated news demos unchanged.",
+  "breath_study": {
+    "finding": "Author heard a small improvement in cohesion but still found synthetic emotion limited.",
+    "constraint": "Subjective one-episode author assessment, not a generalized improvement guarantee.",
+    "scope": "First clip author audited; remaining three author-delegated after offline technical QA."
+  }
 }
