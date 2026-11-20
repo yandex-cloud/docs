@@ -26,21 +26,23 @@ HTTP API продукта совместим с API AWS S3, то есть для
 
  - [Обзор](v-26-3/concepts/architecture/index.md)
 
- - [Схема решения](v-26-3/concepts/architecture/solution-scheme.md)
+ - [Общая схема решения](v-26-3/concepts/architecture/solution-scheme.md)
 
- - [Elliptics](v-26-3/concepts/architecture/elliptics.md)
-
- - [Mastermind](v-26-3/concepts/architecture/mastermind.md)
+##### Интерфейс S3
 
  - [Goose](v-26-3/concepts/architecture/goose.md)
 
  - [Работа Goose с PostgreSQL](v-26-3/concepts/architecture/goose-postgresql.md)
 
- - [Топология Goose и Elliptics](v-26-3/concepts/architecture/goose-elliptics.md)
+ - [Сетевая топология и балансировка трафика](v-26-3/concepts/architecture/goose-mds2.md)
+
+ - [Слой хранения](v-26-3/concepts/architecture/storage-layer.md)
 
  - [Кластеры PostgreSQL](v-26-3/concepts/architecture/postgresql.md)
 
  - [Observability](v-26-3/concepts/architecture/observability.md)
+
+ - [Интеграции с внешними системами](v-26-3/concepts/architecture/integrations.md)
 
  - [Сводка характеристик системы](v-26-3/concepts/architecture/system-characteristics.md)
 

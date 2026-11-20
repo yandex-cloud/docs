@@ -221,16 +221,16 @@
     {% endnote %}
 
   * `--version-id` — (опционально) [версия](../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
-  * `--aad-context-file` — (опционально) выходной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
+  * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context) для повторного шифрования.
   * `--ciphertext-file` — выходной файл с шифртекстом.
   * `--source-key-id` — идентификатор ключа Key Management Service, использованного для шифрования исходного текста.
   * `--source-aad-context-file` — (опционально) входной файл с AAD-контекстом.
   * `--source-ciphertext-file` — входной файл с шифртекстом.
 
   ```bash
-  yc kms symmetric-crypto reencrypt \
+  yc kms symmetric-crypto re-encrypt \
     --id <идентификатор_ключа> \
-    --ciphertext-file ciphertext-file
+    --ciphertext-file ciphertext-file \
     --source-key-id <идентификатор_исходного_ключа> \
     --source-ciphertext-file source-ciphertext-file
   ```

@@ -1,4 +1,4 @@
-# Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0 c помощью {{ data-transfer-full-name }}
+# Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0 с помощью {{ data-transfer-full-name }}
 
 
 

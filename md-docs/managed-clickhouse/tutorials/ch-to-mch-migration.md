@@ -171,7 +171,7 @@
 
     - CLI {#cli}
 
-        1. [Получите SSL-сертификат](../operations/connect/index.md#get-ssl-cert) для подключения к кластеру Managed Service for ClickHouse®.      
+        1. [Получите SSL-сертификат](../operations/connect/index.md#get-ssl-cert) для подключения к кластеру Managed Service for ClickHouse®.
         1. [Подключитесь к БД](../operations/connect/clients.md#clickhouse-client) в кластере Managed Service for ClickHouse® с помощью `clickhouse-client`.
         1. Проверьте, что БД содержит таблицы из кластера-источника:
 

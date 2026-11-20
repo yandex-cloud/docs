@@ -19,6 +19,21 @@
 * `--mongod-disk-type` — тип диска для хостов MONGOD: `network-hdd`, `network-ssd` или `network-ssd-io-m3`.
 
 
+* `--host` — параметры хоста:
+
+  * `type` — тип хоста в шардированном кластере: `mongod`, `mongoinfra`, `mongos` или `mongocfg`.
+  * `shard-name` — имя шарда в шардированном кластере.
+  * `zone-id` — [зона доступности](../../../overview/concepts/geo-scope.md).
+  * `subnet-id` — [идентификатор подсети](../../../vpc/concepts/network.md#subnet).
+  * `hidden` — скрытие хоста: `true` или `false`.
+  * `secondary-delay-secs` — время отставания хоста от мастера. Может указываться только для скрытого хоста.
+
+    {% include [mmg-replica-delay](replica-delay-values-console.md) %}
+
+    {% include [delayed-replica-log-size](delayed-replica-log-size.md) %}
+
+  * `priority` — [приоритет назначения хоста мастером](../../../storedoc/concepts/replication.md#master-failover). Для скрытого хоста параметр не указывается.
+
 * `--<тип_хоста>-resource-preset`, `--<тип_хоста>-disk-size`, `--<тип_хоста>-disk-type` — параметры хостов, которые управляют шардированием в кластере. `<тип_хоста>` может принимать значения: `mongoinfra`, `mongocfg`, `mongos`.
 
 * `--disk-size-autoscaling` — параметры автоматического масштабирования хранилища. `<тип_хоста>` может принимать значения: `mongod` — для шардированного и нешардированного кластера, `mongoinfra`, `mongocfg`, `mongos` — только для шардированного кластера.

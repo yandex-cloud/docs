@@ -21,7 +21,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Для примера все нужные ресурсы будут созданы в Yandex Cloud. Подготовьте инфраструктуру:
+Для примера все нужные ресурсы создаются в Yandex Cloud. Подготовьте инфраструктуру:
 
 {% list tabs group=instructions %}
 
@@ -150,7 +150,7 @@
             * **Пароль** — `<пароль_пользователя>`.
             * **Политика очистки** — `DROP`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**Копирование и репликация**](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты, и [активируйте](../../data-transfer/operations/transfer.md#activate) его.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**Копирование и репликация**](../../data-transfer/concepts/index.md#transfer-type), который использует созданные эндпоинты, и [активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     - Terraform {#tf}
 
@@ -194,14 +194,14 @@
 ## Проверьте работу репликации {#example-check-replication}
 
 1. Дождитесь перехода трансфера в статус **Реплицируется**.
-1. Чтобы проверить, что трансфер перенес данные с учетом репликации в приемнике, подключитесь к кластеру-приемнику Yandex Managed Service for ClickHouse® и посмотрите, что таблица `x_tab` в базе `db1` содержит те же колонки, что таблица `x_tab` в базе-источнике, а также [колонки с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`:
+1. Чтобы проверить, что трансфер перенес данные в приемник с учетом репликации, подключитесь к кластеру-приемнику Yandex Managed Service for ClickHouse®. Посмотрите, что таблица `x_tab` в базе `db1` содержит те же колонки, что таблица `x_tab` в базе-источнике, а также [колонки с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`:
 
    ```sql
    SELECT * FROM db1.x_tab WHERE id = 41;
    ```
 
    ```text
-   ┌─id─┬──name──┬─── __data-transfer_commit_time─┬───__data-transfer-delete_time─┐
+   ┌─id─┬──name──┬───__data_transfer_commit_time──┬───__data_transfer_delete_time─┐
    │ 41 │  User2 │   1633417594957267000          │ 0                             │
    └────┴────────┴────────────────────────────────┴───────────────────────────────┘
    ```
@@ -221,7 +221,7 @@
     ```
 
     ```text
-    ┌─id─┬──name──┬─── __data-transfer_commit_time─┬───__data-transfer-delete_time─┐
+    ┌─id─┬──name──┬───__data_transfer_commit_time──┬───__data_transfer_delete_time─┐
     │ 41 │  User2 │   1633417594957267000          │ 1675417594957267000           │
     │ 42 │  Key3  │   1675417594957267000          │ 0                             │
     │ 42 │  User3 │   1633417594957268000          │ 1675417594957267000           │
@@ -235,7 +235,7 @@
 * `__data_transfer_commit_time` — время изменения строки на это значение, в формате `TIMESTAMP`;
 * `__data_transfer_delete_time` — время удаления строки в формате `TIMESTAMP`, если строка удалена в источнике. Если строка не удалялась, то устанавливается значение `0`.
 
-    Столбец `__data_transfer_commit_time` необходим для работы движка ReplicatedReplacedMergeTree. Если запись удаляется или изменяется, в таблицу вставляется новая строка со значением в этом столбце. Запрос по одному первичному ключу возвращает несколько записей с разными значениями в столбце `__data_transfer_commit_time`.
+    Столбец `__data_transfer_commit_time` необходим для работы движка ReplicatedReplacingMergeTree. Если запись удаляется или изменяется, в таблицу вставляется новая строка со значением в этом столбце. Запрос по одному первичному ключу возвращает несколько записей с разными значениями в столбце `__data_transfer_commit_time`.
 
 В статусе трансфера **Реплицируется** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в ClickHouse® конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
 

@@ -55,13 +55,13 @@
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
         * `sa_name` — имя сервисного аккаунта для создания бакета и использования в эндпоинте-приемнике.
-        * `bucket_name` — имя бакета в {{ objstorage-name }}.
+        * `bucket_name` — имя бакета {{ objstorage-name }} в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
         * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/source/mysql.md#managed-service):
 
             * `source_mysql_version` — версия {{ MY }};
             * `source_db_name` — имя базы данных;
             * `source_user` и `source_password` — имя и пароль пользователя-владельца базы данных.
-        * `transfer_enabled` – значение `0`, чтобы не создавать трансфер до [создания эндпоинта-приемника вручную](#prepare-transfer).
+        * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинта-приемника вручную](#prepare-transfer).
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -145,7 +145,7 @@
 
                    Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
-              * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}** — укажите регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
+              * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}** — укажите регулярные выражения для переносимых таблиц и таблиц, которые не нужно переносить.
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
@@ -155,8 +155,8 @@
         1. Укажите в файле `data-transfer-mmy-objs.tf` переменные:
 
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
-            * `transfer_enabled` – значение `1` для создания трансфера;
-            * (опционально) `include_tables_regex`, `exclude_tables_regex` – регулярные выражения для переносимых таблиц и таблиц, которые не надо переносить.
+            * `transfer_enabled` — значение `1` для создания трансфера;
+            * (опционально) `include_tables_regex`, `exclude_tables_regex` — регулярные выражения для переносимых таблиц и таблиц, которые не нужно переносить.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 

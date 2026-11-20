@@ -521,6 +521,8 @@ items:
                 href: api-ref/grpc/Cluster/rescheduleMaintenance.md
               - name: StartFailover
                 href: api-ref/grpc/Cluster/startFailover.md
+              - name: RestartHosts
+                href: api-ref/grpc/Cluster/restartHosts.md
               - name: ListLogs
                 href: api-ref/grpc/Cluster/listLogs.md
               - name: StreamLogs
@@ -671,6 +673,8 @@ items:
                 href: api-ref/Cluster/rescheduleMaintenance.md
               - name: StartFailover
                 href: api-ref/Cluster/startFailover.md
+              - name: RestartHosts
+                href: api-ref/Cluster/restartHosts.md
               - name: ListLogs
                 href: api-ref/Cluster/listLogs.md
               - name: StreamLogs

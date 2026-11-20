@@ -85,6 +85,9 @@ list request will have its own `next_page_token` to continue paging through the 
 
 ## User {#yandex.cloud.mdb.spqr.v1.User}
 
+A SPQR User resource. For more information, see the
+[Developer's Guide](/docs/managed-spqr/concepts).
+
 #|
 ||Field | Description ||
 || name | **string**
@@ -122,6 +125,10 @@ Name of the database that the permission grants access to. ||
 
 #|
 ||Field | Description ||
-|| connection_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| connection_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of connections allowed to the backend. ||
+|| connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The number of retries for a failed connection attempt. ||
 |#

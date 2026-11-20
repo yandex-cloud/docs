@@ -32,7 +32,8 @@ The maximum string length in characters is 64. ||
       "subject": {
         "id": "string",
         "type": "string"
-      }
+      },
+      "celExpression": "string"
     }
   ]
 }
@@ -60,6 +61,16 @@ The maximum string length in characters is 64. ||
 
 Required field. Identity for which access binding is being created.
 It can represent an account with a unique ID or several accounts with a system identifier. ||
+|| celExpression | **string**
+
+CEL expression that must evaluate to true for the binding to apply.
+An empty expression does not restrict the binding.
+Only supported for services:
+* [yandex.cloud.resourcemanager.v1.CloudService](../../../resource-manager/api-ref/Cloud/index.md)
+* [yandex.cloud.resourcemanager.v1.FolderService](../../../resource-manager/api-ref/Folder/index.md)
+* [yandex.cloud.organizationmanager.v1.OrganizationService](../../../organization/api-ref/Organization/index.md)
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Subject {#yandex.cloud.access.Subject}

@@ -2,7 +2,7 @@
 
 # Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0
 
-# Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0 c помощью Yandex Data Transfer
+# Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0 с помощью Yandex Data Transfer
 
 
 

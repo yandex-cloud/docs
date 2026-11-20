@@ -37,7 +37,7 @@ apiPlayground:
           clusterId:
             description: |-
               **string**
-              Required field.
+              Required field. ID of the Managed PostgreSQL cluster
             type: string
         required:
           - clusterId
@@ -128,6 +128,8 @@ apiPlayground:
 ---
 
 # Managed Service for SPQR API, REST: Cluster.AddSubcluster
+
+Adds a subcluster to the specified SPQR cluster.
 
 ## HTTP request
 
@@ -221,14 +223,11 @@ The maximum string length in characters is 63. Value must match the regular expr
 
 ## MDBPostgreSQL {#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL}
 
-TODO move to hosts.proto when it's created
-Configuration for MDB PostgreSQL host
-
 #|
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ||
+Required field. ID of the Managed PostgreSQL cluster ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

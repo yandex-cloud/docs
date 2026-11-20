@@ -70,46 +70,38 @@
     API Version:  storage.yandex.cloud/v1alpha1
     Kind:         UpdateRequest
     ...
-      Index:             7
-        Message:           Step completed successfully
-        Status:            Done
         Apps:
-          Last Sync Time:  2026-02-11T15:26:21Z
-          Message:         App is healthy and synced
-          Name:            argocd/trash
-          Retries Left:    10
-          Status:          Done
-          Last Sync Time:  2026-02-11T15:26:21Z
-          Message:         App is healthy and synced
-          Name:            argocd/nscfg
-          Retries Left:    10
-          Status:          Done
-          Last Sync Time:  2026-02-11T15:26:22Z
-          Message:         App is healthy and synced
-          Name:            argocd/minio-tenant
-          Retries Left:    10
-          Status:          Done
-          Message:         App not found but optional, skipped
-          Name:            argocd/psmdb-mastermind
-          Retries Left:    0
-          Status:          Done
-        Index:             8
-        Message:           Step completed successfully
-        Status:            Done
+          Condition Status:  Met
+          Last Sync Time:    2026-11-10T23:39:18Z
+          Message:           App is healthy and synced
+          Name:              argocd/ingress-traefik
+          Retries Left:      4
+          Status:            Done
+        Condition Status:    Met
+        Index:               3
+        Message:             Step completed successfully
+        Status:              Done
         Apps:
-          Last Sync Time:  2026-02-11T16:01:44Z
-          Message:         App is stuck (OutOfSync but operation succeeded) - Operation: Succeeded (successfully synced (no more tasks)), Sync: OutOfSync, Health: Healthy
-          Name:            argocd/elliptics
-          Retries Left:    0
-          Status:          Failed
-          Last Sync Time:  2026-02-11T15:31:07Z
-          Message:         App is healthy and synced
-          Name:            argocd/mastermind
-          Retries Left:    10
-          Status:          Done
+          Condition Status:  Met
+          Last Sync Time:    2026-11-10T23:39:26Z
+          Message:           App is healthy and synced
+          Name:              argocd/kube-prometheus-stack
+          Retries Left:      10
+          Status:            Done
+          Condition Status:  Met
+          Last Sync Time:    2026-11-10T23:40:09Z
+          Message:           App sync failed
+          Name:              argocd/topolvm
+          Retries Left:      0
+          Status:            Failed
+        Condition Status:    Met
+        Index:               4
+        Message:             Step failed
+        Status:              Failed
+    ...
     ```
 
-    В данном примере проблема с приложением [Elliptics](../concepts/architecture/elliptics.md) (статус `Failed` в разделе `Apps`).
+    В данном примере проблема с приложением `topolvm` (статус `Failed` в разделе `Apps`).
 
 1. Посмотрите состояние приложения:
 

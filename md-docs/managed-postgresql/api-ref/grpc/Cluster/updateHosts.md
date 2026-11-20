@@ -40,7 +40,8 @@ Updates the specified hosts.
         // end of the list of possible fields
       },
       "update_mask": "google.protobuf.FieldMask",
-      "assign_public_ip": "bool"
+      "assign_public_ip": "bool",
+      "backup_priority": "google.protobuf.Int64Value"
     }
   ]
 }
@@ -88,6 +89,13 @@ Field mask that specifies which fields of the PostgreSQL host should be updated.
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation. ||
+|| backup_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## ConfigHostSpec {#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec}

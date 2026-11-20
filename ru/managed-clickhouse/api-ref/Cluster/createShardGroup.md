@@ -58,8 +58,20 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Name (FQDN) or IP address of the external replica host.
+              Required field. Name (FQDN) or IP address of the external replica host. Identifies the replica within the external shard.
             type: string
+          updateMask:
+            description: |-
+              **string** (field-mask)
+              A comma-separated names off ALL fields to be updated.
+              Only the specified fields will be changed. The others will be left untouched.
+              If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+              the field's value will be reset to the default. The default value for most fields is null or 0.
+              If `` updateMask `` is not sent in the request, all fields' values will be updated.
+              Fields specified in the request will be updated to provided values.
+              The rest of the fields will be reset to the default.
+            type: string
+            format: field-mask
           port:
             description: |-
               **string** (int64)
@@ -85,9 +97,10 @@ apiPlayground:
             description: |-
               **string** (int64)
               Priority of the external replica for load balancing.
-              The replica with the lowest priority value is preferred when establishing a connection.
             type: string
             format: int64
+        required:
+          - host
       ExternalShard:
         type: object
         properties:
@@ -105,7 +118,7 @@ apiPlayground:
             format: int64
           replicas:
             description: |-
-              **[Replica](#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/updateShardGroups#yandex.cloud.mdb.clickhouse.v1.UpdateShardGroupSpec.ExternalShard.Replica)**
               List of replicas contained in the external shard.
             type: array
             items:

@@ -8,6 +8,7 @@ description: Следуя данной инструкции, вы сможете
 Хосты кластера {{ mmg-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую:
 
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
+
 1. Добавьте хост в кластер:
 
    {% list tabs group=instructions %}
@@ -22,7 +23,16 @@ description: Следуя данной инструкции, вы сможете
 
          * Зону доступности, куда переносятся хосты.
          * Новую подсеть.
+         * Тип хоста и название шарда, если в кластере {{ mmg-name }} включено шардирование.
          * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+         * (Опционально) Отметьте хост скрытым, если он должен быть доступен для чтения только для прямых подключений. Например, чтобы делать с него резервные копии без дополнительной нагрузки на кластер. Используется только для хостов `MONGOD`.
+         * (Опционально) Задайте отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
+
+           {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+           {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+         * (Опционально) Укажите [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Настройка доступна, если хост не отмечен как скрытый.
 
       1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -34,21 +44,35 @@ description: Следуя данной инструкции, вы сможете
 
       Выполните команду:
 
+      
       ```bash
       {{ yc-mdb-mg }} host add \
-         --cluster-name <имя_кластера> \
-         --host type=<тип_хоста>,`
-               `zone-id=<зона_доступности>,`
-               `subnet-id=<ID_новой_подсети>,`
-               `assign-public-ip=<разрешить_публичный_доступ_к_хосту>
+        --cluster-name <имя_кластера> \
+        --host type=<тип_хоста>,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<ID_новой_подсети>,`
+              `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
+              `hidden=<скрытие_хоста>,`
+              `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+              `priority=<приоритет_хоста>
       ```
+
 
       Особенности команды:
 
       * Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
       * Возможные значения параметра `type`: `mongod`, `mongos`, `mongocfg`, `mongoinfra`. Тип хоста зависит от [типа шардирования](../concepts/sharding.md#shard-management).
       * В параметре `zone-id` укажите зону, куда вы переносите хосты.
+      * (Опционально) В параметре `hidden` укажите, нужно ли скрывать хост: `true` или `false`. Используется только для хостов `MONGOD`.
+      * (Опционально) В параметре `secondary-delay-secs` укажите время отставания вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
 
+         {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+         {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+      * (Опционально) В параметре `priority` укажите [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Для скрытого хоста параметр не указывается.
+
+   
    - {{ TF }} {#tf}
 
       1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
@@ -57,18 +81,40 @@ description: Следуя данной инструкции, вы сможете
          resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
            ...
            host {
+             role             = "<тип_реплики>"
              type             = "<тип_хоста>"
              zone_id          = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
              assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+             host_parameters {
+               hidden               = <скрытие_хоста>
+               secondary_delay_secs = <отставание_реплики_в_секундах>
+               priority             = <приоритет_хоста>
+             }
              ...
            }
          }
          ```
 
+         Возможные значения параметра `role`: `PRIMARY` или `SECONDARY`.
+
          Возможные значения параметра `type`: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Тип хоста зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
          В параметре `zone` укажите зону, куда вы переносите хосты.
+
+         Для хоста `MONGOD` в шардированном кластере в параметре `shard_name` укажите имя шарда.
+
+         В блоке `host_parameters` укажите дополнительные параметры хоста:
+
+         * `hidden` — скрытие хоста: `true` или `false`. Используется только для хостов `MONGOD`.
+         * `secondary_delay_secs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
+
+            {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+            {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Для скрытого хоста параметр не указывается.
 
       1. Проверьте корректность настроек.
 
@@ -78,6 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
    - REST API {#api}
 
       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -86,6 +133,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+            
             ```bash
             curl \
                --request POST \
@@ -101,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
                             "type": "<тип_хоста>",
                             "shardName": "<имя_шарда>",
                             "hidden": <скрыть_хост>,
-                            "secondaryDelaySecs": "<задержка_в_секундах>",
+                            "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
                             "priority": "<приоритет_назначения_хоста_мастером>",
                             "tags": "<метки_хоста>"
                           }
@@ -109,17 +157,27 @@ description: Следуя данной инструкции, вы сможете
                       }'
             ```
 
+
             Где `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста:
 
             * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+            
             * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
             * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
             * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
-            * `shardName` — имя шарда в шардированном кластере.
-            * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondaryDelaySecs` — время отставания хоста от мастера.
-            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
-            * `tags`— метки хоста.
+            * `shardName` — имя шарда в шардированном кластере. Используется только для хостов `MONGOD`.
+            * `hidden`— будет ли хост виден (`false`) или скрыт (`true`). Используется только для хостов `MONGOD`.
+            * `secondaryDelaySecs` — время отставания хоста от мастера. Параметр можно указать только для скрытого хоста.
+
+              {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+              {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Для скрытого хоста параметр не указывается.
+            * `tags`— метки хоста. Используется только для хостов `MONGOD`.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -134,6 +192,7 @@ description: Следуя данной инструкции, вы сможете
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
       1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
+            
             ```bash
             grpcurl \
                -format json \
@@ -151,7 +210,7 @@ description: Следуя данной инструкции, вы сможете
                          "type": "<тип_хоста>",
                          "shard_name": "<имя_шарда>",
                          "hidden": <скрыть_хост>,
-                         "secondary_delay_secs": "<задержка_в_секундах>",
+                         "secondary_delay_secs": "<отставание_реплики_в_секундах>",
                          "priority": "<приоритет_назначения_хоста_мастером>",
                          "tags": "<метки_хоста>"
                        }
@@ -160,18 +219,28 @@ description: Следуя данной инструкции, вы сможете
                {{ api-host-mdb }}:{{ port-https }} \
                yandex.cloud.mdb.mongodb.v1.ClusterService.AddHosts
             ```
-            
+
+
             Где `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста:
 
             * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+            
             * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
             * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
             * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
-            * `shard_name` — имя шарда в шардированном кластере.
-            * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
-            * `secondary_delay_secs` — время отставания хоста от мастера.
-            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover).
-            * `tags`— метки хоста.
+            * `shard_name` — имя шарда в шардированном кластере. Используется только для хостов `MONGOD`.
+            * `hidden`— будет ли хост виден (`false`) или скрыт (`true`). Используется только для хостов `MONGOD`.
+            * `secondary_delay_secs` — время отставания хоста от мастера. Параметр можно указать только для скрытого хоста.
+
+              {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+              {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+            * `priority` — приоритет назначения хоста [мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Для скрытого хоста параметр не указывается.
+            * `tags`— метки хоста. Используется только для хостов `MONGOD`.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -210,6 +279,7 @@ description: Следуя данной инструкции, вы сможете
       {{ yc-mdb-mg }} host delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
+   
    - {{ TF }} {#tf}
 
       1. В конфигурационном файле {{ TF }} с планом инфраструктуры удалите из описания кластера блоки `host` с первоначальной зоной доступности.
@@ -220,6 +290,7 @@ description: Следуя данной инструкции, вы сможете
       1. Введите слово `yes` и нажмите **Enter**.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
    - REST API {#api}
 

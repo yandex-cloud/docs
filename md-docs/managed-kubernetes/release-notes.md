@@ -64,6 +64,42 @@ index: 1
 
 Изменения появляются в [релизных каналах](concepts/release-channels-and-updates.md) сервиса последовательно. Сначала обновления, содержащие новую функциональность и улучшения, появляются на канале `rapid`, через некоторое время они попадают в `regular` и уже после этого добавляются в `stable`.
 
+## III квартал 2026 {#q3-2026}
+
+### Новые возможности {#q3-2026-new-features}
+
+* Добавлен [режим управления целевыми группами `v2`](operations/configure-load-balancer-target-groups.md). В этом режиме для каждого сервиса типа `LoadBalancer` с политикой `externalTrafficPolicy: Local` создается отдельная целевая группа Network Load Balancer. Так целевая группа относится к конкретному сервису, а не используется совместно несколькими сервисами.
+* Добавлена [поддержка нескольких диапазонов IP-адресов подов](concepts/cluster-multi-cidr.md) (Cluster Multi-CIDR). Теперь кластеру можно назначить несколько непересекающихся диапазонов IP-адресов и добавлять новые без остановки и пересоздания кластера.
+
+### Улучшения {#q3-2026-improvements}
+
+* Добавлена проверка [квоты на публичные IP-адреса](../vpc/concepts/limits.md#vpc-quotas) перед созданием кластера.
+* Добавлено [автоматическое управление настройками маскарадинга](operations/network/manage-ip-masq-agent.md) при добавлении диапазонов IP-адресов подов. Автоматическое управление можно отключить, чтобы использовать собственные настройки.
+* При ошибке создания кластера или группы узлов API теперь сразу возвращает причину ошибки, не дожидаясь тайм-аута `DeadlineExceeded`.
+
+### Исправления {#q3-2026-problems-solved}
+
+* Исправлена ошибка, которая могла приводить к незапланированному перезапуску StatefulSet в Kubernetes версии 1.34.
+
+## II квартал 2026 {#q2-2026}
+
+### Новые возможности {#q2-2026-new-features}
+
+* [Автоматическое масштабирование мастера](concepts/autoscale.md#master-autoscaler) включено в кластерах с [высокодоступным мастером](concepts/index.md#master).
+* Добавлена возможность подключать к Gwin балансировщики Application Load Balancer, созданные вне Managed Service for Kubernetes, с помощью [механизма Attachment](alb-ref/gwin-alb-attachment.md).
+* В `metadata-server` добавлена поддержка AWS Instance Metadata Service v2 (IMDSv2). Теперь токен сервисного аккаунта Kubernetes можно обменять на STS-токен для доступа к Object Storage с помощью [федерации сервисных аккаунтов](../iam/concepts/workload-identity.md).
+* Добавлена возможность изменять [taint-политики](concepts/index.md#taints-tolerations) групп узлов при редактировании с помощью [API](managed-kubernetes/api-ref/NodeGroup/update.md), [Yandex Cloud CLI](../cli/index.md) и [Terraform](../terraform/index.md).
+
+### Улучшения {#q2-2026-improvements}
+
+* [Сертификаты кластера и узлов](concepts/release-channels-and-updates.md#certificates) теперь обновляются за 10 дней до окончания срока их действия вместо 7 дней.
+* В базовом образе узлов кластера отключена аутентификация по паролю при [подключении по SSH](operations/node-connect-ssh.md).
+
+### Исправления {#q2-2026-problems-solved}
+
+* Исправлена ошибка в `metadata-server`, из-за которой в первые секунды после запуска пода не работал обмен токенов через [федерацию сервисных аккаунтов](../iam/concepts/workload-identity.md).
+* Для митигации уязвимостей ядра Linux Copy Fail и Dirty Frag обновлены образы узлов для Kubernetes версий 1.31–1.35.
+
 ## I квартал 2026 {#q1-2026}
 
 ### Новые возможности {#q1-2026-new-features}

@@ -1167,7 +1167,8 @@ The maximum string length in characters is 100. ||
         // end of the list of possible fields
       },
       "assignPublicIp": "boolean",
-      "replicaType": "string"
+      "replicaType": "string",
+      "backupPriority": "string"
     }
   ],
   "nextPageToken": "string"
@@ -1254,6 +1255,11 @@ as reported by the primary host.
 - `ASYNC`: The replica uses asynchronous replication.
 - `SYNC`: The replica is a synchronous standby in priority-based synchronous replication.
 - `QUORUM`: The replica participates in quorum-based synchronous replication. ||
+|| backupPriority | **string** (int64)
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.postgresql.v1.Resources}

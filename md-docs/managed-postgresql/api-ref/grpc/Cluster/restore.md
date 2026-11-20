@@ -103,7 +103,8 @@ Creates a new PostgreSQL cluster using the specified backup.
         "postgresql_config_19": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19",
         "postgresql_config_19_1c": "yandex.cloud.mdb.postgresql.v1.config.PostgresqlHostConfig19_1C"
         // end of the list of possible fields
-      }
+      },
+      "backup_priority": "google.protobuf.Int64Value"
     }
   ],
   "network_id": "string",
@@ -554,6 +555,13 @@ When a replica becomes the master, its priority is ignored. ||
 || config_spec | **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
 
 Configuration of a PostgreSQL server for the host. ||
+|| backup_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## ConfigHostSpec {#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec}

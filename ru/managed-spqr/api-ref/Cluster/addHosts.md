@@ -36,7 +36,7 @@ apiPlayground:
           clusterId:
             description: |-
               **string**
-              Required field.
+              Required field. ID of the Managed PostgreSQL cluster
             type: string
         required:
           - clusterId
@@ -198,14 +198,11 @@ The maximum string length in characters is 63. Value must match the regular expr
 
 ## MDBPostgreSQL {#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL}
 
-TODO move to hosts.proto when it's created
-Configuration for MDB PostgreSQL host
-
 #|
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ||
+Required field. ID of the Managed PostgreSQL cluster ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -128,11 +128,23 @@ description: Следуя данной инструкции, вы сможете
 
          
          * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-         * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
+         * Выберите [зону доступности](../../overview/concepts/geo-scope.md). 
          * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
          * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-         
+
+         * Выберите тип хоста и название шарда, если кластер шардированный.
+         * (Опционально) Отметьте хост скрытым, если он должен быть доступен для чтения только для прямых подключений. Например, чтобы делать с него резервные копии без дополнительной нагрузки на кластер. Используется только для хостов `MONGOD`.
+         * (Опционально) Задайте отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
+
+           {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+           {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+         * (Опционально) Укажите [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Настройка доступна, если хост не отмечен как скрытый.
+
+         * (Опционально) Добавьте теги в формате `ключ: значение`. Используется только для хостов `MONGOD`.
+
          Чтобы обеспечить отказоустойчивость, для типов диска `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее читайте в разделе [Хранилище](../concepts/storage.md).
 
          
@@ -317,11 +329,16 @@ description: Следуя данной инструкции, вы сможете
         * `type` — тип хоста: `mongod`, `mongoinfra`, `mongos` или `mongocfg`. По умолчанию хост имеет тип `mongod`.
         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Указывается, если в выбранной зоне доступности создано больше одной подсети.
-        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
+        * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
-        * `secondary-delay-secs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
-        * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
-          
+        * `secondary-delay-secs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
+
+           {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+           {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+        * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Для скрытого хоста параметр не указывается.
+
           {% note info %}
 
           Параметры `hidden`, `secondary-delay-secs` и `priority` используются только для хостов `MONGOD`.
@@ -679,12 +696,17 @@ description: Следуя данной инструкции, вы сможете
        
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
-       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
+       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
        * `host_parameters` — дополнительные параметры хоста:
-         
+
          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
-         * `secondary_delay_secs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
-         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+         * `secondary_delay_secs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций. Параметр можно указать только для скрытого хоста.
+
+           {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+           {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Для скрытого хоста параметр не указывается.
 
         {% note info %}
 
@@ -1254,13 +1276,18 @@ description: Следуя данной инструкции, вы сможете
           
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
           * `tags`— метки хоста.
           * `shardName` — имя шарда в шардированном кластере (только для хостов `MONGOD`).
           * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
           * `secondaryDelaySecs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
-          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+
+            {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+            {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Для скрытого хоста параметр не указывается.
 
           {% note info %}
 
@@ -1760,13 +1787,18 @@ description: Следуя данной инструкции, вы сможете
           
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. В шардированном кластере используется только для хостов `MONGOS` и `MONGOINFRA`.
+          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
           * `tags`— метки хоста.
           * `shard_name` — имя шарда в шардированном кластере.
           * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузку на кластер).
           * `secondaryDelaySecs` — отставание вторичной реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
-          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+
+            {% include [mmg-replica-delay](../../_includes/mdb/mmg/replica-delay-values-console.md) %}
+
+            {% include [delayed-replica-log-size](../../_includes/mdb/mmg/delayed-replica-log-size.md) %}
+
+          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover). Для скрытого хоста параметр не указывается.
 
           {% note info %}
 

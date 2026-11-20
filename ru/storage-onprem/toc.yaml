@@ -14,22 +14,24 @@ items:
             items:
               - name: Обзор
                 href: v-26-3/concepts/architecture/index.md
-              - name: Схема решения
+              - name: Общая схема решения
                 href: v-26-3/concepts/architecture/solution-scheme.md
-              - name: Elliptics
-                href: v-26-3/concepts/architecture/elliptics.md
-              - name: Mastermind
-                href: v-26-3/concepts/architecture/mastermind.md
-              - name: Goose
-                href: v-26-3/concepts/architecture/goose.md
-              - name: Работа Goose с {{ PG }}
-                href: v-26-3/concepts/architecture/goose-postgresql.md
-              - name: Топология Goose и Elliptics
-                href: v-26-3/concepts/architecture/goose-elliptics.md
+              - name: Интерфейс S3
+                items:
+                  - name: Goose
+                    href: v-26-3/concepts/architecture/goose.md
+                  - name: Работа Goose с {{ PG }}
+                    href: v-26-3/concepts/architecture/goose-postgresql.md
+                  - name: Сетевая топология и балансировка трафика
+                    href: v-26-3/concepts/architecture/goose-mds2.md
+              - name: Слой хранения
+                href: v-26-3/concepts/architecture/storage-layer.md
               - name: Кластеры {{ PG }}
                 href: v-26-3/concepts/architecture/postgresql.md
               - name: Observability
                 href: v-26-3/concepts/architecture/observability.md
+              - name: Интеграции с внешними системами
+                href: v-26-3/concepts/architecture/integrations.md
               - name: Сводка характеристик системы
                 href: v-26-3/concepts/architecture/system-characteristics.md
               - name: Требования к системе

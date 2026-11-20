@@ -354,6 +354,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-src-docs: https://sourcecraft.dev/portal/docs/ru
   link-src-main: https://sourcecraft.dev
+  link-statusboard: https://center.yandex.cloud/statusboard
   link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.ru/
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
@@ -5752,6 +5753,7 @@ default:
             switch_none: Без адреса
           one-to-one-nat-form:
             button_submit: Добавить
+            field_address: IP-адрес
             field_advanced: Дополнительно
             field_ddos-protection-provider: Защита от DDoS-атак
             field_external-type: Публичный адрес
@@ -8945,6 +8947,7 @@ default:
             field_is-default: Создать подсети
             field_name: Имя
         private-endpoint:
+          field_address-id: IP-адрес
           field_address-type: Адрес
           field_description: Описание
           field_name: Имя
@@ -8956,6 +8959,7 @@ default:
           label_dns-field-text: Создать основную DNS-запись
           label_endpoint-service_object-storage: Object Storage
           label_network-section: Сетевые настройки
+          service-name_registry: Cloud Registry
         route-table-form:
           field_name: Имя
           field_network-id: Cеть

@@ -20,7 +20,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
+Для примера все нужные ресурсы создаются в {{ yandex-cloud }}. Подготовьте инфраструктуру:
 
 {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@
 
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. [Создайте кластер-источник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
+    1. [Создайте кластер-источник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gpadmin` и хостами в публичном доступе.
 
     1. [Создайте кластер-приемник {{ mpg-full-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе. При создании кластера укажите:
 
@@ -85,7 +85,7 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника_{{ GP }}>` из выпадающего списка.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}** — `postgres`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — `gp-user`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}** — `gpadmin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}** — `<пароль_пользователя>`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}** — `public`.
 
@@ -118,7 +118,7 @@
         1. Укажите в файле `greenplum-postgresql.tf` переменные:
 
             * `gp_source_endpoint_id` — значение идентификатора эндпоинта для источника;
-            * `transfer_enabled` – значение `1` для создания трансфера.
+            * `transfer_enabled` — значение `1` для создания трансфера.
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 

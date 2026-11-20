@@ -20,7 +20,7 @@
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>kms-provider-tink</artifactId>
-        <version>2.6</version>
+        <version>2.7</version>
     </dependency>
     ```
 
@@ -49,7 +49,7 @@
 
 - Java {#java}
 
-    Создайте [Aead](https://google.github.io/tink/javadoc/tink/1.3.0/index.html?com/google/crypto/tink/Aead.html)-объект и используйте методы encrypt и decrypt для шифрования и расшифрования данных:
+    Создайте объект [Aead](https://developers.google.com/tink/aead) и используйте методы `encrypt` и `decrypt` для шифрования и расшифрования данных:
 
     ```text
     AeadConfig.register();

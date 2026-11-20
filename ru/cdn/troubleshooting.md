@@ -75,7 +75,7 @@ description: На странице представлены вопросы и о
   * по указанному протоколу: HTTP или HTTPS;
   * с указанным значением HTTP-заголовка `Host` и другими заголовками. 
   
-Также проверьте статус {{ cdn-name }} на [специальной странице {{ yandex-cloud }}](https://status.yandex.cloud/ru/dashboard?service=cloud%20cdn).
+Также проверьте статус {{ cdn-name }} на [странице статуса сервисов в {{ cloud-center }}]({{ link-statusboard }}).
 
 ## Как настроить {{ cdn-name }} при недоступности источника? {#fault-tolerance}
 

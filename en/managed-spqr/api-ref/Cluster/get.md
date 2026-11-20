@@ -370,12 +370,16 @@ SPQR Balancer settings. ||
 
 SPQR default log level
 
-- `DEBUG`
-- `INFO`
-- `WARNING`
-- `ERROR`
-- `FATAL` ||
-|| useSpqrguard | **boolean** ||
+- `DEBUG`: Provides diagnostic information for developers.
+- `INFO`: Reports information implicitly requested by the user.
+- `WARNING`: Reports a warning about a likely problem.
+- `ERROR`: Reports an error that aborts the current command.
+- `FATAL`: Reports an error that aborts the current session. ||
+|| useSpqrguard | **boolean**
+
+Tells SPQR to use spqrguard extension. Extension must be enabled on shards.
+
+For details, see [documentation](https://github.com/pg-sharding/spqr/blob/master/docs/deployment/spqrguard.mdx) ||
 || forbidDirectShardQueries | **boolean** ||
 |#
 
@@ -383,8 +387,12 @@ SPQR default log level
 
 #|
 ||Field | Description ||
-|| config | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)**
+
+Configuration for router hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to router hosts. ||
 |#
 
 ## RouterSettings {#yandex.cloud.mdb.spqr.v1.RouterSettings}
@@ -393,15 +401,27 @@ Configuration of a SPQR router.
 
 #|
 ||Field | Description ||
-|| showNoticeMessages | **boolean** ||
-|| timeQuantiles[] | **string** ||
+|| showNoticeMessages | **boolean**
+
+Enables notice messages. ||
+|| timeQuantiles[] | **string**
+
+Time quantiles for query execution statistics. ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
+
+Sets mode for multishard queries.
 
 - `BLOCK`
 - `ALLOW` ||
-|| preferSameAvailabilityZone | **boolean** ||
-|| enhancedMultishardProcessing | **boolean** ||
+|| preferSameAvailabilityZone | **boolean**
+
+Prefers hosts in the same availability zone. ||
+|| enhancedMultishardProcessing | **boolean**
+
+Enables engine V2 with enhanced multishard query processing, ||
 || defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+Default [target_session_attrs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS) for connections.
 
 - `READ_WRITE`
 - `SMART_READ_WRITE`
@@ -410,12 +430,20 @@ Configuration of a SPQR router.
 - `ANY` ||
 || defaultCommitStrategy | **enum** (CommitStrategy)
 
+Default commit strategy for distributed transactions
+
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
-|| allowPostprocessing | **boolean** ||
-|| autoRouteRoOnStandby | **boolean** ||
-|| allowTwoPhaseCommit | **boolean** ||
+|| allowPostprocessing | **boolean**
+
+Enables postprocessing for multishard queries. ||
+|| autoRouteRoOnStandby | **boolean**
+
+Whether to automatically route read-only queries to standby hosts. ||
+|| allowTwoPhaseCommit | **boolean**
+
+Enables two-phase commit for modifying reference relations. ||
 || allowAutoprotectTwoPhase | **boolean** ||
 |#
 
@@ -443,8 +471,12 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
+
+Configuration for coordinator hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to coordinator hosts. ||
 |#
 
 ## CoordinatorSettings {#yandex.cloud.mdb.spqr.v1.CoordinatorSettings}
@@ -453,29 +485,51 @@ Configuration of a SPQR coordinator.
 
 #|
 ||Field | Description ||
-|| iterationTimeout | **string** (duration) ||
-|| lockIterationTimeout | **string** (duration) ||
-|| routerKeepaliveTime | **string** (duration) ||
-|| routerKeepaliveTimeout | **string** (duration) ||
-|| etcdMaxSendBytes | **string** (int64) ||
-|| etcdMaxTxnOps | **string** (int64) ||
+|| iterationTimeout | **string** (duration)
+
+Sleep duration between routers sync iterations. ||
+|| lockIterationTimeout | **string** (duration)
+
+Sleep duration between attempts to acquire the coordinator lock when starting up. ||
+|| routerKeepaliveTime | **string** (duration)
+
+Interval for sending gRPC keepalive pings to routers. ||
+|| routerKeepaliveTimeout | **string** (duration)
+
+Time to wait for keepalive ping response before considering connection dead. ||
+|| etcdMaxSendBytes | **string** (int64)
+
+Maximum request size in bytes that the etcd client (QDB implementation) is allowed to send. ||
+|| etcdMaxTxnOps | **string** (int64)
+
+Maximum number of subcommands allowed in a single etcd transaction. ||
 |#
 
 ## PostgreSQLConfig {#yandex.cloud.mdb.spqr.v1.PostgreSQLConfig}
 
 #|
 ||Field | Description ||
-|| config | **object** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **object**
+
+Configuration for PostgreSQL hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to PostgreSQL hosts. ||
 |#
 
 ## InfraConfig {#yandex.cloud.mdb.spqr.v1.InfraConfig}
 
 #|
 ||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
-|| router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to infra hosts. ||
+|| router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)**
+
+Configuration for router. ||
+|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
+
+Configuration for coordinator. ||
 |#
 
 ## BalancerSettings {#yandex.cloud.mdb.spqr.v1.BalancerSettings}
@@ -529,8 +583,7 @@ Allow access for Web SQL. ||
 Allow access for DataTransfer. ||
 || serverless | **boolean**
 
-Allow access for Serverless.
-NOTE: Do not propagate to public API until Serverless integration is required. ||
+Allow access for Serverless. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.spqr.v1.MaintenanceWindow}

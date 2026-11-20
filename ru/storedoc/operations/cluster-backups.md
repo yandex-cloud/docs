@@ -127,7 +127,10 @@ description: Вы можете создавать резервные копии 
          --environment <окружение> \
          --network-name <имя_сети> \
          --host zone-id=<зона_доступности>,`
-               `subnet-id=<идентификатор_подсети> \
+               `subnet-id=<идентификатор_подсети>,`
+               `hidden=<скрыть_хост>,`
+               `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+               `priority=<приоритет_хоста> \
          --mongod-resource-preset <класс_хоста> \
          --mongod-disk-size <размер_хранилища_в_ГБ> \
          --mongod-disk-type <тип_диска> \
@@ -157,6 +160,9 @@ description: Вы можете создавать резервные копии 
          --host zone-id=<зона_доступности>,`
                `subnet-id=<идентификатор_подсети>,`
                `type=mongod,`
+               `hidden=<скрыть_хост>,`
+               `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+               `priority=<приоритет_хоста>,`
                `shard-name=<имя_шарда> \
          --mongod-resource-preset <класс_хоста> \
          --mongod-disk-size <размер_хранилища_в_ГБ> \
@@ -202,6 +208,7 @@ description: Вы можете создавать резервные копии 
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
+        
         ```json
         {
           "folderId": "<идентификатор_каталога>",
@@ -256,7 +263,7 @@ description: Вы можете создавать резервные копии 
               "type": "<тип_хоста>",
               "shardName": "<имя_шарда>",
               "hidden": <скрыть_хост>,
-              "secondaryDelaySecs": "<задержка_в_секундах>",
+              "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
@@ -269,6 +276,7 @@ description: Вы можете создавать резервные копии 
           }
         }
         ```
+
 
         Где:
 
@@ -296,6 +304,7 @@ description: Вы можете создавать резервные копии 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
+        
         ```json
         {
           "folder_id": "<идентификатор_каталога>",
@@ -350,7 +359,7 @@ description: Вы можете создавать резервные копии 
               "type": "<тип_хоста>",
               "shard_name": "<имя_шарда>",
               "hidden": <скрыть_хост>,
-              "secondary_delay_secs": "<задержка_в_секундах>",
+              "secondary_delay_secs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
@@ -364,11 +373,12 @@ description: Вы можете создавать резервные копии 
         }
         ```
 
+
         Где:
 
         {% include [backup-parameters](../../_includes/mdb/mmg/backup-parameters-grpc.md)%}
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -384,7 +394,6 @@ description: Вы можете создавать резервные копии 
         ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
-          
 
 {% endlist %}
 
@@ -627,7 +636,7 @@ description: Вы можете создавать резервные копии 
               "type": "<тип_хоста>",
               "shardName": "<имя_шарда>",
               "hidden": <скрыть_хост>,
-              "secondaryDelaySecs": "<задержка_в_секундах>",
+              "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
@@ -727,7 +736,7 @@ description: Вы можете создавать резервные копии 
               "type": "<тип_хоста>",
               "shard_name": "<имя_шарда>",
               "hidden": <скрыть_хост>,
-              "secondary_delay_secs": "<задержка_в_секундах>",
+              "secondary_delay_secs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_назначения_хоста_первичной_репликой>",
               "tags": "<метки_хоста>"
             }
@@ -757,7 +766,7 @@ description: Вы можете создавать резервные копии 
             Если в параметре `whitelist` указаны базы, то в параметре `blacklist` можно указать исключения коллекций из этих баз.
             Если параметр `whitelist` не указан, будут восстановлены все базы и коллекции, кроме указанных в параметре `blacklist`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

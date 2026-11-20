@@ -42,13 +42,22 @@
 * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
     * `zoneId` — [зона доступности](../../../overview/concepts/geo-scope.md).
+
+    
     * `subnetId` — [идентификатор подсети](../../../vpc/concepts/network.md#subnet).
     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
     * `type` — тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`. Если кластер нешардированный, укажите `MONGOD`.
-    * `shardName` — имя шарда в шардированном кластере.
-    * `hidden` — будет ли хост виден (`false`) или скрыт (`true`).
-    * `secondaryDelaySecs` — время отставания хоста от мастера.
-    * `priority` — приоритет назначения хоста [мастером](../../../storedoc/concepts/replication.md#master-failover).
-    * `tags` — метки хоста.
+    * `shardName` — имя шарда в шардированном кластере. Используется только для хостов `MONGOD`.
+    * `hidden` — будет ли хост виден (`false`) или скрыт (`true`). Используется только для хостов `MONGOD`.
+    * `secondaryDelaySecs` — время отставания хоста от мастера. Может указываться только для скрытого хоста.
+
+      {% include [mmg-replica-delay](replica-delay-values-console.md) %}
+
+      {% include [delayed-replica-log-size](delayed-replica-log-size.md) %}
+
+    * `priority` — приоритет назначения хоста [мастером](../../../storedoc/concepts/replication.md#master-failover). Используется только для хостов `MONGOD`. Для скрытого хоста параметр не указывается.
+    * `tags` — метки хоста. Используется только для хостов `MONGOD`.
 
 * {% include [maintenance-window](../api/maintenance-window-rest.md)%}

@@ -150,7 +150,7 @@
 
     - CLI {#cli}
 
-        1. [Получите SSL-сертификат](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ mch-name }}.      
+        1. [Получите SSL-сертификат](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ mch-name }}.
         1. [Подключитесь к БД](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) в кластере {{ mch-name }} с помощью `clickhouse-client`.
         1. Проверьте, что БД содержит таблицы из кластера-источника:
 

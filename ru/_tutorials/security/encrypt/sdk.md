@@ -18,7 +18,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>java-sdk-services</artifactId>
-        <version>2.4.2</version>
+        <version>2.14.0</version>
     </dependency>
     ```
 

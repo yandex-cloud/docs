@@ -45,4 +45,5 @@ description: Различные сценарии использования се
 
 * [Подключение к {{ objstorage-name }} из {{ vpc-name }}](storage-vpc-access.md)
 * [Подключение к {{ container-registry-name }} из {{ vpc-name }}](vpc-cr-access.md)
+* [Подключение к {{ cloud-registry-name }} из сети {{ vpc-name }} без доступа в интернет](cloud-registry-via-pe/index.md)
 

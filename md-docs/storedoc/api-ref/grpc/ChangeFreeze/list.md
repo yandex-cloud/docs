@@ -4,6 +4,7 @@
 
 Lists change freezes by conditions, specified in request.
 
+
 ## gRPC request
 
 **rpc List ([maintenance.v2.ListChangeFreezesRequest](#yandex.cloud.maintenance.v2.ListChangeFreezesRequest)) returns ([maintenance.v2.ListChangeFreezesResponse](#yandex.cloud.maintenance.v2.ListChangeFreezesResponse))**

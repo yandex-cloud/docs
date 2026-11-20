@@ -347,6 +347,7 @@ Deletion Protection inhibits deletion of the cluster ||
 Enable FQDN instead of ip ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || authSentinel | **boolean**
 

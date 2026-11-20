@@ -89,7 +89,8 @@ The maximum string length in characters is 100. ||
         // end of the list of possible fields
       },
       "assign_public_ip": "bool",
-      "replica_type": "ReplicaType"
+      "replica_type": "ReplicaType",
+      "backup_priority": "google.protobuf.Int64Value"
     }
   ],
   "next_page_token": "string"
@@ -176,6 +177,11 @@ as reported by the primary host.
 - `ASYNC`: The replica uses asynchronous replication.
 - `SYNC`: The replica is a synchronous standby in priority-based synchronous replication.
 - `QUORUM`: The replica participates in quorum-based synchronous replication. ||
+|| backup_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.postgresql.v1.Resources}

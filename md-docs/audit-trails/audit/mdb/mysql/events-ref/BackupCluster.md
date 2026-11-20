@@ -105,7 +105,7 @@
       ],
       "config": {
         "version": "string",
-        // Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`
+        // Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`, `mysqlConfig_9_7`
         "mysqlConfig_5_7": {
           "effectiveConfig": {
             "innodbBufferPoolSize": "string",
@@ -994,6 +994,296 @@
             "innodbAdaptiveHashIndexParts": "string"
           }
         },
+        "mysqlConfig_9_7": {
+          "effectiveConfig": {
+            "innodbBufferPoolSize": "string",
+            "maxConnections": "string",
+            "longQueryTime": "number",
+            "auditLog": "boolean",
+            "sqlMode": [
+              "string"
+            ],
+            "maxAllowedPacket": "string",
+            "innodbFlushLogAtTrxCommit": "string",
+            "innodbLockWaitTimeout": "string",
+            "transactionIsolation": "string",
+            "innodbPrintAllDeadlocks": "boolean",
+            "netReadTimeout": "string",
+            "netWriteTimeout": "string",
+            "groupConcatMaxLen": "string",
+            "tmpTableSize": "string",
+            "maxHeapTableSize": "string",
+            "defaultTimeZone": "string",
+            "characterSetServer": "string",
+            "collationServer": "string",
+            "innodbAdaptiveHashIndex": "boolean",
+            "innodbNumaInterleave": "boolean",
+            "innodbLogBufferSize": "string",
+            "innodbIoCapacity": "string",
+            "innodbIoCapacityMax": "string",
+            "innodbReadIoThreads": "string",
+            "innodbWriteIoThreads": "string",
+            "innodbPurgeThreads": "string",
+            "innodbThreadConcurrency": "string",
+            "innodbTempDataFileMaxSize": "string",
+            "threadCacheSize": "string",
+            "threadStack": "string",
+            "joinBufferSize": "string",
+            "sortBufferSize": "string",
+            "tableDefinitionCache": "string",
+            "tableOpenCache": "string",
+            "tableOpenCacheInstances": "string",
+            "explicitDefaultsForTimestamp": "boolean",
+            "autoIncrementIncrement": "string",
+            "autoIncrementOffset": "string",
+            "syncBinlog": "string",
+            "binlogCacheSize": "string",
+            "binlogGroupCommitSyncDelay": "string",
+            "binlogRowImage": "string",
+            "binlogRowsQueryLogEvents": "boolean",
+            "rplSemiSyncSourceWaitForReplicaCount": "string",
+            "replicaParallelWorkers": "string",
+            "regexpTimeLimit": "string",
+            "mdbPreserveBinlogBytes": "string",
+            "interactiveTimeout": "string",
+            "waitTimeout": "string",
+            "mdbOfflineModeEnableLag": "string",
+            "mdbOfflineModeDisableLag": "string",
+            "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "slowQueryLog": "boolean",
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "string",
+            "logSlowSpStatements": "boolean",
+            "logSlowFilter": [
+              "string"
+            ],
+            "mdbPriorityChoiceMaxLag": "string",
+            "innodbPageSize": "string",
+            "maxSpRecursionDepth": "string",
+            "innodbCompressionLevel": "string",
+            "autocommit": "boolean",
+            "innodbStatusOutput": "boolean",
+            "innodbStrictMode": "boolean",
+            "innodbPrintLockWaitTimeoutInfo": "boolean",
+            "logErrorVerbosity": "string",
+            "maxDigestLength": "string",
+            "lockWaitTimeout": "string",
+            "maxPreparedStmtCount": "string",
+            "optimizerSwitch": "string",
+            "optimizerSearchDepth": "string",
+            "userstat": "boolean",
+            "maxExecutionTime": "string",
+            "auditLogPolicy": "string",
+            "replicationSenderObserveCommitOnly": "boolean",
+            "replicationOptimizeForStaticPluginConfig": "boolean",
+            "innodbLruScanDepth": "string",
+            "sqlRequirePrimaryKey": "boolean",
+            "mdbUseAsyncReplication": "boolean",
+            "mdbAsyncAllowedLag": "string",
+            "mdbForceSsl": "boolean",
+            "innodbChangeBuffering": "string",
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string",
+            "innodbRedoLogCapacity": "string"
+          },
+          "userConfig": {
+            "innodbBufferPoolSize": "string",
+            "maxConnections": "string",
+            "longQueryTime": "number",
+            "auditLog": "boolean",
+            "sqlMode": [
+              "string"
+            ],
+            "maxAllowedPacket": "string",
+            "innodbFlushLogAtTrxCommit": "string",
+            "innodbLockWaitTimeout": "string",
+            "transactionIsolation": "string",
+            "innodbPrintAllDeadlocks": "boolean",
+            "netReadTimeout": "string",
+            "netWriteTimeout": "string",
+            "groupConcatMaxLen": "string",
+            "tmpTableSize": "string",
+            "maxHeapTableSize": "string",
+            "defaultTimeZone": "string",
+            "characterSetServer": "string",
+            "collationServer": "string",
+            "innodbAdaptiveHashIndex": "boolean",
+            "innodbNumaInterleave": "boolean",
+            "innodbLogBufferSize": "string",
+            "innodbIoCapacity": "string",
+            "innodbIoCapacityMax": "string",
+            "innodbReadIoThreads": "string",
+            "innodbWriteIoThreads": "string",
+            "innodbPurgeThreads": "string",
+            "innodbThreadConcurrency": "string",
+            "innodbTempDataFileMaxSize": "string",
+            "threadCacheSize": "string",
+            "threadStack": "string",
+            "joinBufferSize": "string",
+            "sortBufferSize": "string",
+            "tableDefinitionCache": "string",
+            "tableOpenCache": "string",
+            "tableOpenCacheInstances": "string",
+            "explicitDefaultsForTimestamp": "boolean",
+            "autoIncrementIncrement": "string",
+            "autoIncrementOffset": "string",
+            "syncBinlog": "string",
+            "binlogCacheSize": "string",
+            "binlogGroupCommitSyncDelay": "string",
+            "binlogRowImage": "string",
+            "binlogRowsQueryLogEvents": "boolean",
+            "rplSemiSyncSourceWaitForReplicaCount": "string",
+            "replicaParallelWorkers": "string",
+            "regexpTimeLimit": "string",
+            "mdbPreserveBinlogBytes": "string",
+            "interactiveTimeout": "string",
+            "waitTimeout": "string",
+            "mdbOfflineModeEnableLag": "string",
+            "mdbOfflineModeDisableLag": "string",
+            "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "slowQueryLog": "boolean",
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "string",
+            "logSlowSpStatements": "boolean",
+            "logSlowFilter": [
+              "string"
+            ],
+            "mdbPriorityChoiceMaxLag": "string",
+            "innodbPageSize": "string",
+            "maxSpRecursionDepth": "string",
+            "innodbCompressionLevel": "string",
+            "autocommit": "boolean",
+            "innodbStatusOutput": "boolean",
+            "innodbStrictMode": "boolean",
+            "innodbPrintLockWaitTimeoutInfo": "boolean",
+            "logErrorVerbosity": "string",
+            "maxDigestLength": "string",
+            "lockWaitTimeout": "string",
+            "maxPreparedStmtCount": "string",
+            "optimizerSwitch": "string",
+            "optimizerSearchDepth": "string",
+            "userstat": "boolean",
+            "maxExecutionTime": "string",
+            "auditLogPolicy": "string",
+            "replicationSenderObserveCommitOnly": "boolean",
+            "replicationOptimizeForStaticPluginConfig": "boolean",
+            "innodbLruScanDepth": "string",
+            "sqlRequirePrimaryKey": "boolean",
+            "mdbUseAsyncReplication": "boolean",
+            "mdbAsyncAllowedLag": "string",
+            "mdbForceSsl": "boolean",
+            "innodbChangeBuffering": "string",
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string",
+            "innodbRedoLogCapacity": "string"
+          },
+          "defaultConfig": {
+            "innodbBufferPoolSize": "string",
+            "maxConnections": "string",
+            "longQueryTime": "number",
+            "auditLog": "boolean",
+            "sqlMode": [
+              "string"
+            ],
+            "maxAllowedPacket": "string",
+            "innodbFlushLogAtTrxCommit": "string",
+            "innodbLockWaitTimeout": "string",
+            "transactionIsolation": "string",
+            "innodbPrintAllDeadlocks": "boolean",
+            "netReadTimeout": "string",
+            "netWriteTimeout": "string",
+            "groupConcatMaxLen": "string",
+            "tmpTableSize": "string",
+            "maxHeapTableSize": "string",
+            "defaultTimeZone": "string",
+            "characterSetServer": "string",
+            "collationServer": "string",
+            "innodbAdaptiveHashIndex": "boolean",
+            "innodbNumaInterleave": "boolean",
+            "innodbLogBufferSize": "string",
+            "innodbIoCapacity": "string",
+            "innodbIoCapacityMax": "string",
+            "innodbReadIoThreads": "string",
+            "innodbWriteIoThreads": "string",
+            "innodbPurgeThreads": "string",
+            "innodbThreadConcurrency": "string",
+            "innodbTempDataFileMaxSize": "string",
+            "threadCacheSize": "string",
+            "threadStack": "string",
+            "joinBufferSize": "string",
+            "sortBufferSize": "string",
+            "tableDefinitionCache": "string",
+            "tableOpenCache": "string",
+            "tableOpenCacheInstances": "string",
+            "explicitDefaultsForTimestamp": "boolean",
+            "autoIncrementIncrement": "string",
+            "autoIncrementOffset": "string",
+            "syncBinlog": "string",
+            "binlogCacheSize": "string",
+            "binlogGroupCommitSyncDelay": "string",
+            "binlogRowImage": "string",
+            "binlogRowsQueryLogEvents": "boolean",
+            "rplSemiSyncSourceWaitForReplicaCount": "string",
+            "replicaParallelWorkers": "string",
+            "regexpTimeLimit": "string",
+            "mdbPreserveBinlogBytes": "string",
+            "interactiveTimeout": "string",
+            "waitTimeout": "string",
+            "mdbOfflineModeEnableLag": "string",
+            "mdbOfflineModeDisableLag": "string",
+            "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "slowQueryLog": "boolean",
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "string",
+            "logSlowSpStatements": "boolean",
+            "logSlowFilter": [
+              "string"
+            ],
+            "mdbPriorityChoiceMaxLag": "string",
+            "innodbPageSize": "string",
+            "maxSpRecursionDepth": "string",
+            "innodbCompressionLevel": "string",
+            "autocommit": "boolean",
+            "innodbStatusOutput": "boolean",
+            "innodbStrictMode": "boolean",
+            "innodbPrintLockWaitTimeoutInfo": "boolean",
+            "logErrorVerbosity": "string",
+            "maxDigestLength": "string",
+            "lockWaitTimeout": "string",
+            "maxPreparedStmtCount": "string",
+            "optimizerSwitch": "string",
+            "optimizerSearchDepth": "string",
+            "userstat": "boolean",
+            "maxExecutionTime": "string",
+            "auditLogPolicy": "string",
+            "replicationSenderObserveCommitOnly": "boolean",
+            "replicationOptimizeForStaticPluginConfig": "boolean",
+            "innodbLruScanDepth": "string",
+            "sqlRequirePrimaryKey": "boolean",
+            "mdbUseAsyncReplication": "boolean",
+            "mdbAsyncAllowedLag": "string",
+            "mdbForceSsl": "boolean",
+            "innodbChangeBuffering": "string",
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string",
+            "innodbRedoLogCapacity": "string"
+          }
+        },
         // end of the list of possible fields
         "resources": {
           "resourcePresetId": "string",
@@ -1335,13 +1625,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || version | **string** ||
 || mysqlConfig_5_7 | **[MysqlConfigSet5_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7)**
 
-Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`. ||
+Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`, `mysqlConfig_9_7`. ||
 || mysqlConfig_8_0 | **[MysqlConfigSet8_0](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0)**
 
-Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`. ||
+Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`, `mysqlConfig_9_7`. ||
 || mysqlConfig_8_4 | **[MysqlConfigSet8_4](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_4)**
 
-Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`. ||
+Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`, `mysqlConfig_9_7`. ||
+|| mysqlConfig_9_7 | **[MysqlConfigSet9_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet9_7)**
+
+Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`, `mysqlConfig_8_4`, `mysqlConfig_9_7`. ||
 || resources | **[Resources](#yandex.cloud.mdb.mysql.v1.Resources)** ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)** ||
 || access | **[Access](#yandex.cloud.mdb.mysql.v1.Access)** ||
@@ -2232,6 +2525,286 @@ The minimum value is 1. ||
 || innodbAdaptiveHashIndexParts | **string** (int64)
 
 Acceptable values are 1 to 512, inclusive. ||
+|#
+
+## MysqlConfigSet9_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet9_7}
+
+#|
+||Field | Description ||
+|| effectiveConfig | **[MysqlConfig9_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig9_7)** ||
+|| userConfig | **[MysqlConfig9_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig9_7)** ||
+|| defaultConfig | **[MysqlConfig9_7](#yandex.cloud.mdb.mysql.v1.config.MysqlConfig9_7)** ||
+|#
+
+## MysqlConfig9_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig9_7}
+
+#|
+||Field | Description ||
+|| innodbBufferPoolSize | **string** (int64)
+
+The minimum value is 134217728. ||
+|| maxConnections | **string** (int64)
+
+Acceptable values are 10 to 100000, inclusive. ||
+|| longQueryTime | **number** (double)
+
+Acceptable values are 0 to 3600, inclusive. ||
+|| auditLog | **boolean** ||
+|| sqlMode[] | **enum** (SQLMode)
+
+- `ALLOW_INVALID_DATES`
+- `ANSI_QUOTES`
+- `ERROR_FOR_DIVISION_BY_ZERO`
+- `HIGH_NOT_PRECEDENCE`
+- `IGNORE_SPACE`
+- `NO_AUTO_VALUE_ON_ZERO`
+- `NO_BACKSLASH_ESCAPES`
+- `NO_ENGINE_SUBSTITUTION`
+- `NO_UNSIGNED_SUBTRACTION`
+- `NO_ZERO_DATE`
+- `NO_ZERO_IN_DATE`
+- `ONLY_FULL_GROUP_BY`
+- `PAD_CHAR_TO_FULL_LENGTH`
+- `PIPES_AS_CONCAT`
+- `REAL_AS_FLOAT`
+- `STRICT_ALL_TABLES`
+- `STRICT_TRANS_TABLES`
+- `TIME_TRUNCATE_FRACTIONAL`
+- `ANSI`
+- `TRADITIONAL`
+- `NO_DIR_IN_CREATE`
+- `INTERPRET_UTF8_AS_UTF8MB4` ||
+|| maxAllowedPacket | **string** (int64)
+
+Acceptable values are 1048576 to 1073741824, inclusive. ||
+|| innodbFlushLogAtTrxCommit | **string** (int64)
+
+Acceptable values are 1 to 2, inclusive. ||
+|| innodbLockWaitTimeout | **string** (int64)
+
+Acceptable values are 1 to 28800, inclusive. ||
+|| transactionIsolation | **enum** (TransactionIsolation)
+
+- `READ_COMMITTED`
+- `REPEATABLE_READ`
+- `SERIALIZABLE` ||
+|| innodbPrintAllDeadlocks | **boolean** ||
+|| netReadTimeout | **string** (int64)
+
+Acceptable values are 1 to 1200, inclusive. ||
+|| netWriteTimeout | **string** (int64)
+
+Acceptable values are 1 to 1200, inclusive. ||
+|| groupConcatMaxLen | **string** (int64)
+
+Acceptable values are 4 to 33554432, inclusive. ||
+|| tmpTableSize | **string** (int64)
+
+Acceptable values are 1024 to 536870912, inclusive. ||
+|| maxHeapTableSize | **string** (int64)
+
+Acceptable values are 16384 to 536870912, inclusive. ||
+|| defaultTimeZone | **string** ||
+|| characterSetServer | **string** ||
+|| collationServer | **string** ||
+|| innodbAdaptiveHashIndex | **boolean** ||
+|| innodbNumaInterleave | **boolean** ||
+|| innodbLogBufferSize | **string** (int64)
+
+Acceptable values are 1048576 to 268435456, inclusive. ||
+|| innodbIoCapacity | **string** (int64)
+
+Acceptable values are 100 to 100000, inclusive. ||
+|| innodbIoCapacityMax | **string** (int64)
+
+Acceptable values are 100 to 100000, inclusive. ||
+|| innodbReadIoThreads | **string** (int64)
+
+Acceptable values are 1 to 16, inclusive. ||
+|| innodbWriteIoThreads | **string** (int64)
+
+Acceptable values are 1 to 16, inclusive. ||
+|| innodbPurgeThreads | **string** (int64)
+
+Acceptable values are 1 to 16, inclusive. ||
+|| innodbThreadConcurrency | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| innodbTempDataFileMaxSize | **string** (int64)
+
+Acceptable values are 1073741824 to 107374182400, inclusive. ||
+|| threadCacheSize | **string** (int64)
+
+Acceptable values are 10 to 10000, inclusive. ||
+|| threadStack | **string** (int64)
+
+Acceptable values are 131072 to 16777216, inclusive. ||
+|| joinBufferSize | **string** (int64)
+
+Acceptable values are 1024 to 16777216, inclusive. ||
+|| sortBufferSize | **string** (int64)
+
+Acceptable values are 1024 to 16777216, inclusive. ||
+|| tableDefinitionCache | **string** (int64)
+
+Acceptable values are 400 to 524288, inclusive. ||
+|| tableOpenCache | **string** (int64)
+
+Acceptable values are 400 to 524288, inclusive. ||
+|| tableOpenCacheInstances | **string** (int64)
+
+Acceptable values are 1 to 32, inclusive. ||
+|| explicitDefaultsForTimestamp | **boolean** ||
+|| autoIncrementIncrement | **string** (int64)
+
+Acceptable values are 1 to 65535, inclusive. ||
+|| autoIncrementOffset | **string** (int64)
+
+Acceptable values are 1 to 65535, inclusive. ||
+|| syncBinlog | **string** (int64)
+
+Acceptable values are 0 to 4096, inclusive. ||
+|| binlogCacheSize | **string** (int64)
+
+Acceptable values are 4096 to 67108864, inclusive. ||
+|| binlogGroupCommitSyncDelay | **string** (int64)
+
+Acceptable values are 0 to 50000, inclusive. ||
+|| binlogRowImage | **enum** (BinlogRowImage)
+
+- `FULL`
+- `MINIMAL`
+- `NOBLOB` ||
+|| binlogRowsQueryLogEvents | **boolean** ||
+|| rplSemiSyncSourceWaitForReplicaCount | **string** (int64)
+
+The minimum value is 1. ||
+|| replicaParallelWorkers | **string** (int64)
+
+Acceptable values are 1 to 64, inclusive. ||
+|| regexpTimeLimit | **string** (int64)
+
+Acceptable values are 0 to 1048576, inclusive. ||
+|| mdbPreserveBinlogBytes | **string** (int64)
+
+Acceptable values are 1073741824 to 1099511627776, inclusive. ||
+|| interactiveTimeout | **string** (int64)
+
+Acceptable values are 600 to 86400, inclusive. ||
+|| waitTimeout | **string** (int64)
+
+Acceptable values are 600 to 86400, inclusive. ||
+|| mdbOfflineModeEnableLag | **string** (int64)
+
+Acceptable values are 30 to 86400, inclusive. ||
+|| mdbOfflineModeDisableLag | **string** (int64)
+
+Acceptable values are 10 to 86400, inclusive. ||
+|| rangeOptimizerMaxMemSize | **string** (int64)
+
+Acceptable values are 60 to 268435456, inclusive. ||
+|| innodbOnlineAlterLogMaxSize | **string** (int64)
+
+Acceptable values are 65536 to 107374182400, inclusive. ||
+|| innodbFtMinTokenSize | **string** (int64)
+
+Acceptable values are 0 to 16, inclusive. ||
+|| innodbFtMaxTokenSize | **string** (int64)
+
+Acceptable values are 10 to 84, inclusive. ||
+|| lowerCaseTableNames | **string** (int64)
+
+Acceptable values are 0 to 1, inclusive. ||
+|| slowQueryLog | **boolean** ||
+|| slowQueryLogAlwaysWriteTime | **number** (double)
+
+Acceptable values are 0 to 3600, inclusive. ||
+|| logSlowRateType | **enum** (LogSlowRateType)
+
+- `SESSION`
+- `QUERY` ||
+|| logSlowRateLimit | **string** (int64)
+
+Acceptable values are 1 to 1000, inclusive. ||
+|| logSlowSpStatements | **boolean** ||
+|| logSlowFilter[] | **enum** (LogSlowFilterType)
+
+- `FULL_SCAN`
+- `FULL_JOIN`
+- `TMP_TABLE`
+- `TMP_TABLE_ON_DISK`
+- `FILESORT`
+- `FILESORT_ON_DISK` ||
+|| mdbPriorityChoiceMaxLag | **string** (int64)
+
+Acceptable values are 0 to 86400, inclusive. ||
+|| innodbPageSize | **string** (int64)
+
+Acceptable values are 4096 to 65536, inclusive. ||
+|| maxSpRecursionDepth | **string** (int64)
+
+Acceptable values are 0 to 255, inclusive. ||
+|| innodbCompressionLevel | **string** (int64)
+
+Acceptable values are 0 to 9, inclusive. ||
+|| autocommit | **boolean** ||
+|| innodbStatusOutput | **boolean** ||
+|| innodbStrictMode | **boolean** ||
+|| innodbPrintLockWaitTimeoutInfo | **boolean** ||
+|| logErrorVerbosity | **string** (int64)
+
+Acceptable values are 2 to 3, inclusive. ||
+|| maxDigestLength | **string** (int64)
+
+Acceptable values are 1024 to 1048576, inclusive. ||
+|| lockWaitTimeout | **string** (int64)
+
+Acceptable values are 1 to 31536000, inclusive. ||
+|| maxPreparedStmtCount | **string** (int64)
+
+Acceptable values are 0 to 4194304, inclusive. ||
+|| optimizerSwitch | **string** ||
+|| optimizerSearchDepth | **string** (int64)
+
+Acceptable values are 0 to 62, inclusive. ||
+|| userstat | **boolean** ||
+|| maxExecutionTime | **string** (int64)
+
+Acceptable values are 0 to 4294967295, inclusive. ||
+|| auditLogPolicy | **enum** (AuditLogPolicy)
+
+- `ALL`
+- `LOGINS`
+- `QUERIES`
+- `NONE` ||
+|| replicationSenderObserveCommitOnly | **boolean** ||
+|| replicationOptimizeForStaticPluginConfig | **boolean** ||
+|| innodbLruScanDepth | **string** (int64)
+
+Acceptable values are 100 to 4294967295, inclusive. ||
+|| sqlRequirePrimaryKey | **boolean** ||
+|| mdbUseAsyncReplication | **boolean** ||
+|| mdbAsyncAllowedLag | **string** (int64)
+
+Acceptable values are 0 to 86400, inclusive. ||
+|| mdbForceSsl | **boolean** ||
+|| innodbChangeBuffering | **enum** (InnodbChangeBuffering)
+
+- `INNODB_CHANGE_BUFFERING_NONE`
+- `INNODB_CHANGE_BUFFERING_INSERTS`
+- `INNODB_CHANGE_BUFFERING_DELETES`
+- `INNODB_CHANGE_BUFFERING_CHANGES`
+- `INNODB_CHANGE_BUFFERING_PURGES`
+- `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
+|| innodbRedoLogCapacity | **string** (int64)
+
+Acceptable values are 536870912 to 17179869184, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}

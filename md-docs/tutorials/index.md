@@ -1332,6 +1332,14 @@
 
  - [Подключение к Container Registry из VPC](routing/vpc-cr-access.md)
 
+#### Подключение к Cloud Registry из сети VPC без доступа в интернет
+
+ - [Обзор](routing/cloud-registry-via-pe/index.md)
+
+ - [Консоль управления, CLI, API](routing/cloud-registry-via-pe/console.md)
+
+ - [Terraform](routing/cloud-registry-via-pe/terraform.md)
+
 ## Анализ и визуализация данных
 
  - [Все руководства](datalens/index.md)

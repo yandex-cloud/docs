@@ -18,7 +18,7 @@ Refresh-токены автоматически удаляются через с
 
 ## Включение возможности использования refresh-токенов в Yandex Cloud CLI {#token-enabling}
 
-Чтобы использовать refresh-токены в Yandex Cloud CLI, эту функциональность необходимо включить на уровне организации Yandex Identity Hub. Для этого:
+Чтобы использовать refresh-токены в Yandex Cloud CLI, включите эту возможность на уровне организации Yandex Identity Hub:
 
 {% list tabs group=instructions %}
 

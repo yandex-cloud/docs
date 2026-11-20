@@ -51,6 +51,7 @@
 * [Подключение к Object Storage из Virtual Private Cloud](storage-vpc-access.md)
 * [Подключение к Container Registry из Virtual Private Cloud](vpc-cr-access.md)
 * [Передача данных топиков Apache Kafka® в Object Storage без использования интернета](kafka-topic-s3-sync-private.md)
+* [Подключение к Cloud Registry из сети Virtual Private Cloud без доступа в интернет](cloud-registry-via-pe/index.md)
 
 ## Дополнительные настройки и инструменты {#sec-tools}
 

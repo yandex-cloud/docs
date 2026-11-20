@@ -16,7 +16,7 @@ Refresh-токены автоматически удаляются через с
 
 ## Включение возможности использования refresh-токенов в {{ yandex-cloud }} CLI {#token-enabling}
 
-Чтобы использовать refresh-токены в {{ yandex-cloud }} CLI, эту функциональность необходимо включить на уровне организации {{ org-full-name }}. Для этого:
+Чтобы использовать refresh-токены в {{ yandex-cloud }} CLI, включите эту возможность на уровне организации {{ org-full-name }}:
 
 {% include [enable-refresh-tokens](../../../_includes/organization/enable-refresh-tokens.md) %}
 

@@ -216,6 +216,14 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Синхронизация топиков Apache Kafka® в Object Storage без использования интернета](tutorials/kafka-topic-s3-sync-private.md)
 
+#### Подключение к Cloud Registry из сети Virtual Private Cloud без доступа в интернет
+
+ - [Обзор](tutorials/cloud-registry-via-pe/index.md)
+
+ - [Консоль управления, CLI, API](tutorials/cloud-registry-via-pe/console.md)
+
+ - [Terraform](tutorials/cloud-registry-via-pe/terraform.md)
+
 ### Дополнительные настройки и инструменты
 
  - [Установка виртуального роутера Cisco CSR 1000v](tutorials/cisco.md)

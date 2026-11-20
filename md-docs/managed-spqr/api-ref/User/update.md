@@ -96,8 +96,12 @@ Name of the database that the permission grants access to. ||
 
 #|
 ||Field | Description ||
-|| connectionLimit | **string** (int64) ||
-|| connectionRetries | **string** (int64) ||
+|| connectionLimit | **string** (int64)
+
+The maximum number of connections allowed to the backend. ||
+|| connectionRetries | **string** (int64)
+
+The number of retries for a failed connection attempt. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

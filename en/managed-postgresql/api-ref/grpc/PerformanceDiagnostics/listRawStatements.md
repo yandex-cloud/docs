@@ -113,7 +113,8 @@ The maximum string length in characters is 100. ||
         "reads": "int64",
         "writes": "int64",
         "user_time": "double",
-        "system_time": "double"
+        "system_time": "double",
+        "cache_hit_ratio": "double"
       }
     }
   ],
@@ -341,4 +342,8 @@ User CPU time used. ||
 || system_time | **double**
 
 System CPU time used. ||
+|| cache_hit_ratio | **double**
+
+Fraction of shared block accesses served from the PostgreSQL buffer cache, from 0 to 1.
+Returns 0 if the statement neither hit nor read any shared blocks. ||
 |#

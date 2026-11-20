@@ -122,9 +122,19 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
 ## Практические руководства
 
+ - [Все руководства](tutorials/index.md)
+
  - [Запуск Docker-образа на виртуальной машине с помощью Cloud Registry](tutorials/docker-cloud-registry.md)
 
  - [Настройка политик жизненного цикла](tutorials/lifecycle-policy-examples.md)
+
+### Подключение к Cloud Registry из сети Virtual Private Cloud без доступа в интернет
+
+ - [Обзор](tutorials/cloud-registry-via-pe/index.md)
+
+ - [Консоль управления, CLI, API](tutorials/cloud-registry-via-pe/console.md)
+
+ - [Terraform](tutorials/cloud-registry-via-pe/terraform.md)
 
 ## Концепции
 

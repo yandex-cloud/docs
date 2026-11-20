@@ -44,14 +44,14 @@
 
    ```sql
    CREATE TABLE db1.tasks (`task_id` Int32,
-                           `title` String, 
-                           `start_date` Date, 
-                           `due_date` Date, 
-                           `priority` Int8 DEFAULT 3, 
-                           `description` String) 
-                  ENGINE = MergeTree 
-                  PRIMARY KEY tuple(task_id) 
-                  ORDER BY tuple(task_id) 
+                           `title` String,
+                           `start_date` Date,
+                           `due_date` Date,
+                           `priority` Int8 DEFAULT 3,
+                           `description` String)
+                  ENGINE = MergeTree
+                  PRIMARY KEY tuple(task_id)
+                  ORDER BY tuple(task_id)
                   SETTINGS index_granularity = 8192;
    ```
 
@@ -166,7 +166,7 @@
     );
     ```
 
-    Если вы хотите восстановить базу данных целиком, используйте команду: 
+    Если вы хотите восстановить базу данных целиком, используйте команду:
 
     ```sql
     RESTORE DATABASE <имя_базы_данных> FROM S3(

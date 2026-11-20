@@ -28,10 +28,10 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
-            - `POSTGRESQL`: Logs of SPQR activity.
-            - `ROUTER`
-            - `COORDINATOR`
-            - `INFRA`
+            - `POSTGRESQL`: Activity logs of PostgreSQL shards.
+            - `ROUTER`: Activity logs of routers.
+            - `COORDINATOR`: Activity logs of coordinators.
+            - `INFRA`: Activity logs of INFRA hosts.
           type: string
           enum:
             - SERVICE_TYPE_UNSPECIFIED
@@ -116,10 +116,10 @@ The maximum string length in characters is 50. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-- `POSTGRESQL`: Logs of SPQR activity.
-- `ROUTER`
-- `COORDINATOR`
-- `INFRA` ||
+- `POSTGRESQL`: Activity logs of PostgreSQL shards.
+- `ROUTER`: Activity logs of routers.
+- `COORDINATOR`: Activity logs of coordinators.
+- `INFRA`: Activity logs of INFRA hosts. ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request.

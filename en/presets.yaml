@@ -352,6 +352,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-src-docs: https://sourcecraft.dev/portal/docs/en
   link-src-main: https://sourcecraft.dev
+  link-statusboard: https://center.yandex.cloud/statusboard
   link-support-mail: support@yandex.cloud
   link-tracker: https://tracker.yandex.com/
   link-tracker-cloudless: https://yandex.ru/support/tracker/en/

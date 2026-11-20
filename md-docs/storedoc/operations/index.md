@@ -33,6 +33,7 @@
 
 * [Управление шардами](shards.md)
 * [Переключение мастера](stepdown.md)
+* [Управление отстающей репликой Yandex StoreDoc](delayed-replicas.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 

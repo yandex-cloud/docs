@@ -537,6 +537,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [StartFailover](api-ref/grpc/Cluster/startFailover.md)
 
+ - [RestartHosts](api-ref/grpc/Cluster/restartHosts.md)
+
  - [ListLogs](api-ref/grpc/Cluster/listLogs.md)
 
  - [StreamLogs](api-ref/grpc/Cluster/streamLogs.md)
@@ -686,6 +688,8 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [RescheduleMaintenance](api-ref/Cluster/rescheduleMaintenance.md)
 
  - [StartFailover](api-ref/Cluster/startFailover.md)
+
+ - [RestartHosts](api-ref/Cluster/restartHosts.md)
 
  - [ListLogs](api-ref/Cluster/listLogs.md)
 

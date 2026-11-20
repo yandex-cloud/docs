@@ -880,6 +880,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [UpdateShardGroup](api-ref/grpc/Cluster/updateShardGroup.md)
 
+ - [UpdateShardGroups](api-ref/grpc/Cluster/updateShardGroups.md)
+
  - [DeleteShardGroup](api-ref/grpc/Cluster/deleteShardGroup.md)
 
  - [ListExternalDictionaries](api-ref/grpc/Cluster/listExternalDictionaries.md)
@@ -1109,6 +1111,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [CreateShardGroup](api-ref/Cluster/createShardGroup.md)
 
  - [UpdateShardGroup](api-ref/Cluster/updateShardGroup.md)
+
+ - [UpdateShardGroups](api-ref/Cluster/updateShardGroups.md)
 
  - [DeleteShardGroup](api-ref/Cluster/deleteShardGroup.md)
 

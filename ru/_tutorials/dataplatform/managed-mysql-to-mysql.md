@@ -11,7 +11,6 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
@@ -20,7 +19,6 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры для миграции входит плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
-
 
 
 ## Подготовьте сторонний кластер {{ MY }} {#prepare-cluster}
@@ -34,7 +32,6 @@
     Миграция с понижением версии {{ MY }} [невозможна](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
 * [Режим SQL](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) должен быть таким же, как и на кластере-источнике.
-
 
 ## Перенесите данные {#transfer-data}
 
@@ -59,7 +56,6 @@
     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
-
 
 ## Полезные ссылки {#see-also}
 

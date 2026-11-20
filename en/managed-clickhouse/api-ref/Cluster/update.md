@@ -349,7 +349,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
-              Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
+              Default value: **10000** for versions 25.9 and higher, **1000** for versions 25.8 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window).
             type: string
             format: int64
@@ -797,8 +797,20 @@ apiPlayground:
           host:
             description: |-
               **string**
-              Name (FQDN) or IP address of the external replica host.
+              Required field. Name (FQDN) or IP address of the external replica host. Identifies the replica within the external shard.
             type: string
+          updateMask:
+            description: |-
+              **string** (field-mask)
+              A comma-separated names off ALL fields to be updated.
+              Only the specified fields will be changed. The others will be left untouched.
+              If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+              the field's value will be reset to the default. The default value for most fields is null or 0.
+              If `` updateMask `` is not sent in the request, all fields' values will be updated.
+              Fields specified in the request will be updated to provided values.
+              The rest of the fields will be reset to the default.
+            type: string
+            format: field-mask
           port:
             description: |-
               **string** (int64)
@@ -824,9 +836,10 @@ apiPlayground:
             description: |-
               **string** (int64)
               Priority of the external replica for load balancing.
-              The replica with the lowest priority value is preferred when establishing a connection.
             type: string
             format: int64
+        required:
+          - host
       MysqlSource:
         type: object
         properties:
@@ -858,7 +871,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/getShardGroup#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/updateShardGroups#yandex.cloud.mdb.clickhouse.v1.UpdateShardGroupSpec.ExternalShard.Replica)**
               List of MySQL replicas of the database used as dictionary source.
             type: array
             items:
@@ -1058,7 +1071,7 @@ apiPlayground:
             type: string
           replicas:
             description: |-
-              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/getShardGroup#yandex.cloud.mdb.clickhouse.v1.ExternalShard.Replica)**
+              **[Replica](/docs/managed-clickhouse/api-ref/Cluster/updateShardGroups#yandex.cloud.mdb.clickhouse.v1.UpdateShardGroupSpec.ExternalShard.Replica)**
               PostgreSQL replicas used as dictionary sources.
             type: array
             items:
@@ -4051,7 +4064,7 @@ apiPlayground:
             description: |-
               **enum** (JoinAlgorithm)
               Specifies which JOIN algorithm to use.
-              Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+              Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
               - `JOIN_ALGORITHM_HASH`: Use a hash join algorithm.
               - `JOIN_ALGORITHM_PARALLEL_HASH`: Build several hash tables concurrently to speed up the build phase, at the cost of higher memory usage.
@@ -4160,6 +4173,7 @@ apiPlayground:
             description: |-
               **boolean**
               Enables or disables new query analyzer.
+              Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
               Default value: **true**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
             type: boolean
@@ -4421,6 +4435,12 @@ apiPlayground:
               **boolean**
               Disables or enables merging date parts storing in Object Storage.
             type: boolean
+          bucketMaxSize:
+            description: |-
+              **string** (int64)
+              Maximum size of the Object Storage bucket used for hybrid storage.
+            type: string
+            format: int64
       PerformanceDiagnostics:
         type: object
         properties:
@@ -5315,7 +5335,8 @@ The maximum string length in characters is 50. ||
       "moveFactor": "number",
       "dataCacheEnabled": "boolean",
       "dataCacheMaxSize": "string",
-      "preferNotToMerge": "boolean"
+      "preferNotToMerge": "boolean",
+      "bucketMaxSize": "string"
     },
     "sqlDatabaseManagement": "boolean",
     "sqlUserManagement": "boolean",
@@ -6448,7 +6469,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions 25.8 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicatedDeduplicationWindowSeconds | **string** (int64)
@@ -8889,7 +8910,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Specifies which JOIN algorithm to use.
 
-Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
@@ -8981,6 +9002,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || enableAnalyzer | **boolean**
 
 Enables or disables new query analyzer.
+Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
 
 Default value: **true**.
 
@@ -9173,6 +9195,9 @@ Limits the maximum size of Object Storage data cache. ||
 || preferNotToMerge | **boolean**
 
 Disables or enables merging date parts storing in Object Storage. ||
+|| bucketMaxSize | **string** (int64)
+
+Maximum size of the Object Storage bucket used for hybrid storage. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}

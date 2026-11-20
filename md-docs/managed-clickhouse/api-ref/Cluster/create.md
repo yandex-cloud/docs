@@ -644,7 +644,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters
       "moveFactor": "number",
       "dataCacheEnabled": "boolean",
       "dataCacheMaxSize": "string",
-      "preferNotToMerge": "boolean"
+      "preferNotToMerge": "boolean",
+      "bucketMaxSize": "string"
     },
     "sqlDatabaseManagement": "boolean",
     "sqlUserManagement": "boolean",
@@ -2445,7 +2446,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions 25.8 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicatedDeduplicationWindowSeconds | **string** (int64)
@@ -4886,7 +4887,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Specifies which JOIN algorithm to use.
 
-Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
@@ -4978,6 +4979,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || enableAnalyzer | **boolean**
 
 Enables or disables new query analyzer.
+Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
 
 Default value: **true**.
 
@@ -5170,6 +5172,9 @@ Limits the maximum size of Object Storage data cache. ||
 || preferNotToMerge | **boolean**
 
 Disables or enables merging date parts storing in Object Storage. ||
+|| bucketMaxSize | **string** (int64)
+
+Maximum size of the Object Storage bucket used for hybrid storage. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}

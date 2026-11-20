@@ -85,6 +85,9 @@ list request will have its own `nextPageToken` to continue paging through the re
 
 ## User {#yandex.cloud.mdb.spqr.v1.User}
 
+A SPQR User resource. For more information, see the
+[Developer's Guide](../../concepts/index.md).
+
 #|
 ||Field | Description ||
 || name | **string**
@@ -122,6 +125,10 @@ Name of the database that the permission grants access to. ||
 
 #|
 ||Field | Description ||
-|| connectionLimit | **string** (int64) ||
-|| connectionRetries | **string** (int64) ||
+|| connectionLimit | **string** (int64)
+
+The maximum number of connections allowed to the backend. ||
+|| connectionRetries | **string** (int64)
+
+The number of retries for a failed connection attempt. ||
 |#

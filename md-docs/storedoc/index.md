@@ -82,6 +82,8 @@
 
  - [Переключение мастера](operations/stepdown.md)
 
+ - [Управление отстающими репликами](operations/delayed-replicas.md)
+
 ### Логи и мониторинг
 
  - [Просмотр логов кластера](operations/cluster-logs.md)

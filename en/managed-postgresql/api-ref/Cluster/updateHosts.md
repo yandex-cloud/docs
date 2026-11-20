@@ -8655,6 +8655,14 @@ apiPlayground:
               **boolean**
               Whether the host should get a public IP address on creation.
             type: boolean
+          backupPriority:
+            description: |-
+              **string** (int64)
+              Priority of the host as a backup source. A higher value corresponds to higher priority.
+              Backup is made from the host with the highest priority.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
         required:
           - hostName
 ---
@@ -9790,7 +9798,8 @@ The maximum string length in characters is 50. ||
         // end of the list of possible fields
       },
       "updateMask": "string",
-      "assignPublicIp": "boolean"
+      "assignPublicIp": "boolean",
+      "backupPriority": "string"
     }
   ]
 }
@@ -9839,6 +9848,13 @@ The rest of the fields will be reset to the default. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation. ||
+|| backupPriority | **string** (int64)
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## ConfigHostSpec {#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec}

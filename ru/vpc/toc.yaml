@@ -254,6 +254,16 @@ items:
               Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
               использования интернета
             href: tutorials/kafka-topic-s3-sync-private.md
+          - name: >-
+              Подключение к {{ cloud-registry-name }} из сети {{ vpc-name }} без
+              доступа в интернет
+            items:
+              - name: Обзор
+                href: tutorials/cloud-registry-via-pe/index.md
+              - name: Консоль управления, CLI, API
+                href: tutorials/cloud-registry-via-pe/console.md
+              - name: '{{ TF }}'
+                href: tutorials/cloud-registry-via-pe/terraform.md
       - name: Дополнительные настройки и инструменты
         items:
           - name: Установка виртуального роутера Cisco CSR 1000v

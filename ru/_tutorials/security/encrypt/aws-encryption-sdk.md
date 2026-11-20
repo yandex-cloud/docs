@@ -18,7 +18,7 @@
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>kms-provider-awscrypto</artifactId>
-        <version>2.1</version>
+        <version>2.7</version>
     </dependency>
     ```
 

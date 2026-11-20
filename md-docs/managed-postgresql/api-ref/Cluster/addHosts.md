@@ -1130,7 +1130,8 @@ The maximum string length in characters is 50. ||
           "idleSessionTimeout": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "backupPriority": "string"
     }
   ]
 }
@@ -1186,6 +1187,13 @@ When a replica becomes the master, its priority is ignored. ||
 || configSpec | **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
 
 Configuration of a PostgreSQL server for the host. ||
+|| backupPriority | **string** (int64)
+
+Priority of the host as a backup source. A higher value corresponds to higher priority.
+
+Backup is made from the host with the highest priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## ConfigHostSpec {#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec}

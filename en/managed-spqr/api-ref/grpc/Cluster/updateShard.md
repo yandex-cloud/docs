@@ -57,14 +57,11 @@ Includes only one of the fields `mdb_postgresql`. ||
 
 ## MDBPostgreSQL {#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL}
 
-TODO move to hosts.proto when it's created
-Configuration for MDB PostgreSQL host
-
 #|
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ||
+Required field. ID of the Managed PostgreSQL cluster ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

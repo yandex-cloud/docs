@@ -345,6 +345,7 @@ persist data to disk. ||
 Enable FQDN instead of ip ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
+Deprecated. Use maintenance_windows instead.
 Window of maintenance operations. ||
 || userSpecs[] | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
 

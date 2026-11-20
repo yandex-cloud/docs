@@ -36,10 +36,10 @@ The maximum string length in characters is 50. ||
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
 
-- `POSTGRESQL`: Logs of SPQR activity.
-- `ROUTER`
-- `COORDINATOR`
-- `INFRA` ||
+- `POSTGRESQL`: Activity logs of PostgreSQL shards.
+- `ROUTER`: Activity logs of routers.
+- `COORDINATOR`: Activity logs of coordinators.
+- `INFRA`: Activity logs of INFRA hosts. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||

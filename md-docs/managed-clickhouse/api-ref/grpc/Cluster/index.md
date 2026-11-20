@@ -41,6 +41,7 @@ A set of methods for managing ClickHouse clusters.
 || [ListShardGroups](listShardGroups.md) | Retrieves a list of shard groups that belong to specified cluster. ||
 || [CreateShardGroup](createShardGroup.md) | Creates a new shard group in the specified cluster. ||
 || [UpdateShardGroup](updateShardGroup.md) | Updates the specified shard group. ||
+|| [UpdateShardGroups](updateShardGroups.md) | Updates the specified shard groups. ||
 || [DeleteShardGroup](deleteShardGroup.md) | Deletes the specified shard group. ||
 || [ListExternalDictionaries](listExternalDictionaries.md) | Retrieves a list of external dictionaries that belong to specified cluster. ||
 || [CreateExternalDictionary](createExternalDictionary.md) | Creates an external dictionary for the specified ClickHouse cluster. ||

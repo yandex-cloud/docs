@@ -893,6 +893,8 @@ items:
                 href: api-ref/grpc/Cluster/createShardGroup.md
               - name: UpdateShardGroup
                 href: api-ref/grpc/Cluster/updateShardGroup.md
+              - name: UpdateShardGroups
+                href: api-ref/grpc/Cluster/updateShardGroups.md
               - name: DeleteShardGroup
                 href: api-ref/grpc/Cluster/deleteShardGroup.md
               - name: ListExternalDictionaries
@@ -1123,6 +1125,8 @@ items:
                 href: api-ref/Cluster/createShardGroup.md
               - name: UpdateShardGroup
                 href: api-ref/Cluster/updateShardGroup.md
+              - name: UpdateShardGroups
+                href: api-ref/Cluster/updateShardGroups.md
               - name: DeleteShardGroup
                 href: api-ref/Cluster/deleteShardGroup.md
               - name: ListExternalDictionaries

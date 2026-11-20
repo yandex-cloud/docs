@@ -336,12 +336,16 @@ SPQR Balancer settings. ||
 
 SPQR default log level
 
-- `DEBUG`
-- `INFO`
-- `WARNING`
-- `ERROR`
-- `FATAL` ||
-|| use_spqrguard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+- `DEBUG`: Provides diagnostic information for developers.
+- `INFO`: Reports information implicitly requested by the user.
+- `WARNING`: Reports a warning about a likely problem.
+- `ERROR`: Reports an error that aborts the current command.
+- `FATAL`: Reports an error that aborts the current session. ||
+|| use_spqrguard | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Tells SPQR to use spqrguard extension. Extension must be enabled on shards.
+
+For details, see [documentation](https://github.com/pg-sharding/spqr/blob/master/docs/deployment/spqrguard.mdx) ||
 || forbid_direct_shard_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
@@ -349,8 +353,12 @@ SPQR default log level
 
 #|
 ||Field | Description ||
-|| config | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)**
+
+Configuration for router hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to router hosts. ||
 |#
 
 ## RouterSettings {#yandex.cloud.mdb.spqr.v1.RouterSettings}
@@ -359,15 +367,27 @@ Configuration of a SPQR router.
 
 #|
 ||Field | Description ||
-|| show_notice_messages | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| time_quantiles[] | **double** ||
+|| show_notice_messages | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables notice messages. ||
+|| time_quantiles[] | **double**
+
+Time quantiles for query execution statistics. ||
 || default_route_behavior | enum **DefaultRouteBehavior**
+
+Sets mode for multishard queries.
 
 - `BLOCK`
 - `ALLOW` ||
-|| prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Prefers hosts in the same availability zone. ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables engine V2 with enhanced multishard query processing, ||
 || default_target_session_attrs | enum **TargetSessionAttrs**
+
+Default [target_session_attrs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS) for connections.
 
 - `READ_WRITE`
 - `SMART_READ_WRITE`
@@ -376,12 +396,20 @@ Configuration of a SPQR router.
 - `ANY` ||
 || default_commit_strategy | enum **CommitStrategy**
 
+Default commit strategy for distributed transactions
+
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
-|| allow_postprocessing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| auto_route_ro_on_standby | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| allow_two_phase_commit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| allow_postprocessing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables postprocessing for multishard queries. ||
+|| auto_route_ro_on_standby | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether to automatically route read-only queries to standby hosts. ||
+|| allow_two_phase_commit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables two-phase commit for modifying reference relations. ||
 || allow_autoprotect_two_phase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
@@ -409,8 +437,12 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
+
+Configuration for coordinator hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to coordinator hosts. ||
 |#
 
 ## CoordinatorSettings {#yandex.cloud.mdb.spqr.v1.CoordinatorSettings}
@@ -419,20 +451,36 @@ Configuration of a SPQR coordinator.
 
 #|
 ||Field | Description ||
-|| iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| lock_iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| router_keepalive_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| router_keepalive_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| etcd_max_send_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| etcd_max_txn_ops | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Sleep duration between routers sync iterations. ||
+|| lock_iteration_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Sleep duration between attempts to acquire the coordinator lock when starting up. ||
+|| router_keepalive_time | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Interval for sending gRPC keepalive pings to routers. ||
+|| router_keepalive_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Time to wait for keepalive ping response before considering connection dead. ||
+|| etcd_max_send_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum request size in bytes that the etcd client (QDB implementation) is allowed to send. ||
+|| etcd_max_txn_ops | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of subcommands allowed in a single etcd transaction. ||
 |#
 
 ## PostgreSQLConfig {#yandex.cloud.mdb.spqr.v1.PostgreSQLConfig}
 
 #|
 ||Field | Description ||
-|| config | **[PostgreSQLSettings](#yandex.cloud.mdb.spqr.v1.PostgreSQLSettings)** ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
+|| config | **[PostgreSQLSettings](#yandex.cloud.mdb.spqr.v1.PostgreSQLSettings)**
+
+Configuration for PostgreSQL hosts. ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to PostgreSQL hosts. ||
 |#
 
 ## PostgreSQLSettings {#yandex.cloud.mdb.spqr.v1.PostgreSQLSettings}
@@ -448,9 +496,15 @@ Configuration of a PostgreSQL.
 
 #|
 ||Field | Description ||
-|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)** ||
-|| router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)** ||
-|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)** ||
+|| resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
+
+Resources allocated to infra hosts. ||
+|| router | **[RouterSettings](#yandex.cloud.mdb.spqr.v1.RouterSettings)**
+
+Configuration for router. ||
+|| coordinator | **[CoordinatorSettings](#yandex.cloud.mdb.spqr.v1.CoordinatorSettings)**
+
+Configuration for coordinator. ||
 |#
 
 ## BalancerSettings {#yandex.cloud.mdb.spqr.v1.BalancerSettings}
@@ -480,8 +534,7 @@ Allow access for Web SQL. ||
 Allow access for DataTransfer. ||
 || serverless | **bool**
 
-Allow access for Serverless.
-NOTE: Do not propagate to public API until Serverless integration is required. ||
+Allow access for Serverless. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.spqr.v1.MaintenanceWindow}

@@ -15,7 +15,7 @@ A set of methods for managing SPQR Cluster resources.
 || [Create](create.md) | Creates a SPQR cluster in the specified folder. ||
 || [Update](update.md) | Updates the specified SPQR cluster. ||
 || [Delete](delete.md) | Deletes the specified SPQR cluster. ||
-|| [AddSubcluster](addSubcluster.md) |  ||
+|| [AddSubcluster](addSubcluster.md) | Adds a subcluster to the specified SPQR cluster. ||
 || [Start](start.md) | Start the specified SPQR cluster. ||
 || [Stop](stop.md) | Stop the specified SPQR cluster. ||
 || [Move](move.md) | Moves the specified SPQR cluster to the specified folder. ||

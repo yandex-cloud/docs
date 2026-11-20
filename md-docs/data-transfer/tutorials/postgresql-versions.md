@@ -2,7 +2,7 @@
 
 # Миграция кластера Yandex Managed Service for PostgreSQL на другую версию c помощью Data Transfer
 
-# Миграция кластера Managed Service for PostgreSQL на другую версию c помощью Yandex Data Transfer
+# Миграция кластера Managed Service for PostgreSQL на другую версию с помощью Yandex Data Transfer
 
 
 Вы можете перенести продуктивную нагруженную базу данных, развернутую в кластере Managed Service for PostgreSQL, в кластер со старшей версией. В этом руководстве рассматривается пример переноса с версии 14 сразу на версию 17, без последовательного переноса между несколькими версиями (14 → 15 → 16 → 17).
@@ -69,7 +69,7 @@
             resource "yandex_mdb_postgresql_cluster" "old" { }
             ```
 
-        1. Запишите идентификатор кластера PostgreSQL версии 13 в переменную окружения:
+        1. Запишите идентификатор кластера PostgreSQL версии 14 в переменную окружения:
 
             ```bash
             export POSTGRESQL_CLUSTER_ID=<идентификатор_кластера>
@@ -77,7 +77,7 @@
 
             Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
-        1. Импортируйте настройки кластера PostgreSQL версии 13 в конфигурацию Terraform:
+        1. Импортируйте настройки кластера PostgreSQL версии 14 в конфигурацию Terraform:
 
             ```bash
             terraform import yandex_mdb_postgresql_cluster.old ${POSTGRESQL_CLUSTER_ID}
@@ -341,7 +341,7 @@
 
 1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` в кластере-приемнике Managed Service for PostgreSQL.
 
-1. Убедитесь, что в базе данных `db1` появились таблицы, выполнив запрос:
+1. Убедитесь, что в базе данных `db1` появились таблицы. Для этого выполните запрос:
 
     ```sql
     SELECT schemaname AS schema, tablename AS table_name

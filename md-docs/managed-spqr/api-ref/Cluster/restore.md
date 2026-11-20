@@ -96,7 +96,6 @@ POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters:restore
           "etcdMaxTxnOps": "string"
         }
       },
-      "consolePassword": "string",
       "logLevel": "string",
       "balancer": {
         "cpuThreshold": "number",
@@ -282,20 +281,23 @@ Configuration and resource allocation for PostgreSQL hosts. ||
 || infra | **[Infra](#yandex.cloud.mdb.spqr.v1.SpqrSpec.Infra)**
 
 Configuration and resource allocation for SPQR Infra (router+coordinator) hosts. ||
-|| consolePassword | **string**
-
-Password of the SPQR console. ||
 || logLevel | **enum** (LogLevel)
 
-- `DEBUG`
-- `INFO`
-- `WARNING`
-- `ERROR`
-- `FATAL` ||
+Sets the message levels that are logged.
+
+- `DEBUG`: Provides diagnostic information for developers.
+- `INFO`: Reports information implicitly requested by the user.
+- `WARNING`: Reports a warning about a likely problem.
+- `ERROR`: Reports an error that aborts the current command.
+- `FATAL`: Reports an error that aborts the current session. ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
-|| useSpqrguard | **boolean** ||
+|| useSpqrguard | **boolean**
+
+Tells SPQR to use spqrguard extension. Extension must be enabled on shards.
+
+For details, see [documentation](https://github.com/pg-sharding/spqr/blob/master/docs/deployment/spqrguard.mdx) ||
 || forbidDirectShardQueries | **boolean** ||
 |#
 
@@ -317,15 +319,27 @@ Configuration of a SPQR router.
 
 #|
 ||Field | Description ||
-|| showNoticeMessages | **boolean** ||
-|| timeQuantiles[] | **string** ||
+|| showNoticeMessages | **boolean**
+
+Enables notice messages. ||
+|| timeQuantiles[] | **string**
+
+Time quantiles for query execution statistics. ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
+
+Sets mode for multishard queries.
 
 - `BLOCK`
 - `ALLOW` ||
-|| preferSameAvailabilityZone | **boolean** ||
-|| enhancedMultishardProcessing | **boolean** ||
+|| preferSameAvailabilityZone | **boolean**
+
+Prefers hosts in the same availability zone. ||
+|| enhancedMultishardProcessing | **boolean**
+
+Enables engine V2 with enhanced multishard query processing, ||
 || defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+Default [target_session_attrs](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS) for connections.
 
 - `READ_WRITE`
 - `SMART_READ_WRITE`
@@ -334,12 +348,20 @@ Configuration of a SPQR router.
 - `ANY` ||
 || defaultCommitStrategy | **enum** (CommitStrategy)
 
+Default commit strategy for distributed transactions
+
 - `BEST_EFFORT`
 - `ONE_PC`
 - `TWO_PC` ||
-|| allowPostprocessing | **boolean** ||
-|| autoRouteRoOnStandby | **boolean** ||
-|| allowTwoPhaseCommit | **boolean** ||
+|| allowPostprocessing | **boolean**
+
+Enables postprocessing for multishard queries. ||
+|| autoRouteRoOnStandby | **boolean**
+
+Whether to automatically route read-only queries to standby hosts. ||
+|| allowTwoPhaseCommit | **boolean**
+
+Enables two-phase commit for modifying reference relations. ||
 || allowAutoprotectTwoPhase | **boolean** ||
 |#
 
@@ -381,12 +403,24 @@ Configuration of a SPQR coordinator.
 
 #|
 ||Field | Description ||
-|| iterationTimeout | **string** (duration) ||
-|| lockIterationTimeout | **string** (duration) ||
-|| routerKeepaliveTime | **string** (duration) ||
-|| routerKeepaliveTimeout | **string** (duration) ||
-|| etcdMaxSendBytes | **string** (int64) ||
-|| etcdMaxTxnOps | **string** (int64) ||
+|| iterationTimeout | **string** (duration)
+
+Sleep duration between routers sync iterations. ||
+|| lockIterationTimeout | **string** (duration)
+
+Sleep duration between attempts to acquire the coordinator lock when starting up. ||
+|| routerKeepaliveTime | **string** (duration)
+
+Interval for sending gRPC keepalive pings to routers. ||
+|| routerKeepaliveTimeout | **string** (duration)
+
+Time to wait for keepalive ping response before considering connection dead. ||
+|| etcdMaxSendBytes | **string** (int64)
+
+Maximum request size in bytes that the etcd client (QDB implementation) is allowed to send. ||
+|| etcdMaxTxnOps | **string** (int64)
+
+Maximum number of subcommands allowed in a single etcd transaction. ||
 |#
 
 ## PostgreSQL {#yandex.cloud.mdb.spqr.v1.SpqrSpec.PostgreSQL}
@@ -467,8 +501,7 @@ Allow access for Web SQL. ||
 Allow access for DataTransfer. ||
 || serverless | **boolean**
 
-Allow access for Serverless.
-NOTE: Do not propagate to public API until Serverless integration is required. ||
+Allow access for Serverless. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.spqr.v1.HostSpec}
@@ -517,14 +550,11 @@ The maximum string length in characters is 63. Value must match the regular expr
 
 ## MDBPostgreSQL {#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL}
 
-TODO move to hosts.proto when it's created
-Configuration for MDB PostgreSQL host
-
 #|
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ||
+Required field. ID of the Managed PostgreSQL cluster ||
 |#
 
 ## MaintenanceWindows {#yandex.cloud.mdb.v1.MaintenanceWindows}

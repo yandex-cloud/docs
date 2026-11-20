@@ -1727,7 +1727,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Specifies which JOIN algorithm to use.
 
-Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
@@ -1819,6 +1819,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || enable_analyzer | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables new query analyzer.
+Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
 
 Default value: **true**.
 

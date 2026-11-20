@@ -20,6 +20,7 @@ A set of methods for managing Valkey clusters.
 || [Restore](restore.md) | Creates a new Valkey cluster using the specified backup. ||
 || [RescheduleMaintenance](rescheduleMaintenance.md) | Reschedules planned maintenance operation. ||
 || [StartFailover](startFailover.md) | Start a manual failover on the specified Valkey cluster. ||
+|| [RestartHosts](restartHosts.md) | Restarts the specified host of a Valkey cluster. ||
 || [ListLogs](listLogs.md) | Retrieves logs for the specified Valkey cluster. ||
 || [StreamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics. ||
 || [ListOperations](listOperations.md) | Retrieves the list of operations for the specified cluster. ||

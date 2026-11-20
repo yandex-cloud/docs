@@ -113,12 +113,24 @@ items:
             href: operations/artifacts/delete.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: >-
           Запуск Docker-образа на виртуальной машине с помощью {{
           cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
       - name: Настройка политик жизненного цикла
         href: tutorials/lifecycle-policy-examples.md
+      - name: >-
+          Подключение к {{ cloud-registry-name }} из сети {{ vpc-name }} без
+          доступа в интернет
+        items:
+          - name: Обзор
+            href: tutorials/cloud-registry-via-pe/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/cloud-registry-via-pe/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cloud-registry-via-pe/terraform.md
   - name: Концепции
     items:
       - name: Обзор

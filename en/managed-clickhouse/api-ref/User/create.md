@@ -1602,7 +1602,7 @@ apiPlayground:
             description: |-
               **enum** (JoinAlgorithm)
               Specifies which JOIN algorithm to use.
-              Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+              Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
               - `JOIN_ALGORITHM_HASH`: Use a hash join algorithm.
               - `JOIN_ALGORITHM_PARALLEL_HASH`: Build several hash tables concurrently to speed up the build phase, at the cost of higher memory usage.
@@ -1711,6 +1711,7 @@ apiPlayground:
             description: |-
               **boolean**
               Enables or disables new query analyzer.
+              Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
               Default value: **true**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
             type: boolean
@@ -3667,7 +3668,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Specifies which JOIN algorithm to use.
 
-Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
@@ -3759,6 +3760,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || enableAnalyzer | **boolean**
 
 Enables or disables new query analyzer.
+Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
 
 Default value: **true**.
 

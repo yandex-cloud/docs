@@ -81,7 +81,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 Shard names used as a source for backup. ||
 || size | **string** (int64)
 
-Size of backup in bytes ||
+Size of the backup in bytes ||
 || type | **enum** (BackupCreationType)
 
 How this backup was created (manual/automatic/etc...)

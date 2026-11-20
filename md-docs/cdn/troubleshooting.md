@@ -76,7 +76,7 @@ CDN-серверы не поддерживают протокол IPv6 и мог
   * по указанному протоколу: HTTP или HTTPS;
   * с указанным значением HTTP-заголовка `Host` и другими заголовками. 
   
-Также проверьте статус Cloud CDN на [специальной странице Yandex Cloud](https://status.yandex.cloud/ru/dashboard?service=cloud%20cdn).
+Также проверьте статус Cloud CDN на [странице статуса сервисов в Cloud Center](https://center.yandex.cloud/statusboard).
 
 ## Как настроить Cloud CDN при недоступности источника? {#fault-tolerance}
 

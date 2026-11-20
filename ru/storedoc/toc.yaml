@@ -66,6 +66,8 @@ items:
             href: operations/shards.md
           - name: Переключение мастера
             href: operations/stepdown.md
+          - name: Управление отстающими репликами
+            href: operations/delayed-replicas.md
       - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера

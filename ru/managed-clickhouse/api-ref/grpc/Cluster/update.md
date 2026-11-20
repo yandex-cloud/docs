@@ -638,7 +638,8 @@ Updates the specified ClickHouse cluster.
       "move_factor": "google.protobuf.DoubleValue",
       "data_cache_enabled": "google.protobuf.BoolValue",
       "data_cache_max_size": "google.protobuf.Int64Value",
-      "prefer_not_to_merge": "google.protobuf.BoolValue"
+      "prefer_not_to_merge": "google.protobuf.BoolValue",
+      "bucket_max_size": "google.protobuf.Int64Value"
     },
     "sql_database_management": "google.protobuf.BoolValue",
     "sql_user_management": "google.protobuf.BoolValue",
@@ -1765,7 +1766,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 The number of most recently inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
 
-Default value: **10000** for versions 25.9 and higher, **1000** for versions from 23.11 to 25.8, **100** for versions 23.10 and lower.
+Default value: **10000** for versions 25.9 and higher, **1000** for versions 25.8 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window). ||
 || replicated_deduplication_window_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -4206,7 +4207,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Specifies which JOIN algorithm to use.
 
-Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions 24.11 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
 
@@ -4298,6 +4299,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || enable_analyzer | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables new query analyzer.
+Starting from the ClickHouse version 26.9, old query analyzer is not supported and the setting is always enabled.
 
 Default value: **true**.
 
@@ -4466,6 +4468,9 @@ Limits the maximum size of Object Storage data cache. ||
 || prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Disables or enables merging date parts storing in Object Storage. ||
+|| bucket_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum size of the Object Storage bucket used for hybrid storage. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}

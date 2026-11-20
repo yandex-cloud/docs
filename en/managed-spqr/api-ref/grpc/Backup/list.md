@@ -107,7 +107,7 @@ Time when the backup operation was started. ||
 Shard names used as a source for backup. ||
 || size | **int64**
 
-Size of backup in bytes ||
+Size of the backup in bytes ||
 || type | enum **BackupCreationType**
 
 How this backup was created (manual/automatic/etc...)

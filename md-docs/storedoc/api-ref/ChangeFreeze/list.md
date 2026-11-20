@@ -4,13 +4,28 @@
 
 Lists change freezes by conditions, specified in request.
 
+
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/changeFreezes
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/changeFreezes:list
 ```
 
-## Query parameters {#yandex.cloud.maintenance.v2.ListChangeFreezesRequest}
+## Body parameters {#yandex.cloud.maintenance.v2.ListChangeFreezesRequest}
+
+```json
+{
+  "resourcePath": [
+    {
+      "id": "string",
+      "type": "string"
+    }
+  ],
+  "pageSize": "string",
+  "pageToken": "string",
+  "filter": "string"
+}
+```
 
 #|
 ||Field | Description ||

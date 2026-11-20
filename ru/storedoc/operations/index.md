@@ -36,6 +36,7 @@ description: На странице представлен список поша�
 
 * [Управление шардами](shards.md)
 * [{#T}](stepdown.md)
+* [{#T}](delayed-replicas.md)
 
 ## Логи и мониторинг {#monitoring-and-logs}
 

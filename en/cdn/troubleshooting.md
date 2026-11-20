@@ -75,7 +75,7 @@ Make sure that:
   * Over the specified protocol: HTTP or HTTPS.
   * With the specified value of the `Host` HTTP header and other headers. 
   
-Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dashboard?service=cloud%20cdn).
+Also, check the {{ cdn-name }} status [on the service status page in {{ cloud-center }}]({{ link-statusboard }}).
 
 ## How to configure {{ cdn-name }} when the origin is unavailable? {#fault-tolerance}
 

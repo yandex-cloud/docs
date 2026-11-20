@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > Практические руководства > Запуск Docker-образа на виртуальной машине с помощью Cloud Registry
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > [Практические руководства](index.md) > Запуск Docker-образа на виртуальной машине с помощью Cloud Registry
 
 # Запуск Docker-образа на виртуальной машине с помощью Yandex Cloud Registry
 

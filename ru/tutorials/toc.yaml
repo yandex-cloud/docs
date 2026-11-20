@@ -1657,6 +1657,16 @@ items:
               Подключение к {{ container-registry-name }} из {{ vpc-short-name
               }}
             href: routing/vpc-cr-access.md
+          - name: >-
+              Подключение к {{ cloud-registry-name }} из сети {{ vpc-short-name
+              }} без доступа в интернет
+            items:
+              - name: Обзор
+                href: routing/cloud-registry-via-pe/index.md
+              - name: Консоль управления, CLI, API
+                href: routing/cloud-registry-via-pe/console.md
+              - name: '{{ TF }}'
+                href: routing/cloud-registry-via-pe/terraform.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства

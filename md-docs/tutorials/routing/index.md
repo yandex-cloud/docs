@@ -42,3 +42,4 @@
 
 * [Подключение к Object Storage из Virtual Private Cloud](storage-vpc-access.md)
 * [Подключение к Container Registry из Virtual Private Cloud](vpc-cr-access.md)
+* [Подключение к Cloud Registry из сети Virtual Private Cloud без доступа в интернет](cloud-registry-via-pe/index.md)
