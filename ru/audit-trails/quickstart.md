@@ -1,13 +1,13 @@
 # Как начать работать с {{ at-name }}
 
-{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} для контроля действий с ресурсами и событий доступа. Логи можно загружать в [бакет](../storage/concepts/bucket.md) {{ objstorage-full-name }}, [лог-группу](../logging/concepts/log-group.md) {{ cloud-logging-full-name }} или [поток данных](../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}.
+{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} для контроля действий с ресурсами и событий доступа. Логи можно загружать в [бакет](../storage/concepts/bucket.md) {{ objstorage-full-name }}, в [проект](*monium-folder-project) {{ monium-logs-name }} или [поток данных](../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}.
 
 Для сбора и доставки аудитных логов в {{ at-name }} используются [трейлы](./concepts/trail.md). Для каждого вида хранилища нужен отдельный трейл.
 
 По этой инструкции вы создадите трейл для загрузки аудитных логов ресурсов организации. Выберите объект назначения в зависимости от задачи:
 
 * [Бакет](../storage/concepts/bucket.md) {{ objstorage-name }} — для долговременного хранения аудитных логов и их последующего анализа.
-* [Лог-группу](../logging/concepts/log-group.md) {{ cloud-logging-name }} — для быстрого просмотра и поиска логов в реальном времени. Также подойдет для первого знакомства с сервисом.
+* [{{ monium-logs-name }}](concepts/trail.md#monium) — для просмотра и поиска аудитных логов в интерфейсе {{ monium-name }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,7 +16,7 @@
 * у вас есть [облако](../resource-manager/concepts/resources-hierarchy.md#cloud);
 * к облаку подключен [платежный аккаунт](../billing/concepts/billing-account.md) со статусом `ACTIVE` или `TRIAL_ACTIVE`.
 
-Для создания трейла вам потребуются роли:
+Для создания трейла и просмотра логов вам потребуются роли:
 
 * `iam.serviceAccounts.user` — на сервисный аккаунт, от имени которого будет собираться аудитный лог. Сервисный аккаунт можно создать при создании трейла.
 * `audit-trails.editor` — на каталог, в котором будет находиться трейл.
@@ -26,7 +26,7 @@
    * `kms.editor` — на каталог, в котором будет создан ключ шифрования для бакета.
    * `storage.viewer` — на бакет или каталог.
 
-* При использовании лог-группы — `logging.viewer` на лог-группу или каталог.
+* Для просмотра логов в {{ monium-name }} — `monium.logs.reader` на каталог с трейлом.
 
 {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -61,26 +61,26 @@
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-- Лог-группа {#log-group}
+- {{ monium-name }} {#monium}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
-      
-      * **{{ ui-key.yacloud.audit-trails.label_destination }}** — `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`.
-      * **{{ ui-key.yacloud.audit-trails.label_log-group }}** — выберите лог-группу, в которую будут загружаться аудитные логи. Если лог-группы нет, нажмите **{{ ui-key.yacloud.common.create }}** и [создайте новую лог-группу](../logging/quickstart.md).
+  Для загрузки в {{ monium-name }} создайте трейл через CLI версии 1.45.0 или новее, {{ TF }} или API. В этой инструкции используется CLI.
 
-  1. {% include [control-plane-on-console](../_includes/audit-trails/control-plane-on-console.md) %}
-  1. {% include [data-plane-on-console](../_includes/audit-trails/data-plane-on-console.md) %}
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** выберите существующий [сервисный аккаунт](../iam/concepts/users/service-accounts.md) или создайте новый. От имени этого аккаунта трейл будет загружать файлы аудитного лога в лог-группу.
-      Если вы создаете новый аккаунт, нажмите **{{ ui-key.yacloud.common.create }}**, укажите имя и назначьте ему роли:
-      
-      * `logging.writer` на лог-группу;
-      * `audit-trails.viewer` на каталог, если планируете собирать события с каталога.
+  {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) для трейла.
+  1. [Назначьте сервисному аккаунту роль](../organization/operations/add-role.md) `audit-trails.viewer` на организацию, события которой будете собирать.
+  1. Создайте трейл:
+
+      ```bash
+      yc audit-trails trail create \
+        --name <имя_трейла> \
+        --folder-id <идентификатор_каталога_трейла> \
+        --service-account-id <идентификатор_сервисного_аккаунта> \
+        --destination-monium \
+        --filter-all-organisation-id <идентификатор_организации>
+      ```
+
+      Трейл начнет передавать события уровня конфигурации из организации в [проект каталога с трейлом](concepts/trail.md#monium). Чтобы дополнительно собирать события уровня сервисов, настройте [политику фильтрации](operations/create-trail.md#cli).
 
 {% endlist %}
 
@@ -102,15 +102,9 @@
   * [Получите публичную ссылку на объект](../storage/operations/objects/link-for-download.md).
   * Смонтируйте бакет через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)): [s3fs](../storage/tools/s3fs.md) или [goofys](../storage/tools/goofys.md).
 
-- Лог-группа {#log-group}
+- {{ monium-name }} {#monium}
 
-  Вы можете просматривать аудитные логи в реальном времени в интерфейсе {{ cloud-logging-name }}.
-  
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится лог-группа.
-  1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Нажмите на строку с нужной лог-группой.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
-  1. Настройте фильтры для поиска нужных событий.
+  {% include [view-logs-monium](../_includes/audit-trails/view-logs-monium.md) %}
 
 {% endlist %}
 
@@ -123,3 +117,5 @@
 * Узнайте больше о [сервисе](./concepts/index.md).
 * Узнайте о [типах аудитных логов](./concepts/control-plane-vs-data-plane.md).
 * Ознакомьтесь с [требованиями к аудитным логам в стандарте безопасности](../security/standard/audit-logs.md).
+
+[*monium-folder-project]: {% include notitle [folder-project](../_popups/monium/folder-project.md) %}

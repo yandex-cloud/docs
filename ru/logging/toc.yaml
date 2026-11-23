@@ -77,8 +77,6 @@ items:
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
-      - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
-        href: tutorials/logging-functions.md
       - name: Поиск событий в аудитных логах
         href: tutorials/search-events-audit-logs/index.md
       - name: Мониторинг записи событий в лог-группу

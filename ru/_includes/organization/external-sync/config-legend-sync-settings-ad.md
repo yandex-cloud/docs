@@ -57,6 +57,68 @@
 
         {% endnote %}
 
+    * `attributes` — настройки фильтрации синхронизируемых пользователей и групп по атрибутам:
+
+        * `users` — набор правил фильтрации пользователей по атрибутам:
+
+            {% note info %}
+
+            Если в конфигурации агента заданы значения для полей `filter.organization_units` и `filter.groups`, фильтрация по атрибутам пользователей будет выполняться в отношении только тех пользователей, которые входят в Organization Units и группы, указанные в этих полях.
+
+            {% endnote %}
+
+            * {% include [attr-filter-combine-with-user-field-legend](./attr-filter-combine-with-user-field-legend.md) %}
+            * `rules` — список правил фильтрации пользователей по атрибутам:
+
+                * `field` — имя атрибута пользователя в {{ microsoft-idp.ad-short }}. Возможные значения:
+
+                    * `distinguishedName`;
+                    * `name`;
+                    * `sAMAccountName`;
+                    * `userPrincipalName`;
+                    * `displayName`;
+                    * `givenName`;
+                    * `sn`;
+                    * `mail`;
+                    * `telephoneNumber`;
+                    * `ipPhone`;
+                    * `mobile`;
+                    * `company`;
+                    * `department`;
+                    * `title`;
+                    * `employeeID`;
+                    * `employeeNumber`.
+
+                    {% include [import-attrs-as-is-notice](./import-attrs-as-is-notice.md) %}
+
+                * {% include [attr-filter-operator-field-legend-ad](./attr-filter-operator-field-legend-ad.md) %}
+                * {% include [attr-filter-value-field-legend](./attr-filter-value-field-legend.md) %}
+
+        * `groups` — набор правил фильтрации групп пользователей по атрибутам:
+
+            {% note info %}
+
+            Если из {{ microsoft-idp.ad-short }} импортируется пользователь, который состоит в определенной группе, но данная группа не импортируется в соответствии с настройками в разделе `filter.groups` конфигурации агента, то этот пользователь будет импортирован в {{ org-full-name }} без членства в данной группе.
+
+            {% endnote %}
+
+            * {% include [attr-filter-combine-with-group-field-legend](./attr-filter-combine-with-group-field-legend.md) %}
+            * `rules` — список правил фильтрации групп пользователей по атрибутам:
+
+                * `field` — имя атрибута группы пользователей в {{ microsoft-idp.ad-short }}. Возможные значения:
+
+                    * `distinguishedName`;
+                    * `name`;
+                    * `sAMAccountName`;
+                    * `mail`;
+                    * `description`;
+                    * `info`.
+
+                    {% include [import-attrs-as-is-notice](./import-attrs-as-is-notice.md) %}
+
+                * {% include [attr-filter-operator-field-legend-ad](./attr-filter-operator-field-legend-ad.md) %}
+                * {% include [attr-filter-value-field-legend](./attr-filter-value-field-legend.md) %}
+
     Если не настроить фильтрацию синхронизируемых объектов, агент {{ ad-sync-agent }} попытается синхронизировать все [доступные объекты](../../../organization/concepts/sync-external/ad-sync.md#sync-objects) в каталоге {{ microsoft-idp.ad-short }}.
 * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне {{ yandex-cloud }}, если соответствующие пользователи на стороне {{ microsoft-idp.ad-short }} были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
 

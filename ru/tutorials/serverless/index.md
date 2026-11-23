@@ -54,7 +54,6 @@
 * [{#T}](ci-cd-github-functions.md)
 * [{#T}](ci-cd-sourcecraft-github-actions.md)
 * [{#T}](auto-upload.md)
-* [{#T}](logging-functions.md)
 * [{#T}](vision-ocrrecognizer-storage.md)
 * [{#T}](tracker-yandexgpt-postbox-integrations.md)
 

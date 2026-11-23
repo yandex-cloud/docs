@@ -21,9 +21,9 @@
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
-      * [зону доступности](../../../overview/concepts/geo-scope) `{{ region-id }}-a`;
+      * [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-d`;
       * облачную сеть `yq-network`;
-      * подсеть `yq-network-{{ region-id }}-a`;
+      * подсеть `yq-network-{{ region-id }}-d`;
       * [группу безопасности](../../../vpc/concepts/security-groups.md) по умолчанию.
 
         {% include [sg-ui-access](../../../_includes/mdb/maf/note-sg-ui-access.md) %}

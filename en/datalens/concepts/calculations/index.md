@@ -38,17 +38,19 @@ When creating a formula, you can use any dataset field, including the calculated
 
 If a field is created in a chart, it will not be available to dashboard selectors and other charts.
 
+
 {% note warning %}
 
-In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
+In [multi-dataset charts](../chart/multidataset-chart.md), calculated fields are not applicable to fields from multiple datasets.
 
 {% endnote %}
+
 
 ## Functions {#functions}
 
 Functions are the principal components used for creating formulas. You can use them to perform various operations on data fields.
 
-The list of available functions depends on the data source. For more information, see [{#T}](../../function-ref/availability.md).
+The list of available functions depends on the data source. For details, see [{#T}](../../function-ref/availability.md).
 
 {% note warning %}
 

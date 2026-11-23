@@ -188,6 +188,8 @@ items:
                 href: api-ref/grpc/Instance/start.md
               - name: Stop
                 href: api-ref/grpc/Instance/stop.md
+              - name: ListBackups
+                href: api-ref/grpc/Instance/listBackups.md
               - name: GetBackupDownloadUrls
                 href: api-ref/grpc/Instance/getBackupDownloadUrls.md
           - name: Operation
@@ -222,6 +224,8 @@ items:
                 href: api-ref/Instance/start.md
               - name: Stop
                 href: api-ref/Instance/stop.md
+              - name: ListBackups
+                href: api-ref/Instance/listBackups.md
               - name: GetBackupDownloadUrls
                 href: api-ref/Instance/getBackupDownloadUrls.md
           - name: Operation

@@ -106,7 +106,6 @@
 * [Поиск событий Yandex Cloud в Yandex Object Storage](audit-logs/search-bucket.md)
 * [Поиск событий Yandex Cloud в Yandex Cloud Logging](audit-logs/search-cloud-logging.md)
 * [Настройка дашбордов и алертов в Yandex Monium](audit-logs/alerts-monitoring.md)
-* [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](audit-logs/logging-functions.md)
 * Экспорт аудитных логов в SIEM
     * [Загрузка аудитных логов в MaxPatrol SIEM](audit-logs/maxpatrol/index.md)
     * [Загрузка аудитных логов в SIEM Splunk](audit-logs/export-logs-to-splunk.md)

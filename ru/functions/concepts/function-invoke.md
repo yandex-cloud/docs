@@ -439,7 +439,6 @@ Flags:
 
 * [{#T}](../tutorials/data-recording.md)
 * [{#T}](../tutorials/events-from-postbox-to-yds.md)
-* [{#T}](../tutorials/logging-functions.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/regular-launch-datasphere.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)

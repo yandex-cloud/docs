@@ -11,7 +11,7 @@ description: This section contains the {{ yandex-cloud }} partner portal release
 
 1. Added support for on-premises products. Sales of Yandex B2B Tech On-premises products are processed by creating an order from a deal.
 
-1. Added the [co-marketing program](../program/var-tools.md#co-marketing). You can now use the portal to access your rebate balance, co-marketing accrual history, and the request form.
+1. Added a [co-marketing program](../program/var-tools.md#co-marketing). You can now use the portal to access your rebate balance, co-marketing accrual history, and the request form.
 
 1. Fixes and improvements:
     * Added the ability to export the usage details table in Excel format (.xlsx).

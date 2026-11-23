@@ -1,6 +1,6 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Остановить и запустить сервер
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Остановить, запустить или перезагрузить сервер
 
-# Остановить, запустить или перезапустить сервер
+# Остановить, запустить или перезагрузить сервер
 
 ## Остановить {#stop}
 
@@ -73,9 +73,9 @@
 
 {% endlist %}
 
-## Перезапустить {#restart}
+## Перезагрузить {#restart}
 
-Чтобы перезапустить сервер:
+Чтобы перезагрузить сервер:
 
 {% list tabs group=instructions %}
 
@@ -88,13 +88,13 @@
 
 - CLI {#cli}
 
-   1. Посмотрите описание команды для перезапуска сервера:
+   1. Посмотрите описание команды для перезагрузки сервера:
 
       ```bash
       yc baremetal v2 server reboot --help
       ```
 
-   1. Выполните команду:
+   1. Перезагрузите сервер:
 
       ```bash
       yc baremetal v2 server reboot <идентификатор_сервера>
@@ -102,11 +102,88 @@
 
 - API {#api}
 
-  Чтобы перезапустить сервер, воспользуйтесь методом REST API [reboot](../../api-ref/Server/reboot.md) для ресурса [Server](../../api-ref/Server/index.md) или вызовом gRPC API [ServerService/Reboot](../../api-ref/grpc/Server/reboot.md).
+    Для обычной перезагрузки опустите поле `rebootMode` в теле запроса REST API или поле `reboot_mode` в сообщении gRPC `RebootServerRequest`:
+
+    * Для API v1alpha используйте метод REST API [reboot](../../api-ref/Server/reboot.md) ресурса [Server](../../api-ref/Server/index.md) или вызов gRPC API [ServerService/Reboot](../../api-ref/grpc/Server/reboot.md).
+    * Для API v2 используйте метод REST API [rebootServer](../../api-ref/Server/rebootServer.md) или вызов gRPC API [ServerService/RebootServer](../../api-ref/grpc/Server/rebootServer.md).
 
 {% endlist %}
 
-### Примеры запросов {#request-examples}
+По умолчанию сервер использует заранее настроенный порядок загрузки. Через CLI или API можно выбрать режим для следующей загрузки: [загрузку по сети (PXE)](#reboot-pxe), [загрузку с CD-ROM](#reboot-cdrom) или [вход в BIOS](#reboot-bios).
+
+### Перезагрузить в PXE {#reboot-pxe}
+
+Чтобы перезагрузить сервер с последующей загрузкой по сети:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc baremetal v2 server reboot <идентификатор_сервера> --reboot-mode network
+  ```
+
+- API {#api}
+
+    * REST API — передайте `{"rebootMode": "NETWORK"}` в теле запроса [reboot](../../api-ref/Server/reboot.md) (v1alpha) или [rebootServer](../../api-ref/Server/rebootServer.md) (v2).
+    * gRPC API — укажите `NETWORK` в поле `reboot_mode` при вызове [ServerService/Reboot](../../api-ref/grpc/Server/reboot.md) (v1alpha) или [ServerService/RebootServer](../../api-ref/grpc/Server/rebootServer.md) (v2).
+
+{% endlist %}
+
+В сетях BareMetal по умолчанию нет PXE-серверов. Чтобы загрузить образ по сети, заранее настройте собственный PXE-сервер.
+
+### Перезагрузить с CD-ROM {#reboot-cdrom}
+
+Чтобы перезагрузить сервер с последующей загрузкой со смонтированного ISO-образа:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc baremetal v2 server reboot <идентификатор_сервера> --reboot-mode cdrom
+  ```
+
+- API {#api}
+
+    * REST API — передайте `{"rebootMode": "CDROM"}` в теле запроса [reboot](../../api-ref/Server/reboot.md) (v1alpha) или [rebootServer](../../api-ref/Server/rebootServer.md) (v2).
+    * gRPC API — укажите `CDROM` в поле `reboot_mode` при вызове [ServerService/Reboot](../../api-ref/grpc/Server/reboot.md) (v1alpha) или [ServerService/RebootServer](../../api-ref/grpc/Server/rebootServer.md) (v2).
+
+{% endlist %}
+
+Перед перезагрузкой [смонтируйте загрузочный ISO-образ](reinstall-os-from-own-image.md#boot-from-image) на виртуальный CD-дисковод сервера.
+
+### Перезагрузить в BIOS {#reboot-bios}
+
+Чтобы перезагрузить сервер с последующим входом в меню настроек BIOS:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc baremetal v2 server reboot <идентификатор_сервера> --reboot-mode bios
+  ```
+
+- API {#api}
+
+    * REST API — укажите `BIOS` в поле `rebootMode` запроса [reboot](../../api-ref/Server/reboot.md) (v1alpha) или [rebootServer](../../api-ref/Server/rebootServer.md) (v2). Для API v1alpha выполните команду:
+
+      ```bash
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer <IAM-токен>" \
+        -d '{"rebootMode": "BIOS"}' \
+        "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>:reboot"
+      ```
+
+    * gRPC API — укажите `BIOS` в поле `reboot_mode` при вызове [ServerService/Reboot](../../api-ref/grpc/Server/reboot.md) (v1alpha) или [ServerService/RebootServer](../../api-ref/grpc/Server/rebootServer.md) (v2).
+
+{% endlist %}
+
+Для работы с меню BIOS [подключитесь к KVM-консоли](server-kvm.md).
+
+## Примеры запросов REST API {#request-examples}
 
 Чтобы остановить сервер, выполните команду:
 
@@ -165,7 +242,8 @@ curl -X POST \
   "modifiedAt": "2025-12-07T19:55:40.399275Z"
 }
 ```
-Чтобы перезапустить сервер, выполните команду:
+
+Следующий запрос к REST API v1alpha перезагрузит сервер в обычном режиме:
 
 ```bash
 curl -X POST \

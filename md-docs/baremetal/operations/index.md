@@ -9,7 +9,7 @@
 * [Получить информацию о сервере](servers/get-info.md)
 * [Изменить сервер](servers/server-update.md)
 * [Подключиться к KVM-консоли](servers/server-kvm.md)
-* [Остановить, запустить или перезапустить сервер](servers/server-stop-and-start.md)
+* [Остановить, запустить или перезагрузить сервер](servers/server-stop-and-start.md)
 * [Отказаться от аренды сервера](servers/server-lease-cancel.md)
 * [Создать загрузочный образ](image-upload.md)
 * [Подключить сервер BareMetal к Yandex Cloud Backup](backup-baremetal.md)

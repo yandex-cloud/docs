@@ -5003,13 +5003,11 @@ default:
         button_create-trail: Создать трейл
         button_process-in-yq: Обработать в YQ
         label_bucket: Бакет
-        label_cloudLogging: Cloud Logging
         label_control-plane-collection-new: Сбор логов с управляющего слоя
         label_data-plane-collection-new: Сбор логов со слоя данных
         label_dataStream: Data Streams
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
-        label_log-group: Лог-группа
         label_log-receiver: Приёмник логов
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
@@ -7320,7 +7318,6 @@ default:
         button_create-group: Создать группу
         button_create-sink: Создать приёмник логов
         button_execute: Выполнить
-        column_header-message: Сообщение
         field_logging: Запись логов
         label_destination: Назначение
         label_export: Выгрузить логи

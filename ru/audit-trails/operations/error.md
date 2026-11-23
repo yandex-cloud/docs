@@ -14,11 +14,10 @@ description: Из статьи вы узнаете про известные о�
 
 {% endnote %}
 
-Объекты назначения:
+Рекомендации для объектов назначения:
 
 * [Бакет {{ objstorage-name }}](#storage).
 * [Поток данных {{ yds-name }}](#data-streams).
-* [Лог-группа {{ cloud-logging-name }}](#cloud-logging).
 
 ## Бакет {{ objstorage-name }} {#storage}
 
@@ -88,23 +87,6 @@ description: Из статьи вы узнаете про известные о�
 ### YDS_THROTTLING {#database-throttling}
 
 Ограничение скорости со стороны базы данных {{ ydb-short-name }}, что приводит к задержкам или сбоям при отправке данных по событиям. Ошибка может быть связана с недостаточным количеством партиций, исчерпанием квот и другими обстоятельствами. Причину ошибки исследуйте на стороне [базы данных](../../ydb/operations/monitoring.md). 
-
-## Лог-группа {{ cloud-logging-name }} {#cloud-logging}
-
-### ACCESS_DENIED {#logging-access-denied}
-
-Проверьте, что сервисному аккаунту, от имени которого трейл загружает аудитные логи в лог-группу, назначена [роль](../../logging/security/index.md#logging-writer) `logging.writer` или выше.
-
-### LOG_GROUP_NOT_FOUND {#log-group-not-found}
-
-Проверьте лог-группу, которая указана в [настройках трейла](../concepts/trail.md#trail-settings). Если лог-группа была удалена:
-
-1. [Создайте](../../logging/operations/create-group.md) новую лог-группу.
-1. Измените настройки трейла, указав в блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** новую лог-группу.
-
-### UNKNOWN или INTERNAL_ERROR {#logging-internal-error}
-
-Обратитесь в [поддержку]({{ link-console-support }}) за дополнительной информацией и рекомендациями.
 
 #### Полезные ссылки {#see-also}
 

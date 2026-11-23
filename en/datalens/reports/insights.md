@@ -5,7 +5,7 @@ description: In this article, you will learn about Neuroanalyst in report and ho
 
 # Neuroanalyst in report
 
-Neuroanalyst in report is a tool that analyzes the selected report chart, generates findings based on its data, and allows you to ask follow-up questions. This data is complemented by the report's description and its chart title. For all charts, the chart description and tooltip will also be added, if any.
+Neuroanalyst in report is a tool that analyzes the selected report chart, generates findings based on its data, and allows you to ask follow-up questions. This data is complemented by the report's description and its chart title. For all charts, you also get a description and tooltip of the chart, if any.
 
 To enable Neuroanalyst, click ![icon](../../_assets/console-icons/ellipsis.svg) → **Find insights** in the top right corner of the report chart.
 
@@ -15,12 +15,13 @@ To enable Neuroanalyst, click ![icon](../../_assets/console-icons/ellipsis.svg) 
 
 {% endcut %}
 
+
 All your queries to Neuroanalyst are private: logs are neither stored nor used for further fine-tuning or research.
 
 You can [ban](./report-operations.md#report-neuroanalyst-off) the use of Neuroanalyst for a report.
 
 ## Limitations {#restrictions}
 
-* So far the tool can only analyze data from a particular chart.
+* So far, the tool can only analyze data from a particular chart.
 * The analysis can take quite a while.
 * Chart description and tooltip are not added for tables.

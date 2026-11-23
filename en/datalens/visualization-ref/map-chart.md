@@ -60,7 +60,7 @@ To get geolayers, you can find and use a creation from [Gallery]({{ link-datalen
 
 {% note info %}
 
-You cannot create maps in [QL charts](../concepts/chart/index.md#sql-charts).
+You cannot create maps in [QL charts](../concepts/chart/ql-charts.md).
 
 {% endnote %}
 

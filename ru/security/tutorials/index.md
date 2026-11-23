@@ -109,7 +109,6 @@ description: Различные практические руководства 
 * [{#T}](audit-logs/search-bucket.md)
 * [{#T}](audit-logs/search-cloud-logging.md)
 * [{#T}](audit-logs/alerts-monitoring.md)
-* [{#T}](audit-logs/logging-functions.md)
 * Экспорт аудитных логов в SIEM
     * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)

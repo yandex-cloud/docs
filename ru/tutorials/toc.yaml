@@ -1912,10 +1912,6 @@ items:
               помощью {{ sw-full-name }}
             href: serverless/auto-upload.md
           - name: >-
-              Настройка реагирования в {{ cloud-logging-name }} и {{
-              sf-full-name }}
-            href: serverless/logging-functions.md
-          - name: >-
               Регулярное распознавание изображений и PDF-документов из бакета {{
               objstorage-short-name }}
             href: serverless/vision-ocrrecognizer-storage.md

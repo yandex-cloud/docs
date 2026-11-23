@@ -77,7 +77,9 @@ description: Следуя данной инструкции, вы сможете
 
   Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
-  Чтобы {{ sws-full-name }} передавал события в {{ at-name }}:
+  События `WafMatchedRule`, `WafMatchedExclusionRule` и `ArlMatchedRequest` формируются при соответствующих срабатываниях независимо от настроек логирования профиля.
+
+  Чтобы передавать подробные события `SWSMatchedRequest` в {{ at-name }}, включите логирование в профиле и выберите выход `AUDIT_TRAILS`:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите]({{ link-console-main }}/link/smartwebsecurity) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
@@ -91,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-  Таким образом можно настроить передачу только событий из отдельных профилей безопасности или только по отдельным правилам и вердиктам.
+  Таким образом можно настроить передачу событий `SWSMatchedRequest` только из отдельных профилей безопасности или только по отдельным правилам и вердиктам.
 
 {% endlist %}
 
@@ -159,62 +161,99 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры фильтров для логов профилей безопасности {#filtration}
 
-Примеры относятся к логам профиля безопасности и подходят для поиска логов в интерфейсах {{ sws-name }} и {{ monium-name }}. Логи поставляются в формате JSON: одна запись соответствует одному запросу клиента, обработанному {{ sws-name }}.
+Примеры подходят для поиска логов профиля безопасности в интерфейсах {{ sws-name }} и {{ monium-name }}. Введите запрос в текстовом режиме на [языке запросов {{ monium-name }}](../../monium/logs/query.md). Укажите идентификаторы каталога и профиля безопасности. Метки указываются без префикса `labels.`, а поля метаинформации — с префиксом `meta.`. Поля описаны в разделе [{#T}](../concepts/logging.md).
 
-Фильтры ниже помогают найти запросы, для которых сработали правила в обычном режиме или в режиме **Только логирование** (dry run).
+В [логах прокси-сервера](configure-logging-alb.md#dry-run-filters) проверяйте поле `meta.smartwebsecurity.dry_run_matched_rule.dry_run`: тестовый вердикт может быть `ALLOW`, а блок может присутствовать и при значении `false`.
 
-Добавьте условия из примеров в селектор запроса. Поля описаны в разделе [{#T}](../concepts/logging.md).
+Поля `meta.dry_run_matched_rule_*` записываются для тестовых вердиктов `DENY`, `CAPTCHA`, `JS_CHALLENGE` и `COOKIE_CHALLENGE`. При тестовом `ALLOW` эти поля отсутствуют, хотя запись о запросе может присутствовать. Итоговый `ALLOW` может сочетаться с тестовым `DENY`.
 
 ### Фильтры для активных правил {#active-rule-filters}
 
-В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе.
+Ниже приведены примеры запросов:
 
-* Показать запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md). Например, по списку или региону IP:
+* Запросы, заблокированные базовыми правилами с определенными [условиями](../concepts/conditions.md):
 
-    ```text
-    module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
-    ```
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    module_type="RULE_CONDITION",
+    meta.matched_rule_verdict="DENY"
+  }
+  ```
 
-* Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
+* Запросы, направленные на капчу правилами [Smart Protection](../concepts/rules.md#smart-protection-rules):
 
-    ```text
-    module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"
-    ```
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    module_type="SMART_PROTECTION",
+    meta.matched_rule_verdict="CAPTCHA"
+  }
+  ```
 
-* Показать запросы, заблокированные по профилю [WAF](../concepts/waf.md) — правилами WAF из профиля безопасности:
+* Запросы, направленные на JS-проверку правилами Smart Protection:
 
-    ```text
-    module_type = "WAF", meta.matched_rule_verdict = "DENY"
-    ```
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    module_type="SMART_PROTECTION",
+    meta.matched_rule_verdict="JS_CHALLENGE"
+  }
+  ```
 
-* Показать запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
+* Запросы, заблокированные правилами [WAF](../concepts/waf.md):
 
-    ```text
-    meta.arl_verdict = "DENY"
-    ```
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    module_type="WAF",
+    meta.matched_rule_verdict="DENY"
+  }
+  ```
 
-* Показать запросы, для которых сработало конкретное правило ARL — `arl-rule-1`:
+* Запросы, заблокированные правилами профиля [ARL](../concepts/arl.md):
 
-    ```text
-    meta.arl_verdict = "DENY", meta.arl_applied_quota_name = "arl-rule-1"
-    ```
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    meta.arl_verdict="DENY"
+  }
+  ```
+
+* Запросы, заблокированные конкретным правилом ARL `arl-rule-1`:
+
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    meta.arl_verdict="DENY",
+    meta.arl_applied_quota_name="arl-rule-1"
+  }
+  ```
 
 ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
-В примерах не указаны метки проекта, сервиса и ресурса — сохраните их в запросе.
+Чтобы найти запросы, которые правило Smart Protection направило бы на JS-проверку, используйте фильтр:
 
-* Показать запросы, для которых сработали правила [Smart Protection](../concepts/rules.md#smart-protection-rules) с отправкой на капчу:
-
-  ```text
-  module_type = "SMART_PROTECTION", meta.dry_run_matched_rule_verdict = "CAPTCHA"
-  ```
-
-* Показать запросы, для которых было превышение по конкретному правилу ARL — `arl-rule-1`:
-
-  ```text
-  meta.dry_run_exceeded_quota_names = "arl-rule-1"
-  ```
-
-Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
+```text
+{
+    project="folder__<идентификатор_каталога>",
+    service="__smartwebsecurity__",
+    security_profile_id="<идентификатор_профиля>",
+    meta.dry_run_matched_rule_type="SMART_PROTECTION",
+    meta.dry_run_matched_rule_verdict="JS_CHALLENGE"
+}
+```
 
 [*monium-folder-project]: {% include notitle [folder-project](../../_popups/monium/folder-project.md) %}

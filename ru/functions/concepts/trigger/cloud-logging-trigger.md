@@ -21,7 +21,6 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/logging-functions.md)
 * [{#T}](../../tutorials/logging.md)
 
 ## Полезные ссылки {#see-also}

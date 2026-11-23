@@ -44,7 +44,6 @@
 * [Запуск вычислений в Yandex DataSphere с помощью API](batch-code-execution.md)
 * [Настройка CI/CD с SourceCraft](ci-cd-sourcecraft-functions.md)
 * [Настройка CI/CD с GitHub](ci-cd-github-functions.md)
-* [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](logging-functions.md)
 * [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](functions-framework-to-container.md)
 
 ## Интернет вещей {#iot}

@@ -52,7 +52,7 @@ A new version is automatically created when you click **Save** in dashboard edit
 * Adding, renaming, or deleting dashboard tabs.
 * Editing links.
 * Adding and removing widgets.
-* Editing widgets, such as [Title](#title) and [Text](#text).
+* Editing widgets, such as [Title](widget.md#title) and [Text](widget.md#text).
 * Editing widget tabs.
 * Editing selector settings.
 
@@ -85,7 +85,7 @@ To edit an outdated version, select it from the list of versions. To save edits 
 
 * **Save as draft**: Draft will be created from the edited version. If there is a current draft, it will become the outdated version.
 * ![image](../../_assets/console-icons/chevron-down.svg) → **Save and make actual** to create a new current version and make all other versions, including the draft, outdated.
-* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard** to create a new dashboard.
+* ![image](../../_assets/console-icons/chevron-down.svg) → **Save as new dashboard**: New dashboard will be created.
 
 ## Limits {#restrictions}
 

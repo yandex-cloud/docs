@@ -75,7 +75,7 @@ There are two ways you can use dashboards from the Gallery:
 
 {% note info %}
 
-You can deploy a dashboard in your {{ datalens-name }} instance if you have [workbooks and collections](../workbooks-collections/index.md#enable-workbooks) on.
+You can deploy in dashboard in your own {{ datalens-name }} instance if you have workbooks and collections on.
 
 {% endnote %}
 

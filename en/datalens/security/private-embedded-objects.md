@@ -9,11 +9,14 @@ You can securely embed private [charts](../concepts/chart/index.md) or [dashboar
 
 Embedding private objects works only in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is available only to the workbook [administrator](./roles.md#datalens-workbooks-admin).
 
-The [limit on the number of queries](../pricing.md#packet-queries) from private embedded charts depends on the number of seats.
+
+[The limit on the number of queries](../pricing.md#packet-queries) from private embedded charts depends on the number of seats.
+
+
 
 {% note warning %}
 
-The number of queries to get data from embedded private objects depends on the number of seats you [buy](../pricing.md#embeds).
+Queries to get data from embedded private objects are accounted for in the seat [pricing policy](../pricing.md#embeds).
 
 {% endnote %}
 

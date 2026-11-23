@@ -225,4 +225,4 @@ Your dashboard is ready for use.
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)
 - [{#T}](../../datalens/operations/chart/create-sql-chart.md)
-- [QL charts](../../datalens/concepts/chart/index.md#sql-charts)
+- [QL charts](../../datalens/concepts/chart/ql-charts.md)

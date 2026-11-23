@@ -20,8 +20,8 @@
 
 1. Перейдите на [страницу регистрации Grafana Cloud](https://grafana.com/auth/sign-up/).
 1. Заполните регистрационную форму:
-    - Укажите ваш email-адрес.
-    - Создайте надежный пароль.
+    * Укажите ваш email-адрес.
+    * Создайте надежный пароль.
 1. Нажмите **Create my account**.
 1. Подтвердите регистрацию, следуя инструкциям в письме, отправленном на указанный email.
 1. Выберите имя организации (это будет частью URL вашего экземпляра). Например `your-org`.
@@ -40,20 +40,20 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
-        1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
-        1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+  1. Нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+      1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. {% include [org-oidc-app-select-web-type-step](../../../_tutorials/_tutorials_includes/org-oidc-app-select-web-type-step.md) %}
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `grafana-cloud-oidc-app`.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+      1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Введите метку в формате `ключ: значение`.
-            1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+          1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Введите метку в формате `ключ: значение`.
+          1. Нажмите **Enter**.
+      1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 - CLI {#cli}
 
@@ -282,7 +282,7 @@
 
      ```text
      id: ajeiu3otac08********
-     name: grafana-cloud-oidc-app
+     name: grafana-cloud-oauth-client
      redirect_uris:
        - https://your-org.grafana.net/login/generic_oauth
      scopes:
@@ -331,12 +331,12 @@
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
-    1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+  1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+  1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+  1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 - CLI {#cli}
 

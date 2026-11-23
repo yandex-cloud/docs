@@ -19,7 +19,7 @@ The tabs are executed in a specific order.
 
 Serves to describe service information about the list of related entities.
 
-The **Meta** tab is used to add the object IDs of the sources used for the chart/selector. Object ID description is a required element. This information is used to find out what connections and datasets the chart is related to, for the related objects dialog, when copying a workbook, and when publishing to Public.
+The **Meta** tab is used to add the object IDs of the sources used for the chart/selector. Object ID description is a required element. This information is used to figure out connections and datasets the chart is linked to, as well as for the linked objects dialog, when copying a workbook, and when publishing to Public.
 
 You can copy object IDs from the relevant object's menu or in navigation by clicking **Copy ID**. The ID will be saved to the clipboard.
 
@@ -150,7 +150,7 @@ i.e., `00:00:00.000`, while casting to the current time is used for the units sh
 
 **Format**: `__interval_<start>_<end>`
 
-`start`/`end`: [relative date](#relativedate) or ISO date.
+`start`/`end`: [relative date](#relative-date) or ISO date.
 
 **Example**:
 
@@ -175,13 +175,15 @@ The following limitations apply when using parameters:
 ## Sources {#sources}
 
 
-This tab defines the structure for requesting the data to visualize.
+This tab defines the query structure for the data you need to visualize.
 
 You can get the data using:
 
 * [Dataset](#sources-dataset)
 * [Database connection via an SQL query](#sources-database)
 * [Connection via API Connector](#sources-api-connector)
+
+You can configure the [scenario to continue](#fallback-on-error) on source failure.
 
 ### Connecting to a data source via a dataset {#sources-dataset}
 
@@ -292,6 +294,61 @@ Example of getting only a list of fields from a dataset:
   };
   ```
 
+
+{% endlist %}
+
+### Scenario continuation on source failure {#fallback-on-error}
+
+For the scenario to continue on source failure, specify `fallbackOnError: true` for this source.
+
+On source failure, the chart remains operational: the code on the [Prepare](#prepare) and [Controls](#controls) tabs is executed. In this case, the following applies:
+
+* `Editor.getLoadedData()` returns `{}` for such a source.
+* `Editor.getDataStatus()` returns the query status info and error code.
+
+For example:
+
+{% list tabs %}
+
+- Sources tab
+
+  ```js
+  module.exports = {
+      catalog: {
+          url: '/_some/api/catalog',
+          fallbackOnError: true,
+      },
+  };
+  ```
+
+  Where:
+
+  * `url`: Path to the source.
+  * `fallbackOnError`: Flag for scenario to continue on source failure.
+
+- Prepare tab
+
+  ```js
+  const status = Editor.getDataStatus();
+  // {
+  //   catalog: {status: 500, code: 'ERR.CHARTS.DATA_FETCHING_ERROR'},
+  //   settings: {status: 200},
+  // }
+  ```
+
+  Example of error handling:
+
+  ```js
+  const {catalog} = Editor.getDataStatus();
+
+  if (catalog.status === 404) {
+      // handled: render the empty state ourselves
+      module.exports = buildEmptyChart();
+  } else if (catalog.code) {
+      // not handled: fail the chart the way it would have failed before the flag
+      Editor.setError({code: catalog.code, statusCode: catalog.status});
+  }
+  ```
 
 {% endlist %}
 

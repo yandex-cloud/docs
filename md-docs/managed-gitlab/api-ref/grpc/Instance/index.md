@@ -16,5 +16,6 @@ InstanceService provides methods for managing GitLab instances.
 || [Delete](delete.md) | Deletes the specified GitLab instance. ||
 || [Start](start.md) | Starts the specified GitLab instance. ||
 || [Stop](stop.md) | Stops the specified GitLab instance. ||
+|| [ListBackups](listBackups.md) | Retrieves the list of backups for the specified GitLab instance. ||
 || [GetBackupDownloadUrls](getBackupDownloadUrls.md) | Returns temporary download URLs for a completed backup and its GitLab secrets file. ||
 |#

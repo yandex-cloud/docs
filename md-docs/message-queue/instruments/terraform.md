@@ -24,7 +24,7 @@ Terraform распространяется под лицензией [Business S
      ```hcl
      provider "yandex" {
        folder_id = "<идентификатор_каталога>"
-       zone      = "ru-central1-a"
+       zone      = "<зона_доступности>"
      }
 
      resource "yandex_message_queue" "example_queue" {
@@ -42,7 +42,7 @@ Terraform распространяется под лицензией [Business S
      ```hcl
      provider "yandex" {
        folder_id = "<идентификатор_каталога>"
-       zone      = "ru-central1-a"
+       zone      = "<зона_доступности>"
      }
 
      resource "yandex_message_queue" "example-fifo-queue" {
@@ -61,7 +61,7 @@ Terraform распространяется под лицензией [Business S
      ```hcl
      provider "yandex" {
        folder_id = "<идентификатор_каталога>"
-       zone      = "ru-central1-a"
+       zone      = "<зона_доступности>"
      }
 
      resource "yandex_message_queue" "example_fifo_queue" {

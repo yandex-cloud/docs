@@ -47,7 +47,6 @@ description: В этом разделе собраны практические 
 * [{#T}](batch-code-execution.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](ci-cd-github-functions.md)
-* [{#T}](logging-functions.md)
 * [{#T}](functions-framework-to-container.md)
 
 ## Интернет вещей {#iot}

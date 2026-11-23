@@ -6,7 +6,7 @@ description: Follow this guide to add a mailing list for a dashboard in {{ datal
 # Mailing lists for dashboards
 
 
-You can set up a mailing list for a dashboard. The email will deliver links to the dashboard and chart states you specify in the mailing list settings. You can also choose to include analysis from Neuroanalyst. Use settings to configure dashboard selector states, delivery schedule, chart sizes, and other options. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only.
+You can set up a mailing list for a dashboard. The email will deliver links to the dashboard and chart states you specify in the mailing list settings. You can also choose to include analysis from Neuroanalyst. Use settings to configure dashboard selector states, delivery schedule, chart sizes, and other options. Mailing lists are available for the current dashboard [version](../../dashboard/versioning.md) only. You can also manage your mailing [channels](../../settings/index.md#user-settings).
 
 {% note info %}
 
@@ -31,7 +31,7 @@ To add a mailing list for your dashboard:
         Choose the name as per these requirements:
 
           * It starts and ends with an upper-case or lower-case Latin or Russian letter, number, or one of these characters: `_`, `@`, `(`, `)`, or`%`.
-          * The remaining characters can be upper-case or lower-case Latin or Russian letters, numbers, spaces, or the following characters: `_`, `@`, `(`, `)`, `%`, `.`, `,`, `:`, `;`, `'`, `|`, `-`, `–`, `—`, `−`, `$`, `*`, and `&`.
+          * The remaining characters can be upper-case or lower-case Latin or Russian letters, numbers, spaces, or the following characters: `_`, `@`, `(`, `)`, `%`, `.`, `,`, `:`, `;`, `'`, `|`, `-`, `–`, `—`, `−`, `$`, `*`, `&`, and whitespaces.
 
      1. Optionally, enter a description for the mailing list.
      1. Click **Save**.
@@ -169,6 +169,14 @@ Each recipient will receive the mailing list email:
 
 
   {% endcut %}
+
+  
+  {% cut "Message in Yandex Telemost" %}
+
+  ![maillist-telemost-ai](../../../_assets/datalens/dashboard/maillist-telemost-ai.png =391x1916)
+
+  {% endcut %}
+
 
 ## Managing mailing lists {#maillist-operations}
 

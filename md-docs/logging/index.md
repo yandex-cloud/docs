@@ -78,8 +78,6 @@
 
  - [Обработка логов Cloud Logging](tutorials/cloud-logging.md)
 
- - [Настройка реагирования в Cloud Logging и Yandex Cloud Functions](tutorials/logging-functions.md)
-
  - [Поиск событий в аудитных логах](tutorials/search-events-audit-logs/index.md)
 
  - [Мониторинг записи событий в лог-группу](tutorials/log-group-record-monitoring.md)

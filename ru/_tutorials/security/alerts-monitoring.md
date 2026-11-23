@@ -5,8 +5,8 @@
 Руководство предполагает, что у вас уже развернута инфраструктура:
 
 * Есть ресурсы {{ yandex-cloud }}, события безопасности которых нужно собирать.
-* Создан [трейл](../../audit-trails/concepts/trail.md) {{ at-name }} для сбора событий.
-* Настроен [объект назначения](../../audit-trails/concepts/trail.md#target) для хранения аудитных логов: [бакет](../../storage/concepts/bucket.md), [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [лог-группа](../../logging/concepts/log-group.md).
+* [Создан трейл](../../audit-trails/operations/create-trail.md) {{ at-name }} для сбора событий.
+* Настроен [объект назначения](../../audit-trails/concepts/trail.md#target) для хранения аудитных логов: [бакет](../../storage/concepts/bucket.md), [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [{{ monium-logs-name }}](../../audit-trails/concepts/trail.md#monium).
 
 Метрики {{ at-name }} автоматически передаются в {{ metrics-name }} и доступны в [проекте каталога](*monium-folder-project), в котором находится трейл.
 
@@ -27,7 +27,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -55,7 +55,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -100,7 +100,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -140,7 +140,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -177,7 +177,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -223,7 +223,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс {{ monium-name }} {#monium}
 
   1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
   1. В верхней панели нажмите название текущего проекта и выберите проект каталога с трейлом.
@@ -272,9 +272,9 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс {{ monium-name }} {#console}
+    - Интерфейс {{ monium-name }} {#monium}
 
-      1. Найдите график **Processed versus delivered events**.
+      1. В разделе **Event Delivery** найдите график **Processed versus delivered events**.
       1. Справа от названия графика нажмите ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud_monitoring.dashboard.widget.copy }}**.
       1. Укажите название, например `Processed versus delivered events — <имя_трейла>`.
       1. Выберите проект и дашборд, который вы [создали ранее](#create-dashboard).
@@ -294,6 +294,11 @@
 
 {% list tabs group=instructions %}
 
+- Интерфейс {{ monium-name }} {#monium}
+
+  1. Откройте [сервисный дашборд трейла](#create-missing-events-chart) **Audit Trails Trail Overview** и выберите нужный трейл.
+  1. Посмотрите текущий статус трейла на графике **Trail status**.
+
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
@@ -306,7 +311,7 @@
 Статус `Active` означает, что трейл продолжает собирать аудитные логи с доступных ресурсов. Если при этом сохраняется отставание **Delivered events** от **Processed events**, проверьте состояние объекта назначения и его логи:
 
 * [{#T}](../../storage/operations/buckets/get-info.md)
-* [Получение информации о лог-группе](../../logging/operations/index.md#log-group-info)
+* [Просмотр аудитных логов в {{ monium-name }}](../../audit-trails/tutorials/search-monium.md)
 * [{#T}](../../data-streams/operations/index.md)
 
 Статус `Error` сообщает об ошибке в работе трейла. В этом случае изучите лог диагностики трейла.
@@ -336,10 +341,6 @@
 
     Метрика `max_size` недоступна, если для бакета не задан максимальный размер. В таком случае контролируйте использование [квоты](../../storage/concepts/limits.md#storage-quotas) на объем хранилища в облаке.
 
-* **{{ cloud-logging-name }}**
-
-    [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monium/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, приближается ли поток логов к максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
-
 
 * **{{ yds-name }}** — подробнее в документации [{{ ydb-full-name }}](../../ydb/):
   * [{#T}](../../ydb/metrics.md)
@@ -362,7 +363,7 @@
 
   {% list tabs group=instructions %}
 
-  - Интерфейс {{ monium-name }} {#console}
+  - Интерфейс {{ monium-name }} {#monium}
 
     1. Перейдите на главную страницу [{{ monium-name }}]({{ link-monium }}).
     1. В верхней панели выберите проект, в котором вы создали дашборд.

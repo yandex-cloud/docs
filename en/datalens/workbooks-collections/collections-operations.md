@@ -7,7 +7,7 @@ description: Follow this guide to create, edit, move, delete, and set up access 
 
 In this section, you will learn how to use a collection:
 
-* [Creating a collection](#create-collection)
+* [Creating a collection](#create-collections)
 * [Editing a collection](#edit-collections)
 * [Moving a collection](#move-collections)
 * [Setting up access to a collection](#security)
@@ -103,7 +103,7 @@ To restore an object or a workbook:
 
    * **Name**: Object or workbook name.
    * **Parent object**: Name of the collection or workbook the object or workbook was deleted from. If the parent object has been deleted, the column shows the ![sliders](../../_assets/console-icons/circle-exclamation.svg) icon. If the workbook was deleted from the root collection, a dash symbol (`-`) is displayed.
-   * **Deletion at**: Date and time when the object or workbook was deleted.
+   * **Deleted at**: Date and time the workbook or object was deleted.
    * **Deleted by**: Name of the user who deleted the object or workbook.
 
    You can sort the list by name or deletion date.

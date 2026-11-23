@@ -6,9 +6,9 @@ description: Различные сценарии использования {{ a
 # Практические руководства {{ at-name }}
 
 * [{#T}](search-bucket.md)
+* [{#T}](search-monium.md)
 * [{#T}](search-cloud-logging.md)
 * [{#T}](alerts-monitoring.md)
-* [{#T}](logging-functions.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}
 

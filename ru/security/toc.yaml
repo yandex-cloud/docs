@@ -383,8 +383,6 @@ items:
             href: tutorials/audit-logs/search-cloud-logging.md
           - name: Настройка алертов и дашбордов в {{ monium-name }}
             href: tutorials/audit-logs/alerts-monitoring.md
-          - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-name }}
-            href: tutorials/audit-logs/logging-functions.md
           - name: Загрузка аудитных логов в {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true

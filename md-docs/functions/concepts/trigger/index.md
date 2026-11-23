@@ -86,7 +86,6 @@ _Триггер_ — условие, при выполнении которог�
 
 * [Запись данных с устройства в базу данных](../../tutorials/data-recording.md)
 * [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](../../tutorials/events-from-postbox-to-yds.md)
-* [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](../../tutorials/logging-functions.md)
 * [Запись логов балансировщика в PostgreSQL](../../tutorials/logging.md)
 * [Запуск вычислений по расписанию в DataSphere](../../tutorials/regular-launch-datasphere.md)
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](../../tutorials/serverless-trigger-budget-vm.md)

@@ -91,8 +91,8 @@ items:
               and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
-              Transferring {{ forms-full-name }} data to {{ datalens-full-name
-              }} via {{ sf-full-name }} and {{ yq-full-name }}
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -746,7 +746,7 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
-      - name: Editor charts
+      - name: Charts in Editor
         items:
           - name: Overview
             href: charts/editor/index.md
@@ -1558,8 +1558,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: August 2026
+      - name: September 2026
         href: release-notes/index.md
+      - name: August 2026
+        href: release-notes/2608.md
       - name: July 2026
         href: release-notes/2607.md
       - name: June 2026
@@ -1568,12 +1570,12 @@ items:
         href: release-notes/2605.md
       - name: April 2026
         href: release-notes/2604.md
-      - name: March 2026
-        href: release-notes/2603.md
       - name: Overview videos of updates
         href: release-notes/videos.md
       - name: Archive
         items:
+          - name: March 2026
+            href: release-notes/2603.md
           - name: February 2026
             href: release-notes/2602.md
           - name: January 2026
@@ -1939,6 +1941,26 @@ items:
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Connection has already migrated
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-ALREADY_MIGRATED.md
+      - name: Not enough permissions to create connection
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-CREATOR_ROLE_REQUIRED.md
+      - name: No access to {{ connection-manager-name }} connection
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-CONNMAN-INSUFFICIENT_USE_PERMISSION.md
+      - name: Failed to match {{ connection-manager-name }} connection
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NO_MATCHING_CONNECTION.md
+      - name: Migration not supported
+        hidden: true
+        href: >-
+          /troubleshooting/errors/ERR-DS_API-CONNECTION-MIGRATION-NOT_SUPPORTED.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md

@@ -123,9 +123,13 @@
       
               * `aggregation_period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
       
-          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
+          * `monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Укажите пустой объект:
       
-              В параметре `log_group_id` укажите идентификатор лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
+              ```yaml
+              destination:
+                monium: {}
+              ```
+      
           * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
       
               * `stream_name` — имя потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).

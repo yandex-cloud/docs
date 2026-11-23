@@ -5,13 +5,6 @@ description: In this article, you will learn about trial period expiration.
 
 # End of trial period
 
-{% note warning %}
-
-Currently, the trial period and introduction grant are unavailable for new clients.
-
-Please proceed to [upgrading to the paid version](./upgrade-to-paid.md).
-
-{% endnote %}
 
 {% include [free-trial-invoice-only](../../../_includes/billing/free-trial-invoice-only.md) %}
 

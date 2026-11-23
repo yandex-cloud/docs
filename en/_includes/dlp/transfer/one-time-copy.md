@@ -1,0 +1,1 @@
+One-time copy transfers data from a source to a target only once. Further changes in the source are not transferred. This type of transfer can prove useful when there is no writing load on the source, e.g., [when deploying test environments](../../../data-transfer/concepts/use-cases.md#testing) or when you need to transfer a large amount of initial data.

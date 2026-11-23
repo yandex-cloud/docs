@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, что такое трейл
 # Трейл
 
 
-Трейл — это ресурс {{ at-name }}, который собирает аудитные логи ресурсов {{ yandex-cloud }} и записывает их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}.
+Трейл — это ресурс {{ at-name }}, который собирает аудитные логи ресурсов {{ yandex-cloud }} и записывает их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, {{ monium-logs-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}.
 
 ## Сбор и фильтрация событий {#event-filters}
 
@@ -85,34 +85,36 @@ description: Из статьи вы узнаете, что такое трейл
 
 ## Объект назначения {#target}
 
-Каждый трейл загружает аудитные логи только в один объект назначения: бакет, лог-группу или поток данных.
+Каждый трейл загружает аудитные логи только в один объект назначения: бакет, {{ monium-logs-name }} или поток данных.
 
 #|
-|| **Назначение** | **Когда использовать** | **Задержка** | **Формат** ||
-|| Бакет {{ ui-key.yacloud.audit-trails.label_objectStorage }} | Долгосрочное хранение, соответствие требованиям | Зависит от периода агрегации (по умолчанию — пять минут) | Массив JSON ||
-|| Лог-группа {{ ui-key.yacloud.audit-trails.label_cloudLogging }} | Мониторинг в реальном времени | секунды | Поток записей {{ cloud-logging-name }}: одно событие {{ at-name }} соответствует одной записи {{ cloud-logging-name }} ||
-|| Поток данных {{ ui-key.yacloud.audit-trails.label_dataStream }} | Интеграция с SIEM, аналитика | секунды | Поток JSON-объектов ||
+|| **Назначение** | **Когда использовать** ||
+|| Бакет {{ objstorage-name }} | Долгосрочное хранение аудитных логов ||
+|| {{ monium-logs-name }} | Просмотр и поиск аудитных логов в интерфейсе {{ monium-name }} ||
+|| Поток данных {{ yds-name }} | Интеграция с SIEM и системами аналитики ||
 |#
-
-Каждый объект назначения имеет свои преимущества:
-
-* **{{ ui-key.yacloud.audit-trails.label_objectStorage }}** — позволяет долговременно хранить большие объемы данных для дальнейшей обработки.
-* **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — помогает реагировать на события и анализировать логи в реальном времени.
-* **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — позволяет передавать данные в другие сервисы и системы с помощью потоковой передачи.
 
 При загрузке аудитных логов в бакет {{ at-name }} формирует файлы с заданным периодом агрегации. По умолчанию период составляет пять минут, но его можно настроить через CLI, {{ TF }} или API в диапазоне от одной минуты до одного часа включительно. В один или несколько файлов попадут события из выбранной области сбора, которые прошли фильтрацию. Если за этот период подходящих событий не будет, файлы не сформируются.
 
-В лог-группу и поток данных {{ at-name }} загружает аудитные логи в режиме, близком к реальному времени.
+В поток данных {{ at-name }} загружает аудитные логи в режиме, близком к реальному времени.
 
 От типа объекта назначения зависит структура и содержимое сообщения, в котором {{ at-name }} передает аудитные логи:
 
 * для бакета — в файле находится массив [JSON-объектов](./format.md#scheme) аудитного лога;
-* для лог-группы — в сообщении находится только один JSON-объект аудитного лога;
+* для {{ monium-logs-name }} — события доступны как [записи в проекте каталога трейла](./format.md#monium);
 * для потока данных — в поток передаются сообщения, содержащие JSON-объекты аудитного лога.
 
 {% include [note-lose-target-when-switch-trail](../../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
 
-Каждый трейл действует независимо от других трейлов. Используя несколько трейлов, можно разграничивать доступ к разным группам логов для пользователей и сервисов в соответствии с требованиями политики ИБ.
+Каждый трейл действует независимо от других трейлов. При загрузке в {{ monium-name }} доступ к аудитным логам определяется правами на проект каталога, в котором находится трейл.
+
+### Загрузка в {{ monium-name }} {#monium}
+
+В {{ monium-logs-name }} трейл передает аудитные логи в [проект каталога](*monium-folder-project), в котором он создан. Область сбора событий может включать другие каталоги, облака или всю организацию. Выбрать другой проект назначения нельзя.
+
+Для записи логов в {{ monium-logs-name }} используется системный сервисный аккаунт {{ at-name }}. Сервисный аккаунт, указанный в настройках трейла, используется для сбора событий.
+
+Чтобы загружать логи в {{ monium-name }}, выберите его в качестве объекта назначения при [создании](../operations/create-trail.md#monium) или [изменении](../operations/manage-trail.md#update-trail) трейла через CLI, {{ TF }} или API.
 
 ## Настройки трейла {#trail-settings}
 
@@ -123,19 +125,17 @@ description: Из статьи вы узнаете, что такое трейл
 * **{{ ui-key.yacloud.common.name }}** — обязательный параметр.
 * **{{ ui-key.yacloud.common.description }}** — опциональный параметр.
 * Блок **{{ ui-key.yacloud.audit-trails.label_destination }}**:
-    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` или `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+    * **{{ ui-key.yacloud.audit-trails.label_destination }}** — значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}` или `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`:
         * **{{ ui-key.yacloud.audit-trails.label_bucket }}** — бакет.
         * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}** — необязательный параметр, участвует в [полном имени](./format.md#log-file-name) файла аудитного лога.
         * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — симметричный [ключ шифрования](../../kms/concepts/key.md) {{ kms-full-name }}, которым будет зашифрован бакет.
-    * Для значения `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`:
-        * **{{ ui-key.yacloud.logging.label_loggroup }}** — лог-группа.
     * Для значения `{{ ui-key.yacloud.audit-trails.label_dataStream }}`:
         * **{{ ui-key.yacloud.audit-trails.label_stream-name }}** — поток данных.
         * **Кодек** — метод сжатия событий при записи в поток данных {{ yds-name }}.
 
             {% include [yds-compressing-events](../../_includes/audit-trails/yds-compressing-events.md) %}
-* Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт, от имени которого будет выполняться загрузка аудитных логов в бакет, лог-группу или поток данных. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
+* Блок **{{ ui-key.yacloud.audit-trails.label_service-account }}** — сервисный аккаунт для сбора событий. При загрузке аудитных логов в бакет {{ objstorage-name }} или поток данных {{ yds-name }} трейл использует этот же аккаунт. Если аккаунту нужны дополнительные роли, появится предупреждение с перечнем ролей.
 * Блок **{{ ui-key.yacloud.audit-trails.label_control-plane-collection-new }}**:
     * **Статус** — включение и выключение сбора аудитных логов уровня конфигурации.
     * **{{ ui-key.yacloud.audit-trails.label_resource-type }}** — значения `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` или `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
@@ -161,7 +161,7 @@ description: Из статьи вы узнаете, что такое трейл
 
 * [{#T}](../tutorials/search-events-audit-logs/index.md)
 * [{#T}](../tutorials/alerts-monitoring.md)
-* [{#T}](../tutorials/logging-functions.md)
+* [{#T}](../tutorials/search-monium.md)
 * [{#T}](../tutorials/maxpatrol/index.md)
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 * [{#T}](../tutorials/export-logs-to-arcsight.md)
@@ -173,3 +173,5 @@ description: Из статьи вы узнаете, что такое трейл
 * Узнайте о [формате аудитных логов](./format.md).
 * Ознакомьтесь с [логами диагностики трейла](./diagnostics.md).
 * Узнайте о [событиях](./events.md).
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

@@ -117,11 +117,11 @@
 
   1. Создайте подсети:
 
-      * В [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
+      * В [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`:
 
         ```bash
-        yc vpc subnet create yq-network-{{ region-id }}-a \
-          --zone {{ region-id }}-a \
+        yc vpc subnet create yq-network-{{ region-id }}-d \
+          --zone {{ region-id }}-d \
           --network-name yq-network \
           --range 10.1.0.0/16
         ```
@@ -132,29 +132,20 @@
         id: b0c3pte4o2kn********
         folder_id: b1g9hv2loamq********
         created_at: "2022-04-04T09:28:08Z"
-        name: yq-network-{{ region-id }}-a
+        name: yq-network-{{ region-id }}-d
         network_id: enptrcle5q3d********
-        zone_id: {{ region-id }}-a
+        zone_id: {{ region-id }}-d
         v4_cidr_blocks:
         - 10.1.0.0/16
         ```
 
-      * В зоне доступности `{{ region-id }}-b`:
+      * В зоне доступности `{{ region-id }}-f`:
 
         ```bash
-        yc vpc subnet create yq-network-{{ region-id }}-b \
-          --zone {{ region-id }}-b \
+        yc vpc subnet create yq-network-{{ region-id }}-f \
+          --zone {{ region-id }}-f \
           --network-name yq-network \
           --range 10.2.0.0/16
-        ```
-
-      * В зоне доступности `{{ region-id }}-d`:
-
-        ```bash
-        yc vpc subnet create yq-network-{{ region-id }}-d \
-          --zone {{ region-id }}-d \
-          --network-name yq-network \
-          --range 10.3.0.0/16
         ```
 
       Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
@@ -321,7 +312,7 @@
 - Консоль управления {#console}
 
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. В строке подсети `yq-network-{{ region-id }}-a` нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
+  1. В строке подсети `yq-network-{{ region-id }}-d` нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** и выберите таблицу `yq-route-table`.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
@@ -330,7 +321,7 @@
   Выполните команду:
 
   ```bash
-  yc vpc subnet update yq-network-{{ region-id }}-a \
+  yc vpc subnet update yq-network-{{ region-id }}-d \
     --route-table-name=yq-route-table
   ```
 
@@ -340,9 +331,9 @@
   id: e9b6n3jj3gh6********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:24:58Z"
-  name: yq-network-{{ region-id }}-a
+  name: yq-network-{{ region-id }}-d
   network_id: enppoggov6ub********
-  zone_id: {{ region-id }}-a
+  zone_id: {{ region-id }}-d
   v4_cidr_blocks:
     - 10.1.0.0/16
   route_table_id: enp4v8foko6s********

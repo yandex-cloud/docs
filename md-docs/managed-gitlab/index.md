@@ -182,6 +182,8 @@
 
  - [Stop](api-ref/grpc/Instance/stop.md)
 
+ - [ListBackups](api-ref/grpc/Instance/listBackups.md)
+
  - [GetBackupDownloadUrls](api-ref/grpc/Instance/getBackupDownloadUrls.md)
 
 #### Operation
@@ -215,6 +217,8 @@
  - [Start](api-ref/Instance/start.md)
 
  - [Stop](api-ref/Instance/stop.md)
+
+ - [ListBackups](api-ref/Instance/listBackups.md)
 
  - [GetBackupDownloadUrls](api-ref/Instance/getBackupDownloadUrls.md)
 

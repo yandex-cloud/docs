@@ -54,7 +54,7 @@ Get ready to work with {{ datalens-short-name }} guided by your experience:
 
 ### 1.2. Create a connection {#create-connection}
 
-To connect to the **Heat Maps** dashboard:
+To connect to the **Heat maps** dashboard:
 
 1. Follow the [link]({{ link-datalens-main }}/connections/new/smb_heatmaps) and click **Get token**.
 
@@ -139,7 +139,7 @@ To allow another user to open your dashboard, configure access to {{ datalens-fu
 
 The user will get access to your {{ datalens-short-name }} instance and objects with **All** permissions. You can assign this user individual permissions for objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions to {{ datalens-short-name }} objects, see the [relevant guide](../../datalens/security/index.md#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions to {{ datalens-short-name }} objects, see the [relevant guide](../../datalens/security/index.md).
 
 ## 4. Make a dashboard or chart public {#publish-dashboard-chart}
 

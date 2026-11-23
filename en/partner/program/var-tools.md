@@ -261,7 +261,7 @@ Active assistance is aimed at resolving already existing issues and challenges:
 * **Answers to specific questions**: If you cannot find the answer to your question in the {{ yandex-cloud }} [documentation](../../index.yaml), our team is ready to help.
 * **Assistance with solution issues**: If you get issues after validating your solution, we will help resolve them.
 * **Handling objections**: We will help you respond to objections you may get from your customers or within your team.
-* **Issues on the {{ yandex-cloud }} side**: We will help resolve issues directly related to the {{ yandex-cloud }} operation.
+* **{{ yandex-cloud }} errors**: We will help resolve issues directly related to the {{ yandex-cloud }} operation.
 
 Proactive assistance is aimed at preventing potential issues and optimizing your project:
 

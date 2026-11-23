@@ -7,7 +7,7 @@ You can [save](../concepts/index.md#saved-queries) any query to use it later and
    * [Edit a saved query](#alter-template).
    * [Publish a saved query](#publish-query).
    * [Configure access permissions for a published query](#set-access-rights-to-published-query).
-   * [Delete a saved query](#remove-query).
+   * [Delete a saved query](#remove-template).
 
 ## Saving a query as a template {#save-query}
 

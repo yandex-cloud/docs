@@ -1,9 +1,10 @@
 ## Представление аудитного лога {#log-name}
 
-В зависимости от [объекта назначения](../../audit-trails/concepts/trail.md#target) — [бакет](../../storage/concepts/bucket.md), [лог-группа](../../logging/concepts/log-group.md) или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) — изменяется структура и содержимое сообщения, в составе которого {{ at-name }} передает объекту назначения аудитные логи:
-* для бакета — файл, в котором находится массив [JSON-объектов](#scheme) аудитного лога;
-* для лог-группы — сообщение, в котором находится только один JSON-объект аудитного лога;
-* для потока данных — сообщение, в котором находится один или несколько JSON-объектов в формате [JSON Lines](https://jsonlines.org/).
+Формат доставки аудитных логов зависит от [объекта назначения](../../audit-trails/concepts/trail.md#target):
+
+* для [бакета](../../storage/concepts/bucket.md) — файл с массивом [JSON-объектов](#scheme) аудитного лога;
+* для {{ monium-logs-name }} — запись в [проекте каталога трейла](#monium);
+* для [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) — сообщение с одним или несколькими JSON-объектами в формате [JSON Lines](https://jsonlines.org/).
 
 ### Файл аудитного лога в бакете {#log-file-name}
 
@@ -11,18 +12,9 @@
 
 `<префикс_объекта>/<идентификатор_трейла>/<год>/<месяц>/<день>/<имя_файла>.json`
 
-### Запись в лог-группе {#logging-group-name}
+### Запись в {{ monium-name }} {#monium}
 
-Значения записей в лог-группе:
-* **Время** — значение поля `event_time` события.
-* **JSON** — JSON-объект события.
-* **Уровень** — вычисляется в зависимости от значения `event_status` события:
-  * `ERROR` — для значения `ERROR`;
-  * `WARN` — для значения `CANCELLED`;
-  * `INFO` — в остальных случаях.
-* **{{ ui-key.yacloud.logging.column_header-message }}** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
-
-{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
+Аудитные логи доступны в [проекте каталога трейла](../../audit-trails/concepts/trail.md#monium). Чтобы посмотреть поля события, [откройте логи в {{ monium-name }}](../../audit-trails/tutorials/search-monium.md) и разверните запись.
 
 ### Сообщение в поток данных {#data-stream-message}
 

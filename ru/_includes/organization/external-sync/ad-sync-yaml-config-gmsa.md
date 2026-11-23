@@ -93,5 +93,27 @@ sync_settings:
     groups:
       - "GroupName1"
       - "GroupName2"
+    attributes:
+      users:
+        combine_with: and
+        rules:
+          - field: mail
+            operator: ends_with
+            value: "@example.org"
+          - field: department
+            operator: equals
+            value: "Platform"
+      groups:
+        combine_with: or
+        rules:
+          - field: info
+            operator: equals
+            value: "sync-with-cloud"
+          - field: name
+            operator: starts_with
+            value: "RU-APP-"
+          - field: name
+            operator: starts_with
+            value: "RU-TEAM-"
   remove_user_behavior: "remove|block"
 ```

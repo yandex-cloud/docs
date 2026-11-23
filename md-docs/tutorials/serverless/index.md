@@ -56,7 +56,6 @@
 * [Настройка CI/CD между Yandex Cloud Functions и GitHub](ci-cd-github-functions.md)
 * [Настройка CI/CD в SourceCraft для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions](ci-cd-sourcecraft-github-actions.md)
 * [Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows](auto-upload.md)
-* [Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions](logging-functions.md)
 * [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](vision-ocrrecognizer-storage.md)
 * [Настройка рабочего процесса Workflows с интеграцией с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox](tracker-yandexgpt-postbox-integrations.md)
 

@@ -170,6 +170,8 @@ default:
   datalens-full-name: Yandex DataLens
   datalens-gallery: DataLens Gallery
   datalens-name: DataLens
+  datalens-platform-full-name: Yandex DataLens Platform
+  datalens-platform-short-name: DataLens Platform
   datalens-short-name: DataLens
   dataproc-full-name: Yandex Data Processing
   dataproc-name: Yandex Data Processing
@@ -327,6 +329,7 @@ default:
   link-datalens-main: https://datalens.ru
   link-datalens-main-promo: https://datalens.ru/promo
   link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
+  link-datalens-platform-main: https://datalens.ru/platform
   link-datalens-settings: https://datalens.ru/settings
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud

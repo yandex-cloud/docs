@@ -14,6 +14,8 @@
 
 Individual users can use {{ datalens-name }} free of charge with full access to all its features. Only collaboration is paid.
 
+You do not need to select or enable the free plan. If you use only one workspace, the service will remain free after your [trial period](#trial) ends, and you will still have access to your resources.
+
 ### Does a user need a seat if they only view dashboards? {#viewer}
 
 Yes. Any {{ datalens-name }} user requires a seat, regardless of their role.
@@ -75,3 +77,4 @@ No. In this case, you must purchase more seats to stay within the limit on the n
 [Public links](../../datalens/concepts/datalens-public.md) to dashboards or charts accessible without authentication do not count as queries against embedded private objects.
 
 For the number of queries from public objects, see the [Usage Analytics](../../datalens/operations/connection/create-usage-tracking.md) connection with usage statistics. You can find this number in the `Top Users (Requests)` table, the `_ANONYMOUS_USER_OF_PUBLIC_DATALENS_` row.
+

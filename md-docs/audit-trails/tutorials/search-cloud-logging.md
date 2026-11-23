@@ -1,70 +1,77 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Cloud Logging
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Поиск аудитных событий в Monium
 
-# Поиск событий Yandex Cloud в Cloud Logging
+# Поиск аудитных событий Yandex Cloud в Monium
+
+Выполните нужный запрос из примеров в текстовом режиме.
+
+{% list tabs group=audit-trails-destination %}
+
+- Monium {#monium}
+
+  1. [Откройте аудитные логи в Monium](search-monium.md) и выберите период поиска вверху страницы.
+  1. Чтобы перейти в текстовый режим, нажмите ![code](../../_assets/console-icons/code.svg) справа над строкой запроса.
+  1. Вставьте запрос и подставьте свои значения. В метке `project` укажите идентификатор каталога с трейлом после префикса `folder__`. Чтобы отобрать события, которые доставил конкретный трейл, добавьте в запрос условие `trail_id == "<идентификатор_трейла>"`.
+  1. Нажмите **Выполнить запрос**.
+
+{% endlist %}
+
+## Как проверить доставку событий {#check-delivery}
+
+Убедитесь, что тестовый трейл в статусе `Active` и его область сбора событий уровня конфигурации включает каталог с трейлом. [Измените описание трейла](../operations/manage-trail.md#update-trail). Выберите период, в который попадает время изменения, и выполните запрос:
+
+```text
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", trail_id=="<идентификатор_трейла>", meta.event_type=="yandex.cloud.audit.audittrails.UpdateTrail", meta.event_status=="DONE"}
+```
+
+Разверните запись и проверьте новое описание в поле `meta.details.description`.
+
+Чтобы найти событие создания трейла среди доставленных логов, выберите период, в который попадает время создания, и выполните запрос:
+
+```text
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", trail_id=="<идентификатор_трейла>", meta.event_type=="yandex.cloud.audit.audittrails.CreateTrail"}
+```
+
+В записи со статусом `DONE` сверьте идентификатор созданного трейла в поле `meta.details.trail_id`.
 
 ## Кто удалил каталог {#delete-folder}
 
-Поиск по идентификатору:
+Найдите событие удаления каталога [по идентификатору или имени](search-events-audit-logs/examples.md#delete-folder).
 
-```json
-json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
-```
-Поиск по названию:
-```json
-json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
-```
+## Кто создал, изменил, запустил, остановил, перезапустил или удалил виртуальную машину {#vm-manage}
 
-## Кто создал/остановил/перезапустил/удалил виртуальную машину {#vm-manage}
+Используйте [запрос для поиска операций по идентификатору виртуальной машины](search-events-audit-logs/examples.md#any-actions-vm).
 
-Поиск по идентификатору [виртуальной машины](../../glossary/vm.md):
+## Какие действия совершил пользователь за период {#user-actions}
 
-```json
-json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" or json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or json_payload.event_type="yandex.cloud.audit.compute.DeleteInstance" or json_payload.event_type="yandex.cloud.audit.compute.StartInstance" or json_payload.event_type="yandex.cloud.audit.compute.StopInstance" or json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
+Вверху страницы задайте начало и конец периода. Audit Trails передает в Monium время самого события. Чтобы найти действия пользователя, укажите его идентификатор:
+
+```text
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.authentication.subject_id=="<идентификатор_пользователя>"}
 ```
 
-## Какие действия совершал конкретный пользователь за период времени {#user-actions}
+Если известно имя пользователя, используйте [запрос для поиска действий по имени](search-events-audit-logs/examples.md#any-actions-user).
 
-Поиск по идентификатору пользователя:
+## Какие события произошли с ресурсами каталога {#folder-actions}
 
-```json
-json_payload.authentication.subject_id="<идентификатор_пользователя>" and json_payload.event_time>"2021-03-01" and json_payload.event_time<"2021-04-01"
+Каталог ресурса может отличаться от каталога с трейлом. Путь к ресурсу хранится в `meta.resource_metadata.path` как JSON-строка. Чтобы найти события по идентификатору каталога, укажите его в поле `resource_id` этого пути:
+
+```text
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.resource_metadata.path=~'.*"resource_id"[[:space:]]*:[[:space:]]*"<идентификатор_каталога>".*'}
 ```
 
-Поиск по имени пользователя:
+Если известно только имя каталога, найдите его в поле `resource_name`:
 
-```json
-json_payload.authentication.subject_name="<имя_пользователя>" and json_payload.event_time>"2021-03-01" and json_payload.event_time<"2021-04-01"
+```text
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.resource_metadata.path=~'.*"resource_name"[[:space:]]*:[[:space:]]*"<имя_каталога>".*'}
 ```
 
-## Поиск событий по объектам определенного каталога {#folder-actions}
+Имя может совпасть с именем облака или организации. Разверните запись и проверьте, что у элемента с этим именем указан `resource_type` со значением `resource-manager.folder`. Скопируйте его `resource_id` и используйте первый запрос, чтобы отобрать события именно этого каталога.
 
-Поиск по идентификатору каталога:
+## Какие операции завершились ошибкой доступа {#error}
 
-```json
-json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_id="<идентификатор_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_id="<идентификатор_каталога>"
-```
-
-Поиск по имени каталога:
-
-```json
-json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_name="<имя_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_name="<имя_каталога>"
-```
-
-## Поиск событий с ошибками {#error}
-
-Поиск ошибок, связанных с недостаточными правами на выполнение операции (Permission denied):
-
-```json
-json_payload.event_status = ERROR and json_payload.error.code = 7
-```
-
+Используйте [запрос для поиска ошибок доступа](search-events-audit-logs/examples.md#permission-denied).
 
 ## Что дальше {#whats-next}
 
-Ознакомьтесь с примерами событий в [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
-
-{% note info %}
-
-[Yandex Cloud Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в Yandex Cloud, собранных в публичном репозитории на GitHub.
-
-{% endnote %}
+* [Поля аудитного события](../concepts/format.md#scheme)
+* [Язык запросов Monium](../../monium/logs/query.md)

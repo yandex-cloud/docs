@@ -248,7 +248,7 @@ Fixed the behavior of the **Share query** button where it appeared before runnin
 
 1. Now you can [connect](../quickstart.md) to non-sharded {{ RD }} clusters.
 
-1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles to view query metadata and related access permissions.
+1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedQueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedQueries-auditor) roles to view query metadata and related access permissions.
 
 #### Improvements {#improvements-september-2024}
 

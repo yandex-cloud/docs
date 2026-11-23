@@ -6,7 +6,7 @@
 Вы можете создать трейл, который будет загружать аудитные логи [уровня конфигурации](../concepts/format.md) и [уровня сервисов](../concepts/format-data-plane.md) в один из [объектов назначения](../concepts/trail.md#target):
 
 * бакет [Yandex Object Storage](../../storage/index.md);
-* лог-группу [Yandex Cloud Logging](../../logging/index.md);
+* проект [Monium Logs](../concepts/trail.md#monium);
 * поток данных [Yandex Data Streams](../../data-streams/index.md).
 
 При создании трейла через CLI, Terraform или API в фильтрах событий уровня сервисов можно задать [условия по значениям полей](../concepts/trail.md#field-filters). Это позволяет уменьшить поток событий и объем хранимых логов.
@@ -44,13 +44,10 @@
      * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
      * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
 
-- Лог-группа Cloud Logging {#logging}
+- Monium {#monium}
 
-  1. [Создайте лог-группу](../../logging/operations/create-group.md), в которую будут загружаться аудитные логи.
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
-  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
-
-      * [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md).
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать аудитные логи:
 
       * [audit-trails.viewer](../security/index.md#at-viewer) на один из ресурсов, который определяет [нужную область сбора](../concepts/trail.md#collecting-area) логов:
       
@@ -64,6 +61,8 @@
      
      * [audit-trails.editor](../security/index.md#at-editor) на каталог, в котором будет находиться трейл.
      * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) на сервисный аккаунт для трейла.
+
+  Аудитные логи будут доступны в [проекте каталога](*monium-folder-project), в котором находится трейл. Для их просмотра нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на этот каталог.
 
 - Поток данных Data Streams {#data-streams}
 
@@ -103,6 +102,8 @@
 
 - Консоль управления {#console}
 
+  Для загрузки аудитных логов в Monium создайте трейл через [CLI](#cli), [Terraform](#tf) или [API](#api).
+
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите разместить трейл.
   1. [Перейдите](https://console.yandex.cloud/link/audit-trails) в сервис **Audit Trails**.
   1. Нажмите **Создать трейл**.
@@ -121,7 +122,6 @@
 
           * **Ключ шифрования** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
       
-      * **Cloud Logging** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
       * **Data Streams** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
 
   1. В блоке **Сбор логов с управляющего слоя**:
@@ -226,7 +226,7 @@
       * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором будет размещен трейл.
       * `destination` — настройки объекта назначения для аудитных логов.
 
-          Укажите только один объект назначения: `object_storage`, `cloud_logging` или `data_stream`.
+          Укажите только один объект назначения: `object_storage`, `monium` или `data_stream`.
 
           * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) Yandex Object Storage:
 
@@ -248,18 +248,15 @@
 
               * `aggregation_period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
 
-          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
-
-              Замените блок `destination` в шаблоне:
+          * `monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Замените блок `destination` в шаблоне:
 
               ```yaml
               destination:
-                cloud_logging:
-                  log_group_id: <идентификатор_лог_группы>
+                monium: {}
               ```
 
-              В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
-          
+              У объекта `monium` нет настраиваемых параметров.
+
           * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
 
               Замените блок `destination` в шаблоне:
@@ -371,10 +368,10 @@
 
   Для другого объекта назначения замените `--destination-bucket` одним из вариантов:
 
-  * Лог-группа:
+  * Monium:
 
       ```bash
-      --destination-log-group-id <идентификатор_лог_группы>
+      --destination-monium
       ```
 
   * Поток данных:
@@ -393,7 +390,7 @@
   * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
   * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета Yandex Object Storage, в который будут загружаться аудитные логи.
   
-      С этим параметром нельзя использовать параметры `--destination-log-group-id` и `--destination-yds-stream`.
+      С этим параметром нельзя использовать параметры `--destination-monium` и `--destination-yds-stream`.
   * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
   
       {% note info %}
@@ -404,12 +401,12 @@
   
   * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
   
-  * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
+  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в CLI версии 1.45.0 и новее. Параметр указывается без значения.
   
       С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
   * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
   
-      С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
+      С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-monium`.
   * `--destination-yds-database-id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams.
   * `--destination-yds-codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
   * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
@@ -497,19 +494,18 @@
       
           В зависимости от [области сбора](../concepts/trail.md#collecting-area) аудитных логов [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `audit-trails.viewer` на организацию, облако или каталог, в которых трейл будет собирать аудитные логи.
 
-      Укажите только один объект назначения: `storage_destination`, `logging_destination` или `data_stream_destination`.
+      Укажите только один объект назначения: `storage_destination`, `monium_destination` или `data_stream_destination`.
       
-      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
+      * `monium_destination` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в провайдере версии 0.249.0 и новее.
       
-          Замените блок `storage_destination` в шаблоне:
+          Замените блок `storage_destination` пустым блоком:
       
           ```hcl
-          logging_destination {
-            log_group_id = "<идентификатор_лог_группы>"
-          }
+          monium_destination {}
           ```
       
-          * `log_group_id` — [идентификатор лог-группы](../../logging/operations/get-group.md), в которую трейл будет сохранять аудитные логи.
+          У блока нет настраиваемых параметров.
+      
       * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) Yandex Object Storage:
       
           * `bucket_name` — имя бакета, куда трейл будет сохранять аудитные логи.
@@ -607,14 +603,18 @@
 
         Чтобы взять за основу настройки существующего трейла, получите их методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
 
+        Для загрузки в Monium передайте в поле `destination` объект:
+
+        ```json
+        {"monium": {}}
+        ```
+
     1. (Опционально) Дополните фильтр [условиями по значениям полей](../concepts/trail.md#field-filters) для нужного сервиса. Для этого в запросе REST API в элементе списка `filteringPolicy.dataEventsFilters` задайте правила `includeRules`, `excludeRules`. В gRPC API используйте `filtering_policy.data_events_filters`, `include_rules` и `exclude_rules`. Пример настройки фильтрации приведен в инструкции [Создание трейла](create-trail.md#example-control-data-planes).
     1. Создайте трейл методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
-Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения.
-
-При загрузке в Cloud Logging события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
+Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения. Логи, загруженные в Monium, можно [посмотреть в его интерфейсе](../tutorials/search-monium.md).
 
 ## Примеры {#examples}
 
@@ -1060,3 +1060,5 @@
 * Узнайте о [формате аудитных логов](../concepts/format.md).
 * Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
 * Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

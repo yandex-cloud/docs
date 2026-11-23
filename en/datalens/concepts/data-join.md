@@ -35,7 +35,7 @@ You cannot join data from different sources at a single dataset level.
 
 #### Adding tables {#ui-join}
 
-You can [join data](../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](../dataset/data-model.md#source) operator. Check out this [scenario](../tutorials/data-from-ch-visualization.md#step2) for a use case of joining data by adding tables.
+You can [join data](../dataset/create-dataset.md#links) through the dataset creation interface by dragging tables to the workspace and configuring links between them using the [JOIN](../dataset/data-model.md#source) operator. Check out this [scenario](../tutorials/data-from-ch-visualization.md#create-dataset) for a use case of joining data by adding tables.
 
 {% include [data-join-duplicate-fields-note](../../_includes/datalens/datalens-data-join-duplicate-fields-note.md) %}
 
@@ -51,12 +51,12 @@ In a dataset, you can add an [ad-hoc SQL query](../dataset/settings.md#sql-reque
 
 #### QL chart {#sql-chart}
 
-[QL charts](chart/index.md#sql-charts) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate dataset object; instead, it generates one on the fly and displays it in the preview panel. For more information, see [{#T}](../operations/chart/create-sql-chart.md).
+[QL charts](chart/ql-charts.md) are charts created from a connection if there is a database at the other end of the connection. Running a SQL query does not create a separate dataset object; instead, it generates one on the fly and displays it in the preview panel. For more information, see [{#T}](../operations/chart/create-sql-chart.md).
 
 
 #### Multi-dataset charts {#datasets-chart}
 
-[Multi-dataset charts](chart/index.md#multi-dataset-charts) are charts visualizing data from different datasets. Queries for each dataset are processed independently of each other. For more information, see [{#T}](../operations/chart/create-multidataset-chart.md).
+[Multi-dataset charts](chart/multidataset-chart.md) are charts visualizing data from different datasets. Queries for each dataset are processed independently of each other. For more information, see [{#T}](../operations/chart/create-multidataset-chart.md).
 
 
 ### Selector link level {#selector-join}

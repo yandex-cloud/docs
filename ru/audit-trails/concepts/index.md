@@ -5,10 +5,10 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 # Обзор сервиса {{ at-full-name }}
 
-{{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](./events.md) и [аудитные логи уровня сервисов](./events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}:
+{{ at-full-name }} позволяет собирать [аудитные логи уровня конфигурации](./events.md) и [аудитные логи уровня сервисов](./events-data-plane.md) ресурсов {{ yandex-cloud }} и загружать их в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}, {{ monium-logs-name }} или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}:
 
 * [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket).
-* [Загрузка аудитных логов в {{ cloud-logging-name }}](../operations/create-trail.md#logging).
+* [Загрузка аудитных логов в {{ monium-logs-name }}](../operations/create-trail.md#monium).
 * [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams).
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события {{ yandex-cloud }}:
@@ -38,9 +38,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 В сервисе действуют [квоты и лимиты](limits.md).
 
-Если вы загружаете аудитные логи в лог-группу или поток данных, то их размер не должен превышать как лимиты {{ at-name }}, так и лимиты сервисов [{{ cloud-logging-full-name }}](../../logging/concepts/limits.md) и [{{ yds-full-name }}](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
-
-{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
+Если вы загружаете аудитные логи в поток данных, их размер не должен превышать лимиты {{ at-name }} и [{{ yds-full-name }}](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
 
 Рекомендуем также загружать аудитные логи в бакет {{ objstorage-name }}.
 

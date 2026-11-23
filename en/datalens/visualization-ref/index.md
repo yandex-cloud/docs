@@ -7,7 +7,7 @@ description: In this article, you will learn about chart types available in {{ d
 
 Use DataLens visualizations to plot data in an intuitive way and analyze relations within data arrays.
 
-The visualization reference is there to assist you: select the suitable chart type and craft visuals for your reports based on metrics and their relations.
+The visualization reference is there to assist you: select the suitable chart type and craft visuals for your reports based on measures and their relations.
 
 
 
@@ -44,11 +44,11 @@ The following types of charts are available in {{ datalens-full-name }}:
 - Tables
 
   * [Table](table-chart.md)
-  * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
+  * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/ql-charts.md)
 
 - Geographical map
 
-  * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
+  * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/ql-charts.md)
 
     * [Point map](point-map-chart.md)
     * [Point map with clusters](cluster-point-map-chart.md)

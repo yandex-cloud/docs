@@ -22,7 +22,7 @@ Tables are good for detailed analytics (a deep dive into figures) and problem de
 * [Creating a pivot table](#create-diagram)
 * [Additional settings](#additional-settings)
 
-### Features
+### Features {#features}
 
 Here is how a pivot table is different from a flat [table](table-chart.md):
 
@@ -104,7 +104,7 @@ Filters | Dimension or measure. It is used as a filter.
 
 {% note info %}
 
-Not supported in [QL charts](../concepts/chart/index.md#sql-charts).
+Not supported in [QL charts](../concepts/chart/ql-charts.md).
 
 {% endnote %}
 

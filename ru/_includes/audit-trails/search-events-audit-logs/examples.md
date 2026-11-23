@@ -1,8 +1,15 @@
-В этом разделе собраны наиболее частые запросы для поиска событий в аудитных логах для различных ресурсов {{ yandex-cloud }}. Чтобы получить нужные события, выполните запрос из приведенных примеров.
+Чтобы найти события по ресурсам и операциям, [откройте аудитные логи в {{ monium-name }}](../../../audit-trails/tutorials/search-monium.md) и выберите период поиска. [Перейдите в текстовый режим](../../../audit-trails/tutorials/search-cloud-logging.md) и выполните нужный запрос.
+
+В каждом запросе замените `<идентификатор_каталога_трейла>` на идентификатор каталога, в котором находится трейл. Чтобы отобрать события, доставленные конкретным трейлом, добавьте условие `trail_id=="<идентификатор_трейла>"`.
+
+Для логов в бакете {{ objstorage-name }} используйте [примеры поиска с помощью jq](../../../audit-trails/tutorials/search-bucket.md#search).
+
+Выберите сценарий поиска.
 
 **Инфраструктура и сеть**
+
 * [{{ compute-full-name }}](#compute)
-    * [Любые действия с виртуальной машиной](#any-actions-vm)
+    * [Основные операции с виртуальной машиной](#any-actions-vm)
     * [Добавление дополнительного интерфейса к виртуальной машине](#attach-additional-interface-vm)
     * [Добавление доступа к серийной консоли виртуальной машины](#add-access-serial-console-vm)
     * [Создание или изменение виртуальной машины с включенным получением токена через AWS IMDSv1](#create-vm-aws-imdsv1)
@@ -12,6 +19,7 @@
     * [Создание или изменение группы безопасности](#create-security-group)
 
 **Мониторинг и управление ресурсами**
+
 * [{{ org-full-name }}](#organization)
     * [Удаление каталога](#delete-folder)
     * [Создание федерации](#create-federation)
@@ -20,25 +28,28 @@
     * [Обнаружение облачного секрета в открытом доступе](#detect-leaked-credential)
 
 **Контейнеры**
+
 * [{{ managed-k8s-full-name }}](#k8s)
-    * [Создание кластера с публичным IP-адресом мастера](#create-k8s-with-public-ip-for-master)
-    * [Создание кластера без группы безопасности для мастера](#create-k8s-without-security-group-for-master)
-    * [Создание кластера без автоматического обновления мастеров](#create-k8s-without-autoupgrade-for-master)
-    * [Создание кластера без шифрования etcd](#create-k8s-without-etcd-encryption)
-    * [Создание кластера без сетевых политик](#create-k8s-without-network-policy)
-    * [Создание группы узлов c публичными IP-адресами](#create-k8s-with-public-ip-for-node-group)
-    * [Создание кластера без автоматического обновления группы узлов](#create-k8s-without-autoupgrade-for-node-group)
+    * [Создание кластера с публичным IPv4-адресом мастера](#create-k8s-with-public-ip-for-master)
+    * [Создание или изменение кластера без группы безопасности для мастера](#create-k8s-without-security-group-for-master)
+    * [Создание или изменение кластера без автоматического обновления мастера](#create-k8s-without-autoupgrade-for-master)
+    * [Создание кластера без ключа KMS для шифрования секретов](#create-k8s-without-etcd-encryption)
+    * [Создание кластера без контроллера сетевых политик](#create-k8s-without-network-policy)
+    * [Создание группы узлов с публичными IPv4-адресами](#create-k8s-with-public-ip-for-node-group)
+    * [Создание или изменение группы узлов без автоматического обновления](#create-k8s-without-autoupgrade-for-node-group)
 * [{{ container-registry-full-name }}](#container-registry)
     * [Обнаружение критических уязвимостей при сканировании образа](#detect-critical-vulnerabilities)
 
 **Платформа данных**
+
 * [{{ objstorage-full-name }}](#object-storage)
     * [Изменение политики доступа к бакету](#update-bucket-policy)
     * [Открытие публичного доступа при создании или изменении бакета](#public-access-bucket)
-* [Управляемые базы данных (MDB)](#mdb)
-    * [Создание или изменение пользователя для MDB](#create-user)
+* [{{ mpg-full-name }} и {{ mmy-full-name }}](#mdb)
+    * [Создание или изменение пользователя базы данных](#create-user)
 
 **Безопасность**
+
 * [{{ kms-full-name }}](#kms)
     * [Изменение ролей для KMS-ключей](#update-key-access-bindings)
 * [{{ iam-full-name }}](#iam)
@@ -51,32 +62,25 @@
 
 **Поиск ошибок**
 
-[Поиск ошибок permission denied](#permission-denied)
+[Поиск ошибок доступа](#permission-denied)
 
 ## Инфраструктура и сеть {#infrastructure-and-network}
 
 ### {{ compute-full-name }} {#compute}
 
-#### Любые действия с виртуальной машиной {#any-actions-vm}
+#### Основные операции с виртуальной машиной {#any-actions-vm}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Укажите идентификатор виртуальной машины. Запрос отбирает события создания, изменения, запуска, остановки, перезапуска и удаления.
 
-    ```sql
-    json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (
-    json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.DeleteInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.StartInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.StopInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance|{{ at-event-prefix }}.audit.compute.UpdateInstance|{{ at-event-prefix }}.audit.compute.StartInstance|{{ at-event-prefix }}.audit.compute.StopInstance|{{ at-event-prefix }}.audit.compute.RestartInstance|{{ at-event-prefix }}.audit.compute.DeleteInstance", meta.details.instance_id=="<идентификатор_виртуальной_машины>"}
     ```
 
-    Идентификатор можно запросить со списком виртуальных машин в каталоге.
-
+    В найденной записи проверьте тип операции в `meta.event_type` и идентификатор пользователя или сервисного аккаунта в `meta.authentication.subject_id`.
 
 {% endlist %}
 
@@ -84,12 +88,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.compute.AttachInstanceNetworkInterface"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.compute.AttachInstanceNetworkInterface"}
     ```
 
 {% endlist %}
@@ -98,15 +100,21 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Если в записи есть поле `metadata_serial_port_enable`, отберите операции со значением `1`.
 
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" and
-    json_payload.details.metadata_serial_port_enable="1"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance|{{ at-event-prefix }}.audit.compute.UpdateInstance", meta.details.metadata_serial_port_enable=="1"}
     ```
+
+    Если в записи сохранены только имена ключей метаданных, найдите события с ключом `serial-port-enable`.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance|{{ at-event-prefix }}.audit.compute.UpdateInstance", meta.details.metadata_keys=*'"serial-port-enable"'}
+    ```
+
+    Текущее состояние доступа можно проверить в метаданных ВМ. Значение `serial-port-enable=1` означает, что доступ включен.
 
 {% endlist %}
 
@@ -114,14 +122,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    (json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or
-    json_payload.event_type="yandex.cloud.audit.compute.CreateInstance") and
-    json_payload.details.metadata_options.aws_v1_http_token="ENABLED"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance|{{ at-event-prefix }}.audit.compute.UpdateInstance", meta.details.metadata_options.aws_v1_http_token=="ENABLED"}
     ```
 
 {% endlist %}
@@ -132,12 +136,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.request_metadata.remote_address = "<IP-адрес>"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.request_metadata.remote_address=="<ip_адрес>"}
     ```
 
 {% endlist %}
@@ -146,12 +148,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.network.AddressAttached"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.network.AddressAttached", meta.details.type=="EXTERNAL", meta.details.instance_id="*"}
     ```
 
 {% endlist %}
@@ -160,13 +160,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.network.CreateSecurityGroup" or
-    json_payload.event_type="yandex.cloud.audit.network.UpdateSecurityGroup"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.network.CreateSecurityGroup|{{ at-event-prefix }}.audit.network.UpdateSecurityGroup"}
     ```
 
 {% endlist %}
@@ -179,21 +176,21 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Поиск по идентификатору:
+    Для поиска по идентификатору каталога используйте поле `meta.details.folder_id`.
 
-    ```json
-    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.details.folder_id=="<идентификатор_каталога>"}
     ```
 
-    Поиск по имени:
-    ```json
-    json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
+    Для поиска по имени каталога используйте поле `meta.details.folder_name`.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.details.folder_name=="<имя_каталога>"}
     ```
 
-    Имя каталога можно запросить со списком каталогов в облаке.
-
+    Чтобы узнать, кто удалил каталог, проверьте идентификатор в `meta.authentication.subject_id`. Если в событии передано имя, оно указано в `meta.authentication.subject_name`.
 
 {% endlist %}
 
@@ -201,12 +198,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.organizationmanager.saml.CreateFederation"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.organizationmanager.saml.CreateFederation"}
     ```
 
 {% endlist %}
@@ -215,12 +210,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.organizationmanager.saml.UpdateFederation"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.organizationmanager.saml.UpdateFederation"}
     ```
 
 {% endlist %}
@@ -229,12 +222,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.organizationmanager.saml.CreateCertificate"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.organizationmanager.saml.CreateCertificate"}
     ```
 
 {% endlist %}
@@ -243,12 +234,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.organizationmanager.DetectLeakedCredential"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.iam.DetectLeakedCredential|{{ at-event-prefix }}.audit.organizationmanager.DetectLeakedCredential"}
     ```
 
 {% endlist %}
@@ -257,112 +246,123 @@
 
 ### {{ managed-k8s-full-name }} {#k8s}
 
-#### Создание кластера с публичным IP-адресом мастера {#create-k8s-with-public-ip-for-master}
+#### Создание кластера с публичным IPv4-адресом мастера {#create-k8s-with-public-ip-for-master}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Отберите события успешного создания кластера, в которых указан внешний IPv4-эндпоинт мастера.
 
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.k8s.CreateCluster" and
-    json_payload.request_parameters.master_spec.zonal_master_spec.external_v4_address_spec.address exists
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.k8s.CreateCluster", meta.event_status=="DONE", meta.details.master.endpoints.external_v4_endpoint="*"}
     ```
 
 {% endlist %}
 
-#### Создание кластера без группы безопасности для мастера {#create-k8s-without-security-group-for-master}
+#### Создание или изменение кластера без группы безопасности для мастера {#create-k8s-without-security-group-for-master}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Отберите события, в которых список групп безопасности мастера отсутствует.
 
-    ```sql
-    (json_payload.event_type = "yandex.cloud.audit.k8s.CreateCluster" or
-    json_payload.event_type = "yandex.cloud.audit.k8s.UpdateCluster") and not
-    json_payload.request_parameters.master_spec.security_group_ids exists
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.k8s.CreateCluster|{{ at-event-prefix }}.audit.k8s.UpdateCluster", meta.event_status=="DONE", meta.details.cluster_id="*", meta.details.master.security_group_ids="-"}
+    ```
+
+    Если пустой список записан как JSON-строка, используйте другой запрос.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.k8s.CreateCluster|{{ at-event-prefix }}.audit.k8s.UpdateCluster", meta.event_status=="DONE", meta.details.cluster_id="*", meta.details.master.security_group_ids=~'^\[[[:space:]]*\]$'}
+    ```
+
+    Проверьте настройки групп безопасности мастера у найденных кластеров.
+
+{% endlist %}
+
+#### Создание или изменение кластера без автоматического обновления мастера {#create-k8s-without-autoupgrade-for-master}
+
+{% list tabs group=tools %}
+
+- {{ monium-name }} {#monium}
+
+    Отберите события, в которых автоматическое обновление мастера выключено или поле `auto_upgrade` отсутствует.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.k8s.CreateCluster|{{ at-event-prefix }}.audit.k8s.UpdateCluster", meta.event_status=="DONE", meta.details.cluster_id="*", meta.details.master.maintenance_policy.auto_upgrade="false|-"}
+    ```
+
+    Если поле отсутствует, проверьте политику обновлений кластера.
+
+{% endlist %}
+
+#### Создание кластера без ключа KMS для шифрования секретов {#create-k8s-without-etcd-encryption}
+
+{% list tabs group=tools %}
+
+- {{ monium-name }} {#monium}
+
+    Отберите события успешного создания кластера, в которых отсутствует идентификатор ключа шифрования секретов.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.k8s.CreateCluster", meta.event_status=="DONE", meta.details.cluster_id="*", meta.details.kms_provider.key_id="-"}
     ```
 
 {% endlist %}
 
-#### Создание кластера без автоматического обновления мастеров {#create-k8s-without-autoupgrade-for-master}
+#### Создание кластера без контроллера сетевых политик {#create-k8s-without-network-policy}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Отберите события успешного создания кластера, в которых отсутствуют поставщик сетевых политик и режим маршрутизации Cilium.
 
-    ```sql
-    (json_payload.event_type = "yandex.cloud.audit.k8s.CreateCluster" or
-    json_payload.event_type = "yandex.cloud.audit.k8s.UpdateCluster") and not
-    json_payload.request_parameters.master_spec.maintenance_policy.auto_upgrade exists
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.k8s.CreateCluster", meta.event_status=="DONE", meta.details.cluster_id="*", meta.details.network_policy.provider="-", meta.details.cilium.routing_mode="-"}
     ```
+
+    Чтобы подтвердить результат, проверьте [настройки сетевых политик](../../../managed-kubernetes/concepts/network-policy.md) кластера.
 
 {% endlist %}
 
-#### Создание кластера без шифрования etcd {#create-k8s-without-etcd-encryption}
+#### Создание группы узлов с публичными IPv4-адресами {#create-k8s-with-public-ip-for-node-group}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Найдите события создания группы узлов с настройками публичного IPv4-адреса в шаблоне узлов.
 
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.k8s.CreateCluster" and not
-    json_payload.request_parameters.kms_provider.key_id exists
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.k8s.CreateNodeGroup", meta.event_status=="DONE", meta.details.node_template.v4_address_spec.one_to_one_nat_spec.ip_version="*"}
     ```
+
+    Если параметры адресов хранятся в списке сетевых интерфейсов, найдите записи с `one_to_one_nat_spec`.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.k8s.CreateNodeGroup", meta.event_status=="DONE", meta.details.node_template.network_interface_specs=*'"one_to_one_nat_spec"'}
+    ```
+
+    Разверните запись и проверьте, что `one_to_one_nat_spec` задан в `primary_v4_address_spec`.
 
 {% endlist %}
 
-#### Создание кластера без сетевых политик {#create-k8s-without-network-policy}
+#### Создание или изменение группы узлов без автоматического обновления {#create-k8s-without-autoupgrade-for-node-group}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Отберите события, в которых автоматическое обновление группы узлов выключено или поле `auto_upgrade` отсутствует.
 
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.k8s.CreateCluster" and not
-    json_payload.request_parameters.network_policy.provider exists
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.k8s.CreateNodeGroup|{{ at-event-prefix }}.audit.k8s.UpdateNodeGroup", meta.event_status=="DONE", meta.details.node_group_id="*", meta.details.maintenance_policy.auto_upgrade="false|-"}
     ```
 
-{% endlist %}
-
-#### Создание группы узлов c публичными IP-адресами {#create-k8s-with-public-ip-for-node-group}
-
-{% list tabs group=tools %}
-
-- {{ cloud-logging-full-name }} {#cloud-logging}
-
-    Используйте фильтр:
-
-    ```sql
-    (json_payload.event_type = "yandex.cloud.audit.k8s.CreateNodeGroup" or
-    json_payload.event_type = "yandex.cloud.audit.k8s.CreateNodeGroup") and
-    json_payload.request_parameters.node_template.v4_address_spec.one_to_one_nat_spec exists
-    ```
-
-{% endlist %}
-
-#### Создание кластера без автоматического обновления группы узлов {#create-k8s-without-autoupgrade-for-node-group}
-
-{% list tabs group=tools %}
-
-- {{ cloud-logging-full-name }} {#cloud-logging}
-
-    Используйте фильтр:
-
-    ```sql
-    (json_payload.event_type = "yandex.cloud.audit.k8s.CreateNodeGroup" or
-    json_payload.event_type = "yandex.cloud.audit.k8s.UpdateNodeGroup") and not
-    json_payload.request_parameters.maintenance_policy.auto_upgrade exists
-    ```
+    Если поле отсутствует, проверьте политику обновлений группы узлов.
 
 {% endlist %}
 
@@ -372,13 +372,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.containerregistry.ScanImage" and
-    json_payload.details.vulnerability_stats.critical > 0
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.containerregistry.ScanImage", meta.details.vulnerability_stats.critical>0}
     ```
 
 {% endlist %}
@@ -391,12 +388,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.storage.BucketPolicyUpdate"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate"}
     ```
 
 {% endlist %}
@@ -405,34 +400,46 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Чтобы найти создание бакета с публичным доступом, отберите события создания и проверьте в `meta.details.acl.grants` [разрешения, выданные публичным группам](../../../storage/concepts/acl.md#public-groups).
 
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.storage.BucketUpdate" and
-    (json_payload.details.objects_access: "true" or
-    json_payload.details.settings_read_access: "true" or
-    json_payload.details.list_access: "true")
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.storage.BucketCreate", meta.event_status=="DONE"}
+    ```
+
+    Чтобы найти изменения настроек публичного доступа, выполните отдельный запрос для каждого вида доступа.
+
+    Чтение объектов.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.storage.BucketUpdate", meta.event_status=="DONE", meta.details.objects_access=="true"}
+    ```
+
+    Чтение списка объектов.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.storage.BucketUpdate", meta.event_status=="DONE", meta.details.list_access=="true"}
+    ```
+
+    Чтение настроек бакета.
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.storage.BucketUpdate", meta.event_status=="DONE", meta.details.settings_read_access=="true"}
     ```
 
 {% endlist %}
 
-### Управляемые базы данных (MDB) {#mdb}
+### {{ mpg-full-name }} и {{ mmy-full-name }} {#mdb}
 
-#### Создание или изменение пользователя для MDB {#create-user}
+#### Создание или изменение пользователя базы данных {#create-user}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type = "yandex.cloud.audit.mdb.postgresql.CreateUser" or
-    json_payload.event_type = "yandex.cloud.audit.mdb.postgresql.UpdateUser" or
-    json_payload.event_type = "yandex.cloud.audit.mdb.mysql.UpdateUser" or
-    json_payload.event_type = "yandex.cloud.audit.mdb.mysql.CreateUser"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.mdb.postgresql.CreateUser|{{ at-event-prefix }}.audit.mdb.postgresql.UpdateUser|{{ at-event-prefix }}.audit.mdb.mysql.CreateUser|{{ at-event-prefix }}.audit.mdb.mysql.UpdateUser"}
     ```
 
 {% endlist %}
@@ -445,15 +452,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.kms.UpdateSymmetricKeyAccessBindings" or
-    json_payload.event_type="yandex.cloud.audit.kms.SetSymmetricKeyAccessBindings" or
-    json_payload.event_type="yandex.cloud.audit.kms.UpdateAsymmetricEncryptionKeyAccessBindings" or
-    json_payload.event_type="yandex.cloud.audit.kms.SetAsymmetricEncryptionKeyAccessBindings"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.kms.UpdateSymmetricKeyAccessBindings|{{ at-event-prefix }}.audit.kms.SetSymmetricKeyAccessBindings|{{ at-event-prefix }}.audit.kms.asymmetricencryption.UpdateAsymmetricEncryptionKeyAccessBindings|{{ at-event-prefix }}.audit.kms.asymmetricencryption.SetAsymmetricEncryptionKeyAccessBindings"}
     ```
 
 {% endlist %}
@@ -464,17 +466,13 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Укажите даты начала и окончания периода в интерфейсе {{ monium-name }}. Отберите события по имени пользователя.
 
-    ```sql
-    json_payload.authentication.subject_name="<имя_пользователя>" and
-    json_payload.event_time>"<дата_начала_периода>" and
-    json_payload.event_time<"<дата_окончания_периода>"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.authentication.subject_name=="<имя_пользователя>"}
     ```
-
-    Дата задается в формате `ГГГГ-ММ-ДД`.
 
 {% endlist %}
 
@@ -482,14 +480,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.iam.CreateAccessKey" or
-    json_payload.event_type="yandex.cloud.audit.iam.CreateKey" or
-    json_payload.event_type="yandex.cloud.audit.iam.CreateApiKey"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.iam.CreateAccessKey|{{ at-event-prefix }}.audit.iam.CreateKey|{{ at-event-prefix }}.audit.iam.CreateApiKey"}
     ```
 
 {% endlist %}
@@ -498,13 +492,15 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Укажите идентификатор роли, например `admin`. Найдите эту роль в списке изменений прав доступа.
 
-    ```sql
-    json_payload.details.access_binding_deltas.access_binding.role_id="<примитивная_роль>"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_status=="DONE", meta.details.access_binding_deltas=~'.*"role_id"[[:space:]]*:[[:space:]]*"<идентификатор_роли>".*'}
     ```
+
+    Разверните запись и проверьте, что для элемента с этой ролью указано действие `ADD`.
 
 {% endlist %}
 
@@ -514,12 +510,10 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
-
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.lockbox.UpdateSecretAccessBindings"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.lockbox.UpdateSecretAccessBindings"}
     ```
 
 {% endlist %}
@@ -528,28 +522,33 @@
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    Используйте фильтр:
+    Запрос применим, если трейл собирает [события уровня сервисов {{ lockbox-name }}](../../../lockbox/at-ref.md#data-plane-events).
 
-    ```sql
-    json_payload.event_type="yandex.cloud.audit.lockbox.GetPayload"
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type="{{ at-event-prefix }}.audit.lockbox.GetPayload|{{ at-event-prefix }}.audit.lockbox.GetPayloadEx"}
     ```
 
 {% endlist %}
 
 ## Поиск ошибок {#errors}
 
-### Поиск ошибок permission denied {#permission-denied}
-
-Поиск ошибок, связанных с недостаточными правами на выполнение операции (permission denied):
+### Поиск ошибок доступа {#permission-denied}
 
 {% list tabs group=tools %}
 
-- {{ cloud-logging-full-name }} {#cloud-logging}
+- {{ monium-name }} {#monium}
 
-    ```sql
-    json_payload.event_status = ERROR and json_payload.error.code = 7
+    Отберите операции со статусом `ERROR` и кодом ошибки `7` (`PERMISSION_DENIED`).
+
+    ```text
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_status=="ERROR", meta.error.code=="7"}
     ```
 
 {% endlist %}
+
+#### Полезные ссылки {#see-also}
+
+* [Язык запросов {{ monium-name }}](../../../monium/logs/query.md)
+* [Формат аудитного лога](../../../audit-trails/concepts/format.md)

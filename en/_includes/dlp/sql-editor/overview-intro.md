@@ -1,0 +1,1 @@
+A dedicated workspace for managing databases, tables, schemas, and sending queries, _SQL Editor_ runs directly in your browser without additional authentication, providing SQL command suggestions and highlighting errors as you type.

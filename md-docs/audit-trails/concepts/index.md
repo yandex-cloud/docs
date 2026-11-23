@@ -2,10 +2,10 @@
 
 # Обзор сервиса Yandex Audit Trails
 
-Yandex Audit Trails позволяет собирать [аудитные логи уровня конфигурации](events.md) и [аудитные логи уровня сервисов](events-data-plane.md) ресурсов Yandex Cloud и загружать их в [бакет](../../storage/concepts/bucket.md) Object Storage, [лог-группу](../../logging/concepts/log-group.md) Cloud Logging или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams:
+Yandex Audit Trails позволяет собирать [аудитные логи уровня конфигурации](events.md) и [аудитные логи уровня сервисов](events-data-plane.md) ресурсов Yandex Cloud и загружать их в [бакет](../../storage/concepts/bucket.md) Object Storage, Monium Logs или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams:
 
 * [Загрузка аудитных логов в бакет](../operations/create-trail.md#bucket).
-* [Загрузка аудитных логов в Cloud Logging](../operations/create-trail.md#logging).
+* [Загрузка аудитных логов в Monium Logs](../operations/create-trail.md#monium).
 * [Загрузка аудитных логов в поток данных](../operations/create-trail.md#data-streams).
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события Yandex Cloud:
@@ -35,9 +35,7 @@ Yandex Audit Trails позволяет собирать [аудитные лог
 
 В сервисе действуют [квоты и лимиты](limits.md).
 
-Если вы загружаете аудитные логи в лог-группу или поток данных, то их размер не должен превышать как лимиты Audit Trails, так и лимиты сервисов [Yandex Cloud Logging](../../logging/concepts/limits.md) и [Yandex Data Streams](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
-
-При загрузке в Cloud Logging события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
+Если вы загружаете аудитные логи в поток данных, их размер не должен превышать лимиты Audit Trails и [Yandex Data Streams](../../data-streams/concepts/limits.md). При превышении лимитов информация в аудитных логах событий большого размера будет неполной.
 
 Рекомендуем также загружать аудитные логи в бакет Object Storage.
 

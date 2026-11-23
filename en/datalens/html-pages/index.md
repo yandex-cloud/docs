@@ -25,7 +25,7 @@ You can use one of these methods to upload an HTML page:
 
 - Navigation panel
 
-  1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main-skip-promo }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
   1. In the left-hand panel, select ![image](../../_assets/console-icons/file-code.svg) **HTML pages** and click **Create HTML page**.
   1. Select the workbook to store your HTML page in and click **Create**.
   1. Select an HTML page file or drag and drop it to the page.

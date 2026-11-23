@@ -312,8 +312,6 @@
 
  - [Настройка алертов и дашбордов в Monium](tutorials/audit-logs/alerts-monitoring.md)
 
- - [Настройка реагирования в Cloud Logging и Cloud Functions](tutorials/audit-logs/logging-functions.md)
-
  - [Загрузка аудитных логов в Managed Service for Elasticsearch](tutorials/audit-logs/trails-logs-opensearch.md)
 
 #### Загрузка аудитных логов в MaxPatrol SIEM

@@ -9,7 +9,7 @@ description: This section describes the roles required for specific actions, the
 There are two types of roles in {{ datalens-short-name }}:
 
 * For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
-* For [workbooks and collections](../workbooks-collections/index.md): These roles define the access tier to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
+* For [workbooks and collections](../workbooks-collections/index.md): These roles define the access tier to each workbook or collection. These roles apply to users who switched to workbooks and collections to store their objects in {{ datalens-short-name }}.
 
 ## Roles required to access the service {#service-roles}
 
@@ -51,7 +51,7 @@ To grant a user access to {{ datalens-short-name }}, [assign]({{ link-docs }}/or
 
 {% include [datalens-metaReader](../../_roles/datalens/metaReader.md) %}
 
-## Roles for workbooks, collections, and common objects {#workbooks-collections-roles}
+## Roles for workbooks, collections, and shared objects {#workbooks-collections-roles}
 
 These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). Roles allow you to define the access tier a user or group of users has to each workbook, collection, or common object.
 

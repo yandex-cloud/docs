@@ -19,7 +19,7 @@ For each item in the list, you can see the following properties:
 * Name of the dashboard or report for which the mailing list was created.
 * Mailing schedule.
 * Number of mailing list recipients.
-* ![image](../../_assets/console-icons/bell.svg) to subscribe to the mailing list or ![image](../../_assets/console-icons/bell-slash.svg) to unsubscribe from it. The ![image](../../_assets/console-icons/bell.svg) button is only shown to users who can subscribe to the mailing list: the editor and administrator by default, or any user. You can configure this setting on the **Recipient** tab.
+* ![image](../../_assets/console-icons/bell.svg) to subscribe to the mailing list or ![image](../../_assets/console-icons/bell-slash.svg) to unsubscribe from it. The ![image](../../_assets/console-icons/bell.svg) button is only shown to users who can subscribe to the mailing list: the editor and administrator by default, or any user. You can configure this setting on the **Recipients** tab.
 
 You can use the following filters at the top of the list:
 
@@ -27,7 +27,7 @@ You can use the following filters at the top of the list:
 * **Status**: Select a mailing list status, `Active`, `Paused`, or `Error`.
 * **Recipient**: Select a mailing list recipient.
 * **I'm subscribed**: Click to only show the mailing lists you are subscribed to.
-* ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Reset**: Click to clear all filters. This option is available when at least one filter is applied.
+* ![image](../../_assets/console-icons/arrow-rotate-left.svg) **Reset**: Click to reset all filters. This option is available when at least one filter is applied.
 
 When you [open the list of mailing lists](../workbooks-collections/workbooks-operations.md#maillist-list) from a workbook, the **Object** filter for this workbook will automatically be applied.
 
@@ -42,6 +42,7 @@ You can subscribe to or unsubscribe from a mailing list directly from the list v
      
 * To subscribe to a mailing list, click ![image](../../_assets/console-icons/bell.svg) (**Subscribe**) next to it. The ![image](../../_assets/console-icons/bell.svg) button is only shown to users who can subscribe to the mailing list: the editor and administrator by default, or any user. You can configure this setting on the **Recipients** tab.
 * To unsubscribe from a mailing list, click ![image](../../_assets/console-icons/bell-slash.svg) (**Unsubscribe**).
+
 
 {% note info %}
 

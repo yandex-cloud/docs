@@ -10,11 +10,15 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить трейл {#update-trail}
 
+{% include [note-lose-target-when-switch-trail](../../_includes/audit-trails/note-lose-target-when-switch-trail.md) %}
+
 В фильтры событий уровня сервисов можно добавить [условия по значениям полей](../concepts/trail.md#field-filters) через CLI, {{ TF }} или API. При изменении политики фильтрации передавайте ее целиком, сохраняя остальные нужные фильтры.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+  Для загрузки аудитных логов в {{ monium-name }} измените трейл через [CLI](#cli), [{{ TF }}](#tf) или [API](#api).
 
   Чтобы изменить трейл:
 
@@ -79,6 +83,14 @@ description: Следуя данной инструкции, вы сможете
     --new-name <новое_имя_трейла>
   ```
 
+  Чтобы переключить загрузку аудитных логов на {{ monium-name }}, выполните команду:
+
+  ```bash
+  yc audit-trails trail update \
+    --id <идентификатор_трейла> \
+    --destination-monium
+  ```
+
   Параметры команды:
 
   * `--name` — имя трейла, который требуется изменить. Вместо имени можно передать идентификатор трейла в параметре `--id`.
@@ -94,6 +106,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
+  Чтобы переключить загрузку на {{ monium-name }}, замените текущий блок назначения на `monium_destination {}`. Остальные настройки трейла сохраните.
+
   1. Чтобы изменить трейл, созданный с помощью {{ TF }}, откройте файл конфигурации {{ TF }} и измените фрагмент с описанием трейла:
 
       {% include [trail-tf-manifest](../../_includes/audit-trails/trail-tf-manifest.md) %}
@@ -102,7 +116,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
 
-      {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
+      {% include [trail-create-tf-destinations](../../_includes/audit-trails/trail-create-tf-destinations.md) %}
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
@@ -124,6 +138,8 @@ description: Следуя данной инструкции, вы сможете
 
     1. [Аутентифицируйтесь](../api-ref/authentication.md) в API и получите настройки трейла методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
     1. Измените нужные параметры трейла.
+
+        Чтобы переключить загрузку на {{ monium-name }}, передайте `"destination": {"monium": {}}` и включите `destination` в `updateMask` для REST API или `update_mask.paths` для gRPC API.
     1. {% include [field-filter-api](../../_includes/audit-trails/field-filter-api.md) %}
     1. Обновите трейл методом REST API [update](../api-ref/Trail/update.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Update](../api-ref/grpc/Trail/update.md). Передайте идентификатор трейла, обновленные параметры и маску изменений.
 

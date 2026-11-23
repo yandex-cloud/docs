@@ -545,10 +545,6 @@ items:
           - name: Настройка CI/CD с GitHub
             href: tutorials/ci-cd-github-functions.md
           - name: >-
-              Настройка реагирования в {{ cloud-logging-full-name }} и {{
-              sf-name }}
-            href: tutorials/logging-functions.md
-          - name: >-
               Разработка функций в Functions Framework и их развертывание в {{
               serverless-containers-full-name }}
             href: tutorials/functions-framework-to-container.md

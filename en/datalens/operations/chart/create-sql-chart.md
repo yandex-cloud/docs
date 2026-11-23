@@ -109,7 +109,7 @@ After the query runs, your data will be visualized.
 
 ## Adding selector parameters {#selector-parameters}
 
-In [QL charts](../../concepts/chart/index.md#sql-charts), you can control selector parameters from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
+In [QL charts](../../concepts/chart/ql-charts.md), you can control selector parameters from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
 To add a parameter:
 

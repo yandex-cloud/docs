@@ -3,19 +3,19 @@
 * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
 * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета {{ objstorage-full-name }}, в который будут загружаться аудитные логи.
 
-    С этим параметром нельзя использовать параметры `--destination-log-group-id` и `--destination-yds-stream`.
+    С этим параметром нельзя использовать параметры `--destination-monium` и `--destination-yds-stream`.
 * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
     {% include [note-bucket-prefix](./note-bucket-prefix.md) %}
 
 * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет {{ objstorage-full-name }}. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
 
-* `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую будут загружаться аудитные логи.
+* `--destination-monium` — загружать аудитные логи в [{{ monium-logs-name }}](../../audit-trails/concepts/trail.md#monium). Доступно в CLI версии 1.45.0 и новее. Параметр указывается без значения.
 
     С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
 * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут загружаться аудитные логи.
 
-    С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
+    С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-monium`.
 * `--destination-yds-database-id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}.
 * `--destination-yds-codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
 * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.

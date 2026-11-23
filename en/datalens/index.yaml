@@ -16,16 +16,73 @@ meta:
     - keyword: business metrics in {{ yandex-cloud }}
     - keyword: '{{ yandex-cloud }} analytics'
 blocks:
+  - type: header-block
+    title: Yandex DataLens documentation
+    centered: true
+    width: l
+    offset: l
+    indent:
+      top: xl
+      bottom: l
+    background:
+      image:
+        desktop: ../_assets/datalens/index/images/2.jpg
+        mobile: ../_assets/datalens/index/images/1.jpg
   - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
     title: "Yandex\_DataLens"
-    description: >-
-      Yandex DataLens is a business analytics tool for visualizing your data.
-      Connect to sources, build dashboards, and generate reports in the form of
-      interactive slide decks.
-
-
-      Track product and business metrics and share results with your team. Use
-      Neuroanalyst to analyze data and create visualizations.
+    centered: true
+    children:
+      - type: basic-card
+        title: BI system for business
+        text: You are in this section of the guides
+        url: concepts
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#FFC4AE'
+      - type: basic-card
+        title: Storing and processing data
+        url: ./datalens-platform/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    title: DataLens On-premises
+    centered: true
+    children:
+      - type: basic-card
+        title: BI system for business
+        url: https://datalens.ru/on-premises/docs/ru/concepts/
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Storing and processing data
+        text: Coming soon
+        url: ''
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
     colSizes:
       all: 12
       sm: 6
@@ -44,70 +101,13 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
-        title: Neuroanalyst
-        text: Your data interpretation and coding assistant
+        title: Pricing policy
+        text: Prices and cost calculation rules
         gravityIcon:
-          name: SparklesFill
+          name: Calculator
           color: text-color
-        urlTitle: Neuroanalyst
-        url: ./concepts/neuroanalyst
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Connections
-        text: Connect various data sources
-        gravityIcon:
-          name: Thunderbolt
-          color: text-color
-        urlTitle: Connections
-        url: concepts/connection/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Datasets
-        text: Describe the structure of data you get from the source
-        gravityIcon:
-          name: CirclesIntersection
-          color: text-color
-        urlTitle: Datasets
-        url: dataset/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Charts
-        text: >-
-          Build charts using the self-service visualization builder or use
-          JavaScript customization
-        gravityIcon:
-          name: ChartColumn
-          color: text-color
-        urlTitle: Charts
-        url: concepts/chart/index
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Dashboards
-        text: Keep your charts on the same page
-        gravityIcon:
-          name: LayoutCellsLarge
-          color: text-color
-        urlTitle: Dashboards
-        url: ./concepts/dashboard
-        size: s
-        controlPosition: content
-        animated: false
-      - type: basic-card
-        title: Reports
-        text: Make print-ready multipage documents
-        gravityIcon:
-          name: DisplayPulse
-          color: text-color
-        urlTitle: Reports
-        url: reports/index
+        urlTitle: Pricing policy
+        url: pricing
         size: s
         controlPosition: content
         animated: false
@@ -133,28 +133,67 @@ blocks:
         size: s
         controlPosition: content
         animated: false
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 6
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    title: "Data\_visualization\_in\_DataLens"
+    centered: true
+    children:
       - type: basic-card
-        title: Pricing policy
-        text: Prices and cost calculation rules
+        title: Neuroanalyst
+        text: Your data interpretation and coding assistant
         gravityIcon:
-          name: Calculator
+          name: SparklesFill
           color: text-color
-        urlTitle: Pricing policy
-        url: pricing
+        urlTitle: Neuroanalyst
+        url: ./concepts/neuroanalyst
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
       - type: basic-card
-        title: Courses
-        text: Available courses and training programs
+        title: Connections
+        text: Connect various data sources
         gravityIcon:
-          name: GraduationCap
+          name: Thunderbolt
           color: text-color
-        urlTitle: Courses
-        url: training
+        urlTitle: Connections
+        url: concepts/connection/index
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Datasets
+        text: Describe the structure of data you get from the source
+        gravityIcon:
+          name: CirclesIntersection
+          color: text-color
+        urlTitle: Datasets
+        url: dataset/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: HTML pages
+        text: Ready-made HTML pages in DataLens
+        gravityIcon:
+          name: Layers3Diagonal
+          color: text-color
+        urlTitle: DataLens Gallery
+        url: ./concepts/gallery
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
       - type: basic-card
         title: DataLens Gallery
         text: Ready-made dashboards for inspiration and business.
@@ -166,4 +205,43 @@ blocks:
         size: s
         controlPosition: content
         animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Charts
+        text: >-
+          Build charts using the self-service visualization builder or use
+          JavaScript customization
+        gravityIcon:
+          name: ChartColumn
+          color: text-color
+        urlTitle: Charts
+        url: concepts/chart/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Dashboards
+        text: Keep your charts on the same page
+        gravityIcon:
+          name: LayoutCellsLarge
+          color: text-color
+        urlTitle: Dashboards
+        url: ./concepts/dashboard
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Reports
+        text: Make print-ready multipage documents
+        gravityIcon:
+          name: DisplayPulse
+          color: text-color
+        urlTitle: Reports
+        url: reports/index
+        size: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
 links: []

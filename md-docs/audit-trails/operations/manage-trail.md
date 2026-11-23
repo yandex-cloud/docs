@@ -7,11 +7,19 @@
 
 ## Изменить трейл {#update-trail}
 
+{% note info %}
+
+При смене объекта назначения в существующем трейле часть событий может быть потеряна. Чтобы избежать потери данных, для каждого объекта создавайте свой трейл.
+
+{% endnote %}
+
 В фильтры событий уровня сервисов можно добавить [условия по значениям полей](../concepts/trail.md#field-filters) через CLI, Terraform или API. При изменении политики фильтрации передавайте ее целиком, сохраняя остальные нужные фильтры.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+  Для загрузки аудитных логов в Monium измените трейл через [CLI](#cli), [Terraform](#tf) или [API](#api).
 
   Чтобы изменить трейл:
 
@@ -78,6 +86,14 @@
     --new-name <новое_имя_трейла>
   ```
 
+  Чтобы переключить загрузку аудитных логов на Monium, выполните команду:
+
+  ```bash
+  yc audit-trails trail update \
+    --id <идентификатор_трейла> \
+    --destination-monium
+  ```
+
   Параметры команды:
 
   * `--name` — имя трейла, который требуется изменить. Вместо имени можно передать идентификатор трейла в параметре `--id`.
@@ -88,7 +104,7 @@
   * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
   * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета Yandex Object Storage, в который будут загружаться аудитные логи.
   
-      С этим параметром нельзя использовать параметры `--destination-log-group-id` и `--destination-yds-stream`.
+      С этим параметром нельзя использовать параметры `--destination-monium` и `--destination-yds-stream`.
   * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
   
       {% note info %}
@@ -99,12 +115,12 @@
   
   * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
   
-  * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
+  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в CLI версии 1.45.0 и новее. Параметр указывается без значения.
   
       С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
   * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
   
-      С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-log-group-id`.
+      С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-monium`.
   * `--destination-yds-database-id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams.
   * `--destination-yds-codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
   * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
@@ -137,6 +153,8 @@
   
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+
+  Чтобы переключить загрузку на Monium, замените текущий блок назначения на `monium_destination {}`. Остальные настройки трейла сохраните.
 
   1. Чтобы изменить трейл, созданный с помощью Terraform, откройте файл конфигурации Terraform и измените фрагмент с описанием трейла:
 
@@ -192,19 +210,18 @@
       
           В зависимости от [области сбора](../concepts/trail.md#collecting-area) аудитных логов [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `audit-trails.viewer` на организацию, облако или каталог, в которых трейл будет собирать аудитные логи.
 
-      Укажите только один объект назначения: `storage_destination`, `logging_destination` или `data_stream_destination`.
+      Укажите только один объект назначения: `storage_destination`, `monium_destination` или `data_stream_destination`.
       
-      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
+      * `monium_destination` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в провайдере версии 0.249.0 и новее.
       
-          Замените блок `storage_destination` в шаблоне:
+          Замените блок `storage_destination` пустым блоком:
       
           ```hcl
-          logging_destination {
-            log_group_id = "<идентификатор_лог_группы>"
-          }
+          monium_destination {}
           ```
       
-          * `log_group_id` — [идентификатор лог-группы](../../logging/operations/get-group.md), в которую трейл будет сохранять аудитные логи.
+          У блока нет настраиваемых параметров.
+      
       * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) Yandex Object Storage:
       
           * `bucket_name` — имя бакета, куда трейл будет сохранять аудитные логи.
@@ -299,6 +316,8 @@
 
     1. [Аутентифицируйтесь](../api-ref/authentication.md) в API и получите настройки трейла методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
     1. Измените нужные параметры трейла.
+
+        Чтобы переключить загрузку на Monium, передайте `"destination": {"monium": {}}` и включите `destination` в `updateMask` для REST API или `update_mask.paths` для gRPC API.
     1. (Опционально) Дополните фильтр [условиями по значениям полей](../concepts/trail.md#field-filters) для нужного сервиса. Для этого в запросе REST API в элементе списка `filteringPolicy.dataEventsFilters` задайте правила `includeRules`, `excludeRules`. В gRPC API используйте `filtering_policy.data_events_filters`, `include_rules` и `exclude_rules`. Пример настройки фильтрации приведен в инструкции [Создание трейла](create-trail.md#example-control-data-planes).
     1. Обновите трейл методом REST API [update](../api-ref/Trail/update.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Update](../api-ref/grpc/Trail/update.md). Передайте идентификатор трейла, обновленные параметры и маску изменений.
 

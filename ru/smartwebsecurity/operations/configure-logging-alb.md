@@ -40,7 +40,9 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.audit-trails.section_general-info }}** введите имя трейла, например `trail-sws`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Будут записываться все события {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
+  Трейл настроен на сбор событий {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
+
+  Для передачи подробных событий `SWSMatchedRequest` включите логирование в профиле безопасности и выберите выход `AUDIT_TRAILS`, как описано в [инструкции по настройке логирования через {{ sws-name }}](configure-logging.md#audit-trails). События `WafMatchedRule`, `WafMatchedExclusionRule` и `ArlMatchedRequest` формируются при соответствующих срабатываниях независимо от настроек логирования профиля.
 
   Другие способы включения записи событий описаны в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
@@ -58,25 +60,42 @@ description: Следуя данной инструкции, вы сможете
 
   Одна запись соответствует одному HTTP-запросу к L7-балансировщику. Результат проверки {{ sws-name }} содержится в поле `smartwebsecurity`. Описание вложенных полей приведено в [справочнике логов {{ alb-name }}](../../application-load-balancer/logs-ref.md).
 
-  Чтобы отбирать запросы по результату проверки, добавляйте условия по этим полям на [языке запросов {{ monium-name }}](../../monium/logs/query.md). В примерах не указаны метки проекта, сервиса и ресурса — сохраните `project`, `service` и `resource_id` в запросе.
+  Введите запрос в текстовом режиме на [языке запросов {{ monium-name }}](../../monium/logs/query.md). Укажите идентификаторы каталога и балансировщика. Метки указываются без префикса `labels.`, а поля метаинформации — с префиксом `meta.`.
 
   ### Фильтры для активных правил {#active-rule-filters}
 
-  Для поиска заблокированных запросов и запросов, направленных на капчу, используйте следующие значения полей внутри `smartwebsecurity`:
+  Например, чтобы найти запросы, направленные Smart Protection на JS-проверку, используйте фильтр:
 
-  * Базовые правила: `matched_rule.rule_type` — `RULE_CONDITION`, `matched_rule.verdict` — `DENY`.
-  * Smart Protection: `matched_rule.rule_type` — `SMART_PROTECTION`, `matched_rule.verdict` — `CAPTCHA`.
-  * WAF: `matched_rule.rule_type` — `WAF`, `matched_rule.verdict` — `DENY`.
-  * ARL: `advanced_rate_limiter.verdict` — `DENY`. Имя сработавшего правила указано в `advanced_rate_limiter.applied_quota_name`.
+  ```text
+  {
+    project="folder__<идентификатор_каталога>",
+    service="__application-load-balancer__",
+    resource_id="<идентификатор_балансировщика>",
+    meta.smartwebsecurity.matched_rule.rule_type="SMART_PROTECTION",
+    meta.smartwebsecurity.matched_rule.verdict="JS_CHALLENGE"
+  }
+  ```
+
+  Для других сценариев сохраните метки `project`, `service` и `resource_id` и замените дополнительные условия:
+
+  * Блокировка базовым правилом: `meta.smartwebsecurity.matched_rule.rule_type="RULE_CONDITION", meta.smartwebsecurity.matched_rule.verdict="DENY"`.
+  * Направление на капчу правилом Smart Protection: `meta.smartwebsecurity.matched_rule.rule_type="SMART_PROTECTION", meta.smartwebsecurity.matched_rule.verdict="CAPTCHA"`.
+  * Блокировка правилом WAF: `meta.smartwebsecurity.matched_rule.rule_type="WAF", meta.smartwebsecurity.matched_rule.verdict="DENY"`.
+  * Блокировка правилом ARL: `meta.smartwebsecurity.advanced_rate_limiter.verdict="DENY"`. Имя сработавшего правила указано в `meta.smartwebsecurity.advanced_rate_limiter.applied_quota_name`.
+  * Запрос без подходящего маршрута: `meta.error_details="no_route"`.
+  * Ответ `403` от бэкенда SolidWall WAF: `meta.backend_name="<имя_бэкенда>", meta.http_status="403"`.
+
+  В последнем примере укажите имя бэкенда SolidWall WAF. Такой фильтр отбирает ответы бэкенда с кодом `403`. Например, запрос, разрешенный {{ sws-name }} и ARL, может быть заблокирован SolidWall WAF. HTTP-код ответа не является вердиктом {{ sws-name }}.
 
   ### Фильтры для правил в режиме логирования {#dry-run-filters}
 
-  Для правил в режиме **Только логирование** проверяйте следующие поля внутри `smartwebsecurity`:
+  Для поиска результатов правил в режиме **Только логирование** добавьте к базовым меткам условие `meta.smartwebsecurity.dry_run_matched_rule.dry_run="true"`. При необходимости укажите тип правила в `meta.smartwebsecurity.dry_run_matched_rule.rule_type` и тестовый вердикт в `meta.smartwebsecurity.dry_run_matched_rule.verdict`. Тестовый вердикт может быть `ALLOW`. Наличия блока `dry_run_matched_rule` недостаточно: значение `dry_run` может быть `false`.
 
-  * Smart Protection: `dry_run_matched_rule.rule_type` — `SMART_PROTECTION`, `dry_run_matched_rule.verdict` — `CAPTCHA`.
-  * ARL: `advanced_rate_limiter.dry_run_exceeded_quota_names` — список правил, лимиты которых превышены.
+  В логах профиля безопасности поля `dry_run_matched_rule_*` записываются для тестовых вердиктов `DENY`, `CAPTCHA`, `JS_CHALLENGE` и `COOKIE_CHALLENGE`. При тестовом `ALLOW` эти поля отсутствуют, хотя запись о запросе может присутствовать. Итоговый `ALLOW` может сочетаться с тестовым `DENY`.
 
-  В режиме **Только логирование** правила ARL не блокируют запросы, поэтому вердикт `DENY` не подходит для их поиска. Если список `dry_run_exceeded_quota_names` пуст, лимиты правил в этом режиме не превышены.
+  Для правил ARL в режиме **Только логирование** список правил с превышенными лимитами находится в `meta.smartwebsecurity.advanced_rate_limiter.dry_run_exceeded_quota_names`.
+
+  Чтобы найти один запрос в логах профиля безопасности и балансировщика, используйте значение `alb_request_id` из лога профиля в условии `meta.request_id="<идентификатор_запроса>"` для лога балансировщика. Для поиска в логах профиля используйте метку `alb_request_id` и [селектор профиля безопасности](configure-logging.md#filtration).
 
 - {{ at-name }} {#at}
 

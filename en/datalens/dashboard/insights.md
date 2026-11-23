@@ -102,6 +102,7 @@ You can use Neuroanalyst on your dashboard for a dashboard tab or individual cha
 
 {% endlist %}
 
+
 Charts rendered by Neuroanalyst support the following actions:
 
 * Saving as is: Click **Save** and enter a name for the new chart.

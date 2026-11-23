@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 Вы можете создать трейл, который будет загружать аудитные логи [уровня конфигурации](../concepts/format.md) и [уровня сервисов](../concepts/format-data-plane.md) в один из [объектов назначения](../concepts/trail.md#target):
 
 * бакет [{{ objstorage-full-name }}](../../storage/index.yaml);
-* лог-группу [{{ cloud-logging-full-name }}](../../logging/index.yaml);
+* проект [{{ monium-logs-name }}](../concepts/trail.md#monium);
 * поток данных [{{ yds-full-name }}](../../data-streams/index.yaml).
 
 При создании трейла через CLI, {{ TF }} или API в фильтрах событий уровня сервисов можно задать [условия по значениям полей](../concepts/trail.md#field-filters). Это позволяет уменьшить поток событий и объем хранимых логов.
@@ -38,17 +38,16 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
 
-- Лог-группа {{ cloud-logging-name }} {#logging}
+- {{ monium-name }} {#monium}
 
-  1. [Создайте лог-группу](../../logging/operations/create-group.md), в которую будут загружаться аудитные логи.
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) для трейла.
-  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
-
-      * [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md).
+  1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать аудитные логи:
 
       {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
   1. {% include [required-account-roles](../../_includes/audit-trails/create-trail/required-account-roles.md) %}
+
+  Аудитные логи будут доступны в [проекте каталога](*monium-folder-project), в котором находится трейл. Для их просмотра нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на этот каталог.
 
 - Поток данных {{ yds-name }} {#data-streams}
 
@@ -79,6 +78,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
+  Для загрузки аудитных логов в {{ monium-name }} создайте трейл через [CLI](#cli), [{{ TF }}](#tf) или [API](#api).
+
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
   1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
@@ -93,7 +94,6 @@ description: Следуя данной инструкции, вы сможете
 
           * **{{ ui-key.yacloud.audit-trails.title_kms-key }}** — ключ шифрования для бакета. Выбирать его необходимо, только если для бакета было включено шифрование.
       
-      * **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}** — лог-группа, которая [была создана ранее](#before-you-begin). В нее будут загружаться аудитные логи. Рекомендуется для быстрого сбора и анализа логов.
       * **{{ ui-key.yacloud.audit-trails.label_dataStream }}** — поток данных, который [был создан ранее](#before-you-begin). В этот поток будут загружаться аудитные логи. Рекомендуется для потоковой передачи логов в другие сервисы или системы.
 
   1. {% include [control-plane-on-console](../../_includes/audit-trails/control-plane-on-console.md) %}
@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
       * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором будет размещен трейл.
       * `destination` — настройки объекта назначения для аудитных логов.
 
-          Укажите только один объект назначения: `object_storage`, `cloud_logging` или `data_stream`.
+          Укажите только один объект назначения: `object_storage`, `monium` или `data_stream`.
 
           * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) {{ objstorage-full-name }}:
 
@@ -152,18 +152,15 @@ description: Следуя данной инструкции, вы сможете
 
               * `aggregation_period` — период агрегации событий при выгрузке в бакет {{ objstorage-full-name }}. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
 
-          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
-
-              Замените блок `destination` в шаблоне:
+          * `monium` — загружать аудитные логи в [{{ monium-logs-name }}](../concepts/trail.md#monium). Замените блок `destination` в шаблоне:
 
               ```yaml
               destination:
-                cloud_logging:
-                  log_group_id: <идентификатор_лог_группы>
+                monium: {}
               ```
 
-              В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
-          
+              У объекта `monium` нет настраиваемых параметров.
+
           * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
 
               Замените блок `destination` в шаблоне:
@@ -208,10 +205,10 @@ description: Следуя данной инструкции, вы сможете
 
   Для другого объекта назначения замените `--destination-bucket` одним из вариантов:
 
-  * Лог-группа:
+  * {{ monium-name }}:
 
       ```bash
-      --destination-log-group-id <идентификатор_лог_группы>
+      --destination-monium
       ```
 
   * Поток данных:
@@ -243,7 +240,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
 
-      {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
+      {% include [trail-create-tf-destinations](../../_includes/audit-trails/trail-create-tf-destinations.md) %}
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
@@ -268,14 +265,18 @@ description: Следуя данной инструкции, вы сможете
 
         Чтобы взять за основу настройки существующего трейла, получите их методом REST API [get](../api-ref/Trail/get.md) или вызовом gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
 
+        Для загрузки в {{ monium-name }} передайте в поле `destination` объект:
+
+        ```json
+        {"monium": {}}
+        ```
+
     1. {% include [field-filter-api](../../_includes/audit-trails/field-filter-api.md) %}
     1. Создайте трейл методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
-Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения.
-
-{% include [logging-dublicate-events](../../_includes/audit-trails/logging-dublicate-events.md) %}
+Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения. Логи, загруженные в {{ monium-name }}, можно [посмотреть в его интерфейсе](../tutorials/search-monium.md).
 
 ## Примеры {#examples}
 
@@ -721,3 +722,5 @@ description: Следуя данной инструкции, вы сможете
 * Узнайте о [формате аудитных логов](../concepts/format.md).
 * Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
 * Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+
+[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

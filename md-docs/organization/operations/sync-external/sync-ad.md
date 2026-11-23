@@ -249,6 +249,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         ```
 
@@ -358,6 +380,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         ```
 
@@ -513,6 +557,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         ```
 
@@ -617,6 +683,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         ```
 
@@ -726,6 +814,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         ```
 
@@ -1212,6 +1322,100 @@
         Параметр `groups` влияет только на синхронизацию пользователей и не влияет на настройки синхронизации групп пользователей.
 
         {% endnote %}
+
+    * `attributes` — настройки фильтрации синхронизируемых пользователей и групп по атрибутам:
+
+        * `users` — набор правил фильтрации пользователей по атрибутам:
+
+            {% note info %}
+
+            Если в конфигурации агента заданы значения для полей `filter.organization_units` и `filter.groups`, фильтрация по атрибутам пользователей будет выполняться в отношении только тех пользователей, которые входят в Organization Units и группы, указанные в этих полях.
+
+            {% endnote %}
+
+            * `combine_with` — логика, с которой в фильтре применяются правила фильтрации пользователей по атрибутам. Возможные значения:
+              
+              * `and` — правила фильтрации пользователей применяются с логикой `И`.
+              * `or` — правила фильтрации пользователей применяются с логикой `ИЛИ`.
+            * `rules` — список правил фильтрации пользователей по атрибутам:
+
+                * `field` — имя атрибута пользователя в Active Directory. Возможные значения:
+
+                    * `distinguishedName`;
+                    * `name`;
+                    * `sAMAccountName`;
+                    * `userPrincipalName`;
+                    * `displayName`;
+                    * `givenName`;
+                    * `sn`;
+                    * `mail`;
+                    * `telephoneNumber`;
+                    * `ipPhone`;
+                    * `mobile`;
+                    * `company`;
+                    * `department`;
+                    * `title`;
+                    * `employeeID`;
+                    * `employeeNumber`.
+
+                    Задавайте имена атрибутов без дополнительных преобразований, в том виде, в котором они используются в Active Directory. Использование любого другого имени атрибута воспринимается агентом как ошибка конфигурации.
+
+                * `operator` — строковый оператор сопоставления со значением атрибута, который указан в поле `field`. Возможные значения:
+                  
+                  | Значение | Логика сопоставления | Поле `value` в правиле |
+                  | --- | --- | --- |
+                  | `equals` | значение атрибута, который задан в поле `field`, равно значению поля `value` | обязательно |
+                  | `not_equals` | значение атрибута, который задан в поле `field`, не равно значению поля `value` | обязательно |
+                  | `starts_with` | значение атрибута, который задан в поле `field`, начинается со значения поля `value` | обязательно |
+                  | `not_starts_with` | значение атрибута, который задан в поле `field`, не начинается со значения поля `value` | обязательно |
+                  | `ends_with` | значение атрибута, который задан в поле `field`, заканчивается на значение поля `value` | обязательно |
+                  | `not_ends_with` | значение атрибута, который задан в поле `field`, не заканчивается на значение поля `value` | обязательно |
+                  | `contains` | значение атрибута, который задан в поле `field`, содержит значение поля `value` | обязательно |
+                  | `not_contains` | значение атрибута, который задан в поле `field`, не содержит значение поля `value` | обязательно |
+                  | `is_null` | атрибут, который задан в поле `field`, содержит пустое значение | должно отсутствовать |
+                  | `is_not_null` | атрибут, который задан в поле `field`, содержит непустое значение | должно отсутствовать |
+                * `value` — строка, с которой будет сопоставляться значение атрибута, заданного в поле `field`. Необязательное поле: если в поле `operator` задано значение `is_null` или `is_not_null`, поле `value` должно отсутствовать в правиле.
+
+        * `groups` — набор правил фильтрации групп пользователей по атрибутам:
+
+            {% note info %}
+
+            Если из Active Directory импортируется пользователь, который состоит в определенной группе, но данная группа не импортируется в соответствии с настройками в разделе `filter.groups` конфигурации агента, то этот пользователь будет импортирован в Yandex Identity Hub без членства в данной группе.
+
+            {% endnote %}
+
+            * `combine_with` — логика, с которой в фильтре применяются правила фильтрации групп по атрибутам. Возможные значения:
+              
+              * `and` — правила фильтрации групп применяются с логикой `И`.
+              * `or` — правила фильтрации групп применяются с логикой `ИЛИ`.
+            * `rules` — список правил фильтрации групп пользователей по атрибутам:
+
+                * `field` — имя атрибута группы пользователей в Active Directory. Возможные значения:
+
+                    * `distinguishedName`;
+                    * `name`;
+                    * `sAMAccountName`;
+                    * `mail`;
+                    * `description`;
+                    * `info`.
+
+                    Задавайте имена атрибутов без дополнительных преобразований, в том виде, в котором они используются в Active Directory. Использование любого другого имени атрибута воспринимается агентом как ошибка конфигурации.
+
+                * `operator` — строковый оператор сопоставления со значением атрибута, который указан в поле `field`. Возможные значения:
+                  
+                  | Значение | Логика сопоставления | Поле `value` в правиле |
+                  | --- | --- | --- |
+                  | `equals` | значение атрибута, который задан в поле `field`, равно значению поля `value` | обязательно |
+                  | `not_equals` | значение атрибута, который задан в поле `field`, не равно значению поля `value` | обязательно |
+                  | `starts_with` | значение атрибута, который задан в поле `field`, начинается со значения поля `value` | обязательно |
+                  | `not_starts_with` | значение атрибута, который задан в поле `field`, не начинается со значения поля `value` | обязательно |
+                  | `ends_with` | значение атрибута, который задан в поле `field`, заканчивается на значение поля `value` | обязательно |
+                  | `not_ends_with` | значение атрибута, который задан в поле `field`, не заканчивается на значение поля `value` | обязательно |
+                  | `contains` | значение атрибута, который задан в поле `field`, содержит значение поля `value` | обязательно |
+                  | `not_contains` | значение атрибута, который задан в поле `field`, не содержит значение поля `value` | обязательно |
+                  | `is_null` | атрибут, который задан в поле `field`, содержит пустое значение | должно отсутствовать |
+                  | `is_not_null` | атрибут, который задан в поле `field`, содержит непустое значение | должно отсутствовать |
+                * `value` — строка, с которой будет сопоставляться значение атрибута, заданного в поле `field`. Необязательное поле: если в поле `operator` задано значение `is_null` или `is_not_null`, поле `value` должно отсутствовать в правиле.
 
     Если не настроить фильтрацию синхронизируемых объектов, агент Yandex Identity Hub Sync Agent попытается синхронизировать все [доступные объекты](../../concepts/sync-external/ad-sync.md#sync-objects) в каталоге Active Directory.
 * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне Yandex Cloud, если соответствующие пользователи на стороне Active Directory были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:

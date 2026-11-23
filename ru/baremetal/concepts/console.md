@@ -11,7 +11,7 @@ description: В этом разделе вы узнаете о возможно�
 
 #### ![objects-align-justify-horizontal](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.baremetal.label_servers_sCNgb }}** {#servers}
 
-Раздел позволяет [арендовать](../operations/servers/server-lease.md) серверы {{ baremetal-name }}, [изменять](../operations/servers/server-update.md) их основные настройки, [запускать, перезапускать и останавливать](../operations/servers/server-stop-and-start.md) серверы, [переустанавливать](../operations/servers/reinstall-os-from-marketplace.md) операционную систему серверов, а также [отказываться](../operations/servers/server-lease-cancel.md) от их аренды.
+Раздел позволяет [арендовать](../operations/servers/server-lease.md) серверы {{ baremetal-name }}, [изменять](../operations/servers/server-update.md) их основные настройки, [запускать, перезагружать и останавливать](../operations/servers/server-stop-and-start.md) серверы, [переустанавливать](../operations/servers/reinstall-os-from-marketplace.md) операционную систему серверов, а также [отказываться](../operations/servers/server-lease-cancel.md) от их аренды.
 
 Кроме того, в этом разделе для каждого сервера {{ baremetal-name }} доступна [KVM-консоль](../operations/servers/server-kvm.md) — специальный интерфейс, позволяющий управлять сервером на уровне операционной системы, изменять [дополнительные настройки](./server-advanced-settings.md) сервера, запускать его с загрузочных носителей и [устанавливать](../operations/servers/reinstall-os-from-own-image.md) на него операционные системы и другие программные продукты из [загрузочных образов](./images.md#user-images).
 

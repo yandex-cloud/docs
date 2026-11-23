@@ -5,7 +5,7 @@ description: Follow this guide to add a mailing list for a report in {{ datalens
 
 # Mailing lists for reports
 
-You can set up a mailing list for a report. The email will deliver a `.pdf` file containing the report pages you specify in the mailing list settings. You can set up the schedule and your mailing list recipients.
+You can set up a mailing list for a report. The email will deliver a `.pdf` file containing the report pages you specify in the mailing list settings. You can set up the schedule and your mailing list recipients. You can also manage your mailing [channels](../settings/index.md#user-settings).
 
 {% note info %}
 
@@ -30,7 +30,7 @@ To add a mailing list for your report:
         Choose the name as per these requirements:
 
           * It starts and ends with an upper-case or lower-case Latin or Russian letter, number, or one of these characters: `_`, `@`, `(`, `)`, or `%`.
-          * The remaining characters can be upper-case or lower-case Latin or Russian letters, numbers, spaces, or the following characters: `_`, `@`, `(`, `)`, `%`, `.`, `,`, `:`, `;`, `'`, `|`, `-`, `–`, `—`, `−`, `$`, `*`, and `&`.
+          * The remaining characters can be upper-case or lower-case Latin or Russian letters, numbers, spaces, or the following characters: `_`, `@`, `(`, `)`, `%`, `.`, `,`, `:`, `;`, `'`, `|`, `-`, `–`, `—`, `−`, `$`, `*`, `&`, and whitespaces.
 
      1. Optionally, enter a description for the mailing list.
      1. Click **Save**.
@@ -140,6 +140,14 @@ Each recipient will receive the mailing list email:
   ![maillist-attachment](../../_assets/datalens/report/report-maillist-attachment.png =419x578)
 
   {% endcut %}
+
+  
+  {% cut "Message in Yandex Telemost" %}
+
+  ![report-maillist-telemost](../../_assets/datalens/report/report-maillist-telemost.png =391x231)
+
+  {% endcut %}
+
 
 ## Managing mailing lists {#maillist-operations}
 

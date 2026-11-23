@@ -62,8 +62,8 @@
 &ensp; `response_tx_time` | Время отправки ответа балансировщиком: между первым и последним байтами, отправленными балансировщиком.
 `x_forwarded_for` | Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) входящего запроса, содержащее IP-адреса узлов, через которые был перенаправлен запрос. В начале указывается `client_ip`, затем IP-адреса всех промежуточных узлов, если они есть. Например:<ul><li>`x_forwarded_for: 50.0.0.1` — запрос пришел от одного клиента напрямую. Application Load Balancer добавил его `client_ip` в заголовок.</li><li>`x_forwarded_for: 50.0.0.1,40.0.0.1` — запрос прошел через прокси-сервер. Application Load Balancer добавил в заголовок IP-адрес прокси-сервера после `client_ip`.</li></ul>
 `smartwebsecurity` | Информация о результате проверки запроса в [Smart Web Security](../smartwebsecurity/concepts/index.md). Возвращается, если к виртуальному хосту [подключен профиль безопасности](../smartwebsecurity/operations/host-connect.md). Подробнее о логировании правил SWS в разделе [Настроить логирование через Application Load Balancer](../smartwebsecurity/operations/configure-logging-alb.md).
-&ensp; `dry_run_matched_rule` | Правило в режиме `Только логирование`, которое сработало на запрос. Такое правило не влияет на обработку запроса.
-&emsp;&emsp; `dry_run` | Признак режима `Только логирование`. Для правил в поле `dry_run_matched_rule` значение равно `true`.
+&ensp; `dry_run_matched_rule` | Информация о правиле, в том числе в режиме `Только логирование`. Проверяйте значение вложенного поля `dry_run`.
+&emsp;&emsp; `dry_run` | Признак режима `Только логирование`: `true` или `false`.
 &emsp;&emsp; `rule_name` | Имя правила Smart Web Security.
 &emsp;&emsp; `rule_type` | Тип правила Smart Web Security.
 &emsp;&emsp; `verdict` | Решение по правилу, например `ALLOW`, `DENY` или `CAPTCHA`.

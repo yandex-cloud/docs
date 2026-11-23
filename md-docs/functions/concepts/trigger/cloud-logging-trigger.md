@@ -55,7 +55,6 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](../../tutorials/logging-functions.md)
 * [Запись логов балансировщика в PostgreSQL](../../tutorials/logging.md)
 
 ## Полезные ссылки {#see-also}

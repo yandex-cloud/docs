@@ -9,6 +9,7 @@ The security settings allow you to restrict the use of some {{ datalens-name }} 
 
 * [Neuroanalyst](../concepts/neuroanalyst.md#prohibit): Restricts the use of Neuroanalyst.
 * [Publishability](../concepts/datalens-public.md#publication-disable): Prohibits publishing charts and dashboards.
+* [Role for created objects](../security/roles.md#workbooks-collections-roles): Defines the specific role that a user is assigned for an object they have created. Its possible values are: `Admin`, `Editor`, or `Do not assign` role.
 * [Workbook export](../workbooks-collections/export-and-import.md#workbooks-export-disable): Prohibits exporting workbooks as a file.
 * [Data export](../concepts/chart/data-export.md#data-export-disable): Restricts downloading data from charts as files.
 

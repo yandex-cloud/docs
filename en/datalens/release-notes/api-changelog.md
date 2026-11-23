@@ -7,6 +7,7 @@ description: Public API versioning in {{ datalens-full-name }} ensures compatibi
 This section contains the {{ datalens-name }} Public API release notes. For more on versioning, see [this guide](../operations/api-versioning.md).
 
 
+
 ## Version 3 {#version-3}
 
 

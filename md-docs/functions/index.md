@@ -528,8 +528,6 @@
 
  - [Настройка CI/CD с GitHub](tutorials/ci-cd-github-functions.md)
 
- - [Настройка реагирования в Yandex Cloud Logging и Cloud Functions](tutorials/logging-functions.md)
-
  - [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](tutorials/functions-framework-to-container.md)
 
 ### Интернет вещей

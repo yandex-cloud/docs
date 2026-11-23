@@ -1,0 +1,213 @@
+meta:
+  title: Yandex DataLens Platform
+  description: >-
+    {{ datalens-platform-full-name }} is an analytical platform for uploading,
+    storing, processing, and visualizing data. Lakehouse on Apache Iceberg™,
+    Trino and Apache Spark™ computations, Apache Airflow™ pipelines, dashboards,
+    and Neuroanalyst in one interface.
+blocks:
+  - type: header-block
+    title: Yandex DataLens Platform documentation
+    width: l
+    offset: l
+    indent:
+      top: xl
+      bottom: l
+    background:
+      image:
+        desktop: ../../_assets/datalens/index/images/2.jpg
+        mobile: ../../_assets/datalens/index/images/1.jpg
+  - type: content-layout-block
+    textWidth: l
+    textContent:
+      text: >-
+        Yandex DataLens Platform is a full-cycle data analytics platform: from
+        uploading and storing data to data processing, analysis, and
+        visualization. Connect sources, prepare data, and create dashboards in
+        one interface.
+
+
+        Store data in Apache Iceberg™ format, process data in Trino and Apache
+        Spark™ clusters, and automate processing with Apache Airflow™. Use
+        metadata catalogs and shared access permissions for working in teams.
+
+
+        Query Neuroanalyst in a natural language to analyze data, create SQL
+        queries, and render visualizations.
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 6
+    title: "Yandex\_DataLens"
+    centered: true
+    children:
+      - type: basic-card
+        title: Storing and processing data
+        centered: true
+        text: You are in this section of the guides
+        url: concepts
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#FFC4AE'
+      - type: basic-card
+        title: BI system for business
+        centered: true
+        url: ../index
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    background:
+      light:
+        style:
+          backgroundColor: '#ADC5FA'
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 6
+    title: DataLens On-premises
+    centered: true
+    children:
+      - type: basic-card
+        title: BI system for business
+        centered: true
+        url: https://datalens.ru/on-premises/docs/en/concepts/
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+      - type: basic-card
+        title: Storing and processing data
+        centered: true
+        text: Coming soon
+        url: ''
+        textSize: s
+        controlPosition: content
+        animated: false
+        backgroundColor: '#A5CAF3'
+  - type: card-layout-block
+    title: Storing and processing data
+    centered: true
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Getting started with DataLens Platform
+        icon: ../../_assets/console-icons/rocket.svg
+        urlTitle: Getting started
+        url: quickstart
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Overview
+        text: >-
+          Platform architecture and steps to get from a data source to a
+          dashboard
+        icon: ../../_assets/console-icons/circle-info.svg
+        urlTitle: Overview
+        url: concepts/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: AI tools
+        text: >-
+          Analyze data and create SQL queries and visualizations using
+          Neuroanalyst
+        icon: ../../_assets/console-icons/sparkles-fill.svg
+        urlTitle: AI tools
+        url: concepts/ai-tools/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: REST catalog
+        text: Organize storage of Apache Iceberg™ tables and access to them
+        icon: ../../_assets/console-icons/database.svg
+        urlTitle: REST catalog
+        url: concepts/rest-catalog/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Data transfers
+        text: >-
+          Upload data from sources to a REST catalog on schedule or as a
+          one-time operation
+        icon: ../../_assets/console-icons/database-arrow-right.svg
+        urlTitle: Data transfers
+        url: concepts/data-transfer/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Pipelines
+        text: Automate data processing with Apache Airflow™
+        icon: ../../_assets/router.svg
+        urlTitle: Pipelines
+        url: concepts/airflow/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Metadata
+        text: Explore data structure and relations, add descriptions and labels
+        icon: ../../_assets/console-icons/folder-magnifier.svg
+        urlTitle: Metadata
+        url: concepts/data-catalog/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: SQL editor
+        text: Write SQL queries and view results in a browser
+        icon: ../../_assets/console-icons/code.svg
+        urlTitle: SQL editor
+        url: concepts/sql/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Clusters and environments
+        text: Configure environments and computing resources for data processing
+        icon: ../../_assets/datalens/compute.svg
+        urlTitle: Clusters and environments
+        url: concepts/clusters/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Access management
+        text: >-
+          Configure your team’s permissions for data and other platform’s
+          objects
+        icon: ../../_assets/console-icons/persons-lock.svg
+        urlTitle: Access management
+        url: security/index
+        size: s
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Quotas
+        text: Technical and organizational limitations
+        icon: ../../_assets/console-icons/sliders.svg
+        urlTitle: Quotas
+        url: concepts/limits
+        size: s
+        controlPosition: content
+        animated: false
+links: []

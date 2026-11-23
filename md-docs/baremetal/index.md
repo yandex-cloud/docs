@@ -42,7 +42,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [Подключиться к KVM-консоли](operations/servers/server-kvm.md)
 
- - [Остановить и запустить сервер](operations/servers/server-stop-and-start.md)
+ - [Остановить, запустить или перезагрузить сервер](operations/servers/server-stop-and-start.md)
 
  - [Отказаться от аренды сервера](operations/servers/server-lease-cancel.md)
 

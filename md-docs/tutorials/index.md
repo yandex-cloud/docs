@@ -1536,8 +1536,6 @@
 
  - [Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows](serverless/auto-upload.md)
 
- - [Настройка реагирования в Cloud Logging и Yandex Cloud Functions](serverless/logging-functions.md)
-
  - [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](serverless/vision-ocrrecognizer-storage.md)
 
  - [Настройка интеграций Workflows с Трекер, YandexGPT и Yandex Cloud Postbox](serverless/tracker-yandexgpt-postbox-integrations.md)

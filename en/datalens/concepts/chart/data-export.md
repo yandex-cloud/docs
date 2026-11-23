@@ -75,7 +75,7 @@ The following limitations apply to the background export:
 * Table [pagination](./settings.md#common-settings) must be enabled.
 * Minimum number of pages to export is two.
 * Maximum number of rows in the table is 1,000,000.
-* [Rows with totals](../../visualization-ref/table-chart.md#add-totals) and [tree hierarchy](../../dataset/data-types.md#how-to-create-tree) are not supported. You can export a tree hierarchy if pagination is disabled.
+* [Rows with totals](../../visualization-ref/table-chart.md#additional-settings) and [tree hierarchy](../../dataset/data-types.md#how-to-create-tree) are not supported. You can export a tree hierarchy if pagination is disabled.
 
 
 * The following connection types are not supported:

@@ -134,11 +134,11 @@ Managed Service for Apache Airflow™ — это популярный инстр
 
   1. Создайте подсети:
 
-      * В [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`:
+      * В [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`:
 
         ```bash
-        yc vpc subnet create yq-network-ru-central1-a \
-          --zone ru-central1-a \
+        yc vpc subnet create yq-network-ru-central1-d \
+          --zone ru-central1-d \
           --network-name yq-network \
           --range 10.1.0.0/16
         ```
@@ -149,29 +149,20 @@ Managed Service for Apache Airflow™ — это популярный инстр
         id: b0c3pte4o2kn********
         folder_id: b1g9hv2loamq********
         created_at: "2022-04-04T09:28:08Z"
-        name: yq-network-ru-central1-a
+        name: yq-network-ru-central1-d
         network_id: enptrcle5q3d********
-        zone_id: ru-central1-a
+        zone_id: ru-central1-d
         v4_cidr_blocks:
         - 10.1.0.0/16
         ```
 
-      * В зоне доступности `ru-central1-b`:
+      * В зоне доступности `ru-central1-f`:
 
         ```bash
-        yc vpc subnet create yq-network-ru-central1-b \
-          --zone ru-central1-b \
+        yc vpc subnet create yq-network-ru-central1-f \
+          --zone ru-central1-f \
           --network-name yq-network \
           --range 10.2.0.0/16
-        ```
-
-      * В зоне доступности `ru-central1-d`:
-
-        ```bash
-        yc vpc subnet create yq-network-ru-central1-d \
-          --zone ru-central1-d \
-          --network-name yq-network \
-          --range 10.3.0.0/16
         ```
 
       Подробнее о команде `yc vpc subnet create` смотрите в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
@@ -338,7 +329,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
 - Консоль управления {#console}
 
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
-  1. В строке подсети `yq-network-ru-central1-a` нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
+  1. В строке подсети `yq-network-ru-central1-d` нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg).
   1. Нажмите **Привязать таблицу маршрутизации** и выберите таблицу `yq-route-table`.
   1. Нажмите кнопку **Привязать**.
 
@@ -347,7 +338,7 @@ Managed Service for Apache Airflow™ — это популярный инстр
   Выполните команду:
 
   ```bash
-  yc vpc subnet update yq-network-ru-central1-a \
+  yc vpc subnet update yq-network-ru-central1-d \
     --route-table-name=yq-route-table
   ```
 
@@ -357,9 +348,9 @@ Managed Service for Apache Airflow™ — это популярный инстр
   id: e9b6n3jj3gh6********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:24:58Z"
-  name: yq-network-ru-central1-a
+  name: yq-network-ru-central1-d
   network_id: enppoggov6ub********
-  zone_id: ru-central1-a
+  zone_id: ru-central1-d
   v4_cidr_blocks:
     - 10.1.0.0/16
   route_table_id: enp4v8foko6s********
@@ -405,9 +396,9 @@ Managed Service for Apache Airflow™ — это популярный инстр
 
   1. В блоке **Сетевые настройки** выберите:
 
-      * [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`;
+      * [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`;
       * облачную сеть `yq-network`;
-      * подсеть `yq-network-ru-central1-a`;
+      * подсеть `yq-network-ru-central1-d`;
       * [группу безопасности](../concepts/security-groups.md) по умолчанию.
 
         Настройки группы безопасности не влияют на доступ к [веб-интерфейсу Apache Airflow™](../../managed-airflow/operations/af-interfaces.md#web-gui).

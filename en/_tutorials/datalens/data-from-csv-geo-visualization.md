@@ -147,9 +147,9 @@ Create a dataset based on the `dtp_data` connection:
    * `fatalities_amount` to `Death toll`
    * `victims_amount` to `Number of victims`
    * `vehicles_amount` to `Number of vehicles`
-   * `participants_amount` to `Number of participants`
+   * `participants_amount` to `Number of parties involved`
 
-1. For the `Death toll`, `Number of victims` `Number of vehicles` and `Number of participants` fields, specify the **Sum** aggregation type. The fields with defined aggregation functions become measures and change their color to blue.
+1. For the `Death toll`, `Number of victims` `Number of vehicles` and `Number of parties involved` fields, specify the **Sum** aggregation type. The fields with defined aggregation functions become measures and change their color to blue.
 
    ![image](../../_assets/datalens/solution-07/05-choose-agg-sum.png)
 
@@ -347,7 +347,7 @@ Let's see how the number of accidents and related deaths are distributed by week
    * `Death toll`
    * `Number of victims`
    * `Number of vehicles`
-   * `Number of participants`
+   * `Number of parties involved`
    * `Accident death rate`
 
    The chart will show a map with color fill by region. If you hover over a region, information for that region appears.
@@ -399,7 +399,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 ## Add selectors to the dashboard {#add-selectors}
 
-[Selectors](../../datalens/concepts/dashboard.md#selector) allow you to filter data by value.
+[Selectors](../../datalens/dashboard/selector.md) allow you to filter data by value.
 
 1. Add a widget for data filtering:
 

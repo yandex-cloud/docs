@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to create and customize the no
 
 A normalized bar chart shows the contribution, as a percentage, of multiple measures in the total amount by period or category.
 
-* Unlike a [stacked bar chart](bar-chart.md##stacked), the proportion of segment ratios and not the total bar length is important for this type of chart.
+* Unlike a [stacked bar chart](bar-chart.md#stacked), the proportion of segment ratios and not the total bar length is important for this type of chart.
 
 * Segments are highlighted in different colors and located one after the other. The length of a segment indicates its ratio to the total amount represented as 100%.
 
@@ -106,7 +106,7 @@ Y | Dimensions. You can specify one or two dimensions. For the `Date` and `Date 
 X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension. You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
 Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field that affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
 Sorting | Dimension or measure. Affects the column sorting. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
-Labels | Measure. Displays measure values on the chart. If you added multiple measures to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [Markdown](../dashboard/markdown.md) syntax by clicking the icon before the field name and enabling **Markdown**.
+Labels | Measure. Displays measure values on the chart. If you added multiple measures to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. [Markup functions](../function-ref/markup-functions.md) are supported. For `String` type fields, you can configure using the basic [{#T}](../dashboard/markdown.md) syntax: click the icon next to the field name and enable **Markdown**.
 Filters | Dimension or measure. It is used as a filter.
 
 ## Creating a normalized bar chart {#create-diagram}

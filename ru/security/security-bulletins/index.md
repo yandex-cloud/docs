@@ -2,6 +2,10 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [23.11.2026 — CVE-2026-99312 — нарушение изоляции виртуальных машин в KVM](../../_includes/security/security-bulletins/cve-2026-99312-kvm.md) %}
+
+{% include [23.11.2026 — CVE-2026-123158 (SSHole)](../../_includes/security/security-bulletins/cve-2026-123158-sshole.md) %}
+
 {% include [19.11.2026 — CVE-2026-123007 (NGINX2Root)](../../_includes/security/security-bulletins/cve-2026-123007-nginx2root.md) %}
 
 {% include [19.11.2026 — CVE-2026-114938 (Java4Shell)](../../_includes/security/security-bulletins/cve-2026-114938-java4shell.md) %}

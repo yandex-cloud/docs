@@ -241,6 +241,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         
           # Additional settings required for synchronization with a specific external LDAP directory.
@@ -364,6 +386,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         
           # Additional settings required for synchronization with a specific external LDAP directory.
@@ -531,6 +575,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         
           # Additional settings required for synchronization with a specific external LDAP directory.
@@ -654,6 +720,28 @@
             groups:
               - "GroupName1"
               - "GroupName2"
+            attributes:
+              users:
+                combine_with: and
+                rules:
+                  - field: mail
+                    operator: ends_with
+                    value: "@example.org"
+                  - field: department
+                    operator: equals
+                    value: "Platform"
+              groups:
+                combine_with: or
+                rules:
+                  - field: info
+                    operator: equals
+                    value: "sync-with-cloud"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-APP-"
+                  - field: name
+                    operator: starts_with
+                    value: "RU-TEAM-"
           remove_user_behavior: "remove|block"
         
           # Additional settings required for synchronization with a specific external LDAP directory.
@@ -1135,6 +1223,78 @@
         Параметр `groups` влияет только на синхронизацию пользователей и не влияет на настройки синхронизации групп пользователей.
 
         {% endnote %}
+
+    * `attributes` — настройки фильтрации синхронизируемых пользователей и групп по атрибутам:
+
+        * `users` — набор правил фильтрации пользователей по атрибутам:
+
+            {% note info %}
+
+            Если в конфигурации агента задано значение для поля `filter.groups`, фильтрация по атрибутам пользователей будет выполняться в отношении только тех пользователей, которые входят в группы, указанные в этом поле.
+
+            {% endnote %}
+
+            * `combine_with` — логика, с которой в фильтре применяются правила фильтрации пользователей по атрибутам. Возможные значения:
+              
+              * `and` — правила фильтрации пользователей применяются с логикой `И`.
+              * `or` — правила фильтрации пользователей применяются с логикой `ИЛИ`.
+            * `rules` — список правил фильтрации пользователей по атрибутам:
+
+                * `field` — имя атрибута пользователя в LDAP-каталоге. В качестве значения вы можете указать любое корректное имя LDAP-атрибута.
+
+                    Агент синхронизации не проверяет корректность имен атрибутов, которые заданы в правилах фильтра: правила компилируются в строку LDAP-фильтра в соответствии со стандартом [RFC 4515](https://www.rfc-editor.org/info/rfc4515/) и передаются на LDAP-сервер вместе с другими параметрами.
+
+                * `operator` — строковый оператор сопоставления со значением атрибута, который указан в поле `field`. Возможные значения:
+
+                    | Значение | Логика сопоставления | Поле `value` в правиле |
+                    | --- | --- | --- |
+                    | `equals` | значение атрибута, который задан в поле `field`, равно значению поля `value` | обязательно |
+                    | `not_equals` | значение атрибута, который задан в поле `field`, не равно значению поля `value` | обязательно |
+                    | `starts_with` | значение атрибута, который задан в поле `field`, начинается со значения поля `value` | обязательно |
+                    | `not_starts_with` | значение атрибута, который задан в поле `field`, не начинается со значения поля `value` | обязательно |
+                    | `ends_with` | значение атрибута, который задан в поле `field`, заканчивается на значение поля `value` | обязательно |
+                    | `not_ends_with` | значение атрибута, который задан в поле `field`, не заканчивается на значение поля `value` | обязательно |
+                    | `contains` | значение атрибута, который задан в поле `field`, содержит значение поля `value` | обязательно |
+                    | `not_contains` | значение атрибута, который задан в поле `field`, не содержит значение поля `value` | обязательно |
+                    | `is_null` | атрибут, который задан в поле `field`, отсутствует у пользователя | должно отсутствовать |
+                    | `is_not_null` | атрибут, который задан в поле `field`, существует у пользователя | должно отсутствовать |
+
+                * `value` — строка, с которой будет сопоставляться значение атрибута, заданного в поле `field`. Необязательное поле: если в поле `operator` задано значение `is_null` или `is_not_null`, поле `value` должно отсутствовать в правиле.
+
+        * `groups` — набор правил фильтрации групп пользователей по атрибутам:
+
+            {% note info %}
+
+            Если из внешнего LDAP-каталога импортируется пользователь, который состоит в определенной группе, но данная группа не импортируется в соответствии с настройками в разделе `filter.groups` конфигурации агента, то этот пользователь будет импортирован в Yandex Identity Hub без членства в данной группе.
+
+            {% endnote %}
+
+            * `combine_with` — логика, с которой в фильтре применяются правила фильтрации групп по атрибутам. Возможные значения:
+              
+              * `and` — правила фильтрации групп применяются с логикой `И`.
+              * `or` — правила фильтрации групп применяются с логикой `ИЛИ`.
+            * `rules` — список правил фильтрации групп пользователей по атрибутам:
+
+                * `field` — имя атрибута группы пользователей во внешнем LDAP-каталоге. В качестве значения вы можете указать любое корректное имя LDAP-атрибута.
+
+                    Агент синхронизации не проверяет корректность имен атрибутов, которые заданы в правилах фильтра: правила компилируются в строку LDAP-фильтра в соответствии со стандартом [RFC 4515](https://www.rfc-editor.org/info/rfc4515/) и передаются на LDAP-сервер вместе с другими параметрами.
+
+                * `operator` — строковый оператор сопоставления со значением атрибута, который указан в поле `field`. Возможные значения:
+
+                    | Значение | Логика сопоставления | Поле `value` в правиле |
+                    | --- | --- | --- |
+                    | `equals` | значение атрибута, который задан в поле `field`, равно значению поля `value` | обязательно |
+                    | `not_equals` | значение атрибута, который задан в поле `field`, не равно значению поля `value` | обязательно |
+                    | `starts_with` | значение атрибута, который задан в поле `field`, начинается со значения поля `value` | обязательно |
+                    | `not_starts_with` | значение атрибута, который задан в поле `field`, не начинается со значения поля `value` | обязательно |
+                    | `ends_with` | значение атрибута, который задан в поле `field`, заканчивается на значение поля `value` | обязательно |
+                    | `not_ends_with` | значение атрибута, который задан в поле `field`, не заканчивается на значение поля `value` | обязательно |
+                    | `contains` | значение атрибута, который задан в поле `field`, содержит значение поля `value` | обязательно |
+                    | `not_contains` | значение атрибута, который задан в поле `field`, не содержит значение поля `value` | обязательно |
+                    | `is_null` | атрибут, который задан в поле `field`, отсутствует у группы | должно отсутствовать |
+                    | `is_not_null` | атрибут, который задан в поле `field`, существует у группы | должно отсутствовать |
+
+                * `value` — строка, с которой будет сопоставляться значение атрибута, заданного в поле `field`. Необязательное поле: если в поле `operator` задано значение `is_null` или `is_not_null`, поле `value` должно отсутствовать в правиле.
 
     Если не настроить фильтрацию синхронизируемых объектов, агент Yandex Identity Hub Sync Agent попытается синхронизировать все [доступные объекты](../../concepts/sync-external/ldap-sync.md#sync-objects) во внешнем каталоге.
 * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне Yandex Cloud, если соответствующие пользователи на стороне внешнего каталога были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter`. Необязательный параметр. Возможные значения:

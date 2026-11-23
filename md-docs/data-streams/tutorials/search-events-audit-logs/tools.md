@@ -2,39 +2,22 @@
 
 # Инструменты для работы с аудитными логами
 
-Аудитные логи могут загружаться в бакет [Yandex Object Storage](../../../storage/index.md), лог-группу [Yandex Cloud Logging](../../../logging/index.md), поток данных [Yandex Data Streams](../../index.md).
+Аудитные логи можно загружать в Monium Logs, бакет [Yandex Object Storage](../../../storage/index.md) или поток данных [Yandex Data Streams](../../index.md).
 
-Для просмотра логов в лог-группе используйте [Cloud Logging](#tool-logging), а для поиска событий в логах из бакета — [утилиту jq](#tool-jq).
+Для просмотра логов в Monium Logs используйте [интерфейс Monium](#tool-monium), а для поиска событий в логах из бакета — [утилиту jq](#tool-jq).
 
-## Cloud Logging {#tool-logging}
+## Monium {#tool-monium}
 
-Сервис [Cloud Logging](../../../logging/index.md) применяется для работы с логами, которые загружаются в лог-группу.
+{% list tabs group=audit-trails-destination %}
 
-Можно анализировать события ресурсов Yandex Cloud, фильтруя логи с помощью [языка фильтрующих выражений](../../../logging/concepts/filter.md).
+- Monium {#monium}
 
-Чтобы использовать Cloud Logging:
+  [Откройте аудитные логи в Monium](../../../audit-trails/tutorials/search-monium.md) и просмотрите поля записи.
 
-1. [Прочитайте логи в лог-группе](../../../logging/operations/read-logs.md).
-1. [Отфильтруйте](../../../audit-trails/tutorials/search-events-audit-logs/examples.md) логи нужным образом.
+{% endlist %}
 
 ## Утилита jq {#tool-jq}
 
-Утилита [jq](https://jqlang.github.io/jq/) применяется для работы с логами, которые загружаются в бакет.
+Логи в бакете хранятся в JSON-файлах. Для поиска используйте `find`, чтобы выбрать файлы, и [jq](https://jqlang.org/), чтобы отфильтровать записи.
 
-Логи хранятся в бакете в виде JSON-файлов. Поэтому можно анализировать события ресурсов Yandex Cloud, извлекая нужные события из файлов с помощью [фильтров](https://jqlang.github.io/jq/manual/) `jq`.
-
-Чтобы использовать `jq`:
-
-1. Установите и настройте программу [s3fs](../../../storage/tools/s3fs.md) или [goofys](../../../storage/tools/goofys.md), позволяющую монтировать бакеты Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
-
-1. Смонтируйте бакет с аудитными логами к вашей файловой системе через [s3fs](../../../storage/tools/s3fs.md#mounting-bucket) или [goofys](../../../storage/tools/goofys.md#bucket-mounting).
-
-1. Установите утилиту [jq](https://stedolan.github.io/jq).
-
-1. Выполните [команду](../../../audit-trails/tutorials/search-events-audit-logs/examples.md) с нужным фильтром `jq`.
-
-{% note info %}
-
-В примерах команд для работы с логами утилита `jq` используется в связке с утилитой `find`. Утилита `find` нужна, чтобы передать на обработку все файлы с логами, которые содержатся в бакете.
-
-{% endnote %}
+[Смонтируйте бакет и установите jq](../../../audit-trails/tutorials/search-bucket.md#before-you-begin), затем [выполните команду для нужного сценария](../../../audit-trails/tutorials/search-bucket.md#search).
