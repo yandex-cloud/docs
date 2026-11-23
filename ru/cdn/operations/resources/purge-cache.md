@@ -55,42 +55,42 @@ description: Следуя данной инструкции, вы сможете
       Результат:
 
       ```text
-      id: s0me1dkfjq********
-      folder_id: s0mef01der7p********
-      cname: testexample.com
-      created_at: "2022-01-19T09:23:57.921365Z"
-      updated_at: "2022-01-19T10:55:30.305141Z"
-      active: true
-      options:
-        edge_cache_settings:
-          enabled: true
-          default value: "345600"
-        cache_http_headers:
-          enabled: true
-          value:
-          - content-type
-          - content-length
-          - connection
-          - server
-          - date
-          - test
-        stale:
-          enabled: true
-          value:
-          - error
-          - updating
-        allowed_http_methods:
-          value:
-          - GET
-          - POST
-          - HEAD
-          - OPTIONS
-      origin_group_id: "89783"
-      origin_group_name: My origins group
-      origin_protocol: HTTP
-      ssl_certificate:
-        type: DONT_USE
-        status: READY
+      - id: s0me1dkfjq********
+        folder_id: s0mef01der7p********
+        cname: testexample.com
+        created_at: "2022-01-19T09:23:57.921365Z"
+        updated_at: "2022-01-19T10:55:30.305141Z"
+        active: true
+        options:
+          edge_cache_settings:
+            enabled: true
+            default_value: "345600"
+          cache_http_headers:
+            enabled: true
+            value:
+            - content-type
+            - content-length
+            - connection
+            - server
+            - date
+            - test
+          stale:
+            enabled: true
+            value:
+            - error
+            - updating
+          allowed_http_methods:
+            value:
+            - GET
+            - POST
+            - HEAD
+            - OPTIONS
+        origin_group_id: "89783"
+        origin_group_name: My origins group
+        origin_protocol: HTTP
+        ssl_certificate:
+          type: DONT_USE
+          status: READY
       ```
 
   1. Очистите кеш файлов:
