@@ -21,6 +21,14 @@ description: Следуя данной инструкции, вы сможете
     1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. В блоке **{{ ui-key.yacloud.metadata-hub.label_manage-metadata }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
 
+- API {#api}
+
+    [Пройдите аутентификацию](../../api-ref/authentication-datacatalog.md). Воспользуйтесь методом REST API [listCatalogs](../../datacatalog/api-ref/Catalog/listCatalogs.md) для ресурса [Catalog](../../datacatalog/api-ref/Catalog/index.md) или вызовом gRPC API [CatalogService/ListCatalogs](../../datacatalog/api-ref/grpc/Catalog/listCatalogs.md).
+
+    Передайте идентификатор каталога ресурсов {{ yandex-cloud }} в `folderId` (REST) или `folder_id` (gRPC). Ответ содержит массив `catalogs`.
+
+    Если ответ содержит `nextPageToken`, передайте его в `pageToken` следующего запроса, сохранив остальные параметры. Повторяйте запросы, пока токен не станет пустым. В gRPC соответствующие поля называются `next_page_token` и `page_token`.
+
 {% endlist %}
 
 ## Настройка списка каталогов {#setting-list-catalogs}

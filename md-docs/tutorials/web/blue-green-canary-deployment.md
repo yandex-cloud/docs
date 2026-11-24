@@ -142,11 +142,11 @@
        - 10.1.0.0/16
        ```
 
-     * В `ru-central1-e`:
+     * В `ru-central1-d`:
 
        ```bash
-       yc vpc subnet create canary-subnet-ru-central1-e \
-         --zone ru-central1-e \
+       yc vpc subnet create canary-subnet-ru-central1-d \
+         --zone ru-central1-d \
          --network-name canary-network \
          --range 10.2.0.0/16
        ```
@@ -157,18 +157,18 @@
        id: e2lghukd9iqo********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:39Z"
-       name: canary-subnet-ru-central1-e
+       name: canary-subnet-ru-central1-d
        network_id: enptrcle5q3d********
-       zone_id: ru-central1-e
+       zone_id: ru-central1-d
        v4_cidr_blocks:
        - 10.2.0.0/16
        ```
 
-     * В `ru-central1-d`:
+     * В `ru-central1-f`:
 
        ```bash
-       yc vpc subnet create canary-subnet-ru-central1-d \
-         --zone ru-central1-d \
+       yc vpc subnet create canary-subnet-ru-central1-f \
+         --zone ru-central1-f \
          --network-name canary-network \
          --range 10.3.0.0/16
        ```
@@ -179,9 +179,9 @@
        id: b0c3pte4o2kn********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:28:08Z"
-       name: canary-subnet-ru-central1-d
+       name: canary-subnet-ru-central1-f
        network_id: enptrcle5q3d********
-       zone_id: ru-central1-d
+       zone_id: ru-central1-f
        v4_cidr_blocks:
        - 10.3.0.0/16
        ```
@@ -195,7 +195,7 @@
   
   Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-e` и `canary-subnet-ru-central1-d`:
+  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-d` и `canary-subnet-ru-central1-f`:
 
      ```hcl
      resource "yandex_vpc_network" "canary-network" {
@@ -209,16 +209,16 @@
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
 
-     resource "yandex_vpc_subnet" "canary-subnet-e" {
-       name           = "canary-subnet-ru-central1-e"
-       zone           = "ru-central1-e"
+     resource "yandex_vpc_subnet" "canary-subnet-d" {
+       name           = "canary-subnet-ru-central1-d"
+       zone           = "ru-central1-d"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.2.0.0/16"]
      }
 
-     resource "yandex_vpc_subnet" "canary-subnet-d" {
-       name           = "canary-subnet-ru-central1-d"
-       zone           = "ru-central1-d"
+     resource "yandex_vpc_subnet" "canary-subnet-f" {
+       name           = "canary-subnet-ru-central1-f"
+       zone           = "ru-central1-f"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.3.0.0/16"]
      }
@@ -250,7 +250,7 @@
 - API {#api}
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md).
-  1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-e` и `canary-subnet-ru-central1-d` в трех [зонах доступности](../../overview/concepts/geo-scope.md) с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
+  1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-d` и `canary-subnet-ru-central1-f` в трех [зонах доступности](../../overview/concepts/geo-scope.md) с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
 
 {% endlist %}
 
@@ -918,7 +918,7 @@
      1. В поле **Сеть** выберите `canary-network`.
      1. В поле **Группы безопасности** выберите `canary-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-e` и `canary-subnet-ru-central1-d` — и включите передачу трафика в эти подсети.
+  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-d` и `canary-subnet-ru-central1-f` — и включите передачу трафика в эти подсети.
   1. В блоке **Обработчики** нажмите **Добавить обработчик** и задайте настройки обработчика:
 
      1. В поле **Имя** укажите `canary-listener`.
@@ -944,8 +944,8 @@
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      | e9bnnssj8sc8******** | canary-subnet-ru-central1-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-a | [10.1.0.0/16] |
-     | e2lghukd9iqo******** | canary-subnet-ru-central1-e | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-e | [10.2.0.0/16] |
-     | b0c3pte4o2kn******** | canary-subnet-ru-central1-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-d | [10.3.0.0/16] |
+     | e2lghukd9iqo******** | canary-subnet-ru-central1-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-d | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | canary-subnet-ru-central1-f | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-f | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
@@ -972,8 +972,8 @@
        --network-name canary-network \
        --security-group-id <идентификатор_группы_безопасности_canary-sg> \
        --location zone=ru-central1-a,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-a> \
-       --location zone=ru-central1-e,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-e> \
-       --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-d>
+       --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-d> \
+       --location zone=ru-central1-f,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-f>
      ```
 
      Результат:
@@ -988,9 +988,9 @@
      network_id: enptrcle5q3d********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-d
+       - zone_id: ru-central1-f
          subnet_id: b0c3pte4o2kn********
-       - zone_id: ru-central1-e
+       - zone_id: ru-central1-d
          subnet_id: e2lghukd9iqo********
        - zone_id: ru-central1-a
          subnet_id: e9bnnssj8sc8********
@@ -1035,9 +1035,9 @@
            http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-d
+       - zone_id: ru-central1-f
          subnet_id: b0c3pte4o2kn********
-       - zone_id: ru-central1-e
+       - zone_id: ru-central1-d
          subnet_id: e2lghukd9iqo********
        - zone_id: ru-central1-a
          subnet_id: e9bnnssj8sc8********
@@ -1068,13 +1068,13 @@
          }
 
          location {
-           zone_id   = "ru-central1-e"
-           subnet_id = yandex_vpc_subnet.canary-subnet-e.id
+           zone_id   = "ru-central1-d"
+           subnet_id = yandex_vpc_subnet.canary-subnet-d.id
          }
 
          location {
-           zone_id   = "ru-central1-d"
-           subnet_id = yandex_vpc_subnet.canary-subnet-d.id
+           zone_id   = "ru-central1-f"
+           subnet_id = yandex_vpc_subnet.canary-subnet-f.id
          }
        }
 
@@ -1938,5 +1938,5 @@
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `canary-balancer`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из «синего» и «зеленого» бакетов.
 1. [Удалите](../../storage/operations/buckets/delete.md) «синий» и «зеленый» бакеты.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-e` и `canary-subnet-ru-central1-d`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-d` и `canary-subnet-ru-central1-f`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `canary-network`.

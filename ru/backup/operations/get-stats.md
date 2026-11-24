@@ -6,23 +6,25 @@ description: Следуя данной инструкции, вы сможете
 # Посмотреть статистику резервного копирования
 
 
-{{ backup-name }} автоматически поставляет метрики количества [защищаемых ресурсов](../concepts/index.md#protected-resources), а также объема хранилища, занятого резервными копиями, в сервис [{{ monitoring-full-name }}](../../monitoring/).
+{{ backup-name }} автоматически передает в [{{ metrics-name }}](../../monium/metrics/overview.md) метрики количества [защищаемых ресурсов](../concepts/index.md#protected-resources) и объема хранилища, занятого резервными копиями.
 
 Чтобы посмотреть статистику:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [политика](../concepts/policy.md) резервного копирования.
-  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. Выберите дашборд — **{{ backup-name }}**
+  1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), соответствующий [каталогу](../../resource-manager/concepts/resources-hierarchy.md#folder) с защищаемыми ресурсами.
+
+      Идентификатор проекта имеет вид `folder__<идентификатор_каталога>`.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В открывшемся списке выберите сервисный дашборд **{{ backup-name }}**.
   1. В поле **Resource name** выберите защищаемый ресурс, для которого вы хотите посмотреть статистику.
 
-     Если в поле выбрано значение `*`, на дашборде будет отображаться обобщенная статистика по всем [защищаемым ресурсам](../concepts/index.md#protected-resources) в каталоге.
-
+      Чтобы посмотреть общую статистику по всем защищаемым ресурсам в каталоге, выберите `*`.
   1. Выберите временной промежуток, за который хотите посмотреть статистику.
-  1. Если нужно обновить дашборд, нажмите кнопку ![](../../_assets/console-icons/arrows-rotate-right.svg). Также рядом с кнопкой вы можете задать частоту автообновления статистики.
+  1. Если нужно обновить дашборд, нажмите кнопку ![arrows-rotate-right](../../_assets/console-icons/arrows-rotate-right.svg). Также рядом с кнопкой вы можете задать частоту автообновления статистики.
 
 {% endlist %}
 

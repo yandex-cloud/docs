@@ -101,7 +101,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Введите имя группы ВМ, например `website-vm-group`.
      * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции с группами безопасности выполняются от имени сервисного аккаунта.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите три зоны доступности (`{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`), чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите три зоны доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите [шаблон](../../compute/concepts/instance-groups/instance-template.md) ВМ:
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:

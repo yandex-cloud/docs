@@ -328,6 +328,8 @@
 
  - [Миграция из облачного провайдера](tutorials/migration/migration-from-cloud.md)
 
+ - [Миграция из on-premises](tutorials/migration/migration-from-onprem.md)
+
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)

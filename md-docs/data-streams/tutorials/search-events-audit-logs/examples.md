@@ -2,7 +2,7 @@
 
 # Примеры запросов для поиска событий в аудитных логах
 
-Чтобы найти события по ресурсам и операциям, [откройте аудитные логи в Monium](../../../audit-trails/tutorials/search-monium.md) и выберите период поиска. [Перейдите в текстовый режим](../../../audit-trails/tutorials/search-cloud-logging.md) и выполните нужный запрос.
+Чтобы найти события по ресурсам и операциям, [откройте аудитные логи в Monium](../../../audit-trails/tutorials/search-cloud-logging.md#monium) и выберите период поиска. [Перейдите в текстовый режим](../../../audit-trails/tutorials/search-cloud-logging.md) и выполните нужный запрос.
 
 В каждом запросе замените `<идентификатор_каталога_трейла>` на идентификатор каталога, в котором находится трейл. Чтобы отобрать события, доставленные конкретным трейлом, добавьте условие `trail_id=="<идентификатор_трейла>"`.
 
@@ -24,8 +24,9 @@
 
 **Мониторинг и управление ресурсами**
 
-* [Yandex Identity Hub](#organization)
+* [Yandex Resource Manager](#resource-manager)
     * [Удаление каталога](#delete-folder)
+* [Yandex Identity Hub](#organization)
     * [Создание федерации](#create-federation)
     * [Изменение федерации](#update-federation)
     * [Добавление сертификата в федерацию](#create-certificate)
@@ -174,7 +175,7 @@
 
 ## Мониторинг и управление ресурсами {#monitoring-and-resource-management}
 
-### Yandex Identity Hub {#organization}
+### Yandex Resource Manager {#resource-manager}
 
 #### Удаление каталога {#delete-folder}
 
@@ -185,18 +186,20 @@
     Для поиска по идентификатору каталога используйте поле `meta.details.folder_id`.
 
     ```text
-    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="yandex.cloud.audit.resourcemanager.DeleteFolder", meta.details.folder_id=="<идентификатор_каталога>"}
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="yandex.cloud.audit.resourcemanager.DeleteFolder", meta.event_status=="DONE", meta.details.folder_id=="<идентификатор_каталога>"}
     ```
 
     Для поиска по имени каталога используйте поле `meta.details.folder_name`.
 
     ```text
-    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="yandex.cloud.audit.resourcemanager.DeleteFolder", meta.details.folder_name=="<имя_каталога>"}
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="yandex.cloud.audit.resourcemanager.DeleteFolder", meta.event_status=="DONE", meta.details.folder_name=="<имя_каталога>"}
     ```
 
     Чтобы узнать, кто удалил каталог, проверьте идентификатор в `meta.authentication.subject_id`. Если в событии передано имя, оно указано в `meta.authentication.subject_name`.
 
 {% endlist %}
+
+### Yandex Identity Hub {#organization}
 
 #### Создание федерации {#create-federation}
 

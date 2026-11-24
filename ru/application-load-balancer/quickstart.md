@@ -199,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc alb load-balancer create test-load-balancer \
         --network-name <имя_сети> \
-        --location subnet-name=<имя_подсети_в_зоне_{{ region-id }}-a>,zone={{ region-id }}-a
+        --location subnet-name=<имя_подсети>,zone=<зона_доступности_подсети>
       ```
 
   1. Добавьте обработчик:

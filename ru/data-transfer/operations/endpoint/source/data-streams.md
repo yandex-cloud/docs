@@ -91,17 +91,33 @@ description: Следуя данной инструкции, вы сможете
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**:
 
-       * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}    
+       * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}** — укажите требуемый формат сжатия данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}** — включите настройку, чтобы разрешить трансферу начать или продолжить чтение из топика, даже если часть данных в нем была удалена в связи с превышением периода хранения. Если настройка выключена, при превышении периода хранения и удалении данных из топика трансфер остановится с ошибкой. Обычно это происходит в случае, когда трансфер не успевает переносить все данные и отставание чтения превышает период хранения.
     
-        {% note warning %}   
+        {% note warning %}
 
-        {% include [ttl](../../../../_includes/data-transfer/notes/ttl.md) %} 
+        {% include [ttl](../../../../_includes/data-transfer/notes/ttl.md) %}
 
         {% endnote %}
+
+- {{ TF }} {#tf}
+
+    
+    * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
+
+    * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
+
+- API {#api}
+
+    
+    * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
+
+    * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
 
 {% endlist %}
 

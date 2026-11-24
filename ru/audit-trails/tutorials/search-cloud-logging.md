@@ -1,58 +1,55 @@
 ---
-title: Поиск аудитных событий {{ yandex-cloud }} в {{ monium-full-name }}
-description: Примеры запросов для поиска событий {{ at-name }} в {{ monium-name }} по каталогу, виртуальной машине, пользователю и коду ошибки.
+title: Поиск аудитных событий в {{ monium-full-name }}
+description: Как открыть аудитные логи {{ at-name }} в {{ monium-name }} и найти события по каталогу, виртуальной машине, пользователю или коду ошибки.
 ---
 
-# Поиск аудитных событий {{ yandex-cloud }} в {{ monium-name }}
+# Поиск аудитных событий в {{ monium-name }}
 
-Выполните нужный запрос из примеров в текстовом режиме.
+Для поиска аудитных событий в {{ monium-logs-name }} нужна роль [monium.logs.reader](../../monium/security/index.md#monium-logs-reader) на каталог с трейлом.
 
-{% list tabs group=audit-trails-destination %}
+Если доставка в {{ monium-name }} еще не настроена, [создайте трейл](../operations/create-trail.md#monium). Чтобы перенаправить логи существующего трейла, [измените его объект назначения](../operations/manage-trail.md#update-trail).
 
-- {{ monium-name }} {#monium}
+## Как открыть аудитные логи {#monium}
 
-  1. [Откройте аудитные логи в {{ monium-name }}](search-monium.md) и выберите период поиска вверху страницы.
-  1. Чтобы перейти в текстовый режим, нажмите ![code](../../_assets/console-icons/code.svg) справа над строкой запроса.
-  1. Вставьте запрос и подставьте свои значения. В метке `project` укажите идентификатор каталога с трейлом после префикса `folder__`. Чтобы отобрать события, которые доставил конкретный трейл, добавьте в запрос условие `trail_id == "<идентификатор_трейла>"`.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+{% include [view-logs-monium](../../_includes/audit-trails/view-logs-monium.md) %}
 
-{% endlist %}
+## Как выполнить поисковый запрос {#run-query}
+
+Чтобы найти события за выбранный период:
+
+1. Чтобы перейти в текстовый режим, нажмите ![code](../../_assets/console-icons/code.svg) справа над строкой запроса.
+1. Вставьте запрос из примера. В значении метки `project` после префикса `folder__` укажите идентификатор каталога с трейлом. Если нужны только записи, которые доставил конкретный трейл, укажите его идентификатор в условии `trail_id=="<идентификатор_трейла>"`.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 
 ## Как проверить доставку событий {#check-delivery}
 
-Убедитесь, что тестовый трейл в статусе `Active` и его область сбора событий уровня конфигурации включает каталог с трейлом. [Измените описание трейла](../operations/manage-trail.md#update-trail). Выберите период, в который попадает время изменения, и выполните запрос:
+Убедитесь, что тестовый трейл находится в статусе `Active` и собирает события уровня конфигурации в своем каталоге. [Измените описание трейла](../operations/manage-trail.md#update-trail). Выберите период, который включает время изменения, и найдите событие `UpdateTrail`:
 
 ```text
-{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", trail_id=="<идентификатор_трейла>", meta.event_type=="{{ at-event-prefix }}.audit.audittrails.UpdateTrail", meta.event_status=="DONE"}
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", trail_id=="<идентификатор_трейла>", meta.event_type=="{{ at-event-prefix }}.audit.audittrails.UpdateTrail", meta.details.trail_id=="<идентификатор_трейла>", meta.event_status=="DONE"}
 ```
 
 Разверните запись и проверьте новое описание в поле `meta.details.description`.
 
-Чтобы найти событие создания трейла среди доставленных логов, выберите период, в который попадает время создания, и выполните запрос:
+## Кто создал трейл {#create-trail}
+
+Выберите период создания и проект, в который в это время поступали аудитные логи нужного каталога. Укажите идентификатор созданного трейла в поле `meta.details.trail_id`:
 
 ```text
-{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", trail_id=="<идентификатор_трейла>", meta.event_type=="{{ at-event-prefix }}.audit.audittrails.CreateTrail"}
+{project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.audittrails.CreateTrail", meta.event_status=="DONE", meta.details.trail_id=="<идентификатор_созданного_трейла>"}
 ```
 
-В записи со статусом `DONE` сверьте идентификатор созданного трейла в поле `meta.details.trail_id`.
-
-## Кто удалил каталог {#delete-folder}
-
-Найдите событие удаления каталога [по идентификатору или имени](search-events-audit-logs/examples.md#delete-folder).
-
-## Кто создал, изменил, запустил, остановил, перезапустил или удалил виртуальную машину {#vm-manage}
-
-Используйте [запрос для поиска операций по идентификатору виртуальной машины](search-events-audit-logs/examples.md#any-actions-vm).
+В найденной записи поле `meta.authentication.subject_id` содержит идентификатор аккаунта, от имени которого создали трейл.
 
 ## Какие действия совершил пользователь за период {#user-actions}
 
-Вверху страницы задайте начало и конец периода. {{ at-name }} передает в {{ monium-name }} время самого события. Чтобы найти действия пользователя, укажите его идентификатор:
+Поиск в {{ monium-name }} учитывает время самого события. Чтобы найти действия пользователя за выбранный период, укажите его идентификатор:
 
 ```text
 {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.authentication.subject_id=="<идентификатор_пользователя>"}
 ```
 
-Если известно имя пользователя, используйте [запрос для поиска действий по имени](search-events-audit-logs/examples.md#any-actions-user).
+Для поиска по имени замените условие по идентификатору на `meta.authentication.subject_name=="<имя_пользователя>"`.
 
 ## Какие события произошли с ресурсами каталога {#folder-actions}
 
@@ -70,11 +67,18 @@ description: Примеры запросов для поиска событий 
 
 Имя может совпасть с именем облака или организации. Разверните запись и проверьте, что у элемента с этим именем указан `resource_type` со значением `resource-manager.folder`. Скопируйте его `resource_id` и используйте первый запрос, чтобы отобрать события именно этого каталога.
 
-## Какие операции завершились ошибкой доступа {#error}
+## Другие сценарии поиска {#other-queries}
 
-Используйте [запрос для поиска ошибок доступа](search-events-audit-logs/examples.md#permission-denied).
+Выберите, какие события нужно найти:
+
+* <a id="delete-folder"></a>**Удаление каталога.** Найдите событие `DeleteFolder` со статусом `DONE`. Идентификатор инициатора указан в `meta.authentication.subject_id`. [Поиск по идентификатору или имени каталога](search-events-audit-logs/examples.md#delete-folder).
+* <a id="vm-manage"></a>**Операции с виртуальной машиной.** Укажите идентификатор ВМ в поле `meta.details.instance_id` и отберите нужные типы событий. [Поиск операций с ВМ](search-events-audit-logs/examples.md#any-actions-vm).
+* <a id="error"></a>**Отказ в доступе.** Найдите события со статусом `ERROR` и кодом ошибки `7` (`PERMISSION_DENIED`). [Поиск ошибок доступа](search-events-audit-logs/examples.md#permission-denied).
+
+<a id="see-also"></a>
 
 ## Что дальше {#whats-next}
 
-* [Поля аудитного события](../concepts/format.md#scheme)
+* [{#T}](../concepts/format.md)
+* [{#T}](../concepts/format-data-plane.md)
 * [Язык запросов {{ monium-name }}](../../monium/logs/query.md)

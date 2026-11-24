@@ -21,7 +21,7 @@
 #### Инструкции и решения по выполнению
 
 * [Создайте отдельную облачную сеть](https://yandex.cloud/ru/docs/vpc/operations/network-create) для кластера. Не используйте сеть совместно с другими сервисами.
-* [Создайте по одной подсети](https://yandex.cloud/ru/docs/vpc/operations/subnet-create) в каждой из трех зон доступности: `ru-central1-a`, `ru-central1-b` и `ru-central1-d`. Разместите мастер и группы узлов в этих подсетях.
+* [Создайте по одной подсети](https://yandex.cloud/ru/docs/vpc/operations/subnet-create) в трех зонах доступности. Разместите в них мастер и группы узлов.
 * Используйте непересекающиеся диапазоны IP-адресов для подсетей, подов и сервисов. Заранее спланируйте адресное пространство с учетом роста кластера.
 * [Настройте группы безопасности](https://yandex.cloud/ru/docs/vpc/operations/security-group-create) до создания кластера. Разрешите только необходимый трафик: между мастером и узлами, между узлами, от балансировщиков нагрузки.
 * Если кластеру не требуется доступ в интернет, создайте его без публичного IP-адреса и [настройте доступ через NAT-шлюз](https://yandex.cloud/ru/docs/vpc/operations/create-nat-gateway) или [Yandex Cloud Interconnect](https://yandex.cloud/ru/services/interconnect).

@@ -17,7 +17,7 @@
    terraform plan
    ```
 
-   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+   The terminal will display a list of intended changes: resources and/or output variables. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 1. Apply the configuration changes:
 
    ```bash

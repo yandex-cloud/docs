@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [alert-definition](../../_includes/monium/alert-definition.md) %}
 
-Вы можете [настроить](../../monium/operations/alert/create-alert.md) алерт на любую из метрик [{{ backup-full-name }}](../../backup/). Рекомендуется создать алерты на следующие события:
+Вы можете [настроить](../../monium/operations/alert/create-alert.md) алерт на любую из метрик [{{ backup-full-name }}](../../backup/index.yaml). Рекомендуется создать алерты на следующие события:
 
 * Доступна новая версия [агента {{ backup-name }}](../concepts/agent.md).
 * Агент {{ backup-name }} недоступен.
@@ -26,28 +26,33 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
+  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_available_new_version`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "agent", name = "agent_version_available", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "agent", name = "agent_version_available", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления]({{ link-console-main }}) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) {{ monium-name }}, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ {{ compute-name }} или сервера {{ baremetal-name }}. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** укажите:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-ne }}`.
@@ -55,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -66,28 +71,33 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
+  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_status_offline`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "agent", name = "agent_alive", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "agent", name = "agent_alive", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления]({{ link-console-main }}) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) {{ monium-name }}, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ {{ compute-name }} или сервера {{ baremetal-name }}. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** укажите:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
@@ -95,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -106,29 +116,34 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. Перейдите в сервис [{{ monium-name }}]({{ link-monium }}).
+  1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}`.
+  1. Вверху справа нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}** → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
   1. В поле **{{ ui-key.yacloud_monitoring.alert.title_name }}** укажите `agent_operation_failure`
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления]({{ link-console-main }}) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) {{ monium-name }}, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
           * `action` — тип действия.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ {{ compute-name }} или сервера {{ baremetal-name }}. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-conditions }}** укажите:
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
@@ -136,7 +151,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `0`.
 
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте нужные каналы уведомлений.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 

@@ -84,4 +84,4 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
 ### Configure your provider {#configure-provider}
 
-{% include [terraform-configure-provider](../_tutorials_includes//terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../_tutorials_includes/terraform-configure-provider.md) %}

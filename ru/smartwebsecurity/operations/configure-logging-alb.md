@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ monium-name }} {#monium}
 
-  {% include [view-logs-monium](../../_includes/application-load-balancer/view-logs-monium.md) %}
+  {% include [view-logs-monium-steps](../../_includes/application-load-balancer/view-logs-monium-steps.md) %}
 
   ## Примеры фильтрации логов {#filtration}
 

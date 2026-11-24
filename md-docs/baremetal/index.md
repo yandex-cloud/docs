@@ -1758,7 +1758,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListStacklandVersions](extend/api-ref/StacklandCluster/listStacklandVersions.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

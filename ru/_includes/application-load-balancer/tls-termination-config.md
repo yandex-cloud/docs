@@ -31,7 +31,7 @@ locals {
   sa_name          = "ig-sa"
   network_name     = "network-1"
   subnet_name_a    = "subnet-a"
-  subnet_name_b    = "subnet-b"
+  subnet_name_d    = "subnet-d"
   sg_name_balancer = "sg-balancer"
   sg_name_vms      = "sg-vms"
   cert_name        = "imported-cert"
@@ -84,9 +84,9 @@ resource "yandex_vpc_subnet" "subnet-a" {
   network_id     = yandex_vpc_network.network-1.id
 }
 
-resource "yandex_vpc_subnet" "subnet-b" {
-  name           = local.subnet_name_b
-  zone           = "{{ region-id }}-b"
+resource "yandex_vpc_subnet" "subnet-d" {
+  name           = local.subnet_name_d
+  zone           = "{{ region-id }}-d"
   v4_cidr_blocks = ["192.168.2.0/24"]
   network_id     = yandex_vpc_network.network-1.id
 }
@@ -187,7 +187,7 @@ resource "yandex_compute_instance_group" "site-ig" {
 
     network_interface {
       network_id         = yandex_vpc_network.network-1.id
-      subnet_ids         = [yandex_vpc_subnet.subnet-a.id,yandex_vpc_subnet.subnet-b.id]
+      subnet_ids         = [yandex_vpc_subnet.subnet-a.id,yandex_vpc_subnet.subnet-d.id]
       security_group_ids = [yandex_vpc_security_group.sg-vms.id]
       nat                = true
     }
@@ -204,7 +204,7 @@ resource "yandex_compute_instance_group" "site-ig" {
   }
 
   allocation_policy {
-    zones = ["{{ region-id }}-a","{{ region-id }}-b"]
+    zones = ["{{ region-id }}-a","{{ region-id }}-d"]
   }
 
   deploy_policy {
@@ -272,8 +272,8 @@ resource "yandex_alb_load_balancer" "alb" {
       subnet_id = yandex_vpc_subnet.subnet-a.id
     }
     location {
-      zone_id   = "{{ region-id }}-b"
-      subnet_id = yandex_vpc_subnet.subnet-b.id 
+      zone_id   = "{{ region-id }}-d"
+      subnet_id = yandex_vpc_subnet.subnet-d.id
     }
   }
 

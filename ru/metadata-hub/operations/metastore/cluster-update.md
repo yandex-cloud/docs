@@ -106,6 +106,17 @@ description: Следуя данной инструкции, вы сможете
 
       Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+  1. Откройте конфигурационный файл, использованный при [создании кластера](cluster-create.md#tf).
+  1. Измените нужные параметры ресурса `yandex_metastore_cluster`, например `name`, `description`, `labels`, `security_group_ids` или `cluster_config.resource_preset_id`. Сохраните остальные параметры кластера.
+
+     Полный список параметров приведен в [документации провайдера]({{ tf-provider-resources-link }}/metastore_cluster).
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -119,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
           "updateMask": "<список_изменяемых_параметров>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
-          "labels": { "<список_меток>" },
+          "labels": { "<ключ>": "<значение>" },
           "deletionProtection": <защита_от_удаления>,
           "version": "<версия_Apache_Hive™_Metastore>",
           "configSpec": {
@@ -198,7 +209,7 @@ description: Следуя данной инструкции, вы сможете
           "update_mask": "<список_изменяемых_параметров>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
-          "labels": "{ <список_меток> }",
+          "labels": { "<ключ>": "<значение>" },
           "deletion_protection": <защита_от_удаления>,
           "version": "<версия_Apache_Hive™_Metastore>",
           "config_spec": {

@@ -2,9 +2,10 @@
 
 # Практические руководства Audit Trails
 
-* [Поиск событий Yandex Cloud в Object Storage](search-bucket.md)
-* [Просмотр аудитных логов Audit Trails в Monium](search-monium.md)
-* [Поиск аудитных событий Yandex Cloud в Monium](search-cloud-logging.md)
+* [Инструменты для работы с аудитными логами](search-events-audit-logs/tools.md)
+* [Поиск аудитных событий в Object Storage](search-bucket.md)
+* [Поиск аудитных событий в Monium](search-cloud-logging.md)
+* [Примеры запросов для поиска событий в аудитных логах](search-events-audit-logs/examples.md)
 * [Настройка дашбордов и алертов в Yandex Monium](alerts-monitoring.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}

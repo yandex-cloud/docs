@@ -132,18 +132,18 @@ description: На странице приведен список сервисо�
 
 [{{ marketplace-short-name }}](../../marketplace/index.yaml) предоставляет готовые образы операционных систем и приложений, которые можно выбрать для автоматической установки при аренде сервера или переустановке ОС.
 
-Это ускоряет развертывание сервера с поддерживаемой ОС без самостоятельной подготовки ISO-образа.
+Это ускоряет развертывание сервера с поддерживаемой ОС без самостоятельной подготовки ISO-образа. Список доступных образов приведен в [каталоге {{ marketplace-short-name }}](https://yandex.cloud/ru/marketplace?type=BAREMETAL).
 
 Разделы:
 
 * [Образы {{ marketplace-short-name }}](./images.md#marketplace-images)
 * [{#T}](../operations/servers/reinstall-os-from-marketplace.md)
 
-## {{ monitoring-full-name }} {#monitoring}
+## {{ monium-full-name }} {#monitoring}
 
-Метрики сервиса {{ baremetal-name }} поставляются в [{{ monitoring-full-name }}](../../monitoring/index.yaml).
+Метрики сервиса {{ baremetal-name }} доступны в [{{ metrics-name }}](../../monium/metrics/overview.md).
 
-Метрики помогают контролировать состояние ресурсов {{ baremetal-name }} и строить наблюдаемость инфраструктуры на физических серверах.
+По этим метрикам можно отслеживать температуру процессоров, состояние питания и сетевых интерфейсов серверов.
 
 Раздел: [{#T}](../metrics.md).
 

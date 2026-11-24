@@ -81,7 +81,168 @@ items:
       - name: История изменений
         href: release-notes/index.md
       - name: API
-        href: api/index.md
+        items:
+          - name: Обзор
+            href: api/index.md
+          - name: Описание методов (англ.)
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: Accounts
+                items:
+                  - name: Overview
+                    href: api-ref/Accounts/index.md
+                  - href: >-
+                      api-ref/Accounts/POST_accounts_v1_masterBAId_accounts_list.md
+                    name: List accounts
+                  - href: >-
+                      api-ref/Accounts/GET_accounts_v1_masterBAId_account_accountId.md
+                    name: Account data
+                  - href: >-
+                      api-ref/Accounts/PATCH_accounts_v1_masterBAId_account_accountId.md
+                    name: Update account
+                  - href: api-ref/Accounts/POST_accounts_v1_masterBAId_account.md
+                    name: Create account
+              - name: Activities
+                items:
+                  - name: Overview
+                    href: api-ref/Activities/index.md
+                  - href: >-
+                      api-ref/Activities/POST_activities_v1_masterBAId_activities_list.md
+                    name: List activities
+              - name: Comarketing
+                items:
+                  - name: Overview
+                    href: api-ref/Comarketing/index.md
+                  - href: >-
+                      api-ref/Comarketing/GET_comarketing_v1_balance_billingAccountId.md
+                    name: Get co-marketing balance
+                  - href: >-
+                      api-ref/Comarketing/POST_comarketing_v1_listTransactions_billingAccountId.md
+                    name: List co-marketing transactions
+                  - href: >-
+                      api-ref/Comarketing/POST_comarketing_v1_transact_billingAccountId.md
+                    name: Accrue/deduct co-marketing rebates
+                  - href: >-
+                      api-ref/Comarketing/GET_comarketing_v1_listTransactionsFilters.md
+                    name: Get co-marketing transaction filter values
+              - name: Operations
+                items:
+                  - name: Overview
+                    href: api-ref/Operations/index.md
+                  - href: api-ref/Operations/GET_operations_v1_operationId.md
+                    name: Request operation data
+              - name: Opportunities
+                items:
+                  - name: Overview
+                    href: api-ref/Opportunities/index.md
+                  - href: >-
+                      api-ref/Opportunities/POST_opportunities_v1_masterBAId_opportunity.md
+                    name: Create opportunity
+                  - href: >-
+                      api-ref/Opportunities/POST_opportunities_v1_masterBAId_opportunities_list.md
+                    name: List opportunities
+                  - href: >-
+                      api-ref/Opportunities/GET_opportunities_v1_masterBAId_opportunity_opportunityId.md
+                    name: Get opportunity data
+                  - href: >-
+                      api-ref/Opportunities/PATCH_opportunities_v1_masterBAId_opportunity_opportunityId.md
+                    name: Update opportunity
+                  - href: >-
+                      api-ref/Opportunities/GET_opportunities_v1_masterBAId_opportunityTools_opportunityId.md
+                    name: Get available tools for opportunity
+                  - href: >-
+                      api-ref/Opportunities/GET_opportunities_v1_masterBAId_products.md
+                    name: Get products available for opportunities
+              - name: Orders
+                items:
+                  - name: Overview
+                    href: api-ref/Orders/index.md
+                  - href: api-ref/Orders/POST_orders_v1_masterBAId_orders_list.md
+                    name: List orders
+                  - href: api-ref/Orders/POST_orders_v1_masterBAId_order.md
+                    name: Create order
+                  - href: api-ref/Orders/POST_orders_v1_masterBAId_orders_orderId.md
+                    name: Cancel order
+                  - href: >-
+                      api-ref/Orders/POST_orders_v1_masterBAId_orders_listProducts.md
+                    name: List available products
+                  - href: >-
+                      api-ref/Orders/POST_orders_v1_masterBAId_orders_listTerms.md
+                    name: Get minimum terms for order
+                  - href: >-
+                      api-ref/Orders/POST_orders_v1_masterBAId_orders_calculateCost.md
+                    name: Calculate order cost
+                  - href: >-
+                      api-ref/Orders/POST_orders_v1_masterBAId_downloadInvoiceOrder_orderId.md
+                    name: Download invoice PDF
+                  - href: >-
+                      api-ref/Orders/POST_orders_v1_masterBAId_downloadClosedDocs_orderId.md
+                    name: Download closing documents
+              - name: Subaccounts
+                items:
+                  - name: Overview
+                    href: api-ref/Subaccounts/index.md
+                  - href: >-
+                      api-ref/Subaccounts/GET_subaccounts_v1_masterBAId_subaccount_subAccountId.md
+                    name: Subaccount data
+                  - href: >-
+                      api-ref/Subaccounts/PATCH_subaccounts_v1_masterBAId_subaccount_subAccountId.md
+                    name: Update subaccount
+                  - href: >-
+                      api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccount_subAccountId_instances.md
+                    name: Get list of linked instances
+                  - href: >-
+                      api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccount.md
+                    name: Create subaccount
+                  - href: >-
+                      api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccounts_list.md
+                    name: List subaccounts
+                  - href: >-
+                      api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccount_subAccountId_activate.md
+                    name: Activate subaccount
+                  - href: >-
+                      api-ref/Subaccounts/POST_subaccounts_v1_masterBAId_subaccount_subAccountId_suspend.md
+                    name: Suspend subaccount
+              - name: Usage
+                items:
+                  - name: Overview
+                    href: api-ref/Usage/index.md
+                  - href: api-ref/Usage/POST_usage_v1_masterBAId_meta.md
+                    name: Get usage filter values
+                  - href: api-ref/Usage/POST_usage_v1_masterBAId.md
+                    name: Request subaccount usage detail
+              - name: Yandex 360
+                items:
+                  - name: Overview
+                    href: api-ref/Yandex-360/index.md
+                  - href: >-
+                      api-ref/Yandex-360/POST_organization360_v1_masterBAId_subaccountId.md
+                    name: Create organization 360
+                  - href: >-
+                      api-ref/Yandex-360/GET_organization360_v1_subaccountId_organization360Id.md
+                    name: Get organization 360 data
+                  - href: >-
+                      api-ref/Yandex-360/GET_workseats_v1_subaccountId_organization360Id_availableList.md
+                    name: Get list of available tariffs for organization 360
+                  - href: >-
+                      api-ref/Yandex-360/POST_workseats_v2_subaccountId_organization360Id_list.md
+                    name: Get list of tariffs and add-ons of organization 360
+                  - href: >-
+                      api-ref/Yandex-360/POST_workseats_v1_subaccountId_organization360Id_workseat.md
+                    name: Add tariff for organization 360
+                  - href: >-
+                      api-ref/Yandex-360/POST_workseats_v1_subaccountId_organization360Id_workseatId.md
+                    name: Change tariff in organization 360
+                  - href: >-
+                      api-ref/Yandex-360/POST_workseats_v1_subaccountId_organization360Id_workseatId_disable.md
+                    name: Cancel tariff in organization 360
+                  - href: >-
+                      api-ref/Yandex-360/GET_workseats_v1_subaccountId_organization360Id_productId_addons.md
+                    name: Get list of available add-ons for a tariff
+                  - href: >-
+                      api-ref/Yandex-360/PUT_workseats_v1_subaccountId_organization360Id_workseatId_addons.md
+                    name: Manage add-ons for a tariff
   - name: Для партнеров On-premises
     href: on-premises.md
   - name: Термины и определения

@@ -31,6 +31,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+1. {% include [external-nodes-security-groups](../../_includes/managed-kubernetes/security-groups/external-nodes.md) %}
+
 ## Создание группы узлов {#node-group-create}
 
 {% list tabs group=instructions %}

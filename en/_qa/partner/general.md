@@ -16,14 +16,14 @@ If you received a partner program welcome email with a link to the [partner port
 
 #### How do I get the {{ yandex-cloud }} partner authorization letter? {#mail}
 
-Send a request to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or your partner manager proviging your company name, TIN, and the billing account of your company with the partner status.
+Send a request to [yc-partners@yandex.cloud](mailto:yc-partners@yandex.cloud) or your partner manager proviging your company name, TIN, and the billing account of your company with the partner status.
 
 #### How do I change the login of the partner billing account owner? {#owner}
 
 To change the account administrator login:
 
 1. Fill out the [application form](https://disk.yandex.ru/i/vYSMw7adOHSHUA), sign it, and stamp it with your organization seal. Make sure the login specified in the application matches to the current account owner and the application signatory is authorized to sign it.
-1. Send a scanned copy of the application and your partner billing account ID to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or to your partner manager.
+1. Send a scanned copy of the application and your partner billing account ID to [yc-partners@yandex.cloud](mailto:yc-partners@yandex.cloud) or to your partner manager.
 
 {% note warning %}
 
@@ -65,4 +65,4 @@ Each subaccount uses its own [technical support plan](../../support/pricing.md),
 
 You can ask your questions on grants or working with {{ yandex-cloud }} by contacting [support]({{ link-console-support }}) in the {{ yandex-cloud }} console. The support team will also contact the partner program team, if required.
 
-You can ask questions about the terms of the program or share your opinion at [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru) or in the partner chat.
+You can ask questions about the terms of the program or share your opinion at [yc-partners@yandex.cloud](mailto:yc-partners@yandex.cloud) or in the partner chat.

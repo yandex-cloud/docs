@@ -71,9 +71,9 @@
               - zone_id: ru-central1-a
                 subnet_id: e9bavnqlbiuk********
                 disable_traffic: true
-              - zone_id: ru-central1-b
-                  subnet_id: e2lgp8o00g06********
               - zone_id: ru-central1-d
+                  subnet_id: e2lgp8o00g06********
+              - zone_id: ru-central1-f
                   subnet_id: b0cv501fvp13********
           log_group_id: ckgah4eo2j0r********
           security_group_ids:

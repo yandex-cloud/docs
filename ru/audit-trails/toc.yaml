@@ -35,20 +35,14 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+      - name: Инструменты для работы с аудитными логами
+        href: tutorials/search-events-audit-logs/tools.md
+      - name: Поиск аудитных событий в {{ objstorage-name }}
         href: tutorials/search-bucket.md
-      - name: Просмотр аудитных логов в {{ monium-name }}
-        href: tutorials/search-monium.md
       - name: Поиск аудитных событий в {{ monium-name }}
         href: tutorials/search-cloud-logging.md
-      - name: Поиск событий в аудитных логах
-        items:
-          - name: Обзор
-            href: tutorials/search-events-audit-logs/index.md
-          - name: Инструменты для работы с аудитными логами
-            href: tutorials/search-events-audit-logs/tools.md
-          - name: Примеры запросов для поиска событий
-            href: tutorials/search-events-audit-logs/examples.md
+      - name: Примеры запросов для поиска событий
+        href: tutorials/search-events-audit-logs/examples.md
       - name: Настройка дашбордов и алертов в {{ monium-name }}
         href: tutorials/alerts-monitoring.md
       - name: Экспорт аудитных логов в SIEM

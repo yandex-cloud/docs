@@ -26,11 +26,11 @@ locals {
   sa_name             = "nextcloud-sa"
   network_name        = "nextcloud-network"
   subnet_a_name       = "nextcloud-subnet-{{ region-id }}-a"
-  subnet_b_name       = "nextcloud-subnet-{{ region-id }}-b"
   subnet_d_name       = "nextcloud-subnet-{{ region-id }}-d"
+  subnet_f_name       = "nextcloud-subnet-{{ region-id }}-f"
   subnet-a-cidr       = "192.168.11.0/24"
-  subnet-b-cidr       = "192.168.12.0/24"
-  subnet-d-cidr       = "192.168.13.0/24"
+  subnet-d-cidr       = "192.168.12.0/24"
+  subnet-f-cidr       = "192.168.13.0/24"
   sg_name             = "nextcloud-sg"
   gw_name             = "nextcloud-gateway"
   vm_name             = "nextcloud-vm"
@@ -101,19 +101,19 @@ resource "yandex_vpc_subnet" "nextcloud-subnet-a" {
   route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
 }
 
-resource "yandex_vpc_subnet" "nextcloud-subnet-b" {
-  name           = local.subnet_b_name
-  zone           = "{{ region-id }}-b"
-  network_id     = yandex_vpc_network.nextcloud-network.id
-  v4_cidr_blocks = [local.subnet-b-cidr]
-  route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
-}
-
 resource "yandex_vpc_subnet" "nextcloud-subnet-d" {
   name           = local.subnet_d_name
   zone           = "{{ region-id }}-d"
   network_id     = yandex_vpc_network.nextcloud-network.id
   v4_cidr_blocks = [local.subnet-d-cidr]
+  route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
+}
+
+resource "yandex_vpc_subnet" "nextcloud-subnet-f" {
+  name           = local.subnet_f_name
+  zone           = "{{ region-id }}-f"
+  network_id     = yandex_vpc_network.nextcloud-network.id
+  v4_cidr_blocks = [local.subnet-f-cidr]
   route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
 }
 
@@ -254,13 +254,13 @@ resource "yandex_mdb_mysql_cluster" "nextcloud-cluster" {
   }
 
   host {
-    zone      = "{{ region-id }}-b"
-    subnet_id = yandex_vpc_subnet.nextcloud-subnet-b.id
+    zone      = "{{ region-id }}-d"
+    subnet_id = yandex_vpc_subnet.nextcloud-subnet-d.id
   }
 
   host {
-    zone      = "{{ region-id }}-d"
-    subnet_id = yandex_vpc_subnet.nextcloud-subnet-d.id
+    zone      = "{{ region-id }}-f"
+    subnet_id = yandex_vpc_subnet.nextcloud-subnet-f.id
   }
 
   mysql_config = {
@@ -356,7 +356,7 @@ resource "yandex_compute_instance_group" "nextcloud-ig" {
     }
 
     network_interface {
-      subnet_ids         = [yandex_vpc_subnet.nextcloud-subnet-a.id,yandex_vpc_subnet.nextcloud-subnet-b.id,yandex_vpc_subnet.nextcloud-subnet-d.id]
+      subnet_ids         = [yandex_vpc_subnet.nextcloud-subnet-a.id,yandex_vpc_subnet.nextcloud-subnet-d.id,yandex_vpc_subnet.nextcloud-subnet-f.id]
       security_group_ids = [yandex_vpc_security_group.nextcloud-sg.id]
     }
 
@@ -372,7 +372,7 @@ resource "yandex_compute_instance_group" "nextcloud-ig" {
   }
 
   allocation_policy {
-    zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"]
+    zones = ["{{ region-id }}-a","{{ region-id }}-d","{{ region-id }}-f"]
   }
 
   deploy_policy {
@@ -446,12 +446,12 @@ resource "yandex_alb_load_balancer" "nextcloud-alb" {
       subnet_id = yandex_vpc_subnet.nextcloud-subnet-a.id
     }
     location {
-      zone_id   = "{{ region-id }}-b"
-      subnet_id = yandex_vpc_subnet.nextcloud-subnet-b.id
-    }
-    location {
       zone_id   = "{{ region-id }}-d"
       subnet_id = yandex_vpc_subnet.nextcloud-subnet-d.id
+    }
+    location {
+      zone_id   = "{{ region-id }}-f"
+      subnet_id = yandex_vpc_subnet.nextcloud-subnet-f.id
     }
   }
 

@@ -17,7 +17,7 @@
 * Инфраструктура на стороне [{{ vpc-name }}](../../vpc/index.yaml), которая включает в себя:
 
     * облачную сеть `sample-network`;
-    * [подсети](../../vpc/concepts/network.md#subnet) `vpc-subnet-a` и `vpc-subnet-b` в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b`;
+    * [подсети](../../vpc/concepts/network.md#subnet) `vpc-subnet-a` и `vpc-subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-d`;
     * L7-балансировщик {{ alb-name }} `demo-alb-bms`;
     * профиль безопасности {{ sws-name }} `sws-demo-profile`;
     * [виртуальную машину](../../compute/concepts/vm.md) `vm-validator`, используемую для проверки сетевой связности между сетями {{ vpc-name }} и {{ baremetal-name }}.
@@ -87,7 +87,7 @@
       {% include [no-subnet-overlapping-warn](../_tutorials_includes/bm-vrf-and-vpc-interconnect/no-subnet-overlapping-warn.md) %}
 
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-  1. Аналогичным способом создайте в сети `sample-network` подсеть `vpc-subnet-b` в зоне доступности `{{ region-id }}-b` с CIDR `192.168.11.0/24`.
+  1. Аналогичным способом создайте в сети `sample-network` подсеть `vpc-subnet-d` в зоне доступности `{{ region-id }}-d` с CIDR `192.168.11.0/24`.
 
 {% endlist %}
 
@@ -543,7 +543,7 @@
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя балансировщика `demo-alb-bms`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите сеть `sample-network`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите группу безопасности `alb-sg`.
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** оставьте только зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b` с подсетями `vpc-subnet-a` и `vpc-subnet-b` соответственно.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** оставьте только зоны доступности `{{ region-id }}-a` и `{{ region-id }}-d` с подсетями `vpc-subnet-a` и `vpc-subnet-d` соответственно.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** настройка пока недоступна. После создания балансировщика [настройте запись логов в {{ monium-logs-name }}](../../application-load-balancer/operations/application-load-balancer-manage-logs.md) через CLI, API или {{ TF }}.
   1. В секции **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и в открывшейся форме:
 

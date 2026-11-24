@@ -25,7 +25,7 @@
 
 #### Yandex Identity Hub {#v-1-47-0-org-name}
 
-* Добавлен параметр `--ssprPolicies` в команду `yc organization-manager mfa-enforcement create` для задания способа самостоятельного сброса пароля пользователями.
+* Добавлен параметр `--sspr-policies` в команды `yc organization-manager mfa-enforcement create` и `yc organization-manager mfa-enforcement update` для задания способа самостоятельного сброса пароля пользователями.
 
 ## Предыдущие релизы {#previous-release}
 

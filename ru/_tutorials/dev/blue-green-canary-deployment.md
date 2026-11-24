@@ -130,11 +130,11 @@
        - 10.1.0.0/16
        ```
 
-     * В `{{ region-id }}-e`:
+     * В `{{ region-id }}-d`:
 
        ```bash
-       yc vpc subnet create canary-subnet-{{ region-id }}-e \
-         --zone {{ region-id }}-e \
+       yc vpc subnet create canary-subnet-{{ region-id }}-d \
+         --zone {{ region-id }}-d \
          --network-name canary-network \
          --range 10.2.0.0/16
        ```
@@ -145,18 +145,18 @@
        id: e2lghukd9iqo********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:39Z"
-       name: canary-subnet-{{ region-id }}-e
+       name: canary-subnet-{{ region-id }}-d
        network_id: enptrcle5q3d********
-       zone_id: {{ region-id }}-e
+       zone_id: {{ region-id }}-d
        v4_cidr_blocks:
        - 10.2.0.0/16
        ```
 
-     * В `{{ region-id }}-d`:
+     * В `{{ region-id }}-f`:
 
        ```bash
-       yc vpc subnet create canary-subnet-{{ region-id }}-d \
-         --zone {{ region-id }}-d \
+       yc vpc subnet create canary-subnet-{{ region-id }}-f \
+         --zone {{ region-id }}-f \
          --network-name canary-network \
          --range 10.3.0.0/16
        ```
@@ -167,9 +167,9 @@
        id: b0c3pte4o2kn********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:28:08Z"
-       name: canary-subnet-{{ region-id }}-d
+       name: canary-subnet-{{ region-id }}-f
        network_id: enptrcle5q3d********
-       zone_id: {{ region-id }}-d
+       zone_id: {{ region-id }}-f
        v4_cidr_blocks:
        - 10.3.0.0/16
        ```
@@ -180,7 +180,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-e` и `canary-subnet-{{ region-id }}-d`:
+  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-d` и `canary-subnet-{{ region-id }}-f`:
 
      ```hcl
      resource "yandex_vpc_network" "canary-network" {
@@ -194,16 +194,16 @@
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
 
-     resource "yandex_vpc_subnet" "canary-subnet-e" {
-       name           = "canary-subnet-{{ region-id }}-e"
-       zone           = "{{ region-id }}-e"
+     resource "yandex_vpc_subnet" "canary-subnet-d" {
+       name           = "canary-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.2.0.0/16"]
      }
 
-     resource "yandex_vpc_subnet" "canary-subnet-d" {
-       name           = "canary-subnet-{{ region-id }}-d"
-       zone           = "{{ region-id }}-d"
+     resource "yandex_vpc_subnet" "canary-subnet-f" {
+       name           = "canary-subnet-{{ region-id }}-f"
+       zone           = "{{ region-id }}-f"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.3.0.0/16"]
      }
@@ -235,7 +235,7 @@
 - API {#api}
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md).
-  1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-e` и `canary-subnet-{{ region-id }}-d` в трех [зонах доступности](../../overview/concepts/geo-scope.md) с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
+  1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-d` и `canary-subnet-{{ region-id }}-f` в трех [зонах доступности](../../overview/concepts/geo-scope.md) с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
 
 {% endlist %}
 
@@ -880,7 +880,7 @@
      1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `canary-network`.
      1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `canary-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-e` и `canary-subnet-{{ region-id }}-d` — и включите передачу трафика в эти подсети.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-d` и `canary-subnet-{{ region-id }}-f` — и включите передачу трафика в эти подсети.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите **{{ ui-key.yacloud.alb.button_add-listener }}** и задайте настройки обработчика:
 
      1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-listener`.
@@ -906,8 +906,8 @@
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      | e9bnnssj8sc8******** | canary-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.1.0.0/16] |
-     | e2lghukd9iqo******** | canary-subnet-{{ region-id }}-e | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-e | [10.2.0.0/16] |
-     | b0c3pte4o2kn******** | canary-subnet-{{ region-id }}-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-d | [10.3.0.0/16] |
+     | e2lghukd9iqo******** | canary-subnet-{{ region-id }}-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-d | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | canary-subnet-{{ region-id }}-f | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-f | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
@@ -934,8 +934,8 @@
        --network-name canary-network \
        --security-group-id <идентификатор_группы_безопасности_canary-sg> \
        --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-a> \
-       --location zone={{ region-id }}-e,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-e> \
-       --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-d>
+       --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-d> \
+       --location zone={{ region-id }}-f,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-f>
      ```
 
      Результат:
@@ -950,9 +950,9 @@
      network_id: enptrcle5q3d********
      allocation_policy:
        locations:
-       - zone_id: {{ region-id }}-d
+       - zone_id: {{ region-id }}-f
          subnet_id: b0c3pte4o2kn********
-       - zone_id: {{ region-id }}-e
+       - zone_id: {{ region-id }}-d
          subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8********
@@ -997,9 +997,9 @@
            http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
-       - zone_id: {{ region-id }}-d
+       - zone_id: {{ region-id }}-f
          subnet_id: b0c3pte4o2kn********
-       - zone_id: {{ region-id }}-e
+       - zone_id: {{ region-id }}-d
          subnet_id: e2lghukd9iqo********
        - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8********
@@ -1030,13 +1030,13 @@
          }
 
          location {
-           zone_id   = "{{ region-id }}-e"
-           subnet_id = yandex_vpc_subnet.canary-subnet-e.id
+           zone_id   = "{{ region-id }}-d"
+           subnet_id = yandex_vpc_subnet.canary-subnet-d.id
          }
 
          location {
-           zone_id   = "{{ region-id }}-d"
-           subnet_id = yandex_vpc_subnet.canary-subnet-d.id
+           zone_id   = "{{ region-id }}-f"
+           subnet_id = yandex_vpc_subnet.canary-subnet-f.id
          }
        }
 
@@ -1896,5 +1896,5 @@
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `canary-balancer`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из «синего» и «зеленого» бакетов.
 1. [Удалите](../../storage/operations/buckets/delete.md) «синий» и «зеленый» бакеты.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-e` и `canary-subnet-{{ region-id }}-d`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-d` и `canary-subnet-{{ region-id }}-f`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `canary-network`.

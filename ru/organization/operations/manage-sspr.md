@@ -33,6 +33,33 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Для настройки SSPR необходима политика MFA. Если политики еще нет, [создайте](./mfa/create-policy.md) ее и [добавьте пользователей в целевую группу](./mfa/add-users.md).
+
+  1. Посмотрите описание команды CLI для изменения политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement update --help
+     ```
+
+  1. Укажите способ самостоятельного сброса пароля в политике MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement update \
+       --id <идентификатор_политики> \
+       --sspr-policies <способ_сброса_пароля>
+     ```
+
+     Где:
+
+     * `--id` — идентификатор политики MFA. Получить список политик можно с помощью команды `yc organization-manager mfa-enforcement list --organization-id <идентификатор_организации>`.
+     * `--sspr-policies` — [способ сброса пароля](../concepts/sspr.md#reset-methods): `two-any` — с помощью двух любых факторов MFA, `mfa` — с помощью FIDO2-ключа или Passkey с локальной проверкой пользователя.
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}

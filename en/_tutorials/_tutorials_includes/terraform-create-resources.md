@@ -4,7 +4,7 @@
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+   The terminal will display a list of resources and their parameters. No resources are created at this stage. If the configuration contains errors, {{ TF }} will point them out.
 
    {% note alert %}
 
@@ -18,6 +18,6 @@
    terraform apply
    ```
 
-1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
-   {{ TF }} will create all the required resources and the terminal will display the [IP addresses](../../vpc/concepts/address.md) of the created [VMs](../../compute/concepts/vm.md). You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+   {{ TF }} will create the resources and output the [IP addresses](../../vpc/concepts/address.md) of the new [virtual machines](../../compute/concepts/vm.md) in the terminal. Check the resources and their settings in the [management console]({{ link-console-main }}).

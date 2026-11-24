@@ -31,7 +31,7 @@ Create an infrastructure with {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-vm-group-scheduled-scaling
         ```
 
-     1. Navigate to the repository directory. It should now contain the following files:
+     1. Navigate to the repository directory. The following files should appear in it:
         * `vm-scale-scheduled.tf`: New infrastructure configuration.
         * `vm-scale-scheduled.auto.tfvars`: User data file.
         * `vm-scale-scheduled-function.zip`: {{ sf-name }} function code archive.
@@ -41,7 +41,7 @@ Create an infrastructure with {{ TF }}:
 
      1. Create a folder.
      1. In this folder, create:
-        * `vm-scale-scheduled.tf`: New infrastructure configuration file:
+        * `vm-scale-scheduled.tf` configuration file:
 
           {% cut "vm-scale-scheduled.tf" %}
 
@@ -49,7 +49,7 @@ Create an infrastructure with {{ TF }}:
 
           {% endcut %}
 
-        * `vm-scale-scheduled.auto.tfvars`: User data file:
+        * `vm-scale-scheduled.auto.tfvars` user data file:
 
           {% cut "vm-scale-scheduled.auto.tfvars" %}
 
@@ -75,7 +75,7 @@ Create an infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   For more on the properties of resources used in {{ TF }}, see these provider guides:
+   Learn more on the properties of resources used in {{ TF }} in these provider guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).

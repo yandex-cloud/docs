@@ -1,11 +1,15 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud Backup](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Backup](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
 
-В этом разделе описаны метрики сервиса Cloud Backup, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Cloud Backup автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) и доступны в проекте каталога с защищаемыми ресурсами.
 
 Имя метрики пишется в метку `name`.
+
+При переходе к графику из сервисного дашборда значение метки `service` используется без подчеркиваний — `backup`.
+
+Если вы создаете запрос в Monium через **Обзор** → **Метрики**, укажите проект каталога с защищаемыми ресурсами (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __backup__`.
 
 Общие метки для всех метрик сервиса Cloud Backup:
 

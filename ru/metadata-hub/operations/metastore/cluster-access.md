@@ -125,6 +125,34 @@ description: Следуя данной инструкции, вы настрои
       {{ yc-metastore }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Добавьте ресурс для назначения роли на кластер:
+
+     ```hcl
+     resource "yandex_metastore_cluster_iam_binding" "editors" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "managed-metastore.editor"
+       members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
+     }
+     ```
+
+     Укажите идентификатор кластера в `cluster_id`, назначаемую роль в `role` и полный список субъектов этой роли в `members`. Формат идентификаторов приведен в [документации провайдера]({{ tf-provider-resources-link }}/metastore_cluster_iam_binding).
+
+     {% note warning %}
+
+     Ресурс управляет полным набором участников одной роли на кластере. Включите в `members` всех субъектов, которым нужно сохранить эту роль, в том числе назначенных через консоль, CLI или API. Изменение или удаление ресурса может отозвать роль у субъектов, назначенных вне {{ TF }}; такие изменения не отображаются в плане. Используйте только один ресурс `yandex_metastore_cluster_iam_binding` для каждой роли на кластере.
+
+     {% endnote %}
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -572,8 +600,9 @@ description: Следуя данной инструкции, вы настрои
   1. Назначьте роли на кластер:
 
       ```bash
-      {{ yc-metastore }} cluster add-access-bindings <имя_или_идентификатор_кластера> \
-        --access-binding role=managed-metastore.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
+      {{ yc-metastore }} cluster add-access-binding <имя_или_идентификатор_кластера> \
+        --role managed-metastore.editor \
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -647,7 +676,7 @@ description: Следуя данной инструкции, вы настрои
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings'
+        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:listAccessBindings'
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -677,14 +706,14 @@ description: Следуя данной инструкции, вы настрои
         -proto ~/cloudapi/yandex/cloud/resourcemanager/v1/folder_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-              "resource_id": "<идентификатор_кластера>",
+              "resource_id": "<идентификатор_каталога>",
               "access_binding_deltas": [
                 {
                   "action": "ADD",
                   "access_binding": {
                     "role_id": "managed-metastore.viewer",
                     "subject": {
-                      "id": "<идентификатор_ссервисного_аккаунта>",
+                      "id": "<идентификатор_сервисного_аккаунта>",
                       "type": "serviceAccount"
                     }
                   }

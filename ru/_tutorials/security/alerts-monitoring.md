@@ -311,7 +311,7 @@
 Статус `Active` означает, что трейл продолжает собирать аудитные логи с доступных ресурсов. Если при этом сохраняется отставание **Delivered events** от **Processed events**, проверьте состояние объекта назначения и его логи:
 
 * [{#T}](../../storage/operations/buckets/get-info.md)
-* [Просмотр аудитных логов в {{ monium-name }}](../../audit-trails/tutorials/search-monium.md)
+* [Просмотр аудитных логов в {{ monium-name }}](../../audit-trails/tutorials/search-cloud-logging.md#monium)
 * [{#T}](../../data-streams/operations/index.md)
 
 Статус `Error` сообщает об ошибке в работе трейла. В этом случае изучите лог диагностики трейла.

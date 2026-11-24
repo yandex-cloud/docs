@@ -190,7 +190,7 @@
         URL для перенаправления имеет вид:
 
         ```text
-        https://console.cloud.yandex.ru/federations/<идентификатор_федерации>
+        https://auth.yandex.cloud/federations/<идентификатор_федерации>
         ```
 
         {% cut "Как получить идентификатор федерации" %}
@@ -335,7 +335,7 @@
 
 1. Введите логин пользователя `adfs_demo_user` и нажмите кнопку **OK**.
 
-1. Нажмите кнопку **ОК**.
+1. Нажмите кнопку **OK**.
 
 ### Настройте политику контроля доступа {#configure-access-control-policy}
 
@@ -477,7 +477,7 @@
       # Создание группы пользователей
       resource "yandex_organizationmanager_group" "my-group" {
         name            = "yc-demo-group"
-        organization_id = "demo-federation"
+        organization_id = "<идентификатор_организации>"
       }
 
       # Назначение роли viewer на каталог
@@ -489,23 +489,23 @@
 
       # Включение сопоставления групп федеративных пользователей
       resource "yandex_organizationmanager_group_mapping" "my_group_map" {
-        federation_id = "demo-federation"
+        federation_id = "<идентификатор_федерации>"
         enabled       = true
       }
 
       # Настройка сопоставления групп федеративных пользователей
       resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
-        federation_id     = "demo-federation"
+        federation_id     = "<идентификатор_федерации>"
         internal_group_id = yandex_organizationmanager_group.my-group.id
-        external_group_id = "<идентификатор_группы_adfs_group>"
+        external_group_id = "<имя_группы_AD_FS>"
 
-        depends_on = [yandex_organizationmanager_group_mapping.group_mapping]
+        depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
       }
       ```
 
       Где:
       * `folder_id` — каталог, на который назначается роль.
-      * `external_group_id` — идентификатор нужной группы, который передается в [утверждениях со стороны AD FS](#map-adfs-ldap).
+      * `external_group_id` — имя нужной группы (например, `adfs_group`), которое передается в [утверждениях со стороны AD FS](#map-adfs-ldap).
 
          Если используется атрибут `Token-Groups - Unqualified Names`, то укажите в качестве идентификатора короткое имя группы — `adfs_group`.
 
@@ -567,6 +567,6 @@
 
 1. Введите реквизиты пользователя `adfs_demo_user@example.com`, [созданного ранее](#create-user), и нажмите кнопку **Sign in**.
 
-    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://console.cloud.yandex.ru/federations/<идентификатор_федерации>`, который вы указали в настройках [отношения доверия](#create-relying-party-trust), а после — на главную страницу [консоли управления](https://console.yandex.cloud).
+    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://auth.yandex.cloud/federations/<идентификатор_федерации>`, который вы указали в настройках [отношения доверия](#create-relying-party-trust), а после — на главную страницу [консоли управления](https://console.yandex.cloud).
 
 1. Убедитесь, что пользователь, от имени которого был выполнен вход, входит в группу `yc-demo-group` и у него есть права на просмотр ресурсов в соответствии с ролью, назначенной для группы.

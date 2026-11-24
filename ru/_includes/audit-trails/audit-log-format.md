@@ -14,7 +14,7 @@
 
 ### Запись в {{ monium-name }} {#monium}
 
-Аудитные логи доступны в [проекте каталога трейла](../../audit-trails/concepts/trail.md#monium). Чтобы посмотреть поля события, [откройте логи в {{ monium-name }}](../../audit-trails/tutorials/search-monium.md) и разверните запись.
+Аудитные логи доступны в [проекте каталога трейла](../../audit-trails/concepts/trail.md#monium). Чтобы посмотреть поля события, [откройте логи в {{ monium-name }}](../../audit-trails/tutorials/search-cloud-logging.md#monium) и разверните запись.
 
 ### Сообщение в поток данных {#data-stream-message}
 

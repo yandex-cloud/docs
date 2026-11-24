@@ -234,7 +234,7 @@
 1. Нажмите **Создать федерацию** и выберите тип протокола **OpenID**.
 1. Заполните название и описание федерации.
 1. Задайте длительность сессии.
-    
+
     {% note info %}
 
     Максимальное время жизни сессии SSO — от 30 минут до 7 дней. При отсутствии активности сессия автоматически завершается, после чего требуется повторная аутентификация.
@@ -265,9 +265,9 @@
   1. Справа сверху нажмите  ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашего экземпляра Cloud.ru в формате:
-      
+
           ```text
-          https://id.cloud.ru/auth/system/idp/<ID_федерации_Cloud.ru>/callback
+          https://id.cloud.ru/auth/system/idp/<идентификатор_федерации_Cloud.ru>/callback
           ```
           Например: `https://id.cloud.ru/auth/system/idp/5ca1bc33-7e8a-711a-b29a-a8a121eda1cd/callback`.
       1. {% include [org-oidc-app-disable-pkce](../../../_tutorials/_tutorials_includes/org-oidc-app-disable-pkce.md) %}
@@ -284,11 +284,11 @@
      ```bash
      yc iam oauth-client update \
        --id <идентификатор_OAuth-клиента> \
-       --redirect-uris "https://id.cloud.ru/auth/system/idp/<ID_федерации_Cloud.ru>/callback"
+       --redirect-uris "https://id.cloud.ru/auth/system/idp/<идентификатор_федерации_Cloud.ru>/callback"
      ```
 
      Где:
-     
+
      * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
      * `--redirect-uris` — эндпоинт аутентификации для вашего экземпляра Cloud.ru. Например: `https://id.cloud.ru/auth/system/idp/5ca1bc33-7e8a-711a-b29a-a8a121eda1cd/callback`.
 
@@ -347,28 +347,28 @@
   1. Получите [идентификатор пользователя](../../../organization/operations/users-get.md).
 
   1. Чтобы добавить в приложение пользователя:
-   
+
      1. Посмотрите описание команды CLI для добавления пользователей в приложение:
-   
+
         ```bash
         yc organization-manager idp application oauth application add-assignments --help
         ```
-   
+
      1. Выполните команду:
-   
+
         ```bash
         yc organization-manager idp application oauth application add-assignments \
           --id <идентификатор_приложения> \
           --subject-id <идентификатор_пользователя>
         ```
-   
+
         Где:
-   
+
         * `--id` — идентификатор OIDC-приложения.
         * `--subject-id` — идентификатор нужного пользователя.
-   
+
         Результат:
-   
+
         ```text
         assignment_deltas:
           - action: ADD
@@ -402,7 +402,7 @@
 
 1. В браузере откройте страницу входа в [консоль](https://console.cloud.ru/) Cloud.ru.
 1. Если вы были авторизованы, выйдите из профиля.
-1. На форме входа нажмите кнопку **SSO**.
+1. На форме входа нажмите кнопку **Войти через SSO**.
 1. В появившемся диалоге введите ID созданной вами федерации и нажмите **Войти**.
 1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя.
 1. Убедитесь, что вы успешно аутентифицировались в Cloud.ru.

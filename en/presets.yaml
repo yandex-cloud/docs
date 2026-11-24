@@ -6875,6 +6875,8 @@ default:
           tab_personal-terms: Personal terms
       mdb-core:
         entities:
+          ClusterPreset:
+            label_section_1nfw1: Cluster configuration
           Subnetwork:
             label_title_c4P8n: Subnet
           Zone:

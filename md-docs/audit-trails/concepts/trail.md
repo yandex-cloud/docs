@@ -200,9 +200,10 @@ include_rules:  # Включение событий; для исключения
 
 ## Примеры использования {#examples}
 
-* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md)
+* [Инструменты для работы с аудитными логами](../tutorials/search-events-audit-logs/tools.md)
 * [Настройка дашбордов и алертов в Yandex Monium](../tutorials/alerts-monitoring.md)
-* [Просмотр аудитных логов Audit Trails в Monium](../tutorials/search-monium.md)
+* [Поиск аудитных событий в Object Storage](../tutorials/search-bucket.md)
+* [Поиск аудитных событий в Monium](../tutorials/search-cloud-logging.md)
 * [Загрузка аудитных логов в MaxPatrol SIEM](../tutorials/maxpatrol/index.md)
 * [Загрузка аудитных логов в SIEM Splunk](../tutorials/export-logs-to-splunk.md)
 * [Загрузка аудитных логов в SIEM ArcSight](../tutorials/export-logs-to-arcsight.md)

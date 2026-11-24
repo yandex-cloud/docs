@@ -7,20 +7,20 @@ description: В этом разделе собраны руководства п
 
 {{ managed-k8s-name }} позволяет перенести рабочие нагрузки Kubernetes из любого окружения без привязки к конкретному провайдеру или типу инфраструктуры. Поддерживаются следующие сценарии:
 
-* [Миграция из другого облака в {{ yandex-cloud }}](migration-from-cloud.md),
-* Миграция из on-premises в {{ yandex-cloud }},
-* Гибридное облако с миграцией части нагрузок в {{ yandex-cloud }} с использованием [внешних узлов](../../operations/external-nodes-connect.md) или [серверов BareMetal](../../operations/bms-server-connect.md).
+* [Миграция из другого облака в {{ yandex-cloud }}](migration-from-cloud.md).
+* [Миграция из on-premises в {{ yandex-cloud }}](migration-from-onprem.md).
+* Гибридный сценарий — перенос части нагрузок в {{ yandex-cloud }} с использованием [внешних узлов](../../operations/external-nodes-connect.md) или [серверов {{ baremetal-name }}](../../operations/baremetal-group/create-baremetal.md).
 
 ## Общая схема миграции {#overview}
 
-1. **Инвентаризация** — аудит рабочих нагрузок, оценка совместимости API и сетевых требований.
-1. (Для on-premises) **Сетевая связность** — настройка соединения между источником и {{ yandex-cloud }}.
-1. **Инфраструктура {{ yandex-cloud }}** — создание VPC, групп безопасности, IAM-ресурсов, кластера {{ managed-k8s-name }} и групп узлов.
-1. **Перенос образов** — копирование образов контейнеров в {{ container-registry-full-name }}.
-1. **Перенос stateful-нагрузок** — перенос данных с помощью {{ data-transfer-full-name }} или Velero.
-1. **Перенос stateless-нагрузок** — экспорт, адаптация и применение манифестов.
-1. **Балансировщики и DNS** — настройка Gwin, Network Load Balancer и переключение DNS.
-1. **Финализация** — проверка, очистка ресурсов источника, архивирование бэкапов.
+1. Инвентаризация рабочих нагрузок, чтобы оценить сложность и создать план миграции.
+1. Подготовка инфраструктуры {{ yandex-cloud }}.
+1. Настройка сетевой связности между исходной инфраструктурой и {{ yandex-cloud }}.
+1. Перенос Docker-образов.
+1. Перенос stateful-нагрузок: баз данных, StatefulSets с PersistentVolumes.
+1. Перенос stateless-нагрузок.
+1. Настройка балансировщиков и переключение DNS.
+1. Проверка работы и отключение исходного кластера.
 
 ## Время и трудозатраты {#effort}
 
@@ -45,7 +45,7 @@ description: В этом разделе собраны руководства п
 || [Gwin](../../alb-ref/gwin-index.md) | Gateway API-контроллер для {{ alb-full-name }}. Рекомендуемый способ настройки L7-балансировщиков ||
 || [Velero](https://velero.io/) | Резервное копирование и восстановление Persistent Volumes ||
 || [{{ data-transfer-full-name }}](../../../data-transfer/index.yaml) | Перенос данных из управляемых баз данных ||
-|| [{{ container-registry-full-name }}](../../../container-registry/index.yaml) | Хранение образов контейнеров в {{ yandex-cloud }} ||
+|| [{{ cloud-registry-full-name }}](../../../cloud-registry/index.yaml) | Хранение Docker-образов в {{ yandex-cloud }} ||
 || [{{ objstorage-full-name }}](../../../storage/index.yaml) | Хранение бэкапов Velero и промежуточное хранилище при переносе ||
 || [{{ dns-full-name }}](../../../dns/index.yaml) | Управление DNS-записями при переключении трафика ||
 |#

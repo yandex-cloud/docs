@@ -1,6 +1,6 @@
 # Cost analysis by resource using {{ objstorage-full-name }}
 
-Configure the automatic export of expense details for your [billing account](../../billing/concepts/billing-account.md) and generate a report with info on the costs associated with the resources within a folder. To get data from the {{ objstorage-name }} bucket, we will be using the [S3 Select](../../storage/concepts/s3-select-language.md) query language.
+You will set up automatic export of cost breakdown data for your [billing account](../../billing/concepts/billing-account.md) and generate a report with info on the total cost of resources in the folder. To get data from the {{ objstorage-name }} bucket, we will be using the [S3 Select](../../storage/concepts/s3-select-language.md) query language.
 
 To analyze the costs:
 
@@ -34,7 +34,7 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket. The name must be [unique](../../storage/concepts/bucket.md#naming) within {{ objstorage-full-name }}.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
@@ -68,21 +68,21 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
 
   1. Run the query against {{ objstorage-name }} and save the output to a file:
 
-     1. For convenience, save:
+     1. For convenience, save the data into variables:
 
-        * Name of the details bucket to a variable named `$bucket`:
+        * `bucket`: Bucket name:
 
           ```bash
           bucket=<bucket_name>
           ```
 
-        * [Key](../../storage/concepts/object.md#key) of the details object to a variable named `$key`:
+        * `key`: Object [key](../../storage/concepts/object.md#key) with details:
 
           ```bash
           key=<object_key>
           ```
 
-        * Expression to request data from the details file, to the `$query` variable:
+        * `query`: S3 Select expression to request data from the details file:
 
           ```bash
           query="select service_name,resource_id,sku_id,sku_name,\"date\",cost from S3Object where service_name='Compute Cloud'"
@@ -123,7 +123,7 @@ Install and configure the [AWS CLI](../../storage/tools/aws-cli.md).
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the resources you created and stop paying for them:
+To stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

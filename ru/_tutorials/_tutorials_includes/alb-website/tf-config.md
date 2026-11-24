@@ -70,14 +70,14 @@ resource "yandex_vpc_subnet" "subnet-1" {
 
 resource "yandex_vpc_subnet" "subnet-2" {
   name           = local.subnet_name2
-  zone           = "{{ region-id }}-b"
+  zone           = "{{ region-id }}-d"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-3" {
   name           = local.subnet_name3
-  zone           = "{{ region-id }}-d"
+  zone           = "{{ region-id }}-f"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
@@ -184,7 +184,7 @@ resource "yandex_compute_instance_group" "alb-vm-group" {
   }
 
   allocation_policy {
-    zones = ["{{ region-id }}-a", "{{ region-id }}-b", "{{ region-id }}-d"]
+    zones = ["{{ region-id }}-a", "{{ region-id }}-d", "{{ region-id }}-f"]
   }
 
   deploy_policy {
@@ -250,12 +250,12 @@ resource "yandex_alb_load_balancer" "alb-1" {
     }
 
     location {
-      zone_id   = "{{ region-id }}-b"
+      zone_id   = "{{ region-id }}-d"
       subnet_id = yandex_vpc_subnet.subnet-2.id
     }
 
     location {
-      zone_id   = "{{ region-id }}-d"
+      zone_id   = "{{ region-id }}-f"
       subnet_id = yandex_vpc_subnet.subnet-3.id
     }
   }

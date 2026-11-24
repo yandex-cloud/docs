@@ -97,17 +97,17 @@
 
      ```bash
      yc vpc subnet create \
-       --name ddos-network-ru-b \
+       --name ddos-network-ru-d \
        --network-name ddos-network \
-       --zone ru-central1-b \
+       --zone ru-central1-d \
        --range 192.168.1.0/24
      ```
 
      ```bash
      yc vpc subnet create \
-       --name ddos-network-ru-d \
+       --name ddos-network-ru-f \
        --network-name ddos-network \
-       --zone ru-central1-d \
+       --zone ru-central1-f \
        --range 192.168.2.0/24
      ```
 
@@ -253,7 +253,7 @@
 
      * [yc iam service-account get <имя_сервисного_аккаунта>](../../../cli/cli-ref/iam/cli-ref/service-account/get.md) — для сервисного аккаунта.
      * [yc vpc network get ddos-network](../../../cli/cli-ref/vpc/cli-ref/network/get.md) — для сети `ddos-network`.
-     * [yc vpc subnet get <имя_подсети>](../../../cli/cli-ref/vpc/cli-ref/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-d`.
+     * [yc vpc subnet get <имя_подсети>](../../../cli/cli-ref/vpc/cli-ref/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-d` и `ddos-network-ru-f`.
      * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md) — для образа загрузочного диска.
      * [yc vpc security-group get ddos-sg-vms](../../../cli/cli-ref/vpc/cli-ref/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
 
@@ -280,8 +280,8 @@
              - network_id: <идентификатор_облачной_сети>
                subnet_ids:
                  - <идентификатор_подсети_в_зоне_ru-central1-a>
-                 - <идентификатор_подсети_в_зоне_ru-central1-b>
                  - <идентификатор_подсети_в_зоне_ru-central1-d>
+                 - <идентификатор_подсети_в_зоне_ru-central1-f>
                primary_v4_address_spec: {}
                security_group_ids:
                  - <идентификатор_группы_безопасности>
@@ -294,8 +294,8 @@
      allocation_policy:
          zones:
              - zone_id: ru-central1-a
-             - zone_id: ru-central1-b
              - zone_id: ru-central1-d
+             - zone_id: ru-central1-f
      application_load_balancer_spec:
          target_group_spec:
              name: tg-ddos
@@ -351,8 +351,8 @@
      allocation_policy:
        zones:
        - zone_id: ru-central1-a
-       - zone_id: ru-central1-b
        - zone_id: ru-central1-d
+       - zone_id: ru-central1-f
      load_balancer_state: {}
      managed_instances_state:
        target_size: "2"
@@ -623,8 +623,8 @@
      yc alb load-balancer create ddos-protect-alb \
        --network-name ddos-network \
        --location subnet-name=ddos-network-ru-a,zone=ru-central1-a \
-       --location subnet-name=ddos-network-ru-b,zone=ru-central1-b \
-       --location subnet-name=ddos-network-ru-d,zone=ru-central1-d
+       --location subnet-name=ddos-network-ru-d,zone=ru-central1-d \
+       --location subnet-name=ddos-network-ru-f,zone=ru-central1-f
      ```
 
      Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).

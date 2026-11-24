@@ -115,7 +115,7 @@
   
   * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
   
-  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в CLI версии 1.45.0 и новее. Параметр указывается без значения.
+  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Параметр указывается без значения.
   
       С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
   * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.

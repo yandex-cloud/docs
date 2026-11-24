@@ -1796,7 +1796,7 @@ items:
                               - name: ListStacklandVersions
                                 href: >-
                                   extend/api-ref/StacklandCluster/listStacklandVersions.md
-          - name: Метрики {{ monitoring-name }}
+          - name: Метрики {{ metrics-name }}
             href: metrics.md
       - name: Квоты и лимиты
         href: concepts/limits.md

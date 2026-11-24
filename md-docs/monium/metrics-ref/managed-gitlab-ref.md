@@ -11,8 +11,8 @@
 
 | Метка     |   Значение                                     |
 |-----------|------------------------------------------------|
-| service   | Идентификатор сервиса: `managed-gitlab`.         |
-| host      | Имя инстанса в домене `.gitlab.yandexcloud.net`. |
+| service   | Идентификатор сервиса: `__managed-gitlab__`. |
+| host      | Имя хоста инстанса в домене `.gitlab.yandexcloud.net`. Например, `example` для инстанса с доменным именем `example.gitlab.yandexcloud.net`. |
 | cloud_id  | Идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).    |
 | folder_id | Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder). |
 

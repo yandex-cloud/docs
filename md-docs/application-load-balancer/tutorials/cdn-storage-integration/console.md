@@ -377,11 +377,11 @@
 
           Сохраните полученный идентификатор подсети — он понадобится позднее при создании L7-балансировщика.
 
-      * В `ru-central1-e`:
+      * В `ru-central1-d`:
 
           ```bash
-          yc vpc subnet create example-subnet-ru-central1-e \
-            --zone ru-central1-e \
+          yc vpc subnet create example-subnet-ru-central1-d \
+            --zone ru-central1-d \
             --network-name example-network \
             --range 192.168.2.0/24
           ```
@@ -392,20 +392,20 @@
           id: e2lo05oe9slo********
           folder_id: b1gt6g8ht345********
           created_at: "2026-02-05T12:02:02Z"
-          name: example-subnet-ru-central1-e
+          name: example-subnet-ru-central1-d
           network_id: enpqm699f18v********
-          zone_id: ru-central1-e
+          zone_id: ru-central1-d
           v4_cidr_blocks:
             - 192.168.2.0/24
           ```
 
           Сохраните полученный идентификатор подсети — он понадобится позднее при создании L7-балансировщика.
 
-      * В `ru-central1-d`:
+      * В `ru-central1-f`:
 
           ```bash
-          yc vpc subnet create example-subnet-ru-central1-d \
-            --zone ru-central1-d \
+          yc vpc subnet create example-subnet-ru-central1-f \
+            --zone ru-central1-f \
             --network-name example-network \
             --range 192.168.3.0/24
           ```
@@ -416,9 +416,9 @@
           id: fl8bpb6lnu80********
           folder_id: b1gt6g8ht345********
           created_at: "2026-02-05T12:03:23Z"
-          name: example-subnet-ru-central1-d
+          name: example-subnet-ru-central1-f
           network_id: enpqm699f18v********
-          zone_id: ru-central1-d
+          zone_id: ru-central1-f
           v4_cidr_blocks:
             - 192.168.3.0/24
           ```
@@ -430,7 +430,7 @@
 - API {#api}
 
   1. Чтобы создать сеть `example-network`, воспользуйтесь методом REST API [create](../../../vpc/api-ref/Network/create.md) для ресурса [Network](../../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../../vpc/api-ref/grpc/Network/create.md).
-  1. Чтобы создать подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-e` и `example-subnet-ru-central1-d` в трех зонах доступности, воспользуйтесь методом REST API [create](../../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../../vpc/api-ref/grpc/Subnet/create.md).
+  1. Чтобы создать подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-d` и `example-subnet-ru-central1-f` в трех зонах доступности, воспользуйтесь методом REST API [create](../../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../../vpc/api-ref/grpc/Subnet/create.md).
 
 {% endlist %}
 
@@ -771,7 +771,7 @@
       1. В поле **Сеть** выберите `example-network`.
       1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
 
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-ru-central1-a`, `example-subnet-ru-central1-e` и `example-subnet-ru-central1-d` — и включите передачу трафика в эти подсети.
+  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-ru-central1-a`, `example-subnet-ru-central1-d` и `example-subnet-ru-central1-f` — и включите передачу трафика в эти подсети.
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик** и задайте настройки обработчика:
 
       1. В поле **Имя** укажите `example-listener`.
@@ -791,8 +791,8 @@
         --network-name example-network \
         --security-group-id <идентификатор_группы_безопасности_example-sg> \
         --location zone=ru-central1-a,subnet-id=<идентификатор_подсети_example-subnet-ru-central1-a> \
-        --location zone=ru-central1-e,subnet-id=<идентификатор_подсети_example-subnet-ru-central1-e> \
-        --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_example-subnet-ru-central1-d>
+        --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_example-subnet-ru-central1-d> \
+        --location zone=ru-central1-f,subnet-id=<идентификатор_подсети_example-subnet-ru-central1-f>
       ```
 
       Где:
@@ -814,9 +814,9 @@
         locations:
           - zone_id: ru-central1-a
             subnet_id: e9b0fo0hvhpd********
-          - zone_id: ru-central1-e
-            subnet_id: e2lo05oe9slo********
           - zone_id: ru-central1-d
+            subnet_id: e2lo05oe9slo********
+          - zone_id: ru-central1-f
             subnet_id: fl8bpb6lnu80********
       security_group_ids:
         - enp9dpfa774h********
@@ -860,9 +860,9 @@
         locations:
           - zone_id: ru-central1-a
             subnet_id: e9b0fo0hvhpd********
-          - zone_id: ru-central1-e
-            subnet_id: e2lo05oe9slo********
           - zone_id: ru-central1-d
+            subnet_id: e2lo05oe9slo********
+          - zone_id: ru-central1-f
             subnet_id: fl8bpb6lnu80********
       security_group_ids:
         - enp9dpfa774h********
@@ -1109,7 +1109,7 @@
 1. [Удалите](../../operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
 1. [Удалите](../../../storage/operations/objects/delete.md) все объекты из бакета.
 1. [Удалите](../../../storage/operations/buckets/delete.md) бакет.
-1. [Удалите](../../../vpc/operations/subnet-delete.md) подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-e` и `example-subnet-ru-central1-d`.
+1. [Удалите](../../../vpc/operations/subnet-delete.md) подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-d` и `example-subnet-ru-central1-f`.
 1. [Удалите](../../../vpc/operations/security-group-delete.md) группу безопасности `example-sg`.
 1. [Удалите](../../../vpc/operations/network-delete.md) сеть `example-network`.
 1. При необходимости [удалите](../../../certificate-manager/operations/managed/cert-delete.md) сертификат `mymanagedcert`.

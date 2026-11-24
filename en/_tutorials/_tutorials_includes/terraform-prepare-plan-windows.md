@@ -1,6 +1,6 @@
 According to the plan, the following resources are created:
 * `ya-network` [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) named `ya-network` in the default [availability zone](../../overview/concepts/geo-scope.md).
-* Windows [VM](../../compute/concepts/vm.md): 2 vCPUs and 4 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. It will automatically get public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in the `ya-network` subnet.
+* Two Windows [VMs](../../compute/concepts/vm.md): 2 vCPUs and 4 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. They will automatically get public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/16` range in the `ya-network` subnet.
 
 Create the following files:
 1. `main.tf`: Main infrastructure description file.
@@ -17,7 +17,7 @@ Create the following files:
     }
 
     provider "yandex" {
-      zone      = var.zone
+      zone = var.zone
     }
 
     resource "yandex_vpc_network" "default" {
@@ -44,14 +44,15 @@ Create the following files:
       }
     }
 
-    resource "yandex_compute_instance" "default" {
-      name     = var.name
-      hostname = var.name
-      zone     = var.zone
+    resource "yandex_compute_instance" "vm-1" {
+      name        = "terraform1"
+      hostname    = "terraform1"
+      zone        = var.zone
+      platform_id = "standard-v3"
 
       resources {
-        cores  = var.cores
-        memory = var.memory
+        cores = 2
+        memory = 4
       }
 
       boot_disk {
@@ -77,12 +78,54 @@ Create the following files:
       }
     }
 
-    output "name" {
-      value = yandex_compute_instance.default.name
+    resource "yandex_compute_instance" "vm-2" {
+      name        = "terraform2"
+      hostname    = "terraform2"
+      zone        = var.zone
+      platform_id = "standard-v3"
+
+      resources {
+        cores = 4
+        memory = 4
+      }
+
+      boot_disk {
+        initialize_params {
+          image_id = data.yandex_compute_image.default.id
+          size = var.disk_size
+          type     = var.disk_type
+        }
+      }
+
+      network_interface {
+        subnet_id = yandex_vpc_subnet.default.id
+        nat       = var.nat
+      }
+
+      metadata = {
+        user-data = data.template_file.default.rendered
+      }
+
+      timeouts {
+        create = var.timeout_create
+        delete = var.timeout_delete
+      }
     }
 
-    output "address" {
-      value = yandex_compute_instance.default.network_interface.0.nat_ip_address
+    output "internal_ip_address_vm_1" {
+      value = yandex_compute_instance.vm-1.network_interface.0.ip_address
+    }
+
+    output "internal_ip_address_vm_2" {
+      value = yandex_compute_instance.vm-2.network_interface.0.ip_address
+    }
+
+    output "external_ip_address_vm_1" {
+      value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
+    }
+
+    output "external_ip_address_vm_2" {
+      value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
     }
     ```
 
@@ -123,20 +166,6 @@ Create the following files:
       default = "windows-2019-dc-gvlk"
     }
 
-    variable "name" {
-      type    = string
-    }
-
-    variable "cores" {
-      type    = number
-      default = 2
-    }
-
-    variable "memory" {
-      type    = number
-      default = 4
-    }
-
     variable "disk_size" {
       type    = number
       default = 50
@@ -148,18 +177,18 @@ Create the following files:
     }
 
     variable "user_name" {
-      default = ""
       type    = string
+      default = ""
     }
 
     variable "user_pass" {
-      default = ""
       type    = string
+      default = ""
     }
 
     variable "admin_pass" {
-      default = ""
       type    = string
+      default = ""
     }
 
     variable "timeout_create" {
@@ -171,17 +200,16 @@ Create the following files:
     }
     ```
 
-   {% endcut %}
+    {% endcut %}
 
-1. `terraform.tfvars`: File storing access tokens and variable values for accounts created inside the VM.
+1. `terraform.tfvars`: File storing variable values for accounts created inside the VM.
 
     {% cut "terraform.tfvars" %}
 
     ```hcl
-    name       = "<my_server_name>"
     user_name  = "<my_user>"
     user_pass  = "<my_password>"
     admin_pass = "<my_password>"
     ```
 
-   {% endcut %}
+    {% endcut %}

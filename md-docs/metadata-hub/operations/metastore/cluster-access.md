@@ -159,6 +159,67 @@
       yc managed-metastore cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. Добавьте ресурс для назначения роли на кластер:
+
+     ```hcl
+     resource "yandex_metastore_cluster_iam_binding" "editors" {
+       cluster_id = "<идентификатор_кластера>"
+       role       = "managed-metastore.editor"
+       members    = ["serviceAccount:<идентификатор_сервисного_аккаунта>"]
+     }
+     ```
+
+     Укажите идентификатор кластера в `cluster_id`, назначаемую роль в `role` и полный список субъектов этой роли в `members`. Формат идентификаторов приведен в [документации провайдера](../../../terraform/resources/metastore_cluster_iam_binding.md).
+
+     {% note warning %}
+
+     Ресурс управляет полным набором участников одной роли на кластере. Включите в `members` всех субъектов, которым нужно сохранить эту роль, в том числе назначенных через консоль, CLI или API. Изменение или удаление ресурса может отозвать роль у субъектов, назначенных вне Terraform; такие изменения не отображаются в плане. Используйте только один ресурс `yandex_metastore_cluster_iam_binding` для каждой роли на кластере.
+
+     {% endnote %}
+
+  1. Проверьте план изменений и примените его:
+
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
+        ```bash
+        terraform apply
+        ```
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -824,8 +885,9 @@
   1. Назначьте роли на кластер:
 
       ```bash
-      yc managed-metastore cluster add-access-bindings <имя_или_идентификатор_кластера> \
-        --access-binding role=managed-metastore.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
+      yc managed-metastore cluster add-access-binding <имя_или_идентификатор_кластера> \
+        --role managed-metastore.editor \
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -901,7 +963,7 @@
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings'
+        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:listAccessBindings'
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -939,14 +1001,14 @@
         -proto ~/cloudapi/yandex/cloud/resourcemanager/v1/folder_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d '{
-              "resource_id": "<идентификатор_кластера>",
+              "resource_id": "<идентификатор_каталога>",
               "access_binding_deltas": [
                 {
                   "action": "ADD",
                   "access_binding": {
                     "role_id": "managed-metastore.viewer",
                     "subject": {
-                      "id": "<идентификатор_ссервисного_аккаунта>",
+                      "id": "<идентификатор_сервисного_аккаунта>",
                       "type": "serviceAccount"
                     }
                   }

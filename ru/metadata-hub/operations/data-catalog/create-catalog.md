@@ -31,6 +31,52 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [ai-on](../../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Добавьте в конфигурационный файл описание каталога:
+
+     ```hcl
+     resource "yandex_datacatalog_catalog" "example" {
+       folder_id   = "<идентификатор_каталога_ресурсов>"
+       name        = "<имя_каталога_метаданных>"
+       description = "<описание>"
+       labels = {
+         environment = "production"
+       }
+     }
+     ```
+
+     Укажите идентификатор каталога ресурсов {{ yandex-cloud }} в `folder_id` и имя создаваемого каталога метаданных в `name`. При необходимости задайте описание в `description` и метки в `labels`.
+
+     Подробная информация о параметрах ресурса `yandex_datacatalog_catalog` приведена в [документации провайдера]({{ tf-provider-resources-link }}/datacatalog_catalog).
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    [Пройдите аутентификацию](../../api-ref/authentication-datacatalog.md). Воспользуйтесь методом REST API [createCatalog](../../datacatalog/api-ref/Catalog/createCatalog.md) для ресурса [Catalog](../../datacatalog/api-ref/Catalog/index.md) или вызовом gRPC API [CatalogService/CreateCatalog](../../datacatalog/api-ref/grpc/Catalog/createCatalog.md).
+
+    Передайте в объекте `catalog` идентификатор каталога ресурсов в `folderId`, имя каталога метаданных в `name` и при необходимости `description` и `labels`. Пример тела REST-запроса:
+
+    ```json
+    {
+      "catalog": {
+        "folderId": "<идентификатор_каталога_ресурсов>",
+        "name": "<имя_каталога_метаданных>",
+        "description": "<описание>",
+        "labels": {"environment": "production"}
+      }
+    }
+    ```
+
+    В gRPC идентификатор каталога ресурсов передается в `catalog.folder_id`.
+
 {% endlist %}
 
 [*глоссарий]: {% include notitle [glossary](../../../_popups/metadata-hub/data-catalog.md#glossary) %}

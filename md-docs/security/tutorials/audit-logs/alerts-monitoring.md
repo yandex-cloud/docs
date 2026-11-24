@@ -313,7 +313,7 @@
 Статус `Active` означает, что трейл продолжает собирать аудитные логи с доступных ресурсов. Если при этом сохраняется отставание **Delivered events** от **Processed events**, проверьте состояние объекта назначения и его логи:
 
 * [Получить информацию о бакете и его статистику](../../../storage/operations/buckets/get-info.md)
-* [Просмотр аудитных логов в Monium](../../../audit-trails/tutorials/search-monium.md)
+* [Просмотр аудитных логов в Monium](../../../audit-trails/tutorials/search-cloud-logging.md#monium)
 * [Пошаговые инструкции для Data Streams](../../../data-streams/operations/index.md)
 
 Статус `Error` сообщает об ошибке в работе трейла. В этом случае изучите лог диагностики трейла.

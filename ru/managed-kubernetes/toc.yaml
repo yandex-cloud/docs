@@ -354,6 +354,8 @@ items:
             href: tutorials/migration/index.md
           - name: Миграция из облачного провайдера
             href: tutorials/migration/migration-from-cloud.md
+          - name: Миграция из on-premises
+            href: tutorials/migration/migration-from-onprem.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

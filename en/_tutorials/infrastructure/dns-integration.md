@@ -1,10 +1,10 @@
 
 
-If you have your own corporate networks connected to {{ yandex-cloud }} [networks](../../vpc/concepts/network.md#network) (e.g., via [{{ interconnect-full-name }}](../../interconnect/index.yaml)), you can integrate your corporate DNS with internal DNS zones in {{ yandex-cloud }} and implement resolution of DNS names of cloud resources within your corporate networks. This will allow you to access cloud resources and {{ yandex-cloud }} services by name from your corporate networks.
+If your corporate networks are integrated with {{ yandex-cloud }} [networks](../../vpc/concepts/network.md#network) (e.g., via [{{ interconnect-full-name }}](../../interconnect/index.yaml)), you can integrate a corporate DNS with internal {{ yandex-cloud }} DNS zones. This will allow you to resolve the DNS names of cloud resources in your corporate networks and access the {{ yandex-cloud }} resources and services by name.
 
-To configure resolution of internal cloud DNS names by clients in your corporate network, you will create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) on the {{ yandex-cloud }} side to redirect DNS requests from the corporate network to [DNS resolvers](../../dns/concepts/dns-resolver.md) in {{ vpc-name }} subnets. On the corporate network side, you will set up a DNS server, so that all DNS requests to cloud resources are redirected to the IP address of your new inbound DNS connection.
+To configure the resolution of internal cloud DNS names by clients in your corporate network, create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) on the {{ yandex-cloud }} side. It will redirect DNS requests from the corporate network to [DNS resolvers](../../dns/concepts/dns-resolver.md) in {{ vpc-name }} subnets. On the corporate network side, set up a DNS server so that all DNS requests to cloud resources are redirected to the IP address of your new inbound DNS connection.
 
-In this scenario, you resolve a DNS name of a {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) host from a corporate network in `subnet1` by sending DNS requests via a local [DNS forwarder](*dns_forwarder).
+In this scenario, you will resolve the DNS name of the {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) host from the corporate network by sending DNS requests via a local [DNS forwarder](*dns_forwarder).
 
 You can see the solution architecture in the diagram below:
 
@@ -15,17 +15,20 @@ You can see the solution architecture in the diagram below:
     * Consists of the `subnet1` subnet with the `172.16.1.0/24` address range.
     * `subnet1` hosts a DNS server (DNS forwarder) with the `172.16.1.200` IP address.
 
-        This server serves the DNS zone in `subnet1` and redirects DNS requests from your computer `172.16.1.10` to the cloud network, namely to the IP address of the [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) created on the {{ yandex-cloud}} side.
+        This server serves the DNS zone in `subnet1` and redirects DNS requests from your computer `172.16.1.10` to the cloud network at the IP address of the [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) created on the {{ yandex-cloud }} side.
+
 1. {{ yandex-cloud }} network:
 
     * Consists of the `subnet2` [subnet](../../vpc/concepts/network.md#subnet) with the `192.168.1.0/24` address range.
     * `subnet2` hosts a {{ mpg-full-name }} cluster.
-    
+
         In this tutorial, you will set up integration in such a way that the DNS name (FQDN) of that cluster’s host successfully resolves from within the corporate network.
+
     * The cloud network has an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbound) allowing the corporate network clients to resolve DNS names in {{ yandex-cloud }} [internal DNS zones](../../dns/concepts/dns-zone.md#private-zones).
 
         The inbound DNS connection was assigned the `192.168.1.200` IP address which belongs to `subnet2` and is reserved in {{ vpc-full-name }}.
-1. Thanks to {{ interconnect-full-name }}, the corporate and cloud networks are linked together in such a way that all the subnet IP addresses in one network are accessible from the other network's subnet, and vice versa.
+
+1. Thanks to {{ interconnect-full-name }}, the corporate and cloud networks are interconnected. All the subnet IPs of one network can be accessed from the other network's subnet, and vice versa.
 
 To configure the resolution of the DNS names of {{ yandex-cloud }} resources and services in corporate networks:
 
@@ -40,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Make sure you have created and configured the following resources:
+Make sure you have the following:
 
 * Active [trunk](../../interconnect/operations/trunk-create.md).
 * [Private connection](../../interconnect/operations/priv-con-create.md).
@@ -48,7 +51,7 @@ Make sure you have created and configured the following resources:
 
 ### Required paid resources {#paid-resources}
 
-The cost of support for the new infrastructure includes:
+The new infrastructure support cost includes:
 
 * {{ mpg-name }} cluster fee: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * {{ interconnect-full-name }} fee (see [{{ interconnect-name }} pricing](../../interconnect/pricing.md)).
@@ -83,7 +86,7 @@ On the {{ yandex-cloud }} side, you will create a cloud network with a single su
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, enter a [name](*name) for the subnet: `subnet2`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select the `my-vpc-network` cloud network you created earlier.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify the `192.168.1.0/24` subnet CIDR.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify the subnet CIDR: `192.168.1.0/24`.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 {% endlist %}
@@ -102,21 +105,19 @@ As a result, resources located in `subnet2` will become accessible from your cor
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. [Navigate]({{ link-console-main }}/link/managed-postgresql) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a [name](*name) for the cluster: `my-postgresql-cluster`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, select `{{ ui-key.yacloud.component.password-input.label_button-generate }}` in the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the cloud network you created earlier, i.e., `my-vpc-network`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, leave one host in the `{{ region-id }}-b` availability zone.
+  1. Under **{{ ui-key.yacloud.mdb-core.entities.ClusterPreset.label_section_1nfw1 }}**, select `Test`.
 
-      To delete hosts you do not need, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to host and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  
       {% note tip %}
 
-      A single host is enough to test the discussed solution.
-      
-      In production scenarios, we do not recommend creating a single-host cluster. It is a cheaper option but does not ensure [high availability](../../managed-postgresql/concepts/high-availability.md#host-configuration).
+      To test the solution, a single-host cluster a test configuration will be used.
+
+      It is not recommended to use the test configuration in production scenarios. One cluster is cheaper but does not ensure [high availability](../../managed-postgresql/concepts/high-availability.md#host-configuration).
 
       {% endnote %}
 
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a [name](*name) for the cluster: `my-postgresql-cluster`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the cloud network you created earlier, i.e., `my-vpc-network`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, select `{{ ui-key.yacloud.component.password-input.label_button-generate }}` in the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field.
   1. Leave all the other parameters unchanged and click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -133,11 +134,11 @@ Create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbo
   1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![nodes-down](../../_assets/console-icons/nodes-down.svg) **{{ ui-key.yacloud.dns.label_inbound-endpoints }}** and click **{{ ui-key.yacloud.dns.DnsInboundEndpointsListScreen.create_button }}**. In the window that opens:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [name](*name): `corp-example-net-inbound`.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a [name](*name): `corp-example-net-inbound`.
       1. Under **{{ ui-key.yacloud.dns.DnsInboundEndpointForm.network_settings_title }}**, select the `my-vpc-network` cloud network in the **{{ ui-key.yacloud.vpc.label_network }}** field.
       1. In the **{{ ui-key.yacloud.entity.ipAddress }}** field, click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve a static internal IP address for the new DNS connection. In the window that opens:
 
-          1. In the **{{ ui-key.yacloud.common.name }}** field, specify the reserved address [name](*name): `corp-example-net-inbound-address`.
+          1. In the **{{ ui-key.yacloud.common.name }}** field, enter a [name](*name) for the reserved address: `corp-example-net-inbound-address`.
           1. In the **{{ ui-key.yacloud.common.label_subnet }}** field, select the subnet named `subnet2` to reserve an IP address in.
 
               {% note info %}
@@ -146,9 +147,10 @@ Create an [inbound DNS connection](../../dns/concepts/dns-connection.md#dns-inbo
 
               {% endnote %}
 
-          1. In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** field, specify the `192.168.1.200` IP address (belongs to the address range of `subnet2`).
+          1. In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_internal-v4-address }}** field, specify this IP address: `192.168.1.200` (belongs to the address range of `subnet2`).
           1. Click **{{ ui-key.yacloud.common.create }}** to reserve the address.
-    1. Click **{{ ui-key.yacloud.common.create }}** to create an inbound DNS connection.
+
+      1. Click **{{ ui-key.yacloud.common.create }}** to finish creating the inbound DNS connection.
 
 {% endlist %}
 
@@ -165,13 +167,14 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
 - Configuring DNS forwarding using CoreDNS
 
   1. Connect to the host you are going to set up a DNS forwarder on.
-  1. Download the latest `CoreDNS` version from [GitHub](https://github.com/coredns/coredns/releases/latest) and install it:
+  1. Download a relevant CoreDNS version from the [vendor's website](https://github.com/coredns/coredns/releases/latest) and install it:
 
       ```bash
       cd /var/tmp && wget <package_URL> -O - | tar -xz
       sudo mv coredns /usr/local/sbin
       ```
-  1. Create a `CoreDNS` configuration file: 
+
+  1. Create a `coredns` configuration file:
 
       ```bash
       sudo mkdir /etc/coredns
@@ -184,7 +187,8 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
       }
       EOF
       ```
-  1. Enable running `CoreDNS` at boot:
+
+  1. Enable automatic startup for `CoreDNS`:
 
       ```bash
       sudo tee >> /etc/systemd/system/coredns.service <<EOF
@@ -205,6 +209,7 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
       EOF
       sudo systemctl enable --now coredns
       ```
+
   1. Disable system DNS resolution to delegate it to the local DNS forwarder. For example, in Linux Ubuntu 20.04, you can use these commands:
 
       ```bash
@@ -216,13 +221,14 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
 - Configuring DNS forwarding using Unbound
 
   1. Connect to the host you are going to set up a DNS forwarder on.
-  1. Install the `unbound` package (example for Linux Ubuntu):
+  1. Install Unbound (the example is for OC Linux Ubuntu):
 
       ```bash
       sudo apt update && sudo apt install --yes unbound
       ```
-  1. Create a `unbound` configuration file:
-   
+
+  1. Create a `unbound.conf` configuration file:
+
       ```bash
       sudo tee -a /etc/unbound/unbound.conf <<EOF
       server:
@@ -239,7 +245,8 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
         name: "."
         forward-addr: <main_DNS_server_IP_address_in_corporate_subnet>
       EOF
-      ``` 
+      ```
+
   1. Restart Unbound:
 
       ```bash
@@ -292,14 +299,14 @@ For example, you can create a [DNS forwarder](*dns_forwarder) in the corporate s
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources:
+To stop paying for the resources you created:
 
-* [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
-* [Delete the inbound DNS connection](../../dns/operations/connection-inbound-delete.md).
-* [Delete the reserved internal IP address](../../vpc/operations/private-ip-delete.md).
-* [Delete my-vpc-network from the virtual router](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
-* [Delete the subnet](../../vpc/operations/subnet-delete.md).
-* [Delete the cloud network](../../vpc/operations/network-delete.md).
+1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
+1. [Delete the inbound DNS connection](../../dns/operations/connection-inbound-delete.md).
+1. [Delete the reserved internal IP address](../../vpc/operations/private-ip-delete.md).
+1. [Delete `my-vpc-network` from the virtual router](../../cloud-router/operations/ri-prefixes-upsert.md#remove-network).
+1. [Delete the subnet](../../vpc/operations/subnet-delete.md).
+1. [Delete the cloud network](../../vpc/operations/network-delete.md).
 
 [*name]: {% include [name-format](../../_popups/name-format-general.md) %}
 

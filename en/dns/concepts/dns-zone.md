@@ -13,7 +13,7 @@ If a public zone is registered in {{ yandex-cloud }}:
 * To manage a subzone and its records, no rights to the parent zone are required.
 
 This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} that users have no access to.
-You can create zones and subzones in different folders. To do this, assign the `editor` role for the folder the parent zone is in to a user or [service account](../../iam/concepts/users/service-accounts.md). For more information, see [{#T}](../security/index.md).
+You can create zones and subzones in different folders. To do this, assign the `editor` role for the folder the parent zone is in to a user or [service account](../../iam/concepts/users/service-accounts.md). For details, see [{#T}](../security/index.md).
 
 For example, the `example.com.` parent zone is in the folder named `my-folder`. If you have the permissions to manage this zone, you can create the `test.example.com.` and `production.example.com.` subzones in the folders named `my-test-folder` and `my-production-folder`, respectively.
 
@@ -46,7 +46,7 @@ If somebody is using your public DNS zone, contact [support](../../support/overv
 
 Requests to public DNS zones and requests for external DNS names from your VMs are public DNS requests. {{ dns-name }} is used for public DNS requests even if your cloud doesn't contain any DNS zones other than service zones.
 
-We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
+We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md).
 
 ### Zones with non-Latin characters {#zone-rf}
 

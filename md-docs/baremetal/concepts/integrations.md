@@ -129,20 +129,20 @@ Yandex BareMetal интегрируется с другими сервисами
 
 [Marketplace](../../marketplace/index.md) предоставляет готовые образы операционных систем и приложений, которые можно выбрать для автоматической установки при аренде сервера или переустановке ОС.
 
-Это ускоряет развертывание сервера с поддерживаемой ОС без самостоятельной подготовки ISO-образа.
+Это ускоряет развертывание сервера с поддерживаемой ОС без самостоятельной подготовки ISO-образа. Список доступных образов приведен в [каталоге Marketplace](https://yandex.cloud/ru/marketplace?type=BAREMETAL).
 
 Разделы:
 
 * [Образы Marketplace](images.md#marketplace-images)
 * [Переустановить операционную систему из образа Marketplace](../operations/servers/reinstall-os-from-marketplace.md)
 
-## Yandex Monitoring {#monitoring}
+## Yandex Monium {#monitoring}
 
-Метрики сервиса BareMetal поставляются в [Yandex Monitoring](../../monitoring/index.md).
+Метрики сервиса BareMetal доступны в [Monium Metrics](../../monium/metrics/overview.md).
 
-Метрики помогают контролировать состояние ресурсов BareMetal и строить наблюдаемость инфраструктуры на физических серверах.
+По этим метрикам можно отслеживать температуру процессоров, состояние питания и сетевых интерфейсов серверов.
 
-Раздел: [Справочник метрик Yandex Monitoring](../metrics.md).
+Раздел: [Справочник метрик Monium Metrics](../metrics.md).
 
 ## Yandex Audit Trails {#audit-trails}
 

@@ -12,7 +12,8 @@ In this example, the saved state allows other users to get the ID of one of the 
 To configure {{ TF }} state storage in {{ objstorage-name }} and use it to create new resources:
 1. [Get your cloud ready](#before-you-begin).
 1. [Required paid resources](#paid-resources).
-1. [Install and configure {{ TF }}](#install-terraform).
+1. [Create a service account and static access key](#create-service-account).
+1. [Install and configure {{ TF }}](#prepare-terraform).
 1. [Configure your backend](#set-up-backend).
 1. [Deploy your configuration](#deploy).
 1. [Check the saved state](#check-condition).
@@ -37,7 +38,7 @@ Follow this tutorial to create three [VMs](../../compute/concepts/vm.md) with [p
 1. [Create a service account](../../iam/operations/sa/create.md) with the [editor](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
 1. [Get a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the key ID and secret key: you will need them later as you follow this tutorial.
 
-### Create a bucket {#create-service-account}
+### Create a bucket {#create-bucket}
 
 [Create a bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will store the {{ TF }} state file.
 
@@ -107,7 +108,7 @@ The following backend settings apply in {{ TF }} `1.6.3` and higher.
 
 
 
-   To read more about the state storage backend, see the [{{ TF }} website](https://www.terraform.io/docs/backends/types/s3.html).
+   To read more about the state storage backend, see [this {{ TF }} guide](https://www.terraform.io/docs/backends/types/s3.html).
 1. Run the following command in the folder with the configuration file:
 
    ```bash
@@ -152,7 +153,7 @@ Create another configuration and use the saved state to create another VM in one
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # This option is required to describe a backend for Terraform versions higher than 1.6.1.
+       skip_requesting_account_id  = true # This option is required to describe a backend for {{ TF }} 1.6.1 or higher.
 
        access_key = "<key_ID>"
        secret_key = "<secret_key>"
@@ -200,7 +201,7 @@ Create another configuration and use the saved state to create another VM in one
    Where:
    * `bucket`: Bucket name.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
-   * `access_key`: [Secret key ID](#create-service-account) of the [service account](../../iam/concepts/users/service-accounts.md) to access the bucket.
+   * `access_key`: ID of the [service account's](../../iam/concepts/users/service-accounts.md) [static access key](#create-service-account) for bucket access.
    * `secret_key`: Service account’s secret key value.
 1. Run the `terraform init` command.
 1. Run the `terraform plan` command. The terminal will display the plan for creating the VM.

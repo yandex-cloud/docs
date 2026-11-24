@@ -36,17 +36,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of building a VM image and creating a VM from it includes:
-* Fee for storing built images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for storing the Docker images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#disk)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#instance-resources)).
 
-## Set up your working environment {#environment-prepare}
+## Set up the runtime environment {#environment-prepare}
 
 1. Install Packer:
     1. Download Packer and install it by following [this guide on the Packer website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
         You can also download Packerfor your platform from [this {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/) mirror.
 
-    1. After the download is complete, add the path to the directory with the executable to the `PATH` variable. by running this command: 
+    1. After the download is complete, add the path to the directory with the executable to the `PATH` variable. Do it by running this command: 
 
         ```bash
         export PATH=$PATH:<Packer_executable_directory_path>
@@ -377,7 +377,7 @@ The cost of building a VM image and creating a VM from it includes:
 
 ## Create a VM from the image {#create-vm}
   
-1. Specify the values of the variables required for creating your VM by running this command:
+1. Specify the values of the variables required for creating your VM. Do it by running this command:
 
     ```bash
     export VM_NAME="<VM_name>"

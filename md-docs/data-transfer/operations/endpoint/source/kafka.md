@@ -479,6 +479,22 @@
           * `null_keys_allowed` — задайте значение `true` для этого атрибута, чтобы разрешить значение `null` в ключевых колонках.
           * `add_rest_column` — задайте значение `true` для этого атрибута, чтобы поля, отсутствующие в схеме, попадали в колонку `_rest`.
           * `unescape_string_values` — задайте значение `true` для этого атрибута, чтобы убрать кавычки из строковых переменных (если этого не сделать, значения строковых полей останутся без изменений).
+      
+      * `debezium_cdc_parser` — парсер для данных в формате Debezium CDC с поддержкой Schema Registry.
+      
+          Парсер поддерживает два типа Schema Registry:
+      
+          * `confluent_schema_registry` — настройки для Confluent Schema Registry:
+      
+              * `url` — URL Schema Registry.
+              * `auth` — параметры аутентификации:
+                  * `username` — имя пользователя.
+                  * `password` — пароль.
+              * `ca_certificate` — CA-сертификат для проверки подлинности сервера (опционально).
+      
+          * `yandex_schema_registry` — настройки для Yandex Schema Registry:
+      
+              * `namespace_id` — идентификатор пространства имен в Yandex Schema Registry.
 
 - API {#api}
 
@@ -534,6 +550,22 @@
           * `addRestColumn` — задайте значение `true` для этого поля, чтобы поля, отсутствующие в схеме, попадали в колонку `_rest`.
       
           * `unescapeStringValues` — задайте значение `true` для этого поля, чтобы убрать кавычки из строковых переменных (если этого не сделать, значения строковых полей останутся без изменений).
+      
+      * `debeziumCdcParser` — парсер для данных в формате Debezium CDC с поддержкой Schema Registry.
+      
+          Парсер поддерживает два типа Schema Registry:
+      
+          * `confluentSchemaRegistry` — настройки для Confluent Schema Registry:
+      
+              * `url` — URL Schema Registry.
+              * `auth` — параметры аутентификации:
+                  * `username` — имя пользователя.
+                  * `password` — пароль.
+              * `caCertificate` — CA-сертификат для проверки подлинности сервера (опционально).
+      
+          * `yandexSchemaRegistry` — настройки для Yandex Schema Registry:
+      
+              * `namespaceId` — идентификатор пространства имен в Yandex Schema Registry.
 
 {% endlist %}
 

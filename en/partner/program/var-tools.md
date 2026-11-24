@@ -245,7 +245,7 @@ To be eligible for getting listed in the partner catalog, your company must sati
 * There is at least one technical expert who has completed the [**Cloud services engineer**](https://practicum.yandex.ru/ycloud/) course.
 * There are at least two completed projects and/or subaccounts in {{ yandex-cloud }}.
 
-If you meet all the requirements and want your company in the partner catalog, contact your partner manager or email to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru).
+If you meet all the requirements and want your company in the partner catalog, contact your partner manager or email to [yc-partners@yandex.cloud](mailto:yc-partners@yandex.cloud).
 
 
 

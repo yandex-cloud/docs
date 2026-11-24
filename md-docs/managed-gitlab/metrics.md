@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > Метрики Monium
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Yandex Monium
 
-В этом разделе описаны метрики сервиса Managed Service for GitLab, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Managed Service for GitLab, поставляемые в [Monium](../monium/index.md).
 
 Имя метрики пишется в метку `name`.
 
@@ -10,8 +10,8 @@
 
 | Метка     |   Значение                                     |
 |-----------|------------------------------------------------|
-| service   | Идентификатор сервиса: `managed-gitlab`.         |
-| host      | Имя инстанса в домене `.gitlab.yandexcloud.net`. |
+| service   | Идентификатор сервиса: `__managed-gitlab__`. |
+| host      | Имя хоста инстанса в домене `.gitlab.yandexcloud.net`. Например, `example` для инстанса с доменным именем `example.gitlab.yandexcloud.net`. |
 | cloud_id  | Идентификатор [облака](../resource-manager/concepts/resources-hierarchy.md#cloud).    |
 | folder_id | Идентификатор [каталога](../resource-manager/concepts/resources-hierarchy.md#folder). |
 

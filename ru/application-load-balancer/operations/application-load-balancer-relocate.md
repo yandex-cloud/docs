@@ -72,9 +72,9 @@ description: Следуя данной инструкции, вы сможете
               - zone_id: {{ region-id }}-a
                 subnet_id: e9bavnqlbiuk********
                 disable_traffic: true
-              - zone_id: {{ region-id }}-b
-                  subnet_id: e2lgp8o00g06********
               - zone_id: {{ region-id }}-d
+                  subnet_id: e2lgp8o00g06********
+              - zone_id: {{ region-id }}-f
                   subnet_id: b0cv501fvp13********
           log_group_id: ckgah4eo2j0r********
           security_group_ids:

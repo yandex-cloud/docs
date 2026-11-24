@@ -19,7 +19,7 @@
 * Инфраструктура на стороне [Virtual Private Cloud](../../vpc/index.md), которая включает в себя:
 
     * облачную сеть `sample-network`;
-    * [подсети](../../vpc/concepts/network.md#subnet) `vpc-subnet-a` и `vpc-subnet-b` в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` и `ru-central1-b`;
+    * [подсети](../../vpc/concepts/network.md#subnet) `vpc-subnet-a` и `vpc-subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` и `ru-central1-d`;
     * L7-балансировщик Application Load Balancer `demo-alb-bms`;
     * профиль безопасности Smart Web Security `sws-demo-profile`;
     * [виртуальную машину](../../compute/concepts/vm.md) `vm-validator`, используемую для проверки сетевой связности между сетями Virtual Private Cloud и BareMetal.
@@ -99,7 +99,7 @@
       {% endnote %}
 
   1. Нажмите **Создать подсеть**.
-  1. Аналогичным способом создайте в сети `sample-network` подсеть `vpc-subnet-b` в зоне доступности `ru-central1-b` с CIDR `192.168.11.0/24`.
+  1. Аналогичным способом создайте в сети `sample-network` подсеть `vpc-subnet-d` в зоне доступности `ru-central1-d` с CIDR `192.168.11.0/24`.
 
 {% endlist %}
 
@@ -235,14 +235,14 @@ vpc:
   vpc_net_id: <идентификатор_сети>
     vpc_subnets: 
       ru-central1-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
-      ru-central1-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
       ru-central1-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
+      ru-central1-f: [CIDR_f1, CIDR_f2, ..., CIDR_fn]
 ```
 
 Где:
 * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
 * `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../../cloud-router/concepts/announces.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-b: [192.168.11.0/24]`.
+* `vpc_subnets` — список [анонсируемых](../../cloud-router/concepts/announces.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-d: [192.168.11.0/24]`.
 
     Допускается анонсирование адресных префиксов с [агрегированием](../../cloud-router/concepts/aggregates.md#agg-subnets).
 
@@ -746,7 +746,7 @@ vpc:
   1. В поле **Имя** укажите имя балансировщика `demo-alb-bms`.
   1. В поле **Сеть** выберите сеть `sample-network`.
   1. В поле **Группы безопасности** выберите `Из списка` и в появившемся списке выберите группу безопасности `alb-sg`.
-  1. В блоке **Размещение** оставьте только зоны доступности `ru-central1-a` и `ru-central1-b` с подсетями `vpc-subnet-a` и `vpc-subnet-b` соответственно.
+  1. В блоке **Размещение** оставьте только зоны доступности `ru-central1-a` и `ru-central1-d` с подсетями `vpc-subnet-a` и `vpc-subnet-d` соответственно.
   1. В блоке **Настройки логов** настройка пока недоступна. После создания балансировщика [настройте запись логов в Monium Logs](../../application-load-balancer/operations/application-load-balancer-manage-logs.md) через CLI, API или Terraform.
   1. В секции **Обработчики** нажмите кнопку **Добавить обработчик** и в открывшейся форме:
 

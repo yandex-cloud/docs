@@ -38,8 +38,8 @@ If you no longer need the image you created, [delete it](#clear-out).
 
 The cost of creating a disk image using Packer includes:
 
-* Fee for storing the created images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
+* Fee for storing the created images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#disk)).
+* Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#instance-resources)).
 
 
 ## Install and configure Packer {#install-packer}

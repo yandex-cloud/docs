@@ -44,6 +44,10 @@ users:
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
+1. Если вы ограничиваете сетевой доступ с помощью [групп безопасности](../../vpc/concepts/security-groups.md), [настройте правила для служебного трафика](connect/security-groups.md#rules-internal) между мастером и узлами. Подключение внешних узлов, в том числе серверов BareMetal, всегда выполняется в [туннельном режиме](../concepts/network-policy.md#cilium).
+   
+   Если используется [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) с неизмененными правилами, дополнительная настройка не требуется: эти правила разрешают весь входящий и исходящий трафик.
+
 ## Создание группы узлов {#node-group-create}
 
 {% list tabs group=instructions %}

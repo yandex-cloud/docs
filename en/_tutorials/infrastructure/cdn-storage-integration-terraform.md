@@ -17,8 +17,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
-1. Set up your infrastructure description files:
+
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Prepare your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
@@ -31,6 +32,7 @@ To create your infrastructure via {{ TF }}:
          ```
 
       1. Navigate to the repository directory. It should now contain the following files:
+
           * `cdn-storage-integration-config.tf`: New infrastructure configuration file.
           * `cdn-storage-integration.auto.tfvars`: File with the values of user-defined variables.
           * `index.html`: Test file of your service, used to health-check the solution.
@@ -61,7 +63,7 @@ To create your infrastructure via {{ TF }}:
 
     {% endlist %}
 
-    For more on the properties of resources used in {{ TF }}, see these provider guides:
+    Learn more on the properties of resources used in {{ TF }} in these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -79,11 +81,13 @@ To create your infrastructure via {{ TF }}:
     * [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md): [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer).
 
 1. In the `cdn-storage-integration.auto.tfvars` file, set the values of the user-defined variables:
+
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `bucket_name`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
+    * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
     * `domain_name`: Name of the domain to host the test service.
 
         To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.
+
     * `index_file_path`: Local path to the `index.html` file that contains your test service contents. Here is an example: `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
 
 1. Create the resources:

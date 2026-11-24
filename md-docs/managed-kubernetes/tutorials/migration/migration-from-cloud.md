@@ -10,7 +10,7 @@
 
 1. [Разработайте план миграции](#inventory).
 1. [Подготовьте инфраструктуру Yandex Cloud](#infrastructure).
-1. [Перенесите образы контейнеров](#images).
+1. [Перенесите Docker-образы](#images).
 1. [Перенесите stateful-нагрузки](#stateful).
 1. [Перенесите stateless-нагрузки](#stateless).
 1. [Настройте балансировщики и переключите DNS](#dns).
@@ -19,13 +19,196 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
-* Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
-* Сервис Container Registry: хранение перенесенных Docker-образов ([тарифы Container Registry](../../../container-registry/pricing.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* ## Мастер {#master}
+  
+  Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../pricing.md)).
+  
+  ## Узлы кластера {#nodes}
+  
+  Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+  
+  ## Публичные IP-адреса {#public-ips}
+  
+  Публичные IP-адреса для мастера и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+  
+  ## L7-балансировщики {#application-load-balancers}
+  
+  Каждый активный L7-балансировщик, если используется контроллер Gwin: использование вычислительных ресурсов ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+  
+  ## Сетевые балансировщики {#network-load-balancers}
+  
+  Каждый сетевой балансировщик, если используются Service типа `LoadBalancer`: обработанный балансировщиком входящий и исходящий трафик ([тарифы Yandex Network Load Balancer](../../../network-load-balancer/pricing.md)).
+  
+  ## Реестр образов {#registry}
+  
+  Сервис Cloud Registry: хранение перенесенных Docker-образов ([тарифы Cloud Registry](../../../cloud-registry/pricing.md)).
+  
+  ## Бакет резервных копий {#bucket}
+  
+  Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+
 * Трансферы Data Transfer, если используется перенос управляемых баз данных ([тарифы Yandex Data Transfer](../../../data-transfer/pricing.md)).
 
 
@@ -40,6 +223,12 @@
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Разработайте план миграции {#inventory}
+
+{% note info %}
+
+Ознакомьтесь с [рекомендациями по восстановлению ресурсов](https://yandex.cloud/ru/recommendations) и учитывайте текущие ограничения сервисов при выборе зон доступности и ресурсов для миграции.
+
+{% endnote %}
 
 Перед миграцией важно провести инвентаризацию рабочих нагрузок, оценить совместимость исходного и целевого кластеров, чтобы получить представление о сложности миграции, определить порядок переноса сервисов и план отката на случай критических проблем.
 
@@ -61,13 +250,13 @@ done
 Чек-лист инвентаризации:
 
 #|
-|| **Ресурс** | **Что зафиксировать** ||
-|| Deployments, StatefulSets, DaemonSets, Jobs, CronJobs | Количество, namespace, образы ||
-|| PersistentVolumeClaim | Размер, StorageClass, режим доступа (RWO/RWX) ||
-|| Services типа LoadBalancer | Внешние IP, DNS-имена ||
-|| Ingress / HTTPRoute | Хосты, TLS, IngressClass или GatewayClass ||
-|| ConfigMap и Secret | Список ||
-|| CustomResourceDefinitions и Operators | Список установленных CRD и операторов ||
+|| **Ресурсы** | **Что зафиксировать** ||
+|| `Deployment`, `StatefulSet`, `DaemonSet`, `Job`, `CronJob` | Количество, пространства имен, образы ||
+|| `PersistentVolumeClaim` | Размер, `StorageClass`, режим доступа: RWO или RWX ||
+|| `Service` типа `LoadBalancer` | Внешние IP-адреса, DNS-имена ||
+|| `Ingress`, `HTTPRoute` | Хосты, TLS, `IngressClass` или `GatewayClass` ||
+|| `ConfigMap`, `Secret` | Список ресурсов ||
+|| CRD и операторы | Список установленных CRD и операторов ||
 |#
 
 ### Оцените совместимость {#compatibility-assessment}
@@ -85,21 +274,30 @@ API-ресурсы можно сравнить командой `kubectl api-res
 При оценке особенно обратите внимание на следующие моменты:
 
 * Проверьте наличие вендор-специфичных CRD исходного кластера, которые могут быть недоступны в Yandex Cloud. Замените компоненты [сервисами Yandex Cloud](https://yandex.cloud/ru/services) или [решениями из Yandex Cloud Marketplace](../../operations/applications/marketplace.md).
-* PodSecurityPolicy удалены в Kubernetes версий 1.25 и выше. Если вы используете PodSecurityPolicy в исходном кластере, [мигрируйте на PodSecurity Admission](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp).
+* Если вы используете PodSecurityPolicy в исходном кластере, [мигрируйте на PodSecurity Admission](https://kubernetes.io/docs/tasks/configure-pod-container/migrate-from-psp). PodSecurityPolicy удалены в Kubernetes версий 1.25 и выше.
 * В манифестах замените классы хранилищ (`storageClassName`) на те, [которые поддерживаются в Managed Service for Kubernetes](../../operations/volumes/manage-storage-class.md).
-* Для L7-балансировки рекомендуется использовать [контроллер Gwin](../../alb-ref/gwin-index.md).
+* Для L7-балансировки используйте [контроллер Gwin](../../alb-ref/gwin-index.md).
 
 ### Составьте план переноса сервисов {#planning}
 
 Определите порядок переноса сервисов — начинайте с наименее критичных, заканчивайте production-нагрузками. Для переключения трафика используйте стратегию [сине-зеленого развертывания](https://martinfowler.com/bliki/BlueGreenDeployment.html) (blue-green deployment) без простоя или поэтапное переключение с окном обслуживания.
 
+{% note info %}
+
+Ознакомьтесь с [рекомендациями по восстановлению ресурсов](https://yandex.cloud/ru/recommendations) и учитывайте текущие ограничения сервисов при выборе зон доступности и ресурсов для миграции.
+
+{% endnote %}
+
 Учитывайте следующие критические моменты:
 
+* [Проверьте доступные квоты](../../../quota-manager/operations/read-quotas.md) для ресурсов, которые понадобятся во время миграции, включая временные ресурсы. Если квот недостаточно, заранее [запросите их увеличение](../../../quota-manager/operations/set-quotas.md).
 * Проведите полный цикл миграции на staging-среде перед переносом в production.
 * Подготовьте план отката на случай критических проблем и согласуйте его с командой заранее.
 * Координируйте работу с командами разработки и поддержки на всех этапах.
 * Выберите часы минимальной нагрузки для выполнения миграции.
 * Следите за метриками до, во время и после миграции с помощью [Yandex Monitoring](../../../monitoring/index.md).
+
+Для получения дополнительных вычислительных ресурсов можно [подключить внешние узлы](../../operations/external-nodes-connect.md) или [создать группы узлов на серверах BareMetal](../../operations/baremetal-group/create-baremetal.md). До создания целевого кластера ознакомьтесь с требованиями выбранного способа: они влияют на версию Kubernetes и сетевой режим кластера.
 
 ## Подготовьте инфраструктуру Yandex Cloud {#infrastructure}
 
@@ -129,18 +327,17 @@ API-ресурсы можно сравнить командой `kubectl api-res
 
 Для работы с образами:
 
-* `container-registry.images.puller`
-* `cloud-registry.artifacts.puller` — если Cloud Registry используется как альтернатива Container Registry.
+* `cloud-registry.artifacts.puller`
 
-Подробнее о [ролях Container Registry](../../../container-registry/security/index.md) и [ролях Cloud Registry](../../../cloud-registry/security/index.md).
+Подробнее о [ролях Cloud Registry](../../../cloud-registry/security/index.md).
 
-Если используется шифрование секретов:
+Для шифрования секретов:
 
 * `kms.keys.encrypterDecrypter`
 
 Подробнее о [ролях KMS](../../../kms/security/index.md).
 
-Если используется Object Storage для резервного копирования:
+Для резервного копирования в Object Storage:
 
 * `storage.editor`
 
@@ -152,19 +349,17 @@ API-ресурсы можно сравнить командой `kubectl api-res
 
 Настройте сетевую инфраструктуру, необходимую для работы кластера, — изолированную сеть с настроенными правилами безопасности для всех типов трафика кластера.
 
-1. Создайте [VPC](../../../vpc/operations/network-create.md) и [подсети](../../../vpc/operations/subnet-create.md) в трех зонах для обеспечения высокой доступности.
-1. Создайте [группы безопасности](../../operations/connect/security-groups.md) для изоляции трафика кластера, узлов и входящих соединений. Всего создается [пять групп](../../operations/connect/security-groups.md#apply).
+1. Создайте [сеть](../../../vpc/operations/network-create.md) и [подсети](../../../vpc/operations/subnet-create.md) в выбранных [зонах доступности](../../../overview/concepts/geo-scope.md). Для обеспечения высокой доступности используйте несколько зон.
+1. Создайте [группы безопасности](../../operations/connect/security-groups.md) для изоляции трафика кластера, узлов и входящих соединений.
 
 ### Создайте кластер Managed Service for Kubernetes {#cluster}
 
 1. [Создайте кластер](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes. Выбирайте версию Kubernetes не ниже версии в исходном кластере.
-1. [Создайте группу узлов](../../operations/node-group/node-group-create.md) в каждой зоне доступности.
+1. [Создайте группу узлов](../../operations/node-group/node-group-create.md) в каждой из выбранных зон доступности.
 
-## Перенесите образы контейнеров {#images}
+## Перенесите Docker-образы {#images}
 
-Последовательно [перенесите образы контейнеров](../../../container-registry/operations/docker-image/docker-image-push.md) в Yandex Container Registry с сохранением тегов и метаданных.
-
-В качестве альтернативного сервиса для хранения образов можно использовать [Yandex Cloud Registry](../../../cloud-registry/index.md). В отличие от Yandex Container Registry, Cloud Registry предназначен для хранения не только Docker-образов, но и других типов артефактов.
+Последовательно [перенесите Docker-образы](../../../cloud-registry/operations/docker/push.md) в Yandex Cloud Registry с сохранением тегов и метаданных.
 
 ## Перенесите stateful-нагрузки {#stateful}
 
@@ -184,7 +379,7 @@ API-ресурсы можно сравнить командой `kubectl api-res
 
 {% note info %}
 
-Убедитесь, что открыт сетевой доступ от Data Transfer до базы данных источника. Актуальные диапазоны IP-адресов Data Transfer смотрите в [документации сервиса](../../../data-transfer/concepts/network.md#source-external).
+Если вы не используете [Cloud Interconnect](../../../interconnect/concepts/index.md) или [IPsec VPN](../../../tutorials/routing/ipsec/index.md), разрешите подключение к кластеру-источнику из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../overview/concepts/public-ips.md#virtual-private-cloud).
 
 {% endnote %}
 
@@ -192,7 +387,7 @@ API-ресурсы можно сравнить командой `kubectl api-res
 
 ### Перенесите StatefulSets с PersistentVolumes {#statefulsets-persistent-volumes}
 
-Для переноса StatefulSets с PersistentVolumes используйте [Velero](https://velero.io/) с резервным копированием файловой системы через `node-agent` (бывший kopia). Этот способ работает с любыми PVC и не зависит от CSI-провайдера.
+Для переноса StatefulSets с PersistentVolumes используйте [Velero](https://velero.io/) с резервным копированием файловой системы через `node-agent` с использованием Kopia. Этот способ не зависит от CSI-провайдера. Перед переносом проверьте [ограничения резервного копирования файловой системы](https://velero.io/docs/main/file-system-backup/#limitations) для ваших томов.
 
 {% note tip %}
 
@@ -211,10 +406,10 @@ API-ресурсы можно сравнить командой `kubectl api-res
    aws_access_key_id = <идентификатор_ключа>
    aws_secret_access_key = <секретный_ключ>
    ```
-   
+
 1. [Установите Velero CLI](https://velero.io/docs/main/basic-install/) на машину, с которой будет выполняться перенос и есть `kubectl`-доступ к исходному и целевому кластерам.
 
-   {% note tip %}
+   {% note info %}
 
    Версия плагина `velero-plugin-for-aws` в командах ниже может быть устаревшей. Актуальную версию смотрите в [документации Velero](https://velero.io/docs/main/supported-providers/).
 
@@ -265,6 +460,8 @@ API-ресурсы можно сравнить командой `kubectl api-res
       ```
 
       `BackupStorageLocation` должен перейти в статус `Available`.
+
+1. Остановите запись приложений на переносимые PersistentVolumes в исходном кластере, при этом оставьте их смонтированными в подах.
 
 1. Создайте резервную копию нужных пространств имен:
 
@@ -324,19 +521,12 @@ API-ресурсы можно сравнить командой `kubectl api-res
 1. Восстановите данные из резервной копии:
 
    ```bash
-   velero restore create \
+   velero restore create migration-restore \
      --from-backup migration-backup \
      --wait
    ```
 
-   Проверить статус и логи можно командами:
-
-   ```bash
-   velero restore describe migration-backup --details
-   velero restore logs migration-backup
-   ```
-
-   {% note tip %}
+   {% note info %}
 
    Если StorageClass в исходном кластере и Managed Service for Kubernetes называются по-разному, создайте ConfigMap с маппингом StorageClass до запуска восстановления:
 
@@ -350,10 +540,18 @@ API-ресурсы можно сравнить командой `kubectl api-res
        velero.io/plugin-config: ""
        velero.io/change-storage-class: RestoreItemAction
    data:
-     <исходный_storage_class>: yc-network-ssd
+     <исходный_storage_class>: <целевой_storage_class>
    ```
 
    {% endnote %}
+
+
+1. Проверьте статус и логи восстановления:
+
+   ```bash
+   velero restore describe migration-restore --details
+   velero restore logs migration-restore
+   ```
 
 ## Перенесите stateless-нагрузки {#stateless}
 
@@ -365,7 +563,7 @@ API-ресурсы можно сравнить командой `kubectl api-res
 * Устаревшие `apiVersion` заменены на актуальные для целевой версии Kubernetes.
 * [Контроллер Gwin](../../alb-ref/gwin-index.md) (`gwin-default`) используется в `ingressClassName` и `gatewayClassName`.
 * Аннотации ресурсов для настройки балансировщика нагрузки заменены на [аннотации Yandex Cloud](../../alb-ref/index.md).
-* Ссылки на образы ведут в Yandex Container Registry (`cr.yandex/<id>/...`).
+* Ссылки на образы ведут в Yandex Cloud Registry (`registry.yandexcloud.net/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`).
 
 Для очистки манифестов можно использовать утилиту [kubectl-neat](https://github.com/itaysk/kubectl-neat).
 
@@ -376,14 +574,14 @@ API-ресурсы можно сравнить командой `kubectl api-res
 Managed Service for Kubernetes поддерживает два способа балансировки:
 
 * [Gwin](../../alb-ref/gwin-index.md).
-* Network Load Balancer — создается автоматически для Service типа `LoadBalancer`.
+* Сетевой балансировщик Network Load Balancer — создается автоматически для Service типа `LoadBalancer`.
 
 Порядок переключения трафика:
 
-1. Разверните Gateway или Ingress-ресурсы в кластере Managed Service for Kubernetes.
+1. Разверните ресурсы Gateway или Ingress в кластере Managed Service for Kubernetes.
 1. Получите внешние IP-адреса новых балансировщиков.
 1. Проверьте работу сервисов через тестовые DNS-записи.
-1. Снизьте TTL production DNS-записей заранее, затем поэтапно обновите их.
+1. Заранее уменьшите TTL DNS-записей production-сервисов. Дождитесь истечения прежнего TTL, затем поэтапно замените IP-адреса в записях на адреса новых балансировщиков.
 1. Следите за распространением DNS и обновлением TLS-сертификатов.
 
 {% note tip %}
@@ -394,10 +592,102 @@ Managed Service for Kubernetes поддерживает два способа б
 
 ## Завершите миграцию {#finalization}
 
+## Завершение миграции {#intro}
+
 Завершите миграцию и оптимизируйте конфигурацию.
 
-1. Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
-1. Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+## Проверка сервисов {#services}
+
+Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
+
+## Проверка метрик {#metrics}
+
+Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+
+## Оптимизация конфигурации {#optimization}
+
+Оптимизируйте конфигурацию кластера под реальную нагрузку.
+
+## Удаление промежуточных ресурсов {#cleanup}
+
+Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.
+
+1. ## Завершение миграции {#intro}
+   
+   Завершите миграцию и оптимизируйте конфигурацию.
+   
+   ## Проверка сервисов {#services}
+   
+   Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
+   
+   ## Проверка метрик {#metrics}
+   
+   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   
+   ## Оптимизация конфигурации {#optimization}
+   
+   Оптимизируйте конфигурацию кластера под реальную нагрузку.
+   
+   ## Удаление промежуточных ресурсов {#cleanup}
+   
+   Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.
+1. ## Завершение миграции {#intro}
+   
+   Завершите миграцию и оптимизируйте конфигурацию.
+   
+   ## Проверка сервисов {#services}
+   
+   Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
+   
+   ## Проверка метрик {#metrics}
+   
+   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   
+   ## Оптимизация конфигурации {#optimization}
+   
+   Оптимизируйте конфигурацию кластера под реальную нагрузку.
+   
+   ## Удаление промежуточных ресурсов {#cleanup}
+   
+   Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.
+
 1. Отключите ресурсы в исходном облаке после подтверждения стабильной работы.
-1. Оптимизируйте конфигурацию кластера под реальную нагрузку.
-1. Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.
+
+1. ## Завершение миграции {#intro}
+   
+   Завершите миграцию и оптимизируйте конфигурацию.
+   
+   ## Проверка сервисов {#services}
+   
+   Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
+   
+   ## Проверка метрик {#metrics}
+   
+   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   
+   ## Оптимизация конфигурации {#optimization}
+   
+   Оптимизируйте конфигурацию кластера под реальную нагрузку.
+   
+   ## Удаление промежуточных ресурсов {#cleanup}
+   
+   Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.
+1. ## Завершение миграции {#intro}
+   
+   Завершите миграцию и оптимизируйте конфигурацию.
+   
+   ## Проверка сервисов {#services}
+   
+   Убедитесь, что все сервисы работают корректно в Managed Service for Kubernetes.
+   
+   ## Проверка метрик {#metrics}
+   
+   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   
+   ## Оптимизация конфигурации {#optimization}
+   
+   Оптимизируйте конфигурацию кластера под реальную нагрузку.
+   
+   ## Удаление промежуточных ресурсов {#cleanup}
+   
+   Удалите промежуточные ресурсы: бакет Velero, трансферы Data Transfer, VPN-туннели, временные учетные данные.

@@ -19,3 +19,19 @@
     * `addRestColumn` — задайте значение `true` для этого поля, чтобы поля, отсутствующие в схеме, попадали в колонку `_rest`.
 
     * `unescapeStringValues` — задайте значение `true` для этого поля, чтобы убрать кавычки из строковых переменных (если этого не сделать, значения строковых полей останутся без изменений).
+
+* `debeziumCdcParser` — парсер для данных в формате Debezium CDC с поддержкой {{ schema-registry-name }}.
+
+    Парсер поддерживает два типа {{ schema-registry-name }}:
+
+    * `confluentSchemaRegistry` — настройки для Confluent {{ schema-registry-name }}:
+
+        * `url` — URL {{ schema-registry-name }}.
+        * `auth` — параметры аутентификации:
+            * `username` — имя пользователя.
+            * `password` — пароль.
+        * `caCertificate` — CA-сертификат для проверки подлинности сервера (опционально).
+
+    * `yandexSchemaRegistry` — настройки для {{ schema-registry-full-name }}:
+
+        * `namespaceId` — идентификатор пространства имен в {{ schema-registry-full-name }}.

@@ -4,20 +4,20 @@
 
 Managed Service for Kubernetes позволяет перенести рабочие нагрузки Kubernetes из любого окружения без привязки к конкретному провайдеру или типу инфраструктуры. Поддерживаются следующие сценарии:
 
-* [Миграция из другого облака в Yandex Cloud](migration-from-cloud.md),
-* Миграция из on-premises в Yandex Cloud,
-* Гибридное облако с миграцией части нагрузок в Yandex Cloud с использованием [внешних узлов](../../operations/external-nodes-connect.md) или [серверов BareMetal](../../operations/bms-server-connect.md).
+* [Миграция из другого облака в Yandex Cloud](migration-from-cloud.md).
+* [Миграция из on-premises в Yandex Cloud](migration-from-onprem.md).
+* Гибридный сценарий — перенос части нагрузок в Yandex Cloud с использованием [внешних узлов](../../operations/external-nodes-connect.md) или [серверов BareMetal](../../operations/baremetal-group/create-baremetal.md).
 
 ## Общая схема миграции {#overview}
 
-1. **Инвентаризация** — аудит рабочих нагрузок, оценка совместимости API и сетевых требований.
-1. (Для on-premises) **Сетевая связность** — настройка соединения между источником и Yandex Cloud.
-1. **Инфраструктура Yandex Cloud** — создание VPC, групп безопасности, IAM-ресурсов, кластера Managed Service for Kubernetes и групп узлов.
-1. **Перенос образов** — копирование образов контейнеров в Yandex Container Registry.
-1. **Перенос stateful-нагрузок** — перенос данных с помощью Yandex Data Transfer или Velero.
-1. **Перенос stateless-нагрузок** — экспорт, адаптация и применение манифестов.
-1. **Балансировщики и DNS** — настройка Gwin, Network Load Balancer и переключение DNS.
-1. **Финализация** — проверка, очистка ресурсов источника, архивирование бэкапов.
+1. Инвентаризация рабочих нагрузок, чтобы оценить сложность и создать план миграции.
+1. Подготовка инфраструктуры Yandex Cloud.
+1. Настройка сетевой связности между исходной инфраструктурой и Yandex Cloud.
+1. Перенос Docker-образов.
+1. Перенос stateful-нагрузок: баз данных, StatefulSets с PersistentVolumes.
+1. Перенос stateless-нагрузок.
+1. Настройка балансировщиков и переключение DNS.
+1. Проверка работы и отключение исходного кластера.
 
 ## Время и трудозатраты {#effort}
 
@@ -42,7 +42,7 @@ Managed Service for Kubernetes позволяет перенести рабоч�
 || [Gwin](../../alb-ref/gwin-index.md) | Gateway API-контроллер для Yandex Application Load Balancer. Рекомендуемый способ настройки L7-балансировщиков ||
 || [Velero](https://velero.io/) | Резервное копирование и восстановление Persistent Volumes ||
 || [Yandex Data Transfer](../../../data-transfer/index.md) | Перенос данных из управляемых баз данных ||
-|| [Yandex Container Registry](../../../container-registry/index.md) | Хранение образов контейнеров в Yandex Cloud ||
+|| [Yandex Cloud Registry](../../../cloud-registry/index.md) | Хранение Docker-образов в Yandex Cloud ||
 || [Yandex Object Storage](../../../storage/index.md) | Хранение бэкапов Velero и промежуточное хранилище при переносе ||
 || [Yandex Cloud DNS](../../../dns/index.md) | Управление DNS-записями при переключении трафика ||
 |#

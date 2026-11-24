@@ -1,7 +1,7 @@
 According to the plan, the following resources are created:
-* `network-1` [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-1` in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+* `network1` [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) named `subnet1` in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
 * Two Linux [VMs](../../compute/concepts/vm.md): 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. They will automatically get [public and private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in the `subnet-1` subnet.
-1. Get the ID of the boot disk [image](../../compute/concepts/image.md) from {{ marketplace-full-name }}, such as [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), that will be installed on the VM. Get a list of available public images by running the following command in the [CLI](../../cli/):
+1. Select a boot disk [image](../../compute/concepts/image.md) in {{ marketplace-full-name }}, e.g., [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts). Get the list of available public images using this [CLI command](../../cli/):
 
    ```bash
    yc compute image list --folder-id standard-images
@@ -22,7 +22,7 @@ According to the plan, the following resources are created:
      type     = "network-hdd"
      zone     = "{{ region-id }}-d"
      size     = "20"
-     image_id = "fd87va5cc00gaq2f5qfb"
+     image_id = "fd806c8slu9j********"
    }
 
    resource "yandex_compute_disk" "boot-disk-2" {
@@ -30,11 +30,12 @@ According to the plan, the following resources are created:
      type     = "network-hdd"
      zone     = "{{ region-id }}-d"
      size     = "20"
-     image_id = "fd87va5cc00gaq2f5qfb"
+     image_id = "fd806c8slu9j********"
    }
 
    resource "yandex_compute_instance" "vm-1" {
-     name = "terraform1"
+     name        = "terraform1"
+     platform_id = "standard-v3"
 
      resources {
        cores  = 2
@@ -56,7 +57,8 @@ According to the plan, the following resources are created:
    }
 
    resource "yandex_compute_instance" "vm-2" {
-     name = "terraform2"
+     name        = "terraform2"
+     platform_id = "standard-v3"
 
      resources {
        cores  = 4

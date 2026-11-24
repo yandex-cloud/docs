@@ -3,23 +3,25 @@
 # Посмотреть статистику резервного копирования
 
 
-Cloud Backup автоматически поставляет метрики количества [защищаемых ресурсов](../concepts/index.md#protected-resources), а также объема хранилища, занятого резервными копиями, в сервис [Yandex Monitoring](../../monitoring/index.md).
+Cloud Backup автоматически передает в [Monium Metrics](../../monium/metrics/overview.md) метрики количества [защищаемых ресурсов](../concepts/index.md#protected-resources) и объема хранилища, занятого резервными копиями.
 
 Чтобы посмотреть статистику:
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [политика](../concepts/policy.md) резервного копирования.
-  1. [Перейдите](https://monitoring.yandex.cloud) в сервис **Monitoring**.
-  1. Выберите дашборд — **Cloud Backup**
+  1. [Перейдите](https://monium.yandex.cloud) в Monium.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), соответствующий [каталогу](../../resource-manager/concepts/resources-hierarchy.md#folder) с защищаемыми ресурсами.
+
+      Идентификатор проекта имеет вид `folder__<идентификатор_каталога>`.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и перейдите на вкладку **Сервисные дашборды**.
+  1. В открывшемся списке выберите сервисный дашборд **Cloud Backup**.
   1. В поле **Resource name** выберите защищаемый ресурс, для которого вы хотите посмотреть статистику.
 
-     Если в поле выбрано значение `*`, на дашборде будет отображаться обобщенная статистика по всем [защищаемым ресурсам](../concepts/index.md#protected-resources) в каталоге.
-
+      Чтобы посмотреть общую статистику по всем защищаемым ресурсам в каталоге, выберите `*`.
   1. Выберите временной промежуток, за который хотите посмотреть статистику.
-  1. Если нужно обновить дашборд, нажмите кнопку ![](../../_assets/console-icons/arrows-rotate-right.svg). Также рядом с кнопкой вы можете задать частоту автообновления статистики.
+  1. Если нужно обновить дашборд, нажмите кнопку ![arrows-rotate-right](../../_assets/console-icons/arrows-rotate-right.svg). Также рядом с кнопкой вы можете задать частоту автообновления статистики.
 
 {% endlist %}
 
@@ -32,4 +34,4 @@ Cloud Backup автоматически поставляет метрики ко
 #### Полезные ссылки {#see-also}
 
 * [Настроить алерты Yandex Monium для ресурсов Yandex Cloud Backup](configure-alerts.md)
-* [Справочник метрик Yandex Monitoring](../metrics.md)
+* [Справочник метрик Monium Metrics](../metrics.md)

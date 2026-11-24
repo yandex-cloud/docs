@@ -1,12 +1,12 @@
 ---
-title: Справочник метрик сервиса {{ backup-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ backup-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ backup-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ backup-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
 
-В этом разделе описаны метрики сервиса {{ backup-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+Метрики сервиса {{ backup-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/overview.md) и доступны в проекте каталога с защищаемыми ресурсами.
 
 {% include [backup](../_includes/monitoring/metrics-ref/backup.md) %}
 

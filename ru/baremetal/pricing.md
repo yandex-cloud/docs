@@ -351,12 +351,6 @@ _Объем данных_ — это единица тарификации ус�
 
 {% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
 
-{% note info %}
-
-Чтобы запросить пакет данных на 100 ТБ, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-{% endnote %}
-
 
 <MDX>
   <PriceList

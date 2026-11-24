@@ -33,16 +33,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. [Create a subnet](../../../vpc/operations/subnet-create.md) in each network.
         1. In `mch-net`, [create a {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) with no public access for its hosts, using any suitable configuration.
         1. Optionally, in `mch-net`, [create a Linux-based VM](../../../compute/operations/vm-create/create-linux-vm.md) named `mch-net-vm`. In the process, you will need to specify the public SSH key you created earlier.
-        1. In `another-net`, [create a Linux-based VM](../../../compute/operations/vm-create/create-linux-vm.md) named `another-net-vm`. When creating it, specify the public SSH key you prepared earlier.
-        1. Configure security group rules for your cluster and VMs according to [this tutorial](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+        1. In `another-net`, [create a Linux-based VM](../../../compute/operations/vm-create/create-linux-vm.md) named `another-net-vm`. In the process, you will need to specify the public SSH key you created earlier.
+        1. Configure security group rules for your cluster and VMs according to [this guide](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
     - Using {{ TF }}
+
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
         1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
-
         1. Download the [nets-vm-mch.tf](https://github.com/yandex-cloud-examples/yc-dns-for-managed-clickhouse/blob/main/nets-vm-mch.tf) configuration file to your current working directory.
 
             This file describes:
@@ -62,22 +62,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `image_id`: VM public image ID. For details on getting a list of available images, see [this guide](../../../compute/operations/images-with-pre-installed-software/get-list.md).
             * `vm_username`: VM user name.
             * `vm_ssh_key_path`: Absolute path to your previously created VM public key.
-            * `create_optional_vm`: Parameter that enables VM creation in the cluster’s network. Optionally, set it to `1` to test cluster accessibility from the same network later.
+            * `create_optional_vm`: Parameter that enables VM creation in the cluster’s network. If you later need to test the cluster for accessibility from the same network, set it to `1`.
 
-        1. Run the `terraform init` command in the directory with your configuration files. This command initializes the provider specified in the configuration file, making its resources and data sources available for use.
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Create the resources:
 
-            ```bash
-            terraform validate
-            ```
+           {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-            {{ TF }} will display any configuration errors detected in your files.
-
-        1. Create the required infrastructure:
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
     {% endlist %}
 
@@ -96,19 +87,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Using {{ TF }}
 
-        1. In the `nets-vm-mch.tf` file, set `create_zone` to `1`.
+        1. In `nets-vm-mch.tf`, set `create_zone` to `1`.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Create the resources:
 
-            ```bash
-            terraform validate
-            ```
-
-            {{ TF }} will display any configuration errors detected in your files.
-
-        1. Create the required infrastructure:
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+           {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {% endlist %}
 
@@ -116,7 +99,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
     1. [Navigate]({{ link-console-main }}/link/dns) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-    1. Select the zone from the list.
+    1. Select the zone you created earlier.
     1. Make sure the list contains a record in the following format: `c-<cluster_ID>.rw.{{ dns-zone }}.`.
 
 ## Check whether the cluster is available from a different cloud network {#check-cluster-availability}
@@ -126,7 +109,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To stop paying for the resources created, delete them:
 
 {% list tabs %}
 

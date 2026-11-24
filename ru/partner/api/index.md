@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, какие команды AP
 
 Для работы с Партнерским порталом {{ yandex-cloud }} можно использовать API.
 
-Доступные команды описаны в документе [Gateway API — Таблицы атрибутов методов](https://disk.yandex.ru/d/gsRt3rHTsTkC4w).
+Доступные команды описаны в [Справочнике API](../api-ref/index.md).
 
 Для аутентификации используется [IAM-токен](../../iam/concepts/authorization/iam-token.md).
 

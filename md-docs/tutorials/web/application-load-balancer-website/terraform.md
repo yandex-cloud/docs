@@ -136,14 +136,14 @@ Terraform распространяется под лицензией [Business S
            
            resource "yandex_vpc_subnet" "subnet-2" {
              name           = local.subnet_name2
-             zone           = "ru-central1-b"
+             zone           = "ru-central1-d"
              network_id     = yandex_vpc_network.network-1.id
              v4_cidr_blocks = ["192.168.2.0/24"]
            }
            
            resource "yandex_vpc_subnet" "subnet-3" {
              name           = local.subnet_name3
-             zone           = "ru-central1-d"
+             zone           = "ru-central1-f"
              network_id     = yandex_vpc_network.network-1.id
              v4_cidr_blocks = ["192.168.3.0/24"]
            }
@@ -250,7 +250,7 @@ Terraform распространяется под лицензией [Business S
              }
            
              allocation_policy {
-               zones = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+               zones = ["ru-central1-a", "ru-central1-d", "ru-central1-f"]
              }
            
              deploy_policy {
@@ -316,12 +316,12 @@ Terraform распространяется под лицензией [Business S
                }
            
                location {
-                 zone_id   = "ru-central1-b"
+                 zone_id   = "ru-central1-d"
                  subnet_id = yandex_vpc_subnet.subnet-2.id
                }
            
                location {
-                 zone_id   = "ru-central1-d"
+                 zone_id   = "ru-central1-f"
                  subnet_id = yandex_vpc_subnet.subnet-3.id
                }
              }

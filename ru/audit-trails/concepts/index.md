@@ -13,7 +13,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события {{ yandex-cloud }}:
 
-* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/tools.md).
 * [Загрузка аудитных логов в SIEM](./export-siem.md).
 * [Настройка алертов в {{ monium-name }}](../tutorials/alerts-monitoring.md).
 

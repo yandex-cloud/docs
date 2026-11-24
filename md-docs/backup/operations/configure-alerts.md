@@ -25,28 +25,33 @@ _Алерт_ — проверка, которая раз в минуту опр�
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. Перейдите в сервис [Monium](https://monium.yandex.cloud).
+  1. [Перейдите](https://monium.yandex.cloud) в Monium.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **Создать** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `Пользовательский`.
+  1. Вверху справа нажмите **Создать алерт** → **Пользовательский**.
   1. В поле **Название** укажите `agent_available_new_version`
   1. В блоке **Настройки алерта**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "agent", name = "agent_version_available", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "agent", name = "agent_version_available", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления](https://console.yandex.cloud) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) Monium, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект Monium `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ Compute Cloud или сервера BareMetal. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **Условия срабатывания** укажите:
       * **Функция сравнения** — `Не равно`.
@@ -65,28 +70,33 @@ _Алерт_ — проверка, которая раз в минуту опр�
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. Перейдите в сервис [Monium](https://monium.yandex.cloud).
+  1. [Перейдите](https://monium.yandex.cloud) в Monium.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **Создать** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `Пользовательский`.
+  1. Вверху справа нажмите **Создать алерт** → **Пользовательский**.
   1. В поле **Название** укажите `agent_status_offline`
   1. В блоке **Настройки алерта**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "agent", name = "agent_alive", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "agent", name = "agent_alive", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления](https://console.yandex.cloud) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) Monium, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект Monium `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ Compute Cloud или сервера BareMetal. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **Условия срабатывания** укажите:
       * **Функция сравнения** — `Равно`.
@@ -105,29 +115,34 @@ _Алерт_ — проверка, которая раз в минуту опр�
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. Перейдите в сервис [Monium](https://monium.yandex.cloud).
+  1. [Перейдите](https://monium.yandex.cloud) в Monium.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
+
+      Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
   1. На панели слева выберите ![shield-exclamation](../../_assets/console-icons/shield-exclamation.svg) **Алерты и SLO**, затем ![megaphone](../../_assets/console-icons/megaphone.svg) **Алерты**.
-  1. Справа сверху нажмите кнопку **Создать** ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите `Пользовательский`.
+  1. Вверху справа нажмите **Создать алерт** → **Пользовательский**.
   1. В поле **Название** укажите `agent_operation_failure`
   1. В блоке **Настройки алерта**:
       1. Включите режим кода, нажав ![image](../../_assets/console-icons/code.svg).
       1. Введите запрос на языке запросов:
 
           ```text
-          {project = "folder__<идентификатор_каталога>", service = "__backup__", cluster = "default", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ВМ>"}
+          {project = "folder__<идентификатор_каталога>", cluster = "default", service = "__backup__", resource_type = "backup", name = "BackupError", action = "CompleteFailed", resource_name = "<имя_ресурса>"}
           ```
 
           Где:
 
-          * `project` — идентификатор каталога, в котором находится ВМ. Идентификатор каталога можно [скопировать](../../resource-manager/operations/folder/get-id.md) в [консоли управления](https://console.yandex.cloud) на панели сверху.
-          * `service` — имя сервиса.
+          * `project` — идентификатор [проекта](../../monium/concepts/glossary.md#project) Monium, в который поступают метрики защищаемого ресурса.
+
+              Метрики ресурса передаются в проект Monium `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) с этим ресурсом.
           * `cluster` — окружение.
+          * `service` — имя сервиса.
           * `resource_type` — тип ресурса.
           * `name` — имя метрики.
           * `action` — тип действия.
-          * `resource_name` — имя виртуальной машины. Чтобы выбрать все ВМ, вместо имени ВМ укажите `"*"`.
+          * `resource_name` — имя ВМ Compute Cloud или сервера BareMetal. Чтобы выбрать все ресурсы с этой меткой, укажите `"*"`.
 
   1. В блоке **Условия срабатывания** укажите:
       * **Функция сравнения** — `Больше`.
@@ -143,4 +158,4 @@ _Алерт_ — проверка, которая раз в минуту опр�
 #### Полезные ссылки {#see-also}
 
 * [Посмотреть статистику резервного копирования](get-stats.md)
-* [Справочник метрик Yandex Monitoring](../metrics.md)
+* [Справочник метрик Monium Metrics](../metrics.md)

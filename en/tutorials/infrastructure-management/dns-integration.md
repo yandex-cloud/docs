@@ -1,6 +1,6 @@
 ---
 title: Resolving cloud DNS names in corporate networks
-description: If you have your own corporate networks connected to {{ vpc-full-name }} networks via {{ interconnect-full-name }}, you can integrate your corporate DNS with internal DNS zones in {{ yandex-cloud }}. Thus you will implement the resolution of DNS names of cloud resources in your corporate networks for access to cloud resources and services from your corporate networks by name.
+description: Follow this guide to integrate your corporate DNS with internal {{ yandex-cloud }} DNS zones to resolve cloud resource names inside your corporate networks.
 ---
 
 # Resolving cloud DNS names in a corporate network

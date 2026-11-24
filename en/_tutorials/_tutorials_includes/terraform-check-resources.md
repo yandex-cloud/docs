@@ -1,4 +1,4 @@
-1. Check the configuration using this command:
+1. Validate your configuration using this command:
 
    ```bash
    terraform validate
@@ -16,9 +16,8 @@
    terraform fmt
    ```
 
-   Result:
+   The command returns a list of formatted files. For example:
 
    ```text
    main.tf
-   variables.tf
    ```

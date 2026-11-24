@@ -42,17 +42,11 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Все руководства](tutorials/index.md)
 
- - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-bucket.md)
+ - [Инструменты для работы с аудитными логами](tutorials/search-events-audit-logs/tools.md)
 
- - [Просмотр аудитных логов в Monium](tutorials/search-monium.md)
+ - [Поиск аудитных событий в Object Storage](tutorials/search-bucket.md)
 
  - [Поиск аудитных событий в Monium](tutorials/search-cloud-logging.md)
-
-### Поиск событий в аудитных логах
-
- - [Обзор](tutorials/search-events-audit-logs/index.md)
-
- - [Инструменты для работы с аудитными логами](tutorials/search-events-audit-logs/tools.md)
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 

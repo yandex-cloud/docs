@@ -1,0 +1,3 @@
+Если вы ограничиваете сетевой доступ с помощью [групп безопасности](../../../vpc/concepts/security-groups.md), [настройте правила для служебного трафика](../../../managed-kubernetes/operations/connect/security-groups.md#rules-internal) между мастером и узлами. Подключение внешних узлов, в том числе серверов {{ baremetal-name }}, всегда выполняется в [туннельном режиме](../../../managed-kubernetes/concepts/network-policy.md#cilium).
+
+Если используется [группа безопасности по умолчанию](../../../vpc/concepts/security-groups.md#default-security-group) с неизмененными правилами, дополнительная настройка не требуется: эти правила разрешают весь входящий и исходящий трафик.

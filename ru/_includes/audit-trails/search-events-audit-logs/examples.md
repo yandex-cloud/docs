@@ -1,4 +1,4 @@
-Чтобы найти события по ресурсам и операциям, [откройте аудитные логи в {{ monium-name }}](../../../audit-trails/tutorials/search-monium.md) и выберите период поиска. [Перейдите в текстовый режим](../../../audit-trails/tutorials/search-cloud-logging.md) и выполните нужный запрос.
+Чтобы найти события по ресурсам и операциям, [откройте аудитные логи в {{ monium-name }}](../../../audit-trails/tutorials/search-cloud-logging.md#monium) и выберите период поиска. [Перейдите в текстовый режим](../../../audit-trails/tutorials/search-cloud-logging.md) и выполните нужный запрос.
 
 В каждом запросе замените `<идентификатор_каталога_трейла>` на идентификатор каталога, в котором находится трейл. Чтобы отобрать события, доставленные конкретным трейлом, добавьте условие `trail_id=="<идентификатор_трейла>"`.
 
@@ -20,8 +20,9 @@
 
 **Мониторинг и управление ресурсами**
 
-* [{{ org-full-name }}](#organization)
+* [{{ resmgr-full-name }}](#resource-manager)
     * [Удаление каталога](#delete-folder)
+* [{{ org-full-name }}](#organization)
     * [Создание федерации](#create-federation)
     * [Изменение федерации](#update-federation)
     * [Добавление сертификата в федерацию](#create-certificate)
@@ -170,7 +171,7 @@
 
 ## Мониторинг и управление ресурсами {#monitoring-and-resource-management}
 
-### {{ org-full-name }} {#organization}
+### {{ resmgr-full-name }} {#resource-manager}
 
 #### Удаление каталога {#delete-folder}
 
@@ -181,18 +182,20 @@
     Для поиска по идентификатору каталога используйте поле `meta.details.folder_id`.
 
     ```text
-    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.details.folder_id=="<идентификатор_каталога>"}
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.event_status=="DONE", meta.details.folder_id=="<идентификатор_каталога>"}
     ```
 
     Для поиска по имени каталога используйте поле `meta.details.folder_name`.
 
     ```text
-    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.details.folder_name=="<имя_каталога>"}
+    {project="folder__<идентификатор_каталога_трейла>", service="__audit-trails__", meta.event_type=="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder", meta.event_status=="DONE", meta.details.folder_name=="<имя_каталога>"}
     ```
 
     Чтобы узнать, кто удалил каталог, проверьте идентификатор в `meta.authentication.subject_id`. Если в событии передано имя, оно указано в `meta.authentication.subject_name`.
 
 {% endlist %}
+
+### {{ org-full-name }} {#organization}
 
 #### Создание федерации {#create-federation}
 

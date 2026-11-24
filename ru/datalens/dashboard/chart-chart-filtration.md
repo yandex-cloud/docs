@@ -33,6 +33,7 @@ description: В статье описано, как в {{ datalens-full-name }} 
 * [Точечная карта](../visualization-ref/point-map-chart.md)
 * [Фоновая карта](../visualization-ref/choropleth-map-chart.md)
 * [Комбинированная диаграмма](../visualization-ref/combined-chart.md)
+* [Древовидная диаграмма](../visualization-ref/tree-chart.md)
 
 
 Примеры работы фильтрации чартов чартами можно посмотреть на [демодашборде](https://datalens.yandex/9fms9uae7ip02?tab=LoG).

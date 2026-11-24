@@ -86,7 +86,7 @@
             subnet_id: e2lptlobccu6********
             zonal_shift_active: true
             zonal_traffic_disabled: true
-          - zone_id: ru-central1-b
+          - zone_id: ru-central1-d
             subnet_id: e9bo5ir5prfi********
       ...
       ```
@@ -170,8 +170,8 @@
         locations:
           - zone_id: ru-central1-a
             subnet_id: e9bo5ir5prfi********
-          - zone_id: ru-central1-b
-            subnet_id: e2lptlobccu6******** 
+          - zone_id: ru-central1-d
+            subnet_id: e2lptlobccu6********
       ...
       ```
 

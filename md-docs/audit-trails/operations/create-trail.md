@@ -401,7 +401,7 @@
   
   * `--destination-bucket-aggregation-period` — период агрегации событий при выгрузке в бакет Yandex Object Storage. Задает интервал между выгрузками накопленных событий в бакет. Например, при значении `10m` сервис выгружает события примерно раз в десять минут. Необязательный параметр. Допустимые значения: от `1m` до `1h` включительно. По умолчанию `5m`.
   
-  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Доступно в CLI версии 1.45.0 и новее. Параметр указывается без значения.
+  * `--destination-monium` — загружать аудитные логи в [Monium Logs](../concepts/trail.md#monium). Параметр указывается без значения.
   
       С этим параметром нельзя использовать параметры `--destination-bucket` и `--destination-yds-stream`.
   * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
@@ -614,7 +614,7 @@
 
 {% endlist %}
 
-Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения. Логи, загруженные в Monium, можно [посмотреть в его интерфейсе](../tutorials/search-monium.md).
+После создания трейл начнет загружать аудитные логи в выбранный объект назначения. Если вы выбрали Monium Logs, [откройте логи в Monium](../tutorials/search-cloud-logging.md#monium).
 
 ## Примеры {#examples}
 
@@ -1059,6 +1059,6 @@
 
 * Узнайте о [формате аудитных логов](../concepts/format.md).
 * Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
-* Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+* Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/tools.md).
 
 [*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

@@ -349,11 +349,11 @@
 
           Сохраните полученный идентификатор подсети — он понадобится позднее при создании L7-балансировщика.
 
-      * В `{{ region-id }}-e`:
+      * В `{{ region-id }}-d`:
 
           ```bash
-          yc vpc subnet create example-subnet-{{ region-id }}-e \
-            --zone {{ region-id }}-e \
+          yc vpc subnet create example-subnet-{{ region-id }}-d \
+            --zone {{ region-id }}-d \
             --network-name example-network \
             --range 192.168.2.0/24
           ```
@@ -364,20 +364,20 @@
           id: e2lo05oe9slo********
           folder_id: b1gt6g8ht345********
           created_at: "2026-02-05T12:02:02Z"
-          name: example-subnet-{{ region-id }}-e
+          name: example-subnet-{{ region-id }}-d
           network_id: enpqm699f18v********
-          zone_id: {{ region-id }}-e
+          zone_id: {{ region-id }}-d
           v4_cidr_blocks:
             - 192.168.2.0/24
           ```
 
           Сохраните полученный идентификатор подсети — он понадобится позднее при создании L7-балансировщика.
 
-      * В `{{ region-id }}-d`:
+      * В `{{ region-id }}-f`:
 
           ```bash
-          yc vpc subnet create example-subnet-{{ region-id }}-d \
-            --zone {{ region-id }}-d \
+          yc vpc subnet create example-subnet-{{ region-id }}-f \
+            --zone {{ region-id }}-f \
             --network-name example-network \
             --range 192.168.3.0/24
           ```
@@ -388,9 +388,9 @@
           id: fl8bpb6lnu80********
           folder_id: b1gt6g8ht345********
           created_at: "2026-02-05T12:03:23Z"
-          name: example-subnet-{{ region-id }}-d
+          name: example-subnet-{{ region-id }}-f
           network_id: enpqm699f18v********
-          zone_id: {{ region-id }}-d
+          zone_id: {{ region-id }}-f
           v4_cidr_blocks:
             - 192.168.3.0/24
           ```
@@ -402,7 +402,7 @@
 - API {#api}
 
   1. Чтобы создать сеть `example-network`, воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
-  1. Чтобы создать подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-e` и `example-subnet-{{ region-id }}-d` в трех зонах доступности, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
+  1. Чтобы создать подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-d` и `example-subnet-{{ region-id }}-f` в трех зонах доступности, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
 {% endlist %}
 
@@ -731,7 +731,7 @@
       1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `example-network`.
       1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` и в появившемся списке выберите созданную ранее группу безопасности `example-sg`.
 
-  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-e` и `example-subnet-{{ region-id }}-d` — и включите передачу трафика в эти подсети.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-d` и `example-subnet-{{ region-id }}-f` — и включите передачу трафика в эти подсети.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}** и задайте настройки обработчика:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** укажите `example-listener`.
@@ -751,8 +751,8 @@
         --network-name example-network \
         --security-group-id <идентификатор_группы_безопасности_example-sg> \
         --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-a> \
-        --location zone={{ region-id }}-e,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-e> \
-        --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-d>
+        --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-d> \
+        --location zone={{ region-id }}-f,subnet-id=<идентификатор_подсети_example-subnet-{{ region-id }}-f>
       ```
 
       Где:
@@ -774,9 +774,9 @@
         locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9b0fo0hvhpd********
-          - zone_id: {{ region-id }}-e
-            subnet_id: e2lo05oe9slo********
           - zone_id: {{ region-id }}-d
+            subnet_id: e2lo05oe9slo********
+          - zone_id: {{ region-id }}-f
             subnet_id: fl8bpb6lnu80********
       security_group_ids:
         - enp9dpfa774h********
@@ -820,9 +820,9 @@
         locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9b0fo0hvhpd********
-          - zone_id: {{ region-id }}-e
-            subnet_id: e2lo05oe9slo********
           - zone_id: {{ region-id }}-d
+            subnet_id: e2lo05oe9slo********
+          - zone_id: {{ region-id }}-f
             subnet_id: fl8bpb6lnu80********
       security_group_ids:
         - enp9dpfa774h********
@@ -1057,7 +1057,7 @@
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `example-balancer`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-e` и `example-subnet-{{ region-id }}-d`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-d` и `example-subnet-{{ region-id }}-f`.
 1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности `example-sg`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `example-network`.
 1. При необходимости [удалите](../../certificate-manager/operations/managed/cert-delete.md) сертификат `mymanagedcert`.

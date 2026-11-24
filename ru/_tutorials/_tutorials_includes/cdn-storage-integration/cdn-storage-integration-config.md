@@ -20,8 +20,8 @@ variable "index_file_path" {
 locals {
   network_name     = "example-network"
   subneta_name     = "example-subnet-{{ region-id }}-a"
-  subnetb_name     = "example-subnet-{{ region-id }}-e"
   subnetd_name     = "example-subnet-{{ region-id }}-d"
+  subnetf_name     = "example-subnet-{{ region-id }}-f"
   sg_name          = "example-sg"
   object_key       = "index.html"
   domain_zone_name = "my-domain-zone"
@@ -105,16 +105,16 @@ resource "yandex_vpc_subnet" "my-subnet-a" {
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
-resource "yandex_vpc_subnet" "my-subnet-e" {
-  name           = local.subnetb_name
-  zone           = "{{ region-id }}-e"
+resource "yandex_vpc_subnet" "my-subnet-d" {
+  name           = local.subnetd_name
+  zone           = "{{ region-id }}-d"
   network_id     = yandex_vpc_network.my-network.id
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 
-resource "yandex_vpc_subnet" "my-subnet-d" {
-  name           = local.subnetd_name
-  zone           = "{{ region-id }}-d"
+resource "yandex_vpc_subnet" "my-subnet-f" {
+  name           = local.subnetf_name
+  zone           = "{{ region-id }}-f"
   network_id     = yandex_vpc_network.my-network.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
@@ -234,13 +234,13 @@ resource "yandex_alb_load_balancer" "my-balancer" {
     }
 
     location {
-      zone_id   = "{{ region-id }}-e"
-      subnet_id = yandex_vpc_subnet.my-subnet-e.id
+      zone_id   = "{{ region-id }}-d"
+      subnet_id = yandex_vpc_subnet.my-subnet-d.id
     }
 
     location {
-      zone_id   = "{{ region-id }}-d"
-      subnet_id = yandex_vpc_subnet.my-subnet-d.id
+      zone_id   = "{{ region-id }}-f"
+      subnet_id = yandex_vpc_subnet.my-subnet-f.id
     }
   }
 

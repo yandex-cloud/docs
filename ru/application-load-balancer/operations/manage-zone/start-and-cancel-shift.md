@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
             subnet_id: e2lptlobccu6********
             zonal_shift_active: true
             zonal_traffic_disabled: true
-          - zone_id: {{ region-id }}-b
+          - zone_id: {{ region-id }}-d
             subnet_id: e9bo5ir5prfi********
       ...
       ```
@@ -155,8 +155,8 @@ description: Следуя данной инструкции, вы сможете
         locations:
           - zone_id: {{ region-id }}-a
             subnet_id: e9bo5ir5prfi********
-          - zone_id: {{ region-id }}-b
-            subnet_id: e2lptlobccu6******** 
+          - zone_id: {{ region-id }}-d
+            subnet_id: e2lptlobccu6********
       ...
       ```
 

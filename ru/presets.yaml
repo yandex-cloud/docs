@@ -3307,6 +3307,8 @@ default:
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
+        type:
+          threshold_2: Пороговый
       navigation:
         dialogs:
           button_save: Сохранить
@@ -5203,6 +5205,7 @@ default:
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
         label_public-subnets_v16CV: Публичные адреса и подсети
+        label_server-monitoring: Мониторинг
         label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор виртуального маршрутизатора
@@ -6405,6 +6408,8 @@ default:
       data-transfer:
         button_create-endpoint: Создать эндпоинт
         button_create-transfer: Создать трансфер
+        EntityAdviserSection:
+          label_analyze-with-ai_ektYP: Анализировать с AI
         forms:
           label_source-type: Источник
           label_target-type: Приёмник

@@ -22,11 +22,11 @@ The following points of presence host {{ yandex-cloud }} equipment:
 
 To have a cross-connect set up at a point of presence, you need to sign an agreement letter, one per cross-connect.
 
-Request an agreement letter template and equipment location details for the selected point of presence from [technical support]({{ link-console-support }}).
+Contact [support]({{ link-console-support }}) to request the agreement letter template and the equipment placement details for the selected point of presence.
 
 {% note alert %}
 
-A cross-connect to a {{ yandex-cloud }} equipment port is set up solely **by the maintenance staff at the point of presence**, without engaging {{ yandex-cloud }} engineers.
+A cross connection, linking your equipment to a {{ yandex-cloud }} port, is performed by the **point of presence personnel**, with no {{ yandex-cloud }} engineers involved.
 
 If required, the maintenance staff at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client equipment to the {{ yandex-cloud }} equipment port.
 

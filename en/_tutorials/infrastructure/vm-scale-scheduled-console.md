@@ -1,4 +1,5 @@
 1. [Get your cloud ready](#before-begin).
+1. [Create auxiliary resources](#create-aux-resources).
 1. [Create an instance group](#create-ig).
 1. [Create {{ sf-name }} resources](#create-sf-resources).
 1. [Test instance group scaling](#test-scale).
@@ -88,7 +89,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
   1. Create a service account named `vm-scale-scheduled-sa`. Do it by using the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
   1. Assign the service account these [roles](../../iam/concepts/access-control/roles.md) for the current folder:
-     * `compute.admin`: To manage the instance group.
+     * `compute.editor`: To manage the instance group.
      * `iam.serviceAccounts.user`: To link the service account to the group’s VM instances.
      * `{{ roles-functions-invoker }}`: To call the {{ sf-name }} function.
 
@@ -363,7 +364,7 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands used
        * `IG_NAME` = `vm-scale-scheduled-ig`.
        * `IG_BASE_SIZE` = `2`.
        * `FOLDER_ID` = `<your_folder_ID>`. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
-  1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -437,17 +438,17 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. [Navigate]({{ link-console-main }}/link/functions) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. At the top right, click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, specify `vm-scale-scheduled-trigger`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify `*/2 * * * ? *`. The trigger will fire every two minutes, e.g., at 09:58, 10:00, 10:02, 10:04, etc.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
+  1. Under **Targets**:
+     * In the **Target type** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** field, specify `vm-scale-scheduled-function`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}** field, select `$latest`.
-     * Select **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** `vm-scale-scheduled-sa`.
+     * Select **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** for `vm-scale-scheduled-sa`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, reset the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_dlq_service-account }}** (`{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`) field.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

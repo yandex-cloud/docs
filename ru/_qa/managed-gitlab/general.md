@@ -89,11 +89,11 @@ The requested URL returned error: 413
 Отслеживать использование дискового пространства можно:
 
 * в консоли управления с помощью инструментов [мониторинга состояния инстанса](../../managed-gitlab/operations/instance/monitoring.md#view-graphs);
-* в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md) с возможностью [настроить алерты](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration) по заданным метрикам.
+* в [{{ monium-full-name }}](../../monium/) с возможностью [настроить алерты](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration) по заданным метрикам.
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#alert-for-disk-space}
 
-С помощью инструкции [Настройка алертов в {{ monitoring-name }} для {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
+С помощью инструкции [Настройка алертов в {{ monium-name }} для {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
 
 #### Почему резервные копии не создаются? {#backup-failed}
 

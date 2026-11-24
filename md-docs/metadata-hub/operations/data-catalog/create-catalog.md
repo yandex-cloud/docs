@@ -36,6 +36,85 @@
     
     {% endnote %}
 
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробная информация о ресурсах провайдера в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+
+  1. Добавьте в конфигурационный файл описание каталога:
+
+     ```hcl
+     resource "yandex_datacatalog_catalog" "example" {
+       folder_id   = "<идентификатор_каталога_ресурсов>"
+       name        = "<имя_каталога_метаданных>"
+       description = "<описание>"
+       labels = {
+         environment = "production"
+       }
+     }
+     ```
+
+     Укажите идентификатор каталога ресурсов Yandex Cloud в `folder_id` и имя создаваемого каталога метаданных в `name`. При необходимости задайте описание в `description` и метки в `labels`.
+
+     Подробная информация о параметрах ресурса `yandex_datacatalog_catalog` приведена в [документации провайдера](../../../terraform/resources/datacatalog_catalog.md).
+
+  1. Проверьте план изменений и примените его:
+
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        В терминале будет выведен список планируемых изменений: ресурсы и/или выходные переменные. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
+        ```bash
+        terraform apply
+        ```
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+- API {#api}
+
+    [Пройдите аутентификацию](../../api-ref/authentication-datacatalog.md). Воспользуйтесь методом REST API [createCatalog](../../datacatalog/api-ref/Catalog/createCatalog.md) для ресурса [Catalog](../../datacatalog/api-ref/Catalog/index.md) или вызовом gRPC API [CatalogService/CreateCatalog](../../datacatalog/api-ref/grpc/Catalog/createCatalog.md).
+
+    Передайте в объекте `catalog` идентификатор каталога ресурсов в `folderId`, имя каталога метаданных в `name` и при необходимости `description` и `labels`. Пример тела REST-запроса:
+
+    ```json
+    {
+      "catalog": {
+        "folderId": "<идентификатор_каталога_ресурсов>",
+        "name": "<имя_каталога_метаданных>",
+        "description": "<описание>",
+        "labels": {"environment": "production"}
+      }
+    }
+    ```
+
+    В gRPC идентификатор каталога ресурсов передается в `catalog.folder_id`.
+
 {% endlist %}
 
 [*глоссарий]: #### {#catalog}

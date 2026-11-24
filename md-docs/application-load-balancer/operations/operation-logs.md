@@ -154,9 +154,9 @@
          locations:
            - zone_id: ru-central1-a
              subnet_id: e9bpric55er9********
-           - zone_id: ru-central1-b
-             subnet_id: e2l15qssjar5********
            - zone_id: ru-central1-d
+             subnet_id: e2l15qssjar5********
+           - zone_id: ru-central1-f
              subnet_id: fl85ebb396ub********
        created_at: "2024-05-14T12:29:53.571411960Z"
        log_options: {}

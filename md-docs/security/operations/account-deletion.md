@@ -102,13 +102,13 @@
 
 1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в Yandex Audit Trails.
 
-1. [Отслеживайте](../../audit-trails/tutorials/search-events-audit-logs/index.md) как минимум следующие события (в Object Storage, лог-группе, [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
+1. [Проверяйте аудитные логи](../../audit-trails/tutorials/search-events-audit-logs/tools.md) или настройте их [экспорт в SIEM](../../audit-trails/concepts/export-siem.md). Отслеживайте как минимум следующие события:
 
-    * Создание ключей для сервисного аккаунта (события: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
-    * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).
-    * Любое действие с правами `organization-manager.organizations.owner` (`.authentication.subject_id == <идентификатор_пользователя_с_данными_правами>`).
+    * Создание ключей для сервисного аккаунта. Для событий `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey` и `yandex.cloud.audit.iam.CreateApiKey` сверьте идентификатор аккаунта в поле `details.service_account_id`. Идентификатор того, кто создал ключ, указан в `authentication.subject_id`.
+    * Изменение прав доступа к сервисному аккаунту. Отберите события `UpdateServiceAccountAccessBindings` по полю `details.service_account_id`.
+    * Действия от имени аккаунта с ролью `organization-manager.organizations.owner`. Для поиска укажите идентификатор аккаунта в поле `authentication.subject_id`.
 
-Для анализа и реагирования на события в Audit Trails можно использовать [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk).
+Пример интеграции — [экспорт аудитных логов в Elastic Stack](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk).
 
 ## Действия в случае поломки федерации {#federation-repair}
 

@@ -14,3 +14,19 @@
     * `null_keys_allowed` — задайте значение `true` для этого атрибута, чтобы разрешить значение `null` в ключевых колонках.
     * `add_rest_column` — задайте значение `true` для этого атрибута, чтобы поля, отсутствующие в схеме, попадали в колонку `_rest`.
     * `unescape_string_values` — задайте значение `true` для этого атрибута, чтобы убрать кавычки из строковых переменных (если этого не сделать, значения строковых полей останутся без изменений).
+
+* `debezium_cdc_parser` — парсер для данных в формате Debezium CDC с поддержкой {{ schema-registry-name }}.
+
+    Парсер поддерживает два типа {{ schema-registry-name }}:
+
+    * `confluent_schema_registry` — настройки для Confluent {{ schema-registry-name }}:
+
+        * `url` — URL {{ schema-registry-name }}.
+        * `auth` — параметры аутентификации:
+            * `username` — имя пользователя.
+            * `password` — пароль.
+        * `ca_certificate` — CA-сертификат для проверки подлинности сервера (опционально).
+
+    * `yandex_schema_registry` — настройки для {{ schema-registry-full-name }}:
+
+        * `namespace_id` — идентификатор пространства имен в {{ schema-registry-full-name }}.

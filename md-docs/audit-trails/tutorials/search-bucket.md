@@ -1,4 +1,6 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Object Storage
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Поиск аудитных событий в Object Storage
+
+# Поиск аудитных событий в Object Storage
 
 # Поиск событий Yandex Cloud в Object Storage
 
@@ -18,10 +20,10 @@
     find "<путь_к_папке>" -type f -name '*.json' -exec cat {} + | jq '.[] | select( .event_type == "yandex.cloud.audit.iam.CreateServiceAccount")'
     ```
 
-1. Чтобы найти, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в облаке, отфильтруйте записи за нужный период по типу события `event_type` и идентификатору каталога:
+1. Чтобы узнать, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), найдите событие `DeleteFolder` со статусом `DONE` по идентификатору каталога. Поле `authentication.subject_id` содержит идентификатор инициатора операции.
 
     ```bash
-    find "<путь_к_папке>" -type f -name '*.json' -exec cat {} + | jq '.[] | select( .event_type == "yandex.cloud.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор_каталога>") | .authentication'
+    find "<путь_к_папке>" -type f -name '*.json' -exec cat {} + | jq '.[] | select(.event_type == "yandex.cloud.audit.resourcemanager.DeleteFolder" and .event_status == "DONE" and .details.folder_id == "<идентификатор_каталога>") | .authentication'
     ```
 
 1. Чтобы найти, кто выполнял операции с [виртуальной машиной](../../glossary/vm.md), отфильтруйте записи за нужный период по типу события `event_type` и идентификатору ВМ:

@@ -19,6 +19,8 @@
 * Корпоративные приложения.
 * {{ microsoft-idp.entra-id-full }}.
 
+Для выполнения операций на портале Azure вам потребуется [роль](https://learn.microsoft.com/{{ lang }}/entra/identity/role-based-access-control/permissions-reference) администратора облачных приложений, администратора приложений или глобального администратора в {{ microsoft-idp.entra-id-short }}, а также действующая лицензия {{ microsoft-idp.entra-id-short }} P1/P2 для назначения групп корпоративному приложению.
+
 ## Начните настройку приложения в Azure {#azure-settings-begin}
 
 В роли поставщика удостоверений (IdP) выступает приложение в Microsoft Azure с настроенной технологией единого входа (Single Sign-On, SSO). Чтобы создать приложение и начать его настройку:
@@ -149,7 +151,7 @@
         URL для перенаправления имеет вид:
 
         ```text
-        https://{{ auth-host }}/federations/<идентификатор_федерации>
+        https://{{ auth-main-host }}/federations/<идентификатор_федерации>
         ```
 
         {% cut "Как получить идентификатор федерации" %}
@@ -166,10 +168,10 @@
     1. Включите опцию **Требовать сертификаты для проверки**.
     1. Нажмите кнопку **Отправить сертификат**.
     1. Загрузите нужный сертификат в формате PEM.
-    
-        Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
-    1. Нажмите кнопку **Сохранить** на панели справа.
 
+        Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+
+    1. Нажмите кнопку **Сохранить** на панели справа.
 1. Нажмите кнопку **Сохранить**.
 
 ## Настройте сопоставление групп на стороне приложения Azure {#azure-mapping}
@@ -211,7 +213,7 @@
     1. На панели слева выберите раздел **Группы** → **Все группы**.
     1. Нажмите кнопку **Создать группу**.
     1. Из выпадающего списка **Тип группы** выберите пункт `Группа безопасности`.
-    1. В поле **Имя группы** укажите имя группы, например `az_demo_group`.
+    1. В поле **Имя группы** укажите имя группы, например `az-demo-group`.
     1. В поле **Члены** нажмите ссылку **Нет выбранных участников**.
     1. В открывшемся окне отметьте пользователя `az_demo_user@example.com` и нажмите кнопку **Выбрать**.
     1. Нажмите кнопку **Создать**.
@@ -219,7 +221,7 @@
 1. Получите идентификатор созданной группы:
 
     1. На панели слева выберите раздел **Группы** → **Все группы**.
-    1. Найдите в списке группу `az_demo_group` и скопируйте ее идентификатор из столбца **ИД объекта**.
+    1. Найдите в списке группу `az-demo-group` и скопируйте ее идентификатор из столбца **ИД объекта**.
 
         Идентификатор имеет вид `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`.
 
@@ -234,7 +236,7 @@
 1. На панели слева выберите **Пользователи и группы**.
 1. Нажмите **Добавить пользователя или группу**.
 1. В поле **Группы** нажмите **Не выбрано**.
-1. В открывшемся окне отметьте группу `az_demo_group` и нажмите кнопку **Выбрать**.
+1. В открывшемся окне отметьте группу `az-demo-group` и нажмите кнопку **Выбрать**.
 1. Нажмите кнопку **Назначить**.
 1. Нажмите кнопку **Сохранить**.
 
@@ -277,7 +279,7 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.group-mapping.add-group-mapping }}**.
 
-  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.field-external-group }}** введите идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
+  1. В поле **{{ ui-key.yacloud_org.form.group-mapping.field-external-group }}** введите идентификатор группы `az-demo-group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
 
      {% note warning %}
 
@@ -299,7 +301,7 @@
       # Создание группы пользователей
       resource "yandex_organizationmanager_group" "my-group" {
         name            = "yc-demo-group"
-        organization_id = "demo-federation"
+        organization_id = "<идентификатор_организации>"
       }
 
       # Назначение роли viewer на каталог
@@ -311,23 +313,23 @@
 
       # Включение сопоставления групп федеративных пользователей
       resource "yandex_organizationmanager_group_mapping" "my_group_map" {
-        federation_id = "demo-federation"
+        federation_id = "<идентификатор_федерации>"
         enabled       = true
       }
 
       # Настройка сопоставления групп федеративных пользователей
       resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
-        federation_id     = "demo-federation"
+        federation_id     = "<идентификатор_федерации>"
         internal_group_id = yandex_organizationmanager_group.my-group.id
-        external_group_id = "<идентификатор_ группы_az_demo_group>"
+        external_group_id = "<идентификатор_группы_az-demo-group>"
 
-        depends_on = [yandex_organizationmanager_group_mapping.group_mapping]
+        depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
       }
       ```
 
       Где:
       * `folder_id` — каталог, на который назначается роль.
-      * `external_group_id` — идентификатор группы `az_demo_group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
+      * `external_group_id` — идентификатор группы `az-demo-group`, [полученный ранее в {{ microsoft-idp.entra-id-short }}](#create-group).
 
          {% note warning %}
 
@@ -365,6 +367,6 @@
 
 1. Введите реквизиты пользователя `az_demo_user@example.com`, [созданного ранее в {{ microsoft-idp.entra-id-short }}](#create-user), и нажмите кнопку **Sign in**.
 
-    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-host }}/federations/<идентификатор_федерации>`, который вы указали в настройках SAML для приложения Azure, а после — на главную страницу [консоли управления]({{ link-console-main }}).
+    После успешной аутентификации IdP-сервер перенаправит вас по URL `https://{{ auth-main-host }}/federations/<идентификатор_федерации>`, который вы указали в настройках SAML для приложения Azure, а после — на главную страницу [консоли управления]({{ link-console-main }}).
 
 1. Убедитесь, что пользователь, от имени которого был выполнен вход, входит в группу `yc-demo-group` и у него есть права на просмотр ресурсов в соответствии с ролью, назначенной для группы.

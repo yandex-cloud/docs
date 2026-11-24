@@ -13,7 +13,7 @@ _Образ Marketplace_ для BareMetal содержит программны�
 
 Образы содержат необходимые драйверы оборудования и настройки и протестированы для работы на серверах BareMetal. Они устанавливаются автоматически при [аренде сервера](../operations/servers/server-lease.md) или [переустановке ОС](../operations/servers/reinstall-os-from-marketplace.md).
 
-Актуальный список доступных образов приведен в [консоли управления](https://console.yandex.cloud/link/marketplace/products?productTypes=BAREMETAL) и на [сайте Marketplace](https://yandex.cloud/ru/marketplace?type=BAREMETAL&pageSize=30).
+Актуальный список доступных образов приведен в [консоли управления](https://console.yandex.cloud/link/marketplace/products?productTypes=BAREMETAL) и на [сайте Marketplace](https://yandex.cloud/ru/marketplace?type=BAREMETAL).
 
 {% note info %}
 

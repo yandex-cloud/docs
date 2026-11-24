@@ -230,7 +230,7 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -23,4 +23,19 @@ description: Следуя данной инструкции, вы сможете
     1. Справа от имени каталога, который вы хотите удалить, нажмите ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
+- {{ TF }} {#tf}
+
+  1. Откройте конфигурационный файл, использованный при [создании каталога](create-catalog.md#tf).
+  1. Удалите ресурс `yandex_datacatalog_catalog`, соответствующий нужному каталогу метаданных, и ссылки на него. Описание ресурса приведено в [документации провайдера]({{ tf-provider-resources-link }}/datacatalog_catalog).
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    [Пройдите аутентификацию](../../api-ref/authentication-datacatalog.md). Воспользуйтесь методом REST API [deleteCatalog](../../datacatalog/api-ref/Catalog/deleteCatalog.md) для ресурса [Catalog](../../datacatalog/api-ref/Catalog/index.md) или вызовом gRPC API [CatalogService/DeleteCatalog](../../datacatalog/api-ref/grpc/Catalog/deleteCatalog.md).
+
+    Передайте идентификатор удаляемого каталога метаданных в параметре `catalogId` (REST) или `catalog_id` (gRPC). Его можно получить со [списком каталогов](catalog-list.md#api).
+
 {% endlist %}

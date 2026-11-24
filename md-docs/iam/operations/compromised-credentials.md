@@ -88,7 +88,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 Проанализируйте доступ к вашим ресурсам Yandex Cloud:
 
 1. [Изучите записи](../../logging/operations/read-logs.md) Cloud Logging.
-1. Выполните [поиск событий](../../audit-trails/tutorials/search-events-audit-logs/index.md) в бакете или лог-группе Audit Trails.
+1. [Проверьте аудитные логи](../../audit-trails/tutorials/search-events-audit-logs/tools.md) Audit Trails за период возможной компрометации. Чтобы найти действия от имени аккаунта, используйте его идентификатор в поле `authentication.subject_id`.
 1. Убедитесь, что все события, в том числе связанные с утечкой секретов, соответствуют ожиданиям.
 
 {% note tip %}

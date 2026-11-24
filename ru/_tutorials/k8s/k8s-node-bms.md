@@ -68,6 +68,8 @@
 
 1. [Создайте приватное соединение](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#create-prc).
 
+1. {% include [external-nodes-security-groups](../../_includes/managed-kubernetes/security-groups/external-nodes.md) %}
+
 ## Создание внешней группы узлов {#node-group-create}
 
 {% list tabs group=instructions %}

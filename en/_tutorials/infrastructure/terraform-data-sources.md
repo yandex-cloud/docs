@@ -47,16 +47,16 @@ In the {{ TF }} code, data sources are defined using the `data` block.
 
     * `data "yandex_compute_image"`: Disk image description as a data source:
         * `family`: [Image family](../../compute/concepts/image.md#family).
-    * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
+    * `output "my_image_id"`: Output variable with information about the current image ID for the specified family:
         * `value`: Return value.
 
     For more on the properties of the `yandex_compute_image` data source, see [this provider guide]({{ tf-provider-datasources-link }}/compute_image).
 
-1. Create the resources:
+1. Apply the configuration:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} will create all required resources and display their output variables.
+    {{ TF }} will save the output variable values in the state and display them in the terminal. No actual resources are created at this step; the configuration only describes a data source.
 
 ## Check the result {#check}
 
@@ -69,7 +69,7 @@ terraform output
 Result:
 
 ```text
-my_image_id = "fd8li2lvvfc6bdj4c787"
+my_image_id = "fd8iej0ml2ku********"
 ```
 
 Then you can use this ID to [create a VM](../../compute/operations/images-with-pre-installed-software/create.md), e.g.:

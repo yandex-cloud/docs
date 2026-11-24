@@ -159,9 +159,10 @@ description: Из статьи вы узнаете, что такое трейл
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/search-events-audit-logs/index.md)
+* [{#T}](../tutorials/search-events-audit-logs/tools.md)
 * [{#T}](../tutorials/alerts-monitoring.md)
-* [{#T}](../tutorials/search-monium.md)
+* [{#T}](../tutorials/search-bucket.md)
+* [{#T}](../tutorials/search-cloud-logging.md)
 * [{#T}](../tutorials/maxpatrol/index.md)
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 * [{#T}](../tutorials/export-logs-to-arcsight.md)

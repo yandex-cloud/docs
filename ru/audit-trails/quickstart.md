@@ -63,7 +63,7 @@
 
 - {{ monium-name }} {#monium}
 
-  Для загрузки в {{ monium-name }} создайте трейл через CLI версии 1.45.0 или новее, {{ TF }} или API. В этой инструкции используется CLI.
+  Для загрузки в {{ monium-name }} создайте трейл через CLI, {{ TF }} или API. В этой инструкции используется CLI.
 
   {% include [cli-install](../_includes/cli-install.md) %}
 

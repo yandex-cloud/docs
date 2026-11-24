@@ -25,6 +25,16 @@
   ```
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+  1. Откройте конфигурационный файл, использованный при [создании кластера](cluster-create.md#tf).
+  1. Если включена защита от удаления, установите для ресурса `yandex_metastore_cluster` параметр `deletion_protection = false` и примените изменение.
+  1. Удалите из конфигурации ресурс `yandex_metastore_cluster`, соответствующий нужному кластеру, и ссылки на него. Параметры ресурса приведены в [документации провайдера]({{ tf-provider-resources-link }}/metastore_cluster).
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:

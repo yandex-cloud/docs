@@ -276,7 +276,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Трейл создастся и начнет загружать аудитные логи в выбранный объект назначения. Логи, загруженные в {{ monium-name }}, можно [посмотреть в его интерфейсе](../tutorials/search-monium.md).
+После создания трейл начнет загружать аудитные логи в выбранный объект назначения. Если вы выбрали {{ monium-logs-name }}, [откройте логи в {{ monium-name }}](../tutorials/search-cloud-logging.md#monium).
 
 ## Примеры {#examples}
 
@@ -721,6 +721,6 @@ description: Следуя данной инструкции, вы сможете
 
 * Узнайте о [формате аудитных логов](../concepts/format.md).
 * Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
-* Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+* Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/tools.md).
 
 [*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

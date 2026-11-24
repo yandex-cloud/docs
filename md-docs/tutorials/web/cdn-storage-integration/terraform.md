@@ -108,8 +108,8 @@ Terraform распространяется под лицензией [Business S
               locals {
                 network_name     = "example-network"
                 subneta_name     = "example-subnet-ru-central1-a"
-                subnetb_name     = "example-subnet-ru-central1-e"
                 subnetd_name     = "example-subnet-ru-central1-d"
+                subnetf_name     = "example-subnet-ru-central1-f"
                 sg_name          = "example-sg"
                 object_key       = "index.html"
                 domain_zone_name = "my-domain-zone"
@@ -193,16 +193,16 @@ Terraform распространяется под лицензией [Business S
                 v4_cidr_blocks = ["192.168.1.0/24"]
               }
               
-              resource "yandex_vpc_subnet" "my-subnet-e" {
-                name           = local.subnetb_name
-                zone           = "ru-central1-e"
+              resource "yandex_vpc_subnet" "my-subnet-d" {
+                name           = local.subnetd_name
+                zone           = "ru-central1-d"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.2.0/24"]
               }
               
-              resource "yandex_vpc_subnet" "my-subnet-d" {
-                name           = local.subnetd_name
-                zone           = "ru-central1-d"
+              resource "yandex_vpc_subnet" "my-subnet-f" {
+                name           = local.subnetf_name
+                zone           = "ru-central1-f"
                 network_id     = yandex_vpc_network.my-network.id
                 v4_cidr_blocks = ["192.168.3.0/24"]
               }
@@ -322,13 +322,13 @@ Terraform распространяется под лицензией [Business S
                   }
               
                   location {
-                    zone_id   = "ru-central1-e"
-                    subnet_id = yandex_vpc_subnet.my-subnet-e.id
+                    zone_id   = "ru-central1-d"
+                    subnet_id = yandex_vpc_subnet.my-subnet-d.id
                   }
               
                   location {
-                    zone_id   = "ru-central1-d"
-                    subnet_id = yandex_vpc_subnet.my-subnet-d.id
+                    zone_id   = "ru-central1-f"
+                    subnet_id = yandex_vpc_subnet.my-subnet-f.id
                   }
                 }
               

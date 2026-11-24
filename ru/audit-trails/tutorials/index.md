@@ -5,9 +5,10 @@ description: Различные сценарии использования {{ a
 
 # Практические руководства {{ at-name }}
 
+* [{#T}](search-events-audit-logs/tools.md)
 * [{#T}](search-bucket.md)
-* [{#T}](search-monium.md)
 * [{#T}](search-cloud-logging.md)
+* [{#T}](search-events-audit-logs/examples.md)
 * [{#T}](alerts-monitoring.md)
 
 ## Экспорт аудитных логов в SIEM {#siem}

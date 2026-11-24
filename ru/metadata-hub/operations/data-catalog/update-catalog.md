@@ -30,4 +30,35 @@ description: Следуя данной инструкции, вы сможете
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
+- {{ TF }} {#tf}
+
+  1. Откройте конфигурационный файл, использованный при [создании каталога](create-catalog.md#tf).
+  1. Измените параметры нужного ресурса `yandex_datacatalog_catalog`: `name`, `description` или `labels`. Для включения AI-разметки задайте значение `true` в поле `ai_enabled` параметра `ai_markup_rules`, для выключения — `false`. Сохраните остальные параметры каталога.
+
+     Структура параметров приведена в [документации провайдера]({{ tf-provider-resources-link }}/datacatalog_catalog).
+
+  1. Проверьте план изменений и примените его:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+- API {#api}
+
+    [Пройдите аутентификацию](../../api-ref/authentication-datacatalog.md). Воспользуйтесь методом REST API [updateCatalog](../../datacatalog/api-ref/Catalog/updateCatalog.md) для ресурса [Catalog](../../datacatalog/api-ref/Catalog/index.md) или вызовом gRPC API [CatalogService/UpdateCatalog](../../datacatalog/api-ref/grpc/Catalog/updateCatalog.md).
+
+    Передайте идентификатор каталога метаданных в `catalog.id`, новые значения параметров — в объекте `catalog`, а список изменяемых полей — в `updateMask`. Например, чтобы изменить описание:
+
+    ```json
+    {
+      "catalog": {
+        "id": "<идентификатор_каталога_метаданных>",
+        "description": "<новое_описание>"
+      },
+      "updateMask": "description"
+    }
+    ```
+
+    Для управления AI-разметкой используется поле `catalog.aiMarkupRules.aiEnabled` (в gRPC — `catalog.ai_markup_rules.ai_enabled`). В gRPC маска передается в `update_mask`.
+
+    Всегда указывайте маску: если ее не передать, значения всех отсутствующих в запросе полей будут сброшены. Поля, перечисленные в маске без новых значений, также будут сброшены.
+
 {% endlist %}

@@ -460,7 +460,7 @@
 
  - [GetAgentInstallCommand](backup/api-ref/Setup/getAgentInstallCommand.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

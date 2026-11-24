@@ -2,22 +2,28 @@
 
 # Инструменты для работы с аудитными логами
 
-Аудитные логи можно загружать в Monium Logs, бакет [Yandex Object Storage](../../../storage/index.md) или поток данных [Yandex Data Streams](../../index.md).
+Трейл Audit Trails собирает аудитные логи и загружает их в один из доступных [объектов назначения](../../../audit-trails/concepts/trail.md#target). Способ поиска событий зависит от выбранного объекта.
 
-Для просмотра логов в Monium Logs используйте [интерфейс Monium](#tool-monium), а для поиска событий в логах из бакета — [утилиту jq](#tool-jq).
+## Бакет Object Storage {#tool-jq}
+
+Каждый файл аудитного лога в бакете содержит JSON-массив событий. Для поиска событий в этих файлах используйте `jq` — утилиту для фильтрации данных в формате JSON.
+
+[Смонтируйте бакет и установите jq](../../../audit-trails/tutorials/search-bucket.md#before-you-begin). Чтобы ограничить поиск периодом, передайте команде `find` путь к каталогу за нужный месяц или день. Затем [отфильтруйте события с помощью jq](../../../audit-trails/tutorials/search-bucket.md#search) по типу операции, ресурсу или пользователю.
 
 ## Monium {#tool-monium}
 
-{% list tabs group=audit-trails-destination %}
+В Monium Logs аудитные логи поступают в [проект](*monium-folder-project) каталога с трейлом. Для поиска событий используйте интерфейс Monium и [язык запросов сервиса](../../../monium/logs/query.md).
 
-- Monium {#monium}
+[Откройте логи](../../../audit-trails/tutorials/search-cloud-logging.md#monium), выберите период и выполните [запрос для нужного сценария](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-  [Откройте аудитные логи в Monium](../../../audit-trails/tutorials/search-monium.md) и просмотрите поля записи.
+Чтобы отслеживать количество отказов в доступе и изменений прав, используйте [дашборд](../../../monium/operations/dashboard/create.md) с [метриками по аудитным логам](../../../monium/logs/aggregates.md). Чтобы получать уведомления о назначении привилегированных ролей или превышении заданного числа отказов в доступе, [настройте алерты](../../../monium/operations/alert/create-alert.md) по этим метрикам.
 
-{% endlist %}
+## Поток Data Streams {#data-streams}
 
-## Утилита jq {#tool-jq}
 
-Логи в бакете хранятся в JSON-файлах. Для поиска используйте `find`, чтобы выбрать файлы, и [jq](https://jqlang.org/), чтобы отфильтровать записи.
+В [Yandex Data Streams](../../index.md) одно сообщение может содержать несколько событий в [формате JSON Lines](../../../audit-trails/concepts/format.md#data-stream-message). Для поиска и анализа событий можно выбрать один из подходов.
 
-[Смонтируйте бакет и установите jq](../../../audit-trails/tutorials/search-bucket.md#before-you-begin), затем [выполните команду для нужного сценария](../../../audit-trails/tutorials/search-bucket.md#search).
+* Поиск и фильтрация событий в своем приложении. Читать данные из потока можно через [API, совместимый с Amazon Kinesis Data Streams](../../kinesisapi/index.md), в том числе с помощью [AWS SDK](../../operations/aws-sdk/get-records.md). Для чтения из командной строки доступен [AWS CLI](../../operations/aws-cli/get-records.md).
+* Передача событий в систему анализа. Например, можно [загружать аудитные логи в MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol/index.md) и использовать ее средства поиска.
+
+[*monium-folder-project]: Для каждого каталога Yandex Cloud автоматически создается проект Monium с идентификатором `folder__<идентификатор_каталога>`. По умолчанию выбран проект текущего каталога. [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) можно скопировать в консоли управления или получить с помощью CLI.

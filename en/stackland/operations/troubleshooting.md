@@ -194,7 +194,7 @@ sladm install \
   --installation-timeout 3h
 ```
 
-Wait until `sladm` completes successfully. Then repeat the checks from the [Check the installation](#verification) section.
+Wait until `sladm` completes successfully. Then repeat the checks from the [Check the installation](../quickstart.md#verification) section.
 
 ### Installation timeout expired {#installation-timeout}
 

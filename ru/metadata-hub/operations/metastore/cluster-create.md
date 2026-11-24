@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Назначьте сервисному аккаунту](../../../iam/operations/sa/assign-role-for-sa.md) роль `{{ roles.metastore.integrationProvider }}`. Она позволяет кластеру от имени сервисного аккаунта [взаимодействовать с сервисами](../../concepts/metastore-impersonation.md) {{ yandex-cloud }}, например с {{ cloud-logging-full-name }} и {{ monitoring-full-name }}.
-   
+
     Для использования {{ objstorage-name }} дополнительно назначьте сервисному аккаунту кластера [роль](../../../storage/security/index.md#storage-editor) `storage.editor`.
 
     Вы можете добавить дополнительные роли. Их набор зависит от сценария работы. Сервисные роли приведены в [разделе для {{ metastore-name }}](../../security/metastore-roles.md), все доступные роли — в [справочнике](../../../iam/roles-reference.md).
@@ -59,13 +59,13 @@ description: Следуя данной инструкции, вы сможете
         1. Выберите минимальный уровень логирования.
 
             В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
-    
+
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
-        
+
         1. При необходимости включите защиту кластера от непреднамеренного удаления пользователем.
 
             {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}
-        
+
         1. Выберите время [технического обслуживания](../../concepts/metastore-maintenance.md) кластера:
 
             {% include [Maintenance window](../../../_includes/metadata-hub/metastore-maintenance-window-console.md) %}
@@ -81,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать кластер {{ metastore-name }}:
 
   1. Посмотрите описание команды CLI для создания кластера:
- 
+
       ```bash
       {{ yc-metastore }} cluster create --help
       ```
@@ -231,7 +231,7 @@ description: Следуя данной инструкции, вы сможете
           "folderId": "<идентификатор_каталога>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
-          "labels": { "<список_меток>" },
+          "labels": { "<ключ>": "<значение>" },
           "deletionProtection": <защита_от_удаления>,
           "version": "<версия_Apache_Hive™_Metastore>",
           "configSpec": {
@@ -302,7 +302,7 @@ description: Следуя данной инструкции, вы сможете
           "folder_id": "<идентификатор_каталога>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
-          "labels": "{ <список_меток> }",
+          "labels": { "<ключ>": "<значение>" },
           "deletion_protection": <защита_от_удаления>,
           "version": "<версия_Apache_Hive™_Metastore>",
           "config_spec": {

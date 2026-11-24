@@ -60,6 +60,9 @@
       1. В блоке **Образ** выберите:
          
          * `Marketplace` — чтобы установить на сервер один из доступных [публичных образов](../../concepts/images.md#marketplace-images) ОС в Yandex Cloud Marketplace.
+         
+             Список доступных образов приведен в [каталоге Marketplace](https://yandex.cloud/ru/marketplace?type=BAREMETAL).
+         
          * `Без операционной системы` — чтобы арендовать сервер без операционной системы.
          
              [Установить](reinstall-os-from-own-image.md) операционную систему из [собственного загрузочного ISO-образа](../../concepts/images.md#user-images) вы сможете позднее.

@@ -24,7 +24,7 @@ Yandex Application Load Balancer позволяет предоставить п�
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в зоне доступности `ru-central1-a`.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в любой зоне доступности.
    
 1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md).
    

@@ -127,11 +127,11 @@ The requested URL returned error: 413
 Отслеживать использование дискового пространства можно:
 
 * в консоли управления с помощью инструментов [мониторинга состояния инстанса](../operations/instance/monitoring.md#view-graphs);
-* в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md) с возможностью [настроить алерты](../operations/instance/monitoring.md#monitoring-integration) по заданным метрикам.
+* в [Yandex Monium](../../monium/index.md) с возможностью [настроить алерты](../operations/instance/monitoring.md#monitoring-integration) по заданным метрикам.
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#alert-for-disk-space}
 
-С помощью инструкции [Настройка алертов в Monitoring для Managed Service for GitLab](../operations/instance/monitoring.md#monitoring-integration).
+С помощью инструкции [Настройка алертов в Monium для Managed Service for GitLab](../operations/instance/monitoring.md#monitoring-integration).
 
 #### Почему резервные копии не создаются? {#backup-failed}
 

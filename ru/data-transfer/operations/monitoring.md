@@ -21,6 +21,25 @@
 
 [Подробнее об ошибках, которые отображаются на временной шкале](../troubleshooting/index.md#timeline).
 
+### AI-расшифровка ошибок {#ai-error-explanation}
+
+Для упрощения диагностики проблем в {{ data-transfer-name }} доступна функция **{{ ui-key.yacloud.data-transfer.EntityAdviserSection.label_analyze-with-ai_ektYP }}**. Она помогает быстро понять причину возникшей ошибки и получить рекомендации по ее устранению.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите на имя нужного трансфера и выберите вкладку **{{ ui-key.yacloud.common.overview }}**.
+  1. Под временной шкалой трансфера наведите курсор на сегмент с кратким описанием ошибки.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.EntityAdviserSection.label_analyze-with-ai_ektYP }}**.
+
+{% endlist %}
+
+Система проанализирует ошибку и предоставит понятное объяснение с возможными причинами и рекомендациями по устранению. AI-расшифровка особенно полезна при первичной диагностике проблем, когда нужно быстро определить направление для дальнейшего исследования.
+
 ## Мониторинг состояния трансфера {#monitoring}
 
 {% list tabs group=instructions %}

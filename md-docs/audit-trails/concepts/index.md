@@ -10,7 +10,7 @@ Yandex Audit Trails позволяет собирать [аудитные лог
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события Yandex Cloud:
 
-* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).
+* [Поиск событий в аудитных логах](../tutorials/search-events-audit-logs/tools.md).
 * [Загрузка аудитных логов в SIEM](export-siem.md).
 * [Настройка алертов в Monium](../tutorials/alerts-monitoring.md).
 

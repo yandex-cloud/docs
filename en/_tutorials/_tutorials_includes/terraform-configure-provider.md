@@ -17,7 +17,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the late
    - Windows {#windows}
 
      ```powershell
-     mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+     Move-Item $env:APPDATA\terraform.rc $env:APPDATA\terraform.rc.old
      ```
 
    {% endlist %}
@@ -81,7 +81,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the late
 
    Where:
    
-   * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
+   * `source`: Provider's global [source address](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses).
    * `required_version`: Minimum {{ TF }} version the provider is compatible with.
    * `provider`: Provider name.
    * `zone`: Default [availability zone](../../overview/concepts/geo-scope.md) for all your cloud resources.
