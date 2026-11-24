@@ -14,3 +14,5 @@ description: Из статьи вы узнаете, как создать пла
 {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
 {% include [start](../_includes/quickstart-qa-individuals.md) %}
+
+[*promo-code]:{% include notitle [promo-code](../../_popups/billing/paying-account.md#promo-code) %}
