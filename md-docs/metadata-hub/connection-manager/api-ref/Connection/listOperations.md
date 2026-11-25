@@ -7,7 +7,7 @@ Lists operations for the specified connection.
 ## HTTP request
 
 ```
-GET https://connman.api.cloud.yandex.net/v1/operations
+GET https://connectionmanager.api.cloud.yandex.net/v1/operations
 ```
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListOperationsRequest}

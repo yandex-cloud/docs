@@ -1184,7 +1184,7 @@
 
  - [Cancel](workload/oidc/workload-identity/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

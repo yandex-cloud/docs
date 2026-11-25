@@ -1,20 +1,20 @@
 # Node group autoscaling in {{ managed-k8s-name }}
 
-The cluster autoscaler resizes the [node group](../index.md#node-group) based on resource requests for the [pods](../index.md#pod) running on the nodes of that group.
+Autoscaling is a way of changing the size of a [node group](../index.md#node-group) based on resource requests for [pods](../index.md#pod) running on this group's nodes.
 
-## How the autoscaler works {#how-scale}
+## How autoscaling works {#how-scale}
 
-When [creating a node group](../../operations/node-group/node-group-create.md#node-group-create), you specify the minimum and maximum number of nodes in the group, and the [{{ k8s }} cluster](../index.md#kubernetes-cluster) will check the status of pods and nodes from time to time:
-* If pods cannot be assigned due to a lack of resources (vCPU, RAM) on the existing nodes, the number of nodes in the group will gradually increase to the specified maximum number.
-* If the load on the nodes is insufficient, and all pods can be assigned with fewer nodes per group, the number of nodes per group will gradually decrease to the specified minimum number.
+When [creating a node group](../../operations/node-group/node-group-create.md#create-node-group), you specify the minimum and maximum number of nodes in the group, and the [{{ k8s }} cluster](../index.md#kubernetes-cluster) will check the state of pods and nodes from time to time:
+* If pods cannot be assigned due to a lack of resources (vCPUs or RAM) on the existing nodes, the number of nodes in the group will gradually increase to the specified maximum.
+* If a workload on nodes is low, and all pods can be assigned to fewer nodes in a group, the number of nodes in the group will gradually decrease to the specified minimum.
 
 ## Autoscaling features {#scaling-features}
 
-You can resize an autoscaling group using [{{ k8s }} cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler), but there are many non-trivial features. In particular:
-* If you can distribute the load in a cluster to a smaller number of nodes, but you cannot evict pods from the nodes for some reason, the number of nodes in a group will not decrease.
+The [{{ k8s }} cluster-autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) resizes an autoscaling group, and this process has many non-trivial features, for example:
+* If you can distribute the load in a cluster across fewer nodes, but you cannot evict pods from the nodes for some reason, the number of nodes in a group will not decrease.
 * The actual number of nodes in a group may be below the minimum size of a node group. This may occur if:
-  * Autoscaling group was scaled up from its minimum size after being created.
-  * Actual cluster load does not require more nodes than the cluster currently has.
+  * The minimum size of an autoscaling group was increased after it was created.
+  * The actual cluster workload does not require more nodes than the cluster currently has.
 * You can place an autoscaling node group only in one [availability zone](../../../overview/concepts/geo-scope.md).
 
 {% note tip %}
@@ -29,7 +29,7 @@ When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ 
 
 {% endnote %}
 
-The node group autoscaler is different from [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale). The Horizontal Pod Autoscaler uses a controller to periodically request resource usage based on the metrics defined in each {{ k8s }} API [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#horizontalpodautoscaler-v2-autoscaling) object. You can use both mechanisms in parallel.
+Node group autoscaling is different from [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale). In case of Horizontal Pod Autoscaler, a controller periodically requests resource usage by metrics defined in each {{ k8s }} API [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#horizontalpodautoscaler-v2-autoscaling) object. You can use both mechanisms in parallel.
 
 ## Use cases {#examples}
 

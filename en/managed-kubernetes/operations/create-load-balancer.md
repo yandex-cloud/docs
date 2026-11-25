@@ -16,7 +16,7 @@ To publish an application, use a `LoadBalancer` type service. You can set up two
   * From your corporate internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
-When using an external load balancer, [you can specify](#advanced) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md). If you do not specify a static public IP address, the network load balancer will get a dynamic public IP address.
+When using an external load balancer, [you can specify](#create-lb) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md). If you do not specify a static public IP address, the network load balancer will get a dynamic public IP address.
 
 {% note info %}
 
@@ -84,7 +84,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-      1. Specify the following in the configuration file:
+      1. In the configuration file, specify the following:
           * [Folder ID](../../resource-manager/operations/folder/get-id.md).
           * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
           * Name of the {{ managed-k8s-name }} cluster service account.
@@ -267,7 +267,7 @@ To create a `LoadBalancer` type service:
      ...
    ```
 
-   The possible values are:
+   Its possible values are:
 
    {% include [externalTrafficPolicy-description](../../_includes/managed-kubernetes/externalTrafficPolicy.md) %}
 

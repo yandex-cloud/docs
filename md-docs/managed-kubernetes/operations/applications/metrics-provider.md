@@ -2,9 +2,9 @@
 
 # Установка Metrics Provider
 
-Metrics Provider транслирует метрики объектов [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики сервиса [Yandex Monitoring](../../../monitoring/concepts/index.md).
+Metrics Provider транслирует метрики объектов [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики [Yandex Monium](../../../monium/index.md).
 
-Провайдер преобразует запрос на получение внешних метрик от объекта кластера Managed Service for Kubernetes в нужный Monitoring формат, а также выполняет обратное преобразование — от Monitoring до объекта кластера.
+Провайдер преобразует запрос на получение внешних метрик от объекта кластера Managed Service for Kubernetes в нужный Monium формат, а также выполняет обратное преобразование — от Monium до объекта кластера.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -14,7 +14,7 @@ Metrics Provider транслирует метрики объектов [кла�
    
    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `monitoring.viewer`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../monium/security/index.md#monium-viewer) `monium.viewer`.
 1. [Создайте авторизованный ключ доступа](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash
@@ -43,8 +43,8 @@ Metrics Provider транслирует метрики объектов [кла�
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Metrics Provider.
    * **Ширина временного окна** — укажите ширину временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например, `5d10h30m20s`).
-   * (Опционально) **Отключение прореживания** — выберите эту опцию, чтобы не применять к данным [функцию прореживания](../../../monitoring/concepts/decimation.md).
-   * (Опционально) **Функция агрегации** — выберите [функцию агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.
+   * (Опционально) **Отключение прореживания** — выберите эту опцию, чтобы не применять к данным [функцию прореживания](../../../monium/concepts/decimation.md).
+   * (Опционально) **Функция агрегации** — выберите [функцию агрегации](../../../monium/concepts/decimation.md#aggregation-functions) данных. Значение по умолчанию — `AVG`.
    * (Опционально) **Заполнение данных** — выберите настройки заполнения пропусков в данных:
      * `NULL` — возвращает `null` в качестве значения метрики и `timestamp` в качестве временной метки. Значение по умолчанию.
      * `NONE` — не возвращает значений.
@@ -54,11 +54,11 @@ Metrics Provider транслирует метрики объектов [кла�
 
      {% note info %}
 
-     Выберите только одну из настроек **Максимальное количество точек** или **Ширина временного окна прореживания**. Чтобы не использовать эти настройки, оставьте оба поля пустыми. Подробнее читайте в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Выберите только одну из настроек **Максимальное количество точек** или **Ширина временного окна прореживания**. Чтобы не использовать эти настройки, оставьте оба поля пустыми. Подробнее читайте в [документации API](../../../monium/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
-   * **Secret Key** — скопируйте содержимое файла `sa-key.json` или создайте новый ключ доступа для сервисного аккаунта. Сервисный аккаунт должен иметь роль `monitoring.viewer`.
+   * **Secret Key** — скопируйте содержимое файла `sa-key.json` или создайте новый ключ доступа для сервисного аккаунта. Сервисный аккаунт должен иметь [роль](../../../monium/security/index.md#monium-viewer) `monium.viewer`.
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -104,10 +104,10 @@ Metrics Provider транслирует метрики объектов [кла�
    * `--namespace` — [пространство имен](../../concepts/index.md#namespace), где будет развернут провайдер.
    * `yandexMetrics.folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
    * `window` — ширина временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например `5d10h30m20s`).
-   * `yandexMetrics.token.serviceAccountJson` — путь к файлу с авторизованным ключом сервисного аккаунта с ролью `monitoring.viewer`.
+   * `yandexMetrics.token.serviceAccountJson` — путь к файлу с авторизованным ключом сервисного аккаунта с [ролью](../../../monium/security/index.md#monium-viewer) `monium.viewer`.
 
    Параметры прореживания (`downsampling`). Для работы провайдера нужно выбрать хотя бы один из параметров:
-   * `yandexMetrics.downsampling.gridAggregation` — [функция агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.
+   * `yandexMetrics.downsampling.gridAggregation` — [функция агрегации](../../../monium/concepts/decimation.md#aggregation-functions) данных. Значение по умолчанию — `AVG`.
    * `yandexMetrics.downsampling.gapFilling` — настройки заполнения пропусков в данных:
      * `NULL` — возвращает `null` в качестве значения метрики и `timestamp` в качестве временной метки.
      * `NONE` — не возвращает значений.
@@ -118,7 +118,7 @@ Metrics Provider транслирует метрики объектов [кла�
 
      {% note info %}
 
-     Используйте только один из параметров `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval` или `yandexMetrics.downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Используйте только один из параметров `yandexMetrics.downsampling.maxPoints`, `yandexMetrics.downsampling.gridInterval` или `yandexMetrics.downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monium/api-ref/MetricsData/read.md).
 
      {% endnote %}
 

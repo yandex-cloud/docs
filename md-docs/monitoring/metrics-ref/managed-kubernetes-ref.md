@@ -6,7 +6,9 @@
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Managed Service for Kubernetes имеют общую метку `service=managed-kubernetes`.
+При просмотре метрик в интерфейсе Managed Service for Kubernetes и при переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `managed-kubernetes`.
+
+Если вы создаете запрос с нуля в [разделе метрик Monium](../../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с кластером (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __managed-kubernetes__`.
 
 ## Метрики контейнера {#managed-kubernetes-container-metrics}
 

@@ -35,7 +35,7 @@
 
      {% endnote %}
 
-  1. Создайте сервисный аккаунт для {{ cloud-logging-name }} с ролями [logging.writer](../../logging/security/index.md#roles-list) и [monitoring.editor](../../monitoring/security/index.md#monitoring-editor). Он будет использоваться для работы Fluent Bit.
+  1. Создайте сервисный аккаунт для {{ cloud-logging-name }} с ролями [logging.writer](../../logging/security/index.md#roles-list) и [monium.editor](../../monium/security/index.md#monium-editor). Он будет использоваться для работы Fluent Bit.
   1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта {{ cloud-logging-name }} и сохраните его в файл `key.json`.
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 

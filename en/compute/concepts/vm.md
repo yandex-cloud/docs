@@ -52,7 +52,7 @@ The virtualized hardware a {{ compute-name }} VM is deployed on and its OS has a
 
 The VM will run on virtualized hardware of the generation assigned to the [disk](./disk.md), [snapshot](./snapshot.md), or [image](./image.md) the VM was created based on.
 
-Once a VM has been created, its hardware generation cannot be changed. Instead, you can create a [snapshot](../operations/disk-control/create-snapshot.md#create) or [image](../operations/image-create/create-from-disk.md) from the boot disk of your existing VM with preferred hardware generation assigned and then proceed to create a new VM from the resulting snapshot or image.
+Once a VM has been created, its hardware generation cannot be changed. Instead, you can create a [snapshot](../operations/disk-control/create-snapshot.md#create-snapshot-operation) or [image](../operations/image-create/create-from-disk.md) from the boot disk of your existing VM with preferred hardware generation assigned and then proceed to create a new VM from the resulting snapshot or image.
 
 ## Disks {#disks}
 
@@ -70,7 +70,7 @@ Read more about disks in [{#T}](disk.md).
 
 The status of a VM determines which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS boots, you will be able to connect to the VM.
+> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status switches to `RUNNING` and the OS boots, you will be able to connect to the VM.
 
 For more information about statuses, see [{#T}](vm-statuses.md).
 

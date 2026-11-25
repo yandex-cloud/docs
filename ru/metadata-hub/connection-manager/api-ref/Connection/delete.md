@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection/{connectionId}
+  - url: https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
     method: delete
     path:
       type: object
@@ -24,7 +24,7 @@ Deletes the specified connection.
 ## HTTP request
 
 ```
-DELETE https://connman.{{ api-host }}/v1/connection/{connectionId}
+DELETE https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
 ```
 
 ## Path parameters

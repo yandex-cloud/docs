@@ -11,7 +11,7 @@ Requires `connection-manager.connections.resolveCluster` permission.
 ## HTTP request
 
 ```
-GET https://connman.api.cloud.yandex.net/v1/connection/resolveCluster/{connectionId}
+GET https://connectionmanager.api.cloud.yandex.net/v1/connection/resolveCluster/{connectionId}
 ```
 
 ## Path parameters

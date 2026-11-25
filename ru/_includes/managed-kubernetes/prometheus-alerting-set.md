@@ -1,11 +1,12 @@
-1. [Создайте](../../monitoring/operations/alert/create-channel.md) канал уведомлений, выбрав доступный [способ отправки](../../monitoring/operations/prometheus/alerting-rules.md#rule-processing).
+1. [Создайте](../../monium/operations/alert/create-channel.md) канал уведомлений в проекте воркспейса {{ prometheus-name }}, выбрав доступный [способ отправки](../../monium/operations/prometheus/alerting-rules.md#rule-processing).
 1. Настройте [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/), который отвечает за отправку уведомлений:
 
-    1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-name }}.
-    1. Слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+    1. Откройте [главную страницу]({{ link-monium }}) {{ monium-name }}.
+    1. Выберите [проект](../../monium/concepts/glossary.md#project), в котором находится созданный ранее воркспейс {{ prometheus-name }}.
+    1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
     1. Выберите воркспейс {{ prometheus-name }}.
     1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alert-manager-key-value }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** и загрузите файл [конфигурации](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) в формате `YAML`.
+    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** и загрузите файл [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/) в формате `YAML`.
 
         {% cut "Пример файла конфигурации" %}
 
@@ -24,7 +25,7 @@
           - name: telegram
             yandex_monitoring_configs:
               - channel_names:
-                - "<имя канала уведомлений>"
+                - "<имя_канала_уведомлений>"
           - name: "null"
             yandex_monitoring_configs:
               - channel_names: []
@@ -32,15 +33,15 @@
 
         {% endcut %}
 
-1. Добавьте тестовое правило алертинга:
+1. Добавьте тестовое правило алертинга. Укажите пространство имен, в котором установлен {{ prometheus-name }} Operator, и имя релиза Helm в метке `release`. Для приведенной выше команды установки Helm имя релиза — `prometheus`; при установке из {{ marketplace-full-name }} используйте заданное название приложения:
 
     ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: monitoring.coreos.com/v1                                                        
+    cat <<EOF | kubectl apply --namespace=<пространство_имен> -f -
+    apiVersion: monitoring.coreos.com/v1
     kind: PrometheusRule
     metadata:
       labels:
-        release: kube-prometheus-stack
+        release: <имя_релиза>
       name: test
     spec:
       groups:
@@ -56,12 +57,11 @@
     EOF
     ```
 
-1. Дождитесь, пока в выбранный канал уведомлений придет алерт, или проверьте статус алерта в консоли управления:
+1. Дождитесь, пока в выбранный канал уведомлений придет алерт, или проверьте статус алерта:
 
-    1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-name }}.
-    1. Слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+    1. Откройте [главную страницу]({{ link-monium }}) {{ monium-name }}.
+    1. Выберите проект, в котором находится воркспейс {{ prometheus-name }}.
+    1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
     1. Выберите воркспейс {{ prometheus-name }}.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.managing-rules }}**.
-    1. Нажмите на имя тестового алерта.
     1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}**.
     1. Убедитесь, что тестовый алерт перешел в состояние `FIRING`.

@@ -2598,21 +2598,145 @@ For more information, see [{#T}](../storedoc/security/index.md).
 For more information, see [{#T}](../message-queue/security/index.md).
 
 
-## {{ monitoring-full-name }} {#monitoring-roles}
+## {{ monium-full-name }} {#monium-roles}
 
-#### monitoring.viewer {#monitoring-viewer}
+#### monium.alerts.viewer {#monium-alerts-viewer}
 
-{% include [monitoring.viewer](../_roles/monitoring/viewer.md) %}
+{% include [monium.alerts.viewer](../_roles/monium/alerts/viewer.md) %}
 
-#### monitoring.editor {#monitoring-editor}
+#### monium.alerts.editor {#monium-alerts-editor}
 
-{% include [monitoring.editor](../_roles/monitoring/editor.md) %}
+{% include [monium.alerts.editor](../_roles/monium/alerts/editor.md) %}
 
-#### monitoring.admin {#monitoring-admin}
+#### monium.channels.viewer {#monium-channels-viewer}
 
-{% include [monitoring.admin](../_roles/monitoring/admin.md) %}
+{% include [monium.channels.viewer](../_roles/monium/channels/viewer.md) %}
 
-For more information, see [{#T}](../monitoring/security/index.md).
+#### monium.channels.editor {#monium-channels-editor}
+
+{% include [monium.channels.editor](../_roles/monium/channels/editor.md) %}
+
+#### monium.contextLinks.viewer {#monium-contextlinks-viewer}
+
+{% include [monium.contextLinks.viewer](../_roles/monium/contextLinks/viewer.md) %}
+
+#### monium.contextLinks.editor {#monium-contextLinks-editor}
+
+{% include [monium.contextLinks.editor](../_roles/monium/contextLinks/editor.md) %}
+
+#### monium.quickLinks.viewer {#monium-quickLinks-viewer}
+
+{% include [monium.quickLinks.viewer](../_roles/monium/quickLinks/viewer.md) %}
+
+#### monium.quickLinks.editor {#monium-quickLinks-editor}
+
+{% include [monium.quickLinks.editor](../_roles/monium/quickLinks/editor.md) %}
+
+#### monium.dashboards.viewer {#monium-dashboards-viewer}
+
+{% include [monium.dashboards.viewer](../_roles/monium/dashboards/viewer.md) %}
+
+#### monium.dashboards.editor {#monium-dashboards-editor}
+
+{% include [monium.dashboards.editor](../_roles/monium/dashboards/editor.md) %}
+
+#### monium.escalations.viewer {#monium-escalations-viewer}
+
+{% include [monium.escalations.viewer](../_roles/monium/escalations/viewer.md) %}
+
+#### monium.escalations.editor {#monium-escalations-editor}
+
+{% include [monium.escalations.editor](../_roles/monium/escalations/editor.md) %}
+
+#### monium.escalationPolicies.viewer {#monium-escalationPolicies-viewer}
+
+{% include [monium.escalationPolicies.viewer](../_roles/monium/escalationPolicies/viewer.md) %}
+
+#### monium.escalationPolicies.editor {#monium-escalationPolicies-editor}
+
+{% include [monium.escalationPolicies.editor](../_roles/monium/escalationPolicies/editor.md) %}
+
+#### monium.logErrorLabels.viewer {#monium-logErrorLabels-viewer}
+
+{% include [monium.logErrorLabels.viewer](../_roles/monium/logErrorLabels/viewer.md) %}
+
+#### monium.logErrorLabels.editor {#monium-logErrorLabels-editor}
+
+{% include [monium.logErrorLabels.editor](../_roles/monium/logErrorLabels/editor.md) %}
+
+#### monium.mutes.viewer {#monium-mutes-viewer}
+
+{% include [monium.mutes.viewer](../_roles/monium/mutes/viewer.md) %}
+
+#### monium.mutes.editor {#monium-mutes-editor}
+
+{% include [monium.mutes.editor](../_roles/monium/mutes/editor.md) %}
+
+#### monium.serviceLevelObjectives.viewer {#monium-serviceLevelObjectives-viewer}
+
+{% include [monium.serviceLevelObjectives.viewer](../_roles/monium/serviceLevelObjectives/viewer.md) %}
+
+#### monium.serviceLevelObjectives.editor {#monium-serviceLevelObjectives-editor}
+
+{% include [monium.serviceLevelObjectives.editor](../_roles/monium/serviceLevelObjectives/editor.md) %}
+
+#### monium.shards.viewer {#monium-shards-viewer}
+
+{% include [monium.shards.viewer](../_roles/monium/shards/viewer.md) %}
+
+#### monium.shards.editor {#monium-shards-editor}
+
+{% include [monium.shards.editor](../_roles/monium/shards/editor.md) %}
+
+#### monium.metrics.reader {#monium-metrics-reader}
+
+{% include [monium.metrics.reader](../_roles/monium/metrics/reader.md) %}
+
+#### monium.metrics.writer {#monium-metrics-writer}
+
+{% include [monium.metrics.writer](../_roles/monium/metrics/writer.md) %}
+
+#### monium.logs.reader {#monium-logs-reader}
+
+{% include [monium.logs.reader](../_roles/monium/logs/reader.md) %}
+
+#### monium.logs.writer {#monium-logs-writer}
+
+{% include [monium.logs.writer](../_roles/monium/logs/writer.md) %}
+
+#### monium.traces.reader {#monium-traces-reader}
+
+{% include [monium.traces.reader](../_roles/monium/traces/reader.md) %}
+
+#### monium.traces.writer {#monium-traces-writer}
+
+{% include [monium.traces.writer](../_roles/monium/traces/writer.md) %}
+
+#### monium.telemetry.reader {#monium-telemetry-reader}
+
+{% include [monium.telemetry.reader](../_roles/monium/telemetry/reader.md) %}
+
+#### monium.telemetry.writer {#monium-telemetry-writer}
+
+{% include [monium.telemetry.writer](../_roles/monium/telemetry/writer.md) %}
+
+#### monium.auditor {#monium-auditor}
+
+{% include [monium.auditor](../_roles/monium/auditor.md) %}
+
+#### monium.viewer {#monium-viewer}
+
+{% include [monium.viewer](../_roles/monium/viewer.md) %}
+
+#### monium.editor {#monium-editor}
+
+{% include [monium.editor](../_roles/monium/editor.md) %}
+
+#### monium.admin {#monium-admin}
+
+{% include [monium.admin](../_roles/monium/admin.md) %}
+
+For more information, see [{#T}](../monium/security/index.md).
 
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer-roles}

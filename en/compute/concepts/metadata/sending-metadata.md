@@ -5,7 +5,7 @@ description: In this article, you will learn about the ways to transfer metadata
 
 # Transferring metadata to VM instances
 
-You can provide [metadata](../vm-metadata.md) to a VM when [creating](../../operations/index.md#vm-create) or [updating](../../operations/vm-control/vm-update.md#change-metadata) it. Data for connection to a VM can only be provided when creating the VM; moreover, in a [VM running Linux](../../operations/vm-create/create-linux-vm.md), a public SSH key must be provided for each user.
+You can provide [metadata](../vm-metadata.md) to a VM when [creating](../../operations/index.md#vm-create) or [updating](../../operations/vm-control/vm-update.md#changing-metadata) it. Data for connection to a VM can only be provided when creating the VM; moreover, in a [VM running Linux](../../operations/vm-create/create-linux-vm.md), a public SSH key must be provided for each user.
 
 You can only update VM metadata in the [user-data](./directories.md#dir-user) folder and in the `instance/attributes/*` path of the [computeMetadata](./directories.md#dir-compute) folder. To learn more about updating VM metadata, see [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
 

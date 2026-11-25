@@ -38,6 +38,30 @@ var player = Ya.playerSdk.init({
 * [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) в справочнике API
 * [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md) в справочнике API
 
+### Использование TypeScript {#typescript}
+
+Если вы используете TypeScript, установите [пакет типов SDK](https://www.npmjs.com/package/@yandex-cloud/stream-player-public-types) в качестве зависимости для разработки:
+
+```bash
+npm install --save-dev @yandex-cloud/stream-player-public-types
+```
+
+Перед выполнением примера [подключите скрипт плеера](#add-player) и дождитесь его загрузки. На странице должен быть элемент с идентификатором `video-player`, например `<div id="video-player"></div>`.
+
+Используйте тип `PlayerSdkGlobalObject` для доступа к SDK. Тогда TypeScript проверит параметры инициализации и определит тип `player` как `PlayerSdkApi`:
+
+```typescript
+import type { PlayerSdkGlobalObject } from '@yandex-cloud/stream-player-public-types';
+
+const { playerSdk } = (window as PlayerSdkGlobalObject).Ya;
+const player = playerSdk.init({
+    element: 'video-player',
+    source: 'https://runtime.video.cloud.yandex.net/player/...',
+});
+```
+
+В параметре `source` укажите ссылку на видео, трансляцию или плейлист.
+
 ## Управление плеером {#player-controls}
 
 Информация о методах управления плеером представлена в разделах:

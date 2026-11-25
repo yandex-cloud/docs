@@ -440,6 +440,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Resources
 
+ - [organization_manager_organization_iam_policy_binding](resources/organization_manager_organization_iam_policy_binding.md)
+
  - [organizationmanager_group](resources/organizationmanager_group.md)
 
  - [organizationmanager_group_iam_member](resources/organizationmanager_group_iam_member.md)
@@ -1018,6 +1020,10 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Resources
 
+ - [resource_manager_cloud_iam_policy_binding](resources/resource_manager_cloud_iam_policy_binding.md)
+
+ - [resource_manager_folder_iam_policy_binding](resources/resource_manager_folder_iam_policy_binding.md)
+
  - [resourcemanager_cloud](resources/resourcemanager_cloud.md)
 
  - [resourcemanager_cloud_iam_binding](resources/resourcemanager_cloud_iam_binding.md)
@@ -1159,16 +1165,6 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [sws_security_profile_waf_profile_attachment](resources/sws_security_profile_waf_profile_attachment.md)
 
  - [sws_waf_profile](resources/sws_waf_profile.md)
-
-#### Unknown
-
-##### Resources
-
- - [organization_manager_organization_iam_policy_binding](resources/organization_manager_organization_iam_policy_binding.md)
-
- - [resource_manager_cloud_iam_policy_binding](resources/resource_manager_cloud_iam_policy_binding.md)
-
- - [resource_manager_folder_iam_policy_binding](resources/resource_manager_folder_iam_policy_binding.md)
 
 #### Virtual Private Cloud
 

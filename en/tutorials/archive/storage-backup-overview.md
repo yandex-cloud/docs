@@ -1,9 +1,9 @@
 ---
-title: Backups in {{ objstorage-full-name }}
+title: Backing up to {{ objstorage-full-name }}
 description: This page features a list of tutorials on backups in {{ objstorage-name }}.
 ---
 
-# Backups in {{ objstorage-full-name }}
+# Backing up to {{ objstorage-full-name }}
 
 With [{{ objstorage-full-name }}](../../storage/), you can set up automatic data [backup](../../storage/concepts/backup.md) and recovery using a variety of available tools and command utilities. Pick the appropriate tutorial and follow its steps.
 
@@ -15,4 +15,4 @@ With [{{ objstorage-full-name }}](../../storage/), you can set up automatic data
 * [Backing up to {{ objstorage-full-name }} with Bacula](backup-with-bacula.md)
 * [Backing up to {{ objstorage-full-name }} with Veritas Backup Exec](object-storage-veritas.md)
 * [Backing up to {{ objstorage-full-name }} with Veeam Backup](./backup-with-veeam.md)
-* [{{ managed-k8s-name }} cluster backups in {{ objstorage-full-name }}](kubernetes-backup.md)
+* [Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-full-name }}](kubernetes-backup.md)

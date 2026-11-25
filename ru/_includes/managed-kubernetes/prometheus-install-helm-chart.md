@@ -4,10 +4,11 @@
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс {{ monium-name }} {#console}
 
-      1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-name }}.
-      1. Слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+      1. Откройте [главную страницу]({{ link-monium }}) {{ monium-name }}.
+      1. Выберите [проект](../../monium/concepts/glossary.md#project), в котором находится созданный ранее воркспейс {{ prometheus-name }}.
+      1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
       1. Выберите воркспейс {{ prometheus-name }}.
       1. Откроется вкладка **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.info }}**, где отображается идентификатор воркспейса — сохраните его.
 

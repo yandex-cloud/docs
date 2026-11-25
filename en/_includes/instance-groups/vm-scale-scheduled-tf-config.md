@@ -1,5 +1,5 @@
 ```hcl
-# Declaring variables for confidential parameters
+# Declaring variables with sensitive data
 
 variable "folder_id" {
   type = string
@@ -13,7 +13,7 @@ variable "ssh_key_path" {
   type = string
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {

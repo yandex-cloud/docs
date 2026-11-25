@@ -6,7 +6,9 @@
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Compute Cloud имеют общую метку `service=compute`.
+В запросах к REST API и готовых запросах с сервисных дашбордов используйте `service=compute`. Готовый запрос открывается при переходе с графика дашборда в раздел метрик Monium.
+
+Если вы создаете запрос в [разделе метрик Monium](../metrics/metric-explorer.md#add-graph), укажите `project=folder__<идентификатор_каталога>`, `cluster=default` и `service=__compute__`.
 
 {% note info %}
 

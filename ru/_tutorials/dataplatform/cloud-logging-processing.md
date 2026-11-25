@@ -5,7 +5,7 @@
 
 Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} и далее обработать в реальном времени с помощью {{ yq-full-name }}. Обработанные данные можно:
 
-* отправить в {{ monitoring-full-name }} для построения графиков и алертов;
+* отправить в {{ monium-full-name }} для построения графиков и алертов;
 * записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
 * записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 

@@ -193,6 +193,8 @@ items:
                 href: operations/disk-control/disk-change-folder.md
               - name: Moving a disk to a different availability zone
                 href: operations/disk-control/disk-change-zone.md
+              - name: Transferring a disk image to an external S3 storage
+                href: operations/disk-control/disk-migration-to-external-s3.md
               - name: Encrypting a disk
                 href: operations/disk-control/disk-encrypt.md
               - name: Getting disk info
@@ -261,7 +263,7 @@ items:
             href: operations/snapshot-control/update-schedule.md
           - name: Disabling and enabling a snapshot schedule
             href: operations/snapshot-control/stop-and-start-schedule.md
-          - name: Encrypting an image
+          - name: Encrypting a snapshot
             href: operations/snapshot-control/snapshot-encrypt.md
           - name: Configuring disk snapshot access permissions
             href: operations/snapshot-control/snapshot-access.md

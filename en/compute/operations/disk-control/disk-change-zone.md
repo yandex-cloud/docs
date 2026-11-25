@@ -5,6 +5,7 @@ description: Follow this guide to move a disk to a different availability zone.
 
 # Moving a disk to a different availability zone
 
+
 When creating a disk, you place it within one specific [availability zone](../../../overview/concepts/geo-scope.md). You can move it to a different zone using a [snapshot](../../concepts/snapshot.md) or a special command in the [management console]({{ link-console-main }}) or [CLI](../../../cli/cli-ref/compute/cli-ref/disk/relocate.md).
 
 If a disk is attached to a VM, it will be moved as part of the [VM migration](../vm-control/vm-change-zone.md). You cannot migrate attached disks separately from their VMs.
@@ -19,7 +20,7 @@ If a disk is attached to a VM, it will be moved as part of the [VM migration](..
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
-### Create snapshots {#create}
+### Create snapshots {#create-snapshot-operation}
 
 To [create](../disk-control/create-snapshot.md) a disk snapshot:
 

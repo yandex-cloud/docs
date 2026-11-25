@@ -7090,7 +7090,7 @@
 Подробнее в [Управление доступом в Message Queue](../message-queue/security/index.md).
 
 
-## Yandex Monitoring {#monitoring-roles}
+## Роли с префиксом monitoring {#monitoring-roles}
 
 #### monitoring.viewer {#monitoring-viewer}
 
@@ -7130,6 +7130,248 @@
 Включает разрешения, предоставляемые ролью `monitoring.editor`.
 
 Подробнее в [Управление доступом в Monitoring](../monitoring/security/index.md).
+
+## Yandex Monium {#monium-roles}
+
+#### monium.alerts.viewer {#monium-alerts-viewer}
+
+Роль `monium.alerts.viewer` позволяет просматривать список [алертов](../monium/concepts/alerting/alert.md), а также их настройки и историю срабатываний.
+
+#### monium.alerts.editor {#monium-alerts-editor}
+
+Роль `monium.alerts.editor` позволяет просматривать список [алертов](../monium/concepts/alerting/alert.md), их настройки и историю срабатываний, а также создавать, изменять и удалять алерты.
+
+Включает разрешения, предоставляемые ролью `monium.alerts.viewer`.
+
+#### monium.channels.viewer {#monium-channels-viewer}
+
+Роль `monium.channels.viewer` позволяет просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для [алертов](../monium/concepts/alerting/alert.md).
+
+#### monium.channels.editor {#monium-channels-editor}
+
+Роль `monium.channels.editor` позволяет просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для [алертов](../monium/concepts/alerting/alert.md), а также создавать, изменять и удалять каналы уведомлений.
+
+Включает разрешения, предоставляемые ролью `monium.channels.viewer`.
+
+#### monium.contextLinks.viewer {#monium-contextlinks-viewer}
+
+Роль `monium.contextLinks.viewer` позволяет просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов.
+
+#### monium.contextLinks.editor {#monium-contextLinks-editor}
+
+Роль `monium.contextLinks.editor` позволяет просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов, а также создавать, изменять и удалять контекстные ссылки.
+
+Включает разрешения, предоставляемые ролью `monium.contextLinks.viewer`.
+
+#### monium.quickLinks.viewer {#monium-quickLinks-viewer}
+
+Роль `monium.quickLinks.viewer` позволяет просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню [проекта](../monium/concepts/glossary.md#project).
+
+#### monium.quickLinks.editor {#monium-quickLinks-editor}
+
+Роль `monium.quickLinks.editor` позволяет просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню [проекта](../monium/concepts/glossary.md#project), а также создавать, изменять и удалять быстрые ссылки.
+
+Включает разрешения, предоставляемые ролью `monium.quickLinks.viewer`.
+
+#### monium.dashboards.viewer {#monium-dashboards-viewer}
+
+Роль `monium.dashboards.viewer` позволяет просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md).
+
+#### monium.dashboards.editor {#monium-dashboards-editor}
+
+Роль `monium.dashboards.editor` позволяет просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md), а также создавать, изменять и удалять дашборды.
+
+Включает разрешения, предоставляемые ролью `monium.dashboards.viewer`.
+
+#### monium.escalations.viewer {#monium-escalations-viewer}
+
+Роль `monium.escalations.viewer` позволяет просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для [алертов](../monium/concepts/alerting/alert.md).
+
+#### monium.escalations.editor {#monium-escalations-editor}
+
+Роль `monium.escalations.editor` позволяет просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для [алертов](../monium/concepts/alerting/alert.md), а также создавать, изменять и удалять эскалации.
+
+Включает разрешения, предоставляемые ролью `monium.escalations.viewer`.
+
+#### monium.escalationPolicies.viewer {#monium-escalationPolicies-viewer}
+
+Роль `monium.escalationPolicies.viewer` позволяет просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для [алертов](../monium/concepts/alerting/alert.md).
+
+#### monium.escalationPolicies.editor {#monium-escalationPolicies-editor}
+
+Роль `monium.escalationPolicies.editor` позволяет просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для [алертов](../monium/concepts/alerting/alert.md), а также создавать, изменять и удалять политики эскалации.
+
+Включает разрешения, предоставляемые ролью `monium.escalationPolicies.viewer`.
+
+#### monium.logErrorLabels.viewer {#monium-logErrorLabels-viewer}
+
+Роль `monium.logErrorLabels.viewer` позволяет просматривать [лейблы](../monium/traces/operations/traces-explorer.md), привязанные к ошибкам в логах.
+
+#### monium.logErrorLabels.editor {#monium-logErrorLabels-editor}
+
+Роль `monium.logErrorLabels.editor` позволяет просматривать, а также добавлять новые, редактировать и удалять существующие [лейблы](../monium/traces/operations/traces-explorer.md) к ошибкам в [логах](../monium/logs/quickstart.md).
+
+Включает разрешения, предоставляемые ролью `monium.logErrorLabels.viewer`.
+
+#### monium.mutes.viewer {#monium-mutes-viewer}
+
+Роль `monium.mutes.viewer` позволяет просматривать [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для [алертов](../monium/concepts/alerting/alert.md).
+
+#### monium.mutes.editor {#monium-mutes-editor}
+
+Роль `monium.mutes.editor` позволяет просматривать, а также создавать, изменять и удалять [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для [алертов](../monium/concepts/alerting/alert.md).
+
+Включает разрешения, предоставляемые ролью `monium.mutes.viewer`.
+
+#### monium.serviceLevelObjectives.viewer {#monium-serviceLevelObjectives-viewer}
+
+Роль `monium.serviceLevelObjectives.viewer` позволяет просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives).
+
+#### monium.serviceLevelObjectives.editor {#monium-serviceLevelObjectives-editor}
+
+Роль `monium.serviceLevelObjectives.editor` позволяет просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives), а также создавать, изменять и удалять SLO.
+
+Включает разрешения, предоставляемые ролью `monium.serviceLevelObjectives.viewer`.
+
+#### monium.shards.viewer {#monium-shards-viewer}
+
+Роль `monium.shards.viewer` позволяет просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах.
+
+#### monium.shards.editor {#monium-shards-editor}
+
+Роль `monium.shards.editor` позволяет просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах, а также создавать, изменять и удалять шарды.
+
+Включает разрешения, предоставляемые ролью `monium.shards.viewer`.
+
+#### monium.metrics.reader {#monium-metrics-reader}
+
+Роль `monium.metrics.reader` позволяет читать [метрики](../monium/metrics/quickstart.md), их значения и [метки](../resource-manager/concepts/labels.md).
+
+#### monium.metrics.writer {#monium-metrics-writer}
+
+Роль `monium.metrics.writer` позволяет записывать [метрики](../monium/metrics/quickstart.md).
+
+#### monium.logs.reader {#monium-logs-reader}
+
+Роль `monium.logs.reader` позволяет читать [логи](../monium/logs/quickstart.md) и просматривать статистику ошибок по логам.
+
+#### monium.logs.writer {#monium-logs-writer}
+
+Роль `monium.logs.writer` позволяет записывать [логи](../monium/logs/quickstart.md) на платформе Monium.
+
+#### monium.traces.reader {#monium-traces-reader}
+
+Роль `monium.traces.reader` позволяет просматривать данные [распределенных трассировок](../monium/traces/index.md).
+
+#### monium.traces.writer {#monium-traces-writer}
+
+Роль `monium.traces.writer` позволяет записывать [распределенные трассировки](../monium/traces/index.md).
+
+#### monium.telemetry.reader {#monium-telemetry-reader}
+
+Роль `monium.telemetry.reader` позволяет читать все виды телеметрии платформы Monium: [метрики](../monium/metrics/quickstart.md), [логи](../monium/logs/quickstart.md) и [распределенные трассировки](../monium/traces/index.md).
+
+Включает разрешения, предоставляемые ролями `monium.metrics.reader`, `monium.logs.reader` и `monium.traces.reader`.
+
+#### monium.telemetry.writer {#monium-telemetry-writer}
+
+Роль `monium.telemetry.writer` позволяет записывать все виды телеметрии на платформе Monium: [метрики](../monium/metrics/quickstart.md), [логи](../monium/logs/quickstart.md) и [распределенные трассировки](../monium/traces/index.md).
+
+Включает разрешения, предоставляемые ролями `monium.metrics.writer`, `monium.logs.writer` и `monium.traces.writer`.
+
+#### monium.auditor {#monium-auditor}
+
+Роль `monium.auditor` позволяет просматривать информацию о ресурсах платформы Monium без возможности чтения телеметрии.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [проектах](../monium/concepts/glossary.md#project) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md);
+* просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов;
+* просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню проектов;
+* просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах;
+* просматривать список [алертов](../monium/concepts/alerting/alert.md), а также их настройки и историю срабатываний;
+* просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives);
+* просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для алертов;
+* просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для алертов;
+* просматривать [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать [лейблы](../monium/traces/operations/traces-explorer.md), привязанные к ошибкам в логах;
+* просматривать информацию о [правилах](../monium/operations/prometheus/recording-rules.md) Yandex Managed Service for Prometheus®.
+
+Включает разрешения, предоставляемые ролями `monium.dashboards.viewer`, `monium.shards.viewer`, `monium.contextLinks.viewer`, `monium.quickLinks.viewer`, `monium.alerts.viewer`, `monium.serviceLevelObjectives.viewer`, `monium.channels.viewer`, `monium.escalationPolicies.viewer`, `monium.escalations.viewer`, `monium.mutes.viewer` и `monium.logErrorLabels.viewer`.
+
+#### monium.viewer {#monium-viewer}
+
+Роль `monium.viewer` позволяет просматривать информацию о ресурсах платформы Monium с возможностью чтения всех видов телеметрии.
+
+Пользователи с этой ролью могут:
+
+* просматривать информацию о [проектах](../monium/concepts/glossary.md#project) и назначенных [правах доступа](concepts/access-control/index.md) к ним;
+* читать все виды телеметрии платформы Monium: [метрики](../monium/metrics/quickstart.md), [логи](../monium/logs/quickstart.md) и [распределенные трассировки](../monium/traces/index.md);
+* просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md);
+* просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов;
+* просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню проектов;
+* просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах;
+* просматривать список [алертов](../monium/concepts/alerting/alert.md), а также их настройки и историю срабатываний;
+* просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives);
+* просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для алертов;
+* просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для алертов;
+* просматривать [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать [лейблы](../monium/traces/operations/traces-explorer.md), привязанные к ошибкам в логах;
+* просматривать информацию о [правилах](../monium/operations/prometheus/recording-rules.md) Yandex Managed Service for Prometheus®;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролями `monium.auditor` и `monium.telemetry.reader`.
+
+#### monium.editor {#monium-editor}
+
+Роль `monium.editor` позволяет управлять ресурсами платформы Monium, просматривать и записывать все виды телеметрии.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [проектах](../monium/concepts/glossary.md#project) и назначенных [правах доступа](concepts/access-control/index.md) к ним, а также настраивать проекты;
+* читать и записывать все виды телеметрии платформы Monium: [метрики](../monium/metrics/quickstart.md), [логи](../monium/logs/quickstart.md) и [распределенные трассировки](../monium/traces/index.md);
+* просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md), а также создавать, изменять и удалять дашборды;
+* просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов, а также создавать, изменять и удалять контекстные ссылки;
+* просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню [проекта](../monium/concepts/glossary.md#project), а также создавать, изменять и удалять быстрые ссылки;
+* просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах, а также создавать, изменять и удалять шарды;
+* просматривать список [алертов](../monium/concepts/alerting/alert.md), их настройки и историю срабатываний, а также создавать, изменять и удалять алерты;
+* просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives), а также создавать, изменять и удалять SLO;
+* просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов, а также создавать, изменять и удалять каналы уведомлений;
+* просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для алертов, а также создавать, изменять и удалять политики эскалации;
+* просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для алертов, а также создавать, изменять и удалять эскалации;
+* просматривать, а также создавать, изменять и удалять [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать, а также добавлять новые, редактировать и удалять существующие [лейблы](../monium/traces/operations/traces-explorer.md) к ошибкам в логах;
+* просматривать информацию о [правилах](../monium/operations/prometheus/recording-rules.md) Yandex Managed Service for Prometheus®, а также создавать, изменять и удалять такие правила;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролями `monium.viewer`, `monium.telemetry.writer`, `monium.dashboards.editor`, `monium.shards.editor`, `monium.contextLinks.editor`, `monium.quickLinks.editor`, `monium.alerts.editor`, `monium.serviceLevelObjectives.editor`, `monium.channels.editor`, `monium.escalationPolicies.editor`, `monium.escalations.editor`, `monium.mutes.editor` и `monium.logErrorLabels.editor`.
+
+#### monium.admin {#monium-admin}
+
+Роль `monium.admin` позволяет управлять ресурсами платформы Monium, просматривать и записывать все виды телеметрии, а также управлять проектами и доступом к ним.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [проектах](../monium/concepts/glossary.md#project), а также создавать, настраивать и удалять их;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к проектам и изменять такие права доступа;
+* читать и записывать все виды телеметрии платформы Monium: [метрики](../monium/metrics/quickstart.md), [логи](../monium/logs/quickstart.md) и [распределенные трассировки](../monium/traces/index.md);
+* просматривать [дашборды](../monium/concepts/visualization/dashboard.md) и их [виджеты](../monium/concepts/visualization/widget.md), а также создавать, изменять и удалять дашборды;
+* просматривать настроенные контекстные ссылки на [графиках](../monium/concepts/visualization/widget.md#chart) дашбордов, а также создавать, изменять и удалять контекстные ссылки;
+* просматривать список настроенных [быстрых ссылок](../monium/concepts/glossary.md#project-menu) и информацию о них в меню [проекта](../monium/concepts/glossary.md#project), а также создавать, изменять и удалять быстрые ссылки;
+* просматривать информацию о [шардах](../monium/concepts/glossary.md#shard), [кластерах](../monium/concepts/glossary.md#cluster), [сервисах](../monium/concepts/glossary.md#service) и их квотах, а также создавать, изменять и удалять шарды;
+* просматривать список [алертов](../monium/concepts/alerting/alert.md), их настройки и историю срабатываний, а также создавать, изменять и удалять алерты;
+* просматривать настроенные [SLO](../monium/slo/index.md) (Service Level Objectives), а также создавать, изменять и удалять SLO;
+* просматривать список и информацию о [каналах уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов, а также создавать, изменять и удалять каналы уведомлений;
+* просматривать список и настройки [политик эскалации](../monium/concepts/alerting/escalations.md#intro) для алертов, а также создавать, изменять и удалять политики эскалации;
+* просматривать информацию об уведомлениях и [эскалациях](../monium/concepts/alerting/escalations.md) для алертов, а также создавать, изменять и удалять эскалации;
+* просматривать, а также создавать, изменять и удалять [мьюты](../monium/alerts/mutes.md) — правила временного отключения [уведомлений](../monium/concepts/alerting/notification-channel.md) для алертов;
+* просматривать, а также добавлять новые, редактировать и удалять существующие [лейблы](../monium/traces/operations/traces-explorer.md) к ошибкам в логах;
+* просматривать информацию о [правилах](../monium/operations/prometheus/recording-rules.md) Yandex Managed Service for Prometheus®, а также создавать, изменять и удалять такие правила;
+* просматривать информацию о [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `monium.editor`.
+
+Подробнее в [Управление доступом в Monium](../monium/security/index.md).
 
 
 ## Yandex Network Load Balancer {#network-load-balancer-roles}

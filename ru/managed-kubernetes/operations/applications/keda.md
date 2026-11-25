@@ -1,17 +1,17 @@
 ---
-title: Установка KEDA с поддержкой {{ monitoring-full-name }}
-description: Следуя данной инструкции, вы сможете установить KEDA с поддержкой {{ monitoring-name }}.
+title: Установка KEDA для работы с {{ metrics-name }}
+description: Следуя данной инструкции, вы сможете установить KEDA для работы с {{ metrics-name }}.
 ---
 
-# Установка KEDA с поддержкой {{ monitoring-full-name }}
+# Установка KEDA для работы с {{ metrics-name }}
 
 [KEDA](https://keda.sh) — приложение, которое выполняет автомасштабирование ресурсов {{ k8s }} на основе мониторинга нагрузки.
 
 Приложение KEDA:
 
-* Интегрирует автомасштабирование {{ k8s }} с {{ monitoring-full-name }}.
-* Позволяет масштабировать приложения на основе метрик из {{ monitoring-name }}, например метрик {{ alb-name }} или управляемых баз данных.
-* Поддерживает настройку временных окон, агрегирование и обработку `NaN`-значений.
+* Интегрирует автомасштабирование {{ k8s }} с {{ metrics-name }}.
+* Позволяет масштабировать приложения на основе метрик из {{ metrics-name }}, например метрик {{ alb-name }} или управляемых баз данных.
+* Поддерживает настройку временных окон, агрегацию и обработку `NaN`-значений.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -78,10 +78,10 @@ description: Следуя данной инструкции, вы сможете
      - type: external
        metadata:
          scalerAddress: keda-external-scaler-yc.keda-system.svc.cluster.local:8080
-         query: <запрос_метрики_Yandex_Monitoring>
+         query: <запрос_метрики>
          folderId: "<идентификатор_каталога>"
          targetValue: "<целевое_значение_метрики>"
-         downsampling.disabled: <включить_режим_прореживания_данных>
+         downsampling.disabled: <отключить_прореживание>
          downsampling.gridAggregation: "<функция_агрегации_данных>"
          downsampling.gridInterval: "<ширина_временного_окна_прореживания>"
          downsampling.maxPoints: <максимальное_количество_точек>
@@ -91,19 +91,19 @@ description: Следуя данной инструкции, вы сможете
          timeWindowOffset: "<отступ_временного_окна>"
     
          logLevel: "<уровень_логирования>"
-         logMetrics: "<разрешить_логирование_запросов_{{ monitoring-name }}>"
+         logMetrics: "<логировать_запросы_метрик>"
          logAggregation: "<разрешить_логирование_агрегации_данных>"
    ```
 
    Обязательные метаданные в поле `triggers`:
 
    * `scalerAddress` — адрес сервиса автомасштабирования. Всегда `keda-external-scaler-yc.keda-system.svc.cluster.local:8080`.
-   * `query` — запрос метрики {{ monitoring-name }}.
+   * `query` — запрос метрики {{ metrics-name }}.
    * `folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
    * `targetValue` — целевое значение метрики, при превышении которого добавляется под для реплики.
 
    Параметры прореживания (`downsampling`). Для работы автомасштабирования нужно выбрать хотя бы один из параметров:
-   * `downsampling.gridAggregation` — [функция агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Возможные значения: `MAX`, `MIN`, `SUM`, `AVG`, `LAST`, `COUNT`. Значение по умолчанию — `AVG`.
+   * `downsampling.gridAggregation` — [функция агрегации](../../../monium/concepts/decimation.md#aggregation-functions) данных. Возможные значения: `MAX`, `MIN`, `SUM`, `AVG`, `LAST`, `COUNT`. Значение по умолчанию — `AVG`.
    * `downsampling.gapFilling` — настройки заполнения пропусков в данных:
      * `NULL` — возвращает `null` в качестве значения метрики и `timestamp` в качестве временной метки.
      * `NONE` — не возвращает значений.
@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note info %}
 
-     Используйте только один из параметров `downsampling.maxPoints`, `downsampling.gridInterval` или `downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
+     Используйте только один из параметров `downsampling.maxPoints`, `downsampling.gridInterval` или `downsampling.disabled`. Подробнее о параметрах прореживания в [документации API](../../../monium/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
    Параметры логирования:
    * `logLevel` — уровень логирования. Возможные значения: `debug`, `info`, `warn`, `error`, `none`. Значение по умолчанию — `info`.
-   * `logMetrics` — разрешить логирование запросов {{ monitoring-name }}: `true` или `false`. Значение по умолчанию — `false`.
+   * `logMetrics` — разрешить логирование запросов {{ monium-name }}: `true` или `false`. Значение по умолчанию — `false`.
    * `logAggregation` — разрешить логирование агрегации данных: `true` или `false`. Значение по умолчанию — `false`.
 
    Подробнее о параметрах ресурса `ScaledObject` читайте в [документации проекта на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).
@@ -197,4 +197,4 @@ description: Следуя данной инструкции, вы сможете
 #### Полезные ссылки {#see-also}
 
 * [Документация KEDA](https://keda.sh/docs/)
-* [KEDA с поддержкой {{ monitoring-full-name }} на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler)
+* [Исходный код расширения KEDA на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler)

@@ -67,7 +67,7 @@ output "network_id" {
   - `day` . 
   - `hour` . 
   - `type` . 
-- `mysql_config` (Map Of String). MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
+- `mysql_config` (Map Of String). MySQL cluster configuration. For MySQL 9.7, this map contains user-defined settings; removing a key resets it to the default. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `name` (String). The resource name.
 - `network_id` (*Read-Only*) (String). The `VPC Network ID` of subnets which resource attached to.
 - `performance_diagnostics` (*Read-Only*) (List Of Object). Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-mysql/api-ref/grpc/cluster_service#PerformanceDiagnostics).
@@ -93,7 +93,7 @@ output "network_id" {
   - `permission` . 
     - `database_name` . 
     - `roles` . 
-- `version` (*Read-Only*) (String). Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4).
+- `version` (*Read-Only*) (String). Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4, 9.7).
 - `access` [Block]. Access policy to the MySQL cluster.
   - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
   - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).

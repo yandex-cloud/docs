@@ -22,8 +22,8 @@
 ## Проблемы, возникающие при работе с сервисом {{ data-transfer-name }} {#overview}
 Чтобы вовремя обнаружить проблему:
 
-1. Следите за состоянием трансфера на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
-1. [Настройте алерты](../operations/monitoring.md#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера.
+1. Следите за состоянием трансфера на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в [{{ metrics-name }}](../../monium/metrics/overview.md).
+1. [Настройте алерты](../operations/monitoring.md#monitoring-integration) в сервисе {{ monium-full-name }} для получения уведомлений о сбоях в работе трансфера.
 1. [Запрашивайте](../../support/request.md) записи о том, что происходило с вашими ресурсами, из логов сервисов {{ yandex-cloud }}.
 1. Используйте [мобильное приложение](/mobile-app) {{ yandex-cloud }} для отслеживания состояния трансферов.
 

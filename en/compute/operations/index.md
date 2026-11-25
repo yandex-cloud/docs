@@ -121,6 +121,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/disk-change-zone.md)
+* [{#T}](disk-control/disk-migration-to-external-s3.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/disk-access.md)

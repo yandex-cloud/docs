@@ -1,8 +1,8 @@
 Метрики кластеров можно получить с помощью следующих инструментов:
 
 * [консоль управления]({{ link-console-main }});
-* [интерфейс {{ monitoring-name }}]({{ link-monitoring }});
-* [API {{ monitoring-name }}](../../monitoring/api-ref/authentication.md);
+* [интерфейс {{ monium-name }}]({{ link-monium }});
+* [API {{ monium-name }}](../../monium/api-ref/authentication.md);
 * приложение [Metrics Provider](/marketplace/products/yc/metric-provider);
 * приложение [Prometheus Operator](/marketplace/products/yc/prometheus-operator).
 

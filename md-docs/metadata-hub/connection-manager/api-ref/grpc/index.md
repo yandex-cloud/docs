@@ -6,7 +6,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/connectionmanager/v1).
 
-**Service URL**: `https://connman.api.cloud.yandex.net`
+**Service URL**: `https://connectionmanager.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

@@ -119,7 +119,7 @@ spec:
 
 ## Мониторинг и эскалация {#monitoring-escalation}
 
-[Мониторинг](../../monitoring/concepts/index.md) и [система предупреждений](../../monitoring/concepts/alerting/alert.md) — важный инструмент обеспечения отказоустойчивости.
+[Мониторинг](../../monium/index.md) и [система предупреждений](../../monium/concepts/alerting/alert.md) — важный инструмент обеспечения отказоустойчивости.
 
-* [Настройте мониторинг метрик](../operations/kubernetes-cluster/kubernetes-cluster-get-stats.md) и [создайте алерты](../../monitoring/operations/alert/create-alert.md), чтобы следить за состоянием мастера, узлов, подов и постоянных томов.
-* Настройте для алертов политики [эскалации](../../monitoring/concepts/alerting/escalations.md).
+* [Настройте мониторинг метрик](../operations/kubernetes-cluster/kubernetes-cluster-get-stats.md) и [создайте алерты](../../monium/operations/alert/create-alert.md), чтобы следить за состоянием мастера, узлов, подов и постоянных томов.
+* Настройте для алертов политики [эскалации](../../monium/concepts/alerting/escalations.md).

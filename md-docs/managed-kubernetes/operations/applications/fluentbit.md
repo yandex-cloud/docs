@@ -15,7 +15,7 @@
    Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
-1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
+1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и [`monium.editor`](../../../monium/security/index.md#monium-editor).
 1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
 
 1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.

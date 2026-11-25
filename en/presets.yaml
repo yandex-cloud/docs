@@ -397,10 +397,10 @@ default:
   mdb-lb: DB Proxy
   mdb-versions:
     mysql-version:
-      supported: 5.7, 8.0, 8.4
+      supported: 5.7, 8.0
     postgresql-version:
       deprecated: 14, 14-1c
-      new: 18, 18-1c
+      new: 18, 18-1c, 19
       supported: 15, 15-1c, 16, 16-1c, 17, 17-1c
     storedoc-version:
       supported: '7.0'
@@ -6443,6 +6443,10 @@ default:
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
+            label_app-namespace: Namespace
+            label_new-version-available: New version available
+            label_product-settings: Application settings
+            label_tab-general: General
             section_releases: Installed applications
           node-groups:
             button_create: Create a node group

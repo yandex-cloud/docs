@@ -1,12 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Kubernetes](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Kubernetes](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Managed Service for Kubernetes, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Managed Service for Kubernetes, поставляемые в [Monium Metrics](../monium/metrics/overview.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Managed Service for Kubernetes имеют общую метку `service=managed-kubernetes`.
+При просмотре метрик в интерфейсе Managed Service for Kubernetes и при переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `managed-kubernetes`.
+
+Если вы создаете запрос с нуля в [разделе метрик Monium](../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с кластером (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __managed-kubernetes__`.
 
 ## Метрики контейнера {#managed-kubernetes-container-metrics}
 
@@ -132,4 +134,4 @@ persistentvolumeclaim | Имя Persistent Volume Claim
 #### Полезные ссылки {#see-also}
 
 * [Мониторинг состояния кластера Managed Service for Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
-* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](tutorials/prometheus-grafana-monitoring.md)
+* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monium](tutorials/prometheus-grafana-monitoring.md)

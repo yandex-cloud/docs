@@ -45,8 +45,8 @@ _API-ключ_ — секретный ключ, используемый тол�
 * `yc.datasphere.community-projects.manageResource` — для управления ресурсами [проектов](../../../datasphere/concepts/project.md) через [API {{ ml-platform-full-name }}](../../../datasphere/api-ref/overview.md).
 * `yc.logging.write` — для записи логов в [лог-группы](../../../logging/concepts/log-group.md) через [API {{ cloud-logging-full-name }}](../../../logging/api-ref/authentication.md).
 * `yc.managed-ytsaurus.cluster.use` — для работы с [кластерами](../../../managed-ytsaurus/concepts/component-types.md) через [API {{ myt-full-name }}](../../../managed-ytsaurus/api-ref/authentication.md).
-* `yc.monitoring.manage` — для просмотра и записи данных в {{ monitoring-full-name }} через [API {{ monitoring-name }}](../../../monitoring/api-ref/index.md).
-* `yc.monitoring.read` — для просмотра данных в {{ monitoring-full-name }} через [API {{ monitoring-name }}](../../../monitoring/api-ref/index.md).
+* `yc.monitoring.manage` — для [чтения](../../../monium/api-ref/MetricsData/read.md) и [записи](../../../monium/api-ref/MetricsData/write.md) метрик через API {{ metrics-name }}.
+* `yc.monitoring.read` — для [чтения метрик](../../../monium/api-ref/MetricsData/read.md) через API {{ metrics-name }}.
 * `yc.monium.logs.write` — для записи [логов](../../../monium/logs/quickstart.md) в [{{ monium-name }}](../../../monium/index.yaml).
 * `yc.monium.metrics.write` — для записи [метрик](../../../monium/metrics/overview.md) в [{{ monium-name }}](../../../monium/index.yaml).
 * `yc.monium.traces.write` — для записи [распределенных трассировок](../../../monium/traces/index.md) в [{{ monium-name }}](../../../monium/index.yaml).
@@ -91,7 +91,7 @@ API-ключи в качестве способа аутентификации �
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/api-ref/authentication)
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
-* [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
+* [{{ monium-full-name }}](../../../monium/api-ref/authentication.md)
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)

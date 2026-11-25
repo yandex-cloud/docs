@@ -119,11 +119,7 @@ To create a security group:
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-      {% note alert %}
-
-      Once created, the VM will get an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
-
-      {% endnote %}
+      {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
 
       It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
@@ -153,7 +149,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
       example.com. A <VM_IP_address>
       ```
 
-  1. Create a [CNAME](../../dns/concepts/resource-record.md#CNAME) record named `www` with `example.com` as its value.    
+  1. Create a [CNAME](../../dns/concepts/resource-record.md#cname) record named `www` with `example.com` as its value.
 
       If you use [{{ dns-full-name }}](../../dns/), follow this tutorial to configure the record:
 

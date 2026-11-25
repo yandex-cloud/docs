@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection/{connectionId}
+  - url: https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
     method: patch
     path:
       type: object
@@ -855,7 +855,7 @@ Updates the specified connection.
 ## HTTP request
 
 ```
-PATCH https://connman.{{ api-host }}/v1/connection/{connectionId}
+PATCH https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
 ```
 
 ## Path parameters

@@ -4,7 +4,7 @@
 
 Чтобы выгрузить метрики в формате Prometheus, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в Prometheus необходимо предварительно настроить сбор метрик в Prometheus.
 
-Пример настройки сбора метрик из Monitoring в Prometheus:
+Пример настройки сбора метрик из Monium в Prometheus:
 1. Выберите каталог, с которого вы хотите собирать данные.
 1. Выберите сервис из следующего списка:
    * `application-load-balancer` — Application Load Balancer.

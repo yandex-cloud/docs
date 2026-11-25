@@ -46,6 +46,14 @@ resource "yandex_mdb_greenplum_cluster" "my_cluster" {
     trino   = true
   }
 
+  pooler_config {
+    pooling_mode                     = "TRANSACTION"
+    pool_size                        = 10
+    pool_client_idle_timeout         = 28800
+    pool_idle_in_transaction_timeout = 600
+    pool_discard                     = true
+  }
+
   greenplum_config = {
     max_connections                      = 395
     max_slot_wal_keep_size               = 1048576
@@ -175,6 +183,7 @@ resource "yandex_vpc_security_group" "test-sg-x" {
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/ru/docs/managed-greenplum/concepts/instance-types).
 - `pooler_config` [Block]. Configuration of the connection pooler.
   - `pool_client_idle_timeout` (Number). Value for `pool_client_idle_timeout` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_client_idle_timeout).
+  - `pool_discard` (Bool). Enable cleanup of server connections when they are returned to the connection pool. If omitted, the server setting is preserved.
   - `pool_idle_in_transaction_timeout` (Number). Value for `pool_idle_in_transaction_timeout` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_idle_in_transaction_timeout).
   - `pool_size` (Number). Value for `pool_size` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_size).
   - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool).

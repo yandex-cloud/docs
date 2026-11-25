@@ -1703,12 +1703,33 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md
+      - name: Invalid argument type
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INVALID_ARGUMENT_TYPE.md
+      - name: Unknown function
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION.md
       - name: >-
           ROUND with precision parameter is not supported for double precision
           data type in PostgreSQL
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md
+      - name: Invalid SQL query to the database
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INVALID_QUERY.md
+      - name: Invalid separator for splitting
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-INVALID_SPLIT_SEPARATOR.md
+      - name: Metrica API error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-METRICA.md
+      - name: No space left on device
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-NO_SPACE_LEFT.md
+      - name: Number out of range
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-NUMBER_OUT_OF_RANGE.md
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
@@ -1777,6 +1798,24 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
+      - name: Template is disabled for this connection
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-CONNECTION_TEMPLATE_DISABLED.md
+      - name: Value constraint is required
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-PARAMETER_VALUE_CONSTRAINT_REQUIRED.md
+      - name: Invalid parameter value
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-PARAMETER_VALUE_INVALID.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NAME_INVALID.md
+      - name: Invalid template
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TEMPLATE_INVALID.md
       - name: Joined columns should form prefix of joined table key columns
         hidden: true
         href: >-
@@ -1825,6 +1864,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED.md
       - name: Нарушена конфигурация таблицы
         hidden: true
         href: >-
@@ -1832,6 +1874,15 @@ items:
       - name: Empty document
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md
+      - name: Data sources are inconsistent
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-INCONSISTENT.md
+      - name: Data source not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-NOT_FOUND.md
+      - name: Data source title conflicts with another source
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-TITLE-CONFLICT.md
       - name: Too many series on the chart
         hidden: true
         href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md

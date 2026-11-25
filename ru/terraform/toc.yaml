@@ -634,6 +634,10 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: organization_manager_organization_iam_policy_binding
+                    href: >-
+                      resources/organization_manager_organization_iam_policy_binding.md
+                    title: ''
                   - name: organizationmanager_group
                     href: resources/organizationmanager_group.md
                     title: ''
@@ -1513,6 +1517,12 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: resource_manager_cloud_iam_policy_binding
+                    href: resources/resource_manager_cloud_iam_policy_binding.md
+                    title: ''
+                  - name: resource_manager_folder_iam_policy_binding
+                    href: resources/resource_manager_folder_iam_policy_binding.md
+                    title: ''
                   - name: resourcemanager_cloud
                     href: resources/resourcemanager_cloud.md
                     title: ''
@@ -1727,22 +1737,6 @@ items:
                     title: ''
                   - name: sws_waf_profile
                     href: resources/sws_waf_profile.md
-                    title: ''
-                title: ''
-            title: ''
-          - name: Unknown
-            items:
-              - name: Resources
-                items:
-                  - name: organization_manager_organization_iam_policy_binding
-                    href: >-
-                      resources/organization_manager_organization_iam_policy_binding.md
-                    title: ''
-                  - name: resource_manager_cloud_iam_policy_binding
-                    href: resources/resource_manager_cloud_iam_policy_binding.md
-                    title: ''
-                  - name: resource_manager_folder_iam_policy_binding
-                    href: resources/resource_manager_folder_iam_policy_binding.md
                     title: ''
                 title: ''
             title: ''

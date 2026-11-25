@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connections
+  - url: https://connectionmanager.{{ api-host }}/v1/connections
     method: get
     path: null
     query:
@@ -95,7 +95,7 @@ Retrieves the list of connections in the specified folder.
 ## HTTP request
 
 ```
-GET https://connman.{{ api-host }}/v1/connections
+GET https://connectionmanager.{{ api-host }}/v1/connections
 ```
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListConnectionRequest}

@@ -305,7 +305,7 @@
 
   {% note info %}
 
-  При создании виртуальной машины с [Yandex Unified Agent](../../../monitoring/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  При создании виртуальной машины с [Yandex Unified Agent](../../../monium/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
   {% endnote %}
 
@@ -491,5 +491,5 @@
 * [Создание группы виртуальных машин с подключением к Yandex Object Storage](../instance-groups/create-with-bucket.md)
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
 * [Автоматическая привязка политики резервного копирования Yandex Cloud Backup к ВМ](../../../tutorials/archive/vm-with-backup-policy/index.md)
-* [Установка агента для сбора метрик и логов Unified Agent](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
-* [Установка агента для сбора метрик в формате Prometheus](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)
+* [Установка агента для сбора метрик и логов Unified Agent](../../../monium/concepts/data-collection/unified-agent/installation.md#setup)
+* [Установка агента для сбора метрик в формате Prometheus](../../../monium/operations/prometheus/ingestion/prometheus-agent.md)

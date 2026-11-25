@@ -24,19 +24,19 @@ default:
       regular: 13.07.2026
       stable: 19.08.2026
     '1':
-      deprecated: Q1 2027
+      deprecated: Q2 2027
       name: '1.34'
       rapid: 12.12.2025
       regular: 01.06.2026
       stable: 02.07.2026
     '2':
-      deprecated: Q4 2026
+      deprecated: Q2 2027
       name: '1.33'
       rapid: 15.09.2025
       regular: 01.12.2025
       stable: 26.01.2026
     '3':
-      deprecated: Q3 2026
+      deprecated: Q1 2027
       name: '1.32'
       rapid: 22.05.2025
       regular: 06.06.2025

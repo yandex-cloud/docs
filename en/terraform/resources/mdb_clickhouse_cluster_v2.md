@@ -920,7 +920,9 @@ If the parameter is set to 0 (default), no hops is allowed.
     - `weight` (Number). Relative weight of the external shard considered when writing data.
     - `replica` [Block]. List of replicas in the external shard.
       - `host` (**Required**)(String). Name (FQDN) or IP address of the external replica host.
-      - `password` (String). Password of the user to authenticate with on the external replica.
+      - `password` (String). Password of the user to authenticate with on the external replica. Conflicts with password_wo.
+      - `password_wo` (String). Write-only password of the user to authenticate with on the external replica. Not stored in state. Requires password_wo_version to trigger updates. Supported in Terraform 1.11 and later.
+      - `password_wo_version` (Number). Version of the external replica write-only password. Increment to update the password; other replica changes preserve the existing password.
       - `port` (Number). Port to connect to the external replica. Defaults to the ClickHouse native port (9000).
       - `priority` (Number). Priority of the external replica for load balancing. Lower value is preferred.
       - `secure` (Bool). Whether to use a secure (SSL/TLS) connection.

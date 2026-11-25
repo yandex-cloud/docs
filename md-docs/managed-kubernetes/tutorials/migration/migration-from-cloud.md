@@ -295,7 +295,7 @@ API-ресурсы можно сравнить командой `kubectl api-res
 * Подготовьте план отката на случай критических проблем и согласуйте его с командой заранее.
 * Координируйте работу с командами разработки и поддержки на всех этапах.
 * Выберите часы минимальной нагрузки для выполнения миграции.
-* Следите за метриками до, во время и после миграции с помощью [Yandex Monitoring](../../../monitoring/index.md).
+* Следите за метриками до, во время и после миграции с помощью [Monium Metrics](../../../monium/metrics/overview.md).
 
 Для получения дополнительных вычислительных ресурсов можно [подключить внешние узлы](../../operations/external-nodes-connect.md) или [создать группы узлов на серверах BareMetal](../../operations/baremetal-group/create-baremetal.md). До создания целевого кластера ознакомьтесь с требованиями выбранного способа: они влияют на версию Kubernetes и сетевой режим кластера.
 
@@ -602,7 +602,7 @@ Managed Service for Kubernetes поддерживает два способа б
 
 ## Проверка метрик {#metrics}
 
-Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+Проверьте метрики и производительность в [Monium Metrics](../../../monium/metrics/overview.md).
 
 ## Оптимизация конфигурации {#optimization}
 
@@ -622,7 +622,7 @@ Managed Service for Kubernetes поддерживает два способа б
    
    ## Проверка метрик {#metrics}
    
-   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   Проверьте метрики и производительность в [Monium Metrics](../../../monium/metrics/overview.md).
    
    ## Оптимизация конфигурации {#optimization}
    
@@ -641,7 +641,7 @@ Managed Service for Kubernetes поддерживает два способа б
    
    ## Проверка метрик {#metrics}
    
-   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   Проверьте метрики и производительность в [Monium Metrics](../../../monium/metrics/overview.md).
    
    ## Оптимизация конфигурации {#optimization}
    
@@ -663,7 +663,7 @@ Managed Service for Kubernetes поддерживает два способа б
    
    ## Проверка метрик {#metrics}
    
-   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   Проверьте метрики и производительность в [Monium Metrics](../../../monium/metrics/overview.md).
    
    ## Оптимизация конфигурации {#optimization}
    
@@ -682,7 +682,7 @@ Managed Service for Kubernetes поддерживает два способа б
    
    ## Проверка метрик {#metrics}
    
-   Проверьте метрики и производительность в [Yandex Monitoring](../../../monitoring/index.md).
+   Проверьте метрики и производительность в [Monium Metrics](../../../monium/metrics/overview.md).
    
    ## Оптимизация конфигурации {#optimization}
    

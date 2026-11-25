@@ -7,7 +7,7 @@ Deletes the specified connection.
 ## HTTP request
 
 ```
-DELETE https://connman.api.cloud.yandex.net/v1/connection/{connectionId}
+DELETE https://connectionmanager.api.cloud.yandex.net/v1/connection/{connectionId}
 ```
 
 ## Path parameters

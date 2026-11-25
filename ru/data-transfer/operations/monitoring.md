@@ -3,9 +3,9 @@
 Данные о состоянии трансфера доступны в консоли управления:
 
 * Краткая информация представлена на временной шкале в разделе **{{ ui-key.yacloud.common.overview }}** для выбранного трансфера в сервисе [{{ data-transfer-name }}]({{ link-console-main }}/link/data-transfer/). В правой верхней части шкалы вы можете выбрать интервал для просмотра — час, день или неделю. Интервал разбит на сегменты. Наведите курсор на сегмент, чтобы узнать сколько байт и строк перенес трансфер за соответствующий период времени или просмотреть сообщения об ошибках.
-* Подробная диагностическая информация представлена в виде графиков. Их можно посмотреть на вкладке **{{ ui-key.yacloud.data-transfer.label_monitoring }}** страницы управления трансфером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+* Подробная диагностическая информация представлена в виде графиков. Их можно посмотреть на вкладке **{{ ui-key.yacloud.common.monitoring }}** страницы управления трансфером или в [{{ metrics-name }}](../../monium/metrics/overview.md).
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monium-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monium-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monium/concepts/alerting/notification-channel.md).
 
 Отслеживать состояние трансферов и получать логи их работы можно и в [мобильном приложении](/mobile-app) {{ yandex-cloud }}.
 
@@ -49,22 +49,12 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}).
   1. [Перейдите]({{ link-console-main }}/link/data-transfer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-  1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
+  1. Нажмите на имя нужного трансфера и выберите вкладку **{{ ui-key.yacloud.data-transfer.label_monitoring }}**.
+  1. Чтобы начать работу с метриками, дашбордами или алертами в сервисе {{ monium-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
 
 {% endlist %}
 
 На странице появятся графики:
-
-### Number of source events {#publisher.data.changeitems}
-`publisher.data.changeitems`
-
-Число событий на источнике, сгенерированных для переноса (события помимо переносимых данных могут содержать технические операции).
-
-### Number of target events {#sinker.pusher.data.changeitems}
-`sinker.pusher.data.changeitems`
-
-Число событий, записанных в приемник (события помимо переносимых данных могут содержать технические операции).
 
 ### Maximum data transfer delay {#sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
@@ -76,20 +66,30 @@
 
 Объем считанных из источника данных (в байтах).
 
+### Number of source events {#publisher.data.changeitems}
+`publisher.data.changeitems`
+
+Число событий на источнике, сгенерированных для переноса (события помимо переносимых данных могут содержать технические операции).
+
+### Number of target events {#sinker.pusher.data.changeitems}
+`sinker.pusher.data.changeitems`
+
+Число событий, записанных в приемник (события помимо переносимых данных могут содержать технические операции).
+
 ### Data transfer delay {#sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
 Разница между временем появления записей на приемнике и временем их появления на источнике (в секундах). Гистограмма разбита на диапазоны (`bin`). Допустим, в выбранный момент времени на гистограмме представлены два диапазона `bin` 45 и 60, со значением 50% каждый. Это означает, что половина переносимых в этот момент записей имела задержку передачи от 30 до 45 секунд, а половина — от 45 до 60 секунд.
 
-### Source buffer size {#publisher.consumer.log_usage_bytes}
-`publisher.consumer.log_usage_bytes`
-
-Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
-
 ### Rows written to target, by table {#sinker.table.rows}
 `sinker.table.rows`
 
 50 таблиц с максимальным количеством записанных в приемник строк.
+
+### Source buffer size {#publisher.consumer.log_usage_bytes}
+`publisher.consumer.log_usage_bytes`
+
+Объем буфера или журнала опережающей записи (там, где он поддерживается) в источнике (в байтах).
 
 ### Target response time {#sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
@@ -107,23 +107,32 @@
 Тип выполняющейся операции: `1` — задача активна.
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с трансфером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-monitoring }}/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
+  1. Откройте главную страницу [{{ monium-name }}]({{ link-monium }}).
+  1. Вверху выберите проект каталога с нужным трансфером.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. Откройте дашборд **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}** и в его параметрах выберите нужный трансфер.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики. Подробнее о языке запросов в [документации {{ monium-full-name }}](../../monium/concepts/querying.md).
+  1. Укажите **{{ ui-key.yacloud_monitoring.alert.title_name }}** алерта.
+  1. Выберите функцию сравнения, функцию агрегации и окно вычисления. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
+  1. Добавьте [канал уведомлений](../../monium/concepts/alerting/notification-channel.md). Если канала нет, [создайте его](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+  Подробнее о создании алерта в [документации {{ monium-full-name }}](../../monium/operations/alert/create-alert.md).
 
 {% endlist %}
 
 ## Рекомендованные алерты
+
+В примерах ниже используются запросы с сервисного дашборда {{ data-transfer-name }}. При создании алерта на основе такого запроса используется `service=data-transfer`. Проверьте, что метка `resource_id` содержит идентификатор нужного трансфера.
+
+Если вы создаете запрос с нуля в {{ monium-name }}, укажите `project=folder__<идентификатор_каталога>`, `cluster=default` и `service=__data-transfer__`.
 
 ### Число событий источника {#source-change-items}
 
@@ -138,22 +147,20 @@
 
 * Метрики:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `service=data-transfer` `resource_id=<идентификатор_трансфера>` `name = publisher.data.changeitems`
 
     ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}** — `0`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** — `-`.
 
-    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+      Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
-    Дополнительные настройки:
-
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
 
 ### Число событий приемника {#target-change-items}
 
@@ -169,21 +176,19 @@
 
 * Метрики:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `service=data-transfer` `resource_id=<идентификатор_трансфера>` `name = sinker.pusher.data.changeitems`
     ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}** — `0`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** — `-`.
 
-    Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
+      Можно дополнительно задать условие срабатывания `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для ситуаций, когда число реплицируемых операций ниже ожидаемого значения.
 
-    Дополнительные настройки:
-
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `5 минут`. Если в базе-источнике изменения происходят реже одного раза в 5 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
 
 ### Максимальная задержка передачи данных {#row-max-lag}
 
@@ -199,18 +204,15 @@
 
 * Метрики:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+    ![image](../../_assets/console-icons/chart-line.svg) `service=data-transfer` `resource_id=<идентификатор_трансфера>` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
-    *  {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
-
-    Дополнительные настройки:
-
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
+    *  **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}** — `15`. Если база-приемник медленная, или реплицируются сразу большие блоки данных, задайте максимально возможное значение.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** — `-`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `1 минута`.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
 
 ### Чтение {#reading}
 
@@ -225,19 +227,16 @@
 
 * Метрики:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<имя_облака> > <имя_каталога>` `service = data-transfer` `name = publisher.data.bytes`
+    ![image](../../_assets/console-icons/chart-line.svg) `service=data-transfer` `resource_id=<идентификатор_трансфера>` `name = publisher.data.bytes`
     ![image](../../_assets/console-icons/function.svg) `derivative()` (в разделе **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}**)
 
 * Настройки алерта:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }} — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }} — `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }} — `-`.
-
-    Дополнительные настройки:
-
-    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}** — `0`.
+    * **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** — `-`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}** — `15 минут`. Если в базе-источнике изменения происходят реже одного раза в 15 минут, увеличьте окно вычисления до максимально допустимого интервала между двумя DML-операциями с данными в источнике.
+    * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}`.
 
 ## Особенности работы с алертами {#alert-specifics}
 

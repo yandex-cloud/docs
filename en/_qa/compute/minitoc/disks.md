@@ -40,6 +40,16 @@
 
 * [Can I download an image of a created VM?](#download-image)
 
+* [How to transfer a disk image to an S3-compatible storage of a third-party provider?](#export-disk-to-s3)
+
 * [How do I detect processes that cause a heavy load on the disk?](#disk-heavy-load)
 
 * [How can I find out the terms and conditions of technical support for public images?](#public-image-support)
+
+* [How do I create a VM with a different boot disk type?](#change-boot-disk-type)
+
+* [Can I create a VM from an ISO image?](#iso-image)
+
+* [What should I do if a non-replicated disk fails?](#nonreplicated-disk-error)
+
+* [Why do I fail to create disk snapshots or snapshot schedules?](#snapshot-creation-failed)

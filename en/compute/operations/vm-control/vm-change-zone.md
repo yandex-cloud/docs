@@ -5,6 +5,7 @@ description: Follow this guide to move a VM to a different availability zone.
 
 # Moving a VM to a different availability zone
 
+
 When creating a VM, you can select a {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) to place it in.
 
 You can move a VM to a different availability zone by creating its copy in the target availability zone using disk snapshots.
@@ -34,7 +35,7 @@ To move a VM to a different availability zone using snapshots, create its copy i
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
-#### Create snapshots {#create}
+#### Create snapshots {#create-snapshot-operation}
 
 To [create](../disk-control/create-snapshot.md) a disk snapshot:
 

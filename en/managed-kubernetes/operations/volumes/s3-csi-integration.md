@@ -15,7 +15,7 @@ See also:
 ## Setting up a runtime environment {#create-environment}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
-1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/index.md#sa). Save the key ID and secret key; you will need them when installing {{ CSI }}.
+1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/users/service-accounts.md). Save the key ID and secret key; you will need them when installing {{ CSI }}.
 1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) that will be mounted to a `PersistentVolume`. Save the bucket name; you will need it when installing {{ CSI }}.
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -30,7 +30,7 @@ See also:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-  Install {{ CSI }} for S3 by following [this step-by-step guide](../applications/csi-s3.md#install-fb-marketplace). When installing the application, specify the following parameters:
+  Install {{ CSI }} for S3 by following [this step-by-step guide](../applications/csi-s3.md#marketplace-install). When installing the application, specify the following parameters:
 
   * **Namespace**: `kube-system`.
   * **S3 key ID**: Paste the key ID of the [created service account](#create-environment) into this field.
@@ -244,7 +244,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
     ```
 
 1. Make sure the file is in the bucket:
-   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified a bucket name when configuring your storage class, open the bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
 
@@ -392,6 +392,6 @@ To use {{ CSI }} with a static `PersistentVolume`:
     ```
 
 1. Make sure the file is in the bucket:
-   1. In the [management console]({{ link-console-main }}), select a folder.
+   1. In the [management console]({{ link-console-main }}), select the folder.
    1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click `<static_bucket_name>`. If you specified the path to the folder located inside the bucket in the static `PersistentVolume` description, you need to open that folder first.

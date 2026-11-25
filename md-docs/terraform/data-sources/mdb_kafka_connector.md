@@ -53,6 +53,11 @@ output "tasks_max" {
     - `schema_force_optional` . 
   - `topics` . 
   - `topics_regex` . 
+- `connector_config_mirror_checkpoint` (*Read-Only*) (List Of Object). Settings for MirrorCheckpoint connector.
+  - `groups` . 
+  - `offset_syncs_topic_location` . 
+  - `replication_policy` . 
+  - `source_connector_name` . 
 - `connector_config_mirrormaker` (*Read-Only*) (List Of Object). Settings for MirrorMaker2 connector.
   - `replication_factor` . 
   - `source_cluster` . 

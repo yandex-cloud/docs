@@ -2,13 +2,15 @@
 
 # Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator с поддержкой Yandex Monitoring
 
-# Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring
+# Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monium
 
 Managed Service for Kubernetes позволяет выгружать метрики объектов кластера в системы мониторинга.
 
-Из этой статьи вы узнаете, как настроить мониторинг [кластера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью Prometheus Operator с поддержкой Yandex Monitoring.
+Из этой статьи вы узнаете, как настроить мониторинг [кластера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью Prometheus Operator с поддержкой Yandex Monium.
 
-Prometheus Operator с поддержкой Monitoring упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monitoring. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+Prometheus Operator с поддержкой Monium упрощает установку Prometheus Operator, популярного решения для мониторинга кластеров Kubernetes, и добавляет интеграцию с системой мониторинга Yandex Monium. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных Prometheus и язык запросов [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+
+В Yandex Cloud Marketplace приложение опубликовано под названием «Prometheus Operator с поддержкой Yandex Monitoring».
 
 Чтобы настроить мониторинг кластера Managed Service for Kubernetes:
 
@@ -40,7 +42,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [monitoring.editor](../../monitoring/security/index.md#monitoring-editor).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [monium.editor](../../monium/security/index.md#monium-editor).
 
 1. [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта:
 
@@ -68,10 +70,11 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс Monium {#console}
 
-      1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud) Monitoring.
-      1. На панели слева выберите **Prometheus**.
+      1. Откройте [главную страницу](https://monium.yandex.cloud) Monium.
+      1. Выберите нужный [проект](../../monium/concepts/glossary.md#project) или [создайте](../../monium/collector/project.md#project-create) новый.
+      1. На панели слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **Prometheus**.
       1. Нажмите кнопку **Создать воркспейс**.
 
    {% endlist %}
@@ -84,10 +87,11 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс Monium {#console}
 
-      1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud) Monitoring.
-      1. Слева выберите раздел **Prometheus**.
+      1. Откройте [главную страницу](https://monium.yandex.cloud) Monium.
+      1. Выберите [проект](../../monium/concepts/glossary.md#project), в котором находится созданный ранее воркспейс Prometheus.
+      1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **Prometheus**.
       1. Выберите воркспейс Prometheus.
       1. Откроется вкладка **Общая информация**, где отображается идентификатор воркспейса — сохраните его.
 
@@ -149,14 +153,15 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 ## Настройте алертинг по метрикам {#set-alerting}
 
-1. [Создайте](../../monitoring/operations/alert/create-channel.md) канал уведомлений, выбрав доступный [способ отправки](../../monitoring/operations/prometheus/alerting-rules.md#rule-processing).
+1. [Создайте](../../monium/operations/alert/create-channel.md) канал уведомлений в проекте воркспейса Prometheus, выбрав доступный [способ отправки](../../monium/operations/prometheus/alerting-rules.md#rule-processing).
 1. Настройте [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/), который отвечает за отправку уведомлений:
 
-    1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud) Monitoring.
-    1. Слева выберите раздел **Prometheus**.
+    1. Откройте [главную страницу](https://monium.yandex.cloud) Monium.
+    1. Выберите [проект](../../monium/concepts/glossary.md#project), в котором находится созданный ранее воркспейс Prometheus.
+    1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **Prometheus**.
     1. Выберите воркспейс Prometheus.
     1. Перейдите на вкладку **Конфигурация Alert manager**.
-    1. Нажмите кнопку **Загрузить файл конфигурации** и загрузите файл [конфигурации](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) в формате `YAML`.
+    1. Нажмите кнопку **Загрузить файл конфигурации** и загрузите файл [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/) в формате `YAML`.
 
         {% cut "Пример файла конфигурации" %}
 
@@ -175,7 +180,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
           - name: telegram
             yandex_monitoring_configs:
               - channel_names:
-                - "<имя канала уведомлений>"
+                - "<имя_канала_уведомлений>"
           - name: "null"
             yandex_monitoring_configs:
               - channel_names: []
@@ -183,15 +188,15 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
         {% endcut %}
 
-1. Добавьте тестовое правило алертинга:
+1. Добавьте тестовое правило алертинга. Укажите пространство имен, в котором установлен Prometheus Operator, и имя релиза Helm в метке `release`. Для приведенной выше команды установки Helm имя релиза — `prometheus`; при установке из Yandex Cloud Marketplace используйте заданное название приложения:
 
     ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: monitoring.coreos.com/v1                                                        
+    cat <<EOF | kubectl apply --namespace=<пространство_имен> -f -
+    apiVersion: monitoring.coreos.com/v1
     kind: PrometheusRule
     metadata:
       labels:
-        release: kube-prometheus-stack
+        release: <имя_релиза>
       name: test
     spec:
       groups:
@@ -207,13 +212,12 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
     EOF
     ```
 
-1. Дождитесь, пока в выбранный канал уведомлений придет алерт, или проверьте статус алерта в консоли управления:
+1. Дождитесь, пока в выбранный канал уведомлений придет алерт, или проверьте статус алерта:
 
-    1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud) Monitoring.
-    1. Слева выберите раздел **Prometheus**.
+    1. Откройте [главную страницу](https://monium.yandex.cloud) Monium.
+    1. Выберите проект, в котором находится воркспейс Prometheus.
+    1. Слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **Prometheus**.
     1. Выберите воркспейс Prometheus.
-    1. Перейдите на вкладку **Управление правилами**.
-    1. Нажмите на имя тестового алерта.
     1. Перейдите на вкладку **Алерты**.
     1. Убедитесь, что тестовый алерт перешел в состояние `FIRING`.
 
@@ -225,17 +229,18 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. Откройте [главную страницу сервиса](https://monitoring.yandex.cloud) Monitoring.
-  1. На панели слева выберите **Метрики**.
+  1. Откройте [главную страницу](https://monium.yandex.cloud) Monium.
+  1. Выберите [проект](../../monium/concepts/glossary.md#project), в котором находится созданный ранее воркспейс Prometheus.
+  1. Слева выберите ![alt](../../_assets/console-icons/compass.svg) **Обзор** → ![alt](../../_assets/console-icons/rectangle-pulse.svg) **Метрики**.
   1. Вверху в списке **Источник данных** выберите **Prometheus**.
   1. Выберите воркспейс.
   1. Введите запрос на языке [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/).
   1. Чтобы отобразить на графике несколько линий, нажмите кнопку **Добавить запрос** и введите новый запрос.
   1. Нажмите кнопку **Выполнить запрос**, чтобы построить график.
 
-      Получившийся график можно [добавить](#add-to-dashboard) на [дашборд](../../monitoring/concepts/visualization/dashboard.md) в качестве [виджета](../../monitoring/concepts/visualization/widget.md).
+      Получившийся график можно [добавить](#add-to-dashboard) на [дашборд](../../monium/concepts/visualization/dashboard.md) в качестве [виджета](../../monium/concepts/visualization/widget.md).
 
 {% endlist %}
 
@@ -243,13 +248,13 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
    1. [Постройте график](#add-graph).
-   1. Справа вверху нажмите кнопку **Добавить на дашборд**.
-   1. Введите название графика.
-   1. Выберите облако и каталог.
+   1. Справа вверху нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Добавить на дашборд**.
+   1. Выберите проект, в котором находится или будет создан дашборд.
    1. Выберите существующий дашборд или создайте новый.
+   1. Укажите название виджета.
    1. Выберите один из вариантов добавления графика:
       * **Добавить** — график будет добавлен на дашборд, вы останетесь в разделе **Метрики**.
       * **Добавить и перейти к дашборду** — график будет добавлен на дашборд, вы перейдете в раздел **Дашборды**. В разделе **Метрики** график не сохранится.
@@ -258,7 +263,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 
 {% note tip %}
 
-Вы также можете [создать](../../monitoring/operations/dashboard/create.md) пустой дашборд и потом добавить на него нужные графики.
+Вы также можете [создать](../../monium/operations/dashboard/create.md) пустой дашборд и потом добавить на него нужные графики.
 
 {% endnote %}
 

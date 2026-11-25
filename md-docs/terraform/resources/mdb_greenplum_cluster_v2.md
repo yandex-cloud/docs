@@ -25,6 +25,9 @@ resource "yandex_mdb_greenplum_cluster_v2" "my_cluster" {
   network_id    = yandex_vpc_network.foo.id
 
   cluster_config = {
+    pool = {
+      pool_discard = true
+    }
     assign_public_ip = true
     backup_window_start = {
       hours   = 1
@@ -189,6 +192,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster_service.proto
 
  Set to zero to disable.
     - `mode` (String). Route server pool mode.
+    - `pool_discard` (Bool). Enable cleanup of server connections when they are returned to the connection pool. If omitted, the server setting is preserved.
     - `size` (Number). The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
 
  Set to zero to disable the limit.

@@ -155,7 +155,6 @@
         service_account_id: ajegtlf2q28a********
         created_at: "2025-04-04T10:23:08.722440521Z"
         scopes:
-          - yc.monitoring.read
           - yc.serverless.functions.invoke
           - yc.postbox.send
         expires_at: "2026-01-01T21:00:00Z"
@@ -335,7 +334,7 @@
   yc iam api-key create \
     --service-account-name <имя_сервисного_аккаунта> \
     --description "this API-key is for my-robot" \
-    --scopes yc.monitoring.read,yc.postbox.send,yc.serverless.functions.invoke
+    --scopes yc.postbox.send,yc.serverless.functions.invoke
   ```
 
   Где:
@@ -350,7 +349,7 @@
   resource "yandex_iam_service_account_api_key" "sa-api-key" {
     service_account_id = "<идентификатор_сервисного_аккаунта>"
     description        = "this API-key is for my-robot"
-    scopes             = ["yc.monitoring.read", "yc.postbox.send", "yc.serverless.functions.invoke"]
+    scopes             = ["yc.postbox.send", "yc.serverless.functions.invoke"]
   }
   ```
 
@@ -374,7 +373,7 @@
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\",
-        \"scopes\": [\"yc.monitoring.read\",\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
+        \"scopes\": [\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
     }" \
     https://iam.api.cloud.yandex.net/iam/v1/apiKeys
   ```

@@ -40,7 +40,7 @@ With the opportunistic strategy, {{ ig-name }} does not stop the instances but w
 * Application or user stops the instance internally.
 * The instance fails the application [health check](../autohealing.md#functional-healthcheck).
 
-For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
+For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as there are no more jobs, {{ ig-name }} must reduce the group size from the actual size to the target one according to the [scaling policy](scale-policy.md).
   * If you selected the proactive stop, {{ ig-name }} will change the target group size and decrease the actual number of instances in the group to the target amount.
   * If you use the opportunistic strategy, {{ ig-name }} will change the target group size but will not stop the instances until they stop by themselves or are stopped by the user.
 
@@ -57,7 +57,7 @@ Where:
 
 Key | Value
 ----- | -----
-`strategy` | Strategy for stopping instances in a group.<br>The possible values are:<ul><li>`PROACTIVE`: {{ ig-name }} selects which instances to stop.</li><li>`OPPORTUNISTIC`: {{ ig-name }} waits for the instances to stop on their own or for the user to stop them.</li></ul> The default value is `PROACTIVE`.
+`strategy` | Strategy for stopping instances in a group.<br>Its possible values are:<ul><li>`PROACTIVE`: {{ ig-name }} selects which instances to stop.</li><li>`OPPORTUNISTIC`: {{ ig-name }} waits for the instances to stop on their own or for the user to stop them.</li></ul> The default value is `PROACTIVE`.
 
 ## Minimum instance update actions {#minimal-action}
 
@@ -80,7 +80,7 @@ Where:
 
 Key | Value
 ----- | -----
-`minimal_action` | Minimum instance update action. The possible values are:<ul><li>`LIVE_UPDATE`: Update the instance without stopping it.</li><li>`RESTART`: Update and restart the instance.</li><li>`RECREATE`: Update and recreate the instance.</li></ul> The default value is `LIVE_UPDATE`.
+`minimal_action` | Minimum instance update action. Its possible values are:<ul><li>`LIVE_UPDATE`: Update the instance without stopping it.</li><li>`RESTART`: Update and restart the instance.</li><li>`RECREATE`: Update and recreate the instance.</li></ul> The default value is `LIVE_UPDATE`.
 
 ## Use cases {#examples}
 

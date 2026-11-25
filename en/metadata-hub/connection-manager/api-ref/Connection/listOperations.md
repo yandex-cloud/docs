@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/operations
+  - url: https://connectionmanager.{{ api-host }}/v1/operations
     method: get
     path: null
     query:
@@ -35,7 +35,7 @@ Lists operations for the specified connection.
 ## HTTP request
 
 ```
-GET https://connman.{{ api-host }}/v1/operations
+GET https://connectionmanager.{{ api-host }}/v1/operations
 ```
 
 ## Query parameters {#yandex.cloud.connectionmanager.v1.ListOperationsRequest}

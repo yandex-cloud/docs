@@ -16,8 +16,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
+  1. Log in to the [management console]({{ link-console-main }}). If you have not signed up yet, navigate to the management console and follow the instructions.
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md).
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
   1. Make sure the [account](../../../iam/concepts/users/accounts.md) you are using to create a {{ managed-k8s-name }} cluster has all the [relevant roles](../../security/index.md#required-roles).
   1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
@@ -91,7 +91,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-     * `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#release-channels).
+     * `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#updates).
 
        {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
@@ -174,7 +174,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account for resources.
+     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer) role to the service account for resources.
      1. Provide the logging settings in the `--master-logging` parameter of the cluster create command:
 
         ```bash
@@ -185,8 +185,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
             `folder-id=<folder_ID>,`
             `kube-apiserver-enabled=<send_kube-apiserver_logs:_true_or_false>,`
             `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs:_true_or_false>,`
-            `events-enabled=<send_{{ k8s }}_events:_true_or_false>`
-            `audit-enabled=<send_audit_events>`
+            `events-enabled=<send_{{ k8s }}_events:_true_or_false>
+            `audit-enabled=<send_audit_events>
         ```
 
         Where:
@@ -325,7 +325,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/):
 
-     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account for resources.
+     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer) role to the service account for resources.
      1. Add the `master_logging` section to the {{ managed-k8s-name }} cluster description:
 
         {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
@@ -379,7 +379,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   To use a [{{ kms-full-name }} encryption key](../../concepts/encryption.md) to protect secrets, provide its ID in the `kmsProvider.keyId` parameter.
 
-  To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account you use for accessing resources and provide the logging settings in the `masterSpec.masterLogging` parameter.
+  To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#logging-writer) role to the service account you use for accessing resources and provide the logging settings in the `masterSpec.masterLogging` parameter.
 
   To add a [cloud label](../../concepts/index.md#cluster-labels), provide its name and value in the `labels` parameter.
 

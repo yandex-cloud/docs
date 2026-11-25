@@ -59,7 +59,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
      * `--retention-period`: Snapshot retention period. Specified in duration format, e.g., `300ms`, `1.5h`, or `2h45m`. Use either `--retention-period` or `--snapshot-count`.
      * `--snapshot-count`: Maximum number of snapshots per [disk](../../concepts/disk.md). Use either `--snapshot-count` or `--retention-period`.
      * `--description`: Schedule description.
-     * `--labels`: Schedule [labels](../../../overview/concepts/services.md#labels) in `key=value` format.
+     * `--labels`: Schedule [labels](../../../resource-manager/concepts/labels.md) in `key=value` format.
      * `--snapshot-description`: Snapshot description.
      * `--snapshot-labels`: Snapshot labels in `key=value` format.
 
@@ -175,7 +175,7 @@ To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](..
         {% include [name-format](../../../_includes/name-format.md) %}
 
      * `description`: Schedule description.
-     * `labels`: Schedule [labels](../../../overview/concepts/services.md#labels) in `<key> = "<value>"` format.
+     * `labels`: Schedule [labels](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format.
      * `snapshot_spec`: Properties of snapshots that will be created according to the schedule:
         * `description`: Snapshot description.
         * `labels`: Snapshot labels in `<key> = "<value>"` format.

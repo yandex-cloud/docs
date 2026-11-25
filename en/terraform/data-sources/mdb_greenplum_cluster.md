@@ -111,6 +111,7 @@ output "network_id" {
     - `max_age` (Number). 
 - `pooler_config` [Block]. 
   - `pool_client_idle_timeout` (Number). 
+  - `pool_discard` (*Read-Only*) (Bool). Whether server connections are cleaned up when they are returned to the connection pool.
   - `pool_idle_in_transaction_timeout` (Number). 
   - `pool_size` (Number). 
   - `pooling_mode` (String). 

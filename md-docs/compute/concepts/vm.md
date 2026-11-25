@@ -41,7 +41,7 @@
 
 Доступ сервисного аккаунта к ресурсам облака ограничивается [ролями](../../iam/concepts/access-control/roles.md). [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту конкретную роль на ресурс, взаимодействие с которым вы хотите настроить. Роль можно в любой момент [отозвать](../../iam/operations/roles/revoke.md).
 
-Также от имени сервисного аккаунта ВМ отправляет пользовательские метрики в [Yandex Monitoring](../../monitoring/quickstart.md), логи в [Yandex Cloud Logging](../../logging/quickstart.md) и подключается к [Yandex Cloud Backup](../../backup/quickstart/existing-vm.md).
+Также от имени сервисного аккаунта ВМ отправляет пользовательские метрики в [Monium Metrics](../../monium/metrics/quickstart-app.md), логи в [Yandex Cloud Logging](../../logging/quickstart.md) и подключается к [Yandex Cloud Backup](../../backup/quickstart/existing-vm.md).
 
 Привязать к ВМ можно только один сервисный аккаунт. Чтобы удалить или заменить привязанный сервисный аккаунт, [измените](../operations/vm-control/vm-update.md) его в параметрах ВМ.
 

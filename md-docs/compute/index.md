@@ -446,7 +446,7 @@
 
  - [Просмотр операций с ресурсами](operations/operation-logs.md)
 
- - [Просмотр метрик Monitoring](operations/metrics-pull.md)
+ - [Просмотр метрик в Monium Metrics](operations/metrics-pull.md)
 
  - [Yandex Container Solution](../cos/index.md)
 
@@ -2544,7 +2544,7 @@
 
  - [Cancel](instancegroup/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

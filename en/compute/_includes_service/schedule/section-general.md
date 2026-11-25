@@ -4,4 +4,4 @@ Optionally, under **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormCon
     {% include [name-format](../../../_includes/name-format.md) %}
 
 * Enter a schedule description.
-* Add schedule [labels](../../../overview/concepts/services.md#labels).
+* Add schedule [labels](../../../resource-manager/concepts/labels.md).

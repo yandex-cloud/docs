@@ -77,7 +77,7 @@ kubectl describe svc <LoadBalancer_service_name> \
 | grep 'External Traffic Policy'
 ```
 
-For more information, see [Parameters of a LoadBalancer service](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
+For more information, see [Parameters of a LoadBalancer service](../../managed-kubernetes/operations/create-load-balancer.md#create-lb).
 
 #### Why does the newly created PersistentVolumeClaim remain _Pending_? {#pvc-pending}
 
@@ -226,7 +226,7 @@ Set up [DNS autoscaling based on the {{ managed-k8s-name }} cluster size](../../
 
 [Set up NodeLocal DNS Cache](../../managed-kubernetes/tutorials/node-local-dns.md). For optimal settings, [install NodeLocal DNS Cache from {{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
 
-If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results. Attach the CoreDNS logs and examples of failed DNS requests.
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, error time, diagnostic results. Attach the CoreDNS logs and examples of failed DNS requests.
 
 #### Creating a node group with the CLI results in a parameter conflict. How do I fix it? {#conflicting-flags}
 
@@ -311,7 +311,7 @@ You can provide internet access to your {{ managed-k8s-name }} cluster nodes in 
 
 {% note info %}
 
-If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md#internet-routes).
+If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md).
 
 {% endnote %}
 
@@ -507,11 +507,11 @@ A DaemonSet applies settings only to nodes where it can be scheduled. Deleting a
 
 {% endcut %}
 
-If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results. Specify the NTP servers used and the exact time discrepancy.
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, error time, diagnostic results. Specify the NTP servers used and the exact time discrepancy.
 
 #### What should I do if I deleted my {{ network-load-balancer-full-name }} or its target groups that were automatically created for a LoadBalancer service? {#deleted-loadbalancer-service}
 
-You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
+You cannot manually restore a {{ network-load-balancer-name }} or its target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#create-lb) your `LoadBalancer` service. This will automatically create a load balancer and target groups.
 
 #### Error connecting a {{ compute-full-name }} VM instance as an external {{ managed-k8s-name }} node {#vm-as-external-node}
 
@@ -641,7 +641,7 @@ sudo journalctl -u kubelet --no-pager --since today
 
 If `fsGroup` is set for the pod, {{ k8s }} may recursively change permissions during mounting. For supported volumes, the `fsGroupChangePolicy: OnRootMismatch` parameter in `spec.securityContext` allows this operation to be skipped if the root directory’s permissions already match the expected ones. For more details on when this applies, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#configure-volume-permission-and-ownership-change-policy-for-pods).
 
-If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, error time, diagnostic results.
 
 #### What to do if nodes remain in the `RECONCILING` status for a long time? {#node-reconciling}
 
@@ -666,4 +666,4 @@ sudo systemctl restart kubelet
 
 Restarting may affect the node’s applications. After restarting, recheck the status of the services and the node.
 
-If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, the time the error occurred, and the diagnostic results.
+If the issue persists, [create a support ticket]({{ link-console-support }}). Specify the cluster ID, error time, diagnostic results.

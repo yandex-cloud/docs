@@ -7,7 +7,7 @@ Returns the specified connection.
 ## HTTP request
 
 ```
-GET https://connman.api.cloud.yandex.net/v1/connection/{connectionId}
+GET https://connectionmanager.api.cloud.yandex.net/v1/connection/{connectionId}
 ```
 
 ## Path parameters

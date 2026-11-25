@@ -46,8 +46,8 @@ _API-ключ_ — секретный ключ, используемый тол�
 * `yc.datasphere.community-projects.manageResource` — для управления ресурсами [проектов](../../../datasphere/concepts/project.md) через [API Yandex DataSphere](../../../datasphere/api-ref/overview.md).
 * `yc.logging.write` — для записи логов в [лог-группы](../../../logging/concepts/log-group.md) через [API Yandex Cloud Logging](../../../logging/api-ref/authentication.md).
 * `yc.managed-ytsaurus.cluster.use` — для работы с [кластерами](../../../managed-ytsaurus/concepts/component-types.md) через [API Yandex Managed Service for YTsaurus](../../../managed-ytsaurus/api-ref/authentication.md).
-* `yc.monitoring.manage` — для просмотра и записи данных в Yandex Monitoring через [API Monitoring](../../../monitoring/api-ref/index.md).
-* `yc.monitoring.read` — для просмотра данных в Yandex Monitoring через [API Monitoring](../../../monitoring/api-ref/index.md).
+* `yc.monitoring.manage` — для [чтения](../../../monium/api-ref/MetricsData/read.md) и [записи](../../../monium/api-ref/MetricsData/write.md) метрик через API Monium Metrics.
+* `yc.monitoring.read` — для [чтения метрик](../../../monium/api-ref/MetricsData/read.md) через API Monium Metrics.
 * `yc.monium.logs.write` — для записи [логов](../../../monium/logs/quickstart.md) в [Monium](../../../monium/index.md).
 * `yc.monium.metrics.write` — для записи [метрик](../../../monium/metrics/overview.md) в [Monium](../../../monium/index.md).
 * `yc.monium.traces.write` — для записи [распределенных трассировок](../../../monium/traces/index.md) в [Monium](../../../monium/index.md).
@@ -101,7 +101,7 @@ API-ключи в качестве способа аутентификации �
 * [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/api-ref/authentication)
 * [Yandex Cloud Functions](../../../functions/operations/function/auth.md)
 * [Yandex DataSphere](../../../datasphere/api-ref/authentication.md)
-* [Yandex Monitoring](../../../monitoring/api-ref/authentication.md)
+* [Yandex Monium](../../../monium/api-ref/authentication.md)
 * [Yandex Cloud Postbox](../../../postbox/api-ref/authentication.md)
 * [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/api-ref/authentication)
 * [Yandex Serverless Containers](../../../serverless-containers/index.md)

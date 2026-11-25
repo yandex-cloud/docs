@@ -18,9 +18,9 @@ The `computeMetadata` folder contains the following main keys:
 
 #|
 || **Key name (path)** | **Description** | **Value example** ||
-|| instance/attributes/enable-oslogin | Key responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). The possible values are:</br>- `true`: Access enabled.</br>- `false`: Access disabled. | `true` ||
-|| instance/attributes/install-unified-agent | Key responsible for installing the [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) on the VM instance. The possible values are:</br>- `1`: Agent installed.</br>- `0`: Agent not installed. | `0` ||
-|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../serial-console.md). The possible values are:</br>- `1`: Access enabled.</br>- `0`: Access disabled. | `0` ||
+|| instance/attributes/enable-oslogin | Key responsible for access to the VM instance via [{{ oslogin }}](../../../organization/concepts/os-login.md). Its possible values are:</br>- `true`: Access enabled.</br>- `false`: Access disabled. | `true` ||
+|| instance/attributes/install-unified-agent | Key responsible for installing the [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) on the VM instance. Its possible values are:</br>- `1`: Agent installed.</br>- `0`: Agent not installed. | `0` ||
+|| instance/attributes/serial-port-enable | Key responsible for access to the VM instance via the [serial console](../serial-console.md). Its possible values are:</br>- `1`: Access enabled.</br>- `0`: Access disabled. | `0` ||
 || instance/description | VM description. | `VM description` ||
 || instance/hostname | Full internal VM name ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||
 || instance/id | VM ID. | `epdhfouo8bgq********` ||
@@ -73,7 +73,7 @@ The `computeMetadata` folder contains the following main keys:
 
 The `user-data` folder contains no separate keys, so the data is provided all at once when accessing the root key of the `/latest/user-data/` folder.
 
-This folder stores the metadata specified by the user when [creating](../../operations/index.md#vm-create) or [modifying](../../operations/vm-control/vm-update.md#change-metadata) the VM instance. This information is received by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) process initiated when the VM instance starts.
+This folder stores the metadata specified by the user when [creating](../../operations/index.md#vm-create) or [modifying](../../operations/vm-control/vm-update.md#changing-metadata) the VM instance. This information is received by the [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) process initiated when the VM instance starts.
 
 To get information from this folder, you need to [run a request](../../operations/vm-info/get-info.md#example4).
 

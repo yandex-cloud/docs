@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection/{connectionId}
+  - url: https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
     method: get
     path:
       type: object
@@ -24,7 +24,7 @@ Returns the specified connection.
 ## HTTP request
 
 ```
-GET https://connman.{{ api-host }}/v1/connection/{connectionId}
+GET https://connectionmanager.{{ api-host }}/v1/connection/{connectionId}
 ```
 
 ## Path parameters

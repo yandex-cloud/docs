@@ -570,7 +570,7 @@ Data Transfer поддерживает несколько сценариев п�
 
  - [Activate](api-ref/Transfer/activate.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

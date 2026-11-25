@@ -39,6 +39,16 @@ resource "yandex_mdb_kafka_connector" "my_conn" {
   }
 }
 
+resource "yandex_mdb_kafka_connector" "checkpoint" {
+  cluster_id = yandex_mdb_kafka_cluster.my_cluster.id
+  name       = "mirror-checkpoint"
+
+  connector_config_mirror_checkpoint {
+    source_connector_name = yandex_mdb_kafka_connector.my_conn.name
+    groups                = ["orders-reader", "billing-reader"]
+  }
+}
+
 resource "yandex_mdb_kafka_connector" "connector" {
   cluster_id = yandex_mdb_kafka_cluster.my_cluster.id
   name       = "s3-sink"
@@ -120,7 +130,7 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
   network_id = "c64vs98keiqc7f24pvkd"
 
   config {
-    version = "2.8"
+    version = "3.9"
     zones   = ["ru-central1-a"]
     kafka {
       resources {
@@ -170,6 +180,11 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
     - `evolve_schema_enabled` (Bool). Enable automatic schema evolution. Default: false
     - `schema_case_insensitive` (Bool). Enable case-insensitive field name matching. Default: false
     - `schema_force_optional` (Bool). Force all columns to be nullable. Default: false
+- `connector_config_mirror_checkpoint` [Block]. Settings for MirrorCheckpoint connector.
+  - `groups` (**Required**)(Set Of String). Consumer group names whose offsets are transferred, without regular expressions.
+  - `offset_syncs_topic_location` (String). Offset mapping topic location: SOURCE, TARGET or OFFSET_SYNCS_TOPIC_LOCATION_UNSPECIFIED to inherit the source settings captured at creation.
+  - `replication_policy` (String). Topic naming policy: DEFAULT adds the source alias, IDENTITY preserves names, REPLICATION_POLICY_UNSPECIFIED inherits the source settings captured at creation.
+  - `source_connector_name` (**Required**)(String). Name of an existing MirrorMaker connector in the same cluster whose settings are copied at creation. Cannot be changed.
 - `connector_config_mirrormaker` [Block]. Settings for MirrorMaker2 connector.
   - `replication_factor` (**Required**)(Number). Replication factor for topics created in target cluster.
   - `topics` (**Required**)(String). The pattern for topic names to be replicated.

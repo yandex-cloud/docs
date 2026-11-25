@@ -59,7 +59,7 @@ C помощью Managed Service for Kubernetes вы можете работат
 
 ## Мониторинг {#monitoring}
 
-* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](prometheus-grafana-monitoring.md)
+* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monium](prometheus-grafana-monitoring.md)
 * [Передача логов кластера Managed Service for Kubernetes в Yandex Cloud Logging](k8s-fluent-bit-logging.md)
 * [Мониторинг кластера с помощью Filebeat OSS](filebeat-oss-monitoring.md)
 

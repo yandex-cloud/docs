@@ -24,7 +24,7 @@ To restore a VM from a disk snapshot, you can:
 
 {% note warning %}
 
-Backing up large disks places a significant load on the VM's disk subsystem, which can lead to network issues such as latency or packet loss. For more information, see [{#T}](storage-read-write.md#disk-load-network-impact).
+Backing up large disks places a significant load on the VM's disk subsystem, which can lead to network issues such as latency or packet loss. For details, see [{#T}](storage-read-write.md#disk-load-network-impact).
 
 {% endnote %}
 

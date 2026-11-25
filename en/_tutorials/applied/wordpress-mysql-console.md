@@ -48,11 +48,7 @@ To create a VM for WordPress:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `wp-mysql-tutorial-web`.
 
-      {% note alert %}
-
-      Once created, the VM will get an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
-
-      {% endnote %}
+      {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

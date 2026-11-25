@@ -58,7 +58,6 @@ output "fqdn" {
     - `sessions_sampling_interval` . 
     - `statements_sampling_interval` . 
   - `pooler_config` . 
-    - `pool_discard` . 
     - `pooler_pool_discard` . 
     - `pooling_mode` . 
   - `postgresql_config` . 

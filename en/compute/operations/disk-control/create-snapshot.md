@@ -14,7 +14,7 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
-## Creating a snapshot {#create}
+## Creating a snapshot {#create-snapshot-operation}
 
 {% note info %}
 

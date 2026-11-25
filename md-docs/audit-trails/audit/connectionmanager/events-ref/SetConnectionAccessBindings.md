@@ -297,10 +297,10 @@ Includes only one of the fields `connectionName`. ||
 ||Field | Description ||
 || roleId | **string**
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subjectId | **string**
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || subjectType | **enum** (SubjectType)
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`

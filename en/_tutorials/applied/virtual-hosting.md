@@ -196,13 +196,9 @@ To create an instance group for `site-a.com`:
      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-       You need to create a key pair for the SSH connection [on your own](../../compute/operations/vm-connect/ssh.md).
+       You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md).
 
-     {% note alert %}
-
-     Once created, the VM gets an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` in the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, you will not be able to access the VM from the internet.
-
-     {% endnote %}
+     {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
 
   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify the instance group **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}**: `2`.
@@ -312,7 +308,7 @@ To create an HTTP router for `site-a.com`:
 
 {% endlist %}
 
-Follow the same steps to create the `vhosting-router-b` HTTP router for `site-b.com` and link the `vhosting-bg-b` backend group to it. Add the `vhosting-route-b` route to it and link the `vhosting-bg-b` backend group to it.
+Similarly, for the `site-b.com` website, create an HTTP router named `vhosting-router-b` with a virtual host named `vhosting-host-b`. Add the `vhosting-route-b` route to it and link the `vhosting-bg-b` backend group to it.
 
 ### Create the default HTTP router {#create-http-routers-default}
 

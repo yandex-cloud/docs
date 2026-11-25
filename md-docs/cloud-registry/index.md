@@ -844,6 +844,6 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Cancel](domain/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)

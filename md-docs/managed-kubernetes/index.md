@@ -286,7 +286,7 @@
 
 ### Мониторинг
 
- - [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](tutorials/prometheus-grafana-monitoring.md)
+ - [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monium](tutorials/prometheus-grafana-monitoring.md)
 
  - [Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](tutorials/filebeat-oss-monitoring.md)
 
@@ -806,7 +806,7 @@
 
  - [Cancel](kubernetes-marketplace/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики Monium Metrics](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -841,7 +841,7 @@ items:
                     href: domain/api-ref/Operation/get.md
                   - name: Cancel
                     href: domain/api-ref/Operation/cancel.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ metrics-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

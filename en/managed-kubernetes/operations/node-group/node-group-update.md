@@ -70,7 +70,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
   * `--new-name`: Edit the name.
   * `--description`: Edit the description.
-  * `--service-account-id`, `--service-account-name`: Change the [service account](../../../iam/concepts/index.md#sa) for resources.
+  * `--service-account-id`, `--service-account-name`: Change the [service account](../../../iam/concepts/users/service-accounts.md) for resources.
   * `--node-service-account-id`, `--node-service-account-name`: Change the service account for {{ managed-k8s-name }} nodes.
   * `--version`: Change the {{ k8s }} version.
   * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:

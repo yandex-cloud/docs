@@ -1,10 +1,10 @@
-# Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}
+# Migrating a WordPress website from a third-party hosting provider to {{ yandex-cloud }}
 
 [WordPress](https://wordpress.com) is an open-source content management system.
 
 With WordPress, you can create news sites, personal or corporate blogs, business websites, online stores, and other services.
 
-It allows you to launch your website with minimal effort using one of the many available templates or your own design. Ready-made plugins help you easily add new blocks or features to a created service.
+It allows you to launch your website with minimal effort using one of the many available templates or your own design. Ready-made plugins help you easily add new sections or features to a created service.
 
 In {{ yandex-cloud }}, you can quickly [create a website on WordPress](../../tutorials/web/wordpress/index.md) or transfer from another hosting provider.
 
@@ -25,7 +25,7 @@ To transfer a WordPress website to {{ yandex-cloud }}:
 Create a backup of the website and DB files using one of the following methods:
 * Using various WordPress plugins, e.g., [BackWPup](https://wordpress.org/plugins/backwpup) or [Updraft Plus](https://wordpress.org/plugins/updraftplus).
 * Using built-in tools from the hosting control panel for your website.
-* Copying all the files to your hard drive using an FTP client and exporting the DB using [phpMyAdmin](https://www.phpmyadmin.net/).
+* Copy all the files to your hard drive using an FTP client and export the DB using [phpMyAdmin](https://www.phpmyadmin.net/).
 
   This method is longer and will take 5 to 20 minutes because you need to copy numerous small files that make up your site.
 
@@ -33,7 +33,17 @@ Create a backup of the website and DB files using one of the following methods:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md). To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** on the folder dashboard. If the list contains a network, click its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Make sure the selected [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in at least one [availability zone](../../overview/concepts/geo-scope.md).
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Navigate]({{ link-console-main }}/link/vpc) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Click the network and make sure it has a subnet in at least one availability zone.
+  1. If there is no such network or subnets, [create them](../../vpc/quickstart.md).
+
+{% endlist %}
 
 ### Required paid resources {#paid-resources}
 
@@ -45,39 +55,44 @@ The cost of maintaining a WordPress website includes:
 ## Create a VM for WordPress {#create-vm}
 
 To create a VM:
-1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) public image containing the required components: Linux, Apache web server, {{ MY }} DBMS, and PHP interpreter.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside. If you are not sure which availability zone you need, leave the default selection.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the [disk type](../../compute/concepts/disk.md#disks-types) and set the required size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+{% list tabs group=instructions %}
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+- Management console {#console}
 
-   * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
-   * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM [name](*name): `wordpress-vm`.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
+      {% include [vm-no-public-ip-note](../../_includes/compute/vm-no-public-ip-note.md) %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) public image containing the required components: Linux, Apache web server, {{ MY }} DBMS, and PHP interpreter.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside. If you are not sure which availability zone you need, leave the default selection.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the [disk type](../../compute/concepts/disk.md#disks-types) and set the required size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-   * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
-   * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `wordpress-vm`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    {% note alert %}
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
 
-    Once created, the VM will get an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname) for connections. If you selected `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` in the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, you will not be able to access the VM from the internet.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    {% endnote %}
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, select a [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
-1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, select a [service account](../../iam/concepts/users/service-accounts.md) or create a new one.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-   It may take a few minutes to create your VM. When the VM [status](../../compute/concepts/vm-statuses.md) changes to `RUNNING`, you can [upload the website files](#transfer-files).
+     It may take a few minutes to create your VM. When the VM [status](../../compute/concepts/vm-statuses.md) changes to `RUNNING`, you can [upload the website files](#transfer-files).
+
+{% endlist %}
 
 ## Connect to the VM {#connect-vm}
 
@@ -86,11 +101,18 @@ You can connect to a VM over SSH once it gets the `RUNNING` status. To do this, 
 To connect to the VM, specify its public IP address.
 
 To copy the VM's public IP address:
-1. Open the folder dashboard in the [management console]({{ link-console-main }}).
-1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-1. Find the created VM and click its name.
-1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, copy the IP address from the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Open the folder dashboard in the [management console]({{ link-console-main }}).
+  1. [Navigate]({{ link-console-main }}/link/compute) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Find the created VM and click its name.
+  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, copy the IP address from the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
+
+{% endlist %}
 
 [Connect to the VM](../../compute/operations/vm-connect/ssh.md).
 
@@ -126,7 +148,7 @@ Before you transfer your files, do the following:
 
      ```bash
 	 sudo apt-get update
-	 sudo apt-get install phpmyadmin php-mbstring php-gettext
+	 sudo apt-get install phpmyadmin php-mbstring
 	 ```
 
   1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the **space** bar on the keyboard: the `*` icon will appear next to `Apache2`. Press **Enter**.
@@ -246,7 +268,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. Edit the `php
   1. Log in to phpMyAdmin — enter the following in the browser address bar:
 
      ```http request
-     http://<VM_public_IP_address>/phpmyadmin`
+     http://<VM_public_IP_address>/phpmyadmin
      ```
 
   1. Go to the **User accounts** section and add a user account with the following parameters:
@@ -266,12 +288,12 @@ Set up an additional password to log in to the `phpMyAdmin` panel. Edit the `php
 	    sudo nano /etc/php/X.X/apache2/php.ini
 	    ```
 
-	    `X.X`: PHP version. Possible values: `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `8.0`, `8.1`.
+	    `X.X`: PHP version. The possible values are `8.2` and `8.4` (you can find out the current version using the `php -v` command).
 	 1. Edit the following properties:
 	    * `upload_max_filesize`: Maximum size of the uploaded file.
 	    * `post_max_size`: Maximum message size for the `POST` method.
 
-	    ```bash
+	    ```ini
 	    upload_max_filesize = 80M
 	    post_max_size = 80M
 	    ```
@@ -347,18 +369,18 @@ To transfer backup files to a VM, use the [FileZilla](https://filezilla-project.
      ```
 
      Return the rights for the folders:
-     * `html` and subfolders: `755`.
-     * For all files inside `html`: `644`.
-     * For `wp-config.php` separately, access level: `600`.
+     * The `html` folder and its subfolders: `755`.
+     * All files within `html`: `644`.
+     * `wp-config.php`: `600`.
 
      ```bash
-     cd var/www/
+     cd /var/www/
      sudo find ./ -type d -exec chmod 0755 {} \;
      sudo find ./ -type f -exec chmod 0644 {} \;
-     sudo chmod 600 wp-config.php
+     sudo chmod 600 html/wp-config.php
      ```
 
-     `f` parameter: Searches for all files within folders. `d` parameter: Searches for all folders within `html`.
+     The `f` parameter searches for all files within folders. The `d` parameter searches for all folders within `html`.
 
    {% endlist %}
 
@@ -393,14 +415,14 @@ Use [Let’s Encrypt](https://letsencrypt.org/) to install the [certificate](../
   1. Add the `universe` and `certbot` repositories:
 
      ```bash
-     sudo add-apt-repository universe && sudo add-apt-repository ppa:certbot/certbot
+     sudo add-apt-repository universe
      ```
 
      Press **Enter**.
   1. Install the Let's Encrypt client:
 
      ```bash
-     sudo apt-get update && sudo apt-get install certbot python-certbot-apache
+     sudo apt-get update && sudo apt-get install certbot python3-certbot-apache
      ```
 
   1. Press **Y** and **Enter**.
@@ -420,7 +442,7 @@ Use [Let’s Encrypt](https://letsencrypt.org/) to install the [certificate](../
      ```
 
   1. In the interface, enter the name of your domain: `example.com` or `www.example.com`.
-  1. Indicate whether to redirect all pages from `http` to `https` when opening your website. Select `2` to redirect to https.
+  1. Indicate whether to redirect all pages from `http` to `https` when opening your website. Select `2` to redirect to `https`.
   1. Test your website: paste `https://www.ssllabs.com/ssltest/analyze.html?d=example.com` to your browser's address bar.
 
 {% endlist %}
@@ -440,19 +462,19 @@ The certificate is issued for 90 days. You need to update it regularly. Configur
 	 ```
 
   1. In the dialog, select the first item from the list.
-  1. Add a line of code to the very end of the file:
+  1. Add this line to the end of the file:
 
      ```bash
 	 30 2 * * 1 /usr/bin/certbot renew >> /var/log/le-renew.log
 	 ```
 
-     As a result, an SSL certificate is scheduled to be updated every Monday at 2:30 am. The result will be recorded in a log file.
+     An SSL certificate update will be scheduled for every Monday at 02:30 am. The result will be recorded in a log file.
 
 {% endlist %}
 
 ## Test the website {#check-site}
 
-WordPress sites sometimes have a problem opening internal links when switching from one hosting to another. Check whether the `.htaccess` file exists in your website's root folder `var/www/html/.htaccess`.
+WordPress sites sometimes have a problem opening internal links when switching from one hosting to another. Check whether the `.htaccess` file exists in your website's root folder `/var/www/html/.htaccess`.
 
 If there is no file, create it.
 
@@ -483,7 +505,7 @@ If there is no file, create it.
 
 {% endlist %}
 
-Test the website. If the links do not open, it means that support for the `.htaccess` file is disabled in `Apache`.
+Test the website. If the links do not open, it means the support of the `.htaccess` file was disabled in Apache.
 
 To enable `.htaccess` support:
 
@@ -502,8 +524,7 @@ To enable `.htaccess` support:
      ```text
 	 <Directory /var/www/html>
 	   AllowOverride All
-	   Order allow,deny
-	   allow from all
+	   Require all granted
 	 </Directory>
 	 ```
 
@@ -515,8 +536,7 @@ To enable `.htaccess` support:
 	   DocumentRoot /var/www/html
 	   <Directory /var/www/html>
 	     AllowOverride All
-		 Order allow,deny
-		 allow from all
+	  Require all granted
 	   </Directory>
 	   ErrorLog ${APACHE_LOG_DIR}/error.log
 	   CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -530,3 +550,5 @@ To enable `.htaccess` support:
 	 ```
 
 {% endlist %}
+
+[*name]: {% include [name-format](../../_popups/name-format-general.md) %}

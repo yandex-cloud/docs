@@ -395,11 +395,13 @@ default:
   mcp-hub-name: MCP Hub
   mdb-lb: DB Proxy
   mdb-versions:
+    clickhouse-version:
+      supported: 26.9.25.15, 26.8.34.13 LTS, 25.8.33.6 LTS
     mysql-version:
-      supported: 5.7, 8.0, 8.4
+      supported: 5.7, 8.0
     postgresql-version:
       deprecated: 14, 14-1c
-      new: 18, 18-1c
+      new: 18, 18-1c, 19
       supported: 15, 15-1c, 16, 16-1c, 17, 17-1c
     storedoc-version:
       supported: '7.0'
@@ -3343,7 +3345,6 @@ default:
           action_add-file: Добавить файл
         tab:
           alert-manager-key-value: Конфигурация Alert manager
-          managing-rules: Управление правилами
       querystring:
         action:
           add-query: Добавить запрос
@@ -6012,6 +6013,7 @@ default:
             field_nlb-pre-checks-timeout: Время ожидания трафика
             field_scale-size: Размер
             field_scale-type: Тип
+            field_service: Идентификатор сервиса
             field_service-account: Сервисный аккаунт
             field_target-group-attached: Создать целевую группу
             field_target-group-description: Описание целевой группы
@@ -6177,6 +6179,7 @@ default:
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker-compose
             value_serial-port-enable: Разрешить
+            yandex-monitoring-option: Yandex Monitoring
           field_network-interface-index: Номер сетевого интерфейса
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить

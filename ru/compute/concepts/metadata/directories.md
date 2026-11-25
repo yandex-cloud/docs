@@ -19,7 +19,7 @@ description: Из этой статьи вы узнаете о каталога�
 #|
 || **Название ключа (путь)** | **Описание** | **Пример значения** ||
 || instance/attributes/enable-oslogin | Ключ, отвечающий за доступ к ВМ через [{{ oslogin }}](../../../organization/concepts/os-login.md). Возможные значения:</br>- `true` — доступ включен;</br>- `false` — доступ выключен. | `true` ||
-|| instance/attributes/install-unified-agent | Ключ, отвечающий за установку на ВМ агента [{{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md). Возможные значения:</br>- `1` — агент установлен;</br>- `0` — агент не установлен. | `0` ||
+|| instance/attributes/install-unified-agent | Ключ, отвечающий за установку на ВМ агента [{{ unified-agent-short-name }}](../../../monium/concepts/data-collection/unified-agent/index.md). Возможные значения:</br>- `1` — агент установлен;</br>- `0` — агент не установлен. | `0` ||
 || instance/attributes/serial-port-enable | Ключ, отвечающий за доступ к ВМ через [серийную консоль](../serial-console.md). Возможные значения:</br>- `1` — доступ включен;</br>- `0` — доступ выключен. | `0` ||
 || instance/description | Описание ВМ. | `VM description` ||
 || instance/hostname | Полное внутренне имя ВМ ([FQDN](../network.md#hostname)). | `my-vm.{{ region-id }}.internal` ||

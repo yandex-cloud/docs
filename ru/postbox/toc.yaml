@@ -211,7 +211,7 @@ items:
         items:
           - name: Ответы SMTP
             href: api-ref/smtp-errors.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ metrics-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

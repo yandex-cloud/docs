@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [25.11.2026 — CVE-2026-132825 (Ruby2Shell)](../../_includes/security/security-bulletins/cve-2026-132825-ruby2shell.md) %}
+
 {% include [23.11.2026 — CVE-2026-99312 — нарушение изоляции виртуальных машин в KVM](../../_includes/security/security-bulletins/cve-2026-99312-kvm.md) %}
 
 {% include [23.11.2026 — CVE-2026-123158 (SSHole)](../../_includes/security/security-bulletins/cve-2026-123158-sshole.md) %}

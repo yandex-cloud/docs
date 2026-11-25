@@ -1,10 +1,10 @@
 ---
-title: Справочник метрик сервиса {{ container-registry-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ container-registry-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ container-registry-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ container-registry-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ container-registry-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
+В этом разделе описаны метрики сервиса {{ container-registry-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
 
 {% include [container-registry](../_includes/monitoring/metrics-ref/container-registry.md) %}

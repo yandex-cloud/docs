@@ -48,7 +48,7 @@
 
      {% endnote %}
 
-  1. Создайте сервисный аккаунт для Cloud Logging с ролями [logging.writer](../../logging/security/index.md#roles-list) и [monitoring.editor](../../monitoring/security/index.md#monitoring-editor). Он будет использоваться для работы Fluent Bit.
+  1. Создайте сервисный аккаунт для Cloud Logging с ролями [logging.writer](../../logging/security/index.md#roles-list) и [monium.editor](../../monium/security/index.md#monium-editor). Он будет использоваться для работы Fluent Bit.
   1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта Cloud Logging и сохраните его в файл `key.json`.
   1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 

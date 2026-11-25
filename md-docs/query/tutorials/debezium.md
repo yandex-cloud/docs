@@ -10,7 +10,7 @@
 
 [Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью Yandex Data Streams можно захватывать эти изменения, а с помощью Yandex Query выполнять их обработку. Обработанные данные можно:
 
-* отправить в Yandex Monitoring для построения графика и алертинга;
+* отправить в Yandex Monium для построения графика и алертинга;
 * записать в поток Data Streams и далее отправить на обработку в Yandex Cloud Functions;
 * записать в поток Data Streams и далее передать в Yandex Data Transfer [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 

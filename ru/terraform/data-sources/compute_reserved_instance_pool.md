@@ -41,6 +41,13 @@ filename: yandex/cloud/compute/v1/reserved_instance_pool.proto
 - `name` (*Read-Only*) (String). Name of the pool. 1-63 characters long.
 - `network_settings` [Block]. Network Settings.
   - `type` (*Read-Only*) (String). Network Type
+- `placement_policy` [Block]. Placement policy configuration.
+  - `host_affinity_rules` [Block]. List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
+    - `key` (*Read-Only*) (String). Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+    - `op` (*Read-Only*) (String). Include or exclude action
+    - `values` (*Read-Only*) (List Of String). Affinity value or host ID or host group ID
+  - `placement_group_id` (*Read-Only*) (String). Placement group ID.
+  - `placement_group_partition` (*Read-Only*) (Number). Placement group partition
 - `platform_id` (*Read-Only*) (String). ID of the hardware platform configuration for pool instances.
 - `product_ids` (*Read-Only*) (List Of String). License IDs that indicate which licenses are attached to resource.
  License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -69,6 +76,7 @@ filename: yandex/cloud/compute/v1/reserved_instance_pool.proto
   - `total` (*Read-Only*) (Number). Equals to pool size (and equals to the sum of the following fields)
   - `unavailable` (*Read-Only*) (Number). Number of slots unavailable for some reason (for example because of underlying host failure)
   - `used` (*Read-Only*) (Number). Number of slots used by running instances
+- `status` (*Read-Only*) (String). Status of the pool.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

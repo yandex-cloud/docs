@@ -6,11 +6,10 @@ description: Follow this guide to create a VM with a GPU.
 # Creating a VM with a GPU
 
 
+
 This section explains how to create a [VM](../../concepts/vm.md) with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).
 
-By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [support]({{ link-console-support }}).
-
-{% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
+By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) has a zero [quota](../../concepts/limits.md#compute-quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [support]({{ link-console-support }}).
 
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
@@ -62,8 +61,6 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-
-       {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
      * `--platform`: [Platform](../../concepts/vm-platforms.md) ID:
 
@@ -180,8 +177,6 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `zone`: Availability zone the VM will reside in.
-
-         {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
        * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID:
 

@@ -447,7 +447,7 @@ items:
             href: operations/reserved-pools/manage-pool-vms.md
       - name: Просмотр операций с ресурсами
         href: operations/operation-logs.md
-      - name: Просмотр метрик {{ monitoring-name }}
+      - name: Просмотр метрик в {{ metrics-name }}
         href: operations/metrics-pull.md
   - name: '{{ cos-full-name }}'
     href: ../cos/index.yaml
@@ -2581,7 +2581,7 @@ items:
                     href: instancegroup/api-ref/Operation/get.md
                   - name: Cancel
                     href: instancegroup/api-ref/Operation/cancel.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ metrics-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

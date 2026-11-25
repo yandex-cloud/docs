@@ -302,7 +302,7 @@ items:
         items:
           - name: >-
               Мониторинг кластера с помощью {{ prometheus-name }} Operator с
-              поддержкой {{ monitoring-full-name }}
+              поддержкой {{ monium-full-name }}
             href: tutorials/prometheus-grafana-monitoring.md
           - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
             href: tutorials/filebeat-oss-monitoring.md
@@ -835,7 +835,7 @@ items:
                 href: kubernetes-marketplace/api-ref/Operation/get.md
               - name: Cancel
                 href: kubernetes-marketplace/api-ref/Operation/cancel.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ metrics-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

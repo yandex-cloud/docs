@@ -17,7 +17,7 @@ To get started with {{ objstorage-name }}:
 ## Getting started {#before-you-begin}
 
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../billing/quickstart/index.md).
 1. [Assign](../iam/operations/roles/grant.md) the `editor` [role](../iam/roles-reference.md#editor) or higher to your {{ yandex-cloud }} account. The role must be assigned for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) you will be working with or the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) the folder belongs to.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
@@ -53,7 +53,7 @@ To create your first bucket in {{ objstorage-name }}:
 
 To upload an object to a bucket:
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select the folder.
 1. [Navigate]({{ link-console-main }}/link/storage) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click the name of the bucket you need.
 1. To upload files to the bucket, drag them to the bucket screen or click ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and confirm the upload.

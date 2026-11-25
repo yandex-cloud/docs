@@ -1,10 +1,12 @@
-# Мониторинг кластера с помощью {{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}
+# Мониторинг кластера с помощью {{ prometheus-name }} Operator с поддержкой {{ monium-full-name }}
 
 {{ managed-k8s-name }} позволяет выгружать метрики объектов кластера в системы мониторинга.
 
-Из этой статьи вы узнаете, как настроить мониторинг [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью {{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}.
+Из этой статьи вы узнаете, как настроить мониторинг [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) с помощью {{ prometheus-name }} Operator с поддержкой {{ monium-full-name }}.
 
-{{ prometheus-name }} Operator с поддержкой {{ monitoring-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторинга кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monitoring-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+{{ prometheus-name }} Operator с поддержкой {{ monium-name }} упрощает установку {{ prometheus-name }} Operator, популярного решения для мониторинга кластеров {{ k8s }}, и добавляет интеграцию с системой мониторинга {{ monium-full-name }}. С ее помощью можно собирать, хранить и читать метрики из контейнеров, приложений и инфраструктуры. Система использует модель данных {{ prometheus-name }} и язык запросов [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+
+В {{ marketplace-full-name }} приложение опубликовано под названием «{{ prometheus-name }} Operator с поддержкой {{ monitoring-full-name }}».
 
 Чтобы настроить мониторинг кластера {{ managed-k8s-name }}:
 
@@ -32,7 +34,7 @@
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [monitoring.editor](../../monitoring/security/index.md#monitoring-editor).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [monium.editor](../../monium/security/index.md#monium-editor).
 
 1. [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта:
 
@@ -60,10 +62,11 @@
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс {{ monium-name }} {#console}
 
-      1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-name }}.
-      1. На панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+      1. Откройте [главную страницу]({{ link-monium }}) {{ monium-name }}.
+      1. Выберите нужный [проект](../../monium/concepts/glossary.md#project) или [создайте](../../monium/collector/project.md#project-create) новый.
+      1. На панели слева выберите ![alt](../../_assets/console-icons/box.svg) **Поставка и хранение** → ![alt](../../_assets/console-icons/flame.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.action_create }}**.
 
    {% endlist %}

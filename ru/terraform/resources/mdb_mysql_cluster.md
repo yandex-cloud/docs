@@ -320,12 +320,12 @@ Regenerate hosts after changing the assign_public_ip parameter.
 - `host_group_ids` (Set Of String). A list of host group IDs to place VMs of the cluster on.
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
-- `mysql_config` (Map Of String). MySQL cluster configuration. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
+- `mysql_config` (Map Of String). MySQL cluster configuration. For MySQL 9.7, this map contains user-defined settings; removing a key resets it to the default. For detailed information specific to your MySQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/mysql/v1/config).
 - `name` (**Required**)(String). The resource name.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the cluster.
-- `version` (**Required**)(String). Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4).
+- `version` (**Required**)(String). Version of the MySQL cluster. (allowed versions are: 5.7, 8.0, 8.4, 9.7).
 - `access` [Block]. Access policy to the MySQL cluster.
   - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
   - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).

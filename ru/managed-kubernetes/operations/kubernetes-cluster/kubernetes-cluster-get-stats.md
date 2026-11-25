@@ -9,15 +9,15 @@
 Есть несколько альтернативных способов:
 
 * [Посмотрите статистику в консоли управления](#console). В ней визуализируются метрики только мастера, узлов и подов.
-* [Откройте веб-интерфейс {{ monitoring-name }}](#monitoring). В нем визуализируются все метрики {{ managed-k8s-name }}.
-* [Выгрузите метрики](../../../monitoring/operations/metric/get.md) с помощью API {{ monitoring-name }}. Этот способ подходит, если нужно получить только численные значения метрик без визуализации.
+* [Откройте веб-интерфейс {{ monium-name }}](#monitoring). В нем визуализируются все метрики {{ managed-k8s-name }}.
+* [Выгрузите метрики](../../../monium/operations/metric/get.md) с помощью API {{ monium-name }}. Этот способ подходит, если нужно получить только численные значения метрик без визуализации.
 * [Установите приложение Metrics Provider](../applications/metrics-provider.md). С его помощью можно транслировать метрики в двух направлениях:
 
    * из объектов {{ k8s }} в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md);
-   * из сервиса {{ monitoring-name }} в объекты {{ k8s }}.
+   * из {{ monium-name }} в объекты {{ k8s }}.
 
 
-* [Установите приложение Prometheus Operator](../applications/prometheus-operator.md) для работы с системой мониторинга [{{ managed-prometheus-name }}](../../../monitoring/operations/prometheus/index.md). Так вы сможете работать с дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/) и пользоваться преимуществами [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/).
+* [Установите приложение Prometheus Operator](../applications/prometheus-operator.md) для работы с системой мониторинга [{{ managed-prometheus-name }}](../../../monium/operations/prometheus/index.md). Так вы сможете работать с дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/) и пользоваться преимуществами [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/).
 
 
 ## Посмотреть статистику в консоли управления {#console}
@@ -51,7 +51,7 @@
 
       Откроются виджеты с метриками узла {{ managed-k8s-name }}. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-node-metrics).
 
-      На виджетах представлены только некоторые из доступных метрик. Все метрики доступны в [сервисе {{ monitoring-name }}](#monitoring).
+      На виджетах представлены только некоторые из доступных метрик. Все метрики доступны в [{{ monium-name }}](#monitoring).
 
   1. Укажите период, за который нужно получить статистику.
 
@@ -71,7 +71,7 @@
 
      Откроются виджеты с метриками пода {{ managed-k8s-name }}. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-pod-metrics).
 
-     На виджетах представлены только некоторые из доступных метрик. Все метрики доступны в [сервисе {{ monitoring-name }}](#monitoring).
+     На виджетах представлены только некоторые из доступных метрик. Все метрики доступны в [{{ monium-name }}](#monitoring).
 
   1. Укажите период, за который нужно получить статистику.
 
@@ -79,77 +79,83 @@
 
 {% endlist %}
 
-## Посмотреть статистику в {{ monitoring-name }} {#monitoring}
+## Посмотреть статистику в {{ monium-name }} {#monitoring}
 
-1. Откройте [главную страницу сервиса]({{ link-monitoring }}) {{ monitoring-name }}.
-1. На панели слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+1. Откройте [главную страницу]({{ link-monium }}) {{ monium-name }}.
+1. Выберите [проект](../../../monium/concepts/glossary.md#project) `folder__<идентификатор_каталога>` для каталога, в котором находится кластер. Метрики ресурсов автоматически поступают в этот проект.
+1. Слева выберите ![alt](../../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → ![alt](../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 1. В поле для ввода запроса нажмите на значок ![image](../../../_assets/console-icons/code.svg).
 1. [Задайте запрос на статистику](#requests-in-monitoring).
 1. Укажите период, за который нужно получить статистику.
 1. Нажмите кнопку **Выполнить**.
 
-### Запросы на статистику в {{ monitoring-name }} {#requests-in-monitoring}
+### Запросы на статистику в {{ monium-name }} {#requests-in-monitoring}
+
+В запросах ниже `cluster="default"` — служебная метка {{ monium-name }}. Кластер {{ managed-k8s-name }} выбирается по метке `cluster_id`.
 
 * Для **контейнера** {{ managed-k8s-name }}:
 
    ```
-   "<метрика>"{folderId="<идентификатор_каталога>", service="managed-kubernetes", cluster_id="<имя_кластера>", container="<имя_контейнера>"}
+   "<метрика>"{project="folder__<идентификатор_каталога>", cluster="default", service="__managed-kubernetes__", cluster_id="<идентификатор_кластера>", namespace="<пространство_имен>", container="<имя_контейнера>"}
    ```
 
    В запросе укажите параметры:
 
    * `"<метрика>"` — название метрики контейнера, например `"container.cpu.core_usage_time"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-container-metrics).
-   * `folderId` — идентификатор каталога.
-   * `cluster_id` — имя кластера {{ managed-k8s-name }}.
+   * `project` — проект каталога с кластером в формате `folder__<идентификатор_каталога>`.
+   * `cluster_id` — идентификатор кластера {{ managed-k8s-name }}.
+   * `namespace` — пространство имен объекта.
    * `container` — имя контейнера, по которому нужна статистика.
 
 * Для **мастера** {{ managed-k8s-name }}:
 
    ```
-   "<метрика>"{folderId="<идентификатор_каталога>", service="managed-kubernetes", cluster_id="<имя_кластера>"}
+   "<метрика>"{project="folder__<идентификатор_каталога>", cluster="default", service="__managed-kubernetes__", cluster_id="<идентификатор_кластера>"}
    ```
 
    В запросе укажите параметры:
 
-   * `"<метрика>"` — название метрики контейнера, например `"master.cpu.utilization_percent"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-master-metrics).
-   * `folderId` — идентификатор каталога.
-   * `cluster_id` — имя кластера {{ managed-k8s-name }}.
+   * `"<метрика>"` — название метрики мастера, например `"master.cpu.utilization_percent"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-master-metrics).
+   * `project` — проект каталога с кластером в формате `folder__<идентификатор_каталога>`.
+   * `cluster_id` — идентификатор кластера {{ managed-k8s-name }}.
 
 * Для **узла** {{ managed-k8s-name }}:
 
    ```
-   "<метрика>"{folderId="<идентификатор_каталога>", service="managed-kubernetes", cluster_id="<имя_кластера>", node="<имя_узла>"}
+   "<метрика>"{project="folder__<идентификатор_каталога>", cluster="default", service="__managed-kubernetes__", cluster_id="<идентификатор_кластера>", node="<имя_узла>"}
    ```
 
    В запросе укажите параметры:
 
-   * `"<метрика>"` — название метрики контейнера, например `"node.cpu.core_usage_time"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-node-metrics).
-   * `folderId` — идентификатор каталога.
-   * `cluster_id` — имя кластера {{ managed-k8s-name }}.
+   * `"<метрика>"` — название метрики узла, например `"node.cpu.core_usage_time"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-node-metrics).
+   * `project` — проект каталога с кластером в формате `folder__<идентификатор_каталога>`.
+   * `cluster_id` — идентификатор кластера {{ managed-k8s-name }}.
    * `node` — имя узла, по которому нужна статистика.
 
 * Для **пода** {{ managed-k8s-name }}:
 
    ```
-   "<метрика>"{folderId="<идентификатор_каталога>", service="managed-kubernetes", cluster_id="<имя_кластера>", pod="<имя_пода>"}
+   "<метрика>"{project="folder__<идентификатор_каталога>", cluster="default", service="__managed-kubernetes__", cluster_id="<идентификатор_кластера>", namespace="<пространство_имен>", pod="<имя_пода>"}
    ```
 
    В запросе укажите параметры:
 
-   * `"<метрика>"` — название метрики контейнера, например `"pod.memory.used_bytes"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-pod-metrics).
-   * `folderId` — идентификатор каталога.
-   * `cluster_id` — имя кластера {{ managed-k8s-name }}.
+   * `"<метрика>"` — название метрики пода, например `"pod.memory.used_bytes"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-pod-metrics).
+   * `project` — проект каталога с кластером в формате `folder__<идентификатор_каталога>`.
+   * `cluster_id` — идентификатор кластера {{ managed-k8s-name }}.
+   * `namespace` — пространство имен объекта.
    * `pod` — имя пода, по которому нужна статистика.
 
 * Для **постоянного тома** (Persistent Volume Claim, PVC) {{ managed-k8s-name }}:
 
    ```
-   "<метрика>"{folderId="<идентификатор_каталога>", service="managed-kubernetes", cluster_id="<имя_кластера>", persistentvolumeclaim="<имя_PVC>"}
+   "<метрика>"{project="folder__<идентификатор_каталога>", cluster="default", service="__managed-kubernetes__", cluster_id="<идентификатор_кластера>", namespace="<пространство_имен>", persistentvolumeclaim="<имя_pvc>"}
    ```
 
    В запросе укажите параметры:
 
-   * `"<метрика>"` — название метрики контейнера, например `"pod.memory.used_bytes"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-persistent-volume-metrics).
-   * `folderId` — идентификатор каталога.
-   * `cluster_id` — имя кластера {{ managed-k8s-name }}.
+   * `"<метрика>"` — название метрики постоянного тома, например `"persistent_volume.used_bytes"`. Метрики перечислены в [справочнике](../../metrics.md#managed-kubernetes-persistent-volume-metrics).
+   * `project` — проект каталога с кластером в формате `folder__<идентификатор_каталога>`.
+   * `cluster_id` — идентификатор кластера {{ managed-k8s-name }}.
+   * `namespace` — пространство имен объекта.
    * `persistentvolumeclaim` — имя постоянного тома, по которому нужна статистика.

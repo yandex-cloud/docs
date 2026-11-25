@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ objstorage-full-name }}
-description: This page covers questions and answers about {{ objstorage-name }}.
+description: This page provides answers to questions about {{ objstorage-name }}.
 ---
 
 # FAQ about {{ objstorage-name }}
@@ -21,20 +21,20 @@ description: This page covers questions and answers about {{ objstorage-name }}.
 * [What AWS S3 features are supported in {{ objstorage-full-name }}?](#qa-s3-support)
 * [Where is my data stored?](#qa-where)
 * [How is my data protected in {{ objstorage-full-name }}?](#qa-data-security)
-* [What the speed of data upload and download in {{ objstorage-full-name }} depends on?](#qa-timings)
+* [What does the speed of data uploads and downloads in {{ objstorage-full-name }} depend on?](#qa-timings)
 * [How do I add my own domain to an {{ objstorage-name }} bucket?](#domain-bucket)
 * [Why did I lose access to the bucket after creating/updating a bucket policy?](#qa-lost-access)
 * [How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network?](#qa-from-vpc)
 * [Do objects uploaded to a bucket get scanned for sensitive data and malicious code?](#anti-malware)
 * [How do I fix an incorrect MIME type of objects when uploading them to a bucket?](#qa-mime-type)
-* [How do I configure a cache-control header for objects in a bucket?](#cache-control)
+* [How do I configure the Cache-Control header for objects within a bucket?](#cache-control)
 * [How do I copy bucket contents to another bucket?](#copy-bucket)
 * [How do I restore deleted objects?](#recover-deleted-objects)
 * [How do I change the storage class of objects?](#change-storage-class)
-* [How do I allow reading objects only from {{ cdn-name }} networks?](#cdn-only-access)
+* [How do I restrict object read operations to {{ cdn-name }} networks?](#cdn-only-access)
 * [How do I fix the SignatureDoesNotMatch error?](#signature-does-not-match)
 * [Why do I get the `Bucket is not empty` error when deleting a bucket?](#bucket-not-empty)
-* [Why the OPTIONS request returns error 403 without the Access-Control-Allow-Origin header?](#cors-error)
+* [Why does the OPTIONS request return error 403 without the `Access-Control-Allow-Origin` header?](#cors-error)
 * [How do I fix the certificate error when using my own domain?](#wrong-certificate)
 * [Why do I get the BucketAlreadyExists error when creating a bucket?](#bucket-already-exists)
 
@@ -106,7 +106,7 @@ You can delete multiple objects via the {{ yandex-cloud }} management console or
 Make sure the service account has the [role](./security/#roles-list) that allows accessing the bucket.
 
 
-If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/#service) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
+If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/index.md#service-roles) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
 
 ```bash
 yc kms symmetric-key add-access-binding \
@@ -154,7 +154,7 @@ Data is stored in an encrypted format and none of those who have access to the p
 
 By default, the storage is accessed via HTTPS.
 
-#### What does the speed of data upload and download in {{ objstorage-full-name }} depend on? {#qa-timings}
+#### What does the speed of data uploads and downloads in {{ objstorage-full-name }} depend on? {#qa-timings}
 
 The {{ objstorage-name }} response time depends on multiple factors:
 * Client-side performance: network speed, CPU load, or disk subsystem load.
@@ -175,7 +175,7 @@ To [add](operations/hosting/own-domain.md) your domain to a [bucket](concepts/bu
 
 1. {% include [setup-bucket.md](../_includes/storage/setup-bucket.md) %}
 
-1. On your DNS server, [create](operations/hosting/own-domain.md#domain-support) a CNAME record to link your domain to the bucket.
+1. On your DNS server, [create](operations/hosting/own-domain.md) a CNAME record to link your domain to the bucket.
 
 1. {% include [create-cert.md](../_includes/storage/create-cert.md) %}
 
@@ -186,7 +186,7 @@ To [add](operations/hosting/own-domain.md) your domain to a [bucket](concepts/bu
 
 #### Why did I lose access to the bucket after creating/updating a bucket policy? {#qa-lost-access}
 
-If you get the `Access Denied` error after configuring an access policy or the list of objects is not displayed, check the policy rules.
+If you get an `Access Denied` error or the object list fails to load after configuring an access policy, check the policy rules.
 
 The possible causes include:
 
@@ -230,7 +230,7 @@ To avoid errors, explicitly set the `Content-Type` header when uploading objects
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. See the description of the command for uploading an object:
+  1. See the description of the object upload command:
 
      ```bash
      yc storage s3api put-object --help
@@ -246,7 +246,7 @@ To avoid errors, explicitly set the `Content-Type` header when uploading objects
        --content-type "application/javascript"
      ```
 
-     Where `--bucket` and `--key` are the required parameters: bucket name and object key. The `--body` parameter sets the path to the file to upload. The optional `--content-type` parameter explicitly sets the MIME type. The example uses the type for JavaScript.
+     Where `--bucket` and `--key` are required parameters: bucket name and object key. The `--body` parameter sets the path to the file to upload. The optional `--content-type` parameter explicitly sets the MIME type. The example uses the type for JavaScript.
 
 - AWS CLI
 
@@ -306,9 +306,9 @@ You can also change the `Content-Type` header for already uploaded objects. Here
 
 {% endlist %}
 
-#### How do I configure a cache-control header for objects in a bucket? {#cache-control}
+#### How do I configure the Cache-Control header for objects within a bucket? {#cache-control}
 
-The `Cache-Control` header is [an object’s system metadata](concepts/object.md#metadata). You can specify it when uploading the object or update it for an already uploaded object.
+The `Cache-Control` header is part of an object’s [system metadata](concepts/object.md#metadata). You can specify it when uploading the object or update it later for an existing object.
 
 You can use [**s3cmd**](tools/s3cmd.md) to add the header when uploading the file:
 
@@ -324,7 +324,7 @@ s3cmd --add-header 'Cache-Control:max-age=3600' \
   modify s3://<bucket_name>/<object_key>
 ```
 
-Example of uploading via the [**AWS CLI**](tools/aws-cli.md):
+Upload example using the [**AWS CLI**](tools/aws-cli.md):
 
 ```bash
 aws --endpoint-url=https://{{ s3-storage-host }} s3 cp \
@@ -336,7 +336,7 @@ In the examples above, the caching time is 3,600 seconds.
 
 #### How do I copy bucket contents to another bucket? {#copy-bucket}
 
-You can copy bucket content to another bucket in the same folder, other folder, cloud, or organization. To do this, you need read permissions for the source bucket objects and write permissions for the target bucket. When copying all objects, you also need access to the list of objects in the source.
+You can copy bucket contents to a bucket residing in the same folder as well as another folder, cloud, or organization. To do this, you need read permissions for the source bucket objects and write permissions for the target bucket. When copying all objects, you also need access to the list of objects in the source.
 
 Example for the [**AWS CLI**](tools/aws-cli.md):
 
@@ -346,9 +346,9 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 cp \
   --recursive
 ```
 
-For copying between organizations, the following approaches are available:
+For copying between organizations, the following options are available:
 
-* Using the {{ yandex-cloud }} CLI, on behalf of a [Yandex account](../iam/concepts/users/accounts.md#passport) that has the required permissions in both organizations:
+* Using the {{ yandex-cloud }} CLI. Run this command under a [Yandex account](../iam/concepts/users/accounts.md#passport) that has the required permissions in both organizations:
 
   ```bash
   yc storage s3 cp \
@@ -358,63 +358,63 @@ For copying between organizations, the following approaches are available:
 
   Before running the command, [install and configure the CLI](../cli/quickstart.md).
 
-* Using the AWS CLI, on behalf of a service account with permissions for the target bucket if [public reading of objects and their list](operations/buckets/bucket-availability.md) is allowed in the source bucket. This approach is suitable only for data that can be made publicly available.
+* Using the AWS CLI. Use a service account with permissions for the target bucket, provided that [public read access for both the objects and the object list](operations/buckets/bucket-availability.md) is enabled in the source bucket. This option is only suitable for data that can be made publicly available.
 
-If the objects are not encrypted, they are copied on the server side, including copying between organizations. For encrypted objects, there are certain nuances described in [{#T}](operations/objects/copy.md).
+If the objects are not encrypted, they are copied on the server side, including copying between organizations. For encrypted objects, limitations apply as described in [{#T}](operations/objects/copy.md).
 
-Commands copy objects and save them in the source bucket. When data is migrated, source objects are deleted separately once their copy is verified.
+Commands copy objects and save them in the source bucket. For data migrations, original objects must be deleted separately after validating the copy.
 
 #### How do I restore deleted objects? {#recover-deleted-objects}
 
 If [versioning](concepts/versioning.md) was enabled during the object upload and the required version is preserved, you can [restore](operations/objects/restore-object-version.md) it.
 
-If the object could not be restored, create a [support request]({{ link-console-support }}). Specify the bucket name, approximate date and time of the deletion, names of the objects, and links to them.
+If restoring an object fails, submit a [support request]({{ link-console-support }}). Specify the bucket name, approximate date and time of the deletion, names of the objects, and links to them.
 
 {% note warning %}
 
-Support does not guarantee recovery of the data deleted by the user. While engineers are working on the request, do not write new data to the affected bucket.
+Support does not guarantee recovery of user-deleted data. While engineers are working on your request, do not write new data to the affected bucket.
 
 {% endnote %}
 
 #### How do I change the storage class of objects? {#change-storage-class}
 
-A [storage class](concepts/storage-class.md) specified in bucket properties applies to new objects only if the upload tool does not explicitly specify another class. For example, by default, you can upload a standard class object to an ice class bucket.
+The [storage class](concepts/storage-class.md) specified in the bucket properties applies to new objects only if the upload tool does not explicitly specify another class. For example, you can upload a standard class object to an ice-default bucket.
 
 For already uploaded objects, changing the bucket setting does not change the storage class. To change it, you can:
 
-* Set up [lifecycle rules](operations/buckets/lifecycles.md) for transition to a colder storage class.
-* Reupload the object with the required class or copy it using the same key, indicating the new class using an [S3 client](tools/index.md).
+* Set up [lifecycle rules](operations/buckets/lifecycles.md) for transitions to a colder tier.
+* Reupload the object with the required class or copy it using the same key and indicate the new class using an [S3 client](tools/index.md).
 
-#### How do I allow reading objects only from {{ cdn-name }} networks? {#cdn-only-access}
+#### How do I restrict object read operations to {{ cdn-name }} networks? {#cdn-only-access}
 
 {% include [cdn-only-access](../_includes/storage/cdn-only-access.md) %}
 
 #### How do I fix the `SignatureDoesNotMatch` error? {#signature-does-not-match}
 
-The `The request signature we calculated does not match the signature you provided` error may occur when working via an S3 client or SDK if you specified a wrong [static access key](../iam/concepts/authorization/access-key.md). Check the ID and secret part of the key as well as their format in client settings.
+The `The request signature we calculated does not match the signature you provided` error when working via an S3 client or SDK typically occurs due to an incorrectly specified [static access key](../iam/concepts/authorization/access-key.md). Check your key ID, secret part, and their format in client settings.
 
-Repeat the operation using the [AWS CLI](tools/aws-cli.md) with the `--debug` parameter for diagnostics. The output will show intermediate results of signature calculation that you can use to identify the error cause.
+For troubleshooting, re-run the command via the [AWS CLI](tools/aws-cli.md) with `--debug`. The output will show intermediate results of signature calculation, which can help pinpoint the cause of the error.
 
-If the error persists, create a [support ticket]({{ link-console-support }}) and attach the debug output. Before sending, delete all secret keys and other confidential information from it.
+If the error persists, open a [support ticket]({{ link-console-support }}) and attach the debug output. Make sure to remove all secret keys and other sensitive data before you submit your request.
 
 #### Why do I get the `Bucket is not empty` error when deleting a bucket? {#bucket-not-empty}
 
-You can only delete an empty bucket. The `Bucket is not empty` error occurs if it still contains objects, their versions, deletion markers, or incomplete multipart uploads.
+You can only delete an empty bucket. The `Bucket is not empty` error occurs if the bucket still contains objects, their versions, deletion markers, or incomplete multipart uploads.
 
-To clean up the bucket:
+To empty the bucket:
 
-* [Delete all objects, their versions, and deletion markers](operations/objects/delete-all.md). This guide contains examples for the CLI, AWS CLI, and Python (boto3).
+* [Delete all objects, their versions, and deletion markers](operations/objects/delete-all.md). This guide includes examples for the CLI, AWS CLI, and Python (boto3).
 * [Delete incomplete multipart uploads](operations/objects/deleting-multipart.md).
 
-You can also configure the cleanup using [lifecycle rules](operations/buckets/lifecycles.md). They are processed asynchronously, so it may take some time to free up the bucket.
+You can also automate this cleanup using [lifecycle rules](operations/buckets/lifecycles.md). They are processed asynchronously, so it may take some time to empty the bucket.
 
-#### Why does the OPTIONS request return error 403 without the Access-Control-Allow-Origin header? {#cors-error}
+#### Why does the OPTIONS request return error 403 without the `Access-Control-Allow-Origin` header? {#cors-error}
 
 Check the [CORS configuration](operations/buckets/cors.md) in the bucket and the [OPTIONS request](s3/api-ref/object/options.md) headers:
 
-* The `Origin` header must contain the request source, e.g., `https://example.com` allowed in `AllowedOrigin`.
-* The `Access-Control-Request-Method` header must contain the further request method allowed in `AllowedMethod`.
-* If the request provides `Access-Control-Request-Headers`, the listed headers must be allowed in `AllowedHeader`. To allow all headers, `*` is used.
+* The `Origin` header must contain the request source, e.g., `https://example.com`, allowed in `AllowedOrigin`.
+* The `Access-Control-Request-Method` header must specify the method of the subsequent request, and this method must be allowed in `AllowedMethod`.
+* If the request provides `Access-Control-Request-Headers`, the listed headers must be allowed in `AllowedHeader`. Use `*` to allow all headers.
 
 If the source or method is not allowed, {{ objstorage-name }} returns error 403 without `Access-Control-*` headers.
 
@@ -423,10 +423,10 @@ If the source or method is not allowed, {{ objstorage-name }} returns error 403 
 
 The`err_cert_common_name_invalid` and `ssl_error_bad_cert_domain` errors may occur when the CNAME record for the website domain points to `<bucket_name>.{{ s3-storage-host }}`. For [website hosting](operations/hosting/own-domain.md), it must point to `<bucket_name>.{{ s3-web-host }}`.
 
-Check the CNAME record and [HTTPS setting](operations/hosting/certificate.md): certificate must match the website domain.
+Check the CNAME record and [HTTPS configuration](operations/hosting/certificate.md): the certificate must match the website domain.
 
 #### Why do I get the `BucketAlreadyExists` error when creating a bucket? {#bucket-already-exists}
 
-The `409 BucketAlreadyExists` error means that the bucket name is already taken. Bucket names are unique within the region and its endpoint, including between folders, clouds, and organizations.
+The `409 BucketAlreadyExists` error means the bucket name is already taken. Bucket names are unique within the region and its endpoint, including across folders, clouds, and organizations.
 
-Select another name and repeat the creation attempt. The naming requirements are provided in [Bucket naming rules](concepts/bucket.md#naming).
+Select a different name and try creating the bucket again. For naming requirements, refer to [Bucket naming rules](concepts/bucket.md#naming).

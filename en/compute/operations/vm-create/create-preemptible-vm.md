@@ -6,6 +6,7 @@ description: Follow this guide to make a VM preemptible.
 # Making a VM preemptible
 
 
+
 You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of a VM that already exists.
 
 {% include [role-note](../../../_includes/compute/role-note.md) %}
@@ -348,7 +349,7 @@ To change the type of a VM, such as making it non-preemptible:
 
 {% endlist %}
 
-This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#prices-instance-resources).
+This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#instance-resources).
 
 #### Useful links {#see-also}
 

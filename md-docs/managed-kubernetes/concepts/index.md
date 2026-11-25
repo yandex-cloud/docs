@@ -421,7 +421,7 @@ _Пространство имен_ — абстракция, которая л�
 
 ## Статистика кластера Managed Service for Kubernetes {#metrics}
 
-Managed Service for Kubernetes автоматически отправляет метрики кластеров в сервис [Yandex Monitoring](../../monitoring/index.md). Доступны метрики следующих объектов Kubernetes:
+Managed Service for Kubernetes автоматически отправляет метрики кластеров в [Monium Metrics](../../monium/metrics/overview.md). Доступны метрики следующих объектов Kubernetes:
 
 * контейнер;
 * [мастер](index.md#master);
@@ -432,20 +432,20 @@ Managed Service for Kubernetes автоматически отправляет �
 Метрики кластеров можно получить с помощью следующих инструментов:
 
 * [консоль управления](https://console.yandex.cloud);
-* [интерфейс Monitoring](https://monitoring.yandex.cloud);
-* [API Monitoring](../../monitoring/api-ref/authentication.md);
+* [интерфейс Monium](https://monium.yandex.cloud);
+* [API Monium](../../monium/api-ref/authentication.md);
 * приложение [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider);
 * приложение [Prometheus Operator](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator).
 
 Подробнее читайте в разделе [Мониторинг состояния кластера Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-get-stats.md).
 
-Описание метрик приводится в разделе [Справочник метрик Yandex Monitoring](../metrics.md).
+Описание метрик приводится в разделе [Справочник метрик Monium Metrics](../metrics.md).
 
 ## Примеры использования {#examples}
 
 * [Создание и настройка кластера Kubernetes без доступа в интернет](../tutorials/k8s-cluster-with-no-internet.md)
 * [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](../tutorials/kubernetes-backup.md)
-* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](../tutorials/prometheus-grafana-monitoring.md)
+* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monium](../tutorials/prometheus-grafana-monitoring.md)
 * [Использование групп узлов с GPU без предустановленных драйверов](../tutorials/driverless-gpu.md)
 
 #### Полезные ссылки {#see-also}

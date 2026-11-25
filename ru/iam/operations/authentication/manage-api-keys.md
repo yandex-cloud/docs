@@ -105,7 +105,6 @@ description: Из статьи вы узнаете, как создавать и
         service_account_id: ajegtlf2q28a********
         created_at: "2025-04-04T10:23:08.722440521Z"
         scopes:
-          - yc.monitoring.read
           - yc.serverless.functions.invoke
           - yc.postbox.send
         expires_at: "2026-01-01T21:00:00Z"
@@ -238,7 +237,7 @@ description: Из статьи вы узнаете, как создавать и
   yc iam api-key create \
     --service-account-name <имя_сервисного_аккаунта> \
     --description "this API-key is for my-robot" \
-    --scopes yc.monitoring.read,yc.postbox.send,yc.serverless.functions.invoke
+    --scopes yc.postbox.send,yc.serverless.functions.invoke
   ```
 
   Где:
@@ -253,7 +252,7 @@ description: Из статьи вы узнаете, как создавать и
   resource "yandex_iam_service_account_api_key" "sa-api-key" {
     service_account_id = "<идентификатор_сервисного_аккаунта>"
     description        = "this API-key is for my-robot"
-    scopes             = ["yc.monitoring.read", "yc.postbox.send", "yc.serverless.functions.invoke"]
+    scopes             = ["yc.postbox.send", "yc.serverless.functions.invoke"]
   }
   ```
 
@@ -277,7 +276,7 @@ description: Из статьи вы узнаете, как создавать и
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\",
-        \"scopes\": [\"yc.monitoring.read\",\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
+        \"scopes\": [\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```

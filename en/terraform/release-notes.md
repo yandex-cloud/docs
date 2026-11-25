@@ -4,6 +4,62 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.253.0 (November 25, 2026)
+
+##### BUG FIXES:
+* iam: document access policy binding parameters and list cloud, folder, and organization bindings under their respective services
+* iam_policy_binding: preserve other policy template bindings when creating, updating, or deleting a cloud, folder, or organization binding
+* release: share the build target list with publication checks and exclude unsupported 32-bit Windows ARM builds
+
+
+
+## 0.252.0 (November 24, 2026)
+
+##### FEATURES:
+* greenplum: support pool_discard in mdb_greenplum_cluster and mdb_greenplum_cluster_v2 resources and expose its effective value in their data sources
+
+##### BUG FIXES:
+* mdb_greenplum_cluster_v2: fix data source state conversion by aligning model types with the published schema
+* postgresql: restore `pooler_pool_discard` from the API on import and refresh of `yandex_mdb_postgresql_cluster` to avoid redundant updates
+
+##### ENHANCEMENTS:
+* compute: add `status` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `status` to `yandex_compute_reserved_instance_pool` resource
+* mdb_clickhouse_cluster_v2: support write-only passwords for external shard replicas and use batch shard group updates with field masks to preserve unchanged passwords
+
+##### WARNING:
+* postgresql: remove the deprecated `pool_discard` field from the `yandex_mdb_postgresql_cluster` resource and data source; use `pooler_pool_discard` with string values `true`, `false` or `unspecified` instead. The `yandex_mdb_postgresql_cluster_v2` resource is unchanged.
+
+
+
+## 0.251.0 (November 23, 2026)
+
+##### BUG FIXES:
+* mdb_kafka_cluster: restore subnet_ids from cluster hosts during refresh and import, expose them in the data source, and avoid updates caused only by subnet order
+* clickhouse: replace unavailable ru-central1-b with ru-central1-d in resource acceptance tests and shared subnet fixtures
+
+##### ENHANCEMENTS:
+* compute: add `placement_policy.placement_group_partition` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.placement_group_partition` to `yandex_compute_reserved_instance_pool` resource
+* compute: add `placement_policy` to `yandex_compute_reserved_instance_pool` resource
+* smartwebsecurity: add `tls_listener.do_not_rewrite_request_id` to `yandex_sws_domain` data source
+* compute: add `placement_policy.placement_group_id` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.host_affinity_rules.key` to `yandex_compute_reserved_instance_pool` resource
+* compute: add `placement_policy.host_affinity_rules` to `yandex_compute_reserved_instance_pool` resource
+* smartwebsecurity: add `tls_listener.do_not_rewrite_request_id` to `yandex_sws_domain` resource
+* compute: add `placement_policy.host_affinity_rules.op` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.host_affinity_rules.values` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.host_affinity_rules` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.placement_group_id` to `yandex_compute_reserved_instance_pool` resource
+* compute: add `placement_policy.host_affinity_rules.values` to `yandex_compute_reserved_instance_pool` resource
+* compute: add `placement_policy.host_affinity_rules.op` to `yandex_compute_reserved_instance_pool` resource
+* compute: add `placement_policy` to `yandex_compute_reserved_instance_pool` data source
+* compute: add `placement_policy.host_affinity_rules.key` to `yandex_compute_reserved_instance_pool` data source
+* mdb_kafka_connector: support MirrorCheckpoint connectors in the resource and data source
+* mysql: support MySQL 9.7 creation, upgrades and configuration in yandex_mdb_mysql_cluster and yandex_mdb_mysql_cluster_v2
+
+
+
 ## 0.250.0 (November 17, 2026)
 
 ##### ENHANCEMENTS:

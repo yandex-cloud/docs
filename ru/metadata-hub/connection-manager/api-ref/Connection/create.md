@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection
+  - url: https://connectionmanager.{{ api-host }}/v1/connection
     method: post
     path: null
     query: null
@@ -855,7 +855,7 @@ Creates a connection.
 ## HTTP request
 
 ```
-POST https://connman.{{ api-host }}/v1/connection
+POST https://connectionmanager.{{ api-host }}/v1/connection
 ```
 
 ## Body parameters {#yandex.cloud.connectionmanager.v1.CreateConnectionRequest}

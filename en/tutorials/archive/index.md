@@ -15,7 +15,7 @@ description: Various use cases for data storage and recovery in {{ yandex-cloud 
 * [Backing up to {{ objstorage-full-name }} with Duplicati](object-storage-duplicati.md)
 * [Backing up to {{ objstorage-full-name }} with Bacula](backup-with-bacula.md)
 * [Backing up to {{ objstorage-full-name }} with Veritas Backup Exec](object-storage-veritas.md)
-* [{{ managed-k8s-name }} cluster backups in {{ objstorage-full-name }}](kubernetes-backup.md)
+* [Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-full-name }}](kubernetes-backup.md)
 
 ## Other tutorials {#other}
 
@@ -23,9 +23,11 @@ description: Various use cases for data storage and recovery in {{ yandex-cloud 
 * [Configuring an SFTP server based on CentOS 7](backup-and-archive-to-sftp.md)
 * [Deploying the GlusterFS parallel file system in high availability mode](ha-regional-glusterfs.md)
 * [Deploying the GlusterFS parallel file system in high performance mode](ha-regional-glusterfs-high-performance.md)
-* [Associating a {{ backup-full-name }} policy to a VM automatically](vm-with-backup-policy/index.md)
+* [Associating a {{ backup-full-name }} policy with a VM automatically](vm-with-backup-policy/index.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](copy-files-from-object-storage.md)
 * [{#T}](backup-baremetal.md)
 * [{#T}](integrate-nextcloud/index.md)
+
+

@@ -1,7 +1,7 @@
 # Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}
 
 
-С помощью этого руководства вы создадите [группу виртуальных машин](../../compute/concepts/instance-groups/index.md), которая обрабатывает сообщения из очереди [{{ message-queue-full-name }}](/services/message-queue). Например, получает их и через некоторое время удаляет. Количество сообщений в очереди записывается в метрику [{{ monitoring-full-name }}](/services/monitoring), и группа ВМ [автоматически масштабируется](../../compute/concepts/instance-groups/scale.md#auto-scale) по этой метрике.
+С помощью этого руководства вы создадите [группу виртуальных машин](../../compute/concepts/instance-groups/index.md), которая обрабатывает сообщения из очереди [{{ message-queue-full-name }}](/services/message-queue). Например, получает их и через некоторое время удаляет. Количество сообщений в очереди записывается в метрику [{{ monium-full-name }}](/services/monium), и группа ВМ [автоматически масштабируется](../../compute/concepts/instance-groups/scale.md#auto-scale) по этой метрике.
 
 Для масштабирования выбрана [деликатная стратегия остановки](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy): ВМ останавливаются самостоятельно после обработки всех сообщений и только после этого удаляются из группы при уменьшении ее размера. Это гарантирует, что ВМ не будут удалены принудительно и обработают последние сообщения, даже если очередь опустеет раньше, чем завершится обработка.
 
@@ -448,10 +448,11 @@
      * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}** — `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`.
      * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}** — `1`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите следующие значения:
+  1. После выбора автоматического типа масштабирования появится блок **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}**. В нем укажите следующие значения:
 
      * **{{ ui-key.yacloud.compute.groups.create.field_metric }}** — `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
-     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}** — `message-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}** — оставьте поле пустым. По умолчанию используется каталог группы ВМ.
+     * **{{ ui-key.yacloud.compute.groups.create.field_service }}** — `message-queue`.
      * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}** — `queue.messages.stored_count`.
      * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}** — ключ `queue`, значение `queue-autoscale-queue`.
      * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}** — `GAUGE`.
@@ -519,21 +520,16 @@
 
 1. Измените файл `messages.sh`: в параметре `--queue-url` укажите URL очереди из файла `queue`.
 1. Запустите файл `messages.sh`. Начнется поочередная отправка 100 сообщений в очередь `queue-autoscale-queue`.
-1. Откройте дашборды в {{ monitoring-full-name }}:
+1. Откройте дашборды в {{ monium-full-name }}:
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс {{ monium-name }} {#console}
 
-     1. Откройте дашборд с информацией о группе ВМ:
-
-        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Compute — Instance Groups**.
-        1. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
-
-     1. Откройте дашборд с информацией об очереди:
-
-        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Message Queue**.
-        1. В поле **Queue ID** выберите `queue-autoscale-queue`.
+     1. В [{{ monium-name }}]({{ link-monium }}) выберите проект каталога `example-folder`.
+     1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+     1. Откройте дашборд **Compute — Instance Groups**. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
+     1. Вернитесь к списку сервисных дашбордов и откройте дашборд **Message Queue**. В поле **Queue ID** выберите `queue-autoscale-queue`.
 
    {% endlist %}
    

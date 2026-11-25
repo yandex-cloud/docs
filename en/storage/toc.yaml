@@ -175,22 +175,22 @@ items:
             href: tutorials/storage-backup-aws-s3-sync.md
           - name: Backing up to {{ objstorage-name }} with rclone
             href: tutorials/storage-backup-rclone.md
-          - name: Backing up to {{ objstorage-name }} with GeeseFS
-            href: tutorials/storage-backup-geesefs.md
-          - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
-            href: tutorials/object-storage-cloudberry.md
-          - name: Backing up to {{ objstorage-name }} with Duplicati
-            href: tutorials/object-storage-duplicati.md
-          - name: Backing up to {{ objstorage-name }} with Bacula
-            href: tutorials/backup-with-bacula.md
-          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
-            href: tutorials/object-storage-veritas.md
           - name: Backing up to {{ objstorage-name }} with Veeam Backup
             href: tutorials/backup-with-veeam.md
+          - name: Backing up to {{ objstorage-name }} with GeeseFS
+            href: tutorials/storage-backup-geesefs.md
+          - name: Backing up to {{ objstorage-name }} with Duplicati
+            href: tutorials/object-storage-duplicati.md
           - name: >-
               Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
               }}
             href: tutorials/kubernetes-backup.md
+          - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
+            href: tutorials/object-storage-cloudberry.md
+          - name: Backing up to {{ objstorage-name }} with Bacula
+            href: tutorials/backup-with-bacula.md
+          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
+            href: tutorials/object-storage-veritas.md
       - name: Log collection and analysis
         items:
           - name: Getting statistics on object queries with S3 Select
@@ -318,7 +318,7 @@ items:
             href: tutorials/mmy-objs-migration.md
           - name: >-
               Loading data from {{ mos-full-name }} to {{ objstorage-full-name
-              }} with {{ data-transfer-full-name }}
+              }} using {{ data-transfer-full-name }}
             href: tutorials/opensearch-to-object-storage.md
           - name: >-
               Uploading data from {{ ydb-full-name }} using {{

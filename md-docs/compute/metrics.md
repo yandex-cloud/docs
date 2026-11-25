@@ -1,12 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Compute Cloud](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Compute Cloud](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Compute Cloud, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Compute Cloud, поставляемые в [Monium Metrics](../monium/metrics/quickstart.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Compute Cloud имеют общую метку `service=compute`.
+В запросах к REST API и готовых запросах с сервисных дашбордов используйте `service=compute`. Готовый запрос открывается при переходе с графика дашборда в раздел метрик Monium.
+
+Если вы создаете запрос в [разделе метрик Monium](../monium/metrics/metric-explorer.md#add-graph), укажите `project=folder__<идентификатор_каталога>`, `cluster=default` и `service=__compute__`.
 
 {% note info %}
 
@@ -514,4 +516,4 @@ instance | Имя [виртуальной машины](concepts/vm.md)
 
 #### Полезные ссылки {#see-also}
 
-[Посмотреть метрики в Yandex Monitoring](operations/metrics-pull.md)
+[Посмотреть метрики в Monium Metrics](operations/metrics-pull.md)

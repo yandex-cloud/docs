@@ -1,17 +1,25 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud Postbox](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Postbox](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Yandex Cloud Postbox, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Yandex Cloud Postbox автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) и доступны в проекте каталога с адресом отправителя.
+
+Чтобы открыть сервисный дашборд, в [Monium](https://monium.yandex.cloud) выберите проект каталога с адресом отправителя. Откройте раздел **Дашборды** и на вкладке **Сервисные дашборды** выберите **Postbox - Overview**.
+
+Статистика доставки и действий получателей, включая открытия писем и переходы по ссылкам, доступна на [странице статистики Yandex Cloud Postbox](concepts/statistics.md#viewing) в консоли управления.
 
 Имя метрики пишется в метку `name`.
+
+При переходе к графику из сервисного дашборда значение метки `service` используется без подчеркиваний — `postbox`.
+
+Если вы создаете запрос в Monium через **Обзор** → **Метрики**, укажите проект каталога с адресом отправителя (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __postbox__`.
 
 Общие метки для всех метрик Yandex Cloud Postbox:
 
 Метка | Значение
 ----|----
 identity | Идентификатор [адреса](concepts/glossary.md#address) отправителя.
-service | Метка сервиса, значение всегда `postbox`.
+service | Идентификатор сервиса: `postbox`.
 
 ## Метрики приема писем {#inbound-metrics}
 

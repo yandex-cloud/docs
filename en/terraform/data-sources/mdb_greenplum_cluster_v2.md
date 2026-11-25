@@ -123,6 +123,7 @@ filename: yandex/cloud/mdb/greenplum/v1/cluster.proto
 
  Set to zero to disable.
     - `mode` (*Read-Only*) (String). Route server pool mode.
+    - `pool_discard` (*Read-Only*) (Bool). Whether server connections are cleaned up when they are returned to the connection pool.
     - `size` (*Read-Only*) (Number). The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
 
  Set to zero to disable the limit.

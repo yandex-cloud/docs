@@ -1,10 +1,14 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > Метрики Monium Metrics
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Identity and Access Management, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Identity and Access Management, поставляемые в [Monium Metrics](../monium/metrics/overview.md).
 
 Имя метрики пишется в метку `name`.
+
+При переходе к графику из сервисного дашборда значение метки `service` указывается без подчеркиваний — `iam`.
+
+Если вы создаете запрос с нуля в разделе **Обзор** → **Метрики** в Monium, укажите `project = folder__<идентификатор_каталога>`, `cluster = default` и `service = __iam__`.
 
 Общие метки для всех метрик Identity and Access Management:
 

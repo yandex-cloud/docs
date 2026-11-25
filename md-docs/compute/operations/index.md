@@ -276,4 +276,4 @@
 ## Прочие инструкции {#get-additional-info}
 
 * [Посмотреть операции с ресурсами сервиса Compute Cloud](operation-logs.md)
-* [Посмотреть метрики в Yandex Monitoring](metrics-pull.md)
+* [Посмотреть метрики в Monium Metrics](metrics-pull.md)

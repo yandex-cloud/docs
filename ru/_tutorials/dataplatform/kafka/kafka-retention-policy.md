@@ -4,11 +4,11 @@
 1. В этом топике или во всем кластере включена политика очистки лога `Delete` и задано малое время жизни сегмента лога `Log retention`.
 2. Одна или несколько групп потребителей недостаточно быстро вычитывают сообщения из топика. В результате могут быть удалены даже те сообщения, которые еще не были прочитаны.
 
-Потерю сообщений можно отслеживать с помощью [метрик](../../../managed-kafka/metrics.md) сервиса {{ mkf-name }}, поставляемых в [{{ monitoring-name }}](../../../monitoring/concepts/index.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
+Потерю сообщений можно отслеживать с помощью [метрик](../../../managed-kafka/metrics.md) сервиса {{ mkf-name }}, поставляемых в [{{ metrics-name }}](../../../monium/metrics/overview.md). Если значение `kafka_group_topic_partition_offset` становится меньше `kafka_log_Log_LogStartOffset`, это указывает на потерю сообщений группой потребителей.
 
 В этом руководстве вы:
 * Смоделируете потерю сообщений в топике на тестовом кластере {{ mkf-name }}, используя [инструменты подключения к топику](https://kafka.apache.org/community/downloads/).
-* Построите график метрик `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset` с помощью сервиса {{ monitoring-full-name }}, а также проследите закономерности, возникающие при потере сообщений.
+* Построите график метрик `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset` с помощью {{ metrics-name }}, а также проследите закономерности, возникающие при потере сообщений.
 
 Чтобы смоделировать и отследить потерю сообщений в топике {{ KF }}:
 
@@ -148,20 +148,23 @@
 
 ## Создайте графики мониторинга {#create-chart}
 
-Используя сервис [{{ monitoring-full-name }}]({{ link-monitoring }}), [отобразите на одном графике](../../../monitoring/operations/metric/metric-explorer.md#add-graph) метрики `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset`:
+В [{{ monium-name }}]({{ link-monium }}) откройте **{{ ui-key.yacloud_monitoring.aside-navigation.all-panel.menu.category.explore }}** → **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**. [Отобразите на одном графике](../../../monium/metrics/metric-explorer.md#add-graph) метрики `kafka_group_topic_partition_offset`, `kafka_log_Log_LogStartOffset` и `kafka_log_Log_LogEndOffset`. В каждом запросе укажите `project=folder__<идентификатор_каталога>` для каталога с кластером {{ mkf-name }} и `cluster=default`.
+
+Дополнительно задайте метки для каждой метрики.
+
 * Для `kafka_group_topic_partition_offset` укажите метки:
-    * `service = managed-kafka`,
+    * `service = __managed-kafka__`,
     * `name = kafka_group_topic_partition_offset`,
     * `host = <FQDN_хоста>`,
     * `topic = messages`,
     * `group = test-consumer-group`.
 * Для `kafka_log_Log_LogStartOffset` укажите метки:
-    * `service = managed-kafka`,
+    * `service = __managed-kafka__`,
     * `name = kafka_log_Log_LogStartOffset`,
     * `host = <FQDN_хоста>`,
     * `topic = messages`.
 * Для `kafka_log_Log_LogEndOffset` укажите метки:
-    * `service = managed-kafka`,
+    * `service = __managed-kafka__`,
     * `name = kafka_log_Log_LogEndOffset`,
     * `host = <FQDN_хоста>`,
     * `topic = messages`.
@@ -215,7 +218,7 @@
 
 ## Проанализируйте графики мониторинга {#check-charts}
 
-[Перейдите]({{ link-monitoring }}) в сервис **{{ monitoring-full-name }}** и проанализируйте поведение созданных ранее метрик:
+[Перейдите]({{ link-monium }}) в {{ monium-name }} и проанализируйте поведение созданных ранее метрик:
 * `kafka_log_Log_LogStartOffset` — первое смещение в разделе. Увеличивается при удалении сообщений из топика.
 * `kafka_log_Log_LogEndOffset` — последнее смещение в разделе. Увеличивается при записи сообщений в топик.
 * `kafka_group_topic_partition_offset` — текущее смещение группы потребителей в разделе. Увеличивается при вычитывании сообщений из топика группой потребителей.

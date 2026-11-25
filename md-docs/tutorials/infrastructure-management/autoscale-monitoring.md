@@ -3,7 +3,7 @@
 # Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue
 
 
-С помощью этого руководства вы создадите [группу виртуальных машин](../../compute/concepts/instance-groups/index.md), которая обрабатывает сообщения из очереди [Yandex Message Queue](https://yandex.cloud/ru/services/message-queue). Например, получает их и через некоторое время удаляет. Количество сообщений в очереди записывается в метрику [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring), и группа ВМ [автоматически масштабируется](../../compute/concepts/instance-groups/scale.md#auto-scale) по этой метрике.
+С помощью этого руководства вы создадите [группу виртуальных машин](../../compute/concepts/instance-groups/index.md), которая обрабатывает сообщения из очереди [Yandex Message Queue](https://yandex.cloud/ru/services/message-queue). Например, получает их и через некоторое время удаляет. Количество сообщений в очереди записывается в метрику [Yandex Monium](https://yandex.cloud/ru/services/monium), и группа ВМ [автоматически масштабируется](../../compute/concepts/instance-groups/scale.md#auto-scale) по этой метрике.
 
 Для масштабирования выбрана [деликатная стратегия остановки](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy): ВМ останавливаются самостоятельно после обработки всех сообщений и только после этого удаляются из группы при уменьшении ее размера. Это гарантирует, что ВМ не будут удалены принудительно и обработают последние сообщения, даже если очередь опустеет раньше, чем завершится обработка.
 
@@ -456,10 +456,11 @@
      * **Период стабилизации** — `5 минут`.
      * **Начальный размер группы** — `1`.
 
-  1. В блоке **Метрики** укажите следующие значения:
+  1. После выбора автоматического типа масштабирования появится блок **Метрики**. В нем укажите следующие значения:
 
      * **Метрика** — `Yandex Monitoring`.
-     * **Идентификатор каталога** — `message-queue`.
+     * **Идентификатор каталога** — оставьте поле пустым. По умолчанию используется каталог группы ВМ.
+     * **Идентификатор сервиса** — `message-queue`.
      * **Имя метрики** — `queue.messages.stored_count`.
      * **Метки** — ключ `queue`, значение `queue-autoscale-queue`.
      * **Тип метрики** — `GAUGE`.
@@ -527,21 +528,16 @@
 
 1. Измените файл `messages.sh`: в параметре `--queue-url` укажите URL очереди из файла `queue`.
 1. Запустите файл `messages.sh`. Начнется поочередная отправка 100 сообщений в очередь `queue-autoscale-queue`.
-1. Откройте дашборды в Yandex Monitoring:
+1. Откройте дашборды в Yandex Monium:
 
    {% list tabs group=instructions %}
 
-   - Консоль управления {#console}
+   - Интерфейс Monium {#console}
 
-     1. Откройте дашборд с информацией о группе ВМ:
-
-        1. В [Monitoring](https://monitoring.yandex.cloud) выберите сервисный дашборд **Compute — Instance Groups**.
-        1. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
-
-     1. Откройте дашборд с информацией об очереди:
-
-        1. В [Monitoring](https://monitoring.yandex.cloud) выберите сервисный дашборд **Message Queue**.
-        1. В поле **Queue ID** выберите `queue-autoscale-queue`.
+     1. В [Monium](https://monium.yandex.cloud) выберите проект каталога `example-folder`.
+     1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и перейдите на вкладку **Сервисные дашборды**.
+     1. Откройте дашборд **Compute — Instance Groups**. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
+     1. Вернитесь к списку сервисных дашбордов и откройте дашборд **Message Queue**. В поле **Queue ID** выберите `queue-autoscale-queue`.
 
    {% endlist %}
    

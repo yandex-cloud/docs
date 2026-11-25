@@ -1672,7 +1672,21 @@
 
  - [Column used in join expression is not a key column](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md)
 
+ - [Invalid argument type](troubleshooting/errors/ERR-DS_API-DB-INVALID_ARGUMENT_TYPE.md)
+
+ - [Unknown function](troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION.md)
+
  - [ROUND with precision parameter is not supported for double precision data type in PostgreSQL](troubleshooting/errors/ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md)
+
+ - [Invalid SQL query to the database](troubleshooting/errors/ERR-DS_API-DB-INVALID_QUERY.md)
+
+ - [Invalid separator for splitting](troubleshooting/errors/ERR-DS_API-DB-INVALID_SPLIT_SEPARATOR.md)
+
+ - [Metrica API error](troubleshooting/errors/ERR-DS_API-DB-METRICA.md)
+
+ - [No space left on device](troubleshooting/errors/ERR-DS_API-DB-NO_SPACE_LEFT.md)
+
+ - [Number out of range](troubleshooting/errors/ERR-DS_API-DB-NUMBER_OUT_OF_RANGE.md)
 
  - [Columns in JOIN have different types](troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md)
 
@@ -1714,6 +1728,16 @@
 
  - [Invalid user token](troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md)
 
+ - [Template is disabled for this connection](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-CONNECTION_TEMPLATE_DISABLED.md)
+
+ - [Value constraint is required](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-PARAMETER_VALUE_CONSTRAINT_REQUIRED.md)
+
+ - [Invalid parameter value](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-PARAMETER_VALUE_INVALID.md)
+
+ - [Internal Server Error](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NAME_INVALID.md)
+
+ - [Invalid template](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TEMPLATE_INVALID.md)
+
  - [Joined columns should form prefix of joined table key columns](troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md)
 
  - [Measure filter is unsupported for this type of query](troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md)
@@ -1742,9 +1766,17 @@
 
  - [Subquery source is disallowed in the connection settings](troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md)
 
+ - [Internal Server Error](troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED.md)
+
  - [Нарушена конфигурация таблицы](troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md)
 
  - [Empty document](troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md)
+
+ - [Data sources are inconsistent](troubleshooting/errors/ERR-DS_API-SOURCE-INCONSISTENT.md)
+
+ - [Data source not found](troubleshooting/errors/ERR-DS_API-SOURCE-NOT_FOUND.md)
+
+ - [Data source title conflicts with another source](troubleshooting/errors/ERR-DS_API-SOURCE-TITLE-CONFLICT.md)
 
  - [Too many series on the chart](troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md)
 

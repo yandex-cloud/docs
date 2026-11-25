@@ -27,8 +27,8 @@ Monium Metrics позволяет выгружать метрики объект
 Метрики кластеров можно получить с помощью следующих инструментов:
 
 * [консоль управления](https://console.yandex.cloud);
-* [интерфейс Monium Metrics](https://monium.yandex.cloud);
-* [API Monium Metrics](../../monitoring/api-ref/authentication.md);
+* [интерфейс Monium](https://monium.yandex.cloud);
+* [API Monium](../api-ref/authentication.md);
 * приложение [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider);
 * приложение [Prometheus Operator](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator).
 

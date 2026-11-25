@@ -8,23 +8,11 @@ For disk space limits, see [{#T}](../../compute/concepts/limits.md).
 
 #### How do I resize a disk? {#disk-resize}
 
-To increase your disk size within the [limits](../../compute/concepts/limits.md#compute-limits-disks), follow [this guide](../../compute/operations/disk-control/update.md#change-disk-size). This will not affect your disk data. Be sure to wait until the operation is complete.
+To learn how to increase the disk size within the [limits](../../compute/concepts/limits.md#compute-limits-disks), see [this guide](../../compute/operations/disk-control/update.md#change-disk-size). The data on your disk remain intact; however, you need to wait for the operation to complete.
 
-Due to the architectural constraints of {{ yandex-cloud }} technologies, disk downsizing is not supported. The same applies to creating a disk from a snapshot: it cannot be smaller than the parent disk.
+If the new size appears in the API response, CLI, and management console, but is not available inside the guest OS, extend the partition and file system by following [this guide](../../compute/operations/disk-control/update.md#change-part-size-linux). Commands vary depending on the disk layout and file system type. Before extending partitions, [create a disk snapshot](../../compute/operations/disk-control/create-snapshot.md).
 
-If resizing the disk does not automatically expand the partition on your Linux boot disk, use these commands:
-
-```bash
-sudo growpart /dev/vda 2
-```
-
-```bash
-sudo resize2fs /dev/vda2
-```
-
-Non-bootable disks do not have the partition size increased automatically. You will need to use native OS tools to work with disks and their partitions, such as `parted`, `fdisk`, `cfdisk`, `sfdisk`, and `growpart`. For more information, see [{#T}](../../compute/operations/disk-control/update.md#change-part-size-linux).
-
-To avoid accidentally losing data when resizing, we recommend that you first [create](../../compute/operations/disk-control/create-snapshot.md) a disk snapshot.
+Shrinking an existing disk or creating a smaller disk from a snapshot of it is not supported. For a boot disk, create a new VM with a disk of the size you need and transfer the data. For an additional disk, create an [empty disk](../../compute/operations/disk-create/empty.md), [attach it to your VM](../../compute/operations/vm-control/vm-attach-disk.md), and copy the data. Check the transferred data before deleting the old disk.
 
 #### How do I upload a custom image? {#load-image}
 
@@ -95,21 +83,10 @@ Snapshots are billed and count towards [quotas]({{ link-console-quotas }}) based
 
 #### How do I move a VM to a different folder or cloud? {#move-vm-folder-cloud}
 
-1. Assign the following roles in your cloud to a user from a different cloud:
-   * Role for the cloud: `resource-manager.clouds.member`.
-   * Role for the folder: `viewer` or `compute.images.user`.
+To migrate an existing VM, follow these guides:
 
-   See [{#T}](../../iam/operations/roles/grant.md).
-1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.storage_uisyT }}**.
-
-A user in the cloud you want to move your VM to must follow these steps:
-1. Run this [CLI](../../cli/) command:
-
-   ```bash
-   yc compute image create --source-image-id=<your_image_ID>
-   ```
-
-1. When creating a VM, specify this image as the boot disk.
+* [Moving a VM to a different folder](../../compute/operations/vm-control/vm-change-folder.md)
+* [Moving a VM to a different cloud](../../compute/operations/vm-control/vm-change-cloud.md)
 
 #### How do I attach a new disk to my VM? {#attach-disk-to-vm}
 
@@ -118,10 +95,13 @@ After creating a new disk and attaching it to your VM, you need to mount it or a
 
 #### How do I set up automatic backups? {#set-up-automatic-snapshot-creation}
 
-For disk backups in {{ compute-name }}, you can make disk copies called [snapshots](../../compute/concepts/snapshot.md). To automatically create snapshots, use [schedules](../../compute/concepts/snapshot-schedule.md).
+Set up [scheduled disk snapshots](../../compute/operations/snapshot-control/create-schedule.md). To restore data from a snapshot, [create a new VM](../../compute/operations/vm-create/create-from-snapshots.md) or [disk](../../compute/operations/disk-create/from-snapshot.md) from it.
 
-For more information, see [{#T}](../../compute/concepts/backups.md).
 
+You can also use [{{ backup-full-name }}](../../backup/concepts/backup.md) for backup and restore. For supported OSs and requirements, see [this article](../../backup/concepts/vm-connection/compute.md).
+
+
+For more details, see [Backups](../../compute/concepts/backups.md).
 
 #### Why was a disk snapshot created later than scheduled? {#snapshot-schedule-delays}
 
@@ -174,15 +154,31 @@ Snapshots are created asynchronously. You can resume writing data to your disk i
 
 #### Can I download an image of a created VM? {#download-image}
 
-This option is not currently supported. 
+{{ compute-name }} features no dedicated operation for downloading a VM image.
 
-You can copy data from your VM using application software, such as [rsync](https://en.wikipedia.org/wiki/Rsync), [dd](https://en.wikipedia.org/wiki/Dd_(Unix)), or [GNU Wget](https://en.wikipedia.org/wiki/Wget).
+You can use [Yandex Cloud Disk Export Tool](https://github.com/yandex-cloud-examples/yc-disk-export-tool) to export a disk, image, or snapshot to an {{ objstorage-name }} bucket as a QCOW2 file, which you can further download to your local machine.
 
-{% note tip %}
+You can also copy data from your VM using [rsync](https://en.wikipedia.org/wiki/Rsync), [dd](https://en.wikipedia.org/wiki/Dd_(Unix)), or [GNU Wget](https://en.wikipedia.org/wiki/Wget).
 
-Alternatively, you can use ![image](../../_assets/overview/solution-library-icon.svg) [yc-disk-export-tool](https://github.com/yandex-cloud-examples/yc-disk-export-tool) by {{ yandex-cloud }} community.
+To copy a disk using `dd`:
 
-{% endnote %}
+1. [Stop your source VM](../../compute/operations/vm-control/vm-stop-and-start.md#stop), as the disk data must not change while copying.
+1. [Create a disk image](../../compute/operations/image-create/create-from-disk.md).
+1. From this image, [create a disk](../../compute/operations/disk-create/from-image.md) and [attach it as a secondary disk](../../compute/operations/vm-control/vm-attach-disk.md) to a helper Linux VM. Do not mount file systems from this disk, since `dd` reads the block device directly.
+1. [Connect to the helper VM over SSH](../../compute/operations/vm-connect/ssh.md) and identify the secondary disk name using `lsblk`. Make sure you selected the source disk copy.
+1. On your local machine, run this command (replace the placeholders with your own username, helper VM IP address, and path to the secondary disk):
+
+   ```bash
+   ssh <username>@<VM_IP_address> 'sudo -n dd if=<disk_path> status=progress' > disk.img
+   ```
+
+   This command requires permissions to read the disk using `sudo` without an interactive password prompt. Make sure your local machine has enough free space for the full disk size. Verify that the command completes without errors before using the image.
+
+1. Once you have verified the image, delete any unneeded helper resources to stop incurring charges.
+
+#### How to transfer a disk image to an S3-compatible storage of a third-party provider? {#export-disk-to-s3}
+
+Follow [this guide](../../compute/operations/disk-control/disk-migration-to-external-s3.md). It describes creating a byte-for-byte disk image, uploading a compressed file to an external S3-compatible storage, and test recovery to a dedicated disk.
 
 #### How do I detect processes that cause a heavy load on the disk? {#disk-heavy-load}
 
@@ -195,3 +191,33 @@ You can detect these processes using [iotop](https://manpages.ubuntu.com/manpage
 #### How can I find out the terms and conditions of technical support for public images? {#public-image-support}
 
 {% include [public-image-support](../../_includes/compute/public-image-support.md) %}
+
+#### How do I create a VM with a different boot disk type? {#change-boot-disk-type}
+
+You cannot change the type of an existing boot disk. You will need to create a new VM from a [snapshot](../../compute/operations/vm-create/create-from-snapshots.md) or [image](../../compute/operations/vm-create/create-from-user-image.md) of the source disk and select the new type you need. The new VM will get a different ID.
+
+Before creating a snapshot, [get your disk ready](../../compute/operations/disk-control/create-snapshot.md#prepare) to ensure data integrity. Check that your new VM starts correctly, and verify its data and network settings before deleting the old one.
+
+#### Can I create a VM from an ISO image? {#iso-image}
+
+No, you cannot create a VM from an ISO image directly; only QCOW2, VMDK, VHD, and RAW are supported. To view the image requirements, see [this guide](../../compute/operations/image-create/custom-image.md#create-image-file).
+
+To migrate Linux, install it from an ISO image on your local hypervisor, get your disk image ready by following the guide above, [upload it to {{ objstorage-name }}](../../compute/operations/image-create/upload.md), and [create a VM from your image](../../compute/operations/vm-create/create-from-user-image.md).
+
+
+For Windows, first review the [Microsoft Product Terms](../../microsoft/licensing.md).
+
+
+#### What should I do if a non-replicated disk fails? {#nonreplicated-disk-error}
+
+If a non-replicated disk fails and gets the `ERROR` status, you will no longer be able to restore data from it. You can only restore your data to a new disk from a previously created backup.
+
+Therefore, do not rely on a non-replicated disk as your only storage for critical data. To enable fault tolerance, configure backups and redundant storage at the application level or using [RAID](https://en.wikipedia.org/wiki/RAID). Note that RAID is not a replacement for backups.
+
+[Non-replicated disk placement groups](../../compute/concepts/disk-placement-group.md) allow you to place disks in different server racks. For more details on their properties and limitations, see [Non-replicated disks](../../compute/concepts/disk.md#nr-disks).
+
+#### Why do I fail to create disk snapshots or snapshot schedules? {#snapshot-creation-failed}
+
+Check your quotas for the number and total size of snapshots, as well as the number of schedules. If these quotas are exceeded, new snapshots will not be created, including scheduled ones. For more info on checking usage and increasing quotas, see [{{ compute-name }} quotas and limits](../../compute/concepts/limits.md).
+
+If a snapshot is already being created for a disk, subsequent scheduled runs are skipped until the operation completes. For more details, see [Can I create multiple snapshots of the same disk at a time?](#snapshot-simultaneous).

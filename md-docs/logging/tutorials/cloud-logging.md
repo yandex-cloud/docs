@@ -7,7 +7,7 @@
 
 Логи можно отправить в [поток](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams и далее обработать в реальном времени с помощью Yandex Query. Обработанные данные можно:
 
-* отправить в Yandex Monitoring для построения графиков и алертов;
+* отправить в Yandex Monium для построения графиков и алертов;
 * записать в поток Data Streams и далее отправить на обработку в Yandex Cloud Functions;
 * записать в поток Data Streams и далее передать в Yandex Data Transfer [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 

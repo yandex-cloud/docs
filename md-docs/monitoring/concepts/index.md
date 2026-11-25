@@ -35,8 +35,8 @@ Monitoring позволяет выгружать метрики объектов
 Метрики кластеров можно получить с помощью следующих инструментов:
 
 * [консоль управления](https://console.yandex.cloud);
-* [интерфейс Monitoring](https://monitoring.yandex.cloud);
-* [API Monitoring](../api-ref/authentication.md);
+* [интерфейс Monium](https://monium.yandex.cloud);
+* [API Monium](../../monium/api-ref/authentication.md);
 * приложение [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider);
 * приложение [Prometheus Operator](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator).
 

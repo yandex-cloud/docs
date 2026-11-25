@@ -8,7 +8,7 @@
 
 ## Проверка метрик {#metrics}
 
-Проверьте метрики и производительность в [{{ monitoring-full-name }}](../../../monitoring/index.yaml).
+Проверьте метрики и производительность в [{{ metrics-name }}](../../../monium/metrics/overview.md).
 
 ## Оптимизация конфигурации {#optimization}
 

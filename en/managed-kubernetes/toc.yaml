@@ -72,7 +72,9 @@ items:
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
           - name: Installing Gwin
-            href: alb-ref/gwin-quickstart.md
+            href: operations/applications/gwin-quickstart.md
+          - name: Gwin update
+            href: operations/applications/gwin-upgrade.md
           - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Installing an {{ alb-name }} ingress controller
@@ -105,7 +107,7 @@ items:
         items:
           - name: Granting access to an application running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
-          - name: Configuring the management mode for load balancer target groups
+          - name: Configuring management mode for load balancer target groups
             href: operations/configure-load-balancer-target-groups.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -840,6 +842,8 @@ items:
             href: alb-ref/gwin-policies.md
           - name: Installing Gwin
             href: alb-ref/gwin-quickstart.md
+          - name: Gwin update
+            href: alb-ref/gwin-upgrade.md
           - name: Routing traffic directly to cluster pods
             href: alb-ref/routes-pod.md
           - name: Migrating apps from an ALB ingress controller to Gwin

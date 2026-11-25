@@ -5,6 +5,7 @@ description: Use this tutorial to create a Linux VM.
 
 # Creating a VM from a public Linux image
 
+
 {% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}
@@ -90,7 +91,7 @@ description: Use this tutorial to create a Linux VM.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -169,9 +170,9 @@ description: Use this tutorial to create a Linux VM.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In the metadata, provide the public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In the metadata, provide the public SSH key for VM access. For details, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
      * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
@@ -285,7 +286,7 @@ description: Use this tutorial to create a Linux VM.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
      * `resourcesSpec`: Resources available to the VM. The values must match the selected platform.
-     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+     * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For details, see [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
      * `autoDelete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
 

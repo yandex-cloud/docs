@@ -2,7 +2,7 @@
 
 Чтобы выгрузить метрики в формате {{ prometheus-name }}, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в {{ prometheus-name }} необходимо предварительно настроить сбор метрик в {{ prometheus-name }}.
 
-Пример настройки сбора метрик из {{ monitoring-name }} в {{ prometheus-name }}:
+Пример настройки сбора метрик из {{ monium-name }} в {{ prometheus-name }}:
 1. Выберите каталог, с которого вы хотите собирать данные.
 1. Выберите сервис из следующего списка:
    * `application-load-balancer` — {{ alb-name }}.

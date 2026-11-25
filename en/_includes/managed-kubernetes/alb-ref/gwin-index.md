@@ -4,7 +4,7 @@
 
 The Gwin controller installed in a cluster automatically deploys [L7 load balancers](../../../application-load-balancer/concepts/application-load-balancer.md) based on the configuration of the {{ k8s }} resources you created.
 
-The controller supports the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Gateway API](https://gateway-api.sigs.k8s.io/) specifications. There is a [policy](../../../managed-kubernetes/alb-ref/gwin-policies.md) mechanism to configure additional {{ alb-name }} features beyond the {{ k8s }} specification. Such policies are managed by [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) or annotations. Additional features include autoscaling, logging, and integration with [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md).
+The controller supports the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) and [Gateway API](https://gateway-api.sigs.k8s.io/) specifications. The controller uses a [policy](../../../managed-kubernetes/alb-ref/gwin-policies.md) mechanism to configure additional {{ alb-name }} features beyond the {{ k8s }} specification. Such policies are managed by [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) or annotations. Additional features include autoscaling, logging, and integration with [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md).
 
 Supported {{ k8s }} resources:
 
@@ -14,7 +14,7 @@ Here is how the Gwin controller works:
 
 ![image](../../../_assets/managed-kubernetes/gwin.svg)
 
-To learn how to install the Gwin controller, see [this guide](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
+See [{#T}](../../../managed-kubernetes/alb-ref/gwin-quickstart.md) for more information about installing Gwin and [{#T}](../../../managed-kubernetes/alb-ref/gwin-upgrade.md) to learn more about the update.
 
 {% note tip %}
 
@@ -26,10 +26,10 @@ You can use an existing {{ alb-name }} infrastructure for {{ k8s }} resources vi
 
 Below are two configuration examples: one using Gateway API resources and the other, Ingress resources. Both examples create an {{ alb-name }} that:
 
-  * Automatically gets a dynamic public IP address.
-  * Accepts HTTP traffic on port `80`.
-  * Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
-  * Sends GET requests to a test service named `example-service`.
+* Automatically gets a dynamic public IP address.
+* Accepts HTTP traffic on port `80`.
+* Accepts HTTPS traffic on port `443` using a certificate in {{ certificate-manager-name }}.
+* Sends GET requests to a test service named `example-service`.
 
 {% list tabs group=instructions %}
 

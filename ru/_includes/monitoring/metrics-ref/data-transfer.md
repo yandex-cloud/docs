@@ -1,5 +1,11 @@
 Имя метрики пишется в метку `name`.
 
+
+При просмотре метрик в интерфейсе {{ data-transfer-name }} и при переходе к графику из сервисного дашборда используется значение метки `service=data-transfer`.
+
+Если вы создаете запрос в [разделе метрик {{ monium-name }}](../../../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с трансфером (`project=folder__<идентификатор_каталога>`), `cluster=default` и `service=__data-transfer__`.
+
+
 Все метрики сервиса {{ data-transfer-name }} имеют общие метки:
 
 Метка | Значение

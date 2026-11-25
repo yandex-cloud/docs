@@ -1,4 +1,4 @@
-{{ managed-k8s-name }} автоматически отправляет метрики кластеров в сервис [{{ monitoring-full-name }}](../../monitoring/). Доступны метрики следующих объектов {{ k8s }}:
+{{ managed-k8s-name }} автоматически отправляет метрики кластеров в [{{ metrics-name }}](../../monium/metrics/overview.md). Доступны метрики следующих объектов {{ k8s }}:
 
 * контейнер;
 * [мастер](../../managed-kubernetes/concepts/index.md#master);

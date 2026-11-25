@@ -9,7 +9,7 @@ description: In this article, you will learn what preemptible VMs are, how to us
 * If 24 hours elapsed since the VM was started.
 * If there is a lack of resources to launch a regular VM in the same [availability zone](../../overview/concepts/geo-scope.md). Such an event is usually unlikely, but this may vary day to day.
 
-Preemptible VMs are available at a [lower price](../pricing.md#prices-instance-resources) than regular ones. However, they do not provide fault-tolerance.
+Preemptible VMs are available at a [lower price](../pricing.md#instance-resources) than regular ones. However, they do not provide fault-tolerance.
 
 You can [create](../operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM or [change the type](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular) of an existing one.
 

@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
+  - url: https://connectionmanager.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
     method: get
     path:
       type: object
@@ -28,7 +28,7 @@ Requires `connection-manager.connections.resolveCluster` permission.
 ## HTTP request
 
 ```
-GET https://connman.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
+GET https://connectionmanager.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
 ```
 
 ## Path parameters
