@@ -234,6 +234,8 @@ items:
                 href: cli-ref/v0/cluster/update.md
               - name: update-config
                 href: cli-ref/v0/cluster/update-config.md
+          - name: connect
+            href: cli-ref/v0/connect.md
           - name: hosts
             items:
               - name: Overview
@@ -376,6 +378,8 @@ items:
             href: cli-ref/cluster/update.md
           - name: update-config
             href: cli-ref/cluster/update-config.md
+      - name: connect
+        href: cli-ref/connect.md
       - name: hosts
         items:
           - name: Overview
@@ -756,7 +760,7 @@ items:
                 href: api-ref/Versions/index.md
               - name: List
                 href: api-ref/Versions/list.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

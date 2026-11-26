@@ -13,11 +13,11 @@ You will create resources in the [management console]({{ link-console-main }}) i
 
 1. Create a [target {{ mmy-name }} cluster](../managed-mysql/operations/cluster-create.md) of any suitable configuration. In this case, the following applies:
 
-    * The {{ MY }} version must be the same as or higher than in the source cluster.
+    * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
         Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-        Migration to an earlier {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
+        Migration with a {{ MY }} version downgrade is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
     * [SQL mode](../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
@@ -80,7 +80,7 @@ You will create resources in the [management console]({{ link-console-main }}) i
   1. Select the new source and target endpoints.
   1. Select the [type of transfer](./concepts/index.md#transfer-type):
 
-     * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+     * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#transfer-types).
 
        If you need to create a full copy of the data at specific intervals, enable **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
 
@@ -108,10 +108,10 @@ For more information, see [{#T}](operations/transfer.md#create).
 
 The data transfer process will begin.
 
-## Complete your data transfer {#finish-transfer}
+## Complete the data transfer {#finish-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to _read-only_ mode and transfer the workload over to the target cluster.
+1. Switch the source cluster to _read-only_ mode and transfer the workload to the target cluster.
 1. Monitor the transfer status on the [monitoring](operations/monitoring.md) page.
 
    When the **Maximum data transfer delay** [chart](operations/monitoring.md#sinker.pusher.time.row_max_lag_sec) (data lag in seconds) drops to zero, all the changes in the source cluster that took place after the data copying ended will be transferred to the target cluster. From that point on, you will be able to work with the transferred data.

@@ -58,7 +58,7 @@ Parameter descriptions:
         # If the metadata key is not found at the message level (in the `message` section), the system will search for the key in the session metadata.
         # If the key is not found at the session level, it will use the default value (`{_host|default_host}`) or an empty string if no default value is specified.
         # Below are some template examples.
-        message:  # optional, not set by default
+        message:  # Optional, no default value is set
             # Result example: 'Nov 27 21:03:24 test-host test-app:test_payload'.
             # The timestamp uses the strftime format (http://man7.org/linux/man-pages/man3/strftime.3.html).
             # In this example, the _app 'test-app:' value ending with a colon is a typical result of parsing a syslog message.
@@ -85,7 +85,7 @@ Parameter descriptions:
             - m6: "$short_host_name"
 
         # Values that need to be assigned to the session metadata.
-        session:  # optional, not set by default
+        session:  # Optional, no default value is set
             # Similar to `message`.
             - m1: v1
             - m2: v2
@@ -138,7 +138,7 @@ Parameter descriptions:
         # * w: Week
         # For example, `--since yesterday` will leave messages for yesterday and today, while `--since now-5m --until now-5m+10s` will leave messages for the 10-second interval that began five minutes ago.
         # By default, deltas are counted from `now` which means you can use `-2m` instead of `now-2m`.
-        common_time: null  # optional, not set by default
+        common_time: null  # Optional, no default value is set
 ```
 
 ## Filter_metrics filter {#filter_metrics_filter}
@@ -153,7 +153,7 @@ The filter allows screening out the metrics you are transferring based on label 
         match: "{name=gauge-*}"  # Required.
 ```
 
-See also the [query syntax description](../../../concepts/querying.md#selectors).
+See also the [query syntax description](../../../concepts/querying.md).
 
 ## Match filter {#match_filter}
 
@@ -232,4 +232,4 @@ Parameter descriptions:
         - l4: "-" # Required.
 ```
 
-See also the [query syntax description](../../../concepts/querying.md#selectors).
+See also the [query syntax description](../../../concepts/querying.md).

@@ -54,7 +54,9 @@ Possible property names:
 
 - `replication-source`: Host name of the host to be used as the replication source (for cascading replication).
 
-- `priority`: Priority of the host as a replica. ||
+- `priority`: Priority of the host as a replica.
+
+- `backup-priority`: Priority of the host as a backup source. ||
 || `--datalens-access` | Allow access for DataLens ||
 || `--websql-access` | Allow access for Web SQL ||
 || `--serverless-access` | Allow access for Serverless ||

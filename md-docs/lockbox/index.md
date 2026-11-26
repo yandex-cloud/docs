@@ -298,7 +298,7 @@ Yandex Lockbox — сервис для хранения секретов.
 
  - [UpdateAccessBindings](api-ref/Secret/updateAccessBindings.md)
 
- - [Метрики Monium](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -1,6 +1,6 @@
 # Publish
 
-Sends a [push notification](../concepts/push.md) to an [endpoint](../concepts/index.md#mobile-endpoints), or an [SMS](../concepts/sms.md) to a phone number.
+Sends a [push notification](../concepts/push.md) to an [endpoint](../concepts/push.md#mobile-endpoints), or an [SMS](../concepts/sms.md) to a phone number.
 
 ## HTTP request {#request}
 

@@ -32,6 +32,8 @@
 
  - [Нейроаналитик DataLens](concepts/neuroanalyst.md)
 
+ - [Навыки Нейроаналитика](concepts/neuroanalyst-skills.md)
+
 ## Практические руководства
 
  - [Обзор](tutorials/index.md)
@@ -975,6 +977,8 @@
  - [Обзор](html-pages/index.md)
 
  - [Версионирование](html-pages/versioning.md)
+
+ - [Генератор HTML-отчетов](html-pages/reportgen.md)
 
 ## Публикация и встраивание
 

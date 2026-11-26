@@ -1,4 +1,4 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ captcha-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится капча.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
@@ -33,3 +33,5 @@ captcha | Идентификатор [капчи](../../../smartcaptcha/concepts
 | `smartcaptcha.captcha.slider.success_count`<br>`IGAUGE`, штуки | Количество успешных решений основного задания с типом `Слайдер`. |
 | `smartcaptcha.captcha.validate.failed_count`<br>`IGAUGE`, штуки | Количество событий неуспешной [валидации пользователя](../../../smartcaptcha/concepts/validation.md). |
 | `smartcaptcha.captcha.validate.success_count`<br>`IGAUGE`, штуки | Количество событий успешной валидации пользователя. |
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

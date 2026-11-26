@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Object Storage](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Object Storage](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Monitoring
 

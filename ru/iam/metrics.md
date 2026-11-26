@@ -5,6 +5,4 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ iam-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
-
 {% include [iam](../_includes/monitoring/metrics-ref/iam.md) %}

@@ -33,7 +33,7 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
 
       {% endnote %}
   
-  1. To view available labels for the entered query, click ![view](../../_assets/console-icons/folder-open.svg) in the query line on the right.
+  1. To view available tags for the entered query, click ![view](../../_assets/console-icons/folder-open.svg) in the query line on the right.
 
      If the required label is not found, check the [search time interval](../concepts/querying.md#time-range-filtering). Data with this label might not have been received, or it may have been deleted due to [TTL](../concepts/common-ttl.md). You can enter a label manually, but the chart will only appear if there is data for the selected interval.
 
@@ -43,7 +43,7 @@ For charts based on {{ prometheus-name }} metrics, see [{#T}](../operations/prom
 
   1. Click **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
 
-  1. To visualize a modified metric on the chart, select [functions](../concepts/querying.md#functions) in ![image](../../_assets/monitoring/function.svg).
+  1. To visualize a modified metric on the chart, select [functions](../concepts/querying-functions.md) in ![image](../../_assets/monitoring/function.svg).
   
   1. To display another metric on the chart, click **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** and enter the metric and label values.
    
@@ -86,7 +86,7 @@ Select the chart type and set its parameters. Available settings depend on the c
   1. Above the chart on the right, click **Chart type** and select a chart from one of the groups:
 
      * **Timeseries**: **{{ ui-key.yacloud_monitoring.wizard.chart.line }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.area }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.column }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.points }}**.
-     * **Aggregations**: **{{ ui-key.yacloud_monitoring.wizard.chart.pie }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.tiles }}**, **Bars**.
+     * **Aggregations**: **{{ ui-key.yacloud_monitoring.wizard.chart.pie }}**, **{{ ui-key.yacloud_monitoring.wizard.chart.tiles }}**, **Columns**.
 
   1. To open the chart settings, click ![image](../../_assets/console-icons/gear.svg).
   1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.general }}**, set the chart title and description.
@@ -106,16 +106,16 @@ Select the chart type and set its parameters. Available settings depend on the c
 
 {% endlist %}
 
-## Setting up the _Bars_ chart {#bar-chart}
+## Setting up the _Columns_ chart {#bar-chart}
 
-The **Bars** type allows you to compare aggregated metric values ​​by category. You can group errors by response code, then split each group by host.
+The **Columns** type allows you to compare aggregated metric values ​​by category. You can group errors by response code, then split each group by host.
 
 {% list tabs group=instructions %}
 
 - {{ monium-name }} UI {#console}
 
   1. Select the metrics and [build a chart](#add-graph).
-  1. Above the chart on the right, click **Chart type** and, in the **Aggregations** group, select ![image](../../_assets/console-icons/chart-bar.svg) **Bars**.
+  1. Above the chart on the right, click **Chart type** and, in the **Aggregations** group, select ![image](../../_assets/console-icons/chart-bar.svg) **Columns**.
   1. Click ![image](../../_assets/console-icons/gear.svg) and open the **{{ ui-key.yacloud_monitoring.wizard.tab.visualization }}** section.
   1. In the **Group by** field, select a label for the categories. For example, `code` will create categories for response codes such as `500`, `503`, and `504`.
   1. In the **Split group by** field, select a label for the subgroups. For example, `host` will divide each category into columns for `host-1`, `host-2`.
@@ -128,7 +128,7 @@ The **Bars** type allows you to compare aggregated metric values ​​by catego
 
   1. In the **Sort** field, choose to sort by column values ​​or categories, in either ascending or descending order. By default, categories are sorted in ascending order: numerical categories are sorted as numbers, while others are sorted lexicographically.
   1. In the **Orientation** field, select a vertical or horizontal layout for the columns.
-  1. In the **Stacking** field, select the layout within the category: side-by-side or stacked.
+  1. In the **Column layout** field, select the layout within the category: side-by-side or stacked.
   1. Close the settings panel. All changes take effect immediately.
 
 {% endlist %}

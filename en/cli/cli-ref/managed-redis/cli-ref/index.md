@@ -13,7 +13,7 @@ Command tree v0 is the default. Run `yc managed-redis <command>` or `yc managed-
 
 Syntax:
 
-`yc managed-redis <group>`
+`yc managed-redis <group|command>`
 
 Aliases:
 
@@ -23,7 +23,9 @@ Aliases:
 
 - [yc managed-redis v0](v0/index.md) — Manage Redis clusters, hosts, databases, backups and users
 
+  - [yc managed-redis v0 connect](v0/connect.md) — Connect to a Redis cluster with IAM authentication.
 
+- [yc managed-redis connect](connect.md) — Connect to a Redis cluster with IAM authentication.
 
 - [yc managed-redis backup](backup/index.md) — Manage Redis backups
 

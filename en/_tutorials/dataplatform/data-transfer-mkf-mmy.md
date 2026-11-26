@@ -1,16 +1,21 @@
-# Delivering data from an {{ KF }} queue to {{ MY }} using {{ data-transfer-full-name }}
+# Delivering data from {{ KF }} to {{ MY }} using {{ data-transfer-full-name }}
 
 
 A {{ mmy-full-name }} cluster can ingest data from {{ KF }} topics in real time.
 
 To start data delivery:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## Required paid resources {#paid-resources}
 
@@ -19,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. Set up your data delivery infrastructure:
 
@@ -82,7 +87,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_user_password`: `mmy-user` password in the target cluster.
             * `transfer_enabled`: `0` value.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -99,7 +104,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
     - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
@@ -167,91 +172,87 @@ On your local machine, create a `sample.json` file with the following test data:
 
 - Manually {#manual}
 
-    1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [{{ KF }} source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
+  1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [{{ KF }} source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
-        **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+      * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+      * Name the endpoint.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+          * **Installation type**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and specify the name and password of `mkf-user`, which you created [previously](#prepare-infrastructure).
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Specify `sensors`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: Select `JSON`.
+              * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}**.
+                  Paste the data schema in JSON format:
 
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: `mkf-user`.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the user password.
+                  {% cut "json" %}
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: `sensors`.
+                  ```json
+                  [
+                      {
+                          "name": "device_id",
+                          "type": "utf8",
+                          "key": true
+                      },
+                      {
+                          "name": "datetime",
+                          "type": "utf8"
+                      },
+                      {
+                          "name": "latitude",
+                          "type": "double"
+                      },
+                      {
+                          "name": "longitude",
+                          "type": "double"
+                      },
+                      {
+                          "name": "altitude",
+                          "type": "double"
+                      },
+                      {
+                          "name": "speed",
+                          "type": "double"
+                      },
+                      {
+                          "name": "battery_voltage",
+                          "type": "double"
+                      },
+                      {
+                          "name": "cabin_temperature",
+                          "type": "uint16"
+                      },
+                      {
+                          "name": "fuel_level",
+                          "type": "uint16"
+                      }
+                  ]
+                  ```
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
-
-                    Paste the data schema in JSON format:
-
-                    {% cut "json" %}
-
-                    ```json
-                    [
-                        {
-                            "name": "device_id",
-                            "type": "utf8",
-                            "key": true
-                        },
-                        {
-                            "name": "datetime",
-                            "type": "utf8"
-                        },
-                        {
-                            "name": "latitude",
-                            "type": "double"
-                        },
-                        {
-                            "name": "longitude",
-                            "type": "double"
-                        },
-                        {
-                            "name": "altitude",
-                            "type": "double"
-                        },
-                        {
-                            "name": "speed",
-                            "type": "double"
-                        },
-                        {
-                            "name": "battery_voltage",
-                            "type": "double"
-                        },
-                        {
-                            "name": "cabin_temperature",
-                            "type": "uint16"
-                        },
-                        {
-                            "name": "fuel_level",
-                            "type": "uint16"
-                        }
-                    ]
-                    ```
-
-                    {% endcut %}
+                  {% endcut %}
 
     1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [{{ MY }} target](../../data-transfer/operations/endpoint/target/mysql.md):
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+        * Name the endpoint.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select  `Managed Service for MySQL cluster`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.mdb_cluster_id.title }}**: Select a cluster from the drop-down list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: Specify `mmy-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the `mmy-user` password.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `mmy-user`.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the user password.
-
-    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+    1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer and configure it to use the previously created endpoints.
     1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 
@@ -259,7 +260,7 @@ On your local machine, create a `sample.json` file with the following test data:
 
     1. In the `data-transfer-mkf-mmy.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate

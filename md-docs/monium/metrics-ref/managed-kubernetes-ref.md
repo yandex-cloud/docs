@@ -4,11 +4,16 @@
 
 В этом разделе описаны метрики сервиса [Managed Service for Kubernetes](../../managed-kubernetes/index.md), поставляемые в Monium Metrics.
 
+Метрики сервиса Managed Service for Kubernetes автоматически передаются в [Monium](../metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
 Имя метрики пишется в метку `name`.
 
-При просмотре метрик в интерфейсе Managed Service for Kubernetes и при переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `managed-kubernetes`.
-
-Если вы создаете запрос с нуля в [разделе метрик Monium](../metrics/metric-explorer.md#add-graph), укажите проект каталога с кластером (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __managed-kubernetes__`.
+Идентификатор сервиса — `managed-kubernetes`.
 
 ## Метрики контейнера {#managed-kubernetes-container-metrics}
 
@@ -130,3 +135,5 @@ persistentvolumeclaim | Имя Persistent Volume Claim
 | `persistent_volume.total_bytes`<br/>`IGAUGE`, байты | Общий объем постоянного тома. |
 | `persistent_volume.used_bytes`<br/>`IGAUGE`, байты | Использование постоянного тома. |
 | `persistent_volume.utilization`<br/>`DGAUGE`, % | Утилизация постоянного тома. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

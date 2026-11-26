@@ -117,6 +117,8 @@ Syntax:
 
   - [yc baremetal v2 server list](server/list.md) — Retrieves the list of Server resources in the specified folder.
 
+  - [yc baremetal v2 server list-access-bindings](server/list-access-bindings.md) — Lists access bindings for the specified server.
+
   - [yc baremetal v2 server list-operations](server/list-operations.md) — Lists operations for the specified server.
 
   - [yc baremetal v2 server power-off](server/power-off.md) — Powers off the specified server.
@@ -129,9 +131,13 @@ Syntax:
 
   - [yc baremetal v2 server renew-rental](server/renew-rental.md) — Enable prolongation after rental period end
 
+  - [yc baremetal v2 server set-access-bindings](server/set-access-bindings.md) — Sets access bindings for the specified server.
+
   - [yc baremetal v2 server skip-quarantine](server/skip-quarantine.md) — Skips the quarantine for the specified server.
 
   - [yc baremetal v2 server update](server/update.md) — Updates the specified server.
+
+  - [yc baremetal v2 server update-access-bindings](server/update-access-bindings.md) — Updates access bindings for the specified server.
 
 - [yc baremetal v2 vrf](vrf/index.md) — A set of methods for managing VRF resources.
 

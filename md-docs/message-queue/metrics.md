@@ -1,12 +1,17 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Message Queue, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Message Queue автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится очередь.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Message Queue имеют общую метку `service=message-queue`.
+Идентификатор сервиса — `message-queue`.
 
 ## Метрики HTTP API {#mq-http-metrics}
 
@@ -35,6 +40,8 @@
 | `queue.messages.sent_bytes_per_second`<br>`DGAUGE`, байты/с | Общий размер сообщений, отправленных в очередь в секунду. |
 | `queue.messages.sent_count_per_second`<br>`DGAUGE`, сообщения/с | Количество сообщений, отправленных в очередь в секунду. |
 | `queue.messages.stored_count`<br>`DGAUGE`, штуки | Количество сообщений в очереди в текущий момент. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
 
 #### Полезные ссылки {#see-also}
 

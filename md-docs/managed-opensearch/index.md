@@ -690,7 +690,7 @@
 
  - [List](api-ref/Versions/list.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

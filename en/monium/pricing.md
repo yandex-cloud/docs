@@ -23,7 +23,7 @@ When using {{ monium-name }} services, you pay for the following:
 * Writing data to {{ monium-logs-name }}.
 * Writing data to {{ traces-name }}.
 * Outgoing SMS and phone calls.
-* [Calculating alerts](#calc-alert-prices).
+* [Alert calculation](#calc-alert-prices).
 
 There is no charge for writing {{ yandex-cloud }} resource metrics, reading metrics via the {{ prometheus-name }} Remote API, or reading logs and traces.
 

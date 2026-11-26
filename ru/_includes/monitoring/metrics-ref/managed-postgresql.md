@@ -1,4 +1,10 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ mpg-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ mpg-name }}:
 
@@ -857,3 +863,7 @@
 || `postgres_autovacuum.vacuumed_pct`
 `DGAUGE`, % | Процент строк в таблице, очищенных процессом autovacuum. ||
 |#
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

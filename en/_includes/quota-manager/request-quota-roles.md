@@ -1,3 +1,1 @@
-To manage quota update requests, an [account]({{ link-console-iam-users }}) must have the following roles:
-* [Organization](../../resource-manager/concepts/resources-hierarchy.md#cloud) level: [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator), [organization-manager.viewer](../../organization/security/index.md#organization-manager-viewer).
-* Cloud level: [resource-manager.viewer](../../resource-manager/security/index.md#resource-manager-viewer).
+To view quotas and create quota update requests, [assign](../../iam/operations/roles/grant.md) the [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator) role to the account. Assign the role for the respective cloud or organization.

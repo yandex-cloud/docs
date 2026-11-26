@@ -283,19 +283,19 @@ To speed up delivery of large data volumes from {{ yds-name }} or {{ mkf-name }}
 
 - Management console {#console}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/concepts/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
     * If you chose JSON in the source under **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**, specify `UTF-8` instead of `STRING` for string types in the data schema.
     * Selecting **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}** may slow down your data transfers.
     * To migrate multiple topics, specify the same {{ CH }} table name for all source topics in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** target setting.
 
 - CLI {#cli}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `--alt-name` target setting.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/concepts/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `--alt-name` target setting.
     * To migrate multiple topics, specify the same {{ CH }} table name for all source topics in the `--alt-name` target setting.
 
 - {{ TF }} {#tf}
 
-    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/tutorials/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `alt_names.to_name` target setting.
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into [local tables](../../../../managed-clickhouse/concepts/sharding.md#uses), not a distributed one. In the target, query the migrated data from the distributed table. To override the table used for writing, specify it in the `alt_names.to_name` target setting.
     * If you chose JSON in the source under `parser.json_parser`:
       * Specify `UTF-8` instead of `STRING` for string types in the `parser.json_parser.data_schema` data schema.
       * Setting `parser.json_parser.add_rest_column=true` may slow down your transfer.
@@ -337,7 +337,7 @@ To speed up delivery of large data volumes from {{ yds-name }} or {{ mkf-name }}
 ## Data transfer troubleshooting {#troubleshooting}
 
 * [New tables are not added](#no-new-tables).
-* [Data is not transferred](#no-transfer).
+* [Data is not transferred](#troubleshooting).
 * [Date range is not supported](#date-range).
 * [Lack of resources or increasing data latency](#pod-restarted).
 * [Data blocks limit exceeded](#partition-blocks).

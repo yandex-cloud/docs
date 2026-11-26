@@ -1,5 +1,16 @@
 Имя события | Описание
 --- | ---
+`agentruntime.CreateAgent` | Создание [текстового агента]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents)
+`agentruntime.CreateAgentVersion` | Создание [версии текстового агента]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents#agent-versions)
+`agentruntime.CreateChannel` | Создание [канала публикации]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents#publication-channels) текстового агента
+`agentruntime.DeleteAgent` | Удаление текстового агента
+`agentruntime.DeleteAgentVersion` | Удаление версии текстового агента
+`agentruntime.DeleteChannel` | Удаление канала публикации текстового агента
+`agentruntime.PauseChannel` | Приостановка работы канала публикации текстового агента
+`agentruntime.PublishAgentVersion` | Публикация версии текстового агента
+`agentruntime.ResumeChannel` | Возобновление работы канала публикации текстового агента
+`agentruntime.UpdateAgent` | Изменение текстового агента
+`agentruntime.UpdateChannel` | Изменение канала публикации текстового агента
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме

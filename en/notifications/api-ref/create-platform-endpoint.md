@@ -1,6 +1,6 @@
 # CreatePlatformEndpoint
 
-Creates an [endpoint for push notifications](../concepts/index.md#mobile-endpoints) (subscribes the user to push notifications).
+Creates an [endpoint for push notifications](../concepts/push.md#mobile-endpoints) (subscribes the user to push notifications).
 
 ## HTTP request {#request}
 

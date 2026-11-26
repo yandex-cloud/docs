@@ -516,7 +516,7 @@ items:
                     href: privateca/api-ref/Template/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: privateca/api-ref/Template/updateAccessBindings.md
-  - name: Метрики {{ monium-full-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

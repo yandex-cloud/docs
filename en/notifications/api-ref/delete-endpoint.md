@@ -1,6 +1,6 @@
 # DeleteEndpoint
 
-Deletes an [endpoint for push notifications](../concepts/index.md#mobile-endpoints).
+Deletes an [endpoint for push notifications](../concepts/push.md#mobile-endpoints).
 
 ## HTTP request {#request}
 

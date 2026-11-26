@@ -11,9 +11,11 @@ Manage MongoDB clusters, hosts, databases, backups and users
 
 Syntax:
 
-`yc managed-mongodb v0 <group>`
+`yc managed-mongodb v0 <group|command>`
 
 #### Command Tree
+
+- [yc managed-mongodb v0 connect](connect.md) — Connect to a MongoDB cluster with IAM authentication.
 
 - [yc managed-mongodb v0 backup](backup/index.md) — Manage MongoDB backups.
 

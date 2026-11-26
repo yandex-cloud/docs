@@ -5,6 +5,15 @@ description: This section contains the {{ video-name }} release notes.
 
 # {{ video-full-name }} release notes
 
+## July – September 2026 {#jul-sep-2026}
+
+* Updated the [video player SDK for iOS](sdk/ios-sdk.md) to version `0.1.7`.
+* For broadcasts, added support for ingesting video feeds via the SRT protocol in push mode.
+* Added support for backup video signal sources for RTMP and SRT broadcasts. You can choose the primary or backup source, or use any source that is available.
+* In player presets, added the ability to save viewing progress to resume videos from where they stopped.
+* Added support for the SVG format for [logos in player presets](operations/style-presets/update.md). The recommended file size is up to 10 MB.
+* Added support for the Kyrgyz language in the [player interface](sdk/iframe/initialization.md#lang).
+
 ## April – June 2026 {#apr-jun-2026}
 
 * Added advanced monitoring and statistics features for channels and videos.

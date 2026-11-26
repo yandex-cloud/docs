@@ -608,7 +608,7 @@
     * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}** — `https://{{ s3-storage-host-mch }}/catboost_model.bin`.
 
 
-1. [Скачайте файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа.
+1. [Скачайте файл с данными](https://{{ s3-storage-host-ru }}/doc-files/managed-clickhouse/train.csv) для анализа.
 
 
 1. [Подключитесь к кластеру](connect/clients.md).

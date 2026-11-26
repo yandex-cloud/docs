@@ -66,7 +66,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
 1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) to interact with a {{ dataproc-name }} cluster.
 
-1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster) cluster. In the settings, specify:
+1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create) cluster. In the settings, specify:
 
    * `SPARK` and `YARN` services.
    * Service account you created earlier.

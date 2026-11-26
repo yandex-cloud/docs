@@ -146,6 +146,17 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`agentruntime.CreateAgent` | Создание [текстового агента](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents)
+`agentruntime.CreateAgentVersion` | Создание [версии текстового агента](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#agent-versions)
+`agentruntime.CreateChannel` | Создание [канала публикации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/text-agents#publication-channels) текстового агента
+`agentruntime.DeleteAgent` | Удаление текстового агента
+`agentruntime.DeleteAgentVersion` | Удаление версии текстового агента
+`agentruntime.DeleteChannel` | Удаление канала публикации текстового агента
+`agentruntime.PauseChannel` | Приостановка работы канала публикации текстового агента
+`agentruntime.PublishAgentVersion` | Публикация версии текстового агента
+`agentruntime.ResumeChannel` | Возобновление работы канала публикации текстового агента
+`agentruntime.UpdateAgent` | Изменение текстового агента
+`agentruntime.UpdateChannel` | Изменение канала публикации текстового агента
 `batch_inference.CancelBatchInference` | Остановка работы модели в пакетном режиме
 `batch_inference.DeleteBatchInference` | Удаление результата обработки в пакетном режиме
 `batch_inference.StartBatchInference` | Запуск модели в пакетном режиме
@@ -493,6 +504,13 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `application.linked.UpdateApplication` | Изменение связанного приложения
 `application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
+`authenticatorusagepolicy.ActivateAuthenticatorUsagePolicy` | Активация политики использования аутентификаторов
+`authenticatorusagepolicy.CreateAuthenticatorUsagePolicy` | Создание политики использования аутентификаторов
+`authenticatorusagepolicy.DeactivateAuthenticatorUsagePolicy` | Деактивация политики использования аутентификаторов
+`authenticatorusagepolicy.DeleteAuthenticatorUsagePolicy` | Удаление политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicy` | Изменение политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicyAudience` | Изменение целевых пользователей политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicyExcludedAudience` | Изменение списка исключений политики использования аутентификаторов
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.application.CreateAsset` | Загрузка логотипа приложения
@@ -1461,6 +1479,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `MoveCluster` | Перемещение кластера
 `RebalanceCluster` | Перебалансировка кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`RestartHosts` | Перезагрузка хостов кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера

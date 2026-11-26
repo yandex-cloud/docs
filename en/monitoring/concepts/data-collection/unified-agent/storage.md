@@ -7,7 +7,7 @@ Storages are listed in the `storages` section, while storage references are adde
 The storage description consists of the following elements:
 
 - `name`: Storage name to use for reference from the pipe.
-- `plugin`: [Storage plugin](#storages).
+- `plugin`: [Storage plugin](index.md#storages).
 - `config`: Input configuration.
 
 Example of the `storages` section:
@@ -31,7 +31,7 @@ storages:
 To make a reference to a storage, you can use the `storage_ref` directive with the following parameters:
 
 - `name`: Name of the storage defined in `storages`.
-- `flow_control`: Settings for the [session creation mechanism](#flow_control).
+- `flow_control`: Settings for the [session creation mechanism](services.md#flow_control).
 
 Here is an example of a pipe with a storage reference:
 
@@ -42,7 +42,7 @@ pipe:
 
       # Configuration for the session infrastructure.
       flow_control:
-        new_sessions_rate_limit: null  # optional, not set by default
+        new_sessions_rate_limit: null  # Optional, no default value is set
 ```
 
 ## fs storage plugin {#fs_storage}
@@ -140,16 +140,16 @@ storages:  # optional
       # The segment is not deleted while it contains more recent messages.
       # The relevance of messages is determined by the `timestamp` field value of the first message in the second-to-last segment.
       # The partition stores data for approximately the specified period.
-      by_age: 10d  # Optional, not set by default.
+      by_age: 10d  # Optional, no default value is set
 
       # The segment is not deleted as long as the partition's data size without the segment's own size remains less than the specified size.
       # This means the partition size will be maintained to not drop below the specified value.
       # If you specify `by_size: max`, the data will be deleted only when the partition size limit is reached.
-      by_size: 500mb  # Optional, not set by default.
+      by_size: 500mb  # Optional, no default value is set
 
     # The logging level to use when deleting unconfirmed data.
     # The agent's monitoring usually tracks the value of the `Errors` counter, which is the total number of events inside the agent logged with the `ERROR` level.
     # If storage overflow is possible (e.g., the data is being written to the agent at a higher rate than set in the `new_sessions_rate_limit` parameter of the `flow_control` section), you can use this parameter to disable alert firing.
-    # The possible values are: EMERG, ALERT, CRITICAL_INFO, ERROR, WARNING, NOTICE, INFO, DEBUG, RESOURCES.
+    # Its possible values are: EMERG, ALERT, CRITICAL_INFO, ERROR, WARNING, NOTICE, INFO, DEBUG, RESOURCES.
     unacknowledged_eviction_log_priority: ERROR  # Optional, the default value is `ERROR`.
 ```

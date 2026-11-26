@@ -1,22 +1,22 @@
 ---
 title: How to set up an {{ ES }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ ES }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure an {{ ES }} source endpoint in {{ data-transfer-full-name }}.
 ---
 
 # Transferring data from an {{ ES }} source endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ ES }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ ES }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ ES }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data from {{ ES }} {#scenarios}
+## {{ ES }} data transfer scenarios {#scenarios}
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -32,10 +32,10 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ ES }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure:
 
-* [Custom installation](#on-premise) connection settings. These are required parameters.
-* [Additional parameters](#additional-settings).
+* [Custom installation](#on-premise) connection settings. These settings are required.
+* [Optional settings](#additional-settings).
 
 ### Custom installation {#on-premise}
 
@@ -53,7 +53,7 @@ Connection to nodes with explicitly specified network addresses and ports.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ssl_enabled.title }}**: Select this option if a secure SSL connection is used.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}**: Upload the certificate file or add its contents as text if data encryption is required, e.g., to comply with the PCI DSS requirements.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}**: If you need to encrypt data during transfer, e.g., to comply with PCI DSS, upload the certificate or paste its contents as text.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the required [availability zone](../../../../overview/concepts/geo-scope.md).
       If this field has a value specified for both endpoints, both subnets must be hosted in the same availability zone.
@@ -95,4 +95,4 @@ Configure the target endpoint:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).

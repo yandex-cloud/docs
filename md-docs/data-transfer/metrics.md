@@ -1,15 +1,19 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Data Transfer](index.md) > Метрики Monium Metrics
+[Документация Yandex Cloud](../index.md) > [Yandex Data Transfer](index.md) > Справочник метрик
 
 # Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Data Transfer, поставляемые в [Monium Metrics](../monium/metrics/overview.md).
+
+Метрики сервиса Data Transfer автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
+
+
+
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
-
-
-При просмотре метрик в интерфейсе Data Transfer и при переходе к графику из сервисного дашборда используется значение метки `service=data-transfer`.
-
-Если вы создаете запрос в [разделе метрик Monium](../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с трансфером (`project=folder__<идентификатор_каталога>`), `cluster=default` и `service=__data-transfer__`.
 
 
 Все метрики сервиса Data Transfer имеют общие метки:
@@ -124,6 +128,10 @@ component | Компонент системы, например `psutil`.
 `task.snapshot.remainder.table`</br>`DGAUGE`, штуки | Количество строк, ожидающих переноса.</br>Метка `table` — таблица БД или коллекция.
 `task.snapshot.reminder.total`</br>`DGAUGE`, штуки | Общее количество оставшихся строк для переноса.</br>Метка `table` — таблица БД или коллекция.
 `task.status`</br>`DGAUGE`, 0/1 | Статус выполняющейся операции.</br>Принимает значения:<ul><li>`1` — задача активна;</li><li>`0` — задача неактивна.</li></ul>
+
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
+
 
 #### Полезные ссылки {#see-also}
 

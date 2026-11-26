@@ -45,7 +45,9 @@ Possible property names:
 
 - `replication-source`: Host name of the host to be used as the replication source (for cascading replication).
 
-- `priority`: Priority of the host as a replica. ||
+- `priority`: Priority of the host as a replica.
+
+- `backup-priority`: Priority of the host as a backup source. ||
 || `--user` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Descriptions of database users to be created in the PostgresSQL cluster.

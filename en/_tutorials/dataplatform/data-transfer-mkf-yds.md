@@ -1,18 +1,23 @@
-# Delivering data from an {{ KF }} queue to {{ DS }}
+# Delivering data from {{ KF }} to {{ DS }}
 
 
 A stream in {{ yds-full-name }} can receive data from {{ KF }} topics in real time.
 
 To start data delivery:
 
-1. [Create a target stream in {{ yds-name }}](#create-target-yds).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Create a data stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
 
 * {{ mkf-full-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -27,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. Set up your data delivery infrastructure:
 
@@ -67,9 +72,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `source_user_name`: Username for connection to the {{ KF }} topic.
             * `source_user_password`: User password.
             * `target_db_name`: {{ ydb-name }} database name.
-            * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created manually](#prepare-transfer).
+            * `transfer_enable`: Set to `0` not to create a endpoints and a transfer until [a target data stream is created manually](#prepare-source).
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -117,7 +122,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Create a target stream in {{ yds-name }} {#create-target-yds}
+## Create a data stream in {{ yds-name }} {#prepare-source}
 
 [Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for your {{ ydb-name }} database.
 
@@ -125,15 +130,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+    * Name the endpoint.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and the name and password of the user created [earlier](#prepare-infrastructure).
 
-        Select your source cluster from the list and specify its connection settings.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `JSON`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
 
             * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
@@ -204,13 +213,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ yds-full-name }}` target](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Name the endpoint.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select your {{ ydb-name }} database from the list.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.managed_connection.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
 
-    
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
+        
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
 
 
 1. Create a transfer:
@@ -231,9 +244,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. In `data-transfer-mkf-ydb.tf`, specify the following variables:
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `data_stream_name`: Name of the data stream you created.
+            * `transfer_enable`: Set to `1` to create endpoints and a transfer.
 
         1. If you want to transform data during the transfer, add the `transformation` section with a list of relevant transformers to the `yandex_datatransfer_transfer` resource:
 
@@ -336,7 +348,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        The data is sent on behalf of the [created user](#before-you-begin). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#prepare-infrastructure). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 

@@ -1,4 +1,7 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ mmy-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
@@ -276,3 +279,7 @@ subcluster_name | Имя субкластера
 | `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности хоста на запись.<br/>Принимает значение `1`, если сервис на хосте доступен на запись, `0`, если нет. |
 | `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
 | `n_unique_users`<br/>`DGAUGE`, пользователи | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

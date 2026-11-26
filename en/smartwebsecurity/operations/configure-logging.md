@@ -33,7 +33,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
   1. Enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select `{{ cloud-logging-name }}`.
   1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
-  1. For logging, you can choose only those requests that triggered:
+  1. For security profile logging, you can select only those requests that triggered:
 
       * `{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}`.
       * `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}` rules.
@@ -43,6 +43,13 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
       * All selected rules applied the `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}` action (legitimate requests).
 
           Usually the number of legitimate requests is much higher than illegitimate ones. To reduce the amount of logs, configure the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowPercentageTitle_3334 }}** parameter: from 1 to 100 %. When setting up rules for the first time, we recommend that you analyze all legitimate requests. Once you make sure the rules are working correctly, you can change the log percentage or disable logging of requests with the `{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}` verdict.
+  1. To record entries in the proxy server logs, you can create a log discarding rule:
+
+      1. Under **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.add-rule_fnmLk }}**, click **{{ ui-key.yacloud.smart-web-security.ProxyServerForm.discard-rules-title_xn6cP }}**.
+      1. Select **HTTP codes** or **HTTP code classes** for which you want to reduce log entries.
+      1. Specify the **share of logs to discard**, ranging from `0%` (all logs are recorded) to `100%` (no logs are recorded).
+
+      For other HTTP codes, add separate rules.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -96,7 +103,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/smartwebsecurity) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select the ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** section.
+  1. Select ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
   1. Select a log group if there are several.
   1. Select the log display period using one of the following methods:
 
@@ -139,7 +146,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
       module_type = "RULE_CONDITION", meta.matched_rule_verdict = "DENY"
       ```
 
-  * Show requests that have triggered the [Smart Protection](../concepts/rules.md##smart-protection-rules) rules with a CAPTCHA challenge:
+  * Show requests that have triggered the [Smart Protection](../concepts/rules.md#smart-protection-rules) rules with a CAPTCHA challenge:
 
       ```text
       module_type = "SMART_PROTECTION", meta.matched_rule_verdict = "CAPTCHA"

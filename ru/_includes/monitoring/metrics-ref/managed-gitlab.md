@@ -1,10 +1,12 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ mgl-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится инстанс.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ mgl-name }}:
 
 | Метка     |   Значение                                     |
 |-----------|------------------------------------------------|
-| service   | Идентификатор сервиса: `__managed-gitlab__`. |
+| service   | Идентификатор сервиса: `managed-gitlab`.     |
 | host      | Имя хоста инстанса в домене `.gitlab.yandexcloud.net`. Например, `example` для инстанса с доменным именем `example.gitlab.yandexcloud.net`. |
 | cloud_id  | Идентификатор [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud).    |
 | folder_id | Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder). |
@@ -61,3 +63,4 @@
 | `sys.system.UpTimeRaw` | `DGAUGE` | Общее время с момента последнего запуска системы, в секундах. |
 | `sys.system.UserTime` | `DGAUGE` | Время выполнения пользовательских процессов, в % от общего процессорного времени. |
 
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

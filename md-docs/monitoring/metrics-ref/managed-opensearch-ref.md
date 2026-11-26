@@ -4,7 +4,20 @@
 
 В этом разделе описаны метрики сервиса [Managed Service for OpenSearch](../../managed-opensearch/index.md), поставляемые в Monitoring.
 
+Метрики сервиса Managed Service for OpenSearch автоматически передаются в [Monium](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
 Имя метрики пишется в метку `name`.
+
+Чтобы посмотреть детальную информацию о состоянии кластера и его хостов, воспользуйтесь [инструкцией](../../managed-opensearch/operations/monitoring.md).
+
 
 Общие метки для всех метрик сервиса Managed Service for OpenSearch: 
 
@@ -671,3 +684,6 @@ subcluster_name | Имя субкластера
 [*write_back]: Объем памяти с данными, активно записываемыми на диск.
 
 [*write_back_tmp]: Объем временной памяти для операций записи.
+
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

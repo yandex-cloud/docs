@@ -4,6 +4,16 @@ description: Changelog, updates, and version history for the {{ yandex-cloud }} 
 editable: false
 ---
 
+## 0.254.0 (November 26, 2026)
+
+##### FEATURES:
+* trino: add cluster-level additional_properties to the yandex_trino_cluster resource and data source
+
+##### ENHANCEMENTS:
+* cic: add `max_trunk_bandwidth` to `yandex_cic_partner` data source
+
+
+
 ## 0.253.0 (November 25, 2026)
 
 ##### BUG FIXES:

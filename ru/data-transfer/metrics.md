@@ -5,9 +5,9 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ data-transfer-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
 
 {% include [data-transfer](../_includes/monitoring/metrics-ref/data-transfer.md) %}
+
 
 #### Полезные ссылки {#see-also}
 

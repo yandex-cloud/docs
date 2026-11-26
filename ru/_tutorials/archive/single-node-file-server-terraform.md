@@ -26,7 +26,7 @@
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 КБ).
+     1. Скачайте [архив](https://{{ s3-storage-host-ru }}/doc-files/single-node-file-server.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `single-node-file-server.tf`.
 
    - Вручную {#manual}

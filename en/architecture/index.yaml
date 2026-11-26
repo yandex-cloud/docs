@@ -40,6 +40,26 @@ blocks:
         controlPosition: content
         animated: false
       - type: basic-card
+        title: Transferring a disk image to a third-party S3-compatible storage
+        text: >-
+          Creating a byte-for-byte disk image, uploading it to an object storage
+          of a third-party provider, trial recovery.
+        urlTitle: Transferring a disk image to a third-party S3-compatible storage
+        url: disk-migration-to-external-s3
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Configuring Cloud CDN when the origin is unavailable
+        text: >-
+          Setting up caching, firewall, and backup origins for content delivery
+          when the main origin is unavailable.
+        urlTitle: Improving the fault tolerance of a Cloud CDN resource
+        url: cdn-fault-tolerance
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
         title: Deploying a web app in a fault-tolerant configuration
         text: >-
           This is an example of how to deploy a web app in a fault-tolerant

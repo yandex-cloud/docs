@@ -11,7 +11,6 @@ description: Управление доступом в сервисе для от
 
 Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-name }}.
 
-С помощью [политики авторизации](../../iam/concepts/access-control/access-policies.md#postbox-identities-restrictNetworkAccess) `postbox.identities.restrictNetworkAccess` вы можете разрешить [отправку писем](../operations/send-email.md) только с определенных, заданных явно IP-адресов. Политика авторизации создается на уровне [каталога](*folders), [облака](*clouds) или [организации](*organizations) и запрещает отправку писем с любых IP-адресов, не входящих в заданный список. Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/access-policies.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

@@ -2,6 +2,7 @@
 
 You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }}/{{ CB }} in {{ mgp-full-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
@@ -9,16 +10,20 @@ You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }}/{{ CB 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
 
 * {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
-## Getting started {#before-you-begin}
+## Set up your infrastructure {#prepare-infrastructure}
 
-1. Set up your infrastructure:
+1. Set up your data delivery infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -32,11 +37,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [In the source cluster, create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-        1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the new topic.
+        1. [In the source cluster, create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with `user` as admin and hosts located in the public domain.
+        1. [Create a {{ GP }} target cluster](../../../managed-greenplum/operations/cluster-create.md#create-cluster) with publicly accessible hosts and `user` as the admin username. Use any configuration you need.
 
-        1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
+        1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
@@ -48,7 +53,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Download the [kafka-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-greenplum/blob/main/kafka-greenplum.tf) configuration file to the same working directory.
+        1. Download the [kafka-greenplum.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-greenplum/blob/main/kafka-greenplum.tf) configuration file to your current working directory.
 
             This file describes:
 
@@ -59,8 +64,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ KF }} endpoint.
             * Transfer.
 
-        1. In the `kafka-greenplum.tf` file, specify user passwords and {{ KF }} and {{ GP }} versions.
-        1. Validate your {{ TF }} configuration files using this command:
+        1. In the `kafka-greenplum.tf` file, specify the user passwords and the versions of {{ KF }} and {{ GP }}.
+        1. Validate your {{ TF }} configuration using this command:
 
             ```bash
             terraform validate
@@ -77,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install the following tools:
+1. Install these tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
@@ -98,7 +103,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Suppose the {{ KF }} `sensors` topic in the source cluster receives JSON-formatted data from car sensors.
 
-Create a file named `sample.json` with test data on your local machine:
+On your local machine, create a file named `sample.json` with test data:
 
 {% cut "sample.json" %}
 
@@ -120,71 +125,92 @@ Create a file named `sample.json` with test data on your local machine:
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/greenplum.md) of the `{{ GP }}` type and put `user` for username.
-1. Create an {{ KF }} source endpoint and set up the transfer:
+1. [Create an endpoint for the {{ GP }} target](../../../data-transfer/operations/endpoint/target/greenplum.md):
+
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Name the endpoint.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Greenplum/Yandex MPP Analytics`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `Cluster`.
+        * **Cluster**: Select a cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.database.title }}**: Specify the name database of interest.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Specify `user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter the `user` password.
+
+1. Create a {{ KF }} source endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
+        1. [Create a `{{ KF }}` type source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md):
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
-            * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
+            * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+            * Name the endpoint.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-                {% cut "sensors-specification" %}
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                * **Installation type**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and the name and password of the user created [earlier](#prepare-infrastructure).
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: Specify `sensors`.
+                * In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, specify the `json` type conversion rules. Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}` and paste the following field specification into the form that opens:
 
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
+                    {% cut "sensors-specification" %}
 
-                {% endcut %}
+                    ```json
+                    [
+                        {
+                            "name": "device_id",
+                            "type": "utf8",
+                            "key": true
+                        },
+                        {
+                            "name": "datetime",
+                            "type": "utf8"
+                        },
+                        {
+                            "name": "latitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "longitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "altitude",
+                            "type": "double"
+                        },
+                        {
+                            "name": "speed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "battery_voltage",
+                            "type": "double"
+                        },
+                        {
+                            "name": "cabin_temperature",
+                            "type": "uint16"
+                        },
+                        {
+                            "name": "fuel_level",
+                            "type": "uint16"
+                        }
+                    ]
+                    ```
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_-type that will use the new endpoints.
+                    {% endcut %}
+
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-repl }}_-type transfer and configure it to use the previously created endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
     
     - {{ TF }} {#tf}
 
-        1. In the `kafka-greenplum.tf` file, specify the following variables:
+        1. In `kafka-greenplum.tf`, specify the following variables:
 
             * `gp_target_endpoint_id`: {{ GP }} target endpoint ID.
             * `transfer_enabled`: Set to `1` to create the transfer.
@@ -208,7 +234,7 @@ Create a file named `sample.json` with test data on your local machine:
 
 ## Test the transfer {#verify-transfer}
 
-Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the {{ GP }} database:
+Make sure data from the topic in the {{ mkf-name }} source cluster is reaching the {{ GP }} database:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -226,10 +252,10 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 
     To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
-1. Make sure the data from the {{ mkf-name }} source cluster has been transferred to the {{ GP }} database:
+1. Make sure the {{ GP }} database now contains the data from the {{ mkf-name }} source cluster:
 
     1. [Connect to the {{ GP }} database](../../../managed-greenplum/operations/connect/index.md).
-    1. Check that the database contains a table named `sensors` with the test data from the topic:
+    1. Check that the database contains the `sensors` table with the test data from the topic:
 
         ```sql
         SELECT * FROM public.sensors;
@@ -237,12 +263,12 @@ Make sure data from the {{ mkf-name }} source cluster topic is being transferred
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To reduce resource usage, delete the resources you no longer need:
 
-1. Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../../data-transfer/operations/transfer.md#delete) it.
+1. Make sure the transfer status is {{ dt-status-finished }}, then [delete](../../../data-transfer/operations/transfer.md#delete) it.
 
 
-1. Delete the resources depending on how you created them:
+1. Delete the resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

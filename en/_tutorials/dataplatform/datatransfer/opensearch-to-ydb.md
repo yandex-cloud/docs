@@ -5,7 +5,7 @@
 
 To transfer data:
 
-1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Prepare the infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Prepare your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect/index.md#security-groups).
 
     1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
@@ -162,7 +162,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) of the `{{ ydb-short-name }}` type with the following settings:
+        1. [Create](../../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) a `{{ ydb-short-name }}`-type target endpoint with the following settings:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your `ydb1` database from the list.
 
@@ -170,7 +170,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `ydb-account` service account from the list.
 
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer and configure it to use the previously created endpoints.
 
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 

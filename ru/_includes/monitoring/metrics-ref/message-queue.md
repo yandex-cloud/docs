@@ -1,6 +1,8 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ message-queue-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится очередь.
 
-Все метрики сервиса {{ message-queue-name }} имеют общую метку `service=message-queue`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Идентификатор сервиса — `message-queue`.
 
 ## Метрики HTTP API {#mq-http-metrics}
 
@@ -29,3 +31,5 @@
 | `queue.messages.sent_bytes_per_second`<br>`DGAUGE`, байты/с | Общий размер сообщений, отправленных в очередь в секунду. |
 | `queue.messages.sent_count_per_second`<br>`DGAUGE`, сообщения/с | Количество сообщений, отправленных в очередь в секунду. |
 | `queue.messages.stored_count`<br>`DGAUGE`, штуки | Количество сообщений в очереди в текущий момент. |
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

@@ -468,7 +468,7 @@ items:
                 href: backup/api-ref/Setup/index.md
               - name: GetAgentInstallCommand
                 href: backup/api-ref/Setup/getAgentInstallCommand.md
-  - name: Метрики {{ metrics-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

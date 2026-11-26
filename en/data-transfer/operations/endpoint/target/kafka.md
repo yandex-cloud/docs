@@ -1,20 +1,20 @@
 ---
-title: How to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}.
+title: How to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}
+description: In this tutorial, you will learn how to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}.
 ---
 
-# Transferring data to a {{ KF }} target endpoint
+# Transferring data to an {{ KF }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to an {{ KF }} queue and implement various data processing and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](../../../../data-transfer/troubleshooting/index.md) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](../../../../data-transfer/troubleshooting/index.md) for troubleshooting.
 
-## Scenarios for transferring data to {{ KF }} {#scenarios}
+## {{ KF }} data transfer scenarios {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -28,7 +28,7 @@ description: In this tutorial, you will learn how to set up a {{ KF }} target en
     * [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-mpg.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Delivering data from a {{ DS }} queue to {{ KF }}](../../../tutorials/yds-to-kafka.md)
+    * [Delivering data from an {{ DS }} queue to {{ KF }}](../../../tutorials/yds-to-kafka.md)
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -48,7 +48,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ KF }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure:
 
 * [{{ mkf-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings and [serialization settings](#serializer), including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Apache Kafka topic settings](#kafka-settings).
@@ -58,7 +58,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mkf.viewer }}`](../../../../managed-kafka/security/index.md#mkf-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mkf.viewer }}`](../../../../managed-kafka/security/index.md#managed-kafka-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -77,7 +77,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -124,7 +124,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Configuration file structure example:
 
     
     ```hcl
@@ -230,4 +230,4 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).

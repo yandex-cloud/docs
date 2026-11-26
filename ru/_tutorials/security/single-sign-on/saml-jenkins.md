@@ -49,12 +49,12 @@
 Чтобы настроить аутентификацию в Jenkins с помощью SAML, установите плагин SAML:
 
 1. Войдите в Jenkins под пользователем с правами администратора.
-1. В меню слева выберите **Manage Jenkins** > **Plugins**.
+1. В меню слева выберите **Manage Jenkins** → **Plugins**.
 1. Перейдите на вкладку **Available** и в строке поиска введите `SAML`.
 1. Найдите плагин [**SAML Plugin**](https://plugins.jenkins.io/saml) и установите его, нажав **Install**.
 1. Дождитесь завершения установки и перезапустите Jenkins, если это потребуется.
 
-После установки плагина в разделе **Manage Jenkins** > **Security** появится новый вариант **Security Realm** – `SAML 2.0`.
+После установки плагина в разделе **Manage Jenkins** → **Security** появится новый вариант **Security Realm** – `SAML 2.0`.
 
 ### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 
@@ -77,7 +77,7 @@
 ### Настройте аутентификацию на стороне Jenkins {#setup-sp}
 
 1. Войдите в Jenkins под пользователем с правами администратора.
-1. В меню слева выберите **Manage Jenkins** > **Security**.
+1. В меню слева выберите **Manage Jenkins** → **Security**.
 1. В разделе **Security Realm** выберите `SAML 2.0`.
 1. В поле **IdP Metadata URL** введите адрес файла с метаданными, скопированный ранее.
 1. В поле **Display Name Attribute** введите `fullname`.

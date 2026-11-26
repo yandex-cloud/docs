@@ -1,6 +1,6 @@
 # GetEndpointAttributes
 
-Gets attributes of the [endpoint for push notifications](../concepts/index.md#mobile-endpoints).
+Gets attributes of the [endpoint for push notifications](../concepts/push.md#mobile-endpoints).
 
 ## HTTP request {#request}
 
@@ -14,7 +14,7 @@ Parameter | Description
 --- | ---
 `Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `GetEndpointAttributes`.
 `EndpointArn` | **string**<br/>Required field.<br/>Endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
-`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`</li></ul>
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 

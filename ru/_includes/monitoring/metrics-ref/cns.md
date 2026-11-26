@@ -1,4 +1,4 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ cns-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
@@ -69,3 +69,5 @@
 * `topic_name` — имя топика.
 * `error` — расшифровка статуса `client_error` при отправке сообщения.||
 |#
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

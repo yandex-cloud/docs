@@ -1,8 +1,11 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ mmg-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
-Выберите проект каталога с кластером {{ mmg-name }}. Идентификатор кластера задается в метке `resource_id`.
+Идентификатор кластера задается в метке `resource_id`.
 
 Общие метки для всех метрик сервиса {{ mmg-name }}: 
 
@@ -444,3 +447,7 @@ dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 | `oplog-diff`<br/>`DGAUGE`, миллисекунды | Размер журнала операций (в миллисекундах). | 
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

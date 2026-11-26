@@ -138,7 +138,6 @@ For more information on how to create access policies based on templates with pa
 
 * [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
 * [compute.restrictImage](#compute-restrictImage)
-* [postbox.identities.restrictNetworkAccess](#postbox-identities-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -160,13 +159,6 @@ Customizable parameters (applied using the `OR` logic):
 
 {% include [compute-access-parametrized-policies](../../../_includes/compute/compute-access-parametrized-policies.md) %}
 
-#### postbox.identities.restrictNetworkAccess {#postbox-identities-restrictNetworkAccess}
-
-This policy allows specifying a list of IP addresses and IP address ranges that are allowed to [send emails](../../../postbox/operations/send-email.md) via {{ postbox-full-name }} and prohibits sending emails from any IP addresses that are not on the list.
-
-Customizable parameter:
-
-* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can send emails from.
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

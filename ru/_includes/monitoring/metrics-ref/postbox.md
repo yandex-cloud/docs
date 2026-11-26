@@ -1,8 +1,10 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ postbox-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится адрес отправителя.
 
-При переходе к графику из сервисного дашборда значение метки `service` используется без подчеркиваний — `postbox`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
-Если вы создаете запрос в {{ monium-name }} через **Обзор** → **Метрики**, укажите проект каталога с адресом отправителя (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __postbox__`.
+Чтобы открыть сервисный дашборд, в [{{ monium-name }}]({{ link-monium }}) выберите проект каталога с адресом отправителя. Откройте раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и на вкладке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **Postbox - Overview**.
+
+Статистика доставки и действий получателей, включая открытия писем и переходы по ссылкам, доступна на [странице статистики {{ postbox-name }}](../../../postbox/concepts/statistics.md#viewing) в консоли управления.
 
 Общие метки для всех метрик {{ postbox-name }}:
 
@@ -37,3 +39,5 @@ service | Идентификатор сервиса: `postbox`.
 | --- | --- |
 | `notifications_published_count`<br>`RATE`, штуки | Количество уведомлений о событиях, успешно опубликованных в топик. |
 | `notifications_error_rate`<br>`RATE`, штуки | Количество ошибок при публикации уведомлений в топик. |
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

@@ -50,7 +50,7 @@ Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }
 
 {% endlist %}
 
-Once you create a connection, you can [view its settings](../operations/update-connection.md#list-connections) in the connection list and [modify them](../operations/update-connection.md#update-connections), as well as view a list of [operations](../operations/operation-connection.md) for the selected connection and [manage access](../operations/connection-access.md) to that connection.
+Once you create a connection, you can [view its settings](../operations/view-connection.md#connection-list) in the connection list and [modify them](../operations/update-connection.md), as well as view a list of [operations](../operations/operation-connection.md) for the selected connection and [manage access](../operations/connection-access.md) to that connection.
 
 
 ## What's next {#what-is-next}

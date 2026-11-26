@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать входящее DNS-подключение
 
+
 {% include [inb-endpoint-1-per-netw-notice](../../_includes/dns/inb-endpoint-1-per-netw-notice.md) %}
 
 Чтобы создать [входящее DNS-подключение](../concepts/dns-connection.md#dns-inbound):

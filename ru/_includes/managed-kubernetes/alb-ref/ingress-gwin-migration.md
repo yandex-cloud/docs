@@ -43,17 +43,17 @@
 
 1. Загрузите бинарный файл конвертера и сделайте его исполняемым. Файл хранится в публичном бакете {{ objstorage-name }}. Доступны сборки для следующих ОС:
 
-   * [Linux AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz)
-   * [Linux ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-arm64.tar.gz)
-   * [macOS AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-amd64.tar.gz)
-   * [macOS ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-arm64.tar.gz)
-   * [Windows AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-amd64.tar.gz)
-   * [Windows ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-arm64.tar.gz)
+   * [Linux AMD64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz)
+   * [Linux ARM64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-arm64.tar.gz)
+   * [macOS AMD64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-amd64.tar.gz)
+   * [macOS ARM64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-arm64.tar.gz)
+   * [Windows AMD64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-amd64.tar.gz)
+   * [Windows ARM64](https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-arm64.tar.gz)
 
    Пример загрузки файла для Linux:
 
    ```bash
-   wget https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
+   wget https://{{ s3-storage-host-ru }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
    tar -xzf alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
    chmod +x alb-ingress-converter
    ```

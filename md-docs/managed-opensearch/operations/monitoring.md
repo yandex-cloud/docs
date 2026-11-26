@@ -171,25 +171,31 @@
 На этой странице выводятся графики, показывающие нагрузку на группу хостов кластера. Набор графиков зависит от типа хостов в группе и аналогичен [набору графиков для отдельных хостов](#monitoring-hosts).
 
 
-## Настройка алертов в Yandex Monitoring {#monitoring-integration}
+## Настройка алертов в Yandex Monium {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите:
+  1. [Перейдите](https://monium.yandex.cloud) в **Monium**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
+
+      Метрики кластера передаются в проект Monium `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и перейдите на вкладку **Сервисные дашборды**.
+  1. В открывшемся списке выберите сервисные дашборды:
 
       * **Managed Service for OpenSearch** для настройки алертов кластера;
       * **Managed Service for OpenSearch — Dashboards** для настройки алертов хостов с ролью `DASHBOARDS`;
       * **Managed Service for OpenSearch — Data** для настройки алертов хостов с ролью `DATA`;
       * **Managed Service for OpenSearch — Manager** для настройки алертов хостов с ролью `MANAGER`.
-
+  1. На дашборде выберите нужный кластер. Для алерта по отдельному хосту также выберите этот хост.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monium](../../monium/concepts/querying.md).
+  1. Укажите **Название** алерта.
+  1. Задайте функцию агрегации, функцию сравнения и окно вычисления для выбранной метрики.
   1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. Добавьте [канал уведомлений](../../monium/concepts/alerting/notification-channel.md). Если канала нет, [создайте его](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -204,9 +210,9 @@
 | Число перемещаемых шардов                    |     `opensearch_relocating_shards`     |      `top_last(1)`     |             `больше 0`            |                                   |
 | Число инициализируемых шардов                |    `opensearch_initializing_shards`    |      `top_last(1)`     |             `больше 0`            |                                   |
 | Число отложенных к назначению шардов         | `opensearch_delayed_unassigned_shards` |      `top_last(1)`     |             `больше 0`            |                                   |
-| Объем использованной памяти кучи JVM         | `opensearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | больше 90% от объема RAM на хосте |                                   |
+| Процент использованной памяти кучи JVM       | `opensearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | больше 90                       |                                   |
 | Объем использованного хранилища              |   `opensearch_fs_total_used_percent`   |      `top_last(1)`     |  больше 90% от размера хранилища  |  больше 85% от размера хранилища  |
-| Использование пула долгоживущих объектов JVM |   `opensearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90% от объема RAM на хосте | больше 75% от объема RAM на хосте |
+| Показатель давления на кучу JVM             |   `opensearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90                       | больше 75                       |
 | Размер использованного хранилища             | `disk.used_bytes`                      | —                      | 90% от размера хранилища          | 80% от размера хранилища          |
 
 Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
@@ -214,7 +220,7 @@
 * `Alarm` — `96636764160` байтов (90%).
 * `Warning` — `85899345920` байтов (80%).
 
-Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик в [документации Monitoring](../../monitoring/metrics-ref/managed-opensearch-ref.md).
+Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик в [документации Monium](../../monium/metrics-ref/managed-opensearch-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

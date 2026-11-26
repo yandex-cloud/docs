@@ -47,35 +47,24 @@ description: Из статьи вы узнаете о типах дисков в
 
 ### Отслеживание перехода в read-only {#read-only-monitor}
 
-Чтобы отслеживать степень заполнения хранилища на хостах кластера, настройте алерты в {{ monitoring-full-name }}:
+Чтобы отслеживать степень заполнения хранилища на хостах кластера, настройте алерты в {{ monium-full-name }}:
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервис **{{ mgp-name }}**.
-1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
+1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+1. Выберите [проект](../../monium/concepts/glossary.md#project) `folder__<идентификатор_каталога>` для каталога, в котором находится кластер.
+1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+1. Выберите **{{ mgp-name }} — Host Overview**.
+1. В параметрах дашборда выберите нужный кластер и хосты, заполненность хранилища которых нужно отслеживать.
+1. На графике **Disk usage percent** с метрикой `disk.used_percent` нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**. Метрика показывает процент занятого места на диске.
+1. Укажите название алерта.
+1. В блоке **Условия срабатывания** выберите запрос с метрикой `disk.used_percent` и задайте параметры:
 
-    1. **{{ ui-key.yacloud.common.metric }}** — задайте параметры метрики:
+    * **Функция агрегации** — `{{ ui-key.yacloud_monitoring.alert.title_aggregation-max }}`, чтобы алерт реагировал на заполнение диска любого из выбранных хостов.
+    * **Функция сравнения** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
+    * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `90`.
+    * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `95`.
 
-        * облако;
-        * каталог;
-        * сервис **{{ mgp-name }}**;
-        * идентификатор кластера {{ mgp-name }};
-
-            Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
-
-        * метка `disk.free`.
-
-    1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
-
-        * 95% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`;
-        * 90% от размера хранилища для `{{ ui-key.yacloud_monitoring.alert.status_warn }}`.
-
-    1. **{{ ui-key.yacloud.mdb.cluster.overview.section_additional }}**:
-
-        * **{{ ui-key.yacloud_monitoring.service.field.function }}** — `{{ ui-key.yacloud_monitoring.alert.title_aggregation-min }}` (минимальное значение метрики за период).
-        * **{{ ui-key.yacloud_monitoring.alert-template.field.evaluation-window-key-value }}** — желаемый период, с которым будет обновляться значение метрики.
-
-    1. Добавьте созданный ранее канал уведомлений.
+1. Добавьте [канал уведомлений](../../monium/operations/alert/create-channel.md).
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 
 ### Вывод кластера из режима read-only {#read-only-solutions}

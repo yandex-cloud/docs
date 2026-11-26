@@ -74,7 +74,7 @@
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
 
-[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе Yandex Monitoring. Метрика показывает размер использованного дискового пространства в кластере Managed Service for OpenSearch.
+[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе Yandex Monium. Метрика показывает размер использованного дискового пространства в кластере Managed Service for OpenSearch.
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 

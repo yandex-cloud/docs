@@ -39,31 +39,43 @@ description: Из статьи вы узнаете, какие типы диск
 
 ### Отслеживание перехода в read-only {#read-only-monitor}
 
-Чтобы отслеживать степень заполнения хранилища кластера, настройте алерты в {{ monitoring-full-name }}:
+Чтобы отслеживать степень заполнения хранилища кластера, настройте алерты в {{ monium-full-name }}:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
+1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в котором будет создан алерт.
 
-   1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
+    Это может быть как проект, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) (`folder__<идентификатор_каталога>`), так и другой доступный проект.
+1. [Создайте канал уведомлений](../../monium/operations/alert/create-channel.md).
+1. [Создайте алерт](../../monium/operations/alert/create-alert.md) со следующими параметрами:
 
-      * Облако.
-      * Каталог.
-      * Сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-      * Метка `disk.free_bytes`.
-      * Нужный кластер {{ mos-name }}. Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+   1. **{{ ui-key.yacloud_monitoring.alert.title_name }}** — задайте название алерта.
 
-   1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие для заполнения свободного дискового пространства, при котором сработает алерт:
+   1. В блоке **Настройки алерта** задайте метки запроса:
+
+      * `project = folder__<идентификатор_каталога>` — проект каталога, в котором находится кластер {{ mos-name }}.
+
+          {% include [query-select-different-project](../../_includes/monium/query-select-different-project.md) %}
+
+      * `cluster = default`.
+      * `service = __managed-opensearch__`.
+      * `name = disk.free_bytes`.
+      * `resource_id = <идентификатор_кластера>` — идентификатор кластера {{ mos-name }}. Его можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+      * `host = <fqdn_хоста>` — хост, свободное место на котором нужно отслеживать.
+
+   1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие уменьшения свободного дискового пространства, при котором сработает алерт:
 
       * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
       * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-      * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90 % от размера хранилища).
-      * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95 % от размера хранилища).
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить срабатывания алерта, когда в нем указано несколько метрик и они собираются с разным интервалом. Подробнее о задержке вычисления в [документации {{ monitoring-full-name }}](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+      * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — свободное место в байтах, соответствующее 10% размера хранилища хоста (90% занято).
+      * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — свободное место в байтах, соответствующее 5% размера хранилища хоста (95% занято).
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — период, за который вычисляется минимальное значение метрики.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить срабатывания алерта, когда в нем указано несколько метрик и они собираются с разным интервалом. Подробнее о задержке вычисления в [документации {{ monium-full-name }}](../../monium/concepts/alerting/alert.md#evaluation-delay).
+
+      Например, для хранилища размером 100 ГБ укажите порог `10737418240` байтов для `{{ ui-key.yacloud_monitoring.alert.status_warn }}` и `5368709120` байтов для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`. При изменении размера хранилища пересчитайте пороги.
 
    1. **Уведомления** — добавьте созданный ранее канал уведомлений.
+
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 ### Автоматическое увеличение размера хранилища {#auto-rescale}
 

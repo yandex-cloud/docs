@@ -1,8 +1,8 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ compute-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
 
-В запросах к REST API и готовых запросах с сервисных дашбордов используйте `service=compute`. Готовый запрос открывается при переходе с графика дашборда в раздел метрик {{ monium-name }}.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
-Если вы создаете запрос в [разделе метрик {{ monium-name }}](../../../monium/metrics/metric-explorer.md#add-graph), укажите `project=folder__<идентификатор_каталога>`, `cluster=default` и `service=__compute__`.
+В запросах к REST API используйте `service = compute`.
 
 {% note info %}
 
@@ -507,3 +507,5 @@ instance | Имя [виртуальной машины](../../../compute/concept
 - Автоматический.
 - Фиксированный с&nbsp;тестом автоматического. ||
 |#
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

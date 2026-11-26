@@ -8,6 +8,8 @@ description: Парольная политика — набор правил, о
 
 _Парольная политика_ — набор правил, определяющих порядок создания и обновления паролей для пользователей [пула](user-pools.md).
 
+{% include [password-personal-data-restriction](../../_includes/organization/password-personal-data-restriction.md) %}
+
 ## Настройки парольной политики {#settings}
 
 {% include [password-policy-note](../../_includes/organization/password-policy-note.md) %}

@@ -1,14 +1,15 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Метрики Monium Metrics
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Справочник метрик
 
 # Справочник метрик Audit Trails
 
-Метрики Audit Trails автоматически передаются в Monium Metrics и доступны в [проекте каталога](*monium-folder-project), в котором находится трейл.
+Метрики сервиса Audit Trails автоматически передаются в [Monium](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится трейл.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
-
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
-
-При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик Audit Trails:
 
@@ -33,10 +34,9 @@ destination_type | [Объект назначения](trail.md#target) |
 
 Метрики `quota.trails_count.usage` и `quota.trails_count.limit` доступны в проекте каталога с трейлом `folder__<идентификатор_каталога>`, но отражают потребление и размер квоты на все облако.
 
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
+
 
 #### Полезные ссылки {#see-also}
 
 * Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) Audit Trails в Monium.
-
-
-[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

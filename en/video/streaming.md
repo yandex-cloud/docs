@@ -5,7 +5,7 @@ description: To start a {{ video-name }} video broadcast, create a line and conf
 
 # Getting started with a video broadcast in {{ video-full-name }}
 
-To [stream a video](./concepts/index.md#streams) on the service's [channel](./concepts/index.md#channels):
+To [stream a video](./concepts/streams.md#streams) on the service's [channel](./concepts/index.md#channels):
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
@@ -105,7 +105,7 @@ For more on broadcasts, see [{#T}](./concepts/streams.md#streams).
     
     1. In the center of the window, you can set the size and position of the video stream.
 
-For more information, see [{#T}](operations/streams/obs-config-help.md).
+For details, see [{#T}](operations/streams/obs-config-help.md).
 
 ## Start your broadcast {#start-stream}
 

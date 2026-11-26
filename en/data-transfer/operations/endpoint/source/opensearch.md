@@ -1,20 +1,20 @@
 ---
 title: How to set up an {{ OS }} source endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to configure a {{ OS }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to create and configure an {{ OS }} source endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data from an {{ OS }} source endpoint
 
-{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate search and analytics data from an {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Prepare the {{ OS }}](#prepare) database for the transfer.
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data from {{ OS }} {#scenarios}
+## {{ OS }} data transfer scenarios {#scenarios}
 
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
@@ -33,10 +33,10 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ OS }} source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure:
 
-* [{{ mos-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mos-full-name }} cluster](#managed-service) or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 
 ### {{ mos-name }} cluster {#managed-service}
@@ -44,7 +44,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#managed-opensearch-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -98,11 +98,11 @@ Configure the target endpoint:
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
-* [Transfer interrupted with an error message](#ambiguous-resolution-es)
+* [Transfer interrupted with an error message](#ambiguous-resolution-os)
 * [Document duplication on the target](#duplication)
 * [Exceeding the limit on the maximum number of fields](#exceeding-fields-limit)
 * [Transfer failure with the `mapper_parsing_exception` error](#data-types)

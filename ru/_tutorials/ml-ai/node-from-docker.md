@@ -259,7 +259,7 @@
 
 ## Проверьте работу развернутого сервиса {#check-node}
 
-1. [Скачайте ноутбук](https://{{ s3-storage-host }}/doc-files/datasphere-nodefromdocker.ipynb) с кодом проверки и загрузите его в {{ jlab }}Lab проекта `Node from Docker`.
+1. [Скачайте ноутбук](https://{{ s3-storage-host-ru }}/doc-files/datasphere-nodefromdocker.ipynb) с кодом проверки и загрузите его в {{ jlab }}Lab проекта `Node from Docker`.
 1. Выполните ячейки блока **Preparing environment**: выберите ячейки и нажмите **Shift** + **Enter**.
 1. В блоке **Authentication** заполните информацию для аутентификации в ноде. Замените `<node ID>` и `<folder ID>` на идентификаторы ноды `triton` и каталога `data-folder`. 
 1. Выполните ячейки блока **Authentication**.

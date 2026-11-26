@@ -1,8 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ container-registry-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится реестр.
 
-При переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `container-registry`.
-
-Если вы создаете запрос в [разделе метрик {{ monium-name }}](../../../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с реестром (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __container-registry__`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ container-registry-name }}:
 
@@ -17,3 +15,5 @@ registry | Идентификатор [реестра](../../../container-regist
 --- | ---
 `registry.images_count`<br>`IGAUGE`, штуки | Текущее количество Docker-образов в реестре.
 `registry.size_bytes`<br>`IGAUGE`, байты | Суммарный размер Docker-образов в реестре.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

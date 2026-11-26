@@ -58,6 +58,36 @@ DataLens работает с датами в формате ISO. Это знач
 ### Почему недоступна материализация датасетов? {#where-is-materialization}
 
 Материализация теперь недоступна. Мы рекомендуем работать с базой данных напрямую. Если БД медленно отвечает на аналитические запросы DataLens, рекомендуем сделать [витрины данных](../../glossary/datamart.md), например, на базе [Yandex Managed Service for ClickHouse®](../../managed-clickhouse/index.md). Для загрузки данных можно использовать сервис [Yandex Data Transfer](../../data-transfer/index.md).
+
+### Что делать, если при валидации датасета возникает ошибка `ERR.DS_API.FIELD.TITLE.CONFLICT`? {#field-title-conflict}
+
+В разделе **Дополнительная информация** при этой ошибке отображаются сообщения `Field title conflicts with another field` и `ERR.DS_API.FIELD.TITLE.CONFLICT`.
+
+Ошибка возникает из-за конфликта названий полей. У каждого поля в датасете должно быть уникальное название.
+
+Конфликт также может возникнуть, если поле с таким названием сначала добавили в чарт, а затем в его датасет. В этом случае переименуйте поле, добавленное в чарте.
+
+![Пример конфликта названий полей](../../_assets/troubleshooting/datalens/duplicate-chart-fields-example.png)
+
+### Что делать, если в предпросмотре датасета возникает ошибка `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`? {#table-not-configured}
+
+После загрузки таблицы из Google Sheets или CSV-файла может появиться ошибка:
+
+```json
+{
+  "code": "ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED",
+  "message": "Table is not ready yet",
+  "level": "error"
+}
+```
+
+Ошибка означает, что схема датасета только что изменилась. Дождитесь пересоздания таблицы предпросмотра. Это может занять несколько минут.
+
+### Почему в датасетах Яндекс Метрика отображаются не все поля? {#metrika-fields}
+
+Состав доступных полей можно посмотреть на [демонстрационном дашборде Metrica Live](https://yandex.cloud/ru/marketplace/products/yandex/metrica-live-demo). После подключения дашборда в разделе **Датасеты** появятся датасеты `Метрика Визиты` и `Метрика Просмотры`.
+
+Если нужных полей нет, экспортируйте данные из [Logs API Яндекс Метрика](https://yandex.ru/dev/metrika/doc/api2/logs/intro.html) в [Managed Service for ClickHouse®](../../managed-clickhouse/index.md) и подключите DataLens к созданной базе данных.
 
 
 

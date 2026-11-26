@@ -228,6 +228,8 @@ items:
                 href: cli-ref/v0/cluster/update.md
               - name: update-config
                 href: cli-ref/v0/cluster/update-config.md
+          - name: connect
+            href: cli-ref/v0/connect.md
           - name: database
             items:
               - name: Overview
@@ -398,6 +400,8 @@ items:
             href: cli-ref/cluster/update.md
           - name: update-config
             href: cli-ref/cluster/update-config.md
+      - name: connect
+        href: cli-ref/connect.md
       - name: database
         items:
           - name: Overview

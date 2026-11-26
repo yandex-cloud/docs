@@ -55,7 +55,17 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
 
     - CLI {#cli}
 
-      1. Request a new wildcard certificate. Do it by running this command:
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      1. See the description of the CLI command for requesting a new certificate:
+
+          ```bash
+          yc certificate-manager certificate request --help
+          ```
+
+      1. Request a new wildcard certificate:
 
           ```bash
           yc certificate-manager certificate request \
@@ -65,7 +75,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
 
           Where:
           * `--name`: Certificate name, e.g., `my-cdn-certificate`.
-          * `--domains`: Wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is your website’s domain name.
+          * `--domains`: Wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is your website’s domain name. For a wildcard certificate, the ownership verification is done through DNS.
 
           Result:
 
@@ -100,6 +110,10 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
           In the **CNAME record** tab, copy and save the values of the **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-name }}** and **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}** fields. You will need these to create a CNAME record.
 
     - CLI {#cli}
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       1. Retrieve the CNAME record values required for domain ownership verification. To do this, run the following command while specifying the certificate ID you saved earlier.
 
@@ -166,16 +180,39 @@ Create a CDN resource in {{ cdn-full-name }}:
         * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select the protocol the CDN resource will use to communicate with the origin. If you select `{{ ui-key.yacloud.common.label_https }}` or `{{ ui-key.yacloud.cdn.value_protocol-match }}`, make sure your origin supports HTTPS.
         * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the new domain name you assigned to your new CDN resource, e.g., `cdn-new.example.com`.
       * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
         * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then, from the list that opens, select the certificate you created earlier, such as `my-cdn-certificate`.
-        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
+        * Enable **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-enabled_6Y5ig }}**.
+        * In the **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-codes_kDoT8 }}** field, select the `301` and `302` codes.
+        * In the **{{ ui-key.yacloud.cdn.sections.FollowRedirectsOptionSection.field_follow-redirects-use-custom-host_e3yZ7 }}** field, select **{{ ui-key.yacloud.cdn.resources.FollowRedirectsField.option_use-custom-host-from-origin_iirxa }}**.
   1. Click **{{ ui-key.yacloud.common.continue }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
+  1. Keep the default settings for **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **{{ ui-key.yacloud.cdn.label_section-additional }}** and click **{{ ui-key.yacloud.common.continue }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
-  1. Run this command:
-  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. If no CDN provider has been activated in your folder, activate it. To do this, check the list of activated providers:
+
+      ```bash
+      yc cdn provider list-activated
+      ```
+
+      If the command returns an empty list, activate a provider:
+
+      ```bash
+      yc cdn provider activate --type ourcdn
+      ```
+
+  1. View the description of the CLI command for creating a CDN resource:
+
+      ```bash
+      yc cdn resource create --help
+      ```
+
+  1. Create a CDN resource:
+
       ```bash
       yc cdn resource create <subdomain_name> \
         --origin-custom-source '<origin_IP_address_or_domain_name>' \
@@ -190,7 +227,7 @@ Create a CDN resource in {{ cdn-full-name }}:
 
           * `http`: Use HTTP.
           * `https`: Use HTTPS.
-          * `match`: Use the same value as that of the `Host` header in the client request to the CDN.
+          * `match`: Use the same protocol (HTTP or HTTPS) that the client used in the request to the CDN.
 
           If you select `https` or `match`, make sure your origin supports HTTPS.
       * `--cert-manager-ssl-cert-id`: TLS certificate ID saved earlier when creating the certificate.
@@ -212,11 +249,14 @@ Create a CDN resource in {{ cdn-full-name }}:
           ignore_query_string:
             enabled: true
             value: true
-        stale:
+        host_options:
+          forward_host_header:
+            enabled: true
+            value: true
+        custom_server_name: {}
+        ignore_cookie:
           enabled: true
-          value:
-            - error
-            - updating
+          value: true
       origin_group_id: "352269"
       origin_group_name: Origins for cdn-new.example.com (302798)
       origin_protocol: HTTP
@@ -226,6 +266,10 @@ Create a CDN resource in {{ cdn-full-name }}:
         data:
           cm:
             id: fpqnetjumkhn********
+      provider_type: ourcdn
+      provider_cname: xxxxxxxxxxxxxxxx.topology.gslb.yccdn.ru
+      tls:
+        profile: PROFILE_COMPATIBLE
       ```
 
       {% endcut %}
@@ -294,10 +338,20 @@ Once you have deleted the third-party CDN resource that was using the original C
   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** and then, in the field that appears, enter the domain name the old CDN resource used, e.g., `cdn.example.com`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
-  1. Run this command:
-  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for updating a CDN resource:
+
+      ```bash
+      yc cdn resource update --help
+      ```
+
+  1. Add an additional domain to the CDN resource:
+
       ```bash
       yc cdn resource update <CDN_resource_ID> \
         --secondary-hostnames '<old_CDN_subdomain>'
@@ -310,8 +364,8 @@ Once you have deleted the third-party CDN resource that was using the original C
       {% note warning %}
 
       This command will delete all additional domains previously linked to the CDN resource.
-      
-      To link an additional domain to a CDN resource that already has additional domains linked, list the domains in the `--secondary-hostnames` parameter while separating them with commas. 
+
+      To link an additional domain to a CDN resource that already has additional domains linked, list the domains in the `--secondary-hostnames` parameter while separating them with commas.
 
       {% endnote %}
 
@@ -332,13 +386,14 @@ Once you have deleted the third-party CDN resource that was using the original C
           ignore_query_string:
             enabled: true
             value: true
-        stale:
-          enabled: true
-          value:
-            - error
-            - updating
+        host_options:
+          forward_host_header:
+            enabled: true
+            value: true
+        custom_server_name: {}
         ignore_cookie:
           enabled: true
+          value: true
       secondary_hostnames:
         - cdn.example.com
       origin_group_id: "350569"
@@ -347,6 +402,10 @@ Once you have deleted the third-party CDN resource that was using the original C
       ssl_certificate:
         type: CM
         status: READY
+      provider_type: ourcdn
+      provider_cname: xxxxxxxxxxxxxxxx.topology.gslb.yccdn.ru
+      tls:
+        profile: PROFILE_COMPATIBLE
       ```
 
       {% endcut %}

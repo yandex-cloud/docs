@@ -3,19 +3,19 @@ title: How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }
 description: In this tutorial, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}.
 ---
 
-# Transferring data to a {{ OS }} target endpoint
+# Transferring data to an {{ OS }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
-1. [Explore possible data transfer scenarios](#scenarios).
+1. [Review possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ OS }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
-## Scenarios for transferring data to {{ OS }} {#scenarios}
+## {{ OS }} data transfer scenarios {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
@@ -50,10 +50,10 @@ There is a data type restriction: if the sorurce sends an `ip` record (IP addres
 
 ## Configuring the {{ OS }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure:
 
-* [{{ mos-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
-* [Additional parameters](#additional-settings).
+* Connection settings for a [{{ mos-full-name }}](#managed-service) cluster or a [custom deployment](#on-premise), including those running on {{ compute-full-name }} VMs. These settings are required.
+* [Optional settings](#additional-settings).
 
 
 ### {{ mos-name }} cluster {#managed-service}
@@ -61,7 +61,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#managed-opensearch-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -94,13 +94,13 @@ Connection to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.cleanup_policy.title }}**: Select the pre-transfer cleanup policy for the target database:
 
-        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only replicating data, without copying it.
 
-        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Delete all tables included in the transfer. This is the default option.
 
-            Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+            Use it to always transfer the latest table schemas on every transfer activation.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.sanitize_doc_keys.title }}**: Use this option to automatically replace keys that are not valid for {{ OS }} in the target fields.
 
@@ -108,11 +108,11 @@ Connection to nodes with explicitly specified network addresses and ports.
 
 {% endlist %}
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).
 
-## Troubleshooting data transfer issues {#troubleshooting}
+## Data transfer troubleshooting {#troubleshooting}
 
-* [Transfer interrupted with an error message](#ambiguous-resolution-es)
+* [Transfer interrupted with an error message](#ambiguous-resolution-os)
 * [Document duplication on the target](#duplication)
 * [Exceeding the limit on the maximum number of fields](#exceeding-fields-limit)
 * [Transfer failure with the `mapper_parsing_exception` error](#data-types)

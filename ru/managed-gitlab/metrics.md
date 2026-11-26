@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ monium-full-name }}
 
-В этом разделе описаны метрики сервиса {{ mgl-name }}, поставляемые в [{{ monium-name }}](../monium/).
-
 {% include [managed-gitlab](../_includes/monitoring/metrics-ref/managed-gitlab.md) %}
 
 #### Полезные ссылки {#see-also}

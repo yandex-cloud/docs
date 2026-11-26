@@ -1,14 +1,18 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for MySQL®](index.md) > Справочник метрик Managed Service for MySQL®
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for MySQL®](index.md) > Справочник метрик
 
 # Справочник метрик Managed Service for MySQL®
 
-Метрики сервиса Managed Service for MySQL® автоматически передаются в [Monium Metrics](../monium/metrics/quickstart.md), в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+Метрики сервиса Managed Service for MySQL® автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
-
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
-
-При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Идентификатор кластера Managed Service for MySQL® задается в метке `resource_id`.
 
@@ -285,8 +289,9 @@ subcluster_name | Имя субкластера
 | `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
 | `n_unique_users`<br/>`DGAUGE`, пользователи | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
 
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
+
 #### Полезные ссылки {#see-also}
 
 [Мониторинг состояния кластера MySQL® и хостов](operations/monitoring.md)
-
-[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

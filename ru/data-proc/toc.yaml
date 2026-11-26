@@ -529,7 +529,7 @@ items:
                 href: api-ref/Subcluster/update.md
               - name: Delete
                 href: api-ref/Subcluster/delete.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

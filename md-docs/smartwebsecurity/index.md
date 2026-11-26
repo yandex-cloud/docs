@@ -746,7 +746,7 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Delete](waf/api-ref/WafProfile/delete.md)
 
- - [Метрики](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи](at-ref.md)
 

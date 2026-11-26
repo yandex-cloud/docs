@@ -420,7 +420,7 @@ Yandex Network Load Balancer (NLB) предназначен для постро�
 
  - [NetworkPolicy](k8s-ref/networkpolicy.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

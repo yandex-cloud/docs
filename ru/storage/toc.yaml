@@ -1030,7 +1030,7 @@ items:
                 href: api-ref/grpc/Presign/index.md
               - name: Create
                 href: api-ref/grpc/Presign/create.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

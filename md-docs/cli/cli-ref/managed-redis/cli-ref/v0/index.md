@@ -8,9 +8,11 @@ Manage Redis clusters, hosts, databases, backups and users
 
 Syntax:
 
-`yc managed-redis v0 <group>`
+`yc managed-redis v0 <group|command>`
 
 #### Command Tree
+
+- [yc managed-redis v0 connect](connect.md) — Connect to a Redis cluster with IAM authentication.
 
 - [yc managed-redis v0 backup](backup/index.md) — Manage Redis backups
 

@@ -30,6 +30,16 @@ Syntax:
 
   - [yc baremetal v2 extend stackland-cluster update](stackland-cluster/update.md) — Updates the specified Stackland cluster.
 
+- [yc baremetal v2 extend virtualization-cluster](virtualization-cluster/index.md) — 
+
+  - [yc baremetal v2 extend virtualization-cluster get](virtualization-cluster/get.md) — Returns the specified Virtualization cluster.
+
+  - [yc baremetal v2 extend virtualization-cluster list](virtualization-cluster/list.md) — Lists Virtualization clusters in the specified folder.
+
+  - [yc baremetal v2 extend virtualization-cluster list-virtualization-cluster-operations](virtualization-cluster/list-virtualization-cluster-operations.md) — Lists operations for the specified Virtualization cluster.
+
+  - [yc baremetal v2 extend virtualization-cluster update](virtualization-cluster/update.md) — Updates the specified Virtualization cluster.
+
 #### Global Flags
 
 #|

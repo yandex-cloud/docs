@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ api-gw-full-name }}
 
-В этом разделе описаны метрики сервиса {{ api-gw-name }}, поставляемые в [{{ monium-name }}](../monium/).
-
 {% include [api-gateway](../_includes/monitoring/metrics-ref/api-gateway.md) %}
 
 #### Полезные ссылки {#see-also}

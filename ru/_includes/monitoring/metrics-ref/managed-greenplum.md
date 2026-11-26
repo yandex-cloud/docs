@@ -1,4 +1,10 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ mgp-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
 
 Общие метки для всех метрик сервиса {{ mgp-name }}:
 
@@ -811,3 +817,7 @@ PXF помечает все метрики, которые он возвраща
 | `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
 | `dmesg_events.cgroup.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в `cgroup`. |
 | `dmesg_events.system.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в системе. |
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

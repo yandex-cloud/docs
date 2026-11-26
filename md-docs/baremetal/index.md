@@ -646,6 +646,18 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [update](cli-ref/v2/extend/stackland-cluster/update.md)
 
+####### virtualization-cluster
+
+ - [Overview](cli-ref/v2/extend/virtualization-cluster/index.md)
+
+ - [get](cli-ref/v2/extend/virtualization-cluster/get.md)
+
+ - [list](cli-ref/v2/extend/virtualization-cluster/list.md)
+
+ - [list-virtualization-cluster-operations](cli-ref/v2/extend/virtualization-cluster/list-virtualization-cluster-operations.md)
+
+ - [update](cli-ref/v2/extend/virtualization-cluster/update.md)
+
 ###### hardware-pool
 
  - [Overview](cli-ref/v2/hardware-pool/index.md)
@@ -740,6 +752,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [list](cli-ref/v2/server/list.md)
 
+ - [list-access-bindings](cli-ref/v2/server/list-access-bindings.md)
+
  - [list-operations](cli-ref/v2/server/list-operations.md)
 
  - [power-off](cli-ref/v2/server/power-off.md)
@@ -752,9 +766,13 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [renew-rental](cli-ref/v2/server/renew-rental.md)
 
+ - [set-access-bindings](cli-ref/v2/server/set-access-bindings.md)
+
  - [skip-quarantine](cli-ref/v2/server/skip-quarantine.md)
 
  - [update](cli-ref/v2/server/update.md)
+
+ - [update-access-bindings](cli-ref/v2/server/update-access-bindings.md)
 
 ###### vrf
 
@@ -1758,7 +1776,7 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [ListStacklandVersions](extend/api-ref/StacklandCluster/listStacklandVersions.md)
 
- - [Метрики Monium Metrics](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 

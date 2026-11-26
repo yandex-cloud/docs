@@ -796,7 +796,7 @@
 
  - [ListOperations](triggers/api-ref/Trigger/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

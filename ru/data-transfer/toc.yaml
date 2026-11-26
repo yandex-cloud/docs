@@ -566,7 +566,7 @@ items:
                 href: api-ref/Transfer/deactivate.md
               - name: Activate
                 href: api-ref/Transfer/activate.md
-  - name: Метрики {{ metrics-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

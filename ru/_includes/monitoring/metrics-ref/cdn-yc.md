@@ -1,14 +1,12 @@
-Имя метрики записывается в метку `name`.
+Метрики сервиса {{ cdn-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
-
-Для {{ cdn-name }} в обзоре метрик укажите `service = __cdn__`.
 
 Общие метки для всех метрик сервиса {{ cdn-name }} с подключенным провайдером {{ cdn-full-name }}:
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `yccdn`.
+service | Идентификатор сервиса: `yccdn`. Для запроса с нуля в {{ monium-name }} используйте `__cdn__`.
 resource | Идентификатор [CDN-ресурса](../../../cdn/concepts/resource.md).
 cloud_id | Идентификатор [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 folder_id | Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -65,3 +63,5 @@ folder_id | Идентификатор [каталога](../../../resource-mana
 * `95`.
 * `99`. ||
 |#
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

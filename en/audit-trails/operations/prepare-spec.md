@@ -5,7 +5,7 @@ description: Follow this guide to draft a specification for creating or editing 
 
 # Drafting a trail specification
 
-You can [create](#spec-for-create) and [edit](#spec-for-update) trails via the [CLI](../../cli/) using YAML specifications. To create a new trail, create a specification from the `get` command output of a similar trail. To edit an existing trail, proceed based on the `get` command output of the same trail.
+You can [create](#spec-for-create) and [edit](#spec-for-create) trails via the [CLI](../../cli/) using YAML specifications. To create a new trail, create a specification from the `get` command output of a similar trail. To edit an existing trail, proceed based on the `get` command output of the same trail.
 
 {% note tip %}
 

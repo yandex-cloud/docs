@@ -930,7 +930,7 @@ Yandex Application Load Balancer служит для распределения 
 
  - [UpdateRoute](api-ref/VirtualHost/updateRoute.md)
 
- - [Метрики Monium](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

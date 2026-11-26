@@ -5,7 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ mmy-name }}
 
-Метрики сервиса {{ mmy-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/quickstart.md), в [проект каталога](*monium-folder-project), в котором находится кластер.
 
 {% include [managed-mysql](../_includes/monitoring/metrics-ref/managed-mysql.md) %}
 
@@ -13,4 +12,3 @@ description: На этой странице приведен справочни�
 
 [{#T}](./operations/monitoring.md)
 
-[*monium-folder-project]: {% include [folder-project](../_includes/monium/folder-project.md) %}

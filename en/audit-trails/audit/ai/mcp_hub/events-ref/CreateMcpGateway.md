@@ -153,10 +153,13 @@ editable: false
           },
           "mcpCall": {
             "url": "string",
-            // Includes only one of the fields `toolCall`
+            // Includes only one of the fields `toolCall`, `resourceRead`
             "toolCall": {
               "toolName": "string",
               "parametersJson": "string"
+            },
+            "resourceRead": {
+              "uri": "string"
             },
             // end of the list of possible fields
             "transport": "string",
@@ -196,12 +199,55 @@ editable: false
           }
           // end of the list of possible fields
         },
-        "outputJsonSchema": "string"
+        "outputJsonSchema": "string",
+        "meta": "object"
       }
     ],
     // Includes only one of the fields `transport`
-    "transport": "string"
+    "transport": "string",
     // end of the list of possible fields
+    "mcpGatewayResources": [
+      {
+        "uri": "string",
+        "name": "string",
+        "title": "string",
+        "description": "string",
+        "mimeType": "string",
+        "action": {
+          // Includes only one of the fields `mcpCall`
+          "mcpCall": {
+            "url": "string",
+            // Includes only one of the fields `toolCall`, `resourceRead`
+            "toolCall": {
+              "toolName": "string",
+              "parametersJson": "string"
+            },
+            "resourceRead": {
+              "uri": "string"
+            },
+            // end of the list of possible fields
+            "transport": "string",
+            // Includes only one of the fields `unauthorized`, `header`, `serviceAccount`
+            "unauthorized": "object",
+            "header": {
+              "headerName": "string",
+              "headerValue": "string"
+            },
+            "serviceAccount": "object",
+            // end of the list of possible fields
+            "forwardHeaders": "object",
+            "transferHeaders": {
+              "mode": "string",
+              "headers": [
+                "string"
+              ]
+            }
+          }
+          // end of the list of possible fields
+        },
+        "meta": "object"
+      }
+    ]
   },
   "requestParameters": "object",
   "response": "object"
@@ -409,6 +455,7 @@ Includes only one of the fields `transport`.
 
 - `SSE`
 - `STREAMABLE` ||
+|| mcpGatewayResources[] | **[McpResource](#yandex.cloud.serverless.mcpgateway.v1.McpResource)** ||
 |#
 
 ## McpTool {#yandex.cloud.serverless.mcpgateway.v1.McpTool}
@@ -424,6 +471,7 @@ The maximum string length in characters is 65536. ||
 || inputJsonSchema | **string** ||
 || action | **[McpToolAction](#yandex.cloud.serverless.mcpgateway.v1.McpToolAction)** ||
 || outputJsonSchema | **string** ||
+|| meta | **object** ||
 |#
 
 ## McpToolAction {#yandex.cloud.serverless.mcpgateway.v1.McpToolAction}
@@ -522,7 +570,10 @@ Includes only one of the fields `functionCall`, `containerCall`, `httpCall`, `mc
 || url | **string** ||
 || toolCall | **[ToolCall](#yandex.cloud.serverless.mcpgateway.v1.McpCall.ToolCall)**
 
-Includes only one of the fields `toolCall`. ||
+Includes only one of the fields `toolCall`, `resourceRead`. ||
+|| resourceRead | **[ResourceRead](#yandex.cloud.serverless.mcpgateway.v1.McpCall.ResourceRead)**
+
+Includes only one of the fields `toolCall`, `resourceRead`. ||
 || transport | **enum** (Transport)
 
 - `SSE`
@@ -546,6 +597,13 @@ Includes only one of the fields `unauthorized`, `header`, `serviceAccount`. ||
 ||Field | Description ||
 || toolName | **string** ||
 || parametersJson | **string** ||
+|#
+
+## ResourceRead {#yandex.cloud.serverless.mcpgateway.v1.McpCall.ResourceRead}
+
+#|
+||Field | Description ||
+|| uri | **string** ||
 |#
 
 ## HeaderAuthorization {#yandex.cloud.serverless.mcpgateway.v1.McpCall.HeaderAuthorization}
@@ -578,4 +636,32 @@ Includes only one of the fields `unauthorized`, `header`, `serviceAccount`. ||
 
 - `SYNC`
 - `ASYNC` ||
+|#
+
+## McpResource {#yandex.cloud.serverless.mcpgateway.v1.McpResource}
+
+#|
+||Field | Description ||
+|| uri | **string** ||
+|| name | **string**
+
+The maximum string length in characters is 128. Value must match the regular expression ` ([-.0-9A-Z_a-z]{1,128})? `. ||
+|| title | **string**
+
+The maximum string length in characters is 512. ||
+|| description | **string**
+
+The maximum string length in characters is 65536. ||
+|| mimeType | **string** ||
+|| action | **[McpResourceAction](#yandex.cloud.serverless.mcpgateway.v1.McpResourceAction)** ||
+|| meta | **object** ||
+|#
+
+## McpResourceAction {#yandex.cloud.serverless.mcpgateway.v1.McpResourceAction}
+
+#|
+||Field | Description ||
+|| mcpCall | **[McpCall](#yandex.cloud.serverless.mcpgateway.v1.McpCall)**
+
+Includes only one of the fields `mcpCall`. ||
 |#

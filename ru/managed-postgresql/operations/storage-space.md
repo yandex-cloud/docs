@@ -9,7 +9,7 @@ description: При заполнении хранилища более чем н
 Чтобы избежать проблем с операциями записи в базу данных, воспользуйтесь одним из способов:
 
 
-* [Настройте алерты в {{ monitoring-full-name }}](#set-alert), чтобы отслеживать степень заполнения хранилища.
+* [Настройте алерты в {{ monium-full-name }}](#set-alert), чтобы отслеживать степень заполнения хранилища.
 
 
 * [Выведите кластер из режима read-only вручную](#read-only-solutions) и освободите место в хранилище, удалив часть данных.
@@ -17,32 +17,46 @@ description: При заполнении хранилища более чем н
 * [Настройте автоматическое увеличение размера хранилища](#disk-size-autoscale).
 
 
-## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
+## Настроить алерты в {{ monium-full-name }} {#set-alert}
 
-1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервисный дашборд **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
-1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
+{% list tabs group=instructions %}
 
-    1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
+- Интерфейс {{ monium-name }} {#console}
 
-        * облако;
-        * каталог;
-        * сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**;
-        * идентификатор кластера {{ mpg-name }};
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
 
-            Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+      Метрики кластера передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. [Создайте канал уведомлений](../../monium/operations/alert/create-channel.md) в выбранном проекте.
+  1. [Создайте алерт](../../monium/operations/alert/create-alert.md) со следующими параметрами:
 
-        * метка `disk.free_bytes`.
+      1. **{{ ui-key.yacloud_monitoring.alert.title_name }}** — укажите название алерта.
+      1. В блоке **Настройки алерта** задайте метки запроса:
 
-    1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
+          * `project = folder__<идентификатор_каталога>`.
 
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
-        * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
+              {% include [query-select-different-project](../../_includes/monium/query-select-different-project.md) %}
 
-    1. Добавьте созданный ранее канал уведомлений.
+          * `cluster = default`.
+          * `service = __managed-postgresql__`.
+          * `name = disk.free_bytes`.
+          * `resource_id = <идентификатор_кластера>` — идентификатор кластера {{ mpg-name }}. Его можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+
+      1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** задайте условия, при которых сработает алерт:
+
+          * **Запрос для проверки** — запрос с метрикой `disk.free_bytes`.
+          * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
+          * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — свободное место в байтах, соответствующее 20% размера хранилища хоста (80% занято).
+          * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — свободное место в байтах, соответствующее 10% размера хранилища хоста (90% занято).
+          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — период, за который вычисляется минимальное значение метрики.
+
+          Например, для хранилища размером `107374182400` байт укажите `21474836480` байт для `{{ ui-key.yacloud_monitoring.alert.status_warn }}` и `10737418240` байт для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`. При изменении размера хранилища пересчитайте пороги.
+
+      1. Добавьте созданный ранее канал уведомлений.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+
+{% endlist %}
 
 
 ## Вывести кластер из режима read-only вручную {#read-only-solutions}

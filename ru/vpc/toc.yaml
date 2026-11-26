@@ -410,6 +410,8 @@ items:
                 href: cli-ref/v0/private-endpoint/list.md
               - name: list-operations
                 href: cli-ref/v0/private-endpoint/list-operations.md
+              - name: list-yandex-cloud-services
+                href: cli-ref/v0/private-endpoint/list-yandex-cloud-services.md
               - name: update
                 href: cli-ref/v0/private-endpoint/update.md
           - name: route-table
@@ -574,6 +576,8 @@ items:
             href: cli-ref/private-endpoint/list.md
           - name: list-operations
             href: cli-ref/private-endpoint/list-operations.md
+          - name: list-yandex-cloud-services
+            href: cli-ref/private-endpoint/list-yandex-cloud-services.md
           - name: update
             href: cli-ref/private-endpoint/update.md
       - name: route-table
@@ -1000,7 +1004,7 @@ items:
                     href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
                   - name: ListOperations
                     href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
-  - name: Справочник метрик {{ vpc-short-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

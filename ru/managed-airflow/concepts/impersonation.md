@@ -4,9 +4,9 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 По умолчанию кластер {{ AF }} не имеет прав доступа к пользовательским ресурсам. Чтобы обеспечить доступ к ним, [создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с нужными ролями и привяжите его к кластеру {{ AF }} при [создании](../operations/cluster-create.md#create-cluster) или [изменении](../operations/cluster-update.md) кластера. После этого из кода DAG-файлов можно будет аутентифицироваться от имени сервисного аккаунта.
 
-Благодаря имперсонации кластер {{ AF }} поддерживает интеграцию с другими сервисами {{ yandex-cloud }}. Среди них [{{ cloud-logging-full-name }}](../../logging/index.yaml), [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) и [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Благодаря имперсонации кластер {{ AF }} поддерживает интеграцию с другими сервисами {{ yandex-cloud }}. Среди них [{{ cloud-logging-full-name }}](../../logging/index.yaml), [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) и [{{ metrics-name }}](../../monium/metrics/overview.md).
 
-Чтобы кластер мог взаимодействовать с сервисами, назначьте его сервисному аккаунту [роль](../security/index.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`. Она позволяет кластеру, например, записывать логи в {{ cloud-logging-name }}, обращаться к секретам {{ lockbox-name }} или поставлять метрики в {{ monitoring-name }}.
+Чтобы кластер мог взаимодействовать с сервисами, назначьте его сервисному аккаунту [роль](../security/index.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`. Она позволяет кластеру, например, записывать логи в {{ cloud-logging-name }}, обращаться к секретам {{ lockbox-name }} или поставлять метрики в {{ metrics-name }}.
 
 Сервис {{ maf-name }} интегрируется с другими сервисами через [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) или [Airflow Yandex Provider](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/index.html).
 
@@ -18,9 +18,9 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 Подробнее о настройке логирования в разделе [Передача логов кластера](../operations/af-logging.md).
 
-### {{ monitoring-name }} {#monitoring-integration}
+### {{ metrics-name }} {#monitoring-integration}
 
-{{ monitoring-name }} — это сервис для сбора и хранения метрик для сервисов {{ yandex-cloud }}. Метрики отображаются в виде графиков на странице кластера, в разделе **{{ ui-key.yacloud.common.monitoring }}**. Метрики показывают текущее состояние и работоспособность кластера. Они доступны по умолчанию во всех кластерах {{ maf-name }}. Список доступных метрик приведен в их [справочнике](../metrics.md).
+{{ metrics-name }} собирает и хранит метрики сервисов {{ yandex-cloud }}. Во всех кластерах {{ maf-name }} метрики доступны по умолчанию. Графики состояния и работоспособности кластера отображаются на его странице на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**. Список доступных метрик приведен в [справочнике метрик](../metrics.md).
 
 ### {{ lockbox-name }} {#lockbox-integration}
 

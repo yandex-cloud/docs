@@ -41,6 +41,12 @@ Version of the Kafka server software. ||
 || `--zone-ids` | `[]string`
 
 List of availability zones. ||
+|| `--zookeeper-zone-ids` | `[]string`
+
+Availability zones for ZooKeeper hosts, independently of broker zones. Repeat a zone ID to place multiple hosts there. ||
+|| `--controller-zone-ids` | `[]string`
+
+Availability zones for dedicated KRaft controllers, independently of broker zones. Repeat a zone ID to place multiple controllers there. ||
 || `--brokers-count` | `int`
 
 Count of brokers in each availability zone. ||

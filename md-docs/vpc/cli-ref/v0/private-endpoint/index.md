@@ -28,6 +28,8 @@ Aliases:
 
 - [yc vpc v0 private-endpoint list-operations](list-operations.md) — List operations for a private endpoint.
 
+- [yc vpc v0 private-endpoint list-yandex-cloud-services](list-yandex-cloud-services.md) — List Yandex Cloud services available through private endpoints.
+
 - [yc vpc v0 private-endpoint update](update.md) — Modify configuration or attributes of a private endpoint.
 
 #### Global Flags

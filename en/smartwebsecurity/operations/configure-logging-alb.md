@@ -32,7 +32,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
       1. Enable **{{ ui-key.yacloud.alb.label_log-requests }}**.
       1. Select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your load balancer logs.
-      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/application-load-balancer.md#discard-logs-rules).
+      1. Click **{{ ui-key.yacloud.alb.button_add-discard-rule }}** and configure its [settings](../../application-load-balancer/concepts/monitoring.md#discard-logs-rules).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -67,7 +67,7 @@ To view logs, you need the [logging.viewer](../../logging/security/index.md#logg
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Navigate]({{ link-console-main }}/link/application-load-balancer) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Select the ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** section.
+  1. Select ![receipt](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
   1. Select the log display period using one of the following methods:
 
       * Click the interval, e.g., **Last hour**, and select one of the options: from **Last 5 minutes** to **Last day**.

@@ -33,7 +33,7 @@
        {% endnote %}
 
      * `cluster = default`.
-     * `service = certificate-manager`.
+     * `service = __certificate-manager__`.
      * `certificate = *`. Для отслеживания конкретного сертификата укажите его идентификатор.
 
   1. Для настройки алерта о скором истечении срока действия сертификата: {#expired}

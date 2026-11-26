@@ -136,7 +136,6 @@ _Политики авторизации_ (политики) — это меха
 
 * [aistudio.responses.restrictNetworkAccess](#aistudio-responses-restrictNetworkAccess)
 * [compute.restrictImage](#compute-restrictImage)
-* [postbox.identities.restrictNetworkAccess](#postbox-identities-restrictNetworkAccess)
 * [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
 * [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
 * [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
@@ -158,13 +157,6 @@ _Политики авторизации_ (политики) — это меха
 
 {% include [compute-access-parametrized-policies](../../../_includes/compute/compute-access-parametrized-policies.md) %}
 
-#### postbox.identities.restrictNetworkAccess {#postbox-identities-restrictNetworkAccess}
-
-Политика позволяет задать список IP-адресов и диапазонов IP-адресов, с которых разрешено [отправлять письма](../../../postbox/operations/send-email.md) через {{ postbox-full-name }}, и запрещает отправлять письма с любых IP-адресов, не входящих в этот список.
-
-Настраиваемый параметр:
-
-* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешена отправка писем.
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 

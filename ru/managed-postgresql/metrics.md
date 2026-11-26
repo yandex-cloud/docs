@@ -1,13 +1,13 @@
 ---
-title: Справочник метрик сервиса {{ mpg-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ mpg-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ mpg-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ mpg-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ mpg-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-postgresql](../_includes/monitoring/metrics-ref/managed-postgresql.md) %}
+
 
 #### Полезные ссылки {#see-also}
 

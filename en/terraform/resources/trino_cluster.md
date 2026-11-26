@@ -26,6 +26,10 @@ resource "yandex_trino_cluster" "trino" {
   }
 
 
+  additional_properties = {
+    "sql.default-schema" = "default"
+  }
+
   event_listeners = {
     data_catalog = {}
   }
@@ -126,6 +130,7 @@ resource "yandex_trino_cluster" "trino" {
 
 ## Arguments & Attributes Reference
 
+- `additional_properties` (Map Of String). Additional Trino configuration properties as key-value pairs.
 - `coordinator` [Block]. Configuration of `coordinator` instances.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.

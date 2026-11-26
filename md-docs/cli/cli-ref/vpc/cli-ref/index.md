@@ -94,6 +94,8 @@ Syntax:
 
   - [yc vpc private-endpoint list-operations](private-endpoint/list-operations.md) — List operations for a private endpoint.
 
+  - [yc vpc private-endpoint list-yandex-cloud-services](private-endpoint/list-yandex-cloud-services.md) — List Yandex Cloud services available through private endpoints.
+
   - [yc vpc private-endpoint update](private-endpoint/update.md) — Modify configuration or attributes of a private endpoint.
 
 - [yc vpc route-table](route-table/index.md) — Manage route tables.

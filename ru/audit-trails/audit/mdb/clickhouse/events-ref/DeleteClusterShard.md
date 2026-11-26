@@ -175,6 +175,7 @@ editable: false
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -563,6 +564,7 @@ editable: false
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -951,6 +953,7 @@ editable: false
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -1580,6 +1583,7 @@ A list of messages that carry the error details. ||
 || geobaseEnabled | **boolean** ||
 || geobaseUri | **string** ||
 || defaultDatabase | **string** ||
+|| defaultReplicaPath | **string** ||
 || totalMemoryProfilerStep | **string** (int64) ||
 || totalMemoryTrackerSampleProbability | **number** (double) ||
 || asyncInsertThreads | **string** (int64) ||

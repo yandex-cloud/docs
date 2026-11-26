@@ -1,9 +1,10 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ data-transfer-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
 
 
-При просмотре метрик в интерфейсе {{ data-transfer-name }} и при переходе к графику из сервисного дашборда используется значение метки `service=data-transfer`.
 
-Если вы создаете запрос в [разделе метрик {{ monium-name }}](../../../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с трансфером (`project=folder__<идентификатор_каталога>`), `cluster=default` и `service=__data-transfer__`.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 
 Все метрики сервиса {{ data-transfer-name }} имеют общие метки:
@@ -118,3 +119,7 @@ component | Компонент системы, например `psutil`.
 `task.snapshot.remainder.table`</br>`DGAUGE`, штуки | Количество строк, ожидающих переноса.</br>Метка `table` — таблица БД или коллекция.
 `task.snapshot.reminder.total`</br>`DGAUGE`, штуки | Общее количество оставшихся строк для переноса.</br>Метка `table` — таблица БД или коллекция.
 `task.status`</br>`DGAUGE`, 0/1 | Статус выполняющейся операции.</br>Принимает значения:<ul><li>`1` — задача активна;</li><li>`0` — задача неактивна.</li></ul>
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

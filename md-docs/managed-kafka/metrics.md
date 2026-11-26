@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Kafka®](index.md) > Метрики Yandex Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Kafka®](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Monitoring
 

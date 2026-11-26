@@ -54,15 +54,15 @@ You can:
 * Hide query calculation results from the chart by clicking ![image](../../../_assets/console-icons/eye.svg).
 * Display query calculation results on the chart by clicking ![image](../../../_assets/console-icons/eye-slash.svg).
 
-### Alert triggers {#condition}
+### Trigger conditions {#condition}
 
-#### Test query {#request}
+#### Query for verification {#request}
 
-Name of query to whose calculation result an [aggregation function](#aggregation) applies.
+Name of the query the result of which is processed using the [aggregation function](#aggregation).
 
 #### Aggregation function {#aggregation}
 
-Aggregation function is applied to the [test query](#request) calculation results.
+The aggregation function is applied to the result of the [query for verification](#request).
 
 Aggregation function| Description
 ----- | -----
@@ -79,7 +79,7 @@ For example, to track the latest metric value within the last 15 minutes, select
 
 #### Comparison function {#comparison}
 
-Comparison functions are applied to [aggregation function](#aggregation) calculation results and the [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warn) and [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm) threshold values. If an aggregated value matches the threshold one, {{ monitoring-name }} changes the alert status.
+Comparison functions are applied to [aggregation function](#aggregation) calculation results and the [{{ ui-key.yacloud_monitoring.alert.status_warn }}](#warning) and [{{ ui-key.yacloud_monitoring.alert.status_alarm }}](#alarm) threshold values. If an aggregated value matches the threshold one, {{ monitoring-name }} changes the alert status.
 
 #### {{ ui-key.yacloud_monitoring.alert.status_warn }} {#warning}
 
@@ -136,7 +136,7 @@ To make alerts switch to the `No data` status when there are no metrics or point
 
 The policy determines the alert status if no metrics were found for at least one selector. For example, these metrics do not exist or they were deleted after their [TTL](../ttl.md) expired.
 
-The possible values are:
+Its possible values are:
 
 * `Default`: `No data` for all alert types.
 * `OK`: Changes the alert status to `OK`.
@@ -150,7 +150,7 @@ The policy determines the alert status if at least one of the metrics in the eva
 
 For threshold alerts that monitor several metrics, predicates are checked for each metric independently. The final alert status is an aggregation of statuses for each of the metrics in the following order: `No data` < `OK` < `Warning` < `Error` < `Alarm`. If there is a line that has no points, and the `No points in evaluation window` policy changes the status of a threshold alert to `Warning`, while for another line, the predicate that changes the alert to `Alarm` is true, the resulting alert status will be `Alarm`.
 
-The possible values are:
+Its possible values are:
 
 * `Default`: Default value (`No data`) for all types of threshold alerts.
 * `OK`: Changes the alert status to `OK`.

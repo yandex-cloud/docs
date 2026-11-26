@@ -594,7 +594,7 @@ SPQR (Stateless Postgres Query Router) — это система горизон�
 
  - [Delete](api-ref/User/delete.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

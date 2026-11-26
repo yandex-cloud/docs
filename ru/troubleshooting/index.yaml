@@ -12,9 +12,6 @@ links:
   - title: '{{ billing-name }}'
     description: Решения для {{ billing-name }}
     href: billing/
-  - title: '{{ datalens-name }}'
-    description: Решения для {{ datalens-name }}
-    href: datalens/
   - title: Legal
     description: Решения для Legal
     href: legal/

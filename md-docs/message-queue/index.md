@@ -178,7 +178,7 @@ Message Queue помогает:
 
  - [Аудитные логи Audit Trails](at-ref.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Публичные материалы](public-talks.md)
 

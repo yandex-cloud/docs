@@ -249,6 +249,8 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [update-config](cli-ref/v0/cluster/update-config.md)
 
+ - [connect](cli-ref/v0/connect.md)
+
 #### hosts
 
  - [Overview](cli-ref/v0/hosts/index.md)
@@ -390,6 +392,8 @@ Yandex Managed Service for Valkey™ часто используется, что
  - [update](cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/cluster/update-config.md)
+
+ - [connect](cli-ref/connect.md)
 
 ### hosts
 
@@ -771,7 +775,7 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [List](api-ref/Versions/list.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

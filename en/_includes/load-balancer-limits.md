@@ -29,4 +29,4 @@ You can create a load balancer without a listener.
 
 Health check traffic comes from the `198.18.235.0/24` and `198.18.248.0/24` ranges.
 
-When adding targets for a load balancer, keep in mind the [limit](../vpc/concepts/limits.md#limits) on the maximum number of concurrent TCP/UDP connections per VM.
+When adding targets for a load balancer, keep in mind the [limit](../vpc/concepts/limits.md#vpc-limits) on the maximum number of concurrent TCP/UDP connections per VM.

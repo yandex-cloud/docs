@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ managed-k8s-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
-
 {% include [managed-kubernetes](../_includes/monitoring/metrics-ref/managed-kubernetes.md) %}
 
 #### Полезные ссылки {#see-also}

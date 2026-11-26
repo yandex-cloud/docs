@@ -240,7 +240,7 @@
 
 * Если кластер [закрыт от нагрузки](../concepts/expand.md#setting-close-cluster) и [фоновое перераспределение данных](../concepts/expand.md#setting-delay-redistribution) выключено, то отслеживать ход процесса можно только с помощью инструментов мониторинга {{ yandex-cloud }}.
 
-    [Наблюдайте за графиком](monitoring.md#monitoring-cluster) **Expansion progress** на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или запрашивайте значения [метрик](../metrics.md#managed-greenplum-expand-metrics) `gp_expand.*` с помощью сервиса [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+    [Наблюдайте за графиком](monitoring.md#monitoring-cluster) **Expansion progress** на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или запрашивайте значения [метрик](../metrics.md#managed-greenplum-expand-metrics) `gp_expand.*` в [разделе метрик {{ monium-name }}](../../monium/metrics/metric-explorer.md).
 
 * Если кластер не закрыт от нагрузки, то также можно выполнять SQL-запросы к объектам служебной схемы данных `gpexpand`.
 

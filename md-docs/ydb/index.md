@@ -558,7 +558,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [List](api-ref/StorageType/list.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

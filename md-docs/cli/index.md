@@ -1032,6 +1032,18 @@
 
  - [update](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md)
 
+###### virtualization-cluster
+
+ - [Overview](cli-ref/baremetal/cli-ref/v2/extend/virtualization-cluster/index.md)
+
+ - [get](cli-ref/baremetal/cli-ref/v2/extend/virtualization-cluster/get.md)
+
+ - [list](cli-ref/baremetal/cli-ref/v2/extend/virtualization-cluster/list.md)
+
+ - [list-virtualization-cluster-operations](cli-ref/baremetal/cli-ref/v2/extend/virtualization-cluster/list-virtualization-cluster-operations.md)
+
+ - [update](cli-ref/baremetal/cli-ref/v2/extend/virtualization-cluster/update.md)
+
 ##### hardware-pool
 
  - [Overview](cli-ref/baremetal/cli-ref/v2/hardware-pool/index.md)
@@ -1126,6 +1138,8 @@
 
  - [list](cli-ref/baremetal/cli-ref/v2/server/list.md)
 
+ - [list-access-bindings](cli-ref/baremetal/cli-ref/v2/server/list-access-bindings.md)
+
  - [list-operations](cli-ref/baremetal/cli-ref/v2/server/list-operations.md)
 
  - [power-off](cli-ref/baremetal/cli-ref/v2/server/power-off.md)
@@ -1138,9 +1152,13 @@
 
  - [renew-rental](cli-ref/baremetal/cli-ref/v2/server/renew-rental.md)
 
+ - [set-access-bindings](cli-ref/baremetal/cli-ref/v2/server/set-access-bindings.md)
+
  - [skip-quarantine](cli-ref/baremetal/cli-ref/v2/server/skip-quarantine.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/server/update.md)
+
+ - [update-access-bindings](cli-ref/baremetal/cli-ref/v2/server/update-access-bindings.md)
 
 ##### vrf
 
@@ -7412,6 +7430,8 @@
 
  - [update-config](cli-ref/managed-mongodb/cli-ref/v0/cluster/update-config.md)
 
+ - [connect](cli-ref/managed-mongodb/cli-ref/v0/connect.md)
+
 ##### database
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/v0/database/index.md)
@@ -7581,6 +7601,8 @@
  - [update](cli-ref/managed-mongodb/cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/managed-mongodb/cli-ref/cluster/update-config.md)
+
+ - [connect](cli-ref/managed-mongodb/cli-ref/connect.md)
 
 #### database
 
@@ -8640,6 +8662,8 @@
 
  - [update-config](cli-ref/managed-redis/cli-ref/v0/cluster/update-config.md)
 
+ - [connect](cli-ref/managed-redis/cli-ref/v0/connect.md)
+
 ##### hosts
 
  - [Overview](cli-ref/managed-redis/cli-ref/v0/hosts/index.md)
@@ -8781,6 +8805,8 @@
  - [update](cli-ref/managed-redis/cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/managed-redis/cli-ref/cluster/update-config.md)
+
+ - [connect](cli-ref/managed-redis/cli-ref/connect.md)
 
 #### hosts
 
@@ -12530,6 +12556,8 @@
 
  - [list-operations](cli-ref/vpc/cli-ref/v0/private-endpoint/list-operations.md)
 
+ - [list-yandex-cloud-services](cli-ref/vpc/cli-ref/v0/private-endpoint/list-yandex-cloud-services.md)
+
  - [update](cli-ref/vpc/cli-ref/v0/private-endpoint/update.md)
 
 ##### route-table
@@ -12693,6 +12721,8 @@
  - [list](cli-ref/vpc/cli-ref/private-endpoint/list.md)
 
  - [list-operations](cli-ref/vpc/cli-ref/private-endpoint/list-operations.md)
+
+ - [list-yandex-cloud-services](cli-ref/vpc/cli-ref/private-endpoint/list-yandex-cloud-services.md)
 
  - [update](cli-ref/vpc/cli-ref/private-endpoint/update.md)
 

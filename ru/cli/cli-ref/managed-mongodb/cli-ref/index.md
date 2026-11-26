@@ -13,7 +13,7 @@ Command tree v0 is the default. Run `yc managed-mongodb <command>` or `yc manage
 
 Syntax:
 
-`yc managed-mongodb <group>`
+`yc managed-mongodb <group|command>`
 
 Aliases:
 
@@ -25,7 +25,9 @@ Aliases:
 
 - [yc managed-mongodb v0](v0/index.md) — Manage MongoDB clusters, hosts, databases, backups and users
 
+  - [yc managed-mongodb v0 connect](v0/connect.md) — Connect to a MongoDB cluster with IAM authentication.
 
+- [yc managed-mongodb connect](connect.md) — Connect to a MongoDB cluster with IAM authentication.
 
 - [yc managed-mongodb backup](backup/index.md) — Manage MongoDB backups.
 

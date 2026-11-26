@@ -6,8 +6,6 @@ description: На этой странице приведен справочни�
 # Справочник метрик {{ metrics-name }}
 
 
-Метрики сервиса {{ backup-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/overview.md) и доступны в проекте каталога с защищаемыми ресурсами.
-
 {% include [backup](../_includes/monitoring/metrics-ref/backup.md) %}
 
 

@@ -1,8 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ backup-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся защищаемые ресурсы.
 
-При переходе к графику из сервисного дашборда значение метки `service` используется без подчеркиваний — `backup`.
-
-Если вы создаете запрос в {{ monium-name }} через **Обзор** → **Метрики**, укажите проект каталога с защищаемыми ресурсами (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __backup__`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ backup-name }}:
 
@@ -52,3 +50,5 @@
 
 Тип ресурса: `backup`. ||
 |#
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

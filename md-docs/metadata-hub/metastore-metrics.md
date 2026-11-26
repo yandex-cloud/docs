@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Apache Hive™ Metastore > Метрики Yandex Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Apache Hive™ Metastore > Справочник метрик
 
 # Справочник метрик Yandex Monitoring
 

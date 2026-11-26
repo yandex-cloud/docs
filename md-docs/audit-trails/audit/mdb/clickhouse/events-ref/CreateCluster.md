@@ -186,6 +186,7 @@
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -574,6 +575,7 @@
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -962,6 +964,7 @@
               "geobaseEnabled": "boolean",
               "geobaseUri": "string",
               "defaultDatabase": "string",
+              "defaultReplicaPath": "string",
               "totalMemoryProfilerStep": "string",
               "totalMemoryTrackerSampleProbability": "number",
               "asyncInsertThreads": "string",
@@ -2190,6 +2193,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || geobaseEnabled | **boolean** ||
 || geobaseUri | **string** ||
 || defaultDatabase | **string** ||
+|| defaultReplicaPath | **string** ||
 || totalMemoryProfilerStep | **string** (int64) ||
 || totalMemoryTrackerSampleProbability | **number** (double) ||
 || asyncInsertThreads | **string** (int64) ||

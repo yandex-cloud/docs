@@ -58,9 +58,9 @@ Alerts can have the following severity levels:
 
 ### Queries {#queries}
 
-This is a set of [queries](../data-model.md#queries) that return a line or multiple lines.
+This is a set of [queries](../querying.md#queries) that return a line or multiple lines.
 
-{{ monium-name }} determines the time range for loading metrics based on the [evaluation window](#evaluation-window), [evaluation delay](#evaluation-delay), and functions that modify this range, such as `shift` or `moving_avg`. Metrics that do not pass the [time range filter](../querying.md#time-range-filtering) are not loaded.
+{{ monium-name }} determines the metric uploading interval, considering the [calculation window](#evaluation-window), [calculation delay](#evaluation-delay), and functions that modify the uploading interval, such as `shift` or `moving_avg`. Metrics that do not pass the [time interval filter](../querying.md#time-range-filtering) are not uploaded.
 
 You can:
 
@@ -68,15 +68,15 @@ You can:
 * Hide query calculation results from the chart by clicking ![image](../../../_assets/console-icons/eye.svg).
 * Display query calculation results on the chart by clicking ![image](../../../_assets/console-icons/eye-slash.svg).
 
-### Alert triggers {#condition}
+### Trigger conditions {#condition}
 
-#### Test query {#request}
+#### Query for verification {#request}
 
-Name of query to whose calculation result an [aggregation function](#aggregation) applies.
+Name of the query the result of which is processed using the [aggregation function](#aggregation).
 
 #### Aggregation function {#aggregation}
 
-The aggregation function is applied to the [test query](#request) calculation result. It decides which value will be compared against the `Warning` and `Alarm` thresholds.
+The aggregation function is applied to the result of the [query for verification](#request). It decides which value will be compared against the `Warning` and `Alarm` thresholds.
 
 Aggregation function| Description
 ----- | -----
@@ -218,26 +218,26 @@ Notifications help keep relevant users or systems informed about alert status ch
 
 ### Noise suppression {#noise-suppression}
 
-Noise suppression reduces the number of notifications when the alert status changes frequently. After the first status change, {{ monium-name }} starts a wait interval. If the status changes several times within this interval, {{ monium-name }} will send a single notification with the resulting status.
+Noise suppression reduces the number of notifications when the alert status changes frequently. After the first status change, {{ monium-name }} starts the timeout interval. If status changes several times during this interval, {{ monium-name }} will send one notification with the resulting status.
 
-This setting is useful for metrics that fluctuate rapidly around the threshold. For example, an API latency alert may switch between `OK` and `Warning` several times during a brief load spike. Without noise suppression, the on-call engineer will receive multiple notifications, while with noise suppression, a single notification once the status stabilizes.
+This setting is useful for metrics rapidly fluctuating near a threshold. For example, an API latency alert may switch between `OK` and `Warning` several times during a brief load spike. Without noise suppression, the operator on duty will receive several notifications; with noise suppression, one notification after the status stabilizes.
 
-The interval should be longer than the typical duration of a brief spike but shorter than the acceptable incident response time. For example, you can set an interval of several minutes for an unstable background task, or use a short interval or disable noise suppression for a critical API.
+The interval should be longer than the typical duration of a brief spike but shorter than acceptable incident response time. For example, you can set an interval of several minutes for an unstable background task, and use a short interval or disable noise suppression altogether for a critical API.
 
-The resulting status depends on the priority setting. If preventing missed incidents is more important, choose the priority of the more critical status. If receiving the system’s latest state after stabilization is more important, choose the priority of the latest status.
+The resulting status depends on your priority settings. If your priority is not to miss an incident, prioritize the more critical status. If your priority is to get the system’s last state after the stabilization, the last status should be prioritized.
 
 ## Composite alerts {#composite-alerts}
 
-A _composite alert_ is an alert that calculates its status based on the statuses of other alerts. It helps reduce notification noise and respond only to specific combinations of alert statuses.
+A _composite alert_ is an alert that calculates its status based on the statuses of other alerts. It can help you reduce the noise produced individual notifications and respond only to combinations of triggers.
 
-The composite alert uses a selector to find source alerts and then applies the selected composition strategy:
+The composite alert uses a selector to find the source alerts and applies the selected composition strategy to them:
 
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.percentage }}**: The composite alert triggers if the specified share of the found alerts are in the selected statuses.
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.count }}**: The composite alert triggers if at least the specified number of the found alerts are in the selected statuses.
 
 For `Warning` and `Alarm`, you need to configure separate thresholds and source statuses. The threshold type depends on the composition strategy: **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.percentage }}** uses a percentage, **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.count }}**, an integer.
 
-Let's assume, the selected strategy is **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.percentage }}**, the `Alarm` threshold equals `10%`, and the statuses are `Warning` and `Alarm`. In this case, the composite alert will change to `Alarm` when at least 10% of the alerts found by the selector are in one of these statuses.
+Let's assume, the selected strategy is **{{ ui-key.yacloud_monitoring.monitoring-alerts.aggregate.strategy-type.percentage }}**, the `Alarm` threshold equals `10%`, and the statuses are `Warning` and `Alarm`. In this case, the composite alert will get the `Alarm` status if at least 10% of alerts found by the selector are in one of these statuses.
 
 Additional composite alert settings:
 
@@ -245,11 +245,11 @@ Additional composite alert settings:
 * **Force the composite status to Error**: Sets the composite alert status to `Error` if at least one source alert has this status.
 * **Treat muted alerts as Ok**: Counts muted source alerts as the `Ok` status.
 
-You can add source alert annotations to a composite alert. To do this, select one or more annotations from the alerts found by the selector. The values of these annotations are built from the annotation keys and values of multiple source alerts that have recently changed their status.
+You can add source alert annotations to a composite alert. Do it by selecting one or more annotations from the alerts found by the selector. The values of such annotations are built from the keys and values of annotation of several source alerts which have recently changed their status.
 
 ## SLO alerts {#slo-alerts}
 
-_SLO alerts_ monitor [error budgets](../../slo/index.md#basic-terms) of the selected [SLOs](../../slo/index.md). They help respond not only to individual failures but also to the risk of falling below the service’s target reliability level.
+An _SLO alert_ is an alert which monitors the [error budget](../../slo/index.md#basic-terms) of the selected [SLO](../../slo/index.md). It helps respond not only to individual failures but also to the risk of falling below the service’s target reliability level.
 
 An SLO alert uses the calculated metrics of a selected SLO. You cannot set your own queries for metrics in it. An SLO project may differ from an alert project. Breaking down an SLO alert by labels is not supported.
 
@@ -260,7 +260,7 @@ There are two available types of SLO alerts:
 
 For `Warning` and `Alarm`, you need to configure separate thresholds. You need to set at least one of them. If both are set, the `Alarm` threshold value must be lower than the `Warning` threshold value when checking the remaining budget, and higher when checking expenditure or burn rate.
 
-SLO alerts complement metric alerts but do not replace them. Metric alerts help find the technical cause of an issue, while SLO alerts show its impact on service reliability.
+SLO alerts complement metric alerts but do not replace them. Metric alerts help you find the technical cause of the issue, while SLO alerts show how it affects the reliability of the service.
 
 To create an SLO alert, follow [{#T}](../../operations/alert/create-slo-alert.md).
 
@@ -304,21 +304,21 @@ When traffic is low, the burn rate can increase even if the number of errors rem
 
 ## Multialerts {#multi-alerts}
 
-Multialerts enable you to set up similar tests for entities of the same type, e.g., for all cluster hosts, disks on a server, or database shards. Instead of creating several separate alerts, you create a single parent alert and select the labels for decomposition.
+Multialerts allow you to use the same checks for same-type entities, e.g., for all cluster hosts, server disks, or database shards. Instead of creating several separate alerts, you create a single parent alert and select labels for decomposition.
 
 ### Creating a multialert {#create-multi-alert}
 
-To create a multialert, specify one or more labels in **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.group-by-labels }}**. For every unique label value (or a combination of several label values), {{ monium-name }} will automatically create a separate subalert.
+To create a multialert, specify one or more labels in **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.group-by-labels }}**. {{ monium-name }} will automatically create a separate subalert for each unique label value or a combination of several label values.
 
 Decomposition examples:
 
-* Specifying the `host` label will create a subalert for each host.
-* Specifying the `disk` label will create a subalert for each disk.
+* If you specify the `host` label, it will create a subalert for each host.
+* If you specify the `disk` label, it will create a subalert for each disk.
 * If you specify the `host` and `disk` labels, it will create a subalert for each host-disk combination.
 
-Select the labels that require separate diagnostics or a separate response. For example, the `disk` label helps generate a separate alert for a full disk, while the `zone` label helps identify an issue in a specific availability zone.
+Select the labels that require separate diagnostics or a separate response. For example, the `disk` label helps you get a separate full disk trigger, and the `zone` label, see an issue in a specific availability zone.
 
-Do not use labels with many unique values, such as `request_id`, `trace_id`, and `user_id`, or dynamic container IDs. These may create numerous subalerts, complicate incident analysis, and increase alert quota usage.
+Do not use labels with many unique values, e.g., `request_id`, `trace_id`, and `user_id`, or dynamic container IDs. These may create numerous subalerts, complicate incident forensics, and increase alert quota usage.
 
 ### Subalerts {#sub-alerts}
 
@@ -328,7 +328,7 @@ A _subalert_ is an automatically created alert which cannot be edited manually. 
 * Created automatically when metrics with new label values appear.
 * Deleted automatically when the matching metrics are deleted.
 
-Each subalert has its own status and evaluation history. This helps quickly identify the affected entity, such as a specific host, disk, availability zone, or shard. If an issue affects only one disk, that disk’s subalert changes to `Alarm` rather than all checks in the multialert.
+A subalert has a status and evaluation history of its own. This helps you quickly identify the affected entity, be it a specific host, disk, availability zone, or shard. If the issue affects only one disk, only that disk’s subalert will get the `Alarm` status, not all the multialert checks.
 
 Subalerts inherit queries, thresholds, no data policies, and notifications from the parent multialert. You cannot update an individual subalert separately. To temporarily disable notifications for a specific entity, use a mute based on the subalert’s labels.
 
@@ -340,11 +340,11 @@ To create a multialert to monitor CPU utilization by the {{ compute-name }} reso
 {project = "<project_id>", service = "__compute__", cluster = "default", name = "cpu_usage", resource_id = "*", resource_type = "*"}
 ```
 
-Specify the `resource_id` and `resource_type` labels in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.group-by-labels }}** parameter. This will result in creating a separate subalert for every unique combination of type and resource ID.
+Specify the `resource_id` and `resource_type` labels in the **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.group-by-labels }}** parameter. This create a separate subalert for every unique combination of type and resource ID.
 
 ### Viewing a multialert {#view-multi-alert}
 
 On the multialert page:
 
 * Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.calculation-history-alert }}**, you can see a summary of the number of subalerts in each status.
-* Under **Subalerts**, you can filter the list of subalerts by label and status.
+* Under **Subalerts**, there is a list of subalerts which you can filter by label and status.

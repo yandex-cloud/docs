@@ -86,8 +86,9 @@
   1. Нажмите на созданный инстанс и выберите вкладку **OmniAuth**.
   1. Нажмите кнопку **Настроить**.
   1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
+  1. Выберите добавленного провайдера.
   1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
-  
+
      * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
      * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса GitLab. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса GitLab, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
      * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **Цифровой отпечаток (fingerprint)**, полученное при создании приложения в Yandex Identity Hub.
@@ -95,11 +96,11 @@
      * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
      * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
      * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне GitLab.
-     * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в GitLab, если к ним привязан один адрес электронной почты. Установите значение `true`.
+     * **Auto link SAML users by email** — установить соответствие между именем пользователя в OmniAuth и в GitLab, если к ним привязан один адрес электронной почты. Установите значение `true`.
      * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval](https://docs.gitlab.com/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
      * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними](https://docs.gitlab.com/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам](https://docs.gitlab.com/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
      * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
-  
+
   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
@@ -114,7 +115,7 @@
 
   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
       1. В поле **SP EntityID** вставьте адрес эндпоинта, который вы вводили в поле **Issuer** при настройке OmniAuth.
       1. В поле **ACS URL** вставьте адрес эндпоинта, который вы вводили в поле **Assertion consumer service URL** при настройке OmniAuth, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
       1. Нажмите **Сохранить**.
@@ -155,20 +156,20 @@
 
 {% endnote %}
 
-1. Добавьте пользователей в приложение:
+Добавьте пользователей в приложение:
 
-    {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-        1. Перейдите на вкладку **Пользователи и группы**.
-        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
-        1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-        1. Нажмите **Добавить**.
+   1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+   1. Перейдите на вкладку **Пользователи и группы**.
+   1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+   1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+   1. Нажмите **Добавить**.
 
-    {% endlist %}
+{% endlist %}
 
 {% note tip %}
 

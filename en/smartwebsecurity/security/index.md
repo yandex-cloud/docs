@@ -1,18 +1,18 @@
 ---
 title: Access management in {{ sws-name }}
-description: This section describes the resources you can assign a role for and roles available in {{ sws-name }}.
+description: This section lists the resources supporting role assignment and roles available in {{ sws-name }}.
 ---
 
 # Access management in {{ sws-name }}
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `smart-web-security.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `smart-web-security.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -20,7 +20,7 @@ To assign a role for a resource, a user should have the `smart-web-security.admi
 
 You can assign a role for an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for an organization, cloud, or folder also apply to security profiles in them.
 
-## What roles exist in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 

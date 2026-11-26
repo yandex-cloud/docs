@@ -1,0 +1,1 @@
+To view quotas, [assign](../../iam/operations/roles/grant.md) either the [quota-manager.viewer](../../quota-manager/security/index.md#quota-manager-viewer) role to the account. Assign the role for the respective cloud or organization.

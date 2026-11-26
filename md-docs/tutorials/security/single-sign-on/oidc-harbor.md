@@ -46,12 +46,6 @@
   
   Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для создания OIDC-приложения:
-
-     ```bash
-     yc organization-manager idp application oauth application create --help
-     ```
-
   1. Создайте OAuth-клиент:
 
      ```bash
@@ -106,6 +100,12 @@
      ```
 
      Сохраните значение поля `secret_value`, оно понадобится для настройки Harbor.
+
+  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
 
   1. Создайте OIDC-приложение:
 
@@ -363,7 +363,7 @@
 
 Перед настройкой OIDC убедитесь, что веб-интерфейс доступен по HTTPS. Это обязательное условие: Harbor использует callback URL вида `https://<домен_Harbor>/c/oidc/callback`.
 
-1. Откройте раздел **Administration** и перейдите в **Configuration**.
+1. Перейдите в раздел **Administration** → **Configuration**.
 1. Откройте вкладку **Authentication**.
 1. В поле **Auth Mode** выберите **OIDC**.
 1. Заполните поля провайдера OIDC:

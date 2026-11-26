@@ -5,6 +5,4 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ container-registry-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
-
 {% include [container-registry](../_includes/monitoring/metrics-ref/container-registry.md) %}

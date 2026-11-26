@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ compute-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/quickstart.md).
-
 {% include [compute](../_includes/monitoring/metrics-ref/compute.md) %}
 
 #### Полезные ссылки {#see-also}

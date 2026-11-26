@@ -1,8 +1,13 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > Метрики Monium
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Monium
 
-В этом разделе описаны метрики сервиса Managed Service for GitLab, поставляемые в [Monium](../monium/index.md).
+Метрики сервиса Managed Service for GitLab автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится инстанс.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
 
@@ -10,7 +15,7 @@
 
 | Метка     |   Значение                                     |
 |-----------|------------------------------------------------|
-| service   | Идентификатор сервиса: `__managed-gitlab__`. |
+| service   | Идентификатор сервиса: `managed-gitlab`.     |
 | host      | Имя хоста инстанса в домене `.gitlab.yandexcloud.net`. Например, `example` для инстанса с доменным именем `example.gitlab.yandexcloud.net`. |
 | cloud_id  | Идентификатор [облака](../resource-manager/concepts/resources-hierarchy.md#cloud).    |
 | folder_id | Идентификатор [каталога](../resource-manager/concepts/resources-hierarchy.md#folder). |
@@ -66,6 +71,8 @@
 | `sys.system.UpTime` | `DGAUGE` | Общее время с момента последнего запуска системы в формате `N days, hh:mm:ss`. |
 | `sys.system.UpTimeRaw` | `DGAUGE` | Общее время с момента последнего запуска системы, в секундах. |
 | `sys.system.UserTime` | `DGAUGE` | Время выполнения пользовательских процессов, в % от общего процессорного времени. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
 
 #### Полезные ссылки {#see-also}
 

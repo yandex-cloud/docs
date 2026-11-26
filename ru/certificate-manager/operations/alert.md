@@ -32,7 +32,7 @@ description: Следуя этой инструкции, вы сможете д�
        {% include [query-select-different-project](../../_includes/monium/query-select-different-project.md) %}
 
      * `cluster = default`.
-     * `service = certificate-manager`.
+     * `service = __certificate-manager__`.
      * `certificate = *`. Для отслеживания конкретного сертификата укажите его идентификатор.
 
   1. Для настройки алерта о скором истечении срока действия сертификата: {#expired}

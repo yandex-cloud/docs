@@ -1,4 +1,4 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ at-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится трейл.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
@@ -24,3 +24,5 @@ destination_type | [Объект назначения](../../../audit-trails/con
 `quota.trails_count.usage`<br>`IGAUGE`, штуки | Текущее потребление квоты трейлов на облако; метрика может использоваться для создания [алерта](../../../monium/concepts/alerting/alert.md), предупреждающего о приближении к квоте. |
 
 Метрики `quota.trails_count.usage` и `quota.trails_count.limit` доступны в проекте каталога с трейлом `folder__<идентификатор_каталога>`, но отражают потребление и размер квоты на все облако.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

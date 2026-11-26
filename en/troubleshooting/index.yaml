@@ -8,9 +8,6 @@ links:
   - title: '{{ billing-name }}'
     description: Solutions for {{ billing-name }}
     href: billing/
-  - title: '{{ datalens-name }}'
-    description: Solutions for {{ datalens-name }}
-    href: datalens/
   - title: Legal
     description: Solutions for legal
     href: legal/

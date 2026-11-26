@@ -1,6 +1,6 @@
 # ListEndpointsByPlatformApplication
 
-Gets a list of [endpoints for mobile push notifications](../concepts/index.md#mobile-endpoints) or [in-browser push notifications](../concepts/browser.md).
+Gets a list of [endpoints for mobile push notifications](../concepts/push.md#mobile-endpoints) or [in-browser push notifications](../concepts/browser.md).
 
 ## HTTP request {#request}
 

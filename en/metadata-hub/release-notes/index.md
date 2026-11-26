@@ -162,7 +162,7 @@ Improved metadata profiling and contextual search.
 
 #### New features {#new-features-august25}
 
-* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the option to manage connections with custom [{{ KF }}](../operations/create-connection.md#kafka) installations and [{{ mkf-name }} clusters](../operations/create-connection.md#mdb-kafka); added support for [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
+* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the option to manage connections with custom [{{ KF }}](../operations/create-connection.md#kafka-on-premise) installations and [{{ mkf-name }} clusters](../operations/create-connection.md#mdb-kafka); added support for [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
 
 #### Fixed issues {#problems-solved-august25}
 

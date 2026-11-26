@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 Перепаковка таблиц и индексов устраняет _раздувание данных_ (bloat).
 
 
-Получить информацию о состоянии таблиц и индексов можно в [консоли управления]({{ link-console-main }}) на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или в сервисе [{{ monitoring-full-name }}](../../monitoring/index.yaml).
+Получить информацию о состоянии таблиц и индексов можно в [консоли управления]({{ link-console-main }}) на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или в [{{ monium-full-name }}](../../monium/index.yaml).
 
 [Подробнее о мониторинге состояния кластера {{ PG }}](monitoring.md).
 

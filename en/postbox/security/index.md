@@ -11,7 +11,6 @@ To grant access to {{ postbox-name }} resources, assign the relevant roles from 
 
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
-You can use the `postbox.identities.restrictNetworkAccess` [access policy](../../iam/concepts/access-control/access-policies.md#postbox-identities-restrictNetworkAccess) to allow [sending emails](../operations/send-email.md) only from explicitly specified IP addresses. The access policy is created at the [folder](*folders), [cloud](*clouds), or [organization](*organizations) level and restricts sending emails from any IP addresses that are not on the list. For more information, see [{#T}](../../iam/concepts/access-control/access-policies.md).
 
 ## Roles this service has {#roles-list}
 

@@ -252,7 +252,7 @@ yc managed-greenplum connect <имя_или_идентификатор_клас�
 
 Кластер появится в списке серверов в навигационном меню.
 
-Для наблюдения за состоянием кластера рекомендуется использовать сервис [Yandex Monitoring](../monitoring.md) вместо вкладки **Dashboard** в pgAdmin 4, потому что в ней может возникать ошибка:
+Для наблюдения за состоянием кластера рекомендуется использовать [Yandex Monium](../monitoring.md) вместо вкладки **Dashboard** в pgAdmin 4, потому что в ней может возникать ошибка:
 
 ```text
 column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^

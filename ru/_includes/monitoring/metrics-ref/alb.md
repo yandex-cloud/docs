@@ -1,8 +1,8 @@
-Имя метрики пишется в метку `name`. Значение метки `service` — `application-load-balancer`.
-
-Для метрик {{ alb-name }} используйте [проект каталога](*monium-folder-project) с балансировщиком.
+Метрики сервиса {{ alb-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится балансировщик.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Значение метки `service` — `application-load-balancer`.
 
 ## Метрики HTTP {#http-metrics}
 

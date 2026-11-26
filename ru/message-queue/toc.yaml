@@ -171,7 +171,7 @@ items:
         href: api-ref/common-errors.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Публичные материалы
     href: public-talks.md

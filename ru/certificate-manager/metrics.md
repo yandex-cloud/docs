@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ monium-full-name }}
 
-В этом разделе описаны метрики сервиса {{ certificate-manager-name }}, поставляемые в [{{ monium-name }}](../monium/index.yaml).
-
 {% include [certificate-manager](../_includes/monitoring/metrics-ref/certificate-manager.md) %}
 
 #### Полезные ссылки {#see-also}

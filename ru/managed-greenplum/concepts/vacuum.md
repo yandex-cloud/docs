@@ -70,7 +70,7 @@ description: Из статьи вы узнаете, зачем нужна очи
 
 ## Мониторинг состояния таблиц и индексов {#monitoring}
 
-Получить информацию о статистике bloat системного каталога и статистике очистки пользовательских таблиц можно в [консоли управления]({{ link-console-main }}) на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md), на графиках в блоке **Background activities**.
+Получить информацию о статистике bloat системного каталога и статистике очистки пользовательских таблиц можно в [консоли управления]({{ link-console-main }}) на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером или в [{{ monium-full-name }}](../../monium/overview.md), на графиках в блоке **Background activities**.
 
 [Подробнее о мониторинге состояния кластера {{ mgp-name }}](../operations/monitoring.md#monitoring-cluster).
 

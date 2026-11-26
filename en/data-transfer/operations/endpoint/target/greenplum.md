@@ -11,7 +11,7 @@ description: In this tutorial, you will learn how to set up a {{ GP }}/{{ CB }} 
 1. [Prepare your {{ GP }}/{{ CB }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
 ## Scenarios for transferring data to {{ GP }}/{{ CB }} {#scenarios}
@@ -65,7 +65,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#managed-greenplum-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 

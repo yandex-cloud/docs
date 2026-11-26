@@ -1,8 +1,15 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud Registry](index.md) > Метрики Monium Metrics
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Registry](index.md) > Справочник метрик
 
 # Справочник метрик Monium Metrics
 
-Метрики сервиса Cloud Registry автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) и доступны в проекте каталога с реестром.
+Метрики сервиса Cloud Registry автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится реестр.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
+Имя метрики пишется в метку `name`.
 
 ## Просмотр графиков {#view-metrics}
 
@@ -24,11 +31,7 @@
 
 {% endlist %}
 
-Имя метрики пишется в метку `name`.
-
-При переходе к графику из сервисного дашборда значение метки `service` используется без подчеркиваний — `cloud-registry`.
-
-Если вы создаете запрос в Monium через **Обзор** → **Метрики**, укажите проект каталога с реестром (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __cloud-registry__`. Для просмотра метрик конкретного реестра добавьте его идентификатор в метку `registry_id`.
+Для просмотра метрик конкретного реестра добавьте его идентификатор в метку `registry_id`.
 
 Общие метки для всех метрик сервиса Cloud Registry:
 
@@ -43,3 +46,5 @@ registry_id | Идентификатор [реестра](concepts/registry.md)
 --- | ---
 `registry_artifacts_count`<br>`IGAUGE`, штуки | Текущее количество артефактов в реестре.
 `registry_size_bytes`<br>`IGAUGE`, байты | Суммарный размер реестра.
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

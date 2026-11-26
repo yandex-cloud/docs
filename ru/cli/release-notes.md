@@ -7,6 +7,65 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.48.0 (26.11.26) {#v-1-48-0}
+
+#### {{ mch-name }} {#v-1-48-0-mch-name}
+
+Добавлены параметры `--maintenance-window-slot` и `--maintenance-anytime` в команды для настройки слотов обслуживания:
+* `yc managed-clickhouse cluster create`;
+* `yc managed-clickhouse cluster restore`;
+* `yc managed-clickhouse cluster update`.
+
+#### {{ mgp-name }} {#v-1-48-0-mgp-name}
+
+Добавлены параметры `--maintenance-window-slot` и `--maintenance-anytime` в команды для настройки слотов обслуживания:
+* `yc managed-greenplum cluster create`;
+* `yc managed-greenplum cluster restore`;
+* `yc managed-greenplum cluster update`.
+
+#### {{ mkf-name }} {#v-1-48-0-mkf-name}
+
+Добавлены параметры `--zookeeper-zone-ids` и `--controller-zone-ids` для размещения узлов ZooKeeper и выделенных контроллеров KRaft независимо от зон брокеров в командах:
+* `yc managed-kafka cluster create`;
+* `yc managed-kafka cluster update`.
+
+#### {{ mmg-name }} {#v-1-48-0-mmg-name}
+
+* Добавлена команда `yc managed-mongodb connect` для подключения к кластеру с IAM-аутентификацией.
+* Добавлены параметры `--maintenance-window-slot` и `--maintenance-anytime` в команды для настройки слотов обслуживания:
+  * `yc managed-mongodb cluster create`;
+  * `yc managed-mongodb cluster restore`;
+  * `yc managed-mongodb cluster update`.
+
+#### {{ mpg-name }} {#v-1-48-0-mpg-name}
+
+* Добавлен параметр `--backup-priority` для задания приоритета хоста как источника резервной копии в команду `yc managed-postgresql hosts update`.
+* Добавлен ключ `backup-priority` для параметра `--host`, задающий приоритет хоста как источника резервной копии, в команды:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql hosts add`.
+
+#### {{ mrd-name }} {#v-1-48-0-mrd-name}
+
+Добавлена команда `yc managed-redis connect` для подключения к кластеру с IAM-аутентификацией.
+
+#### {{ mspqr-name }} {#v-1-48-0-mspqr-name}
+
+Добавлены параметры `--maintenance-window-slot` и `--maintenance-anytime` в команды для настройки слотов обслуживания:
+* `yc managed-sharded-postgresql cluster create`;
+* `yc managed-sharded-postgresql cluster restore`;
+* `yc managed-sharded-postgresql cluster update`.
+
+#### {{ vpc-name }} {#v-1-48-0-vpc-name}
+
+Добавлена команда `yc vpc private-endpoint list-yandex-cloud-services` для просмотра списка сервисов {{ yandex-cloud }}, доступных через сервисные подключения.
+
+#### Изменения в системных командах CLI {#v-1-48-0-yc}
+
+Уменьшен размер статического Bash-автодополнения и ускорено его подключение при запуске оболочки.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.47.0 (19.11.26) {#v-1-47-0}
 
 #### {{ cloud-desktop-name }} {#v-1-47-0-cloud-desktop-name}
@@ -29,8 +88,6 @@ description: На странице представлены релизы CLI, а
 #### {{ org-full-name }} {#v-1-47-0-org-name}
 
 * Добавлен параметр `--sspr-policies` в команды `yc organization-manager mfa-enforcement create` и `yc organization-manager mfa-enforcement update` для задания способа самостоятельного сброса пароля пользователями.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.46.0 (16.11.26) {#v-1-46-0}
 

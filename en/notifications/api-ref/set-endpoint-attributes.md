@@ -1,6 +1,6 @@
 # SetEndpointAttributes
 
-Sets attributes of the [endpoint for push notifications](../concepts/index.md#mobile-endpoints).
+Sets attributes of the [endpoint for push notifications](../concepts/push.md#mobile-endpoints).
 
 ## HTTP request {#request}
 

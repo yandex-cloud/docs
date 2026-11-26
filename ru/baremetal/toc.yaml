@@ -643,6 +643,19 @@ items:
                               cli-ref/v2/extend/stackland-cluster/list-stackland-versions.md
                           - name: update
                             href: cli-ref/v2/extend/stackland-cluster/update.md
+                      - name: virtualization-cluster
+                        items:
+                          - name: Overview
+                            href: cli-ref/v2/extend/virtualization-cluster/index.md
+                          - name: get
+                            href: cli-ref/v2/extend/virtualization-cluster/get.md
+                          - name: list
+                            href: cli-ref/v2/extend/virtualization-cluster/list.md
+                          - name: list-virtualization-cluster-operations
+                            href: >-
+                              cli-ref/v2/extend/virtualization-cluster/list-virtualization-cluster-operations.md
+                          - name: update
+                            href: cli-ref/v2/extend/virtualization-cluster/update.md
                   - name: hardware-pool
                     items:
                       - name: Overview
@@ -737,6 +750,8 @@ items:
                         href: cli-ref/v2/server/get.md
                       - name: list
                         href: cli-ref/v2/server/list.md
+                      - name: list-access-bindings
+                        href: cli-ref/v2/server/list-access-bindings.md
                       - name: list-operations
                         href: cli-ref/v2/server/list-operations.md
                       - name: power-off
@@ -749,10 +764,14 @@ items:
                         href: cli-ref/v2/server/reinstall.md
                       - name: renew-rental
                         href: cli-ref/v2/server/renew-rental.md
+                      - name: set-access-bindings
+                        href: cli-ref/v2/server/set-access-bindings.md
                       - name: skip-quarantine
                         href: cli-ref/v2/server/skip-quarantine.md
                       - name: update
                         href: cli-ref/v2/server/update.md
+                      - name: update-access-bindings
+                        href: cli-ref/v2/server/update-access-bindings.md
                   - name: vrf
                     items:
                       - name: Overview
@@ -1796,7 +1815,7 @@ items:
                               - name: ListStacklandVersions
                                 href: >-
                                   extend/api-ref/StacklandCluster/listStacklandVersions.md
-          - name: Метрики {{ metrics-name }}
+          - name: Справочник метрик
             href: metrics.md
       - name: Квоты и лимиты
         href: concepts/limits.md

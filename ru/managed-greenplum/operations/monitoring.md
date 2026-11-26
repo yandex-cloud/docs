@@ -327,30 +327,36 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% endlist %}
 
-## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
+## Интеграция с {{ monium-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
+  1. [Перейдите]({{ link-monium }}) в {{ monium-name }}.
+  1. Выберите [проект](../../monium/concepts/glossary.md#project) `folder__<идентификатор_каталога>` для каталога, в котором находится кластер.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. Выберите:
       * **{{ mgp-name }} — Cluster Overview** для настройки алертов кластера;
       * **{{ mgp-name }} — Host Overview** для настройки алертов хостов.
+  1. В параметрах дашборда выберите нужный кластер и, при необходимости, хосты.
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов читайте в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для оповещения.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Для сигналов рекомендуется устанавливать алерты на переход в статус `Crit` (значение `0`) или `Warn` (значение `1`).
+  1. Укажите название алерта.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}** проверьте запросы, загруженные из графика. Если показателей на графике больше одного, запросов также будет несколько. Подробнее о языке запросов читайте в [документации {{ monium-full-name }}](../../monium/concepts/querying.md).
+  1. В блоке **Условия срабатывания** выберите **Запрос для проверки** и настройте условие перехода алерта в статусы `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}`.
+
+      Для метрик-сигналов выберите функцию агрегации `{{ ui-key.yacloud_monitoring.alert.title_aggregation-last_non_nan }}`, задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` и пороги: `0` для `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `1` для `{{ ui-key.yacloud_monitoring.alert.status_warn }}`. Эти значения соответствуют состояниям сигнала `Crit` и `Warn`. При таком условии состояние сигнала `Unknown` (значение `-1`) также переведет алерт в статус `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`.
+
+  1. Чтобы получать уведомления о срабатывании алерта, добавьте [канал уведомлений](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик приведен в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-greenplum-ref.md).
+Полный список поддерживаемых метрик приведен в [справочнике метрик {{ mgp-name }}](../metrics.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

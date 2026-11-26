@@ -168,25 +168,31 @@ description: Следуя этой инструкции, вы сможете п�
 На этой странице выводятся графики, показывающие нагрузку на группу хостов кластера. Набор графиков зависит от типа хостов в группе и аналогичен [набору графиков для отдельных хостов](#monitoring-hosts).
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
+
+      Метрики кластера передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В открывшемся списке выберите сервисные дашборды:
 
       * **{{ mos-name }}** для настройки алертов кластера;
       * **{{ mos-name }} — Dashboards** для настройки алертов хостов с ролью `DASHBOARDS`;
       * **{{ mos-name }} — Data** для настройки алертов хостов с ролью `DATA`;
       * **{{ mos-name }} — Manager** для настройки алертов хостов с ролью `MANAGER`.
-
+  1. На дашборде выберите нужный кластер. Для алерта по отдельному хосту также выберите этот хост.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов в [документации {{ monium-full-name }}](../../monium/concepts/querying.md).
+  1. Укажите **{{ ui-key.yacloud_monitoring.alert.title_name }}** алерта.
+  1. Задайте функцию агрегации, функцию сравнения и окно вычисления для выбранной метрики.
   1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Добавьте [канал уведомлений](../../monium/concepts/alerting/notification-channel.md). Если канала нет, [создайте его](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -201,9 +207,9 @@ description: Следуя этой инструкции, вы сможете п�
 | Число перемещаемых шардов                    |     `opensearch_relocating_shards`     |      `top_last(1)`     |             `больше 0`            |                                   |
 | Число инициализируемых шардов                |    `opensearch_initializing_shards`    |      `top_last(1)`     |             `больше 0`            |                                   |
 | Число отложенных к назначению шардов         | `opensearch_delayed_unassigned_shards` |      `top_last(1)`     |             `больше 0`            |                                   |
-| Объем использованной памяти кучи JVM         | `opensearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | больше 90% от объема RAM на хосте |                                   |
+| Процент использованной памяти кучи JVM       | `opensearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | больше 90                       |                                   |
 | Объем использованного хранилища              |   `opensearch_fs_total_used_percent`   |      `top_last(1)`     |  больше 90% от размера хранилища  |  больше 85% от размера хранилища  |
-| Использование пула долгоживущих объектов JVM |   `opensearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90% от объема RAM на хосте | больше 75% от объема RAM на хосте |
+| Показатель давления на кучу JVM             |   `opensearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90                       | больше 75                       |
 | Размер использованного хранилища             | `disk.used_bytes`                      | —                      | 90% от размера хранилища          | 80% от размера хранилища          |
 
 Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.status_warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
@@ -211,7 +217,7 @@ description: Следуя этой инструкции, вы сможете п�
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
 
-Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-opensearch-ref.md).
+Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик в [документации {{ monium-name }}](../../monium/metrics-ref/managed-opensearch-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

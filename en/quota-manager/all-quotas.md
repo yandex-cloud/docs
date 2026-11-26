@@ -5,15 +5,13 @@ description: Many {{ yandex-cloud }} services have soft constraints on resource 
 
 # {{ yandex-cloud }} service quotas
 
-{{ quota-manager-name }} allows you to manage quotas of your {{ yandex-cloud }} services using different interfaces. 
-
-This section contains quotas for services available in {{ quota-manager-short-name }}. Each table lists quota names and IDs you can use to manage quotas via {{ quota-manager-short-name }}. If the ID is not specified, you cannot use {{ quota-manager-short-name }} to view or update the quota.
+This section list quotas for services available in {{ quota-manager-name }}. The tables name the quotas and give IDs for quota management via the CLI and API. Quotas without an ID cannot be viewed and edited via {{ quota-manager-short-name }}.
 
 The tables indicate the default quota values, which are the same as the [trial period](../getting-started/free-trial/concepts/quickstart.md) quotas. The limits apply to all [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) resources, unless otherwise specified.
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-{{ api-gw-name }}, {{ sf-name }}, and {{ serverless-containers-name }} share the same quota for the `Number of triggers per cloud ` (`serverless.triggers.count`). This quota is listed together with [{{ sf-name }} quotas](#sf).
+{{ api-gw-name }}, {{ sf-name }}, and {{ serverless-containers-name }} share the same **{{ ui-key.yacloud_quotas.quotas.serverless.triggers.count }}** (`serverless.triggers.count`) quota in the same cloud. This quota is listed together with [{{ sf-name }}](#sf) quotas.
 
 ## {{ alb-full-name }} {#alb}
 
@@ -124,7 +122,7 @@ Service: `data-transfer`, resource type: `resource-manager.cloud`.
 
 ## {{ iam-full-name }} {#iam}
 
-Service: `iam`, resource type: `resource-manager.cloud`.
+Service: `iam`, resource type: `resource-manager.cloud` or `organization-manager.organization`.
 
 {% include notitle [iam-quotas](../_includes/iam/iam-limits.md#iam-quotas) %}
 

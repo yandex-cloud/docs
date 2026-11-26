@@ -1,10 +1,17 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Метрики
+[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Smart Web Security
 
 В справочнике описаны метрики HTTP-трафика, профилей безопасности и ARL, которые собирает [Yandex Application Load Balancer](../application-load-balancer/index.md), а также метрики [Network Protection](concepts/network-protection.md).
 
-Метрики передаются в [Monium Metrics](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
+Метрики автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
+Имя метрики пишется в метку `name`.
 
 Просматривать метрики можно:
 
@@ -15,12 +22,6 @@
 Подробнее о просмотре графиков в разделе [Мониторинг в Smart Web Security](operations/monitoring.md).
 
 ## Общие метки {#labels}
-
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
-
-При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
-
-Для метрик Smart Web Security используйте каталог с балансировщиком или прокси-сервером. Значения меток приведены в таблице:
 
 #|
 || **Метка** | **Значение** ||

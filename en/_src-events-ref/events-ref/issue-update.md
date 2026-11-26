@@ -252,6 +252,16 @@ User-defined planned end instant, independent of deadline and status timestamps.
 || `started_at` | _string &lt;date-time&gt; (Set on creation in progress or first entry into in\_progress; preserved on reentry)_ ||
 || `completed_at` | _string &lt;date-time&gt; (Set on entry into a terminal status; cleared when leaving terminal statuses)_ ||
 || [repository](#issue-repository) | _object (RepositoryEmbedded)_ ||
+|| `custom_field_values` | _object_
+Values of user-defined issue fields.
+JSON object keyed by custom-field slugs, not display titles. Fields are
+configured in .sourcecraft/issues.yaml. Each value must match the configured
+field type and be a string or finite number. Booleans, null, arrays, and
+nested objects are not supported.
+Example for configured effort (enum) and estimate (number) fields:
+{"effort": "m", "estimate": 8}.
+See [Configure custom issue fields](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/issue-custom-fields).
+example: `{"effort":"m","estimate":8}` ||
 |#
 
 ### issue.status {#issue-status}
@@ -364,6 +374,16 @@ User-defined planned end instant, independent of deadline and status timestamps.
 || `started_at` | _string &lt;date-time&gt; (Set on creation in progress or first entry into in\_progress; preserved on reentry)_ ||
 || `completed_at` | _string &lt;date-time&gt; (Set on entry into a terminal status; cleared when leaving terminal statuses)_ ||
 || [repository](#previous-issue-repository) | _object (RepositoryEmbedded)_ ||
+|| `custom_field_values` | _object_
+Values of user-defined issue fields.
+JSON object keyed by custom-field slugs, not display titles. Fields are
+configured in .sourcecraft/issues.yaml. Each value must match the configured
+field type and be a string or finite number. Booleans, null, arrays, and
+nested objects are not supported.
+Example for configured effort (enum) and estimate (number) fields:
+{"effort": "m", "estimate": 8}.
+See [Configure custom issue fields](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/issue-custom-fields).
+example: `{"effort":"m","estimate":8}` ||
 |#
 
 ### previous_issue.status {#previous-issue-status}
@@ -890,6 +910,14 @@ Enum: `"initial"` `"in_progress"` `"paused"` `"completed"` `"cancelled"` ||
           },
           "repository": {
             "$ref": "#/components/schemas/RepositoryEmbedded"
+          },
+          "custom_field_values": {
+            "type": "object",
+            "example": {
+              "effort": "m",
+              "estimate": 8
+            },
+            "description": "Values of user-defined issue fields.\nJSON object keyed by custom-field slugs, not display titles. Fields are\nconfigured in .sourcecraft/issues.yaml. Each value must match the configured\nfield type and be a string or finite number. Booleans, null, arrays, and\nnested objects are not supported.\nExample for configured effort (enum) and estimate (number) fields:\n{\"effort\": \"m\", \"estimate\": 8}.\nSee [Configure custom issue fields](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/issue-custom-fields)."
           }
         }
       },

@@ -129,7 +129,8 @@ editable: false
     ],
     "functionVersionMetadataOptions": {
       "gceHttpEndpoint": "string",
-      "awsV1HttpEndpoint": "string"
+      "awsV1HttpEndpoint": "string",
+      "awsV2HttpEndpoint": "string"
     }
   },
   "requestParameters": "object",
@@ -383,6 +384,10 @@ Includes only one of the fields `environmentVariable`. ||
 - `ENABLED`
 - `DISABLED` ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
+
+- `ENABLED`
+- `DISABLED` ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
 
 - `ENABLED`
 - `DISABLED` ||

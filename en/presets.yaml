@@ -318,7 +318,6 @@ default:
   link-console-ai: https://aistudio.yandex.ru/platform
   link-console-billing: https://center.yandex.cloud/billing/accounts
   link-console-cloud: https://console.yandex.cloud/cloud
-  link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud
   link-console-postbox-statistics: https://console.yandex.cloud/link/postbox/statistics
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
@@ -2078,22 +2077,12 @@ default:
         aside-header:
           view:
             switch_dashboards: Dashboards
-            switch_datasets: Datasets
-            switch_root: All objects
         iam-access-dialog:
           action_add-user: Add user
           action_save: Save
         plugin-with-menu:
           view:
             button_duplicate: Duplicate
-      connection:
-        connections-list:
-          modify:
-            button_create-connection: Create connection
-      editor:
-        templates:
-          view:
-            label_metric: Indicator
       main:
         service-settings:
           view:
@@ -2175,7 +2164,6 @@ default:
       search:
         common:
           action_search-in-documentation: Search documentation
-          title_suggestion-quotas: Increase quotas
       tariff-plans:
         info:
           action_go: Go
@@ -2393,7 +2381,6 @@ default:
             label_quota-name-iam:
               serviceAccounts:
                 count: Number of service accounts
-            value_status-error: Almost exhausted
         folder:
           dashboard:
             label_compute: Compute Cloud
@@ -2441,8 +2428,10 @@ default:
         withReserve: Enable
       fileinput:
         button_attach-file: Attach file
-      helpfeedbackdialog:
-        button_close: Close request
+      iam:
+        cloud:
+          quotas:
+            action_close_request: Close request
       labelset:
         button_add-label: Add label
       marketplace:
@@ -2466,7 +2455,14 @@ default:
           add: Add
           create: "Create a\_new organization"
       Quota-manager:
+        action_submit_tFxrh: Submit
         column_usage_jynXV: Usage
+        label_history-tab_n8GVs: Request history
+        label_quotas-tab_323nV: Quota list
+        label_quotas-with-usage_dWfzm: Services with usage
+        label_quotas-without-usage_nAfZB: Services without usage
+        value_request-status-processing_jiepM: Processing
+        value_usage-status-almost-expired_9NhmR: Almost expired
       revoke-access-dialog:
         action_revoke-all: Revoke all
       search:
@@ -2897,7 +2893,6 @@ default:
             traces: Search by traces
       wizard:
         axes:
-          linear: Linear
           primary-y: Left Y axis
           secondary-y: Right Y axis
         button:
@@ -3065,6 +3060,12 @@ default:
           action_create-organization_j1Yin: Create organization
         SwitchAccountAside:
           action_switch-account_1aB2c: Change account
+      center:
+        navigation:
+          label_quotas: Quotas
+        quotas:
+          tab_history: Request history
+          tab_quotas: List of quotas
       cloud-components:
         AclDashboard:
           action_assign-roles_41Nj1: Assign roles
@@ -3072,6 +3073,8 @@ default:
           action-generate-new-certificate: Generate new certificate
           table:
             column-active: Active
+        QuotaManager:
+          button_action_request_n3PCx: Request a change
       common:
         apply: Apply
         columns:
@@ -4023,13 +4026,10 @@ default:
         SearchActionButtonBlock:
           save: Save
       support:
-        switch_tickets: Tickets
         tickets:
           common:
             label_ticket-type-v2-high-problem: Problem
           label_search-placeholder: Describe issue or ask a question
-          table:
-            label_column_ticket_type: Ticket type
       ui:
         label_access-analyzer_4bfVo: Access Analyzer
         label_cspm_amGv8: CSPM
@@ -4153,6 +4153,9 @@ default:
             count: Number of users in all federations in an organization
           linkedApplications:
             count: Number of linked applications in organization
+        serverless:
+          triggers:
+            count: Number of triggers
         storage:
           volume:
             size-key-value: Storage volume
@@ -4232,9 +4235,6 @@ default:
             count: Number of static routes
           subnets:
             count: Number of subnets
-        yq:
-          streamingQuery:
-            count: Number of running streaming queries
     yacloud_video:
       channels:
         action_add-domain: Add domain
@@ -4866,6 +4866,8 @@ default:
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
         resources:
+          FollowRedirectsField:
+            option_use-custom-host-from-origin_iirxa: From the main source
           QueriesField:
             button_add-query-param_x8JXA: Add query parameter
           QueryParamsOptions:
@@ -4875,6 +4877,10 @@ default:
             option_cache-only_uJKZC: Cache only
             option_do-not-cache_4J3Bg: Do not cache
         sections:
+          FollowRedirectsOptionSection:
+            field_follow-redirects-codes_kDoT8: Redirect codes
+            field_follow-redirects-enabled_6Y5ig: Redirect from source
+            field_follow-redirects-use-custom-host_e3yZ7: Use Host header
           StaticResponseSection:
             field_static-response-enabled_sPsQU: Custom HTTP response
             field_static-response-type_5KyYv: Response type
@@ -7847,6 +7853,7 @@ default:
             createDomain_49MGX: Add domain
         ProxyServerForm:
           add-rule_fnmLk: Add rule
+          discard-rules-title_xn6cP: Rules for discarding logs
           swith-enable-logging_e42nT: Log requests
         ProxyServerFormCreate:
           createServer_sycVk: Create server
@@ -8809,8 +8816,6 @@ default:
                     GreenplumTarget:
                       cleanup_policy:
                         title: Cleanup policy
-                      connection:
-                        title: Connection settings
                       title: Endpoint parameters
                     OnPremiseGreenplum:
                       ca_certificate:
@@ -8904,8 +8909,6 @@ default:
                     KafkaSource:
                       advanced_settings:
                         title: Advanced settings
-                      connection:
-                        title: Connection settings
                       title: Endpoint parameters
                     KafkaSourceAdvancedSettings:
                       converter:

@@ -1,6 +1,6 @@
 ---
 title: Мониторинг состояния кластера PostgreSQL и хостов
-description: Вы можете отслеживать состояние кластера {{ mpg-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков. Также вы можете настроить алерты {{ monitoring-full-name }} для автоматического мониторинга состояния кластера.
+description: Вы можете отслеживать состояние кластера {{ mpg-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков. Также вы можете настроить алерты {{ monium-full-name }} для автоматического мониторинга состояния кластера.
 ---
 
 # Мониторинг состояния кластера {{ PG }} и хостов
@@ -152,21 +152,27 @@ description: Вы можете отслеживать состояние кла�
 
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-    1. [Перейдите]({{ link-console-main }}/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-    1. В блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}** выберите:
-        * **{{ mpg-name }} — Cluster Overview** для настройки алертов кластера;
-        * **{{ mpg-name }} — Host Overview** для настройки алертов хостов.
-    1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-    1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud.common.continue }}**. Подробнее о языке запросов в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-    1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` для срабатывания алерта.
-    1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
+
+      Метрики кластера передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. В открывшемся списке выберите:
+
+      * **{{ mpg-name }} — Cluster Overview** для настройки алертов кластера;
+      * **{{ mpg-name }} — Host Overview** для настройки алертов хостов.
+  1. В параметрах дашборда выберите нужный кластер и, при необходимости, хосты.
+  1. На нужном графике нажмите ![rectangle-pulse](../../_assets/console-icons/rectangle-pulse.svg) **Перейти в Метрики**.
+  1. На панели нужного запроса справа вверху нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт по запросу** или **{{ ui-key.yacloud_monitoring.querystring.action.create-alert-from-all-queries }}**.
+  1. Укажите название алерта. В блоке **Условия срабатывания** выберите запрос для проверки и задайте значения порогов `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`.
+  1. Чтобы получать уведомления, добавьте [канал уведомлений](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -187,7 +193,7 @@ description: Вы можете отслеживать состояние кла�
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` — `96636764160` байтов (90%).
 * `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` — `85899345920` байтов (80%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик вы найдете в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-postgresql-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик вы найдете в [документации {{ monium-name }}](../../monium/metrics-ref/managed-postgresql-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

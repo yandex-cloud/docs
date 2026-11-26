@@ -24,7 +24,8 @@ description: Из статьи вы узнаете, как осуществля�
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
   1. [Перейдите]({{ link-console-main }}/link/managed-ytsaurus) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами, выберите в списке сервисов {{ monitoring-full-name }}.
+  
+  1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
   На странице отображаются две вкладки **Cluster** и **Master** с графиками:
 
@@ -100,7 +101,14 @@ description: Из статьи вы узнаете, как осуществля�
 
 {% endlist %}
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
+
+Для настройки алертов нужны роли на каталог с кластером:
+
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — для чтения метрик.
+* [monium.alerts.editor](../../monium/security/index.md#monium-alerts-editor) — для создания алертов.
+
+Чтобы получать уведомления, при необходимости [создайте канал уведомлений](../../monium/operations/alert/create-channel.md) в проекте каталога с кластером. Для создания канала нужна роль [monium.channels.editor](../../monium/security/index.md#monium-channels-editor) на этот каталог.
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
 
@@ -109,18 +117,23 @@ description: Из статьи вы узнаете, как осуществля�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ myt-name }} — Cluster Resources**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-ytsaurus) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
+  1. На странице с графиками нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху. Графики откроются на платформе {{ monium-full-name }}.
+  1. Убедитесь, что на панели сверху выбран проект каталога с кластером: `folder__<идентификатор_каталога>`. В этом проекте будет создан алерт.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов смотрите в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Укажите название алерта, выберите тип **Пороговый** и проверьте запрос, перенесенный с графика.
+  1. В блоке **Условия срабатывания** задайте условия и пороги **Warning** и **Alarm**.
+  1. В блоке **Уведомления** выберите канал и статусы, при которых нужны уведомления.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
+Подробнее о настройке алертов читайте в [инструкции](../../monium/operations/alert/create-alert.md), о языке запросов — в разделе [{#T}](../../monium/concepts/querying.md).
+
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-ytsaurus-ref.md).
+Полный список поддерживаемых метрик — в [справочнике метрик {{ myt-name }}](../metrics.md).
 
 ## Статус кластера {#cluster-health-and-status}
 

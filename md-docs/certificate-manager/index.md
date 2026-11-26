@@ -492,7 +492,7 @@ Yandex Certificate Manager — сервис для получения и обн�
 
  - [UpdateAccessBindings](privateca/api-ref/Template/updateAccessBindings.md)
 
- - [Метрики Yandex Monium](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

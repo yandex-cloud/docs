@@ -277,7 +277,7 @@ Some resources are not free of charge. Delete the resources you no longer need, 
 
 - Manually {#manual}
 
-  1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+  1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
   1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
   1. [Delete the {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-delete.md).
 

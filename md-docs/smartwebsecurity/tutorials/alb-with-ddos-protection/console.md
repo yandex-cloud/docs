@@ -553,7 +553,7 @@
 
      ```bash
      yc alb virtual-host create ddos-host \
-       --http-router-name ddos-router
+       --http-router-name ddos-router \
        --authority alb-with-ddos.com
      ```
 
@@ -642,7 +642,7 @@
 
 {% endlist %}
 
-После создания балансировщика, [проверьте](#test) его работу.
+После создания балансировщика [проверьте](#test) его работу.
 
 ## Проверьте работу балансировщика {#test}
 

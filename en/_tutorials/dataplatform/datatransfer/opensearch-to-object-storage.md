@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If using security groups, make sure they are properly configured and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect/index.md#security-groups).
 
     1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
@@ -152,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create](../../../data-transfer/operations/endpoint/target/object-storage.md) an `{{ objstorage-name }}`-type target endpoint with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
 
@@ -164,7 +164,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`.
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
+1. [Create](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) an `{{ OS }}`-type source endpoint with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
@@ -177,7 +177,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
+      1. [Create](../../../data-transfer/operations/transfer.md#create) a **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**-type transfer and configure it to use the previously created endpoints.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 

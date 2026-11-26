@@ -17,7 +17,7 @@ To create a new key:
 
      * Custom name and optional description.
      * [Encryption algorithm](../concepts/key.md#parameters), e.g., `AES-256`.
-     * [Rotation](../concepts/index.md#rotation) period (how often to change key versions).
+     * [Rotation](../concepts/version.md#rotate-key) period (how often to change key versions).
      * Optionally, enable deletion protection.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -196,7 +196,7 @@ To change a key status:
 
   1. Open the {{ TF }} configuration file and add the `status` parameter set to `ACTIVE` or `INACTIVE` to the `yandex_kms_symmetric_key` resource description.
 
-     Here is an example of the configuration file structure:
+     Configuration file structure example:
 
      ```hcl
      ...
@@ -333,7 +333,7 @@ To delete a key:
      ```
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
-  1. Validate your configuration using this command:
+  1. Check the configuration using this command:
 
      ```bash
      terraform validate
@@ -358,7 +358,7 @@ To delete a key:
      terraform apply
      ```
 
-  1. Type `yes` and press **Enter** to confirm the changes.
+  1. Type `yes` and press **Enter** to confirm changes.
 
      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

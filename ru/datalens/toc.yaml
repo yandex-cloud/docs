@@ -31,6 +31,8 @@ items:
         href: concepts/ai-agents.md
       - name: Нейроаналитик DataLens
         href: concepts/neuroanalyst.md
+      - name: Навыки Нейроаналитика
+        href: concepts/neuroanalyst-skills.md
   - name: Практические руководства
     items:
       - name: Обзор
@@ -984,6 +986,8 @@ items:
         href: html-pages/index.md
       - name: Версионирование
         href: html-pages/versioning.md
+      - name: Генератор HTML-отчетов
+        href: html-pages/reportgen.md
   - name: Публикация и встраивание
     items:
       - name: Обзор

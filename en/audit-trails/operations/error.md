@@ -6,7 +6,7 @@ description: In this article, you will learn about known errors that occur when 
 # Error handling
 
 
-If a trail is unable to send audit logs to the [destination object](../concepts/trail.md#target), its [status](../concepts/trail.md#status) will change to `Error`. This guide contains recommendations on how get the trail back to normal.
+If a trail is unable to send audit logs to the [destination object](../concepts/trail.md#target), its [status](../concepts/diagnostics.md) will change to `Error`. This guide contains recommendations on how get the trail back to normal.
 
 {% note info %}
 

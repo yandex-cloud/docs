@@ -329,10 +329,10 @@
         Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
         ```
 
-1. Скачайте [архив с файлами для образа](https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
+1. Скачайте [архив с файлами для образа](https://{{ s3-storage-host-ru }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
 
    ```bash
-   wget https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip
+   wget https://{{ s3-storage-host-ru }}/doc-files/queue-autoscale-server.zip
    unzip queue-autoscale-server.zip
    ```
    

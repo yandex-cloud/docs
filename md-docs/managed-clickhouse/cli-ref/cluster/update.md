@@ -1394,17 +1394,20 @@ where the previous version is provided as the setting. An empty value means that
 Password for entity. Usage of --read-admin-password is more secure ||
 || `--read-admin-password` | Read password for entity from input ||
 || `--generate-admin-password` | Generate random password ||
-|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+|| `--maintenance-window-slot` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-Maintenance window settings
+Weekly maintenance slot. Can be repeated; replaces the complete schedule. Cannot be combined with --maintenance-anytime or --maintenance-window. Example: day=MONDAY,start-time=01:30:00,duration=1h,allow-temporary-unavailability=true
 
 Possible property names:
 
-- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
+- `day`: Day of week: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY. Values: 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'
 
-- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+- `start-time`: Start time in UTC, in HH:MM:SS format.
 
-- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+- `duration`: Positive slot duration, for example 1h or 90m.
+
+- `allow-temporary-unavailability`: Allow temporary unavailability during this slot. ||
+|| `--maintenance-anytime` | Allow maintenance at any time. Replaces the complete schedule. Cannot be combined with --maintenance-window-slot or --maintenance-window. ||
 || `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Disk size autoscaling settings

@@ -1,8 +1,10 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ baremetal-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится сервер.
 
-При просмотре метрик в интерфейсе {{ baremetal-name }} и при переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `baremetal`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
-Если вы создаете запрос в {{ monium-name }} через **Обзор** → **Метрики**, укажите проект каталога с сервером (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __baremetal__`.
+Чтобы посмотреть графики в консоли управления, [откройте страницу сервера](../../../baremetal/operations/servers/get-info.md) и перейдите на вкладку **{{ ui-key.yacloud.baremetal.label_server-monitoring }}**.
+
+Чтобы открыть готовый дашборд, в [{{ monium-name }}]({{ link-monium }}) выберите проект каталога с сервером. Откройте раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}**. На вкладке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** найдите дашборд по названию сервиса {{ baremetal-name }}.
 
 Общие метки для метрик сервиса {{ baremetal-name }}:
 
@@ -32,3 +34,5 @@ server_subnet_type | Тип [подсети](../../../baremetal/concepts/network
 `server_sent_drop_packets`<br/>`DGAUGE`, пакеты/с | Количество пакетов в секунду, потерянных при отправке с сетевого интерфейса.
 `server_sent_error_packets`<br/>`DGAUGE`, пакеты/с | Количество пакетов в секунду, отправленных с ошибками с сетевого интерфейса.
 `server_sent_packets`<br/>`DGAUGE`, пакеты/с | Количество пакетов в секунду, отправленных с сетевого интерфейса.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

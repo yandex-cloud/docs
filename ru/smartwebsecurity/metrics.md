@@ -7,7 +7,9 @@ description: На этой странице приведен справочни�
 
 В справочнике описаны метрики HTTP-трафика, профилей безопасности и ARL, которые собирает [{{ alb-full-name }}](../application-load-balancer/), а также метрики [Network Protection](concepts/network-protection.md).
 
-Метрики передаются в [{{ metrics-name }}](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
+Метрики автоматически передаются в [{{ monium-name }}](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project) с балансировщиком или прокси-сервером.
+
+{% include [metrics-search-labels](../_includes/monium/metrics-search-labels.md) %}
 
 Просматривать метрики можно:
 
@@ -18,10 +20,6 @@ description: На этой странице приведен справочни�
 Подробнее о просмотре графиков в разделе [{#T}](operations/monitoring.md).
 
 ## Общие метки {#labels}
-
-{% include [metrics-search-labels](../_includes/monium/metrics-search-labels.md) %}
-
-Для метрик {{ sws-name }} используйте каталог с балансировщиком или прокси-сервером. Значения меток приведены в таблице:
 
 #|
 || **Метка** | **Значение** ||

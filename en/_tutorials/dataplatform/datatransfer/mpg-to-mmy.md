@@ -1,6 +1,6 @@
 
 
-You can set up a data transfer from a {{ mpg-name }} database to a {{ mmy-name }} database using {{ data-transfer-name }}. Proceed as follows:
+{{ data-transfer-name }} enables you to set up data transfer from a {{ mpg-name }} database to a {{ mmy-name }} database. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Prepare the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -40,10 +40,10 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
 
-    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
+    1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
 
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
-        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -56,19 +56,19 @@ Set up your infrastructure:
 
         This file describes:
 
-        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) that will host your clusters.
+        * [Networks](../../../vpc/concepts/network.md#network) and [subnets](../../../vpc/concepts/network.md#subnet) where your clusters will be hosted.
         * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
         * {{ mpg-name }} source cluster.
         * {{ mmy-name }} target cluster.
         * Source and target endpoints.
         * Transfer.
 
-    1. In the `postgresql-mysql.tf` file, specify the following:
+    1. In `postgresql-mysql.tf`, specify the following:
 
         * {{ MY }} and {{ PG }} versions.
         * {{ MY }} and {{ PG }} user passwords.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -129,7 +129,7 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `mpg_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-    1. [Create a `{{ MY }}` target endpoint](../../../data-transfer/operations/endpoint/target/mysql.md) with these cluster connection settings:
+    1. [Create a `{{ MY }}](../../../data-transfer/operations/endpoint/target/mysql.md)`-type target endpoint with the following cluster connection settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<{{ MY }}_target_cluster_name>` from the drop-down list.
@@ -137,12 +137,12 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `<user_password>`.
 
-    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type that will use the endpoints you created.
+    1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfer and configure it to use the previously created endpoints.
     1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 - {{ TF }} {#tf}
 
-    1. In the `postgresql-mysql.tf` file, set `transfer_enabled` to `1`.
+    1. In `postgresql-mysql.tf`, set `transfer_enabled` to `1`.
 
     1. Validate your {{ TF }} configuration files using this command:
 
@@ -209,7 +209,7 @@ Before deleting any resources, [deactivate the transfer](../../../data-transfer/
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To reduce resource usage, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

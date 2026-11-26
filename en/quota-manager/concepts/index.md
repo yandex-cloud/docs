@@ -10,44 +10,40 @@ description: In this article, you will learn about {{ quota-manager-name }} conc
 
 {% include [about-quota](../../_includes/quota-manager/about-quota.md) %}
 
-For example, your quota of VMs in the cloud is 12. Quota usage will range from 0 to 12, representing the number of currently used VMs. If you need more VMs than that, you need to increase the quota, e.g., to 25. Quota usage will thus range from 0 to 25.
+For example, a quota of 12 allows you to provision a maximum of 12 VMs within your cloud. Quota consumption equals the total number of VMs in a cloud. To deploy 25 VMs, you must increase your quota to at least 25.
 
-Potentially, you can increase your quotas up to the _limits_.
-
-**Limits** are technical constraints due to the {{ yandex-cloud }} architecture, physical characteristics of the hardware, or external limitations. For example, the {{ certificate-manager-name }} limits are dictated by the Let's Encrypt certification rules in place.
+_Limits_ are technical constraints of the {{ yandex-cloud }} architecture, hardware physical characteristics, or external limitations. For example, the {{ certificate-manager-name }} limits are dictated by the Let's Encrypt certification rules in place.
 
 The diagram below illustrates the relationship between quotas and limits.
 
 ![image](../../_assets/quota-manager/quotas-limits.svg)
 
-Quotas are allocated and applied at the {{ yandex-cloud }} cloud level; they are distributed between all the folders and services.
+{% include [quota-level-access](../../_includes/quota-manager/quota-level-access.md) %}
 
-{{ quota-manager-name }} helps you monitor your quota values and usage automatically. Use the API methods to get notified as soon as your consumption hits the threshold values. It means you will never be late to increase your quota, prevent an abnormality or excessive consumption.
-
-You can choose between the following interfaces for quotas: the [console]({{ link-console-quotas }}), the [API](../../quota-manager/api-ref/authentication.md), and the [CLI](../cli-ref/index.md).
+Use the {{ quota-manager-name }} API to track quota values and consumption, as well as configure alerts for when thresholds are reached. This allows you to proactively request a quota increase or prevent resource overspending.
 
 ## Quota allocation {#quotas-allocation}
 
-When you create a cloud, the default quotas are allocated automatically. When you update a quota, its default value is not saved. You cannot reset a quota to its default value.
+When a cloud is created, default quota values are set automatically. You cannot reset a modified quota to its default value.
 
-There are no quotas for some resources. You will see **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-empty }}** next to these resources in the console.
+There are no quotas for some resources. For these resources, the management console displays **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-empty }}**.
 
-Quotas can potentially be increased up to the limit values. Quotas do not guarantee that resources are available.
+Quotas can be increased upon request within the platform's technical limits. Quotas do not guarantee that resources are available.
 
-Quota management via the CLI and API relies on quota ID in `<service_name>.<resource_name>.<unit_of_measurement>` format, e.g., `dns.zones.count`, `serverless.networkPackets.rate`, or `mdb.memory.size`. 
+Quota management via the CLI and API relies on quota ID in `<service_name>.<resource_name>.<unit_of_measurement>` format, e.g., `dns.zones.count`, `serverless.networkPackets.rate`, `mdb.memory.size`. 
 
-See [{#T}](../all-quotas.md) for quota IDs and default quotas for all {{ yandex-cloud }} services.
+For quota IDs and their corresponding default values for supported {{ yandex-cloud }} services, see [{#T}](../all-quotas.md).
 
 You can look up quota usage info in the console on the [{{ quota-manager-name }}]({{ link-console-quotas }}) page or via an [API request](../operations/list-quotas.md).
 
 ## Why quotas are needed {#quotas-need}
 
-Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too many resources for testing purposes.
+Quotas help regulate the consumption of cloud services. For example, they prevent new users from allocating excessive resources during testing.
 
 ## Resource types {#resources-types}
 
-In {{ yandex-cloud }}, quota management is based on the [resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md). Therefore, you will need to specify the resource type in the CLI command or API request:
+Quotas in {{ yandex-cloud }} are mapped to specific resources. You will need to specify the resource type in the CLI command or API request:
 
-* `resource-manager.cloud`
-* `organization-manager.organization`
-* `billing.account`
+* `resource-manager.cloud`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+* `organization-manager.organization`: [Organization](../../organization/concepts/organization.md).
+* `billing.account`: [Billing account](../../billing/concepts/billing-account.md).

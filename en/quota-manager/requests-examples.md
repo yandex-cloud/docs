@@ -7,7 +7,7 @@ description: This article provides examples of {{ quota-manager-name }} API requ
 
 {% include [preview-quota](../_includes/quota-manager/preview-quota.md) %}
 
-To ensure your service always has critical resources available, monitor quota usage and request automatic quota increase. To do this, you can use the {{ quota-manager-full-name }} API or CLI.
+To avoid quota exhaustion, monitor your resource consumption and proactively submit requests for quota increases. You can automate these actions using the {{ quota-manager-full-name }} CLI or API. Quotas do not guarantee that resources are available.
 
 ## Getting started {#before-you-begin}
 
@@ -21,14 +21,14 @@ To use the examples:
 
       {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. Make sure the user or service account authenticated in the CLI profile has the following [roles](../iam/concepts/access-control/roles.md):
+  1. Make sure the user or service account authenticated in the CLI profile has the appropriate [role](../iam/concepts/access-control/roles.md):
 
       {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
 
 - REST API {#api}
 
   1. Install [cURL](https://curl.haxx.se).
-  1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following [roles](../iam/concepts/access-control/roles.md):
+  1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the appropriate [role](../iam/concepts/access-control/roles.md):
 
       {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
 
@@ -37,7 +37,7 @@ To use the examples:
 - gRPC API {#grpc-api}
 
   1. Install the [gRPCurl](https://github.com/fullstorydev/grpcurl) utility.
-  1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following [roles](../iam/concepts/access-control/roles.md):
+  1. [Create a service account](../iam/operations/sa/create.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) it the appropriate [role](../iam/concepts/access-control/roles.md):
 
       {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
 
@@ -88,7 +88,7 @@ To view the quota value and usage info:
 
 - REST API {#api}
 
-  Use the [Get](api-ref/QuotaLimit/get.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource.
+  Use the [get](api-ref/QuotaLimit/get.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource.
 
   **Request example**
 
@@ -128,7 +128,7 @@ To view the values and usage info for all quotas of the service:
 
 - REST API {#api}
 
-  Use the [List](api-ref/QuotaLimit/list.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource.
+  Use the [list](api-ref/QuotaLimit/list.md) REST API method for the [QuotaLimit](api-ref/QuotaLimit/) resource.
 
   **Request example**
 
@@ -154,7 +154,7 @@ To view the values and usage info for all quotas of the service:
 
 ## Requesting quota updates {#request-quota-change}
 
-To request a quota update, create a request and specify the IDs of resource quotas and their new values.
+To update quotas, submit a request specifying the resource ID and type, quota IDs, and target values.
 
 {% list tabs group=instructions %}
 
@@ -172,7 +172,7 @@ To request a quota update, create a request and specify the IDs of resource quot
 
 - REST API {#api}
 
-  Use the [Create](api-ref/QuotaRequest/create.md) REST API methods for the [QuotaRequest](api-ref/QuotaRequest/) resource.
+  Use the [create](api-ref/QuotaRequest/create.md) REST API methods for the [QuotaRequest](api-ref/QuotaRequest/) resource.
 
   **Request example**
 
@@ -214,7 +214,7 @@ To view the list of quota update requests:
 
 - REST API {#api}
 
-  Use the [List](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource.
+  Use the [list](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource.
 
   **Request example**
 
@@ -256,7 +256,7 @@ To view the status of a quota update request:
 
 - REST API {#api}
 
-  Use the [Get](api-ref/QuotaRequest/get.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. In your request, provide the ID of the quota update request whose information you want to view.
+  Use the [get](api-ref/QuotaRequest/get.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. Provide the quota update request ID.
 
   **Request example**
 
@@ -291,7 +291,7 @@ To view the status of a quota update request:
 
 - gRPC API {#grpc-api}
 
-  Use the [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md) gRPC API call. In your request, provide the ID of the quota update request whose information you want to view.
+  Use the [QuotaRequestService/Get](api-ref/grpc/QuotaRequest/get.md) gRPC API call. Provide the quota update request ID.
 
   **Request example**
 
@@ -389,7 +389,7 @@ To view a list of requests filtered by status:
 
 - REST API {#api}
 
-  Use the [List](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource with the `filter` parameter. You can filter requests only by status.
+  Use the [list](api-ref/QuotaRequest/list.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource with the `filter` parameter. You can filter requests only by status.
 
   **Request example**
 
@@ -530,7 +530,7 @@ To cancel a quota update request:
 
 - REST API {#api}
 
-  Use the [Cancel](api-ref/QuotaRequest/cancel.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. In your request, provide the ID of the quota update request you want to cancel.
+  Use the [cancel](api-ref/QuotaRequest/cancel.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. Provide the ID of the request you want to cancel.
 
   **Request example**
 
@@ -555,7 +555,7 @@ To cancel a quota update request:
 
 - gRPC API {#grpc-api}
 
-  Use the [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md) gRPC API call. In your request, provide the ID of the quota update request you want to cancel.
+  Use the [QuotaRequestService/Cancel](api-ref/grpc/QuotaRequest/cancel.md) gRPC API call. Provide the ID of the request you want to cancel.
 
   **Request example**
 
@@ -607,7 +607,7 @@ To view a list of operations for a quota update request:
 
 - REST API {#api}
 
-  Use the [ListOperations](api-ref/QuotaRequest/listOperations.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. In your request, provide the ID of the quota update request whose operations list you want to view.
+  Use the [listOperations](api-ref/QuotaRequest/listOperations.md) REST API method for the [QuotaRequest](api-ref/QuotaRequest/) resource. Provide the quota update request ID.
 
   **Request example**
 
@@ -654,7 +654,7 @@ To view a list of operations for a quota update request:
 
 - gRPC API {#grpc-api}
 
-  Use the [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md) gRPC API call. In your request, provide the ID of the quota update request whose operations list you want to view.
+  Use the [QuotaRequestService/ListOperations](api-ref/grpc/QuotaRequest/listOperations.md) gRPC API call. Provide the quota update request ID.
 
   **Request example**
 

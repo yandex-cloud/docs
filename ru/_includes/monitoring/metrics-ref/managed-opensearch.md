@@ -1,4 +1,13 @@
-Имя метрики пишется в метку `name`.
+
+Метрики сервиса {{ mos-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Чтобы посмотреть детальную информацию о состоянии кластера и его хостов, воспользуйтесь [инструкцией](../../../managed-opensearch/operations/monitoring.md).
+
 
 Общие метки для всех метрик сервиса {{ mos-name }}: 
 
@@ -665,3 +674,7 @@ subcluster_name | Имя субкластера
 [*write_back]: Объем памяти с данными, активно записываемыми на диск.
 
 [*write_back_tmp]: Объем временной памяти для операций записи.
+
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}
+

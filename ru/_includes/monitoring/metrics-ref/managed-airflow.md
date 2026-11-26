@@ -1,4 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ maf-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ maf-name }}:
 
@@ -75,3 +77,5 @@ cluster_id | Идентификатор [кластера](../../../managed-airf
 
 ^1^ Только один планировщик может одновременно войти в этот цикл.
 ^2^ Процесс сериализации данных для обмена между задачами и для безопасности веб-сервера и планировщика.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

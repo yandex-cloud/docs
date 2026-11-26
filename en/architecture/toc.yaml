@@ -9,6 +9,13 @@ items:
         href: fault-tolerance.md
       - name: Restoring database clusters in case of an availability zone failure
         href: mdb-recovery.md
+      - name: Restoring DB clusters from backups to an external S3 storage
+        href: mdb-outbound-backup-recovery.md
+        hidden: true
+      - name: Transferring a disk image to a third-party S3 storage
+        href: disk-migration-to-external-s3.md
+      - name: Configuring {{ cdn-name }} when the origin is unavailable
+        href: cdn-fault-tolerance.md
       - name: >-
           Deploying a web app in a fault-tolerant configuration in {{
           yandex-cloud }}

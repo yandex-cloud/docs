@@ -16,7 +16,7 @@ To get started with the {{ video-name }} API:
 
 ## Getting started {#before-begin}
 
-1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md).
 1. [Get](../../organization/operations/organization-get-id.md) the ID of the [organization](../../organization/quickstart.md) you are going to create a channel in.
 
 To use the examples, install these utilities:

@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ at-name }}
 
-Метрики {{ at-name }} автоматически передаются в {{ metrics-name }} и доступны в [проекте каталога](*monium-folder-project), в котором находится трейл.
-
 {% include [audit-trails](../../_includes/monitoring/metrics-ref/audit-trails.md) %}
 
 
@@ -14,5 +12,3 @@ description: На этой странице приведен справочни�
 
 * Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) {{ at-name }} в {{ monium-name }}.
 
-
-[*monium-folder-project]: {% include [folder-project](../../_includes/monium/folder-project.md) %}

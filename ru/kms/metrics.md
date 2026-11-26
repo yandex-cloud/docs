@@ -5,6 +5,4 @@ description: На этой странице приведен справочни�
 
 # Метрики {{ kms-name }}
 
-В этом разделе описаны метрики сервиса {{ kms-name }}, поставляемые в [{{ monium-name }}](../monium/index.yaml).
-
 {% include [kms](../_includes/monitoring/metrics-ref/kms.md) %}

@@ -1,8 +1,13 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Airflow™](index.md) > Метрики Yandex Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Airflow™](index.md) > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Managed Service for Apache Airflow™, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Managed Service for Apache Airflow™ автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
 
@@ -81,6 +86,8 @@ cluster_id | Идентификатор [кластера](concepts/index.md#clu
 
 ^1^ Только один планировщик может одновременно войти в этот цикл.
 ^2^ Процесс сериализации данных для обмена между задачами и для безопасности веб-сервера и планировщика.
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
 
 #### Полезные ссылки {#see-also}
 

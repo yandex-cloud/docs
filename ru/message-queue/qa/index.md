@@ -31,7 +31,7 @@ description: Как получить логи моей работы в серв�
 
 #### Могу я самостоятельно мониторить {{ message-queue-name }} с помощью {{ prometheus-name }}?
 
-Да, вы можете [экспортировать метрики в {{ prometheus-name }}](../../monitoring/operations/metric/prometheusExport.md) и [получить список метрик](../../monitoring/operations/metric/list.md) для различных объектов.
+Да, вы можете [экспортировать метрики в {{ prometheus-name }}](../../monium/operations/metric/prometheusExport.md) и [получить список метрик](../../monium/operations/metric/list.md) для различных объектов.
 
 #### Что необходимо ввести в Default output format \[None\] при настройке конфигурации AWS CLI?
 

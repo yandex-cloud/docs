@@ -228,7 +228,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateAccessBindings](api-ref/grpc/Trail/updateAccessBindings.md)
 
- - [Метрики Monium Metrics](concepts/user-metrics.md)
+ - [Справочник метрик](concepts/user-metrics.md)
 
  - [Справочник событий уровня конфигурации](concepts/events.md)
 
@@ -700,6 +700,44 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateCloudApplication](audit/cloudapps/events-ref/UpdateCloudApplication.md)
 
+### clouddesktop
+
+ - [CopyDesktopImage](audit/clouddesktop/events-ref/CopyDesktopImage.md)
+
+ - [CopyDesktopImageFromDesktop](audit/clouddesktop/events-ref/CopyDesktopImageFromDesktop.md)
+
+ - [CreateDesktop](audit/clouddesktop/events-ref/CreateDesktop.md)
+
+ - [CreateDesktopGroup](audit/clouddesktop/events-ref/CreateDesktopGroup.md)
+
+ - [DeleteDesktop](audit/clouddesktop/events-ref/DeleteDesktop.md)
+
+ - [DeleteDesktopGroup](audit/clouddesktop/events-ref/DeleteDesktopGroup.md)
+
+ - [DeleteDesktopImage](audit/clouddesktop/events-ref/DeleteDesktopImage.md)
+
+ - [GenerateDesktopRDPFile](audit/clouddesktop/events-ref/GenerateDesktopRDPFile.md)
+
+ - [ResetDesktopPassword](audit/clouddesktop/events-ref/ResetDesktopPassword.md)
+
+ - [RestartDesktop](audit/clouddesktop/events-ref/RestartDesktop.md)
+
+ - [SetDesktopGroupAccessBindings](audit/clouddesktop/events-ref/SetDesktopGroupAccessBindings.md)
+
+ - [StartDesktop](audit/clouddesktop/events-ref/StartDesktop.md)
+
+ - [StopDesktop](audit/clouddesktop/events-ref/StopDesktop.md)
+
+ - [UpdateDesktop](audit/clouddesktop/events-ref/UpdateDesktop.md)
+
+ - [UpdateDesktopGroup](audit/clouddesktop/events-ref/UpdateDesktopGroup.md)
+
+ - [UpdateDesktopGroupAccessBindings](audit/clouddesktop/events-ref/UpdateDesktopGroupAccessBindings.md)
+
+ - [UpdateDesktopImage](audit/clouddesktop/events-ref/UpdateDesktopImage.md)
+
+ - [UpdateDesktopProperties](audit/clouddesktop/events-ref/UpdateDesktopProperties.md)
+
 ### cloudregistry
 
  - [CreateArtifact](audit/cloudregistry/events-ref/CreateArtifact.md)
@@ -982,6 +1020,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateEntry](audit/datalens/events-ref/CreateEntry.md)
 
+ - [CreateJob](audit/datalens/events-ref/CreateJob.md)
+
  - [CreateRestCatalog](audit/datalens/events-ref/CreateRestCatalog.md)
 
  - [CreateRestCatalogNamespace](audit/datalens/events-ref/CreateRestCatalogNamespace.md)
@@ -1087,6 +1127,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [CreateAirflowCluster](audit/datalens/platform/events-ref/CreateAirflowCluster.md)
 
  - [CreateCloudEnvironment](audit/datalens/platform/events-ref/CreateCloudEnvironment.md)
+
+ - [CreateJob](audit/datalens/platform/events-ref/CreateJob.md)
 
  - [CreateRestCatalog](audit/datalens/platform/events-ref/CreateRestCatalog.md)
 
@@ -2392,6 +2434,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RescheduleMaintenance](audit/mdb/redis/events-ref/RescheduleMaintenance.md)
 
+ - [RestartHosts](audit/mdb/redis/events-ref/RestartHosts.md)
+
  - [RestoreCluster](audit/mdb/redis/events-ref/RestoreCluster.md)
 
  - [SetClusterAccessBindings](audit/mdb/redis/events-ref/SetClusterAccessBindings.md)
@@ -2506,6 +2550,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [ActivateAuthenticationPolicyRule](audit/organizationmanager/events-ref/ActivateAuthenticationPolicyRule.md)
 
+ - [ActivateAuthenticatorUsagePolicy](audit/organizationmanager/events-ref/ActivateAuthenticatorUsagePolicy.md)
+
  - [ActivateMfaEnforcement](audit/organizationmanager/events-ref/ActivateMfaEnforcement.md)
 
  - [AddFederatedUserAccounts](audit/organizationmanager/events-ref/AddFederatedUserAccounts.md)
@@ -2538,6 +2584,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateAuthenticationPolicyRule](audit/organizationmanager/events-ref/CreateAuthenticationPolicyRule.md)
 
+ - [CreateAuthenticatorUsagePolicy](audit/organizationmanager/events-ref/CreateAuthenticatorUsagePolicy.md)
+
  - [CreateBranding](audit/organizationmanager/events-ref/CreateBranding.md)
 
  - [CreateCertificate](audit/organizationmanager/events-ref/CreateCertificate.md)
@@ -2558,6 +2606,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateOsLoginProfile](audit/organizationmanager/events-ref/CreateOsLoginProfile.md)
 
+ - [CreateScimIntegration](audit/organizationmanager/events-ref/CreateScimIntegration.md)
+
  - [CreateSignatureCertificate](audit/organizationmanager/events-ref/CreateSignatureCertificate.md)
 
  - [CreateUser](audit/organizationmanager/events-ref/CreateUser.md)
@@ -2567,6 +2617,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [CreateUserSshKey](audit/organizationmanager/events-ref/CreateUserSshKey.md)
 
  - [DeactivateAuthenticationPolicyRule](audit/organizationmanager/events-ref/DeactivateAuthenticationPolicyRule.md)
+
+ - [DeactivateAuthenticatorUsagePolicy](audit/organizationmanager/events-ref/DeactivateAuthenticatorUsagePolicy.md)
 
  - [DeactivateMfaEnforcement](audit/organizationmanager/events-ref/DeactivateMfaEnforcement.md)
 
@@ -2581,6 +2633,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteAsset](audit/organizationmanager/events-ref/DeleteAsset.md)
 
  - [DeleteAuthenticationPolicyRule](audit/organizationmanager/events-ref/DeleteAuthenticationPolicyRule.md)
+
+ - [DeleteAuthenticatorUsagePolicy](audit/organizationmanager/events-ref/DeleteAuthenticatorUsagePolicy.md)
 
  - [DeleteBranding](audit/organizationmanager/events-ref/DeleteBranding.md)
 
@@ -2608,6 +2662,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteRefreshTokenPolicy](audit/organizationmanager/events-ref/DeleteRefreshTokenPolicy.md)
 
+ - [DeleteScimIntegration](audit/organizationmanager/events-ref/DeleteScimIntegration.md)
+
  - [DeleteSignatureCertificate](audit/organizationmanager/events-ref/DeleteSignatureCertificate.md)
 
  - [DeleteUser](audit/organizationmanager/events-ref/DeleteUser.md)
@@ -2623,6 +2679,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [OAuthFederationPrivateTlsDeleteCertificate](audit/organizationmanager/events-ref/OAuthFederationPrivateTlsDeleteCertificate.md)
 
  - [OAuthFederationPrivateTlsUpdateCertificate](audit/organizationmanager/events-ref/OAuthFederationPrivateTlsUpdateCertificate.md)
+
+ - [PauseScimIntegrationSync](audit/organizationmanager/events-ref/PauseScimIntegrationSync.md)
 
  - [ReactivateApplication](audit/organizationmanager/events-ref/ReactivateApplication.md)
 
@@ -2642,6 +2700,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [ResetOwnPassword](audit/organizationmanager/events-ref/ResetOwnPassword.md)
 
+ - [ResumeScimIntegrationSync](audit/organizationmanager/events-ref/ResumeScimIntegrationSync.md)
+
+ - [RunIncrementalScimIntegrationSync](audit/organizationmanager/events-ref/RunIncrementalScimIntegrationSync.md)
+
  - [SetApplicationAccessBindings](audit/organizationmanager/events-ref/SetApplicationAccessBindings.md)
 
  - [SetApplicationAccessBindings](audit/organizationmanager/events-ref/SetApplicationAccessBindings.md)
@@ -2659,6 +2721,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [SetUserPassword](audit/organizationmanager/events-ref/SetUserPassword.md)
 
  - [SetUserpoolAccessBindings](audit/organizationmanager/events-ref/SetUserpoolAccessBindings.md)
+
+ - [StartScimIntegrationSync](audit/organizationmanager/events-ref/StartScimIntegrationSync.md)
+
+ - [StopScimIntegrationSync](audit/organizationmanager/events-ref/StopScimIntegrationSync.md)
 
  - [SuspendApplication](audit/organizationmanager/events-ref/SuspendApplication.md)
 
@@ -2691,6 +2757,12 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateApplicationAssignments](audit/organizationmanager/events-ref/UpdateApplicationAssignments.md)
 
  - [UpdateAuthenticationPolicyRule](audit/organizationmanager/events-ref/UpdateAuthenticationPolicyRule.md)
+
+ - [UpdateAuthenticatorUsagePolicy](audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicy.md)
+
+ - [UpdateAuthenticatorUsagePolicyAudience](audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicyAudience.md)
+
+ - [UpdateAuthenticatorUsagePolicyExcludedAudience](audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicyExcludedAudience.md)
 
  - [UpdateBranding](audit/organizationmanager/events-ref/UpdateBranding.md)
 
@@ -2725,6 +2797,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateOsLoginSettings](audit/organizationmanager/events-ref/UpdateOsLoginSettings.md)
 
  - [UpdateRefreshTokenPolicy](audit/organizationmanager/events-ref/UpdateRefreshTokenPolicy.md)
+
+ - [UpdateScimIntegration](audit/organizationmanager/events-ref/UpdateScimIntegration.md)
 
  - [UpdateSignatureCertificate](audit/organizationmanager/events-ref/UpdateSignatureCertificate.md)
 
@@ -3554,15 +3628,9 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [EpisodePerformAction](audit/video/events-ref/EpisodePerformAction.md)
 
- - [InitializeChannelAdminChat](audit/video/events-ref/InitializeChannelAdminChat.md)
-
  - [InitializeEpisodeChat](audit/video/events-ref/InitializeEpisodeChat.md)
 
  - [RenewVideoSource](audit/video/events-ref/RenewVideoSource.md)
-
- - [ResetChannelAdminChat](audit/video/events-ref/ResetChannelAdminChat.md)
-
- - [ResyncEpisodeChatAdmins](audit/video/events-ref/ResyncEpisodeChatAdmins.md)
 
  - [SetChannelAccessBindings](audit/video/events-ref/SetChannelAccessBindings.md)
 

@@ -1,4 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ myt-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик сервиса {{ myt-name }}: 
 
@@ -7,7 +9,6 @@
 || service | Идентификатор сервиса: `managed-ytsaurus` ||
 || cluster_id | Идентификатор кластера ||
 |#
-
 
 ## Метрики ресурсов кластера {#managed-ytsaurus-cluster-resources-metrics}
 
@@ -197,3 +198,5 @@
 * `service_name` — имя компонента кластера;
 * `host` — имя хоста. Может принимать значения: `<имя_хоста>`, `*` \| `-`. ||
 |#
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

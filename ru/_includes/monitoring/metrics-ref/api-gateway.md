@@ -1,8 +1,6 @@
-Метрики API-шлюзов и триггеров автоматически передаются в {{ monium-name }} в проект каталога, в котором находится ресурс.
+Метрики API-шлюзов и триггеров автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится API-шлюз или триггер.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
-
-Имя метрики задается в метке `name`.
 
 Значение метки `service` и метки для фильтрации по ресурсам зависят от типа метрик и приведены ниже.
 
@@ -60,3 +58,5 @@ service | Идентификатор сервиса: `serverless-functions`
 `serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | <ul><li>`request` — рассылка сообщений.</li></ul> | Гистограмма распределения частоты рассылки сообщений по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
 `serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — рассылка сообщений.</li></ul> | Количество одновременно выполняющихся рассылок сообщений.
 `serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

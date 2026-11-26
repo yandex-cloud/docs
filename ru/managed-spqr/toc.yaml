@@ -581,7 +581,7 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

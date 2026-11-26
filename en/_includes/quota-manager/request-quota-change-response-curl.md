@@ -13,4 +13,4 @@
 }
 ```
 
-The `false` operation status means your request is under review. 
+The `done: false` value means the request creation operation is still in progress. To check the status of the request itself, use its ID from the `metadata.quotaRequestId` field.

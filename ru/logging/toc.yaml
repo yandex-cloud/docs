@@ -401,7 +401,7 @@ items:
                 href: api-ref/Sink/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Sink/updateAccessBindings.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

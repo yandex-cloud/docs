@@ -24,7 +24,7 @@
 
 Отслеживать использование дискового пространства можно:
 * в консоли управления с помощью инструментов [мониторинга состояния кластера](../operations/monitoring.md#monitoring-cluster);
-* в сервисе [Yandex Monitoring](https://monitoring.yandex.cloud) с возможностью [настроить алерты](../operations/monitoring.md#monitoring-integration) по заданным метрикам.
+* в [Yandex Monium](https://monium.yandex.cloud) с возможностью [настроить алерты](../operations/monitoring.md#monitoring-integration) по заданным метрикам.
 
 #### Логи хранятся на том же диске, что и данные PostgreSQL? Как они тарифицируются? {#logs-storage}
 
@@ -94,12 +94,12 @@ yc managed-postgresql cluster list-logs <идентификатор_класте
 
 #### Как получать алерты о критических показателях кластера PostgreSQL? {#notifications}
 
-Воспользуйтесь сервисом [Yandex Monitoring](https://monitoring.yandex.cloud) и [настройте алерты](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
+Воспользуйтесь платформой [Yandex Monium](https://monium.yandex.cloud) и [настройте алерты](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
 
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
 
-[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе Yandex Monitoring. Метрика показывает размер использованного дискового пространства в кластере Managed Service for PostgreSQL.
+[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в [Yandex Monium](https://monium.yandex.cloud). Метрика показывает размер использованного дискового пространства в кластере Managed Service for PostgreSQL.
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 

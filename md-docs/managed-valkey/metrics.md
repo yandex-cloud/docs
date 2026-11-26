@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Valkey™](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Valkey™](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Monitoring
 

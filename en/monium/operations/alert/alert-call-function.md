@@ -18,7 +18,7 @@ To send POST requests when an alert triggers:
 
     You can test the function without deploying the POST request processing service. In this case, when sending a request, the function call logs will display a message saying the specified URL is unavailable.
 
-1. [Create a service account](#reate-sa) to invoke your function.
+1. [Create a service account](#create-sa) to invoke your function.
 1. [Create a function](#create-function) sending POST requests when the alert gets the `Alarm` or `Ok` status.
 1. [Create a channel](#create-alert) that will invoke the function.
 1. [Create an alert](#create-alert) that will send notifications to the channel with your function.

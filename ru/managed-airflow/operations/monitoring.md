@@ -55,27 +55,31 @@ description: Из статьи вы узнаете, как отслеживат�
 
   * **Pool usage** — количество занятых слотов в каждом пуле кластера.
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monium-full-name }} {#monitoring-integration}
 
-Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
+Чтобы получать уведомления об изменении [показателей состояния кластера](#monitoring-cluster), создайте алерт по запросу с сервисного дашборда.
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ maf-name }} — Cluster Overview**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов смотрите в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. [Перейдите]({{ link-monium }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
+
+      Метрики кластера передаются в проект {{ monium-name }} `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** и перейдите на вкладку **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**.
+  1. Откройте дашборд **{{ maf-name }} — Cluster Overview**. Если на дашборде доступны параметры, выберите нужный кластер.
+  1. На нужном графике нажмите ![rectangle-pulse](../../_assets/console-icons/rectangle-pulse.svg) **Перейти в Метрики**.
+  1. На панели нужного запроса справа вверху нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт по запросу** или **{{ ui-key.yacloud_monitoring.querystring.action.create-alert-from-all-queries }}**.
+  1. Укажите название алерта. В блоке **Условия срабатывания** выберите запрос для проверки и задайте пороги **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}** и **{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}**.
+  1. Чтобы получать уведомления, добавьте [канал уведомлений](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-airflow-ref.md).
+Полный список поддерживаемых метрик приведен в [справочнике метрик](../metrics.md).
 
 ## Состояние и статус кластера
 

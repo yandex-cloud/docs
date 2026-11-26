@@ -8,14 +8,13 @@ description: Message routing features routes, channels, and pipes.
 Message routing features routes, channels, and pipes.
 
 ## routes section {#routes}
-
 This section contains a list of [delivery routes](index.md#routing).
 
 Delivery routes consist of the following elements:
 
 - `input`: [Input](index.md#inputs):
   - `plugin`: [Input](inputs.md) plugin.
-  - `config`: [Input](#inputs) configuration.
+  - `config`: [Input](inputs.md) configuration.
   - `flow_control`: Configuration of the input session creation mechanism.
 - `channel`: [Channel](index.md#channels):
   - `pipe`: Pipe:

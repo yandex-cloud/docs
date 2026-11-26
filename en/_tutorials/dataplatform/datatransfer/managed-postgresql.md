@@ -1,8 +1,12 @@
 # Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
 
+### Getting started {#before-you-begin-dt}
 
-### Required paid resources {#paid-resources}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+
+#### Required paid resources {#paid-resources-dt}
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
@@ -22,24 +26,39 @@
         1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-pg).
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
+             * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+             * Name the endpoint.
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
 
-           Configure the source cluster connection settings.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.host.title }}**: Specify the IP address or FQDN of the source cluster's master host.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.port.title }}**: Specify the port number for connection to the source cluster.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify the database name.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: Specify the database user name.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: Enter the user password.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
+             * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+             * Name the endpoint.
              * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}**:
 
-           Specify the target cluster ID.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+                 * **Managed DB cluster**: Select the target cluster from the list.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify the database name.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: Specify the database user name.
+                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: Enter the user password.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the new endpoints.
+        1. [Create](../../../data-transfer/operations/transfer.md#create) a _{{ dt-type-copy-repl }}_-type transfer and configure it to use the previously created endpoints.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
             {% note warning %}
 
-            Do not make any data schema changes in the source or target cluster during the transfer. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Do not make any schema changes in the source or target cluster during the transfer. For details, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
@@ -62,7 +81,7 @@
             * Target endpoint.
             * Transfer.
 
-        1. In the `data-transfer-pgsql-mpg.tf` file, specify the following:
+        1. In `data-transfer-pgsql-mpg.tf`, specify the following:
 
             * [Source endpoint settings](../../../data-transfer/operations/endpoint/source/postgresql.md#on-premise).
             * `pg-extensions`: List of [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md) in the source cluster.
@@ -85,31 +104,33 @@
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            The transfer will be activated automatically as soon as it is created.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Remove the writing load from the source cluster.
-1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait until the **Maximum data transfer delay** value drops to zero. This means that all changes made in the source cluster after the initial data copy have been transferred to the target cluster.
+1. Stop all writes to the source cluster.
+1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to drop to zero. This means that all changes made in the source cluster after the initial data copy have been transferred to the target cluster.
 1. Transfer the workload over to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 
-1. To minimize resource consumption, delete the resources you no longer need:
+### Delete the resources you created {#clear-out-dt}
 
-    {% list tabs group=instructions %}
+To reduce resource usage, delete the resources you no longer need:
 
-    - Manually created resources {#manual}
+{% list tabs group=instructions %}
 
-        1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
-        1. [Ensure the transfer is stopped, then delete it](../../../data-transfer/operations/transfer.md#delete).
-        1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+- Manually created resources {#manual}
 
-    - Resources created with {{ TF }} {#tf}
+    1. Once the transfer is stopped, [delete it](../../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
 
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+- Resources created with {{ TF }} {#tf}
 
-    {% endlist %}
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
+{% endlist %}

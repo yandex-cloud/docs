@@ -4,13 +4,16 @@
 
 В этом разделе описаны метрики сервиса [Application Load Balancer](../../application-load-balancer/index.md), поставляемые в Monitoring.
 
-Имя метрики пишется в метку `name`. Значение метки `service` — `application-load-balancer`.
+Метрики сервиса Application Load Balancer автоматически передаются в [Monium](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится балансировщик.
 
-Для метрик Application Load Balancer используйте [проект каталога](*monium-folder-project) с балансировщиком.
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
 
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+Если вы создаете запрос в Monium в [разделе метрик](../../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
 
-При переходе к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
+
+Имя метрики пишется в метку `name`.
+
+Значение метки `service` — `application-load-balancer`.
 
 ## Метрики HTTP {#http-metrics}
 

@@ -368,6 +368,8 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [list-operations](cli-ref/v0/private-endpoint/list-operations.md)
 
+ - [list-yandex-cloud-services](cli-ref/v0/private-endpoint/list-yandex-cloud-services.md)
+
  - [update](cli-ref/v0/private-endpoint/update.md)
 
 #### route-table
@@ -531,6 +533,8 @@ Yandex Virtual Private Cloud служит для управления облач
  - [list](cli-ref/private-endpoint/list.md)
 
  - [list-operations](cli-ref/private-endpoint/list-operations.md)
+
+ - [list-yandex-cloud-services](cli-ref/private-endpoint/list-yandex-cloud-services.md)
 
  - [update](cli-ref/private-endpoint/update.md)
 
@@ -958,7 +962,7 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [ListOperations](privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md)
 
- - [Справочник метрик VPC](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

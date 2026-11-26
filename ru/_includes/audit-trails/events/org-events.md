@@ -29,6 +29,13 @@
 `application.linked.UpdateApplication` | Изменение связанного приложения
 `application.linked.UpdateApplicationAccessBindings` | Изменение прав доступа к связанному приложению
 `application.linked.UpdateApplicationAssignments` | Изменение списка пользователей связанного приложения
+`authenticatorusagepolicy.ActivateAuthenticatorUsagePolicy` | Активация политики использования аутентификаторов
+`authenticatorusagepolicy.CreateAuthenticatorUsagePolicy` | Создание политики использования аутентификаторов
+`authenticatorusagepolicy.DeactivateAuthenticatorUsagePolicy` | Деактивация политики использования аутентификаторов
+`authenticatorusagepolicy.DeleteAuthenticatorUsagePolicy` | Удаление политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicy` | Изменение политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicyAudience` | Изменение целевых пользователей политики использования аутентификаторов
+`authenticatorusagepolicy.UpdateAuthenticatorUsagePolicyExcludedAudience` | Изменение списка исключений политики использования аутентификаторов
 `idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.application.CreateAsset` | Загрузка логотипа приложения

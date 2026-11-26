@@ -5,6 +5,10 @@ description: 'The process of restoring managed database clusters if an availabil
 
 # Restoring database clusters in case of an availability zone failure
 
+This section offers practical advice on how to restore data if [{{ yandex-cloud }} zones are unavailable](https://status.yandex.cloud/ru/incidents/2136?retpath=%2Fru%2Ftimeline$0).
+
+## Basic recommendations for different failures {#general}
+
 If one of the availability zones is unavailable, the process depends on the host location and cluster state. In the examples below, the `ru-central1-b` is assumed to be unavailable. Select the appropriate use case:
 
 * [All cluster hosts are in the unavailable zone](#all-hosts-in-zone-b).
@@ -12,7 +16,7 @@ If one of the availability zones is unavailable, the process depends on the host
 * [Some hosts are in the available zone; the master did not switch, and the cluster is read-only](#read-only).
 * [The cluster does not have hosts in the unavailable zone](#no-hosts-in-zone-b).
 
-## All cluster hosts are in the unavailable zone {#all-hosts-in-zone-b}
+### All cluster hosts are in the unavailable zone {#all-hosts-in-zone-b}
 
 To reduce the downtime, do not wait for the availability zone to become available again and start restoring from a backup.
 
@@ -42,7 +46,7 @@ Guide on restoring from a backup:
 
 A {{ mspqr-name }} backup contains shard configuration. Restore the shard data separately in {{ mpg-name }} if needed.
 
-## Some hosts are in the available zone; the master switched {#master-switched}
+### Some hosts are in the available zone; the master switched {#master-switched}
 
 This use case is suitable for a multi-host cluster if a master switched to a host in a different availability zone.
 
@@ -60,7 +64,7 @@ Guides on managing hosts:
 || {{ mmg-name }} | [Guide](../storedoc/operations/hosts.md#add-host) | [Guide](../storedoc/operations/hosts.md#remove-host) ||
 |#
 
-## Master did not switch, and the cluster is read-only {#read-only}
+### Master did not switch, and the cluster is read-only {#read-only}
 
 This use case is suitable for a multi-host cluster with some hosts in the `ru-central1-b` zone, if a master did not switch, and the cluster switched to read-only (RO).
 
@@ -70,24 +74,48 @@ Automatic master switch may not occur because of the risk of data loss. In this 
 1. Wait for the support team to switch your master.
 1. Perform the actions described in the [use case where the master switched](#master-switched).
 
-## The cluster does not have hosts in the unavailable zone {#no-hosts-in-zone-b}
+### The cluster does not have hosts in the unavailable zone {#no-hosts-in-zone-b}
 
 To prepare for possible failures of other availability zones:
 
 1. Check the cluster’s and application’s configuration using [these recommendations on fault tolerance](fault-tolerance.md). Consider your service requirements to the host location and number.
 1. If you need to set up data transfer and replication, check [these {{ data-transfer-name }} guides](../data-transfer/operations/index.md) and [requirements on preparing the source and target](../data-transfer/operations/prepare.md).
 
-## Restoring a cluster from a backup using the {{ OS }} API {#mos-backup}
+## Data migration from managed database backups to third-party clusters {#outbound-backup}
 
-You can connect {{ objstorage-name }} to a {{ mos-name }} cluster as a snapshot repository. You will be able to create backups manually or on schedule using the [{{ OS }} Snapshot API](https://docs.opensearch.org/latest/api-reference/snapshots/index/).
+If {{ yandex-cloud }} managed database backups are stored in {{ objstorage-name }} with replication across three zones, your data is preserved.
+To save a copy of your data, you can upload managed database hosts in available zones as per the guides below:
 
-1. [Create a repository](https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/) to store snapshots specifying {{ objstorage-name }}.
-1. [Create a policy](https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/snapshots/sm-api/) for regular snapshot creation.
-1. [Configure access permissions](../managed-opensearch/operations/s3-access.md#configure-acl) and [add the snapshot repository](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) for your {{ mos-name }} cluster.
-1. [Configure access permissions](../managed-opensearch/operations/s3-access.md#configure-acl) and [add the snapshot repository](../managed-opensearch/operations/s3-access.md#register-snapshot-repository) for your {{ mos-name }} cluster.
+#|
+|| **Service** | **Guide** ||
+|| {{ mpg-name }} | [Restoring a cluster from `pg_dump`](https://www.postgresql.org/docs/current/app-pgdump.html) ||
+|| {{ mmy-name }} | [Restoring a cluster from a dump](../tutorials/dataplatform/mysql-data-migration/logical-dump-migration.md#dump) ||
+|| {{ mmg-name }} | [Restoring a cluster from a dump](../tutorials/dataplatform/storedoc-data-migration.md#dump) ||
+|| {{ mrd-name }} | [Restoring a cluster from a dump](../tutorials/dataplatform/valkey-data-migration.md#create-dump) ||
+|| {{ mch-name }} | [Restoring from S3](https://clickhouse.com/docs/concepts/features/backup-restore/s3-endpoint) ||
+|| {{ mos-name }} | [Restoring a cluster from a backup using the {{ OS }} API](../managed-opensearch/operations/cluster-backups.md#mos-backup) ||
+|| {{ mkf-name }} | No automatic backups are provided||
+|| {{ mgp-name }} | Use `PXF writable external table` to upload tables to parquet or any other file format available in PXF. Or use the standard `pg_dump` {{ PG }} utility to upload data from specific tables. ||
+|#
 
-## Migrating a database from {{ mpg-name }} to a different {{ PG }} cluster using logical replication {#pg-replication}
+## Data migration from managed database services to a third-party cluster using replication {#pg-replication}
 
-A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This allows you to use built-in {{ PG }} tools for migrating databases across different {{ PG }} clusters.
+If you have an available {{ yandex-cloud }} host, you can copy its data to a self-hosted database instance using replication:
 
-To migrate a database, follow [this tutorial](../tutorials/dataplatform/outbound-replication.md).
+#|
+|| **Service** | **Guide** ||
+|| {{ mpg-name }} | [Migrating a database using logical replication](../tutorials/dataplatform/outbound-replication.md) ||
+|| {{ mmy-name }} | [Migrating a database from {{ yandex-cloud }} to a third-party cluster](../tutorials/dataplatform/mmy-to-mysql-migration.md) ||
+|| {{ mrd-name }} | [Restoring data from an available host](../managed-valkey/operations/data-recovery.md) ||
+|#
+
+## Data migration from managed database services to a Selectel cluster using {{ mtr-name }} {#selectel-trino}
+
+There is a method available for data migration to Selectel infrastructure using {{ mtr-name }}:
+
+#|
+|| **Service** | **Guide** ||
+|| {{ mpg-name }} | [Migrating data from {{ PG }} to a {{ PG }} cloud database using {{ TR }}](https://docs.selectel.ru/migrations/migrate-data-postgres-to-cloud-postgres-trino/) ||
+|| {{ mmy-name }} | [Migrating data from {{ MY }} to a {{ MY }} cloud database using {{ TR }}](https://docs.selectel.ru/migrations/migrate-mysql-data-to-cloud-mysql-with-trino/) ||
+|| {{ mch-name }} | [Migrating data from {{ CH }} to a {{ CH }} cloud database using {{ TR }}](https://docs.selectel.ru/migrations/migrate-clickhouse-data-to-cloud-clickhouse-with-trino/) ||
+|#

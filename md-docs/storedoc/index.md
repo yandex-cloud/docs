@@ -242,6 +242,8 @@
 
  - [update-config](cli-ref/v0/cluster/update-config.md)
 
+ - [connect](cli-ref/v0/connect.md)
+
 #### database
 
  - [Overview](cli-ref/v0/database/index.md)
@@ -411,6 +413,8 @@
  - [update](cli-ref/cluster/update.md)
 
  - [update-config](cli-ref/cluster/update-config.md)
+
+ - [connect](cli-ref/connect.md)
 
 ### database
 

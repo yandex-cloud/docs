@@ -149,7 +149,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
         {% include [REST cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-rest.md) %}
 
         * `networkSpec`: Network settings:
-          * `securityGroupIds`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+          * `securityGroupIds`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
 
         * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
 
@@ -244,7 +244,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
           {% include [gRPC cluster parameters description](../../../_includes/metadata-hub/metastore-cluster-parameters-grpc.md) %}
 
           * `network_spec`: Network settings:
-            * `security_group_ids`: List of [security group](../../../vpc/concepts/network.md#security-groups) IDs.
+            * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
 
           * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
 

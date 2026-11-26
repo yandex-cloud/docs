@@ -28,7 +28,7 @@ Message Queue имеет SLA 99,90% на доступность сервиса.
 
 #### Могу я самостоятельно мониторить Message Queue с помощью Prometheus?
 
-Да, вы можете [экспортировать метрики в Prometheus](../../monitoring/operations/metric/prometheusExport.md) и [получить список метрик](../../monitoring/operations/metric/list.md) для различных объектов.
+Да, вы можете [экспортировать метрики в Prometheus](../../monium/operations/metric/prometheusExport.md) и [получить список метрик](../../monium/operations/metric/list.md) для различных объектов.
 
 #### Что необходимо ввести в Default output format \[None\] при настройке конфигурации AWS CLI?
 

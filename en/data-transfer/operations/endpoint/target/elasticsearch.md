@@ -5,14 +5,14 @@ description: In this tutorial, you will learn how to set up an {{ ES }} target e
 # Transferring data to an {{ ES }} target endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ ES }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ ES }} database and implement various data transfer, processing, and transformation scenarios. To set up a transfer:
 
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Prepare the {{ ES }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
-1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
-1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
+1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
+1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
 ## Configuring the data source {#supported-sources}
 
@@ -34,10 +34,10 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ ES }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure:
 
-* [{{ ES }} connection settings](#on-premise). These are required parameters.
-* [Additional parameters](#additional-settings).
+* [{{ ES }} connection settings](#on-premise). These settings are required.
+* [Optional settings](#additional-settings).
 
 
 ### Custom installation {#on-premise}
@@ -56,7 +56,7 @@ Connection to nodes with explicitly specified network addresses and ports.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ssl_enabled.title }}**: Select this option if a secure SSL connection is used.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}**: Upload the certificate file or add its contents as text if data encryption is required, e.g., to comply with the PCI DSS requirements.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}**: If you need to encrypt data during transfer, e.g., to comply with PCI DSS, upload the certificate or paste its contents as text.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}**: Select or [create](../../../../vpc/operations/subnet-create.md) a subnet in the required [availability zone](../../../../overview/concepts/geo-scope.md).
       If this field has a value specified for both endpoints, both subnets must be hosted in the same availability zone.
@@ -79,13 +79,13 @@ Connection to nodes with explicitly specified network addresses and ports.
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.cleanup_policy.title }}**: Select the pre-transfer cleanup policy for the target database:
 
-        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only replicating data, without copying it.
 
-        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Delete all tables included in the transfer. This is the default option.
 
-            Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+            Use this option to always transfer the latest table schemas on every transfer activation.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchTarget.sanitize_doc_keys.title }}**: Use this option to automatically replace keys that are not valid for {{ ES }} in the target fields.
 
@@ -94,4 +94,4 @@ Connection to nodes with explicitly specified network addresses and ports.
 {% endlist %}
 
 
-After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
+Once you have configured the source and target, [create and launch the transfer](../../transfer.md#create).

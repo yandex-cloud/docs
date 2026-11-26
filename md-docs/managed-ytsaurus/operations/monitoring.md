@@ -27,7 +27,8 @@
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
   1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами, выберите в списке сервисов Yandex Monitoring.
+  
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами в Monium, нажмите кнопку **Открыть в Monium** на панели сверху.
 
   На странице отображаются две вкладки **Cluster** и **Master** с графиками:
 
@@ -103,7 +104,14 @@
 
 {% endlist %}
 
-## Настройка алертов в Yandex Monitoring {#monitoring-integration}
+## Настройка алертов в Yandex Monium {#monitoring-integration}
+
+Для настройки алертов нужны роли на каталог с кластером:
+
+* [monium.metrics.reader](../../monium/security/index.md#monium-metrics-reader) — для чтения метрик.
+* [monium.alerts.editor](../../monium/security/index.md#monium-alerts-editor) — для создания алертов.
+
+Чтобы получать уведомления, при необходимости [создайте канал уведомлений](../../monium/operations/alert/create-channel.md) в проекте каталога с кластером. Для создания канала нужна роль [monium.channels.editor](../../monium/security/index.md#monium-channels-editor) на этот каталог.
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
 
@@ -112,18 +120,23 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите **Managed Service for YTsaurus — Cluster Resources**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+  1. На странице с графиками нажмите кнопку **Открыть в Monium** на панели сверху. Графики откроются на платформе Yandex Monium.
+  1. Убедитесь, что на панели сверху выбран проект каталога с кластером: `folder__<идентификатор_каталога>`. В этом проекте будет создан алерт.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов смотрите в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. Укажите название алерта, выберите тип **Пороговый** и проверьте запрос, перенесенный с графика.
+  1. В блоке **Условия срабатывания** задайте условия и пороги **Warning** и **Alarm**.
+  1. В блоке **Уведомления** выберите канал и статусы, при которых нужны уведомления.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
+Подробнее о настройке алертов читайте в [инструкции](../../monium/operations/alert/create-alert.md), о языке запросов — в разделе [Язык запросов в Monium](../../monium/concepts/querying.md).
+
 Чтобы отслеживать другие показатели состояния кластера, [создайте алерт](../../monium/operations/alert/create-alert.md) для нужной метрики и задайте условия срабатывания.
 
-Полный список поддерживаемых метрик в [документации Monitoring](../../monitoring/metrics-ref/managed-ytsaurus-ref.md).
+Полный список поддерживаемых метрик — в [справочнике метрик Managed Service for YTsaurus](../metrics.md).
 
 ## Статус кластера {#cluster-health-and-status}
 

@@ -412,7 +412,7 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Yandex Monitoring](metastore-metrics.md)
+ - [Справочник метрик](metastore-metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

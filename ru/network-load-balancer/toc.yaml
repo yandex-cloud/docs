@@ -433,7 +433,7 @@ items:
         href: k8s-ref/service.md
       - name: NetworkPolicy
         href: k8s-ref/networkpolicy.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

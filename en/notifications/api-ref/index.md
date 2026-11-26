@@ -12,7 +12,7 @@ API requests to {{ cns-name }} with a static key must be signed using the [AWS S
 
 {% endnote %}
 
-To avoid signing API requests to {{ cns-name }}, you can use an [IAM token](../../iam/concepts/authorization/iam-token.md) instead of a static key. For more information, see [{#T}](send-request.md).
+To avoid signing API requests to {{ cns-name }}, you can use an [IAM token](../../iam/concepts/authorization/iam-token.md) instead of a static key. For details, see [{#T}](send-request.md).
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
@@ -32,7 +32,7 @@ For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
 | Action | Description |
 | --- | --- |
-| [Create](create-platform-endpoint.md) | Creating an [endpoint for push notifications](../concepts/index.md#mobile-endpoints) (subscribing the user to push notifications) |
+| [Create](create-platform-endpoint.md) | Creating an [endpoint for push notifications](../concepts/push.md#mobile-endpoints) (subscribing the user to push notifications) |
 | [GetAttributes](get-endpoint-attributes.md) | Getting endpoint parameters |
 | [SetAttributes](set-endpoint-attributes.md) | Setting endpoint parameters |
 | [List](list-endpoints.md) | Getting a list of endpoints |

@@ -915,6 +915,41 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
+  pc|security_deck:
+    cspm:
+      resources_100:
+        subscription:
+          monthly_usage:
+            v1: dn2b57e6jr53zspnp5ef
+      resources_250:
+        subscription:
+          monthly_usage:
+            v1: dn2opkywc5sdbh4t3zaa
+      resources_50:
+        subscription:
+          monthly_usage:
+            v1: dn2efsec4fpeeflwdsdx
+      resources_500:
+        subscription:
+          monthly_usage:
+            v1: dn2y5wq7omb5lgmcqgcg
+    dspm:
+      t1_5:
+        subscription:
+          monthly_usage:
+            v1: dn233k5ozolpslveo3jx
+      t11:
+        subscription:
+          monthly_usage:
+            v1: dn2goet36a5vh2jdqdzf
+      t3:
+        subscription:
+          monthly_usage:
+            v1: dn2ih5ta2ay3ztmre2rf
+      t5_5:
+        subscription:
+          monthly_usage:
+            v1: dn2nk3uheuixi6rwb7uv
   pc|storage:
     api:
       network:
@@ -2536,10 +2571,6 @@ default:
         connections-list:
           modify:
             button_create-connection: Создать подключение
-      editor:
-        templates:
-          view:
-            label_metric: Индикатор
       main:
         service-settings:
           view:
@@ -3037,7 +3068,6 @@ default:
         label_evaluation-period: Окно вычисления
         label_evaluation-type: Функция агрегации
         label_evaluation-window: Окно вычисления
-        label_trigger-condition: Условие срабатывания
         label_warning: Warning
         section_metrics: Метрики
         status_alarm: Alarm
@@ -3047,7 +3077,7 @@ default:
         status_warn: Warning
         title_aggregation-at_all_times: Все значения
         title_aggregation-last_non_nan: Последнее
-        title_aggregation-min: Минимум
+        title_aggregation-max: Максимум
         title_alerts-config: Настройки алерта
         title_comparison-eq: Равно
         title_comparison-gt: Больше
@@ -3360,13 +3390,9 @@ default:
       quicklinks:
         action:
           add-link: Добавить ссылку
-      service:
-        field:
-          function: Функция агрегации
       services:
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
-        label_postgresql: Managed Service for PostgreSQL
       tooltip:
         actions:
           go-to-line: Перейти к линии
@@ -3382,7 +3408,6 @@ default:
             traces: Поиск по трейсам
       wizard:
         axes:
-          linear: Линейный
           primary-y: Левая ось Y
           secondary-y: Правая ось Y
         button:
@@ -5671,7 +5696,6 @@ default:
         logs: Логи
         metadata: Метаданные
         metadata-add-field: Добавить поле
-        metric: Метрика
         monitoring: Мониторинг
         more: Подробнее
         move: Переместить

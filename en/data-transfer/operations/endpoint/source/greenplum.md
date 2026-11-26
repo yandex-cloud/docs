@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to create and configure a {{ G
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. Perform required operations with the database and [control the transfer](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](../../../troubleshooting/index.md) for troubleshooting.
 
 ## {{ GP }} and {{ CB }} data transfer scenarios {#scenarios}
@@ -45,7 +45,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#managed-greenplum-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 
@@ -79,7 +79,7 @@ Connection to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.include_tables.title }}**: The system will only transfer data from the tables in this list.
 
       If a table is partitioned, you can use this field to specify both the entire table and individual partitions.
 
@@ -87,7 +87,7 @@ Connection to the database with explicitly specified network addresses and ports
 
       {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTableFilter.exclude_tables.title }}**: The system will not transfer data from the tables in this list.
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
 

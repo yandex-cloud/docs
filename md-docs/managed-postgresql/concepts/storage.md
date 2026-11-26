@@ -99,7 +99,7 @@ Managed Service for PostgreSQL позволяет использовать се�
 В этом режиме запросы на вставку (`INSERT`), удаление (`DELETE`) или обновление (`UPDATE`) данных завершаются ошибкой.
 
 
-Вы можете отслеживать степень заполнения хранилища на хостах кластера, [настроив алерты в Yandex Monitoring](../operations/storage-space.md#set-alert).
+Вы можете отслеживать степень заполнения хранилища на хостах кластера, [настроив алерты в Yandex Monium](../operations/storage-space.md#set-alert).
 
 
 ### Вывод кластера из режима read-only {#read-only-solutions}

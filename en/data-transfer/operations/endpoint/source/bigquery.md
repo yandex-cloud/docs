@@ -21,7 +21,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 {% include [prepare bigquery db](../../../../_includes/data-transfer/endpoints/sources/bigquery-prepare.md) %}
 
-## Configuring the BigQuery source endpoint {#settings}
+## Configuring the BigQuery source endpoint {#endpoint-settings}
 
 {% list tabs group=instructions %}
 

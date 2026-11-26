@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to create and configure an {{ 
 1. [Set up a source endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Set up one of the supported data targets](#supported-targets).
 1. [Create](../../transfer.md#create) and [launch](../../transfer.md#activate) the transfer.
-1. [Perform the required database tasks](#db-actions) while [monitoring the transfer status](../../monitoring.md).
+1. Perform the required database tasks while [monitoring the transfer status](../../monitoring.md).
 1. If you run into any problems, [check the available solutions](#troubleshooting) for troubleshooting.
 
 ## {{ CH }} data transfer scenarios {#scenarios}
@@ -259,7 +259,7 @@ IPv6 | utf8 ||
 ## Data transfer troubleshooting {#troubleshooting}
 
 * [New tables are not added](#no-new-tables).
-* [Data is not transferred](#no-transfer).
+* [Data is not transferred](#troubleshooting).
 * [Date range is not supported](#date-range).
 
 For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).

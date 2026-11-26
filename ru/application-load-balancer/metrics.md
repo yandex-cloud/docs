@@ -5,8 +5,6 @@ description: На этой странице приведен справочни�
 
 # Метрики {{ alb-name }}
 
-В этом разделе описаны метрики сервиса {{ alb-name }}, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
-
 {% include [alb](../_includes/monitoring/metrics-ref/alb.md) %}
 
 Подробнее о метриках читайте в подразделе [Статистика](./concepts/monitoring.md#stats).

@@ -1,8 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ iam-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
 
-При переходе к графику из сервисного дашборда значение метки `service` указывается без подчеркиваний — `iam`.
-
-Если вы создаете запрос с нуля в разделе **Обзор** → **Метрики** в {{ monium-name }}, укажите `project = folder__<идентификатор_каталога>`, `cluster = default` и `service = __iam__`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Общие метки для всех метрик {{ iam-name }}:
 
@@ -22,3 +20,5 @@
 | `service_account.authorized_key.authentication_events_count`<br>`COUNTER`, штуки | Количество событий аутентификации с использованием авторизованного ключа сервисного аккаунта. |
 | `service_account.authorized_key.create_token_events_count`<br>`COUNTER`, штуки | Количество событий создания токена с использованием авторизованного ключа сервисного аккаунта. |
 | `service_account.authorized_key.create_token_failed_events_count`<br>`COUNTER`, штуки | Количество неуспешных событий создания токена с использованием авторизованного ключа сервисного аккаунта.<br>Метка `code` — код ошибки. |
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

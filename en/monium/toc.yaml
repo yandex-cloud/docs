@@ -309,7 +309,7 @@ items:
         href: concepts/visualization/dashboard.md
       - name: Widgets
         href: concepts/visualization/widget.md
-      - name: Notebooks
+      - name: Notepads
         href: concepts/visualization/notebooks.md
       - name: Context links
         href: concepts/visualization/context-links.md
@@ -380,6 +380,10 @@ items:
     items:
       - name: Web service SLO monitoring
         href: slo/slo-blackbox-exporter.md
+      - name: >-
+          Integrating LiteLLM Proxy with {{ ai-studio-full-name }} and {{
+          traces-name }}
+        href: tutorials/traces-for-litellm-proxy.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview

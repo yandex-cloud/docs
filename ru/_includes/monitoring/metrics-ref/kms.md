@@ -1,6 +1,8 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ kms-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ключи.
 
-Все метрики сервиса {{ kms-name }} имеют общую метку `kms`.
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
+
+Идентификатор сервиса — `kms`.
 
 Метрики сервиса:
 
@@ -13,3 +15,5 @@
 | `key_asymmetric_encryption_crypto_operations_rate_created`<br>`DGAUGE`, операции | Количество криптографических операций с использованием асимметричных ключей шифрования. Специальная метка `key` — идентификатор асимметричной [ключевой пары шифрования](../../../kms/concepts/asymmetric-encryption-key.md). |
 | `key_asymmetric_signature_crypto_operations_rate_created`<br>`DGAUGE`, операции | Количество криптографических операций с электронной подписью. Специальная метка `key` — идентификатор асимметричной [ключевой пары подписи](../../../kms/concepts/asymmetric-signature-key.md). |
 | `key_crypto_operations_rate_created`<br>`DGAUGE`, операции | Количество всех криптографических операций с использованием симметричных ключей, асимметричных ключевых пар шифрования и электронных подписей. Специальная метка `key` — идентификатор ключа. |
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

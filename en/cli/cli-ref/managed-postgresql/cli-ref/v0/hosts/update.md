@@ -30,6 +30,9 @@ Host name of the host to be used as the replication source (for cascading replic
 || `--priority` | `int`
 
 Priority of the host as a replica. ||
+|| `--backup-priority` | `int`
+
+Priority of the host as a backup source. ||
 || `--assign-public-ip` | Whether the host should get a public IP address. ||
 |#
 

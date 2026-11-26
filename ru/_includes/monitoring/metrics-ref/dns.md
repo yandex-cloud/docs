@@ -1,4 +1,4 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ dns-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится зона DNS.
 
 {% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
@@ -10,3 +10,5 @@
 | --- | --- |
 `network_requests`<br/>`DGAUGE`, запросы/с | Частота запросов (RPS) из сети, суммарно, с разбивкой по типу запроса.<br/>Метки:<ul><li>`network` — идентификатор или имя сети.</li><li>`request_type` — тип запроса. Возможные значения `authoritative` (если на запрос ответил {{ dns-name }}) или `forward` (если запрос перенаправлен на внешний резолвер).</li><li>`resource_type` — тип ресурса, всегда `network`.</li><li>`response_status` — статус ответа. Возможные значения: `noerror`, `servfail`, `nxdomain` и другие.</li></ul>
 `zone_requests`<br/>`DGAUGE`, запросы/с | Частота запросов (RPS) к записям зоны, суммарно по всем клиентам. Для публичных зон — это любые пользователи, для приватных зон — это пользователи из сетей, между которыми настроен пиринг.<br/>Метки:<ul><li>`resource_type` — тип ресурса, всегда `zone`.</li><li>`response_status` — статус ответа. Возможные значения: `noerror`, `servfail`, `nxdomain` и другие.</li><li>`zone` — идентификатор или имя зоны.</li></ul>
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

@@ -2,6 +2,7 @@
 
 # Изменить входящее DNS-подключение
 
+
 Чтобы изменить [входящее DNS-подключение](../concepts/dns-connection.md#dns-inbound):
 
 {% list tabs group=instructions %}

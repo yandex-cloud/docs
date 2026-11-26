@@ -638,7 +638,7 @@ Yandex Key Management Service — сервис для создания и упр
 
  - [Cancel](asymmetricsignature/api-ref/Operation/cancel.md)
 
- - [Метрики Monium](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

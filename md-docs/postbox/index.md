@@ -204,7 +204,7 @@ Cloud Postbox позволяет не тратить бюджет и время 
 
  - [Ответы SMTP](api-ref/smtp-errors.md)
 
- - [Метрики Monium Metrics](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

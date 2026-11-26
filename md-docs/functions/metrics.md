@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud Functions](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Functions](index.md) > Справочник метрик
 
 # Справочник метрик Yandex Monitoring
 

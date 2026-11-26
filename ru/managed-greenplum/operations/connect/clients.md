@@ -243,7 +243,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Кластер появится в списке серверов в навигационном меню.
 
-Для наблюдения за состоянием кластера рекомендуется использовать сервис [{{ monitoring-full-name }}](../monitoring.md) вместо вкладки **Dashboard** в {{ pgadmin }}, потому что в ней может возникать ошибка:
+Для наблюдения за состоянием кластера рекомендуется использовать [{{ monium-full-name }}](../monitoring.md) вместо вкладки **Dashboard** в {{ pgadmin }}, потому что в ней может возникать ошибка:
 
 ```text
 column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^

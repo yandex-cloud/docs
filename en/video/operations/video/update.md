@@ -44,7 +44,7 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
   1. To delete subtitles, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
 
-  1. To edit [neural translation](../../concepts/videos.md#translation), delete the old languages and add the new ones:
+  1. To edit [neural translation](../../concepts/videos.md#stranslation), delete the old languages and add the new ones:
       
       1. Under **{{ ui-key.yacloud_video.videos.label_neuro-translation }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of neural translation language.
       1. Click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.

@@ -1,4 +1,4 @@
-# {{ ydb-short-name }} change data capture and delivery to {{ DS }}
+# Capturing changes from {{ ydb-short-name }} and delivering to {{ DS }}
 
 
 A {{ yds-name }} stream can get data from {{ ydb-name }} databases in real time using the [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC) technology.
@@ -17,10 +17,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
+* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+	* In serverless mode, you pay for data operations, stored data volume, and backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage volume, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -60,13 +60,13 @@ Set up your infrastructure:
         * {{ ydb-name }} database for the target stream.
         * Transfer.
 
-    1. In the `data-transfer-ydb-yds.tf` file, specify the following variables:
+    1. In `data-transfer-ydb-yds.tf`, specify the following variables:
 
         * `source_db_name`: {{ ydb-name }} source database name.
         * `target_db_name`: Name of the {{ ydb-name }} database for the target data stream.
         * `transfer_enabled`: Set to `0` not to create a transfer until [endpoints are created](#prepare-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Validate your {{ TF }} configuration using this command:
 
         ```bash
         terraform validate
@@ -169,7 +169,7 @@ Set up your infrastructure:
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-ydb-yds.tf` file, specify the following variables:
+        1. In `data-transfer-ydb-yds.tf`, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
@@ -187,7 +187,7 @@ Set up your infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            Once created, the transfer becomes active automatically.
 
     {% endlist %}
 
@@ -229,7 +229,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created service accounts together with the endpoints, [delete them](../../iam/operations/sa/delete.md).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

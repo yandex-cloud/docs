@@ -18,7 +18,7 @@ Attributes from resources (`ResourceLogs.resource.attributes`), instrumentation 
    * Bool, a string with the `true` or `false` value.
    * Bytes are serialized as a base64 string ([RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648#section-4)).
    * Arrays and dictionaries are serialized similarly to JSON.
-1. Attributes from `labels` that do not comply with the [label limitations](../../concepts/data-model.md#labels) are moved to the `meta` level (the existing attribute gets removed).
+1. Attributes from `labels` that do not comply with the [label limitations](../../concepts/data-model.md#label-limits) are moved to the `meta` level (the existing attribute gets removed).
 1. Attributes from `meta` that do not comply with the metadata limitations are discarded. The number of discarded attributes will be shown in a [metric](#invalid-attributes-destiny).
 
 
@@ -102,7 +102,7 @@ The `trace_id` and `span_id` fields are optional. Field values must have the fol
 
 Valid IDs will be saved in the system in HEX format as `trace.id` and `span.id`, respectively.
 
-For more information, see [this specification](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/logs/v1/logs.proto#L187-L212).
+For more details, see [this specification](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/logs/v1/logs.proto#L187-L212).
 
 In JSON format, the `trace_id` and `span_id` visualization depends on the protocol:
 

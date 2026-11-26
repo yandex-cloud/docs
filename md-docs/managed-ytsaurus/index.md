@@ -144,7 +144,7 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -66,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Задать пароль {#set}
 
+{% include [password-personal-data-restriction](../../../_includes/organization/password-personal-data-restriction.md) %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

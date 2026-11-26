@@ -20,7 +20,7 @@ description: In this tutorial, you will learn how to set up a {{ MG }} target en
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
     * [Migrating a {{ MG }} cluster](../../../tutorials/storedoc.md)
-    * [Migrating a {{ SD }} (Managed Service for MongoDB) cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md)
+    * [Migrating an {{ SD }} (Managed Service for MongoDB) cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
@@ -58,7 +58,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit a managed database endpoint, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
+To create or edit a managed database endpoint, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#managed-mongodb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder where its cluster resides.
 
 {% endnote %}
 

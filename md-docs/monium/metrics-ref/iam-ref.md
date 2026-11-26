@@ -4,11 +4,14 @@
 
 В этом разделе описаны метрики сервиса [Identity and Access Management](../../iam/index.md), поставляемые в Monium Metrics.
 
+Метрики сервиса Identity and Access Management автоматически передаются в [Monium](../metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находятся ресурсы сервиса.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
 Имя метрики пишется в метку `name`.
-
-При переходе к графику из сервисного дашборда значение метки `service` указывается без подчеркиваний — `iam`.
-
-Если вы создаете запрос с нуля в разделе **Обзор** → **Метрики** в Monium, укажите `project = folder__<идентификатор_каталога>`, `cluster = default` и `service = __iam__`.
 
 Общие метки для всех метрик Identity and Access Management:
 
@@ -28,3 +31,5 @@
 | `service_account.authorized_key.authentication_events_count`<br>`COUNTER`, штуки | Количество событий аутентификации с использованием авторизованного ключа сервисного аккаунта. |
 | `service_account.authorized_key.create_token_events_count`<br>`COUNTER`, штуки | Количество событий создания токена с использованием авторизованного ключа сервисного аккаунта. |
 | `service_account.authorized_key.create_token_failed_events_count`<br>`COUNTER`, штуки | Количество неуспешных событий создания токена с использованием авторизованного ключа сервисного аккаунта.<br>Метка `code` — код ошибки. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

@@ -67,7 +67,7 @@
 
 ## Мониторинг состояния таблиц и индексов {#monitoring}
 
-Получить информацию о статистике bloat системного каталога и статистике очистки пользовательских таблиц можно в [консоли управления](https://console.yandex.cloud) на вкладке **Мониторинг** страницы управления кластером или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md), на графиках в блоке **Background activities**.
+Получить информацию о статистике bloat системного каталога и статистике очистки пользовательских таблиц можно в [консоли управления](https://console.yandex.cloud) на вкладке **Мониторинг** страницы управления кластером или в [Yandex Monium](../../monium/overview.md), на графиках в блоке **Background activities**.
 
 [Подробнее о мониторинге состояния кластера Yandex MPP Analytics for PostgreSQL](../operations/monitoring.md#monitoring-cluster).
 

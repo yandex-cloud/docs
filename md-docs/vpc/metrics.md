@@ -1,16 +1,17 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Virtual Private Cloud](index.md) > Справочник метрик VPC
+[Документация Yandex Cloud](../index.md) > [Yandex Virtual Private Cloud](index.md) > Справочник метрик
 
 # Справочник метрик VPC
 
-Метрики сервисных подключений VPC автоматически передаются в [Monium Metrics](../monium/metrics/overview.md), в [проект каталога](*monium-folder-project), в котором находится сервисное подключение.
+Метрики сервиса VPC автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится сервисное подключение.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
 
 ## Метрики сервисных подключений {#vpc-pe-metrics}
-
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
-
-При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Все метрики, относящиеся к сервисным подключениям, имеют общую метку `service = private-endpoint`.
 

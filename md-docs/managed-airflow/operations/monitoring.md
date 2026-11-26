@@ -58,27 +58,31 @@
 
   * **Pool usage** — количество занятых слотов в каждом пуле кластера.
 
-## Настройка алертов в Yandex Monitoring {#monitoring-integration}
+## Настройка алертов в Yandex Monium {#monitoring-integration}
 
-Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
+Чтобы получать уведомления об изменении [показателей состояния кластера](#monitoring-cluster), создайте алерт по запросу с сервисного дашборда.
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс Monium {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. [Перейдите](https://monitoring.yandex.cloud) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите **Managed Service for Apache Airflow™ — Cluster Overview**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов смотрите в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. [Перейдите](https://monium.yandex.cloud) в **Monium**.
+  1. На панели сверху выберите [проект](../../monium/concepts/glossary.md#project), в который поступают метрики кластера.
+
+      Метрики кластера передаются в проект Monium `folder__<идентификатор_каталога>`, автоматически созданный для [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен этот кластер.
+  1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и перейдите на вкладку **Сервисные дашборды**.
+  1. Откройте дашборд **Managed Service for Apache Airflow™ — Cluster Overview**. Если на дашборде доступны параметры, выберите нужный кластер.
+  1. На нужном графике нажмите ![rectangle-pulse](../../_assets/console-icons/rectangle-pulse.svg) **Перейти в Метрики**.
+  1. На панели нужного запроса справа вверху нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт по запросу** или **Создать алерт по всем запросам**.
+  1. Укажите название алерта. В блоке **Условия срабатывания** выберите запрос для проверки и задайте пороги **Warning** и **Alarm**.
+  1. Чтобы получать уведомления, добавьте [канал уведомлений](../../monium/operations/alert/create-channel.md).
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
 Чтобы отслеживать другие показатели состояния кластера, [создайте алерт](../../monium/operations/alert/create-alert.md) для нужной метрики и задайте условия срабатывания.
 
-Полный список поддерживаемых метрик в [документации Monitoring](../../monitoring/metrics-ref/managed-airflow-ref.md).
+Полный список поддерживаемых метрик приведен в [справочнике метрик](../metrics.md).
 
 ## Состояние и статус кластера
 

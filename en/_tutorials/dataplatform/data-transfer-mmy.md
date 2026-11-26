@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. If using security groups, configure them to allow internet access to your clusters:
 
-    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups)
+    * [Guide for {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups)
     * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
 
 
@@ -114,7 +114,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
     1. In addition to `ACCESS_ROLE_ADMIN`, assign this user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for all topics prefixed with `cdc`.
 
-        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For details, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
@@ -122,29 +122,35 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) a {{ MY }} source endpoint with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+    * Name the endpoint.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: Select the {{ mmy-name }} cluster you [created](#before-you-begin) earlier.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `my-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **Managed database cluster**: Select the {{ mmy-name }} cluster you [created previously](#prepare-infrastructure).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: Specify `my-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: Enter the `my-user` password.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: `db1.measurements`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**: Specify `db1.measurements`.
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an {{ KF }} target endpoint with the following [settings](../../data-transfer/operations/endpoint/source/kafka.md):
 
+    * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+    * Name the endpoint.
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the {{ mkf-name }} cluster you [created](#before-you-begin) earlier.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the `kafka-user` credentials.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Your previously [created](#prepare-infrastructure) {{ mkf-name }} cluster.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaAuth.sasl.title }}` and specify the credentials of the `kafka-user` user you created.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `cdc.db1.measurements`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Specify `cdc.db1.measurements`.
 
-        If you need to track changes in multiple tables, fill out the fields as follows:
+        If you need to track changes in multiple tables, fill in the fields as follows:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the previously created source and target endpoints.
@@ -300,7 +306,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-To minimize resource consumption, delete the resources you no longer need:
+To reduce resource usage, delete the resources you no longer need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

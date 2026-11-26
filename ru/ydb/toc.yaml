@@ -587,7 +587,7 @@ items:
                 href: api-ref/StorageType/get.md
               - name: List
                 href: api-ref/StorageType/list.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

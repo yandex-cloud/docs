@@ -683,7 +683,7 @@ items:
                     href: asymmetricsignature/api-ref/Operation/get.md
                   - name: Cancel
                     href: asymmetricsignature/api-ref/Operation/cancel.md
-  - name: Метрики {{ monium-name }}
+  - name: Справочник метрик
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md

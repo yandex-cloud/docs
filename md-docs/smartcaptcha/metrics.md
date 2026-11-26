@@ -1,14 +1,15 @@
-[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > Справочник метрик SmartCaptcha
+[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > Справочник метрик
 
 # Справочник метрик SmartCaptcha
 
-Метрики сервиса SmartCaptcha автоматически передаются в [Monium Metrics](../monium/metrics/overview.md), в [проект каталога](*monium-folder-project) с капчей.
+Метрики сервиса SmartCaptcha автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится капча.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
-
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
-
-При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
 Общие метки для всех метрик SmartCaptcha:
 

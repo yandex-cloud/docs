@@ -243,6 +243,8 @@ Has no effect on non-public repositories. ||
 Enum: `"draft"` `"open"` `"discarded"` `"merging"` `"merged"` ||
 || `created_at` | _string &lt;date-time&gt;_ ||
 || `updated_at` | _string &lt;date-time&gt;_ ||
+|| [linked_issues](#pull-request-linked-issues) | _Array of objects (IssueEmbedded)_
+Issues linked to this pull request. ||
 || [labels](#pull-request-labels) | _Array of objects (LabelEmbedded)_ ||
 || [source](#pull-request-source) | _object (PullRequestBranch)_ ||
 || [target](#pull-request-target) | _object (PullRequestBranch)_ ||
@@ -306,6 +308,14 @@ Enum: `"draft"` `"open"` `"discarded"` `"merging"` `"merged"` ||
 || **Field** | **Description** ||
 || `rebase` | _boolean_ ||
 || `squash` | _boolean_ ||
+|#
+
+### pull_request.linked_issues {#pull-request-linked-issues}
+
+#|
+|| **Field** | **Description** ||
+|| `id` | _string_ ||
+|| `slug` | _string_ ||
 |#
 
 ### pull_request.labels {#pull-request-labels}
@@ -748,6 +758,13 @@ Enum: `"draft"` `"open"` `"discarded"` `"merging"` `"merged"` ||
             "type": "string",
             "format": "date-time"
           },
+          "linked_issues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueEmbedded"
+            },
+            "description": "Issues linked to this pull request."
+          },
           "labels": {
             "type": "array",
             "items": {
@@ -804,6 +821,17 @@ Enum: `"draft"` `"open"` `"discarded"` `"merging"` `"merged"` ||
           "merging",
           "merged"
         ]
+      },
+      "IssueEmbedded": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          }
+        }
       },
       "LabelEmbedded": {
         "type": "object",

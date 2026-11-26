@@ -1,17 +1,17 @@
 ---
-title: Справочник метрик сервиса {{ mgp-full-name }} в {{ monitoring-full-name }}
-description: На этой странице приведен справочник метрик сервиса {{ mgp-name }}, поставляемых в {{ monitoring-full-name }}.
+title: Справочник метрик сервиса {{ mgp-full-name }} в {{ metrics-name }}
+description: На этой странице приведен справочник метрик сервиса {{ mgp-name }}, поставляемых в {{ metrics-name }}.
 ---
 
-# Справочник метрик сервиса {{ monitoring-full-name }}
+# Справочник метрик {{ metrics-name }}
 
-В этом разделе описаны метрики сервиса {{ mgp-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-greenplum](../_includes/monitoring/metrics-ref/managed-greenplum.md) %}
 
-# Метрики компонентов {{ monitoring-full-name }}
 
-В этом разделе описаны метрики компонентов СУБД, Odyssey и Yezzey, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+# Метрики компонентов {{ metrics-name }}
+
+В этом разделе описаны метрики компонентов СУБД, Odyssey и Yezzey, поставляемые в [{{ metrics-name }}](../monium/metrics/overview.md).
 
 {% include [managed-greenplum-components](../_includes/monitoring/metrics-ref/managed-greenplum-components.md) %}
 

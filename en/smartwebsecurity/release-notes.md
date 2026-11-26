@@ -5,6 +5,20 @@ description: This section contains the {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## October 2026 {#october-2026}
+
+* {{ sws-name }} has [SolidWall WAF](concepts/solidwall-waf.md) integrated in it, which is a component that protects web applications against application-layer attacks. Service analysts handle protection setup and ongoing maintenance. This feature is available at the [Preview](../overview/concepts/launch-stages.md) stage; to get it, send a request to [support]({{ link-console-support }}).
+
+* [API](load_balancer/api-ref/LoadBalancer/index.md), [CLI](cli-ref/load-balancer/load-balancer/index.md), and [{{ TF }}]({{ tf-provider-resources-link }}/sws_load_balancer) are now supported for managing [proxy servers](concepts/domain-protect.md#proxy).
+
+## Q3 2026 {#q3-2026}
+
+* Added the _Adaptive protection_ feature that enables managing filtration rules for various [protection modes](concepts/profiles.md#protection-mode). The security profile has three modes: _Regular_, _Enhanced protection_, and _Under attack_. The modes define which profile rules will apply to traffic and how strict Smart Protection will be. Modes can only be switched manually or automatically when exceeding the set load thresholds.
+
+* Enhanced protection mode now features the [JS challenge and cookie challenge](concepts/rules.md#client-checks). They automatically check the execution of JavaScript code and the handling of cookies on the client's side. Smart Protection selects a challenge for suspicious traffic: JS challenge, cookie challenge, or CAPTCHA.
+
+* Updated the [ML WAF](concepts/waf.md#yandex-ml-ruleset) version, with attack detection accuracy now increased.
+
 ## Q2 2026 {#q2-2026}
 
 * Updated the [address list](concepts/lists.md) features: now you can create traffic filtering rules based on groups of IP addresses, ASNs, regular expressions, and string values.

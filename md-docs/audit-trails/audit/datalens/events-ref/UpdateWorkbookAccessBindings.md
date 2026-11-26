@@ -94,7 +94,10 @@
           "roleId": "string",
           "subjectId": "string",
           "subjectType": "string",
-          "subjectName": "string"
+          "subjectName": "string",
+          // Includes only one of the fields `celExpression`
+          "celExpression": "string"
+          // end of the list of possible fields
         }
       }
     ]
@@ -289,10 +292,10 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || roleId | **string**
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subjectId | **string**
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 || subjectType | **enum** (SubjectType)
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`
@@ -302,4 +305,7 @@ The maximum string length in characters is 50. ||
 - `GROUP`
 - `INVITEE` ||
 || subjectName | **string** ||
+|| celExpression | **string**
+
+Includes only one of the fields `celExpression`. ||
 |#

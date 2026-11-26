@@ -1,14 +1,15 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Container Registry](index.md) > Метрики Monium Metrics
+[Документация Yandex Cloud](../index.md) > [Yandex Container Registry](index.md) > Справочник метрик
 
 # Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Container Registry, поставляемые в [Monium Metrics](../monium/metrics/overview.md).
+Метрики сервиса Container Registry автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится реестр.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
-
-При переходе к графику из сервисного дашборда используется значение метки `service` без подчеркиваний — `container-registry`.
-
-Если вы создаете запрос в [разделе метрик Monium](../monium/metrics/metric-explorer.md#add-graph), укажите проект каталога с реестром (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __container-registry__`.
 
 Общие метки для всех метрик сервиса Container Registry:
 
@@ -23,3 +24,5 @@ registry | Идентификатор [реестра](concepts/registry.md)
 --- | ---
 `registry.images_count`<br>`IGAUGE`, штуки | Текущее количество Docker-образов в реестре.
 `registry.size_bytes`<br>`IGAUGE`, байты | Суммарный размер Docker-образов в реестре.
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

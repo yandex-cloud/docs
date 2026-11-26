@@ -1,0 +1,152 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v2](../index.md) > [server](index.md) > set-access-bindings
+
+# yc baremetal v2 server set-access-bindings
+
+Sets access bindings for the specified server.
+
+#### Command Usage
+
+Syntax:
+
+`yc baremetal v2 server set-access-bindings <RESOURCE-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--resource-id` | `string`
+
+ID of the resource for which access bindings are being set. To get the resource ID, use a corresponding List request. ||
+|| `--access-bindings` | `shorthand/json`
+
+Access bindings to be set. For more information, see documentation.
+
+{% cut "Description" %}
+
+> - role-id (string)\
+ID of the [yandex.cloud.iam.v1.Role] that is assigned to the [subject].
+> - subject (structure)\
+Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.
+>> - id (string)\
+ID of the subject. It can contain one of the following values: * 'allAuthenticatedUsers': A special public group that represents anyone who is authenticated. It can be used only if the [type] is 'system'. * 'allUsers': A special public group that represents anyone. No authentication is required. For example, you don't need to specify the IAM token in an API query. It can be used only if the [type] is 'system'. * 'group:organization:&lt;id&gt;:users': A special system group that represents all members of organization with given &lt;id&gt;. It can be used only if the [type] is 'system'. * 'group:federation:&lt;id&gt;:users': A special system group that represents all users of federation with given &lt;id&gt;. It can be used only if the [type] is 'system'. * 'group:userpool:&lt;id&gt;:users': A special system group that represents all users of userpool with given &lt;id&gt;. It can be used only if the [type] is 'system'. * '&lt;cloud generated id&gt;': An identifier that represents a subject. It can be used only if the [type] is 'group', 'invitee', 'serviceAccount' or 'userAccount'.
+>> - type (string)\
+Type of the subject. It can contain one of the following values: * 'invitee': An existing or new user who has been invited to the organization but has not yet accepted the invitation. * 'group': A group of users. This type represents the [yandex.cloud.organizationmanager.v1.Group] resource. * 'userAccount': An account on Yandex ID. This type represents the [yandex.cloud.iam.v1.UserAccount] resource. * 'serviceAccount': A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount] resource. * 'system': System group. This type represents several accounts with a common system identifier. For more information, see documentation.
+> - cel-expression (string)\
+CEL expression that must evaluate to true for the binding to apply. An empty expression does not restrict the binding. Only supported for services: * [yandex.cloud.resourcemanager.v1.CloudService] * [yandex.cloud.resourcemanager.v1.FolderService] * [yandex.cloud.organizationmanager.v1.OrganizationService]
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  {
+    cel-expression = string,
+    role-id = string,
+    subject = {
+      id = string,
+      type = string
+    }
+  }, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  {
+    "cel-expression": "string",
+    "role-id": "string",
+    "subject": {
+      "id": "string",
+      "type": "string"
+    }
+  }, ...
+]
+```
+
+{% endcut %} ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc baremetal v2 server set-access-bindings --example-json > request.json
+or
+yc baremetal v2 server set-access-bindings --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc baremetal v2 server set-access-bindings -r request.json
+or
+yc baremetal v2 server set-access-bindings -r request.yaml ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

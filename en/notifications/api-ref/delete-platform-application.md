@@ -1,6 +1,6 @@
 # DeletePlatformApplication
 
-Deletes the [mobile push notification channel](../concepts/push.md) and all related [endpoints](../concepts/index.md#mobile-endpoints).
+Deletes the [mobile push notification channel](../concepts/push.md) and all related [endpoints](../concepts/push.md#mobile-endpoints).
 
 ## HTTP request {#request}
 

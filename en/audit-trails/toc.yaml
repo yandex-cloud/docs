@@ -708,6 +708,44 @@ items:
             href: audit/cloudapps/events-ref/UpdateApplicationAccessBindings.md
           - name: UpdateCloudApplication
             href: audit/cloudapps/events-ref/UpdateCloudApplication.md
+      - name: clouddesktop
+        items:
+          - name: CopyDesktopImage
+            href: audit/clouddesktop/events-ref/CopyDesktopImage.md
+          - name: CopyDesktopImageFromDesktop
+            href: audit/clouddesktop/events-ref/CopyDesktopImageFromDesktop.md
+          - name: CreateDesktop
+            href: audit/clouddesktop/events-ref/CreateDesktop.md
+          - name: CreateDesktopGroup
+            href: audit/clouddesktop/events-ref/CreateDesktopGroup.md
+          - name: DeleteDesktop
+            href: audit/clouddesktop/events-ref/DeleteDesktop.md
+          - name: DeleteDesktopGroup
+            href: audit/clouddesktop/events-ref/DeleteDesktopGroup.md
+          - name: DeleteDesktopImage
+            href: audit/clouddesktop/events-ref/DeleteDesktopImage.md
+          - name: GenerateDesktopRDPFile
+            href: audit/clouddesktop/events-ref/GenerateDesktopRDPFile.md
+          - name: ResetDesktopPassword
+            href: audit/clouddesktop/events-ref/ResetDesktopPassword.md
+          - name: RestartDesktop
+            href: audit/clouddesktop/events-ref/RestartDesktop.md
+          - name: SetDesktopGroupAccessBindings
+            href: audit/clouddesktop/events-ref/SetDesktopGroupAccessBindings.md
+          - name: StartDesktop
+            href: audit/clouddesktop/events-ref/StartDesktop.md
+          - name: StopDesktop
+            href: audit/clouddesktop/events-ref/StopDesktop.md
+          - name: UpdateDesktop
+            href: audit/clouddesktop/events-ref/UpdateDesktop.md
+          - name: UpdateDesktopGroup
+            href: audit/clouddesktop/events-ref/UpdateDesktopGroup.md
+          - name: UpdateDesktopGroupAccessBindings
+            href: audit/clouddesktop/events-ref/UpdateDesktopGroupAccessBindings.md
+          - name: UpdateDesktopImage
+            href: audit/clouddesktop/events-ref/UpdateDesktopImage.md
+          - name: UpdateDesktopProperties
+            href: audit/clouddesktop/events-ref/UpdateDesktopProperties.md
       - name: cloudregistry
         items:
           - name: CreateArtifact
@@ -993,6 +1031,8 @@ items:
             href: audit/datalens/events-ref/CreateEntityBinding.md
           - name: CreateEntry
             href: audit/datalens/events-ref/CreateEntry.md
+          - name: CreateJob
+            href: audit/datalens/events-ref/CreateJob.md
           - name: CreateRestCatalog
             href: audit/datalens/events-ref/CreateRestCatalog.md
           - name: CreateRestCatalogNamespace
@@ -1099,6 +1139,8 @@ items:
             href: audit/datalens/platform/events-ref/CreateAirflowCluster.md
           - name: CreateCloudEnvironment
             href: audit/datalens/platform/events-ref/CreateCloudEnvironment.md
+          - name: CreateJob
+            href: audit/datalens/platform/events-ref/CreateJob.md
           - name: CreateRestCatalog
             href: audit/datalens/platform/events-ref/CreateRestCatalog.md
           - name: CreateRestCatalogNamespace
@@ -2412,6 +2454,8 @@ items:
             href: audit/mdb/redis/events-ref/RebalanceCluster.md
           - name: RescheduleMaintenance
             href: audit/mdb/redis/events-ref/RescheduleMaintenance.md
+          - name: RestartHosts
+            href: audit/mdb/redis/events-ref/RestartHosts.md
           - name: RestoreCluster
             href: audit/mdb/redis/events-ref/RestoreCluster.md
           - name: SetClusterAccessBindings
@@ -2527,6 +2571,9 @@ items:
           - name: ActivateAuthenticationPolicyRule
             href: >-
               audit/organizationmanager/events-ref/ActivateAuthenticationPolicyRule.md
+          - name: ActivateAuthenticatorUsagePolicy
+            href: >-
+              audit/organizationmanager/events-ref/ActivateAuthenticatorUsagePolicy.md
           - name: ActivateMfaEnforcement
             href: audit/organizationmanager/events-ref/ActivateMfaEnforcement.md
           - name: AddFederatedUserAccounts
@@ -2561,6 +2608,9 @@ items:
           - name: CreateAuthenticationPolicyRule
             href: >-
               audit/organizationmanager/events-ref/CreateAuthenticationPolicyRule.md
+          - name: CreateAuthenticatorUsagePolicy
+            href: >-
+              audit/organizationmanager/events-ref/CreateAuthenticatorUsagePolicy.md
           - name: CreateBranding
             href: audit/organizationmanager/events-ref/CreateBranding.md
           - name: CreateCertificate
@@ -2581,6 +2631,8 @@ items:
             href: audit/organizationmanager/events-ref/CreateOrganization.md
           - name: CreateOsLoginProfile
             href: audit/organizationmanager/events-ref/CreateOsLoginProfile.md
+          - name: CreateScimIntegration
+            href: audit/organizationmanager/events-ref/CreateScimIntegration.md
           - name: CreateSignatureCertificate
             href: audit/organizationmanager/events-ref/CreateSignatureCertificate.md
           - name: CreateUser
@@ -2592,6 +2644,9 @@ items:
           - name: DeactivateAuthenticationPolicyRule
             href: >-
               audit/organizationmanager/events-ref/DeactivateAuthenticationPolicyRule.md
+          - name: DeactivateAuthenticatorUsagePolicy
+            href: >-
+              audit/organizationmanager/events-ref/DeactivateAuthenticatorUsagePolicy.md
           - name: DeactivateMfaEnforcement
             href: audit/organizationmanager/events-ref/DeactivateMfaEnforcement.md
           - name: DeleteApplication
@@ -2607,6 +2662,9 @@ items:
           - name: DeleteAuthenticationPolicyRule
             href: >-
               audit/organizationmanager/events-ref/DeleteAuthenticationPolicyRule.md
+          - name: DeleteAuthenticatorUsagePolicy
+            href: >-
+              audit/organizationmanager/events-ref/DeleteAuthenticatorUsagePolicy.md
           - name: DeleteBranding
             href: audit/organizationmanager/events-ref/DeleteBranding.md
           - name: DeleteCertificate
@@ -2634,6 +2692,8 @@ items:
             href: audit/organizationmanager/events-ref/DeleteOsLoginProfile.md
           - name: DeleteRefreshTokenPolicy
             href: audit/organizationmanager/events-ref/DeleteRefreshTokenPolicy.md
+          - name: DeleteScimIntegration
+            href: audit/organizationmanager/events-ref/DeleteScimIntegration.md
           - name: DeleteSignatureCertificate
             href: audit/organizationmanager/events-ref/DeleteSignatureCertificate.md
           - name: DeleteUser
@@ -2653,6 +2713,8 @@ items:
           - name: OAuthFederationPrivateTlsUpdateCertificate
             href: >-
               audit/organizationmanager/events-ref/OAuthFederationPrivateTlsUpdateCertificate.md
+          - name: PauseScimIntegrationSync
+            href: audit/organizationmanager/events-ref/PauseScimIntegrationSync.md
           - name: ReactivateApplication
             href: audit/organizationmanager/events-ref/ReactivateApplication.md
           - name: ReactivateApplication
@@ -2672,6 +2734,11 @@ items:
             href: audit/organizationmanager/events-ref/ResendInvitation.md
           - name: ResetOwnPassword
             href: audit/organizationmanager/events-ref/ResetOwnPassword.md
+          - name: ResumeScimIntegrationSync
+            href: audit/organizationmanager/events-ref/ResumeScimIntegrationSync.md
+          - name: RunIncrementalScimIntegrationSync
+            href: >-
+              audit/organizationmanager/events-ref/RunIncrementalScimIntegrationSync.md
           - name: SetApplicationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/SetApplicationAccessBindings.md
@@ -2695,6 +2762,10 @@ items:
             href: audit/organizationmanager/events-ref/SetUserPassword.md
           - name: SetUserpoolAccessBindings
             href: audit/organizationmanager/events-ref/SetUserpoolAccessBindings.md
+          - name: StartScimIntegrationSync
+            href: audit/organizationmanager/events-ref/StartScimIntegrationSync.md
+          - name: StopScimIntegrationSync
+            href: audit/organizationmanager/events-ref/StopScimIntegrationSync.md
           - name: SuspendApplication
             href: audit/organizationmanager/events-ref/SuspendApplication.md
           - name: SuspendApplication
@@ -2736,6 +2807,15 @@ items:
           - name: UpdateAuthenticationPolicyRule
             href: >-
               audit/organizationmanager/events-ref/UpdateAuthenticationPolicyRule.md
+          - name: UpdateAuthenticatorUsagePolicy
+            href: >-
+              audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicy.md
+          - name: UpdateAuthenticatorUsagePolicyAudience
+            href: >-
+              audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicyAudience.md
+          - name: UpdateAuthenticatorUsagePolicyExcludedAudience
+            href: >-
+              audit/organizationmanager/events-ref/UpdateAuthenticatorUsagePolicyExcludedAudience.md
           - name: UpdateBranding
             href: audit/organizationmanager/events-ref/UpdateBranding.md
           - name: UpdateCertificate
@@ -2774,6 +2854,8 @@ items:
             href: audit/organizationmanager/events-ref/UpdateOsLoginSettings.md
           - name: UpdateRefreshTokenPolicy
             href: audit/organizationmanager/events-ref/UpdateRefreshTokenPolicy.md
+          - name: UpdateScimIntegration
+            href: audit/organizationmanager/events-ref/UpdateScimIntegration.md
           - name: UpdateSignatureCertificate
             href: audit/organizationmanager/events-ref/UpdateSignatureCertificate.md
           - name: UpdateSubscribers
@@ -3665,16 +3747,10 @@ items:
             href: audit/video/events-ref/DownloadEpisode.md
           - name: EpisodePerformAction
             href: audit/video/events-ref/EpisodePerformAction.md
-          - name: InitializeChannelAdminChat
-            href: audit/video/events-ref/InitializeChannelAdminChat.md
           - name: InitializeEpisodeChat
             href: audit/video/events-ref/InitializeEpisodeChat.md
           - name: RenewVideoSource
             href: audit/video/events-ref/RenewVideoSource.md
-          - name: ResetChannelAdminChat
-            href: audit/video/events-ref/ResetChannelAdminChat.md
-          - name: ResyncEpisodeChatAdmins
-            href: audit/video/events-ref/ResyncEpisodeChatAdmins.md
           - name: SetChannelAccessBindings
             href: audit/video/events-ref/SetChannelAccessBindings.md
           - name: StreamLinePerformAction

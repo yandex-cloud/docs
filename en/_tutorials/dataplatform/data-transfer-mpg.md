@@ -95,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `transfer_name`: Transfer name.
       * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Validate your {{ TF }} configuration using this command:
 
       ```bash
       terraform validate
@@ -176,7 +176,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
     1. In addition to the `ACCESS_ROLE_ADMIN` role, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for topics whose names begin with the `cdc` prefix.
 
-        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+        The system will automatically create the required topics when the first change occurs in the monitored tables of the source cluster. This solution can help you track changes in multiple tables but it requires extra free space in the cluster storage. For details, see [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
@@ -191,29 +191,34 @@ The target cluster's setup will vary depending on the [topic management method](
 
       * Source endpoint:
 
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+        * Name the endpoint.
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Your previously [created](#before-you-begin) {{ mpg-name }} cluster.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `pg-user` password.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: `public.measurements`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.mdb_cluster_id.title }}**: Your previously [created](#prepare-infrastructure) {{ mpg-name }} cluster.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: Specify `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: Specify `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: Enter the `pg-user` password.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Specify `public.measurements`.
 
       * Target endpoint:
 
+        * **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}**: `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+        * Name the endpoint.
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the `kafka-user` credentials.
-
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: `cdc.public.measurements`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the target cluster.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the `kafka-user` credentials.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Specify `cdc.public.measurements`.
 
             If you need to track changes in multiple tables, fill in the fields as follows:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Enter the `cdc` prefix you used to generate topic names.
 
   1. [Create a transfer](../../data-transfer/operations/transfer.md#create) with the following settings:
@@ -230,7 +235,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
   1. Specify `transfer_enabled = 1` in the `cdc-mpg-mkf.tf` file.
 
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Validate your {{ TF }} configuration using this command:
 
       ```bash
       terraform validate
@@ -242,7 +247,7 @@ The target cluster's setup will vary depending on the [topic management method](
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
+      Endpoints and a transfer will be created. Once created, the transfer becomes active automatically.
   
   1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
       
@@ -339,7 +344,7 @@ The target cluster's setup will vary depending on the [topic management method](
 ## Delete the resources you created {#clear-out}
 
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+Some resources are not free of charge. Delete the resources you no longer need, so you will not be charged for them:
 
 
 {% list tabs group=instructions %}

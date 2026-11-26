@@ -2,9 +2,19 @@
 
 # Метрики Yandex MPP Analytics for PostgreSQL
 
-В этом разделе описаны метрики сервиса [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md), поставляемые в Monium.
+
+Метрики сервиса Yandex MPP Analytics for PostgreSQL автоматически передаются в [Monium](../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
+
 
 Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
 
@@ -817,3 +827,6 @@ PXF помечает все метрики, которые он возвраща
 | `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
 | `dmesg_events.cgroup.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в `cgroup`. |
 | `dmesg_events.system.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в системе. |
+
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

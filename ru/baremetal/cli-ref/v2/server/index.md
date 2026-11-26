@@ -23,6 +23,8 @@ Syntax:
 
 - [yc baremetal v2 server list](list.md) — Retrieves the list of Server resources in the specified folder.
 
+- [yc baremetal v2 server list-access-bindings](list-access-bindings.md) — Lists access bindings for the specified server.
+
 - [yc baremetal v2 server list-operations](list-operations.md) — Lists operations for the specified server.
 
 - [yc baremetal v2 server power-off](power-off.md) — Powers off the specified server.
@@ -35,9 +37,13 @@ Syntax:
 
 - [yc baremetal v2 server renew-rental](renew-rental.md) — Enable prolongation after rental period end
 
+- [yc baremetal v2 server set-access-bindings](set-access-bindings.md) — Sets access bindings for the specified server.
+
 - [yc baremetal v2 server skip-quarantine](skip-quarantine.md) — Skips the quarantine for the specified server.
 
 - [yc baremetal v2 server update](update.md) — Updates the specified server.
+
+- [yc baremetal v2 server update-access-bindings](update-access-bindings.md) — Updates access bindings for the specified server.
 
 #### Global Flags
 

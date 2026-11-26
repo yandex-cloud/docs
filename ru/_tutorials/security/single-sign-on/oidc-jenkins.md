@@ -51,12 +51,12 @@
 Чтобы настроить аутентификацию в Jenkins с помощью OIDC, установите плагин OIDC:
 
 1. Войдите в Jenkins под пользователем с правами администратора.
-1. В меню слева выберите **Manage Jenkins** > **Plugins**.
+1. В меню слева выберите **Manage Jenkins** → **Plugins**.
 1. Перейдите на вкладку **Available** и в строке поиска введите `OpenId Connect Authentication`.
 1. Найдите плагин [**OpenId Connect Authentication**](https://plugins.jenkins.io/oic-auth) и установите его, нажав **Install**.
 1. Дождитесь завершения установки и перезапустите Jenkins, если это потребуется.
 
-После установки плагина в разделе **Manage Jenkins** > **Security** появится новый вариант **Security Realm** – `Login with Openid Connect`.
+После установки плагина в разделе **Manage Jenkins** → **Security** появится новый вариант **Security Realm** – `Login with OpenID Connect`.
 
 ### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
 
@@ -77,16 +77,16 @@
 ### Настройте аутентификацию на стороне Jenkins {#setup-sp}
 
 1. Войдите в Jenkins под пользователем с правами администратора.
-1. В меню слева выберите **Manage Jenkins** > **Security**.
-1. В разделе **Security Realm** выберите `Login with Openid Connect`.
+1. В меню слева выберите **Manage Jenkins** → **Security**.
+1. В разделе **Security Realm** выберите `Login with OpenID Connect`.
 1. В поле **Client id** введите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
 1. В поле **Client secret** введите значение, скопированное при настройке OIDC-приложения в {{ org-full-name }} в блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}**.
 1. В поле **Well-known configuration endpoint** введите URL, скопированный при настройке OIDC-приложения в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
-1. Нажмите **Advanced** и в поле **Override scopes** введите `openid email profile`.
-1. Нажмите **User fields** и заполните поля:
-   - **User name field name**: `preferred_username`
-   - **Full name field name**: `name`
-   - **Email field name**: `email`
+1. Под полем **Well-known configuration endpoint** нажмите **Advanced** и в поле **Override scopes** введите `openid email profile`.
+1. В секции **Advanced configuration** нажмите **User fields** и заполните поля:
+   * **User name field name**: `preferred_username`
+   * **Full name field name**: `name`
+   * **Email field name**: `email`
 1. Нажмите **Save**.
 
 ### Добавьте пользователя {#add-user}

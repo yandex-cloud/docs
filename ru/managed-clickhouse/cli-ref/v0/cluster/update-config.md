@@ -502,6 +502,12 @@ If set to true, then this query requires **GRANT SELECT ON information_schema.&l
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#default_database).
 
+- `default_replica_path`: Default table path in ZooKeeper or ClickHouse Keeper when ReplicatedMergeTree engine arguments are omitted.
+
+  Change of the setting is applied with restart.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#default_replica_path).
+
 - `total_memory_profiler_step`: Whenever server memory usage becomes larger than every next step in number of bytes the memory profiler will collect
 the allocating stack trace. **0** means disabled memory profiler.
 

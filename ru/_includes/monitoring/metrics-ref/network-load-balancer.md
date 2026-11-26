@@ -1,4 +1,6 @@
-Имя метрики пишется в метку `name`.
+Метрики сервиса {{ network-load-balancer-name }} автоматически передаются в [{{ monium-name }}](../../../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится балансировщик.
+
+{% include [metrics-search-labels](../../monium/metrics-search-labels.md) %}
 
 Все метрики сервиса {{ network-load-balancer-name }} имеют общую метку `service=network-load-balancer`.
 
@@ -22,3 +24,5 @@ upstream_port | Номер порта исходящего трафика.
 --- | ---
 `processed_bytes`<br>`RATE`, байты | Трафик в байтах, прошедший через балансировщик в исходящем и входящем направлениях. С учетом IP-заголовков. За вычетом трафика для проверок состояния.
 `processed_packets`<br>`RATE`, пакеты | Трафик в пакетах, прошедший через балансировщик в исходящем и входящем направлениях. С учетом IP-заголовков. За вычетом трафика для проверок состояния.
+
+[*monium-folder-project]: {% include [folder-project](../../monium/folder-project.md) %}

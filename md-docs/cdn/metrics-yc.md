@@ -1,22 +1,21 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Cloud CDN](index.md) > Метрики Monium Metrics
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud CDN](index.md) > Справочник метрик
 
 # Справочник метрик Monium Metrics
 
-Метрики сервиса Cloud CDN автоматически передаются в [Monium Metrics](../monium/metrics/overview.md) — в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
+Метрики сервиса Cloud CDN автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится CDN-ресурс.
 
-Имя метрики записывается в метку `name`.
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
 
-Для поиска метрик в Monium через **Обзор** → **Метрики** укажите `project = folder__<идентификатор_каталога>` для каталога с ресурсом, `cluster = default` и `service = __<название_сервиса>__`.
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
 
-При переходе к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md) значение `service` используется без подчеркиваний, как в этом справочнике.
 
-Для Cloud CDN в обзоре метрик укажите `service = __cdn__`.
+Имя метрики пишется в метку `name`.
 
 Общие метки для всех метрик сервиса Cloud CDN с подключенным провайдером Yandex Cloud CDN:
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `yccdn`.
+service | Идентификатор сервиса: `yccdn`. Для запроса с нуля в Monium используйте `__cdn__`.
 resource | Идентификатор [CDN-ресурса](concepts/resource.md).
 cloud_id | Идентификатор [облака](../resource-manager/concepts/resources-hierarchy.md#cloud).
 folder_id | Идентификатор [каталога](../resource-manager/concepts/resources-hierarchy.md#folder).
@@ -74,8 +73,8 @@ folder_id | Идентификатор [каталога](../resource-manager/co
 * `99`. ||
 |#
 
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
+
 #### Полезные ссылки {#see-also}
 
 [Просмотр статистики CDN-ресурса](operations/resources/get-stats.md)
-
-[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

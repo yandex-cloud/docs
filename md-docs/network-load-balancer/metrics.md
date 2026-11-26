@@ -1,8 +1,13 @@
-[Документация Yandex Cloud](../index.md) > [Yandex Network Load Balancer](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex Network Load Balancer](index.md) > Справочник метрик
 
-# Справочник метрик Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Network Load Balancer, поставляемые в [Monitoring](../monitoring/index.md).
+Метрики сервиса Network Load Balancer автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится балансировщик.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
 
@@ -28,3 +33,5 @@ upstream_port | Номер порта исходящего трафика.
 --- | ---
 `processed_bytes`<br>`RATE`, байты | Трафик в байтах, прошедший через балансировщик в исходящем и входящем направлениях. С учетом IP-заголовков. За вычетом трафика для проверок состояния.
 `processed_packets`<br>`RATE`, пакеты | Трафик в пакетах, прошедший через балансировщик в исходящем и входящем направлениях. С учетом IP-заголовков. За вычетом трафика для проверок состояния.
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

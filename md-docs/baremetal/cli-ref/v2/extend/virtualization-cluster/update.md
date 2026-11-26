@@ -1,0 +1,234 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex BareMetal](../../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../../index.md) > [v2](../../index.md) > [extend](../index.md) > [virtualization-cluster](index.md) > update
+
+# yc baremetal v2 extend virtualization-cluster update
+
+Updates the specified Virtualization cluster.
+
+#### Command Usage
+
+Syntax:
+
+`yc baremetal v2 extend virtualization-cluster update`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--update-mask` | `[]string`
+
+Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
+|| `--cluster` | `shorthand/json`
+
+The cluster object to be updated
+
+{% cut "Description" %}
+
+> - cloud-id (string)\
+ID of the cloud that the cluster belongs to.
+> - folder-id (string)\
+ID of the folder that the cluster belongs to.
+> - name (string)\
+Name of the cluster. The display name is unique within the folder.
+> - description (string)\
+Description of the cluster.
+> - annotations (map[string,string])\
+Resource labels as 'key:value' pairs.
+> - hardware-pool-id (string)\
+ID of the hardware pool that the cluster belongs to.
+> - host-roles (structure)\
+Which node types are to be used for cluster roles.
+>> - compute ([]structure)\
+Node types used as compute standard ready nodes.
+>>> - configuration-id (string)\
+ID of the configuration. Required when automatically leasing new servers for the group (scenarios 1 and 2). Left blank when the group consists solely of custom servers (scenario 3).
+>>> - node-count (integer)\
+Total number of nodes in the group, including both newly leased and already leased (existing) servers listed in 'server_ids'. Must be greater than or equal to 'len(server_ids)'. The number of new servers leased for the group is 'node_count - len(server_ids)'. Required (non-zero) when automatically leasing new servers for the group;
+>>> - server-ids ([]string)\
+IDs of already leased servers to include in the NodeGroup. WARNING: the OS on these servers will be reinstalled as part of cluster creation, just like for newly leased servers. All data on the servers will be lost.
+>> - storage ([]structure)\
+Node types used as storage standard ready nodes.
+>>> - configuration-id (string)\
+ID of the configuration. Required when automatically leasing new servers for the group (scenarios 1 and 2). Left blank when the group consists solely of custom servers (scenario 3).
+>>> - node-count (integer)\
+Total number of nodes in the group, including both newly leased and already leased (existing) servers listed in 'server_ids'. Must be greater than or equal to 'len(server_ids)'. The number of new servers leased for the group is 'node_count - len(server_ids)'. Required (non-zero) when automatically leasing new servers for the group;
+>>> - server-ids ([]string)\
+IDs of already leased servers to include in the NodeGroup. WARNING: the OS on these servers will be reinstalled as part of cluster creation, just like for newly leased servers. All data on the servers will be lost.
+> - bastion (structure)\
+Bastion node.
+>> - configuration-id (string)\
+ID of the configuration.
+>> - management-ip-address (string)\
+IP address of the node in the management network.
+>> - hostname (string)\
+Hostname of the node inside the cluster.
+> - vm-subnet-ids ([]string)\
+IDs of subnets used for VMs. Should be defined before cluster creation.
+> - cluster-domain (string)\
+Base cluster DNS domain.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+{
+  annotations = {key=string, key=...},
+  bastion = {
+    configuration-id = string,
+    hostname = string,
+    management-ip-address = string
+  },
+  cloud-id = string,
+  cluster-domain = string,
+  description = string,
+  folder-id = string,
+  hardware-pool-id = string,
+  host-roles = {
+    compute = [
+      {
+        configuration-id = string,
+        node-count = integer,
+        server-ids = string,...
+      }, ...
+    ],
+    storage = [
+      {
+        configuration-id = string,
+        node-count = integer,
+        server-ids = string,...
+      }, ...
+    ]
+  },
+  name = string,
+  vm-subnet-ids = string,...
+}
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+{
+  "annotations": {
+    "<key>": "string", ...
+  },
+  "bastion": {
+    "configuration-id": "string",
+    "hostname": "string",
+    "management-ip-address": "string"
+  },
+  "cloud-id": "string",
+  "cluster-domain": "string",
+  "description": "string",
+  "folder-id": "string",
+  "hardware-pool-id": "string",
+  "host-roles": {
+    "compute": [
+      {
+        "configuration-id": "string",
+        "node-count": "integer",
+        "server-ids": [
+          "string", ...
+        ]
+      }, ...
+    ],
+    "storage": [
+      {
+        "configuration-id": "string",
+        "node-count": "integer",
+        "server-ids": [
+          "string", ...
+        ]
+      }, ...
+    ]
+  },
+  "name": "string",
+  "vm-subnet-ids": [
+    "string", ...
+  ]
+}
+```
+
+{% endcut %} ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc baremetal v2 extend virtualization-cluster update --example-json > request.json
+or
+yc baremetal v2 extend virtualization-cluster update --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc baremetal v2 extend virtualization-cluster update -r request.json
+or
+yc baremetal v2 extend virtualization-cluster update -r request.yaml ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+Choose syntax option. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

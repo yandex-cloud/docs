@@ -27,6 +27,7 @@ yandex.cloud.audit.mdb.redis.<имя_события>
 `MoveCluster` | Перемещение кластера
 `RebalanceCluster` | Перебалансировка кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`RestartHosts` | Перезагрузка хостов кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера

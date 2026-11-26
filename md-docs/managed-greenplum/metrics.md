@@ -1,10 +1,19 @@
-[Документация Yandex Cloud](../index.md) > [Yandex MPP Analytics for PostgreSQL](index.md) > Метрики Monitoring
+[Документация Yandex Cloud](../index.md) > [Yandex MPP Analytics for PostgreSQL](index.md) > Справочник метрик
 
-# Справочник метрик сервиса Yandex Monitoring
+# Справочник метрик Monium Metrics
 
-В этом разделе описаны метрики сервиса Yandex MPP Analytics for PostgreSQL, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+
+Метрики сервиса Yandex MPP Analytics for PostgreSQL автоматически передаются в [Monium](../monium/metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится кластер.
+
+
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../monium/operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../monium/metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
 
 Имя метрики пишется в метку `name`.
+
 
 Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
 
@@ -818,9 +827,13 @@ PXF помечает все метрики, которые он возвраща
 | `dmesg_events.cgroup.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в `cgroup`. |
 | `dmesg_events.system.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в системе. |
 
-# Метрики компонентов Yandex Monitoring
 
-В этом разделе описаны метрики компонентов СУБД, Odyssey и Yezzey, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.
+
+
+# Метрики компонентов Monium Metrics
+
+В этом разделе описаны метрики компонентов СУБД, Odyssey и Yezzey, поставляемые в [Monium Metrics](../monium/metrics/overview.md).
 
 Общие метки для всех метрик сервиса Yandex MPP Analytics for PostgreSQL:
 
@@ -833,7 +846,7 @@ PXF помечает все метрики, которые он возвраща
 | `host` | FQDN хоста |
 | `fqdn` | FQDN хоста |
 
-Некоторые из описанных метрик специфичны для всего кластера, а не для конкретного хоста. В таких метриках метки `host` и `fqdn` содержат FQDN хоста, на котором они собираются. Чаще всего это мастер-хост координатора (в интерфейсе отображается как `MASTER`), и значение метки может измениться при переключении роли `MASTER` => `REPLICA`. Поэтому для общекластерных метрик лучше не использовать эти метки при построении запросов в Monitoring.
+Некоторые из описанных метрик специфичны для всего кластера, а не для конкретного хоста. В таких метриках метки `host` и `fqdn` содержат FQDN хоста, на котором они собираются. Чаще всего это мастер-хост координатора (в интерфейсе отображается как `MASTER`), и значение метки может измениться при переключении роли `MASTER` => `REPLICA`. Поэтому для общекластерных метрик лучше не использовать эти метки при построении запросов в Monium.
 
 ## Метрики ресурсов компонентов {#managed-greenplum-component-resources}
 

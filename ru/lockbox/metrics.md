@@ -5,6 +5,4 @@ description: На этой странице приведен справочни�
 
 # Метрики {{ lockbox-name }}
 
-В этом разделе описаны метрики сервиса {{ lockbox-name }}, поставляемые в [{{ monium-name }}](../monium/).
-
 {% include [lockbox](../_includes/monitoring/metrics-ref/lockbox.md) %}

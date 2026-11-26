@@ -6,9 +6,9 @@ _Имперсонацией_ в Managed Service for Apache Airflow™ назыв
 
 По умолчанию кластер Apache Airflow™ не имеет прав доступа к пользовательским ресурсам. Чтобы обеспечить доступ к ним, [создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с нужными ролями и привяжите его к кластеру Apache Airflow™ при [создании](../operations/cluster-create.md#create-cluster) или [изменении](../operations/cluster-update.md) кластера. После этого из кода DAG-файлов можно будет аутентифицироваться от имени сервисного аккаунта.
 
-Благодаря имперсонации кластер Apache Airflow™ поддерживает интеграцию с другими сервисами Yandex Cloud. Среди них [Yandex Cloud Logging](../../logging/index.md), [Yandex Lockbox](../../lockbox/concepts/index.md) и [Yandex Monitoring](../../monitoring/concepts/index.md).
+Благодаря имперсонации кластер Apache Airflow™ поддерживает интеграцию с другими сервисами Yandex Cloud. Среди них [Yandex Cloud Logging](../../logging/index.md), [Yandex Lockbox](../../lockbox/concepts/index.md) и [Monium Metrics](../../monium/metrics/overview.md).
 
-Чтобы кластер мог взаимодействовать с сервисами, назначьте его сервисному аккаунту [роль](../security/index.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`. Она позволяет кластеру, например, записывать логи в Cloud Logging, обращаться к секретам Yandex Lockbox или поставлять метрики в Monitoring.
+Чтобы кластер мог взаимодействовать с сервисами, назначьте его сервисному аккаунту [роль](../security/index.md#managed-airflow-integrationProvider) `managed-airflow.integrationProvider`. Она позволяет кластеру, например, записывать логи в Cloud Logging, обращаться к секретам Yandex Lockbox или поставлять метрики в Monium Metrics.
 
 Сервис Managed Service for Apache Airflow™ интегрируется с другими сервисами через [Yandex Cloud Python SDK](https://github.com/yandex-cloud/python-sdk) или [Airflow Yandex Provider](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/index.html).
 
@@ -20,9 +20,9 @@ Cloud Logging — это сервис для хранения и чтения л
 
 Подробнее о настройке логирования в разделе [Передача логов кластера](../operations/af-logging.md).
 
-### Monitoring {#monitoring-integration}
+### Monium Metrics {#monitoring-integration}
 
-Monitoring — это сервис для сбора и хранения метрик для сервисов Yandex Cloud. Метрики отображаются в виде графиков на странице кластера, в разделе **Мониторинг**. Метрики показывают текущее состояние и работоспособность кластера. Они доступны по умолчанию во всех кластерах Managed Service for Apache Airflow™. Список доступных метрик приведен в их [справочнике](../metrics.md).
+Monium Metrics собирает и хранит метрики сервисов Yandex Cloud. Во всех кластерах Managed Service for Apache Airflow™ метрики доступны по умолчанию. Графики состояния и работоспособности кластера отображаются на его странице на вкладке **Мониторинг**. Список доступных метрик приведен в [справочнике метрик](../metrics.md).
 
 ### Yandex Lockbox {#lockbox-integration}
 

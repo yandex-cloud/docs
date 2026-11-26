@@ -5,8 +5,4 @@ description: На этой странице приведен справочни�
 
 # Справочник метрик {{ vpc-short-name }}
 
-Метрики сервисных подключений {{ vpc-short-name }} автоматически передаются в [{{ metrics-name }}](../monium/metrics/overview.md), в [проект каталога](*monium-folder-project), в котором находится сервисное подключение.
-
 {% include [vpc](../_includes/monitoring/metrics-ref/vpc.md) %}
-
-[*monium-folder-project]: Проект {{ monium-name }} с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

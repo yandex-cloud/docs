@@ -269,7 +269,7 @@ description: Руководство помогает с нуля настрои�
         * Выберите список `is_ddoser` (IP-адреса, которые участвовали в DDoS-атаках). Запросы с этих адресов будут блокироваться.
         * Чтобы добавить еще один список, нажмите **+ или** и выберите список.
 
-          Добавьте предустановленные списки `is_tor` (IP-адреса сети TOR, которая используется для анонимизации трафика), `is_anonymous` (IP-адреса анонимных сетей, которые часто используются для сокрытия личности) и свои черные списки.
+          Добавьте предустановленные списки `is_tor` (IP-адреса сети Tor, которая используется для анонимизации трафика), `is_anonymous` (IP-адреса анонимных сетей, которые часто используются для сокрытия личности) и свои черные списки.
        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
   1. Настройте разрешающее правило, которое будет пропускать все запросы с белых IP-адресов.
@@ -329,7 +329,7 @@ description: Руководство помогает с нуля настрои�
 1. На панели слева нажмите ![image](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите `site-protection`.
 1. {% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
 
-{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
+{% include [allow-patch-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
 ### Проверьте порядок выполнения правил {#rules-execution-order}
 

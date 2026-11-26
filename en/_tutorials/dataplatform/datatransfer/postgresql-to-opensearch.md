@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Obtain an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) required to connect to the {{ mos-name }} cluster.
 
-    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Configure security groups for connecting to the [source {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and the [target {{ mos-name }} clusters](../../../managed-opensearch/operations/connect/index.md#security-groups).
 
 - {{ TF }} {#tf}
 
@@ -124,7 +124,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type that will use the endpoints you created.
+      1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer and configure it to use the previously created endpoints.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 

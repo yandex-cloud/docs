@@ -84,8 +84,9 @@
   1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
   1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
+  1. Выберите добавленного провайдера.
   1. Выберите тип `SAML` и укажите параметры провайдера аутентификации:
-  
+
      * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
      * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса {{ GL }}. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса {{ GL }}, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
      * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-full-name }}.
@@ -93,11 +94,11 @@
      * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
      * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
      * **Allow single sign on** — разрешить использование SSO. Установите значение `true`. Если установить `false`, аутентифицироваться смогут только пользователи, уже созданные на стороне {{ GL }}.
-     * **Auto link users by email** — установить соответствие между именем пользователя в OmniAuth и в {{ GL }}, если к ним привязан один адрес электронной почты. Установите значение `true`.
+     * **Auto link SAML users by email** — установить соответствие между именем пользователя в OmniAuth и в {{ GL }}, если к ним привязан один адрес электронной почты. Установите значение `true`.
      * **Block auto-created users** — переводить автоматически созданные учетные записи в состояние [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) до их одобрения администратором. Установите значение `false`.
      * **External provider** — установить для провайдера свойство _внешний_. Пользователи, аутентифицированные через данный провайдер, будут считаться [внешними]({{ gl.docs }}/ee/user/admin_area/external_users.html) и не будут иметь доступа к [внутренним проектам]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Установите значение `false`.
      * **Auto link LDAP user** — создавать LDAP-сущность для автоматически созданных учетных записей. Применимо только для инстансов, к которым подключен LDAP-провайдер. Установите значение `false`.
-  
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -112,7 +113,7 @@
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** вставьте адрес эндпоинта, который вы вводили в поле **Issuer** при настройке OmniAuth.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** вставьте адрес эндпоинта, который вы вводили в поле **Assertion consumer service URL** при настройке OmniAuth, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -149,20 +150,20 @@
 
 {% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
-1. Добавьте пользователей в приложение:
+Добавьте пользователей в приложение:
 
-    {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-        1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
-        1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+   1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+   1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+   1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+   1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+   1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
-    {% endlist %}
+{% endlist %}
 
 {% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 

@@ -245,6 +245,8 @@ items:
             href: tools/gwin/index.md
           - name: Installing Gwin
             href: tools/gwin/quickstart.md
+          - name: Gwin update
+            href: tools/gwin/upgrade.md
           - name: Gwin policies
             href: tools/gwin/policies.md
           - name: Routing traffic directly to cluster pods

@@ -30,7 +30,7 @@ To change L7 load balancer settings:
       1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:
 
           1. Change the {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) storing your load balancer logs.
-          1. Edit [log discard rules](../concepts/application-load-balancer.md#discard-logs-rules):
+          1. Edit [log discard rules](../concepts/monitoring.md#discard-logs-rules):
     
               * **{{ ui-key.yacloud.alb.label_discard-http-codes }}**: Update the HTTP status codes.
               * **{{ ui-key.yacloud.alb.label_discard-http-code-intervals }}**: Update the HTTP status code classes.
@@ -115,7 +115,7 @@ To change L7 load balancer settings:
           Where:
 
           * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
-          * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule options:
+          * `--discard`: [Log discard rule](../concepts/monitoring.md#discard-logs-rules). Rule options:
             
             * `codes`: HTTP codes, HTTP code classes, or gRPC codes.
             * `percent`: Log discard rate.
@@ -299,7 +299,7 @@ To change L7 load balancer settings:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
 
@@ -420,7 +420,7 @@ To delete a listener from your L7 load balancer:
      terraform plan
      ```
 
-     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors detected in the configuration.
 
   1. Apply the configuration changes:
 

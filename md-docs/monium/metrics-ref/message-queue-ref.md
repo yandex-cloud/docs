@@ -4,9 +4,16 @@
 
 В этом разделе описаны метрики сервиса [Message Queue](../../message-queue/index.md), поставляемые в Monium Metrics.
 
+Метрики сервиса Message Queue автоматически передаются в [Monium](../metrics/overview.md) в [проект каталога](*monium-folder-project), в котором находится очередь.
+
+Если вы просматриваете метрики в интерфейсе сервиса или переходите к графику из [сервисного дашборда](../operations/dashboard/service-dashboards.md), значение метки `service` используется без подчеркиваний.
+
+Если вы создаете запрос в Monium в [разделе метрик](../metrics/metric-explorer.md#add-graph) или в редакторе алерта, укажите проект каталога с ресурсом (`project = folder__<идентификатор_каталога>`), `cluster = default` и `service = __<идентификатор_сервиса>__`.
+
+
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Message Queue имеют общую метку `service=message-queue`.
+Идентификатор сервиса — `message-queue`.
 
 ## Метрики HTTP API {#mq-http-metrics}
 
@@ -35,3 +42,5 @@
 | `queue.messages.sent_bytes_per_second`<br>`DGAUGE`, байты/с | Общий размер сообщений, отправленных в очередь в секунду. |
 | `queue.messages.sent_count_per_second`<br>`DGAUGE`, сообщения/с | Количество сообщений, отправленных в очередь в секунду. |
 | `queue.messages.stored_count`<br>`DGAUGE`, штуки | Количество сообщений в очереди в текущий момент. |
+
+[*monium-folder-project]: Проект Monium с идентификатором `folder__<идентификатор_каталога>` создается автоматически для каждого каталога и содержит телеметрию его ресурсов.

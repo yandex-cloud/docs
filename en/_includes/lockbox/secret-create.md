@@ -61,10 +61,10 @@ To create a [secret](../../lockbox/concepts/secret.md):
      ```
 
      Where:
-
+     
      * `--name`: Secret name. This is a required setting.
      * `--description`: Secret description. This is an optional setting.
-     * `--payload`: Secret content in YAML or JSON format.
+     * `--payload`: Secret contents as a YAML or JSON array.
 
        You can provide one or more `key` [keys](../../kms/concepts/key.md) at a time. If the secret is going to contain several values, list them separated by commas. If the keys are going to contain binary values, provide these in `base64` encoding.
 
@@ -131,7 +131,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional setting.
      * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key used to encrypt your secret. If you do not specify a {{ kms-name }} key, a special system key will be used to encrypt the secret. This is an optional setting.
      * `deletion_protection`: Deletion protection flag. To enable protection, set to `true`. To disable protection, set to `false`. The default value is `false`. This is an optional setting.
-     * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional setting.
+     * `labels`: Resource [label](../../resource-manager/concepts/labels.md) in `<key>:"<value>"` format. This is an optional setting.
 
      For more information about the properties of the `yandex_lockbox_secret` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
   

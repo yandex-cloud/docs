@@ -2544,7 +2544,7 @@
 
  - [Cancel](instancegroup/api-ref/Operation/cancel.md)
 
- - [Метрики Monium Metrics](metrics.md)
+ - [Справочник метрик](metrics.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)
 

@@ -101,4 +101,4 @@
 
 #### Полезные ссылки {#see-also}
 
-[Справочник метрик Yandex Monitoring](../metrics.md)
+[Справочник метрик Monium Metrics](../metrics.md)
